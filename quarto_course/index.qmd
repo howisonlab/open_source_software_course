@@ -2,7 +2,7 @@
 title: "Open Source Software Development: A socio-technical course"
 ---
 
-Welcome to the materials for a course on open source software development, taught at the [School of Information at the University of Texas at Austin](http://ischool.utexas.edu). The course is taught by [James Howison](http://james.howison.name), with contributions from a set of wonderful TAs, and
+Welcome to the materials for a course on open source software development, taught at the [School of Information at the University of Texas at Austin](http://ischool.utexas.edu). The course is taught by [James Howison](http://james.howison.name), with contributions from a set of wonderful TAs, including Chongyan Chen.
 
 The course was developed as an undergraduate version of a course on [Peer Production: Open Source, Wikipedia, and Beyond](https://jameshowison.github.io/peer_production_course/pp_syllabus.html).
 
