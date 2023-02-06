@@ -1,6 +1,6 @@
 # Licenses {#sec-licenses}
 
-## Readings prior to class
+## Readings prior to class {#sec-license-readings}
 
 A chapter from a book, and four blog style articles. The book chapter should take between 1-2 hours to read, the blogs should take about another 20-40 minutes.
 
@@ -58,11 +58,11 @@ A chapter from a book, and four blog style articles. The book chapter should tak
 
 The Open Source Initiative holds a trade mark so they can determine which licenses can be called open source. They have established the ["Open Source Definition"](https://opensource.org/osd) with 10 elements (slightly abridged below):
 
-> ** Introduction **
+> \*\* Introduction \*\*
 
 > Open source doesn't just mean access to the source code. The distribution terms of open-source software must comply with the following criteria:
 
-> 1. **Free Redistribution**
+> 1.  **Free Redistribution**
 
 > The license shall not restrict any party from selling or giving away the software ... The license shall not require a royalty or other fee for such sale.
 
@@ -104,9 +104,9 @@ The Open Source Initiative holds a trade mark so they can determine which licens
 
 ### Copyleft
 
-* Some licenses add an additional restriction; They are called *copyleft* licenses (a play on the word copy*right*).
+-   Some licenses add an additional restriction; They are called *copyleft* licenses (a play on the word copy*right*).
 
-* Item number 3, Derived Works, says:
+-   Item number 3, Derived Works, says:
 
 > The license must allow modifications and derived works, and must allow them to be distributed under the same terms as the license of the original software.
 
@@ -114,32 +114,49 @@ Copyleft licenses alter this by changing "must allow" to "if distributed, must r
 
 > The license must allow modifications and derived works, and **if distributed must require** them to be distributed under the same terms as the license of the original software.
 
-* Copyleft means derived works, that are distributed, cannot be licensed under a different license but must be licensed under the same license.  See [detailed discussion at copyleft.org](https://copyleft.org/guide/comprehensive-gpl-guidech6.html#x9-420005.1)
+-   Copyleft means derived works, that are distributed, cannot be licensed under a different license but must be licensed under the same license. See [detailed discussion at copyleft.org](https://copyleft.org/guide/comprehensive-gpl-guidech6.html#x9-420005.1)
 
-* This is informally referred to as **viral**: derived works are "infected" and must all be copyleft.
+-   This is informally referred to as **viral**: derived works are "infected" and must all be copyleft.
 
-* This only applies if the changes are distributed. Usually this means distributed beyond the individual or company that owns the copyright. This means that companies can alter copyleft software, as long as they don't let that code outside their own organization.
+-   This only applies if the changes are distributed. Usually this means distributed beyond the individual or company that owns the copyright. This means that companies can alter copyleft software, as long as they don't let that code outside their own organization.
 
 ### Recent controversies discussion
 
 #### Cloud software
 
-The original open source licenses were written before cloud, and the idea of Software As A Service (SAAS).  Why does cloud and SAAS change a key circumstance?
+The original open source licenses were written before cloud, and the idea of Software As A Service (SAAS). Why does cloud and SAAS change a key circumstance?
 
-1. Cloud delivery of software
+1.  Cloud delivery of software\
 
-Why was the Affero GPL created?
+    Why was the Affero GPL created?
+    
+2.  Amazon Web Services and open source.\
 
-2. Amazon Web Services and open source.
-
-Elastic Search has created their own license. What does it do differently? Is it an open source license? Would OSI consider it to be an open source license?
+    Elastic Search has created their own license. What does it do differently? Is it an open source license? Would OSI consider it to be an open source license?
 
 #### Artificial Intellegence software
 
 Neural Networks express much of their logic not in code, but in the weights of a trained neutral network.
 
-Why does this change impact open source? Can trained neutral networks be modified or improved? What would be needed?
+* Why does this change impact open source? 
+* Can trained neutral networks be modified or improved? What would be needed?
+* What does the OpenRAILs license try to do? See Hugging Face reading above (@sec-license-readings). 
+* Would OSI judge that license to be "open source"? Which provisions, if any, might it violate?
 
-What does the OpenRAILs license try to do? Would OSI judge that license to be "open source"? Which provisions, if any, might it violate?
+#### Recent license violation articles.
 
+https://undeleted.ronsor.com/voice.ai-gpl-violations-with-a-side-of-drm/
 
+Discussed on Hacker News here: https://news.ycombinator.com/item?id=34681636
+
+Not just violating GPL, but likely other licenses too (not including license in distributed non-copyleft open source).
+
+Lots of these out there, found this as searching:
+
+https://hackaday.com/2022/07/15/watch-out-for-lasercutter-manufacturers-violating-gpl/
+
+Including stories about startups whose cash out was sunk by OSS license violations:
+
+https://abovethelaw.com/2022/01/how-to-ensure-open-source-risks-wont-scuttle-your-deal/
+
+Point is not to scare people from using open source, but to understand the very real meaning of the licenses.  The more sophisticated understanding of open source you are gaining from this course will be an advantage in the job market.

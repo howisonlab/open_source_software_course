@@ -17,7 +17,7 @@ book:
     # - part: insights.qmd
       chapters: 
          - insights/what_is_open_source.qmd
-    #     - motivations.qmd
+         - insights/motivations.qmd
          - insights/licenses.qmd
     #     - coordination.qmd
     #     - governance.qmd

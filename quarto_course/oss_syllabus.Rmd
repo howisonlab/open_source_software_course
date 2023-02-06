@@ -490,7 +490,7 @@ insight_topics <- tribble(
   ~insight_topic,
   #----------
   "What is open source? @sec-what-is-open-source",
-  "Motivations and Asking questions people want to answer",
+  "Motivations and Asking questions people want to answer @sec-motivations",
   "Licenses @sec-licenses",
   "Coordination",
   "Governance and decision making",

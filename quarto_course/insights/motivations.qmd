@@ -1,1 +1,114 @@
-https://words.filippo.io/full-time-maintainer/
+# Motivations {#sec-motivations}
+
+## How to ask questions people want to answer
+
+**Much of this material is based on [How To Ask Questions The Smart Way, Eric Raymond and Rick Moen](http://www.catb.org/~esr/faqs/smart-questions.html) with the addition of academic references and frameworks.**
+
+Open source projects are famous for having direct access to very knowledgeable people about the source code. Unlike when you purchase software, you can very likely get questions in front of some of the people that wrote the underlying code.
+
+But ask yourself why they are there, reading and answering user questions. What drives them, what motivates them?
+
+### RTFM
+
+There is always a risk that a poorly asked question will be met with this response:
+
+![RTFM Mug by Gubatron (CC-licensed http://www.flickr.com/photos/gubatron/3102412751)](images/rtfm_mug_gubatron.png)
+
+RTFM means to "Read the F\*\*\*ing Manual" (which I'll read as Read the Fine Manual). This rather unfriendly, and indeed unwelcoming response can occur when a question is asked in a way that doesn't understand what it is that motivates people to participate in online support forums for software.
+
+> I note that open communities are not necessarily welcoming places. In fact they can be quite aggressive, even toxic. It is perhaps not unrelated that open communities are also no diverse. We will discuss this later in the course when we consider Bias and Lack of Diversity in @bias-and-lack-of-diversity
+
+Lakhani and von Hippel (2003) studied the Apache `httpd` mailing list. They mailed a survey link to participants the first time they saw them post to the list, only mailing each person once. They received responses from 28.9% of info providers, and 16.6% info seekers.
+
+They report that :
+
+-   spending time in the forum had excellent ROI (return on investment) for information seekers (Seekers saved 9 minutes for every 1 minute spent writing questions).
+
+-   Providers answer questions that are easy for them, rarely do they seek out additional information to help answer.
+
+-   Information Providers invest a lot of time in the forum, average of 80 hours a year.
+
+-   Key motivations to answer were reciprocity and reputation within Apache (not career prospects)
+
+-   But information providers are primarily there to learn (\>90% of time spent reading, not answering).
+
+So, very knowledgeable people answer people's questions when it is easy for them to do so (not spending time preparing and researching, this is not Q&A for \$\$\$ like Quora). So what is it that brings them to these forums (thus making it quick and easy for them to answer): learning.
+
+Huh? What do already knowledgeable people learn by hanging out watching less knowledgeable people ask questions?
+
+**Exercise**
+
+-   What does someone learn from reading questions (and answers) in a technical forum?
+-   What does someone learn from answering?
+
+### Engaging intellectual curiosity
+
+-   Experts love interesting problems and the solving of them.
+-   Interesting problems are those that reveal some new insights
+-   Uninteresting problems are either obvious or unsolvable (poorly specified or not actionable).
+-   Ask questions like an intellectual partner.
+
+### Steps to answered question
+
+*Again, this is derived from [How To Ask Questions The Smart Way, Eric Raymond and Rick Moen](http://www.catb.org/~esr/faqs/smart-questions.html)*
+
+1.  Choose the right venue
+
+2.  Do (and show) your homework
+
+3.  Convey your situation
+
+4.  Ask an actionable question
+
+5.  Engage the interest of your audience
+
+6.  Follow up showing that you tried their suggestions. Don't be the "Ok, fixed it now" guy
+
+[![https://www.explainxkcd.com/wiki/index.php/979:\_Wisdom_of_the_Ancients](https://imgs.xkcd.com/comics/wisdom_of_the_ancients.png)](https://www.explainxkcd.com/wiki/index.php/979:_Wisdom_of_the_Ancients)
+
+### Examples
+
+#### J Random Hacker
+
+Directly from (http://www.catb.org/\~esr/faqs/smart-questions.html#examples)\[http://www.catb.org/\~esr/faqs/smart-questions.html#examples\]
+
+> **Stupid**: I'm having problems with my motherboard. Can anybody help?
+
+> *J. Random Hacker's response to this is likely to be "Right. Do you need burping and diapering, too?" followed by a punch of the delete key.*
+
+> **Smart**: I tried X, Y, and Z on the S2464 motherboard. When that didn't work, I tried A, B, and C. Note the curious symptom when I tried C. Obviously the florbish is grommicking, but the results aren't what one might expect. What are the usual causes of grommicking on Athlon MP motherboards? Anybody got ideas for more tests I can run to pin down the problem?
+
+> *This person, on the other hand, seems worthy of an answer. He/she has exhibited problem-solving intelligence rather than passively waiting for an answer to drop from on high.*
+
+> In the last question, notice the subtle but important difference between demanding "Give me an answer" and "Please help me figure out what additional diagnostics I can run to achieve enlightenment."
+
+#### Getting it wrong (and yet so wrong)
+
+The second example is one from my person experience.
+
+![An email sent to the R Bugs Website, I included a large file with dump from `sample` command to help with debugging](images/howison_right_but_wrong.png)
+
+I received two different responses:
+
+![A vaguely chilling RTFM style response](images/r-inferno.png)
+
+So, what happened? Well, the second response made it much more clear.
+
+![A friendlier response: this was not a bug!](images/friendly-response.png)
+
+So ... I had done some things right, but I had made a mistake. Sending to the r-bugs mailing list implied that I thought there was a bug. But there wasn't, it wasn't a problem with R, it was a problem with my computer setup. I should have sent this to another forum first, one for general support, instead I had implied that there was a bug in R. Insulting people's work is a risky way to try to get their help!
+
+## Resources
+
+An article detailing how one open source participant is able to fund their work as a maintainer <https://words.filippo.io/full-time-maintainer/>
+
+Fogel, K. (1999). Open Source Development with CVS. Coriolis Open Press, Scottsdale, AZ.
+
+Crowston, K., Wei, K., Howison, J., and Wiggins, A. (2011). Free (libre) open source software development: What we know and what we do not know. ACM Computing Surveys, forthcoming.
+
+Bacon, J. (2009). The Art of Community: Building the New Age of Participation. O’Reilly Media.
+
+Raymond, E. S. and Moen, R. (2001). How to ask questions the smart way. Webpage.
+<http://www.catb.org/esr/faqs/smart-questions.html>
+
+
