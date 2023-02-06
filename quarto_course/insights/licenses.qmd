@@ -22,3 +22,124 @@ A chapter from a book, and four blog style articles. The book chapter should tak
 5.  Carlos Munoz Ferrandis. (2022, August 31). OpenRAIL: Towards open and responsible AI licensing frameworks. Hugging Face Blog. <https://huggingface.co/blog/open_rail>\
     \
     *Machine learning leaders, huggingface (yes, that's their real company name), explaining why sharing trained AI/neutral network models/weights is both similar to sharing code and different, proposing a new license focused on ethical reuse of shared trained models.*
+
+## Lecture notes
+
+### Copyright
+
+-   Source code is writing, just like a book or a poem.
+
+-   Edits are modifications, improvements create derived works, distribution makes copies
+
+-   Writing is copyrighted.
+
+    -   Owner has the right to decide who can copy or modify
+
+-   Violations of a license triggered by distribution
+
+    -   giving to others, esp. selling
+
+-   Penalty for violation are:
+
+    -   Court order to stop distributing
+    -   Economic damages
+
+### Revocation, time-limitation, and exclusivity
+
+-   The text of specific copyright licenses can specify time-limits (after which they expire or change)
+
+-   Owner can release same work under many different licenses at once (as long as they are compatible).
+
+    -   Called *dual-licensing*
+
+-   Owner can re-license their own derivative works (but the license on the original is unchanged by that)
+
+### Open Source Definition
+
+The Open Source Initiative holds a trade mark so they can determine which licenses can be called open source. They have established the ["Open Source Definition"](https://opensource.org/osd) with 10 elements (slightly abridged below):
+
+> ** Introduction **
+
+> Open source doesn't just mean access to the source code. The distribution terms of open-source software must comply with the following criteria:
+
+> 1. **Free Redistribution**
+
+> The license shall not restrict any party from selling or giving away the software ... The license shall not require a royalty or other fee for such sale.
+
+> 2.  **Source Code**
+
+> > The program must include source code, and must allow distribution in source code as well as compiled form ... Deliberately obfuscated source code is not allowed. Intermediate forms such as the output of a preprocessor or translator are not allowed.
+
+> 3.  **Derived Works**
+
+> The license must allow modifications and derived works, and must allow them to be distributed under the same terms as the license of the original software.
+
+> 4.  **Integrity of The Author's Source Code**
+
+> The license may restrict source-code from being distributed in modified form only if the license allows the distribution of "patch files" with the source code for the purpose of modifying the program at build time. The license must explicitly permit distribution of software built from modified source code. The license may require derived works to carry a different name or version number from the original software.
+
+> 5.  **No Discrimination Against Persons or Groups**
+
+> The license must not discriminate against any person or group of persons.
+
+> 6.  **No Discrimination Against Fields of Endeavor**
+
+> The license must not restrict anyone from making use of the program in a specific field of endeavor. For example, it may not restrict the program from being used in a business, or from being used for genetic research.
+
+> 7.  **Distribution of License**
+
+> The rights attached to the program must apply to all to whom the program is redistributed without the need for execution of an additional license by those parties.
+
+> 8.  **License Must Not Be Specific to a Product**
+
+> The rights attached to the program must not depend on the program's being part of a particular software distribution...
+
+> 9.  **License Must Not Restrict Other Software**
+
+> The license must not place restrictions on other software that is distributed along with the licensed software. For example, the license must not insist that all other programs distributed on the same medium must be open-source software.
+
+> 10. **License Must Be Technology-Neutral**
+
+> No provision of the license may be predicated on any individual technology or style of interface.
+
+### Copyleft
+
+* Some licenses add an additional restriction; They are called *copyleft* licenses (a play on the word copy*right*).
+
+* Item number 3, Derived Works, says:
+
+> The license must allow modifications and derived works, and must allow them to be distributed under the same terms as the license of the original software.
+
+Copyleft licenses alter this by changing "must allow" to "if distributed, must require"
+
+> The license must allow modifications and derived works, and **if distributed must require** them to be distributed under the same terms as the license of the original software.
+
+* Copyleft means derived works, that are distributed, cannot be licensed under a different license but must be licensed under the same license.  See [detailed discussion at copyleft.org](https://copyleft.org/guide/comprehensive-gpl-guidech6.html#x9-420005.1)
+
+* This is informally referred to as **viral**: derived works are "infected" and must all be copyleft.
+
+* This only applies if the changes are distributed. Usually this means distributed beyond the individual or company that owns the copyright. This means that companies can alter copyleft software, as long as they don't let that code outside their own organization.
+
+### Recent controversies discussion
+
+#### Cloud software
+
+The original open source licenses were written before cloud, and the idea of Software As A Service (SAAS).  Why does cloud and SAAS change a key circumstance?
+
+1. Cloud delivery of software
+
+Why was the Affero GPL created?
+
+2. Amazon Web Services and open source.
+
+Elastic Search has created their own license. What does it do differently? Is it an open source license? Would OSI consider it to be an open source license?
+
+#### Artificial Intellegence software
+
+Neural Networks express much of their logic not in code, but in the weights of a trained neutral network.
+
+Why does this change impact open source? Can trained neutral networks be modified or improved? What would be needed?
+
+What does the OpenRAILs license try to do? Would OSI judge that license to be "open source"? Which provisions, if any, might it violate?
+
+
