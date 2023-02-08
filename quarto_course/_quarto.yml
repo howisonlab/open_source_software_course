@@ -37,6 +37,9 @@ book:
     #     - continuous_integration.qmd
     #     - git_release_management.qmd
     #     - python_packaging.qmd
+    
+  appendices:
+    - skills/skills_faq.qmd
       
 
 format:

@@ -236,5 +236,12 @@
     "title": "7  Rewinding work",
     "section": "7.3 Revert - commits to undo commits",
     "text": "7.3 Revert - commits to undo commits\nSee https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/"
+  },
+  {
+    "objectID": "skills/skills_faq.html#git-issues",
+    "href": "skills/skills_faq.html#git-issues",
+    "title": "Appendix A — Skills faq",
+    "section": "A.1 git issues",
+    "text": "A.1 git issues\n\nA.1.1 git commit throws me into a weird mode\nIf you type git commit just on its own rather than git commit -m \"Some message\" you will see something like this:\n\n# Please enter the commit message for your changes. Lines starting\n# with '#' will be ignored, and an empty message aborts the commit.\n#\n# On branch master\n# Your branch is up to date with 'origin/master'.\ngit needs a commit message. When you don’t provide one it throws you into a text editor, expecting you to type a small novel.\nThe editor that you go into by default is the vi or vim editor. It can be confusing because it has multiple modes (ie typing doesn’t always just produce text).\nThe best option is to:\n\nHit esc twice\nType :q!\nRedo your commit using `git commit -m “Some message”\n\nSee https://stackoverflow.com/questions/11828270/how-do-i-exit-vim\nYou can also configure git to use another editor: https://stackoverflow.com/questions/2596805/how-do-i-make-git-use-the-editor-of-my-choice-for-editing-commit-messages"
   }
 ]

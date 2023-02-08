@@ -1,0 +1,30 @@
+# Skills faq {#sec-skills-faq}
+
+## git issues
+
+### git commit throws me into a weird mode
+
+If you type `git commit` just on its own rather than `git commit -m "Some message"` you will see something like this:
+
+```bash
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch master
+# Your branch is up to date with 'origin/master'.
+```
+
+git needs a commit message. When you don't provide one it throws you into a text editor, expecting you to type a small novel.
+
+The editor that you go into by default is the `vi` or `vim` editor.  It can be confusing because it has multiple modes (ie typing doesn't always just produce text).
+
+The best option is to:
+
+1. Hit `esc` twice
+2. Type `:q!`
+3. Redo your commit using `git commit -m "Some message"
+
+See <https://stackoverflow.com/questions/11828270/how-do-i-exit-vim>
+
+You can also configure git to use another editor: <https://stackoverflow.com/questions/2596805/how-do-i-make-git-use-the-editor-of-my-choice-for-editing-commit-messages>
