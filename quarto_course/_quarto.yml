@@ -11,14 +11,17 @@ book:
   chapters:
     - index.qmd
     - oss_syllabus.Rmd
-    # - paper_planes_innovation.qmd
-    # - paper_planes_version_control.qmd
-    - part: "Insights"
-    # - part: insights.qmd
-      chapters: 
-         - insights/what_is_open_source.qmd
-         - insights/motivations.qmd
-         - insights/licenses.qmd
+   # - part: "Insights"
+   # chapters:
+    - insights/what_is_open_source.qmd
+    - insights/motivations.qmd
+    - insights/licenses.qmd
+   # - part: "Skills"
+   #   chapters:
+    - skills/git_rewinding_work.qmd
+
+
+
     #     - coordination.qmd
     #     - governance.qmd
     #     - knowledge_sharing.qmd
@@ -28,10 +31,6 @@ book:
     #     - stack_and_stream.qmd
     #     - cybersecurity_oss.qmd
     # 
-    # - part: skills.qmd
-    #   chapters:
-    #     - git_basic_workflow.qmd
-    #     - git_rewinding_work.qmd
     #     - git_branching.qmd
     #     - git_sharing_conflicts.qmd
     #     - git_collaboration.qmd
