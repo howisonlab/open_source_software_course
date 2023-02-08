@@ -464,7 +464,7 @@ skills_topics <- tribble(
   #-------------------------------------
 #  "Tech setup workshop", "[terminal, command line, git install, github account](./docs/tech_setup.html)",
   "Paper Planes: Version Control", "git add, commit via paper planes and tables",  
-"Git basic workflow", "git add, commit (locally)",
+"Git basic workflow @sec-git_basic_workflow ", "git add, commit (locally)",
 #  "Commits, blobs, and tree", "git diff continued HEAD and HEAD~1",
   "Rewinding work @sec-rewinding ", "revert, other undos, checking out old versions, rewriting history",
   "Branching", "git checkout, merge.",  

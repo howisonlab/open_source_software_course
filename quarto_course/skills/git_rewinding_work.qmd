@@ -127,4 +127,3 @@ Remember, git swaps out all the **tracked** files when you do a `checkout`. If y
 ## Revert - commits to undo commits
 
 See <https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/>
-
