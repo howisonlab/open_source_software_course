@@ -28,3 +28,5 @@ The best option is to:
 See <https://stackoverflow.com/questions/11828270/how-do-i-exit-vim>
 
 You can also configure git to use another editor: <https://stackoverflow.com/questions/2596805/how-do-i-make-git-use-the-editor-of-my-choice-for-editing-commit-messages>
+
+## git init fails

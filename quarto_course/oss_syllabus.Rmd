@@ -47,7 +47,7 @@ header <- tribble(
   "Location", "SZB 5.414",
   "Semester", "Spring 2023",
   "Unique No.", "28120",
-  "Office Hours", "Wed 3-4pm via Zoom at https://utexas.zoom.com/my/howisonlab",
+  "Office Hours", "Wed 3-4pm via Zoom at https://utexas.zoom.com/my/howisonlab Contact via Canvas email if not in room",
   "Contact Email", "jhowison@ischool.utexas.edu"
 )
 library(knitr)

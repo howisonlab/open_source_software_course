@@ -18,7 +18,7 @@
     "href": "oss_syllabus.html#sec-syllabus",
     "title": "2  Syllabus for Open Source Software Development",
     "section": "2.1 Syllabus",
-    "text": "2.1 Syllabus\nOfficial, updated version of syllabus always online at:\nhttps://howisonlab.github.io/open_source_software_course/oss_syllabus.html\n\n\n\n\n \n  \n    Course \n    I 320D Topics in Human-Centered Data Science : Open Source Software Development \n  \n \n\n  \n    Professor \n    James Howison \n  \n  \n    Meeting Time \n    Mondays and Wednesdays 9:30-10:45 \n  \n  \n    Location \n    SZB 5.414 \n  \n  \n    Semester \n    Spring 2023 \n  \n  \n    Unique No. \n    28120 \n  \n  \n    Office Hours \n    Wed 3-4pm via Zoom at https://utexas.zoom.com/my/howisonlab \n  \n  \n    Contact Email \n    jhowison@ischool.utexas.edu"
+    "text": "2.1 Syllabus\nOfficial, updated version of syllabus always online at:\nhttps://howisonlab.github.io/open_source_software_course/oss_syllabus.html\n\n\n\n\n \n  \n    Course \n    I 320D Topics in Human-Centered Data Science : Open Source Software Development \n  \n \n\n  \n    Professor \n    James Howison \n  \n  \n    Meeting Time \n    Mondays and Wednesdays 9:30-10:45 \n  \n  \n    Location \n    SZB 5.414 \n  \n  \n    Semester \n    Spring 2023 \n  \n  \n    Unique No. \n    28120 \n  \n  \n    Office Hours \n    Wed 3-4pm via Zoom at https://utexas.zoom.com/my/howisonlab Contact via Canvas email if not in room \n  \n  \n    Contact Email \n    jhowison@ischool.utexas.edu"
   },
   {
     "objectID": "oss_syllabus.html#learning-objectives",
@@ -243,5 +243,12 @@
     "title": "Appendix A — Skills faq",
     "section": "A.1 git issues",
     "text": "A.1 git issues\n\nA.1.1 git commit throws me into a weird mode\nIf you type git commit just on its own rather than git commit -m \"Some message\" you will see something like this:\n\n# Please enter the commit message for your changes. Lines starting\n# with '#' will be ignored, and an empty message aborts the commit.\n#\n# On branch master\n# Your branch is up to date with 'origin/master'.\ngit needs a commit message. When you don’t provide one it throws you into a text editor, expecting you to type a small novel.\nThe editor that you go into by default is the vi or vim editor. It can be confusing because it has multiple modes (ie typing doesn’t always just produce text).\nThe best option is to:\n\nHit esc twice\nType :q!\nRedo your commit using `git commit -m “Some message”\n\nSee https://stackoverflow.com/questions/11828270/how-do-i-exit-vim\nYou can also configure git to use another editor: https://stackoverflow.com/questions/2596805/how-do-i-make-git-use-the-editor-of-my-choice-for-editing-commit-messages"
+  },
+  {
+    "objectID": "skills/skills_faq.html#git-init-fails",
+    "href": "skills/skills_faq.html#git-init-fails",
+    "title": "Appendix A — Skills faq",
+    "section": "A.2 git init fails",
+    "text": "A.2 git init fails"
   }
 ]
