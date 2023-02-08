@@ -190,7 +190,7 @@ readings <- tribble(
   
   "Useful Blog on undo in git (keep for reference)",
     "https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/",
-  "Rewinding work",
+  "Rewinding work @sec-rewinding",
 
   "DataCamp Git Chapter 3 - Undo",
   "https://campus.datacamp.com/courses/introduction-to-git-for-data-science/undo",
