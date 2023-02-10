@@ -1,0 +1,19 @@
+# Coordination {#sec-coordination}
+
+Coordination is a commonly used word, meaning what needs to be done for a group to work effectively together.
+
+In the academic field of organization science, coordination has a more specific meaning, provided by Malone and Crowston (1994)[^coordination-1].
+
+> Coordination is managing dependencies between activities
+
+[^coordination-1]: Malone, T. W., & Crowston, K. (1994). The interdisciplinary theory of coordination. ACM Computing Surveys, 26(1), 87--119. https://doi.org/10.1145/174666.174668 or http://ccs.mit.edu/papers/CCSWP157.html
+
+We will learn what this means, and how it relates to motivation for participation in open source, and discuss the role that version control and repositories play.
+
+## Pre-readings for class
+
+-   Expectancy Theory (Wikipedia) <https://en.wikipedia.org/wiki/Expectancy_theory>
+
+-   Expectancy Theory (useful figure): <https://iedunote.com/expentancey-theory>
+
+-   Howison, J., & Crowston, K. (2014). Collaboration through open superposition: A theory of the open source way. MIS Quarterly, 38(1), 29--50.  <http://james.howison.name/pubs/howison-2014-superposition.pdf>

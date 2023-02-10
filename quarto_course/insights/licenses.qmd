@@ -129,7 +129,7 @@ The original open source licenses were written before cloud, and the idea of Sof
 1.  Cloud delivery of software\
 
     Why was the Affero GPL created?
-    
+
 2.  Amazon Web Services and open source.\
 
     Elastic Search has created their own license. What does it do differently? Is it an open source license? Would OSI consider it to be an open source license?
@@ -138,10 +138,10 @@ The original open source licenses were written before cloud, and the idea of Sof
 
 Neural Networks express much of their logic not in code, but in the weights of a trained neutral network.
 
-* Why does this change impact open source? 
-* Can trained neutral networks be modified or improved? What would be needed?
-* What does the OpenRAILs license try to do? See Hugging Face reading above (@sec-license-readings). 
-* Would OSI judge that license to be "open source"? Which provisions, if any, might it violate?
+-   Why does this change impact open source?
+-   Can trained neutral networks be modified or improved? What would be needed?
+-   What does the OpenRAILs license try to do? See Hugging Face reading above (@sec-license-readings).
+-   Would OSI judge that license to be "open source"? Which provisions, if any, might it violate?
 
 #### Recent license violation articles.
 
@@ -159,4 +159,4 @@ Including stories about startups whose cash out was sunk by OSS license violatio
 
 https://abovethelaw.com/2022/01/how-to-ensure-open-source-risks-wont-scuttle-your-deal/
 
-Point is not to scare people from using open source, but to understand the very real meaning of the licenses.  The more sophisticated understanding of open source you are gaining from this course will be an advantage in the job market.
+Point is not to scare people from using open source, but to understand the very real meaning of the licenses. The more sophisticated understanding of open source you are gaining from this course will be an advantage in the job market.
