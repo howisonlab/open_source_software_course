@@ -16,4 +16,8 @@ We will learn what this means, and how it relates to motivation for participatio
 
 -   Expectancy Theory (useful figure): <https://iedunote.com/expentancey-theory>
 
--   Howison, J., & Crowston, K. (2014). Collaboration through open superposition: A theory of the open source way. MIS Quarterly, 38(1), 29--50.  <http://james.howison.name/pubs/howison-2014-superposition.pdf>
+-   Howison, J., & Crowston, K. (2014). Collaboration through open superposition: A theory of the open source way. MIS Quarterly, 38(1), 29--50. <http://james.howison.name/pubs/howison-2014-superposition.pdf>
+
+## Presentation
+
+<iframe width="100%" height="800" src="images/Howison-PP-OpenSuperposition.pdf">
