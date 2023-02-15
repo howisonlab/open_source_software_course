@@ -104,6 +104,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/videojs/video.min.js"></script>
+<link href="../site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -437,9 +439,10 @@ Fast-forward
 <p>Which will show us this (using an image here because the color doesn’t copy):</p>
 <p><img src="images/Git-branching_command_viz.png" class="img-fluid"></p>
 <p>We can also see this visually using learngitbranching, see the short video below.</p>
-<video height="480" controls="">
-<source src="images/Git-branching_viz.mov" type="video/mp4">
-</video>
+<div class="quarto-video"><video id="video_shortcode_videojs_video1" height="480" class="video-js vjs-default-skin " controls="" preload="auto" data-setup="{}" title=""><source src="images/Git-branching_viz.mov"></video></div>
+<!-- <video height="480" controls> -->
+<!--   <source src=""> -->
+<!-- </video> -->
 <section id="exercises-in-class" class="level3" data-number="10.2.1">
 <h3 data-number="10.2.1" class="anchored" data-anchor-id="exercises-in-class"><span class="header-section-number">10.2.1</span> Exercises (in-class):</h3>
 <ol type="1">
@@ -605,6 +608,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<script>videojs(video_shortcode_videojs_video1);</script>
 
 
 
