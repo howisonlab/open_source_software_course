@@ -2,11 +2,36 @@
 
 ## git issues
 
+### Set my name and email
+
+git wants to add your name and email to commits.  These are distinct from your `github` account (remember `git` can be used independently of an online service or with online services other than github).
+
+If you are seeing messages that end like this:
+
+```
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+```
+
+Then you can run these commands to set a username and email.  Note that these can be anything, they aren't a login or checked against anything, they are just metadata attached to your commits.  Nonetheless having them make sense for your identity makes sense when sharing code publically.  They can easily be a made up identifier (pseudonym/handle/accountname).
+
+```bash
+git config --global user.name "John Doe"
+$ git config --global user.email johndoe@example.com
+```
+
 ### git commit throws me into a weird mode
 
 If you type `git commit` just on its own rather than `git commit -m "Some message"` you will see something like this:
 
-```bash
+``` bash
 
 # Please enter the commit message for your changes. Lines starting
 # with '#' will be ignored, and an empty message aborts the commit.
@@ -17,16 +42,32 @@ If you type `git commit` just on its own rather than `git commit -m "Some messag
 
 git needs a commit message. When you don't provide one it throws you into a text editor, expecting you to type a small novel.
 
-The editor that you go into by default is the `vi` or `vim` editor.  It can be confusing because it has multiple modes (ie typing doesn't always just produce text).
+The editor that you go into by default is the `vi` or `vim` editor. It can be confusing because it has multiple modes (ie typing doesn't always just produce text).
 
 The best option is to:
 
-1. Hit `esc` twice
-2. Type `:q!`
-3. Redo your commit using `git commit -m "Some message"
+1.  Hit `esc` twice
+2.  Type `:q!`
+3.  Redo your commit using \`git commit -m "Some message"
 
 See <https://stackoverflow.com/questions/11828270/how-do-i-exit-vim>
 
+**The option below does not work in Rstudio because Rstudio captures the <kdb>Ctrl</kdb> key commands**
+
 You can also configure git to use another editor: <https://stackoverflow.com/questions/2596805/how-do-i-make-git-use-the-editor-of-my-choice-for-editing-commit-messages>
+
+For example, the `nano` editor is easier to use.  You can set that run running
+
+```bash
+git config --global core.editor "nano"
+```
+
+In `nano` we can type a commit message as usual. The bottom of the screen shows commands. Nano uses the `^` symbol to represent the <kdb>Ctrl</kbd> key. We have to save the file and then exit Nano. So to save the message and return to the commandline we use:
+
+<kbd>Ctrl</kbd> + <kbd>O</kbd>
+
+Then:
+
+<kbd>Ctrl</kbd> + <kbd>X</kbd>
 
 ## git init fails

@@ -23,6 +23,8 @@ A chapter from a book, and four blog style articles. The book chapter should tak
     \
     *Machine learning leaders, huggingface (yes, that's their real company name), explaining why sharing trained AI/neutral network models/weights is both similar to sharing code and different, proposing a new license focused on ethical reuse of shared trained models.*
 
+<!--# Funny video showing effects of "do no evil" in license. https://youtu.be/-hCimLnIsDA -->
+
 ## Lecture notes
 
 ### Copyright

@@ -93,7 +93,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../skills/git_rewinding_work.html" rel="prev">
+<link href="../skills/branching.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -214,6 +214,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="../skills/git_rewinding_work.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Rewinding work</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/branching.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Local branching with Git</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -242,7 +247,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul>
   <li><a href="#git-issues" id="toc-git-issues" class="nav-link active" data-scroll-target="#git-issues"><span class="toc-section-number">A.1</span>  git issues</a>
   <ul class="collapse">
-  <li><a href="#git-commit-throws-me-into-a-weird-mode" id="toc-git-commit-throws-me-into-a-weird-mode" class="nav-link" data-scroll-target="#git-commit-throws-me-into-a-weird-mode"><span class="toc-section-number">A.1.1</span>  git commit throws me into a weird mode</a></li>
+  <li><a href="#set-my-name-and-email" id="toc-set-my-name-and-email" class="nav-link" data-scroll-target="#set-my-name-and-email"><span class="toc-section-number">A.1.1</span>  Set my name and email</a></li>
+  <li><a href="#git-commit-throws-me-into-a-weird-mode" id="toc-git-commit-throws-me-into-a-weird-mode" class="nav-link" data-scroll-target="#git-commit-throws-me-into-a-weird-mode"><span class="toc-section-number">A.1.2</span>  git commit throws me into a weird mode</a></li>
   </ul></li>
   <li><a href="#git-init-fails" id="toc-git-init-fails" class="nav-link" data-scroll-target="#git-init-fails"><span class="toc-section-number">A.2</span>  git init fails</a></li>
   </ul>
@@ -270,15 +276,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <section id="git-issues" class="level2" data-number="A.1">
 <h2 data-number="A.1" class="anchored" data-anchor-id="git-issues"><span class="header-section-number">A.1</span> git issues</h2>
-<section id="git-commit-throws-me-into-a-weird-mode" class="level3" data-number="A.1.1">
-<h3 data-number="A.1.1" class="anchored" data-anchor-id="git-commit-throws-me-into-a-weird-mode"><span class="header-section-number">A.1.1</span> git commit throws me into a weird mode</h3>
+<section id="set-my-name-and-email" class="level3" data-number="A.1.1">
+<h3 data-number="A.1.1" class="anchored" data-anchor-id="set-my-name-and-email"><span class="header-section-number">A.1.1</span> Set my name and email</h3>
+<p>git wants to add your name and email to commits. These are distinct from your <code>github</code> account (remember <code>git</code> can be used independently of an online service or with online services other than github).</p>
+<p>If you are seeing messages that end like this:</p>
+<pre><code>You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author</code></pre>
+<p>Then you can run these commands to set a username and email. Note that these can be anything, they aren’t a login or checked against anything, they are just metadata attached to your commits. Nonetheless having them make sense for your identity makes sense when sharing code publically. They can easily be a made up identifier (pseudonym/handle/accountname).</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"John Doe"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git config <span class="at">--global</span> user.email johndoe@example.com</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="git-commit-throws-me-into-a-weird-mode" class="level3" data-number="A.1.2">
+<h3 data-number="A.1.2" class="anchored" data-anchor-id="git-commit-throws-me-into-a-weird-mode"><span class="header-section-number">A.1.2</span> git commit throws me into a weird mode</h3>
 <p>If you type <code>git commit</code> just on its own rather than <code>git commit -m "Some message"</code> you will see something like this:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Please enter the commit message for your changes. Lines starting</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># with '#' will be ignored, and an empty message aborts the commit.</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># On branch master</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Your branch is up to date with 'origin/master'.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Please enter the commit message for your changes. Lines starting</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># with '#' will be ignored, and an empty message aborts the commit.</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># On branch master</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Your branch is up to date with 'origin/master'.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>git needs a commit message. When you don’t provide one it throws you into a text editor, expecting you to type a small novel.</p>
 <p>The editor that you go into by default is the <code>vi</code> or <code>vim</code> editor. It can be confusing because it has multiple modes (ie typing doesn’t always just produce text).</p>
 <p>The best option is to:</p>
@@ -288,7 +311,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Redo your commit using `git commit -m “Some message”</li>
 </ol>
 <p>See <a href="https://stackoverflow.com/questions/11828270/how-do-i-exit-vim" class="uri">https://stackoverflow.com/questions/11828270/how-do-i-exit-vim</a></p>
+<p><strong>The option below does not work in Rstudio because Rstudio captures the <kdb>Ctrl</kdb> key commands</strong></p>
 <p>You can also configure git to use another editor: <a href="https://stackoverflow.com/questions/2596805/how-do-i-make-git-use-the-editor-of-my-choice-for-editing-commit-messages" class="uri">https://stackoverflow.com/questions/2596805/how-do-i-make-git-use-the-editor-of-my-choice-for-editing-commit-messages</a></p>
+<p>For example, the <code>nano</code> editor is easier to use. You can set that run running</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> core.editor <span class="st">"nano"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In <code>nano</code> we can type a commit message as usual. The bottom of the screen shows commands. Nano uses the <code>^</code> symbol to represent the <kdb>Ctrl key. We have to save the file and then exit Nano. So to save the message and return to the commandline we use:</kdb></p>
+<p><kbd>Ctrl</kbd> + <kbd>O</kbd></p>
+<p>Then:</p>
+<p><kbd>Ctrl</kbd> + <kbd>X</kbd></p>
 </section>
 </section>
 <section id="git-init-fails" class="level2" data-number="A.2">
@@ -433,8 +463,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../skills/git_rewinding_work.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Rewinding work</span></span>
+      <a href="../skills/branching.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Local branching with Git</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
