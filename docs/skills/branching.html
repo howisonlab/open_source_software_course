@@ -249,7 +249,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#branching-with-local-git" id="toc-branching-with-local-git" class="nav-link active" data-scroll-target="#branching-with-local-git"><span class="toc-section-number">10</span>  Branching with local git</a>
   <ul class="collapse">
   <li><a href="#a-scenario" id="toc-a-scenario" class="nav-link" data-scroll-target="#a-scenario"><span class="toc-section-number">10.1</span>  A scenario</a></li>
-  <li><a href="#coordinating-new-work-while-keeping-old-work-running" id="toc-coordinating-new-work-while-keeping-old-work-running" class="nav-link" data-scroll-target="#coordinating-new-work-while-keeping-old-work-running"><span class="toc-section-number">10.2</span>  Coordinating new work while keeping old work running</a></li>
+  <li><a href="#coordinating-new-work-while-keeping-old-work-running" id="toc-coordinating-new-work-while-keeping-old-work-running" class="nav-link" data-scroll-target="#coordinating-new-work-while-keeping-old-work-running"><span class="toc-section-number">10.2</span>  Coordinating new work while keeping old work running</a>
+  <ul class="collapse">
+  <li><a href="#exercises-in-class" id="toc-exercises-in-class" class="nav-link" data-scroll-target="#exercises-in-class"><span class="toc-section-number">10.2.1</span>  Exercises (in-class):</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -433,12 +436,25 @@ Fast-forward
 <div class="sourceCode" id="cb31"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span> <span class="at">--abbrev-commit</span> <span class="at">--all</span> <span class="at">--graph</span> <span class="at">--decorate</span> <span class="at">--color</span>               </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Which will show us this (using an image here because the color doesn’t copy):</p>
 <p><img src="images/Git-branching_command_viz.png" class="img-fluid"></p>
-<!-- We can also see this visually using learngitbranching, see the short video below. -->
-<!-- <video height="480" controls> -->
-<!--   <source src="images/Git-branching_viz.mov" type="video/mp4"> -->
-<!-- </video> -->
+<p>We can also see this visually using learngitbranching, see the short video below.</p>
+<video height="480" controls="">
+<source src="images/Git-branching_viz.mov" type="video/mp4">
+</video>
+<section id="exercises-in-class" class="level3" data-number="10.2.1">
+<h3 data-number="10.2.1" class="anchored" data-anchor-id="exercises-in-class"><span class="header-section-number">10.2.1</span> Exercises (in-class):</h3>
+<ol type="1">
+<li>Go to “Learn Git Branching” site: <a href="https://learngitbranching.js.org/" class="uri">https://learngitbranching.js.org/</a>. (Note that this site is multi-locale, see the small planet icon in the bottom right?)</li>
+<li>Do exercises 2 and 3 (“Branching in Git” and “Merging in Git”)</li>
+<li>Shift back to Rstudio on the server and replicate the “Merging in Git” lesson. You will need to start with these commands (to create a new, empty, repo):</li>
+</ol>
+<div class="sourceCode" id="cb32"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> replicate_learngitbranching</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> replicate_learngitbranching</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Remember that when we are working in the terminal it is different from learngitbranching because we have to actually create, edit, and save files before we can commit. We also have to use <code>git commit -m 'some message'</code> rather than just <code>git commit</code>.</p>
 
 
+</section>
 </section>
 </section>
 

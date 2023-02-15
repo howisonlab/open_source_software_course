@@ -291,9 +291,23 @@ Which will show us this (using an image here because the color doesn't copy):
 
 ![](images/Git-branching_command_viz.png)
 
+We can also see this visually using learngitbranching, see the short video below.
 
-<!-- We can also see this visually using learngitbranching, see the short video below. -->
+<video height="480" controls>
+  <source src="images/Git-branching_viz.mov" type="video/mp4">
+</video>
 
-<!-- <video height="480" controls> -->
-<!--   <source src="images/Git-branching_viz.mov" type="video/mp4"> -->
-<!-- </video> -->
+### Exercises (in-class):
+
+1. Go to "Learn Git Branching" site: <https://learngitbranching.js.org/>. (Note that this site is multi-locale, see the small planet icon in the bottom right?)
+2. Do exercises 2 and 3 ("Branching in Git" and "Merging in Git")
+3. Shift back to Rstudio on the server and replicate the "Merging in Git" lesson.  You will need to start with these commands (to create a new, empty, repo):
+
+```sh
+cd ~
+mkdir replicate_learngitbranching
+cd replicate_learngitbranching
+git init
+```
+
+Remember that when we are working in the terminal it is different from learngitbranching because we have to actually create, edit, and save files before we can commit.  We also have to use `git commit -m 'some message'` rather than just `git commit`.
