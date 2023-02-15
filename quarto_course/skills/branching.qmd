@@ -1,6 +1,5 @@
----
-title: "Local branching with Git"
----
+
+# Local branching with Git. {#sec-branching}
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
