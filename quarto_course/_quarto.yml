@@ -31,6 +31,7 @@ book:
       - skills/git_basic_workflow.qmd
       - skills/git_rewinding_work.qmd
       - skills/branching.qmd
+      - skills/github-collaboration.Rmd
     #     - git_sharing_conflicts.qmd
     #     - git_collaboration.qmd
     #     - unit_tests.qmd

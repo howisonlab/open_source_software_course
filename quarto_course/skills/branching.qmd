@@ -293,9 +293,11 @@ Which will show us this (using an image here because the color doesn't copy):
 
 We can also see this visually using learngitbranching, see the short video below.
 
-<video height="480" controls>
-  <source src="images/Git-branching_viz.mov" type="video/mp4">
-</video>
+{{< video images/Git-branching_viz.mov height="480" >}}
+
+<!-- <video height="480" controls> -->
+<!--   <source src=""> -->
+<!-- </video> -->
 
 ### Exercises (in-class):
 
