@@ -130,9 +130,11 @@ git remote -v
 
 Note that git automatically creates the `origin` remote as whatever URL was used with `git clone`. This has the odd implication that for the *Maintainer* their `origin` is the shared repository, while for *Contributor A* and *Contributor B* their `origin` is their individual forks.
 
-Each exercise below assumes this setup in [Basic forking workflow setup](#basic_forking_workflow_setup) as the starting point.
+Each exercise below assumes this setup as the starting point.
 
 ## Sharing work and synchronizing
+
+*Requires three part repository setup as shown above in [Basic forking workflow setup](#basic_forking_workflow_setup)*
 
 Now we are going to use `git push` and Github Pull Requests, followed by `git pull` to collect work from *Maintainer*, *Contributor A*, *Contributor B* and in the shared repo, then synchronize so that everyone has a local copy of everyone's work.
 
@@ -197,146 +199,146 @@ git push
 
 I've always thought it is a little strange that a contributor's fork doesn't distribute changes from upstream, but that new work from the shared repo gets to the fork via the contributor's local repo on their laptop. After all, github knows the fork is connected to the shared repo ... but this is the roundabout way it works.
 
-## Generate merge conflict
+<!-- ## Generate merge conflict -->
 
-(If starting here, confirm that your Group of three has the setup in [Basic forking workflow setup](#basic_forking_workflow_setup) as the starting point.)
+<!-- (If starting here, confirm that your Group of three has the setup in [Basic forking workflow setup](#basic_forking_workflow_setup) as the starting point.) -->
 
-The point of this exercise is to intentionally create conflicts in editing, to demonstrate how they show up in Pull Requests.
+<!-- The point of this exercise is to intentionally create conflicts in editing, to demonstrate how they show up in Pull Requests. -->
 
-1.  *Maintainer* should create, add, commit, and push a file called `animals.txt` with this content:
+<!-- 1.  *Maintainer* should create, add, commit, and push a file called `animals.txt` with this content: -->
 
-```{=html}
-<!-- -->
-```
-    lion
-    tiger
-    leopard
-    turtle
+<!-- ```{=html} -->
+<!-- <!-- --> -->
+<!-- ``` -->
+<!--     lion -->
+<!--     tiger -->
+<!--     leopard -->
+<!--     turtle -->
 
-3.  *Contributor A* and *Contributor B* should synchronize to receive this file.
+<!-- 3.  *Contributor A* and *Contributor B* should synchronize to receive this file. -->
 
-::: spoiler
-``` sh
-git pull upstream master
-```
-:::
+<!-- ::: spoiler -->
+<!-- ``` sh -->
+<!-- git pull upstream master -->
+<!-- ``` -->
+<!-- ::: -->
 
-4.  *Contributor A* and *Contributor B* each edit the file by adding a different color to the first line in the `animals.txt` (so it reads `lion red` or `lion green`). They add, commit, push to their forks. *Note that these edits are incompatible, so they will generate a conflict when we try to merge them below*
+<!-- 4.  *Contributor A* and *Contributor B* each edit the file by adding a different color to the first line in the `animals.txt` (so it reads `lion red` or `lion green`). They add, commit, push to their forks. *Note that these edits are incompatible, so they will generate a conflict when we try to merge them below* -->
 
-5.  *Contributor A* and *Contributor B* should then go to github and look at their forks. They should create a pull request by hitting the 'New Pull Request' button. Note that the pull request will not say "Able to automatically merge" but create the PR anyway.
+<!-- 5.  *Contributor A* and *Contributor B* should then go to github and look at their forks. They should create a pull request by hitting the 'New Pull Request' button. Note that the pull request will not say "Able to automatically merge" but create the PR anyway. -->
 
-6.  With everyone looking at *Maintainer*'s computer, *Maintainer* should refresh the github page for the shared repository and will see two pull-requests in the pull-request tab. Accept each one, resolving any conflicts that emerge.
+<!-- 6.  With everyone looking at *Maintainer*'s computer, *Maintainer* should refresh the github page for the shared repository and will see two pull-requests in the pull-request tab. Accept each one, resolving any conflicts that emerge. -->
 
-They can choose whatever contributions they want (the original line, the line with the color from *Contributor B* or the line with the color from *Contributor A*); however the file is after removing the `<<<<<` `========` and `>>>>>>` lines will be what is in the shared repository.
+<!-- They can choose whatever contributions they want (the original line, the line with the color from *Contributor B* or the line with the color from *Contributor A*); however the file is after removing the `<<<<<` `========` and `>>>>>>` lines will be what is in the shared repository. -->
 
-6.  Each person should then synchronize. For *Maintainer* that just means `git pull` (since they have a direct clone of upstream). For *Contributor B* and *Contributor A* they have to first get the changes in upstream, then push them to their fork.
+<!-- 6.  Each person should then synchronize. For *Maintainer* that just means `git pull` (since they have a direct clone of upstream). For *Contributor B* and *Contributor A* they have to first get the changes in upstream, then push them to their fork. -->
 
-::: spoiler
-``` sh
-$ git pull upstream master
-$ git push
-```
-:::
+<!-- ::: spoiler -->
+<!-- ``` sh -->
+<!-- $ git pull upstream master -->
+<!-- $ git push -->
+<!-- ``` -->
+<!-- ::: -->
 
-# Once more, but with branches
+<!-- # Once more, but with branches -->
 
-In the exercises above all the work was on the `master` branch. That was to keep things simple, but in reality new work should always be on a branch, usually called a (short-lived) "feature branch". Pull requests then come from the feature branch to the master branch on the shared repo. This is also true for *Maintainer* as well as *Contributor A* and *Contributor B*, the only difference for the *Maintainer* is that their pull request is from a branch inside the shared repo, while the *Contributor A* and *Contributor B* is from a branch in a different repository.
+<!-- In the exercises above all the work was on the `master` branch. That was to keep things simple, but in reality new work should always be on a branch, usually called a (short-lived) "feature branch". Pull requests then come from the feature branch to the master branch on the shared repo. This is also true for *Maintainer* as well as *Contributor A* and *Contributor B*, the only difference for the *Maintainer* is that their pull request is from a branch inside the shared repo, while the *Contributor A* and *Contributor B* is from a branch in a different repository. -->
 
-(If starting here, confirm that your Group of three has the setup in [Basic forking workflow setup](#basic_forking_workflow_setup) as the starting point.)
+<!-- (If starting here, confirm that your Group of three has the setup in [Basic forking workflow setup](#basic_forking_workflow_setup) as the starting point.) -->
 
-1.  On local, create a branch (`for-pull-request`)
+<!-- 1.  On local, create a branch (`for-pull-request`) -->
 
-::: spoiler
-``` sh
-$ git checkout -b for-pull-request
-Switched to a new branch 'for-pull-request'
-```
-:::
+<!-- ::: spoiler -->
+<!-- ``` sh -->
+<!-- $ git checkout -b for-pull-request -->
+<!-- Switched to a new branch 'for-pull-request' -->
+<!-- ``` -->
+<!-- ::: -->
 
-2.  Edit a file named after your role (ie "maintainer.txt", "contributorA.txt", or "contributorB.txt"), add, commit.
+<!-- 2.  Edit a file named after your role (ie "maintainer.txt", "contributorA.txt", or "contributorB.txt"), add, commit. -->
 
-::: spoiler
-``` sh
-git add <your file>
-git commit -m "Edit to send via pull request"
-```
-:::
+<!-- ::: spoiler -->
+<!-- ``` sh -->
+<!-- git add <your file> -->
+<!-- git commit -m "Edit to send via pull request" -->
+<!-- ``` -->
+<!-- ::: -->
 
-3.  Push the branch to origin (`git push` will fail but the error message will show you a command that will run). Note that is the fork for *Contributor A* and *Contributor B* but the shared repo for *Maintainer*, but called `origin` for everyone.
+<!-- 3.  Push the branch to origin (`git push` will fail but the error message will show you a command that will run). Note that is the fork for *Contributor A* and *Contributor B* but the shared repo for *Maintainer*, but called `origin` for everyone. -->
 
-::: spoiler
-``` sh
-$ git push
-```
+<!-- ::: spoiler -->
+<!-- ``` sh -->
+<!-- $ git push -->
+<!-- ``` -->
 
-    fatal: The current branch for-pull-request has no upstream branch.
-    To push the current branch and set the remote as upstream, use
+<!--     fatal: The current branch for-pull-request has no upstream branch. -->
+<!--     To push the current branch and set the remote as upstream, use -->
 
-        git push --set-upstream origin for-pull-request
+<!--         git push --set-upstream origin for-pull-request -->
 
-Copy the `--set-upstream` line and execute. Note that the "upstream" here has nothing to do with the "upstream" remote (which is a name for the shared repo). Here it means "which remote should be connected to this branch" and almost always that is going to be an identically named branch in `origin`.
+<!-- Copy the `--set-upstream` line and execute. Note that the "upstream" here has nothing to do with the "upstream" remote (which is a name for the shared repo). Here it means "which remote should be connected to this branch" and almost always that is going to be an identically named branch in `origin`. -->
 
-``` sh
-$git push --set-upstream origin for-pull-request
-```
+<!-- ``` sh -->
+<!-- $git push --set-upstream origin for-pull-request -->
+<!-- ``` -->
 
-    Total 0 (delta 0), reused 0 (delta 0)
-    remote: 
-    remote: Create a pull request for 'for-pull-request' on GitHub by visiting:
-    remote:      https://github.com/jameshowison/pp2019_pr_owner/pull/new/for-pull-request
-    remote: 
-    To https://github.com/jameshowison/pp2019_pr_owner.git
-     * [new branch]      for-pull-request -> for-pull-request
-    Branch for-pull-request set up to track remote branch for-pull-request from origin.
-:::
+<!--     Total 0 (delta 0), reused 0 (delta 0) -->
+<!--     remote:  -->
+<!--     remote: Create a pull request for 'for-pull-request' on GitHub by visiting: -->
+<!--     remote:      https://github.com/jameshowison/pp2019_pr_owner/pull/new/for-pull-request -->
+<!--     remote:  -->
+<!--     To https://github.com/jameshowison/pp2019_pr_owner.git -->
+<!--      * [new branch]      for-pull-request -> for-pull-request -->
+<!--     Branch for-pull-request set up to track remote branch for-pull-request from origin. -->
+<!-- ::: -->
 
-4.  On github, make sure you are looking at the new branch (by choosing it from drop down menu) and open a PR from the new branch to `master` on the shared repo. All should do this (*Maintainer*, *Contributor A*, and *Contributor B*).
+<!-- 4.  On github, make sure you are looking at the new branch (by choosing it from drop down menu) and open a PR from the new branch to `master` on the shared repo. All should do this (*Maintainer*, *Contributor A*, and *Contributor B*). -->
 
-![Image of drop down menu for branches, shows for-pull-request and master](images/selecting_branch_on_github.png)
+<!-- ![Image of drop down menu for branches, shows for-pull-request and master](images/selecting_branch_on_github.png) -->
 
-![New Pull Request button](images/new_pr_button.png)
+<!-- ![New Pull Request button](images/new_pr_button.png) -->
 
-![Create PR screen](images/create_pr_screen.png)
+<!-- ![Create PR screen](images/create_pr_screen.png) -->
 
-5.  *Maintainer* can then accept all three PRs on github.
+<!-- 5.  *Maintainer* can then accept all three PRs on github. -->
 
-::: spoiler
-![Image of accepting PR](images/merge_pr.png)
-:::
+<!-- ::: spoiler -->
+<!-- ![Image of accepting PR](images/merge_pr.png) -->
+<!-- ::: -->
 
-6.  For all three, *Maintainer*, *Contributor A*, and *Contributor B*, back on local, switch to master.
+<!-- 6.  For all three, *Maintainer*, *Contributor A*, and *Contributor B*, back on local, switch to master. -->
 
-::: spoiler
-``` sh
-$ git checkout master
-Switched to branch 'master'
-Your branch is up-to-date with 'origin/master'.
-```
-:::
+<!-- ::: spoiler -->
+<!-- ``` sh -->
+<!-- $ git checkout master -->
+<!-- Switched to branch 'master' -->
+<!-- Your branch is up-to-date with 'origin/master'. -->
+<!-- ``` -->
+<!-- ::: -->
 
-7.  Pull changes.
+<!-- 7.  Pull changes. -->
 
-    <div class="spoiler">
+<!--     <div class="spoiler"> -->
 
-``` sh
-git pull
-```
+<!-- ``` sh -->
+<!-- git pull -->
+<!-- ``` -->
 
-remote: Enumerating objects: 1, done. remote: Counting objects: 100% (1/1), done. remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0 Unpacking objects: 100% (1/1), done. From https://github.com/jameshowison/pp2019_pr_owner 36cd034..6d0673d master -\> origin/master Updating 36cd034..6d0673d Fast-forward README.md \| 1 + 1 file changed, 1 insertion(+) \$ git status On branch master Your branch is up-to-date with 'origin/master'.
+<!-- remote: Enumerating objects: 1, done. remote: Counting objects: 100% (1/1), done. remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0 Unpacking objects: 100% (1/1), done. From https://github.com/jameshowison/pp2019_pr_owner 36cd034..6d0673d master -\> origin/master Updating 36cd034..6d0673d Fast-forward README.md \| 1 + 1 file changed, 1 insertion(+) \$ git status On branch master Your branch is up-to-date with 'origin/master'. -->
 
-nothing to commit, working tree clean
+<!-- nothing to commit, working tree clean -->
 
-    </div>
+<!--     </div> -->
 
-    8. Delete the branch locally and on github
+<!--     8. Delete the branch locally and on github -->
 
-    <div class="spoiler">
-    ```sh
-    $ git branch -d for-pull-request
-    Deleted branch for-pull-request (was 01541c3).
-    $git push origin --delete for-pull-request
-    To https://github.com/jameshowison/pp2019_pr_owner.git
-     - [deleted]         for-pull-request
+<!--     <div class="spoiler"> -->
+<!--     ```sh -->
+<!--     $ git branch -d for-pull-request -->
+<!--     Deleted branch for-pull-request (was 01541c3). -->
+<!--     $git push origin --delete for-pull-request -->
+<!--     To https://github.com/jameshowison/pp2019_pr_owner.git -->
+<!--      - [deleted]         for-pull-request -->
 
 <!-- # Tags -->
 

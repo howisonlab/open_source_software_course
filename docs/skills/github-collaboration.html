@@ -254,8 +254,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#collaboration-picture" id="toc-collaboration-picture" class="nav-link active" data-scroll-target="#collaboration-picture"><span class="toc-section-number">10.1</span>  Collaboration picture</a></li>
   <li><a href="#basic-forking-workflow-setup" id="toc-basic-forking-workflow-setup" class="nav-link" data-scroll-target="#basic-forking-workflow-setup"><span class="toc-section-number">10.2</span>  Basic forking workflow setup</a></li>
   <li><a href="#sharing-work-and-synchronizing" id="toc-sharing-work-and-synchronizing" class="nav-link" data-scroll-target="#sharing-work-and-synchronizing"><span class="toc-section-number">10.3</span>  Sharing work and synchronizing</a></li>
-  <li><a href="#generate-merge-conflict" id="toc-generate-merge-conflict" class="nav-link" data-scroll-target="#generate-merge-conflict"><span class="toc-section-number">10.4</span>  Generate merge conflict</a></li>
-  <li><a href="#once-more-but-with-branches" id="toc-once-more-but-with-branches" class="nav-link" data-scroll-target="#once-more-but-with-branches"><span class="toc-section-number">11</span>  Once more, but with branches</a></li>
   </ul>
 </nav>
     </div>
@@ -356,10 +354,11 @@ origin  &lt;fork_repo_url&gt; (push)
 upstream &lt;maintainers_repo_url&gt; (fetch)
 upstream &lt;maintainers_repo_url&gt; (push)</code></pre>
 <p>Note that git automatically creates the <code>origin</code> remote as whatever URL was used with <code>git clone</code>. This has the odd implication that for the <em>Maintainer</em> their <code>origin</code> is the shared repository, while for <em>Contributor A</em> and <em>Contributor B</em> their <code>origin</code> is their individual forks.</p>
-<p>Each exercise below assumes this setup in <a href="#basic_forking_workflow_setup">Basic forking workflow setup</a> as the starting point.</p>
+<p>Each exercise below assumes this setup as the starting point.</p>
 </section>
 <section id="sharing-work-and-synchronizing" class="level2" data-number="10.3">
 <h2 data-number="10.3" class="anchored" data-anchor-id="sharing-work-and-synchronizing"><span class="header-section-number">10.3</span> Sharing work and synchronizing</h2>
+<p><em>Requires three part repository setup as shown above in <a href="#basic_forking_workflow_setup">Basic forking workflow setup</a></em></p>
 <p>Now we are going to use <code>git push</code> and Github Pull Requests, followed by <code>git pull</code> to collect work from <em>Maintainer</em>, <em>Contributor A</em>, <em>Contributor B</em> and in the shared repo, then synchronize so that everyone has a local copy of everyone’s work.</p>
 <ol type="1">
 <li><p><em>Maintainer</em>, <em>Contributor A</em>, <em>Contributor B</em> each create a file named after their role (ie maintainer.txt, contributorA.txt, contributorB.txt). Use whichever editor you like (e.g., <code>vi</code>, Atom, Rstudio, etc.)</p></li>
@@ -414,136 +413,100 @@ upstream &lt;maintainers_repo_url&gt; (push)</code></pre>
 <div class="sourceCode" id="cb13"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>I’ve always thought it is a little strange that a contributor’s fork doesn’t distribute changes from upstream, but that new work from the shared repo gets to the fork via the contributor’s local repo on their laptop. After all, github knows the fork is connected to the shared repo … but this is the roundabout way it works.</p>
-</section>
-<section id="generate-merge-conflict" class="level2" data-number="10.4">
-<h2 data-number="10.4" class="anchored" data-anchor-id="generate-merge-conflict"><span class="header-section-number">10.4</span> Generate merge conflict</h2>
-<p>(If starting here, confirm that your Group of three has the setup in <a href="#basic_forking_workflow_setup">Basic forking workflow setup</a> as the starting point.)</p>
-<p>The point of this exercise is to intentionally create conflicts in editing, to demonstrate how they show up in Pull Requests.</p>
-<ol type="1">
-<li><em>Maintainer</em> should create, add, commit, and push a file called <code>animals.txt</code> with this content:</li>
-</ol>
-<!-- -->
-<pre><code>lion
-tiger
-leopard
-turtle</code></pre>
-<ol start="3" type="1">
-<li><em>Contributor A</em> and <em>Contributor B</em> should synchronize to receive this file.</li>
-</ol>
-<div class="spoiler">
-<div class="sourceCode" id="cb15"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull upstream master</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="4" type="1">
-<li><p><em>Contributor A</em> and <em>Contributor B</em> each edit the file by adding a different color to the first line in the <code>animals.txt</code> (so it reads <code>lion red</code> or <code>lion green</code>). They add, commit, push to their forks. <em>Note that these edits are incompatible, so they will generate a conflict when we try to merge them below</em></p></li>
-<li><p><em>Contributor A</em> and <em>Contributor B</em> should then go to github and look at their forks. They should create a pull request by hitting the ‘New Pull Request’ button. Note that the pull request will not say “Able to automatically merge” but create the PR anyway.</p></li>
-<li><p>With everyone looking at <em>Maintainer</em>’s computer, <em>Maintainer</em> should refresh the github page for the shared repository and will see two pull-requests in the pull-request tab. Accept each one, resolving any conflicts that emerge.</p></li>
-</ol>
-<p>They can choose whatever contributions they want (the original line, the line with the color from <em>Contributor B</em> or the line with the color from <em>Contributor A</em>); however the file is after removing the <code>&lt;&lt;&lt;&lt;&lt;</code> <code>========</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;</code> lines will be what is in the shared repository.</p>
-<ol start="6" type="1">
-<li>Each person should then synchronize. For <em>Maintainer</em> that just means <code>git pull</code> (since they have a direct clone of upstream). For <em>Contributor B</em> and <em>Contributor A</em> they have to first get the changes in upstream, then push them to their fork.</li>
-</ol>
-<div class="spoiler">
-<div class="sourceCode" id="cb16"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git pull upstream master</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="once-more-but-with-branches" class="level1" data-number="11">
-<h1 data-number="11"><span class="header-section-number">11</span> Once more, but with branches</h1>
-<p>In the exercises above all the work was on the <code>master</code> branch. That was to keep things simple, but in reality new work should always be on a branch, usually called a (short-lived) “feature branch”. Pull requests then come from the feature branch to the master branch on the shared repo. This is also true for <em>Maintainer</em> as well as <em>Contributor A</em> and <em>Contributor B</em>, the only difference for the <em>Maintainer</em> is that their pull request is from a branch inside the shared repo, while the <em>Contributor A</em> and <em>Contributor B</em> is from a branch in a different repository.</p>
-<p>(If starting here, confirm that your Group of three has the setup in <a href="#basic_forking_workflow_setup">Basic forking workflow setup</a> as the starting point.)</p>
-<ol type="1">
-<li>On local, create a branch (<code>for-pull-request</code>)</li>
-</ol>
-<div class="spoiler">
-<div class="sourceCode" id="cb17"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git checkout <span class="at">-b</span> for-pull-request</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Switched</span> to a new branch <span class="st">'for-pull-request'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="2" type="1">
-<li>Edit a file named after your role (ie “maintainer.txt”, “contributorA.txt”, or “contributorB.txt”), add, commit.</li>
-</ol>
-<div class="spoiler">
-<div class="sourceCode" id="cb18"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="op">&lt;</span>your file<span class="op">&gt;</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Edit to send via pull request"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="3" type="1">
-<li>Push the branch to origin (<code>git push</code> will fail but the error message will show you a command that will run). Note that is the fork for <em>Contributor A</em> and <em>Contributor B</em> but the shared repo for <em>Maintainer</em>, but called <code>origin</code> for everyone.</li>
-</ol>
-<div class="spoiler">
-<div class="sourceCode" id="cb19"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre><code>fatal: The current branch for-pull-request has no upstream branch.
-To push the current branch and set the remote as upstream, use
-
-    git push --set-upstream origin for-pull-request</code></pre>
-<p>Copy the <code>--set-upstream</code> line and execute. Note that the “upstream” here has nothing to do with the “upstream” remote (which is a name for the shared repo). Here it means “which remote should be connected to this branch” and almost always that is going to be an identically named branch in <code>origin</code>.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="va">$git</span> push <span class="at">--set-upstream</span> origin for-pull-request</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre><code>Total 0 (delta 0), reused 0 (delta 0)
-remote: 
-remote: Create a pull request for 'for-pull-request' on GitHub by visiting:
-remote:      https://github.com/jameshowison/pp2019_pr_owner/pull/new/for-pull-request
-remote: 
-To https://github.com/jameshowison/pp2019_pr_owner.git
- * [new branch]      for-pull-request -&gt; for-pull-request
-Branch for-pull-request set up to track remote branch for-pull-request from origin.</code></pre>
-</div>
-<ol start="4" type="1">
-<li>On github, make sure you are looking at the new branch (by choosing it from drop down menu) and open a PR from the new branch to <code>master</code> on the shared repo. All should do this (<em>Maintainer</em>, <em>Contributor A</em>, and <em>Contributor B</em>).</li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/selecting_branch_on_github.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Image of drop down menu for branches, shows for-pull-request and master</figcaption><p></p>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/new_pr_button.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">New Pull Request button</figcaption><p></p>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/create_pr_screen.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Create PR screen</figcaption><p></p>
-</figure>
-</div>
-<ol start="5" type="1">
-<li><em>Maintainer</em> can then accept all three PRs on github.</li>
-</ol>
-<div class="spoiler">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/merge_pr.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Image of accepting PR</figcaption><p></p>
-</figure>
-</div>
-</div>
-<ol start="6" type="1">
-<li>For all three, <em>Maintainer</em>, <em>Contributor A</em>, and <em>Contributor B</em>, back on local, switch to master.</li>
-</ol>
-<div class="spoiler">
-<div class="sourceCode" id="cb23"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git checkout master</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Switched</span> to branch <span class="st">'master'</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Your</span> branch is up-to-date with <span class="st">'origin/master'</span>.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="7" type="1">
-<li><p>Pull changes.</p>
-<div class="spoiler">
-</div></li>
-</ol>
-<div class="sourceCode" id="cb24"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>remote: Enumerating objects: 1, done. remote: Counting objects: 100% (1/1), done. remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0 Unpacking objects: 100% (1/1), done. From https://github.com/jameshowison/pp2019_pr_owner 36cd034..6d0673d master -&gt; origin/master Updating 36cd034..6d0673d Fast-forward README.md | 1 + 1 file changed, 1 insertion(+) $ git status On branch master Your branch is up-to-date with ‘origin/master’.</p>
-<p>nothing to commit, working tree clean</p>
-<pre><code>&lt;/div&gt;
-
-8. Delete the branch locally and on github
-
-&lt;div class="spoiler"&gt;
-```sh
-$ git branch -d for-pull-request
-Deleted branch for-pull-request (was 01541c3).
-$git push origin --delete for-pull-request
-To https://github.com/jameshowison/pp2019_pr_owner.git
- - [deleted]         for-pull-request</code></pre>
+<!-- ## Generate merge conflict -->
+<!-- (If starting here, confirm that your Group of three has the setup in [Basic forking workflow setup](#basic_forking_workflow_setup) as the starting point.) -->
+<!-- The point of this exercise is to intentionally create conflicts in editing, to demonstrate how they show up in Pull Requests. -->
+<!-- 1.  *Maintainer* should create, add, commit, and push a file called `animals.txt` with this content: -->
+<!-- ```{=html} -->
+<!-- <!-- -->
+<p>–&gt; <!-- ``` --> <!--     lion --> <!--     tiger --> <!--     leopard --> <!--     turtle --></p>
+<!-- 3.  *Contributor A* and *Contributor B* should synchronize to receive this file. -->
+<!-- ::: spoiler -->
+<!-- ``` sh -->
+<!-- git pull upstream master -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- 4.  *Contributor A* and *Contributor B* each edit the file by adding a different color to the first line in the `animals.txt` (so it reads `lion red` or `lion green`). They add, commit, push to their forks. *Note that these edits are incompatible, so they will generate a conflict when we try to merge them below* -->
+<!-- 5.  *Contributor A* and *Contributor B* should then go to github and look at their forks. They should create a pull request by hitting the 'New Pull Request' button. Note that the pull request will not say "Able to automatically merge" but create the PR anyway. -->
+<!-- 6.  With everyone looking at *Maintainer*'s computer, *Maintainer* should refresh the github page for the shared repository and will see two pull-requests in the pull-request tab. Accept each one, resolving any conflicts that emerge. -->
+<!-- They can choose whatever contributions they want (the original line, the line with the color from *Contributor B* or the line with the color from *Contributor A*); however the file is after removing the `<<<<<` `========` and `>>>>>>` lines will be what is in the shared repository. -->
+<!-- 6.  Each person should then synchronize. For *Maintainer* that just means `git pull` (since they have a direct clone of upstream). For *Contributor B* and *Contributor A* they have to first get the changes in upstream, then push them to their fork. -->
+<!-- ::: spoiler -->
+<!-- ``` sh -->
+<!-- $ git pull upstream master -->
+<!-- $ git push -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- # Once more, but with branches -->
+<!-- In the exercises above all the work was on the `master` branch. That was to keep things simple, but in reality new work should always be on a branch, usually called a (short-lived) "feature branch". Pull requests then come from the feature branch to the master branch on the shared repo. This is also true for *Maintainer* as well as *Contributor A* and *Contributor B*, the only difference for the *Maintainer* is that their pull request is from a branch inside the shared repo, while the *Contributor A* and *Contributor B* is from a branch in a different repository. -->
+<!-- (If starting here, confirm that your Group of three has the setup in [Basic forking workflow setup](#basic_forking_workflow_setup) as the starting point.) -->
+<!-- 1.  On local, create a branch (`for-pull-request`) -->
+<!-- ::: spoiler -->
+<!-- ``` sh -->
+<!-- $ git checkout -b for-pull-request -->
+<!-- Switched to a new branch 'for-pull-request' -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- 2.  Edit a file named after your role (ie "maintainer.txt", "contributorA.txt", or "contributorB.txt"), add, commit. -->
+<!-- ::: spoiler -->
+<!-- ``` sh -->
+<!-- git add <your file> -->
+<!-- git commit -m "Edit to send via pull request" -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- 3.  Push the branch to origin (`git push` will fail but the error message will show you a command that will run). Note that is the fork for *Contributor A* and *Contributor B* but the shared repo for *Maintainer*, but called `origin` for everyone. -->
+<!-- ::: spoiler -->
+<!-- ``` sh -->
+<!-- $ git push -->
+<!-- ``` -->
+<!--     fatal: The current branch for-pull-request has no upstream branch. -->
+<!--     To push the current branch and set the remote as upstream, use -->
+<!--         git push --set-upstream origin for-pull-request -->
+<!-- Copy the `--set-upstream` line and execute. Note that the "upstream" here has nothing to do with the "upstream" remote (which is a name for the shared repo). Here it means "which remote should be connected to this branch" and almost always that is going to be an identically named branch in `origin`. -->
+<!-- ``` sh -->
+<!-- $git push --set-upstream origin for-pull-request -->
+<!-- ``` -->
+<!--     Total 0 (delta 0), reused 0 (delta 0) -->
+<!--     remote:  -->
+<!--     remote: Create a pull request for 'for-pull-request' on GitHub by visiting: -->
+<!--     remote:      https://github.com/jameshowison/pp2019_pr_owner/pull/new/for-pull-request -->
+<!--     remote:  -->
+<!--     To https://github.com/jameshowison/pp2019_pr_owner.git -->
+<!--      * [new branch]      for-pull-request -> for-pull-request -->
+<!--     Branch for-pull-request set up to track remote branch for-pull-request from origin. -->
+<!-- ::: -->
+<!-- 4.  On github, make sure you are looking at the new branch (by choosing it from drop down menu) and open a PR from the new branch to `master` on the shared repo. All should do this (*Maintainer*, *Contributor A*, and *Contributor B*). -->
+<!-- ![Image of drop down menu for branches, shows for-pull-request and master](images/selecting_branch_on_github.png) -->
+<!-- ![New Pull Request button](images/new_pr_button.png) -->
+<!-- ![Create PR screen](images/create_pr_screen.png) -->
+<!-- 5.  *Maintainer* can then accept all three PRs on github. -->
+<!-- ::: spoiler -->
+<!-- ![Image of accepting PR](images/merge_pr.png) -->
+<!-- ::: -->
+<!-- 6.  For all three, *Maintainer*, *Contributor A*, and *Contributor B*, back on local, switch to master. -->
+<!-- ::: spoiler -->
+<!-- ``` sh -->
+<!-- $ git checkout master -->
+<!-- Switched to branch 'master' -->
+<!-- Your branch is up-to-date with 'origin/master'. -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- 7.  Pull changes. -->
+<!--     <div class="spoiler"> -->
+<!-- ``` sh -->
+<!-- git pull -->
+<!-- ``` -->
+<!-- remote: Enumerating objects: 1, done. remote: Counting objects: 100% (1/1), done. remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0 Unpacking objects: 100% (1/1), done. From https://github.com/jameshowison/pp2019_pr_owner 36cd034..6d0673d master -\> origin/master Updating 36cd034..6d0673d Fast-forward README.md \| 1 + 1 file changed, 1 insertion(+) \$ git status On branch master Your branch is up-to-date with 'origin/master'. -->
+<!-- nothing to commit, working tree clean -->
+<!--     </div> -->
+<!--     8. Delete the branch locally and on github -->
+<!--     <div class="spoiler"> -->
+<!--     ```sh -->
+<!--     $ git branch -d for-pull-request -->
+<!--     Deleted branch for-pull-request (was 01541c3). -->
+<!--     $git push origin --delete for-pull-request -->
+<!--     To https://github.com/jameshowison/pp2019_pr_owner.git -->
+<!--      - [deleted]         for-pull-request -->
 <!-- # Tags -->
 <!-- Tags help identify important points in the version history. They are also used for releases on github. They point to a specific commit, but are human readable, rather than the hash. So they are like a bookmark which brings you directly to a specific point in the repo history. -->
 <!-- Your task is to create three tags, `tag-animals`, `tag-colors`, `tag-noises` which reflect the merge points of different branches. -->
