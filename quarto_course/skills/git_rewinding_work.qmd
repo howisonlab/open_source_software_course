@@ -1,18 +1,14 @@
-
-
 # Rewinding work {#sec-rewinding}
 
 ## Prep exercise.
 
-Log into the server: <https://edupod.cns.utexas.edu/> and choose Rstudio.  Then your task is to create a git repository that when you run our long viz command
+Log into the server: <https://edupod.cns.utexas.edu/> and choose Rstudio. Then your task is to create a git repository that when you run our long viz command
 
-```
-git log --oneline --abbrev-commit --all --graph --decorate --color
-```
+    git log --oneline --abbrev-commit --all --graph --decorate --color
 
 Your screen shows this result:
 
-```bash
+``` bash
 test-rewind % git log --oneline --abbrev-commit --all --graph --decorate --color                         
 * 50590c5 (HEAD -> main) made third edit
 * 39f89db made second edit
@@ -23,32 +19,29 @@ Hint: You will need to start by making a directory called `test-rewind`.
 
 ## Why rewind?
 
-When we are working we often want to try things out before we are 100% sure that they will work. We want to be able to experiment and find our way through a problem.  If our experiment doesn't work, we want to be able to step backwards in time, to find an earlier version that is a good new starting point.
+When we are working we often want to try things out before we are 100% sure that they will work. We want to be able to experiment and find our way through a problem. If our experiment doesn't work, we want to be able to step backwards in time, to find an earlier version that is a good new starting point.
 
-In many ways this is identical to the idea of a "save point" in a game.  We can step backwards in time and try again. We can reload that point at any time in the future.  In our paper plane analogy, we can reach out and grab any tray in our repository.
+In many ways this is identical to the idea of a "save point" in a game. We can step backwards in time and try again. We can reload that point at any time in the future. In our paper plane analogy, we can reach out and grab any tray in our repository.
 
-Git enables us to save full copies of our working directory. We can then get back to the state of our work at any time we made a commit.  When we check out a historical state, we get the files and the folders as as they were. So git actually swaps out the directory.
+Git enables us to save full copies of our working directory. We can then get back to the state of our work at any time we made a commit. When we check out a historical state, we get the files and the folders as as they were. So git actually swaps out the directory.
 
-When I first started using git, I found this a bit confusing.  usually when one restores from a backup, it is more like downloading a file. One gets to choose:
-- what to call the newly obtained older version
-- where to put it
-- what to do if there is a file that would be over-written.
+When I first started using git, I found this a bit confusing. usually when one restores from a backup, it is more like downloading a file. One gets to choose: - what to call the newly obtained older version - where to put it - what to do if there is a file that would be over-written.
 
 What git does, though, is it swaps out all the files and folders with the previous version.
 
 As we've seen, though, git is more fine-grained than a video game save-point. We often have files that have changed that we don't want included in our save-point, this is why we have the `git add` stage before `git commit`.
 
-Thus we can have `untracked` files or folders hanging around in our working folder.  Git won't change these when we do a checkout. So what happens is:
+Thus we can have `untracked` files or folders hanging around in our working folder. Git won't change these when we do a checkout. So what happens is:
 
-1. git checks that all tracked files are in a "clean" state. This means that they are unchanged from the last commit. This is git checking that you have "saved your work" before it swaps out the files.
-2. git goes to its repository, locates the commit you ask for, and swaps all the tracked files and folders in the working directory.
-3. git remembers what commit you've moved to, so that if you make edits you can decide how they should be applied into the stream of commits in your repository.
+1.  git checks that all tracked files are in a "clean" state. This means that they are unchanged from the last commit. This is git checking that you have "saved your work" before it swaps out the files.
+2.  git goes to its repository, locates the commit you ask for, and swaps all the tracked files and folders in the working directory.
+3.  git remembers what commit you've moved to, so that if you make edits you can decide how they should be applied into the stream of commits in your repository.
 
-To move backwards in time we use the `git checkout` command. We have to let git know which commit we want to go back to.  We can specify that using the name that git uses, which is the hash (e.g., `1b2162e`) shown by git log.
+To move backwards in time we use the `git checkout` command. We have to let git know which commit we want to go back to. We can specify that using the name that git uses, which is the hash (e.g., `1b2162e`) shown by git log.
 
 Starting with our 3 commit test-rewind repo:
 
-```bash
+``` bash
 jlh5498@INFO-A64206 test-rewind % git log --oneline --abbrev-commit --all --graph --decorate --color
 * 50590c5 (HEAD -> main) made third edit
 * 39f89db made second edit
@@ -57,14 +50,13 @@ jlh5498@INFO-A64206 test-rewind % git log --oneline --abbrev-commit --all --grap
 
 We can move to the first commit using
 
-```bash
+``` bash
 jlh5498@INFO-A64206 test-rewind % git checkout 1b2162e
 ```
 
 which produces the output
 
-
-```bash
+``` bash
 Note: switching to '1b2162e'.
 
 You are in 'detached HEAD' state. You can look around, make experimental
@@ -87,20 +79,20 @@ HEAD is now at 1b2162e made first edit
 
 If we run our viz command we can see a little more:
 
-```bash
+``` bash
 jlh5498@INFO-A64206 test-rewind % git log --oneline --abbrev-commit --all --graph --decorate --color
 * 50590c5 (main) made third edit
 * 39f89db made second edit
 * 1b2162e (HEAD) made first edit
 ```
 
-See how the word `HEAD` now appears on the bottom line and not the top line? This is git's way of telling us what is checked out.  
+See how the word `HEAD` now appears on the bottom line and not the top line? This is git's way of telling us what is checked out.
 
 When git says `detached HEAD` (a little intense sounding) git is highlight for us that our current working directory is not at the last commit. This means that if we try to make a new `commit` git wants us to know that it won't just pop onto the top of the repo like usual. (git will create an unnamed branch, we'll discuss branches later).
 
 For now, though, we can inspect files back at this version, and we can shift to another version (using `checkout`). For example we can move back to our top commit, using `git checkout main` (where `main` might be `master` on a system configured with an older `git`).
 
-```bash
+``` bash
 jlh5498@INFO-A64206 test-rewind % git checkout main
 jlh5498@INFO-A64206 test-rewind % git log --oneline --abbrev-commit --all --graph --decorate --color
 * 50590c5 (HEAD -> main) made third edit
@@ -108,9 +100,9 @@ jlh5498@INFO-A64206 test-rewind % git log --oneline --abbrev-commit --all --grap
 * 1b2162e made first edit
 ```
 
-Notice how `HEAD` now points to the top commit?  If we `edit/add/commit` our commits will drop back on top.
+Notice how `HEAD` now points to the top commit? If we `edit/add/commit` our commits will drop back on top.
 
-```bash
+``` bash
 jlh5498@INFO-A64206 test-rewind % git add README 
 jlh5498@INFO-A64206 test-rewind % git commit -m "Made fourth edit"
 [main ff7997b] Made fourth edit
@@ -122,7 +114,7 @@ jlh5498@INFO-A64206 test-rewind % git log --oneline --abbrev-commit --all --grap
 * 1b2162e made first edit
 ```
 
-Remember, git swaps out all the **tracked** files when you do a `checkout`. If you have untracked files you will find they are unaffected by a `git checkout`.  Create a file called `my-untracked-file` run `git status` then run `git checkout <earlier-commit>` (where `<earlier-commit>` is a hash for your first commit), then run `git status` again.
+Remember, git swaps out all the **tracked** files when you do a `checkout`. If you have untracked files you will find they are unaffected by a `git checkout`. Create a file called `my-untracked-file` run `git status` then run `git checkout <earlier-commit>` (where `<earlier-commit>` is a hash for your first commit), then run `git status` again.
 
 ## Revert - commits to undo commits
 

@@ -70,4 +70,23 @@ Then:
 
 <kbd>Ctrl</kbd> + <kbd>X</kbd>
 
-## git init fails
+## I accidentally made my home folder a git repo {#sec-faq-home-git-folder}
+
+If you are in your home folder but `git status` doesn't give a "fatal error" then you've accidentially made your home folder into a git repository (probably by running `git init` in that folder).
+
+In this case we need to undo this. We can't delete our home folder, because it has everything else inside it.  We have to somehow tell the computer that the home folder should not be a git repo. Happily, then only thing that makes it a git repo is that it has a `.git` folder inside it.  You can confirm by running:
+
+```sh
+ls -lah
+```
+
+The `-a` flag to `ls` makes it show all files and folders, even the hidden ones that start with a dot.
+
+To fix this we could just delete the `.git` folder but we might lose data that way (if we had already added work to that repo). So safest thing is to make a new folder inside our home folder, and then move the `.git` there.
+
+```sh
+mkdir backup_home_git
+mv ./.git ./backup_home_git
+```
+
+Now you could `cd backup_home_git` and use that folder as a git repo. But probably you are about to clone from github (in which case a new folder will be created) or you are about to use `git init` to create a new local repo (in which case you should create a folder first, `cd` into it, then run `git init`.

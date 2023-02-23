@@ -255,7 +255,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#set-my-name-and-email" id="toc-set-my-name-and-email" class="nav-link" data-scroll-target="#set-my-name-and-email"><span class="toc-section-number">A.1.1</span>  Set my name and email</a></li>
   <li><a href="#git-commit-throws-me-into-a-weird-mode" id="toc-git-commit-throws-me-into-a-weird-mode" class="nav-link" data-scroll-target="#git-commit-throws-me-into-a-weird-mode"><span class="toc-section-number">A.1.2</span>  git commit throws me into a weird mode</a></li>
   </ul></li>
-  <li><a href="#git-init-fails" id="toc-git-init-fails" class="nav-link" data-scroll-target="#git-init-fails"><span class="toc-section-number">A.2</span>  git init fails</a></li>
+  <li><a href="#sec-faq-home-git-folder" id="toc-sec-faq-home-git-folder" class="nav-link" data-scroll-target="#sec-faq-home-git-folder"><span class="toc-section-number">A.2</span>  I accidentally made my home folder a git repo</a></li>
   </ul>
 </nav>
     </div>
@@ -326,8 +326,16 @@ After doing this, you may fix the identity used for this commit with:
 <p><kbd>Ctrl</kbd> + <kbd>X</kbd></p>
 </section>
 </section>
-<section id="git-init-fails" class="level2" data-number="A.2">
-<h2 data-number="A.2" class="anchored" data-anchor-id="git-init-fails"><span class="header-section-number">A.2</span> git init fails</h2>
+<section id="sec-faq-home-git-folder" class="level2" data-number="A.2">
+<h2 data-number="A.2" class="anchored" data-anchor-id="sec-faq-home-git-folder"><span class="header-section-number">A.2</span> I accidentally made my home folder a git repo</h2>
+<p>If you are in your home folder but <code>git status</code> doesn’t give a “fatal error” then you’ve accidentially made your home folder into a git repository (probably by running <code>git init</code> in that folder).</p>
+<p>In this case we need to undo this. We can’t delete our home folder, because it has everything else inside it. We have to somehow tell the computer that the home folder should not be a git repo. Happily, then only thing that makes it a git repo is that it has a <code>.git</code> folder inside it. You can confirm by running:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lah</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The <code>-a</code> flag to <code>ls</code> makes it show all files and folders, even the hidden ones that start with a dot.</p>
+<p>To fix this we could just delete the <code>.git</code> folder but we might lose data that way (if we had already added work to that repo). So safest thing is to make a new folder inside our home folder, and then move the <code>.git</code> there.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> backup_home_git</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> ./.git ./backup_home_git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now you could <code>cd backup_home_git</code> and use that folder as a git repo. But probably you are about to clone from github (in which case a new folder will be created) or you are about to use <code>git init</code> to create a new local repo (in which case you should create a folder first, <code>cd</code> into it, then run <code>git init</code>.</p>
 
 
 </section>

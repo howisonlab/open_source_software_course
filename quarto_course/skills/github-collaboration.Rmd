@@ -44,30 +44,54 @@ At the top we see the "Github Cloud" and at the bottom we see our laptop.  Every
 
 In the Cloud we see two repositories.  The one on the right called "Upstream" (or sometimes "Project" or "Shared") is the space where all our work will collect.  The one on the left called "Origin" is our cloud copy of the shared repository.  You can think of a fork as a backup space for the repo on your laptop; the fork lives in your github account namespace.
 
-There are 6 steps to this workflow:
+```{mermaid}
+sequenceDiagram
+    upstream ->>origin : github fork
+    origin ->>laptop : git clone
+    
+    laptop ->>laptop : git branch
+    laptop ->>laptop : edit/add/commit
+    
+    upstream ->>upstream : maintainer commits<br />or pull requests<br />from others merged
 
-1. The first step to contributing work is to create a fork of the upstream repo.
+    laptop ->>laptop : edit/add/commit
+    
+    note over laptop : Work done, need to<br />gather changes since clone
+    
+    upstream ->>laptop : git pull upstream 
+    laptop ->>laptop : resolve conflicts<br />git add/commit
+    laptop ->>origin : git push
+    origin ->>upstream : github pull request
+```
 
-2. The second step is to bring that fork down to our laptop where we can work on it.  This is done using `git clone` a command that is run on the laptop.  We pass `git clone` the URL of the fork.
+There are 6 steps to this workflow (also depicted in diagram below)
 
-3. The third step is to use `git branch` and `git checkout` to create a branch, then the `edit-save-add-commit` as usual.  
+1. We create a fork of the upstream repo. This happens on github.
 
-4. The fourth step is to synchronize with any work that has happened in upstream since you started editing. This is done with `git pull`. This is quite similar to merging `main` to our branches if working locally.
+2. Bring that fork down to our laptop where we can work on it.  This is done using `git clone` a command that is run on the laptop.  We pass `git clone` the URL of the fork.
 
-5. The fifth step is to use `git push` to move your new edits up to github.  Note that they go to your fork, not directly to upstream.
+3. Use `git branch` and `git checkout` to create a branch, then the `edit-save-add-commit` as usual.  
 
-6. The sixth step is to create a `pull request` on github.  This lets the upstream repo know that you have work ready to contribute. 
+4. Synchronize using `git pull upstream` to get any work that has happened in upstream since you cloned your fork. Such work might come from the maintainers of the project doing their own work there, or the maintainers merging in pull requests from other contributors. This is quite similar to merging `main` to our branches if working locally.
+
+5. Use `git push` to move your new edits up to github.  Note that they go to your fork, not directly to upstream.
+
+6. Create a `pull request` on github.  We do this while looking at our fork. This lets the upstream repo know that you have work ready to contribute. 
 
 The pull request can then be merged by the maintainer of the upstream repo. 
 
-> A PR is a request for the maintainer of the upstream repo to run a `git pull` from your branch on your fork into their repository.
-
+> A PR is a request for the maintainer of the upstream repo to run a `git pull` from your branch on your fork into their repository 
 
 ## Basic forking workflow setup
 
-1.  Group of three: *Maintainer*, *Contributor A*, *Contributor B*.
+1.  Group of three: *Contributor A*, *Maintainer*, *Contributor B*.
 
-**Arrange your chairs so that you can see each others screens. That means sitting kinda back to back, which is unnatural but you do want to easily see what each other are seeing**
+**Arrange your chairs so that you can see each others screens. That means sitting in a row so you can easily see what each other are seeing. Maintainer sits in the middle.** 
+
+```{mermaid}
+flowchart LR
+  ContributorA---|left of|Maintainer---|right of|ContributorB
+```
 
 2.  *Maintainer* creates new repository on github.
 
@@ -75,19 +99,29 @@ The pull request can then be merged by the maintainer of the upstream repo.
 
 ![Image showing fork button in top right](images/fork_button.png)
 
-4.  *Maintainer*, *Contributor A*, *Contributor B* should all clone their individual repo to their laptop. Everyone will have their own username in the URL. You can quickly copy that with this button on github.
+4. *Contributor A* and *Contributor B* should clone their fork repo to their working space. 
 
-![Image showing button that copies the URL](images/clone_repo.png)
+Usually this is a laptop, but this semester we are using [Eduhub Rstudio](http://edupod.cns.utexas.edu/), which you can access as usual via that link.  
 
-Before running git clone, everyone needs to ensure they are in a folder that is not inside another repo. To do this run `git status` and you *want* to see a fatal error.
+Log into Rstudio, and work in the Terminal tab. Before running git clone, everyone needs to ensure they are in a folder that is not inside another repo. You can place repos anywhere you want. I suggest placing them all into your home folder on edupod. You can be sure you are there by running this command (read as "cd tilde" because tilde is a shortcut for your home directory).
+
+```sh
+cd ~
+```
+
+To be sure that you aren't inside another repo you can run `git status` and you *want* to see a fatal error.
 
 ``` sh
 git status
+fatal: not a git repository (or any parent up to mount point /stor/home)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
 ```
 
-    fatal: Not a git repository (or any of the parent directories): .git
+If you do not see the fatal error, then you need to move up in your folder hierarchy until you are not in a repo. Use `cd ..` or `cd ~`. If you still get that error and you are in your home folder, see FAQ for "I accidentally made my home folder a git repo" at @sec-faq-home-git-folder 
 
-If you do not see the fatal error, then you need to move up in your folder hierarchy until you are not in a repo. Use `cd ..`.
+The contributors will have their own github username in the fork URL. You can quickly copy that with this button on github.
+
+![Image showing button that copies the URL](images/clone_repo.png)
 
 Then clone your repository and change directory into it.
 
@@ -98,7 +132,7 @@ $ cd <repository_name>
 ```
 :::
 
-5.  Establish remotes. *Maintainer* does not need to do this, since they have directly cloned the shared repository. *Contributor A* and *Contributor B* will specify the shared repository as "upstream".
+5.  Establish remotes. *Contributor A* and *Contributor B* will specify the shared repository as "upstream".
 
 ::: spoiler
 ``` sh
@@ -106,29 +140,17 @@ $ git remote add upstream <maintainers_repo_url>
 ```
 :::
 
-If setup properly then the `git remote -v` command will show two lines for *Maintainer*, but four lines for *Contributor A* and *Contributor B*:
-
-*Maintainer*
+If setup properly then the `git remote -v` command will show four lines for *Contributor A* and *Contributor B*:
 
 ``` sh
 git remote -v
+origin  <fork_repo_url> (fetch)
+origin  <fork_repo_url> (push)
+upstream <maintainers_repo_url> (fetch)
+upstream <maintainers_repo_url> (push)
 ```
 
-    origin  <fork_repo_url> (fetch)
-    origin  <fork_repo_url> (push)
-
-*Contributor A* and *Contributor B*:
-
-``` sh
-git remote -v
-```
-
-    origin  <fork_repo_url> (fetch)
-    origin  <fork_repo_url> (push)
-    upstream <maintainers_repo_url> (fetch)
-    upstream <maintainers_repo_url> (push)
-
-Note that git automatically creates the `origin` remote as whatever URL was used with `git clone`. This has the odd implication that for the *Maintainer* their `origin` is the shared repository, while for *Contributor A* and *Contributor B* their `origin` is their individual forks.
+Note that git automatically creates the `origin` remote as whatever URL was used with `git clone`. 
 
 Each exercise below assumes this setup as the starting point.
 
@@ -136,9 +158,23 @@ Each exercise below assumes this setup as the starting point.
 
 *Requires three part repository setup as shown above in [Basic forking workflow setup](#basic_forking_workflow_setup)*
 
-Now we are going to use `git push` and Github Pull Requests, followed by `git pull` to collect work from *Maintainer*, *Contributor A*, *Contributor B* and in the shared repo, then synchronize so that everyone has a local copy of everyone's work.
+The contributors are each going to do some work, then pass it up through their forks to the upstream shared repository. This will use `git push` and Github pull requests (which the *Maintainer* will see and approve). We will then use `git pull upstream` so that each contributor gets the work that the other has done.
 
-1.  *Maintainer*, *Contributor A*, *Contributor B* each create a file named after their role (ie maintainer.txt, contributorA.txt, contributorB.txt). Use whichever editor you like (e.g., `vi`, Atom, Rstudio, etc.)
+1. *Contributor A*, *Contributor B* should create a new branch and switch to it (replace <your-role-name> with either contributorA or contributorB:
+
+::: spoiler
+```sh
+git checkout -b <your-role-name>-new-branch
+```
+:::
+
+1.  *Contributor A*, *Contributor B* each create a file named after their role (ie contributorA.txt, contributorB.txt). You can use the Rstudio editor on edupod to create and save the file, or you can create a file with some simple content using:
+
+```sh
+echo "A line of content" >> <your-role-name>.txt
+```
+
+(replace <your-role-name> with maintainerA or maintainerB)
 
 2.  Add and commit your new file.
 
@@ -149,7 +185,7 @@ git commit -m "Contributing a file"
 ```
 :::
 
-3.  Push your new file. By default git push uses `origin` as the destination.
+3.  Push your new file. By default git push uses `origin` as the destination (so this new branch and file will go to your fork)
 
 ::: spoiler
 ``` sh
@@ -157,35 +193,27 @@ git push
 ```
 :::
 
-For *Maintainer* the file has gone directly into the shared repo. For *Contributor A* and *Contributor B* these files are now at their fork, and will need a Pull Request to move to the shared repo.
+The incoming contributions from *Contributor A* and *Contributor B* these files are now at their fork, and will need a Pull Request to move to the shared repo.
 
-4.  *Contributor A* and *Contributor B* go to github and look at their own fork. Github knows that the fork now has material that the shared repo doesn't, and will make a New Pull Request button available.
+4.  *Contributor A* and *Contributor B* go to github and look at their own fork (if you've forgotten the URL you can use `git remote -v` and look next to `origin`. Github knows that the fork now has material that the shared repo doesn't, and will make a New Pull Request button available.
 
 ![Image showing New Pull Request button](images/new_pr_button.png)
 
 Since we created files with unique file names, these PRs will show up as "Able to be automatically merged".
 
-5.  The *Maintainer* should now see a number next to the Pull Request tab:
+5.  The *Maintainer* should now refresh their page (so they are looking at upstream) and they will see a number next to the Pull Request tab:
 
 ![Image showing new Pull Requests available](images/new_pr_available.png)
 
 The *Maintainer* can accept both pull requests, which will merge files into the shared repo.
 
-Now each person needs to synchronize with the shared repo, bringing the new files from the other two group members into their local repo. This uses the `pull` command.
+Now the contributors need to synchronize with the shared repo, bringing the new files from the other contributor into their local repo. This uses the `pull` command.
 
 6.  *Contributor A* and *Contributor B* should pull upstream.
 
 ::: spoiler
 ``` sh
-git pull upstream master
-```
-:::
-
-But *Maintainer* is pulling from their `origin`, so can use the default
-
-::: spoiler
-``` sh
-git pull
+git pull upstream main
 ```
 :::
 
@@ -198,6 +226,8 @@ git push
 :::
 
 I've always thought it is a little strange that a contributor's fork doesn't distribute changes from upstream, but that new work from the shared repo gets to the fork via the contributor's local repo on their laptop. After all, github knows the fork is connected to the shared repo ... but this is the roundabout way it works.
+
+## Once more, but with maintainer editing as well.
 
 <!-- ## Generate merge conflict -->
 
