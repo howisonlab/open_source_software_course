@@ -87,7 +87,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
@@ -131,7 +130,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar docked">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -147,7 +146,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Open Source Software Development: A socio-technical course</a> 
@@ -303,8 +302,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div>
 <p>
 </p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-1">sequenceDiagram
+    participant upstream AS upstream&lt;br /&gt;aka shared/project
+    participant origin AS origin&lt;br /&gt;aka fork
+    participant laptop AS laptop&lt;br /&gt; aka local
+    
     upstream -&gt;&gt;origin : github fork
     origin -&gt;&gt;laptop : git clone
+
     
     laptop -&gt;&gt;laptop : git branch
     laptop -&gt;&gt;laptop : edit/add/commit
@@ -313,7 +317,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
     laptop -&gt;&gt;laptop : edit/add/commit
     
-    note over laptop : Work done, need to&lt;br /&gt;gather changes since clone
+    note over laptop : Work finished, need to&lt;br /&gt;gather changes since clone
     
     upstream -&gt;&gt;laptop : git pull upstream 
     laptop -&gt;&gt;laptop : resolve conflicts&lt;br /&gt;git add/commit

@@ -46,8 +46,13 @@ In the Cloud we see two repositories.  The one on the right called "Upstream" (o
 
 ```{mermaid}
 sequenceDiagram
+    participant upstream AS upstream<br />aka shared/project
+    participant origin AS origin<br />aka fork
+    participant laptop AS laptop<br /> aka local
+    
     upstream ->>origin : github fork
     origin ->>laptop : git clone
+
     
     laptop ->>laptop : git branch
     laptop ->>laptop : edit/add/commit
@@ -56,7 +61,7 @@ sequenceDiagram
 
     laptop ->>laptop : edit/add/commit
     
-    note over laptop : Work done, need to<br />gather changes since clone
+    note over laptop : Work finished, need to<br />gather changes since clone
     
     upstream ->>laptop : git pull upstream 
     laptop ->>laptop : resolve conflicts<br />git add/commit

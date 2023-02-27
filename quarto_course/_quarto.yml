@@ -7,7 +7,8 @@ book:
   author: "James Howison (and contributing TAs)"
   page-navigation: true
   sidebar:
-    style: "docked"
+    style: "floating"
+    pinned: true
   chapters:
     - index.qmd
     - oss_syllabus.Rmd

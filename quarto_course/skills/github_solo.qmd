@@ -96,3 +96,79 @@ git push
 ```
 
 Rstudio on EduPod will pop up a window for your username/password.  You must use the email address associated with your GitHub account, together with your PAT.  Your regular GitHub password will not work. You have to use the PAT you created in the previous step.  If you didn't copy it down, you can create a new one, don't forget to store it somewhere so that you can copy it for use in class.
+
+You may also see a message about needing to set an upstream branch. Something like this:
+
+```bash
+$ git push
+fatal: The current branch test-branch has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin test-branch
+```
+
+You can copy that suggested command within terminal as run it.  This tells git to create your new branch on the origin remote.
+
+## Find your branch on GitHub, create and merge Pull Request
+
+On GitHub you can now find your branch using the Branch drop-down.
+
+![Image of drop down menu for branches, shows for-pull-request and master](images/selecting_branch_on_github.png)
+
+Select that and you will see a "Compare & pull request button"
+
+![Image of Compare and Pull Request Button](images/compare_and_pr.png)
+
+When you click the green button you will see:
+
+![Image showing New PR interface. A purple circle highlights the section discussed below](images/create_pr.png)
+
+Notice the purple circle that shows `base: main <-- compare: new-feature`. Notice that the arrow points right to left. The destination of the PR comes first (here it is `main`) and the place we are merging from comes second (here it is `new-feature`).
+
+The interface shows that the branches can be merged automatically. This means that the changes in the `new-feature` branch would not cause conflicts if merged into `main`.
+
+You can go ahead and Create the PR.
+
+This will lead to a PR page, where you could chat about the suggested changes.
+
+![Image showing PR. A purple circle highlights the section discussed below](images/pr_ready_to_merge.png)
+
+Notice the sentence in the purple circle: `jameshowison wants to merge 1 commit into main from new-feature` that is a useful succient summary of what a PR is: it is a request to merge a set of commits from one branch into another.
+
+If you hit the "Merge Pull Request" button GitHub will merge the branch to main, close the PR, and suggest that you delete the branch.
+
+## Synchronize your local repo
+
+All the PR steps have happened on GitHub only, so they aren't yet reflected in your local repo.  We have merged `new-feature` to `main` on GitHub.
+
+At this point you need to synchronize by first switching to main:
+
+```sh
+git checkout main
+```
+
+and then get changes from the remote
+
+```sh
+git pull
+```
+
+## Summary figure:
+
+::: column-screen-inset
+```{mermaid}
+sequenceDiagram
+    participant GitHub_main AS GitHub main 
+    participant local 
+    participant local_new AS local new-feature
+    participant GitHub_new AS GitHub new-feature
+    
+    GitHub_main ->>local : git clone
+    local ->> local_new : git checkout -b new-feature
+    local_new ->> local_new : edit/add/commit
+    local_new ->> GitHub_new : git push
+    GitHub_new ->> GitHub_main : Create/Merge Pull Request
+    GitHub_main ->> local : git checkout main / git pull
+    
+```
+:::

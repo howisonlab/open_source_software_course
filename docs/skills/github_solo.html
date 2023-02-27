@@ -87,7 +87,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
@@ -125,12 +124,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar docked">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -146,7 +148,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Open Source Software Development: A socio-technical course</a> 
@@ -264,11 +266,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#editsaveaddcommit-as-usual" id="toc-editsaveaddcommit-as-usual" class="nav-link" data-scroll-target="#editsaveaddcommit-as-usual"><span class="toc-section-number">10.4</span>  Edit/Save/Add/Commit as usual</a></li>
   <li><a href="#obtain-special-password-for-commandline-git-pat" id="toc-obtain-special-password-for-commandline-git-pat" class="nav-link" data-scroll-target="#obtain-special-password-for-commandline-git-pat"><span class="toc-section-number">10.5</span>  Obtain special password for commandline git (PAT)</a></li>
   <li><a href="#send-your-changes-up-to-github" id="toc-send-your-changes-up-to-github" class="nav-link" data-scroll-target="#send-your-changes-up-to-github"><span class="toc-section-number">10.6</span>  Send your changes up to GitHub</a></li>
+  <li><a href="#find-your-branch-on-github-create-and-merge-pull-request" id="toc-find-your-branch-on-github-create-and-merge-pull-request" class="nav-link" data-scroll-target="#find-your-branch-on-github-create-and-merge-pull-request"><span class="toc-section-number">10.7</span>  Find your branch on GitHub, create and merge Pull Request</a></li>
+  <li><a href="#synchronize-your-local-repo" id="toc-synchronize-your-local-repo" class="nav-link" data-scroll-target="#synchronize-your-local-repo"><span class="toc-section-number">10.8</span>  Synchronize your local repo</a></li>
+  <li><a href="#summary-figure" id="toc-summary-figure" class="nav-link" data-scroll-target="#summary-figure"><span class="toc-section-number">10.9</span>  Summary figure:</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -349,6 +354,87 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The <code>git push</code> command will move any new work from your local repo, up to GitHub.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Rstudio on EduPod will pop up a window for your username/password. You must use the email address associated with your GitHub account, together with your PAT. Your regular GitHub password will not work. You have to use the PAT you created in the previous step. If you didn’t copy it down, you can create a new one, don’t forget to store it somewhere so that you can copy it for use in class.</p>
+<p>You may also see a message about needing to set an upstream branch. Something like this:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git push</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">fatal:</span> The current branch test-branch has no upstream branch.</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">To</span> push the current branch and set the remote as upstream, use</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">git</span> push <span class="at">--set-upstream</span> origin test-branch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can copy that suggested command within terminal as run it. This tells git to create your new branch on the origin remote.</p>
+</section>
+<section id="find-your-branch-on-github-create-and-merge-pull-request" class="level2" data-number="10.7">
+<h2 data-number="10.7" class="anchored" data-anchor-id="find-your-branch-on-github-create-and-merge-pull-request"><span class="header-section-number">10.7</span> Find your branch on GitHub, create and merge Pull Request</h2>
+<p>On GitHub you can now find your branch using the Branch drop-down.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/selecting_branch_on_github.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Image of drop down menu for branches, shows for-pull-request and master</figcaption><p></p>
+</figure>
+</div>
+<p>Select that and you will see a “Compare &amp; pull request button”</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/compare_and_pr.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Image of Compare and Pull Request Button</figcaption><p></p>
+</figure>
+</div>
+<p>When you click the green button you will see:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/create_pr.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Image showing New PR interface. A purple circle highlights the section discussed below</figcaption><p></p>
+</figure>
+</div>
+<p>Notice the purple circle that shows <code>base: main &lt;-- compare: new-feature</code>. Notice that the arrow points right to left. The destination of the PR comes first (here it is <code>main</code>) and the place we are merging from comes second (here it is <code>new-feature</code>).</p>
+<p>The interface shows that the branches can be merged automatically. This means that the changes in the <code>new-feature</code> branch would not cause conflicts if merged into <code>main</code>.</p>
+<p>You can go ahead and Create the PR.</p>
+<p>This will lead to a PR page, where you could chat about the suggested changes.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/pr_ready_to_merge.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Image showing PR. A purple circle highlights the section discussed below</figcaption><p></p>
+</figure>
+</div>
+<p>Notice the sentence in the purple circle: <code>jameshowison wants to merge 1 commit into main from new-feature</code> that is a useful succient summary of what a PR is: it is a request to merge a set of commits from one branch into another.</p>
+<p>If you hit the “Merge Pull Request” button GitHub will merge the branch to main, close the PR, and suggest that you delete the branch.</p>
+</section>
+<section id="synchronize-your-local-repo" class="level2" data-number="10.8">
+<h2 data-number="10.8" class="anchored" data-anchor-id="synchronize-your-local-repo"><span class="header-section-number">10.8</span> Synchronize your local repo</h2>
+<p>All the PR steps have happened on GitHub only, so they aren’t yet reflected in your local repo. We have merged <code>new-feature</code> to <code>main</code> on GitHub.</p>
+<p>At this point you need to synchronize by first switching to main:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>and then get changes from the remote</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="summary-figure" class="level2 page-columns page-full" data-number="10.9">
+<h2 data-number="10.9" class="anchored" data-anchor-id="summary-figure"><span class="header-section-number">10.9</span> Summary figure:</h2>
+<div class="column-screen-inset">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-1">sequenceDiagram
+    participant GitHub_main AS GitHub main 
+    participant local 
+    participant local_new AS local new-feature
+    participant GitHub_new AS GitHub new-feature
+    
+    GitHub_main -&gt;&gt;local : git clone
+    local -&gt;&gt; local_new : git checkout -b new-feature
+    local_new -&gt;&gt; local_new : edit/add/commit
+    local_new -&gt;&gt; GitHub_new : git push
+    GitHub_new -&gt;&gt; GitHub_main : Create/Merge Pull Request
+    GitHub_main -&gt;&gt; local : git checkout main / git pull
+    
+</pre>
+<div id="mermaid-tooltip-1" class="mermaidTooltip">
+
+</div>
+<p></p>
+</div>
+</div>
+</div>
+</div>
 
 
 </section>
