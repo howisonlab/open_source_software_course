@@ -22,7 +22,7 @@ Once you've created the repository you will see a "Quick Setup" page. This shows
 
 ![](images/new_repo_url.png)
 
-You should copy the URL using the little grey box-on-box that looks something like: {{< fa light copy title="A box-on-box copy icon">}}
+You should copy the URL using the little grey box-on-box on the right.
 
 ## Clone the repo to your local space
 

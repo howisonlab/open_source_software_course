@@ -160,27 +160,27 @@ Each exercise below assumes this setup as the starting point.
 
 The contributors are each going to do some work, then pass it up through their forks to the upstream shared repository. This will use `git push` and Github pull requests (which the *Maintainer* will see and approve). We will then use `git pull upstream` so that each contributor gets the work that the other has done.
 
-1. *Contributor A*, *Contributor B* should create a new branch and switch to it (replace <your-role-name> with either contributorA or contributorB:
+1. *Contributor A*, *Contributor B* should create a new branch and switch to it (replace YOUR_ROLE_NAME with either contributorA or contributorB):
 
 ::: spoiler
 ```sh
-git checkout -b <your-role-name>-new-branch
+git checkout -b YOUR_ROLE_NAME-new-branch
 ```
 :::
 
 1.  *Contributor A*, *Contributor B* each create a file named after their role (ie contributorA.txt, contributorB.txt). You can use the Rstudio editor on edupod to create and save the file, or you can create a file with some simple content using:
 
 ```sh
-echo "A line of content" >> <your-role-name>.txt
+echo "A line of content" >> YOUR_ROLE_NAME.txt
 ```
 
-(replace <your-role-name> with maintainerA or maintainerB)
+(replace YOUR_ROLE_NAME with maintainerA or maintainerB)
 
 2.  Add and commit your new file.
 
 ::: spoiler
 ``` sh
-git add <your_new_file>
+git add YOUR_ROLE_NAME
 git commit -m "Contributing a file"
 ```
 :::
