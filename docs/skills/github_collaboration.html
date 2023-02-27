@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Open Source Software Development: A socio-technical course - 11&nbsp; Github collaboration</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../skills/skills_faq.html" rel="next">
+<link href="../skills/github_solo.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Github collaboration</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Open Source Software Development: A socio-technical course</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Open Source Software Development: A socio-technical course</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../oss_syllabus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Syllabus for Open Source Software Development</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Insights</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/what_is_open_source.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction: What is open source?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/motivations.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Motivations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/licenses.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Licenses</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/coordination.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Coordination</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Skills</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/git_basic_workflow.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Git basic workflow</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/git_rewinding_work.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Rewinding work</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/branching.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Local branching with Git.</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/github_solo.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">GitHub solo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/github_collaboration.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Github collaboration</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Appendices</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/skills_faq.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Skills faq</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#collaboration-picture" id="toc-collaboration-picture" class="nav-link active" data-scroll-target="#collaboration-picture"><span class="toc-section-number">11.1</span>  Collaboration picture</a></li>
+  <li><a href="#basic-forking-workflow-setup" id="toc-basic-forking-workflow-setup" class="nav-link" data-scroll-target="#basic-forking-workflow-setup"><span class="toc-section-number">11.2</span>  Basic forking workflow setup</a></li>
+  <li><a href="#sharing-work-and-synchronizing" id="toc-sharing-work-and-synchronizing" class="nav-link" data-scroll-target="#sharing-work-and-synchronizing"><span class="toc-section-number">11.3</span>  Sharing work and synchronizing</a></li>
+  <li><a href="#once-more-but-with-maintainer-editing-as-well." id="toc-once-more-but-with-maintainer-editing-as-well." class="nav-link" data-scroll-target="#once-more-but-with-maintainer-editing-as-well."><span class="toc-section-number">11.4</span>  Once more, but with maintainer editing as well.</a></li>
+  <li><a href="#generate-merge-conflict" id="toc-generate-merge-conflict" class="nav-link" data-scroll-target="#generate-merge-conflict"><span class="toc-section-number">11.5</span>  Generate merge conflict</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-github-collaboration" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Github collaboration</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="cell">
+
+</div>
+<p>Exercises done in groups of three.</p>
+<p>Incidentally <a href="http://socio.ch/sim/work.htm">George Simmel</a> in early 20th century says that everything changes when you go from 1 to 2 people (a dyad), and then again going from 2 to 3 (a triad). He said that because at 3 people it’s the first time you can be outvoted :) Check it out.</p>
+<section id="collaboration-picture" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="collaboration-picture"><span class="header-section-number">11.1</span> Collaboration picture</h2>
+<p><img src="images/Git-MovingStuffAround.png" class="img-fluid"></p>
+<p>In the image above we can see the overall situation when people are collaborating through a git hosting service like github.</p>
+<p>At the top we see the “Github Cloud” and at the bottom we see our laptop. Everything we have done so far (<code>edit-save-add-commit</code> and <code>branching</code>) happens on the laptop.</p>
+<p>In the Cloud we see two repositories. The one on the right called “Upstream” (or sometimes “Project” or “Shared”) is the space where all our work will collect. The one on the left called “Origin” is our cloud copy of the shared repository. You can think of a fork as a backup space for the repo on your laptop; the fork lives in your github account namespace.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-1">sequenceDiagram
+    upstream -&gt;&gt;origin : github fork
+    origin -&gt;&gt;laptop : git clone
+    
+    laptop -&gt;&gt;laptop : git branch
+    laptop -&gt;&gt;laptop : edit/add/commit
+    
+    upstream -&gt;&gt;upstream : maintainer commits&lt;br /&gt;or pull requests&lt;br /&gt;from others merged
+
+    laptop -&gt;&gt;laptop : edit/add/commit
+    
+    note over laptop : Work done, need to&lt;br /&gt;gather changes since clone
+    
+    upstream -&gt;&gt;laptop : git pull upstream 
+    laptop -&gt;&gt;laptop : resolve conflicts&lt;br /&gt;git add/commit
+    laptop -&gt;&gt;origin : git push
+    origin -&gt;&gt;upstream : github pull request
+</pre>
+<div id="mermaid-tooltip-1" class="mermaidTooltip">
+
+</div>
+<p></p>
+</div>
+</div>
+</div>
+<p>There are 6 steps to this workflow (also depicted in diagram below)</p>
+<ol type="1">
+<li><p>We create a fork of the upstream repo. This happens on github.</p></li>
+<li><p>Bring that fork down to our laptop where we can work on it. This is done using <code>git clone</code> a command that is run on the laptop. We pass <code>git clone</code> the URL of the fork.</p></li>
+<li><p>Use <code>git branch</code> and <code>git checkout</code> to create a branch, then the <code>edit-save-add-commit</code> as usual.</p></li>
+<li><p>Synchronize using <code>git pull upstream</code> to get any work that has happened in upstream since you cloned your fork. Such work might come from the maintainers of the project doing their own work there, or the maintainers merging in pull requests from other contributors. This is quite similar to merging <code>main</code> to our branches if working locally.</p></li>
+<li><p>Use <code>git push</code> to move your new edits up to github. Note that they go to your fork, not directly to upstream.</p></li>
+<li><p>Create a <code>pull request</code> on github. We do this while looking at our fork. This lets the upstream repo know that you have work ready to contribute.</p></li>
+</ol>
+<p>The pull request can then be merged by the maintainer of the upstream repo.</p>
+<blockquote class="blockquote">
+<p>A PR is a request for the maintainer of the upstream repo to run a <code>git pull</code> from your branch on your fork into their repository</p>
+</blockquote>
+</section>
+<section id="basic-forking-workflow-setup" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="basic-forking-workflow-setup"><span class="header-section-number">11.2</span> Basic forking workflow setup</h2>
+<ol type="1">
+<li>Group of three: <em>Contributor A</em>, <em>Maintainer</em>, <em>Contributor B</em>.</li>
+</ol>
+<p><strong>Arrange your chairs so that you can see each others screens. That means sitting in a row so you can easily see what each other are seeing. Maintainer sits in the middle.</strong></p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-2">flowchart LR
+  ContributorA---|left of|Maintainer---|right of|ContributorB
+</pre>
+<div id="mermaid-tooltip-2" class="mermaidTooltip">
+
+</div>
+<p></p>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li><p><em>Maintainer</em> creates new repository on github.</p></li>
+<li><p><em>Contributor A</em> and <em>Contributor B</em> log into github, find the new repository created by <em>Maintainer</em> and fork it.</p></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/fork_button.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Image showing fork button in top right</figcaption><p></p>
+</figure>
+</div>
+<ol start="4" type="1">
+<li><em>Contributor A</em> and <em>Contributor B</em> should clone their fork repo to their working space.</li>
+</ol>
+<p>Usually this is a laptop, but this semester we are using <a href="http://edupod.cns.utexas.edu/">Eduhub Rstudio</a>, which you can access as usual via that link.</p>
+<p>Log into Rstudio, and work in the Terminal tab. Before running git clone, everyone needs to ensure they are in a folder that is not inside another repo. You can place repos anywhere you want. I suggest placing them all into your home folder on edupod. You can be sure you are there by running this command (read as “cd tilde” because tilde is a shortcut for your home directory).</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To be sure that you aren’t inside another repo you can run <code>git status</code> and you <em>want</em> to see a fatal error.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">fatal:</span> not a git repository <span class="er">(</span><span class="ex">or</span> any parent up to mount point /stor/home<span class="kw">)</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Stopping</span> at filesystem boundary <span class="er">(</span><span class="ex">GIT_DISCOVERY_ACROSS_FILESYSTEM</span> not set<span class="kw">)</span><span class="bu">.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If you do not see the fatal error, then you need to move up in your folder hierarchy until you are not in a repo. Use <code>cd ..</code> or <code>cd ~</code>. If you still get that error and you are in your home folder, see FAQ for “I accidentally made my home folder a git repo” at <a href="skills_faq.html#sec-faq-home-git-folder"><span>Section&nbsp;A.2</span></a></p>
+<p>The contributors will have their own github username in the fork URL. You can quickly copy that with this button on github.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clone_repo.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Image showing button that copies the URL</figcaption><p></p>
+</figure>
+</div>
+<p>Then clone your repository and change directory into it.</p>
+<div class="spoiler">
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git clone <span class="op">&lt;</span>fork_repo_url<span class="op">&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd <span class="op">&lt;</span>repository_name<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="5" type="1">
+<li>Establish remotes. <em>Contributor A</em> and <em>Contributor B</em> will specify the shared repository as “upstream”.</li>
+</ol>
+<div class="spoiler">
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git remote add upstream <span class="op">&lt;</span>maintainers_repo_url<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If setup properly then the <code>git remote -v</code> command will show four lines for <em>Contributor A</em> and <em>Contributor B</em>:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote <span class="at">-v</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">origin</span>  <span class="op">&lt;</span>fork_repo_url<span class="op">&gt;</span> <span class="er">(</span><span class="ex">fetch</span><span class="kw">)</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">origin</span>  <span class="op">&lt;</span>fork_repo_url<span class="op">&gt;</span> <span class="er">(</span><span class="ex">push</span><span class="kw">)</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">upstream</span> <span class="op">&lt;</span>maintainers_repo_url<span class="op">&gt;</span> <span class="er">(</span><span class="ex">fetch</span><span class="kw">)</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">upstream</span> <span class="op">&lt;</span>maintainers_repo_url<span class="op">&gt;</span> <span class="er">(</span><span class="ex">push</span><span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note that git automatically creates the <code>origin</code> remote as whatever URL was used with <code>git clone</code>.</p>
+<p>Each exercise below assumes this setup as the starting point.</p>
+</section>
+<section id="sharing-work-and-synchronizing" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="sharing-work-and-synchronizing"><span class="header-section-number">11.3</span> Sharing work and synchronizing</h2>
+<p><em>Requires three part repository setup as shown above in <a href="#basic_forking_workflow_setup">Basic forking workflow setup</a></em></p>
+<p>The contributors are each going to do some work, then pass it up through their forks to the upstream shared repository. This will use <code>git push</code> and Github pull requests (which the <em>Maintainer</em> will see and approve). We will then use <code>git pull upstream</code> so that each contributor gets the work that the other has done.</p>
+<ol type="1">
+<li><em>Contributor A</em>, <em>Contributor B</em> should create a new branch and switch to it (replace <your-role-name> with either contributorA or contributorB:</your-role-name></li>
+</ol>
+<div class="spoiler">
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> <span class="op">&lt;</span>your-role-name<span class="op">&gt;</span>-new-branch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol type="1">
+<li><em>Contributor A</em>, <em>Contributor B</em> each create a file named after their role (ie contributorA.txt, contributorB.txt). You can use the Rstudio editor on edupod to create and save the file, or you can create a file with some simple content using:</li>
+</ol>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"A line of content"</span> <span class="op">&gt;&gt;</span> <span class="op">&lt;</span>your-role-name<span class="op">&gt;</span>.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>(replace <your-role-name> with maintainerA or maintainerB)</your-role-name></p>
+<ol start="2" type="1">
+<li>Add and commit your new file.</li>
+</ol>
+<div class="spoiler">
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="op">&lt;</span>your_new_file<span class="op">&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Contributing a file"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Push your new file. By default git push uses <code>origin</code> as the destination (so this new branch and file will go to your fork)</li>
+</ol>
+<div class="spoiler">
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note, if you have trouble with GitHub authentication, remember that it is the email address associated with the GitHub account and the password has to be a PAT. That is the special password you copied from the GitHub site. See <a href="github_solo.html"><span>Chapter&nbsp;10</span></a> for details.</p>
+<p>You may also see a message about having an upstream branch. Something like this:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git push</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">fatal:</span> The current branch test-branch has no upstream branch.</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="ex">To</span> push the current branch and set the remote as upstream, use</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">git</span> push <span class="at">--set-upstream</span> origin test-branch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can re-run the command as given (copy from in Terminal).</p>
+<p>The incoming contributions from <em>Contributor A</em> and <em>Contributor B</em> these files are now at their fork, and will need a Pull Request to move to the shared repo.</p>
+<ol start="4" type="1">
+<li><em>Contributor A</em> and <em>Contributor B</em> go to github and look at their own fork (if you’ve forgotten the URL you can use <code>git remote -v</code> and look next to <code>origin</code>. Github knows that the fork now has material that the shared repo doesn’t, and will make a New Pull Request button available.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/selecting_branch_on_github.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Image of drop down menu for branches, shows for-pull-request and master</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/create_pr_screen.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Create PR screen</figcaption><p></p>
+</figure>
+</div>
+<p>Since we created files with unique file names, these PRs will show up as “Able to be automatically merged”.</p>
+<ol start="5" type="1">
+<li>The <em>Maintainer</em> should now refresh their page (so they are looking at upstream) and they will see a number next to the Pull Request tab:</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/new_pr_available.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Image showing new Pull Requests available</figcaption><p></p>
+</figure>
+</div>
+<p>The <em>Maintainer</em> can accept both pull requests, which will merge files into the main branch on the shared repo.</p>
+<div class="spoiler">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/merge_pr.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Image of accepting PR</figcaption><p></p>
+</figure>
+</div>
+</div>
+<p>Now the contributors need to synchronize with the shared repo. They first have to switch to the main branch, then they can use <code>git pull</code> to bring the new files from the other contributor into their local repo.</p>
+<ol start="6" type="1">
+<li><em>Contributor A</em> and <em>Contributor B</em> should swith to main, then pull upstream.</li>
+</ol>
+<div class="spoiler">
+<div class="sourceCode" id="cb11"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout master</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull upstream main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="7" type="1">
+<li>Finally, <em>Contributor A</em> and <em>Contributor B</em> will push these new changes from the shared repo up to their forks.</li>
+</ol>
+<div class="spoiler">
+<div class="sourceCode" id="cb12"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>I’ve always thought it is a little strange that a contributor’s fork doesn’t distribute changes from upstream, but that new work from the shared repo gets to the fork via the contributor’s local repo on their laptop. After all, github knows the fork is connected to the shared repo … but this is the roundabout way it works.</p>
+</section>
+<section id="once-more-but-with-maintainer-editing-as-well." class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="once-more-but-with-maintainer-editing-as-well."><span class="header-section-number">11.4</span> Once more, but with maintainer editing as well.</h2>
+<p>In the exercise above you may have noticed that the maintainer was not editing and contributing files, only ContributorA and ContributorB were.</p>
+<p>The maintainer is the owner of the shared repository (which we call “upstream”). For this reason they can work directly in that repository, and they don’t need to make their own fork.</p>
+<p><em>For the maintainer upstream and origin are the same</em></p>
+<p>The maintainer can directly use <code>git clone</code> on the shared repository.</p>
+<p>The maintainer can still create pull requests. This places them on an equal footing with other contributors, so everyone else can follow the work and comment on it. Maintainers can make a pull request from a branch in their repository to another branch (usually main/master).</p>
+<p>This gives us another insight: a Github pull request is from a branch to another branch; it doesn’t matter if those branches are in forked repos or in the same repo.</p>
+<ol type="1">
+<li><em>Maintainer</em> should clone the shared repo</li>
+</ol>
+<div class="sourceCode" id="cb13"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="op">&lt;</span>maintainer_url<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If the maintainer then runs:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote <span class="at">-v</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>they will see:</p>
+<pre><code>origin  &lt;maintainer_repo_url&gt; (fetch)
+origin  &lt;maintainer_repo_url&gt; (push)</code></pre>
+<p>So … for the maintainer (the owner of the shared repo) the shared repo on their clone is called origin, but those the maintainers (who are working through a fork) it is called upstream. This can be a little confusing. Remember that when we run <code>git clone</code> git automatically sets up a remote called ‘origin’.</p>
+<ol start="2" type="1">
+<li><em>Maintainer</em> creates a branch and changes to it:</li>
+</ol>
+<pre><code>git checkout -b new-maintainer-branch</code></pre>
+<ol start="3" type="1">
+<li><em>Maintainer</em> creates and saves a file called ‘maintainer.txt’</li>
+</ol>
+<p>You can do this with the same command that the Contributors used:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Content for the file"</span> <span class="op">&gt;&gt;</span> maintainer.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="4" type="1">
+<li><em>Maintainer</em> pushes up to the shared repo. Remember: GitHub email/PAT token as password. See <a href="github_solo.html"><span>Chapter&nbsp;10</span></a> You may also need to re-run the command with <code>set-upstream</code> to set up the branch on the remote repo.</li>
+</ol>
+<pre><code>git push</code></pre>
+<p>Since the maintainer is working on a new branch, this creates a new branch on the shared repo on github.</p>
+<ol start="5" type="1">
+<li><em>Maintainer</em> views the new branch on github, creating a pull request.</li>
+</ol>
+<p>This pull request is a request (to themselves) to bring the code from the new-maintainer-branch branch to main.</p>
+<ol start="6" type="1">
+<li><p><em>ContributorA</em> and <em>ContributorB</em> should find the new PR (on the shared repo) and make comments (e.g., “Hey, looks good”).</p></li>
+<li><p>The <em>Maintainer</em> should merge the branch and close the PR.</p></li>
+<li><p>Everyone should update their own local repo (on Rstudio). Everyone needs to switch to main (because that is where the PRs are merged to).</p></li>
+</ol>
+<pre><code>git checkout main</code></pre>
+<p>Then obtaining the changes, differs slightly between roles:</p>
+<ul>
+<li>Contributors (who are working through a fork) will need to get the changes from upstream so they need to pull from upstream main, then push to their forks</li>
+</ul>
+<pre><code>git pull upstream main
+git push</code></pre>
+<ul>
+<li>The maintainer (who cloned the shared repo) will just need <code>git pull</code>. They don’t need to push because the changes are already in the repo they cloned from.</li>
+</ul>
+<pre><code>git pull</code></pre>
+</section>
+<section id="generate-merge-conflict" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="generate-merge-conflict"><span class="header-section-number">11.5</span> Generate merge conflict</h2>
+<p>(If starting here, confirm that your Group of three has the setup in <a href="#basic_forking_workflow_setup">Basic forking workflow setup</a> as the starting point.)</p>
+<p>The point of this exercise is to intentionally create conflicts in editing, to demonstrate how they show up in Pull Requests.</p>
+<ol type="1">
+<li><em>Maintainer</em> should change to the main branch on their local repo (on EduPod Rstudio)</li>
+</ol>
+<pre><code>git checkout main</code></pre>
+<ol start="2" type="1">
+<li><em>Maintainer</em> should then create, add, commit, and push a file called <code>animals.txt</code> with this content:</li>
+</ol>
+<pre><code>lion
+tiger
+leopard
+turtle</code></pre>
+<ol start="3" type="1">
+<li><em>Contributor A</em> and <em>Contributor B</em> should synchronize to receive this file.</li>
+</ol>
+<div class="spoiler">
+<div class="sourceCode" id="cb24"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull upstream main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li><em>Contributor A</em> and <em>Contributor B</em> should both create and switch to a branch.</li>
+</ol>
+<div class="sourceCode" id="cb25"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> animal-branch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>5, <em>Contributor A</em> and <em>Contributor B</em> should each edit the animals.txt file by adding their name to the first line in the <code>animals.txt</code> (so it reads <code>lion contributorA</code> or <code>lion contributorB</code>). They add, commit, push to their forks.</p>
+<p><strong>Note that these edits are incompatible, so they will generate a conflict when we try to merge them below</strong></p>
+<ol start="5" type="1">
+<li><p><em>Contributor A</em> and <em>Contributor B</em> should then go to github and look at their animal-branch on their forks. They should create a pull request by hitting the ‘New Pull Request’ button. Note that the pull request will not say “Able to automatically merge” (but go ahead and create the PR anyway.)</p></li>
+<li><p>With everyone looking at <em>Maintainer</em>’s computer, <em>Maintainer</em> should refresh the github page for the shared repository and will see two pull-requests in the pull-request tab.</p></li>
+</ol>
+<p>The maintainer should accept each PR, but will need to resolve any conflicts that emerge. For small edits like this, we can edit the file on the github website. The maintainer can choose whatever contributions they want (the original line, the line from ContributorA, or the line from ContributorB; or both. When we resolve conflicts however the file is after removing the <code>&lt;&lt;&lt;&lt;&lt;</code> <code>========</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;</code> lines will be what is in the shared repository.</p>
+<ol start="6" type="1">
+<li>Each person should then synchronize. For <em>Maintainer</em> that just means <code>git pull</code> (since they have a direct clone of upstream). For <em>Contributor B</em> and <em>Contributor A</em> they have to first get the changes in upstream, then push them to their fork.</li>
+</ol>
+<div class="spoiler">
+<div class="sourceCode" id="cb26"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git pull upstream master</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<!-- # Once more, but with branches -->
+<!-- In the exercises above all the work was on the `master` branch. That was to keep things simple, but in reality new work should always be on a branch, usually called a (short-lived) "feature branch". Pull requests then come from the feature branch to the master branch on the shared repo. This is also true for *Maintainer* as well as *Contributor A* and *Contributor B*, the only difference for the *Maintainer* is that their pull request is from a branch inside the shared repo, while the *Contributor A* and *Contributor B* is from a branch in a different repository. -->
+<!-- (If starting here, confirm that your Group of three has the setup in [Basic forking workflow setup](#basic_forking_workflow_setup) as the starting point.) -->
+<!-- 1.  On local, create a branch (`for-pull-request`) -->
+<!-- ::: spoiler -->
+<!-- ``` sh -->
+<!-- $ git checkout -b for-pull-request -->
+<!-- Switched to a new branch 'for-pull-request' -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- 2.  Edit a file named after your role (ie "maintainer.txt", "contributorA.txt", or "contributorB.txt"), add, commit. -->
+<!-- ::: spoiler -->
+<!-- ``` sh -->
+<!-- git add <your file> -->
+<!-- git commit -m "Edit to send via pull request" -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- 3.  Push the branch to origin (`git push` will fail but the error message will show you a command that will run). Note that is the fork for *Contributor A* and *Contributor B* but the shared repo for *Maintainer*, but called `origin` for everyone. -->
+<!-- ::: spoiler -->
+<!-- ``` sh -->
+<!-- $ git push -->
+<!-- ``` -->
+<!--     fatal: The current branch for-pull-request has no upstream branch. -->
+<!--     To push the current branch and set the remote as upstream, use -->
+<!--         git push --set-upstream origin for-pull-request -->
+<!-- Copy the `--set-upstream` line and execute. Note that the "upstream" here has nothing to do with the "upstream" remote (which is a name for the shared repo). Here it means "which remote should be connected to this branch" and almost always that is going to be an identically named branch in `origin`. -->
+<!-- ``` sh -->
+<!-- $git push --set-upstream origin for-pull-request -->
+<!-- ``` -->
+<!--     Total 0 (delta 0), reused 0 (delta 0) -->
+<!--     remote:  -->
+<!--     remote: Create a pull request for 'for-pull-request' on GitHub by visiting: -->
+<!--     remote:      https://github.com/jameshowison/pp2019_pr_owner/pull/new/for-pull-request -->
+<!--     remote:  -->
+<!--     To https://github.com/jameshowison/pp2019_pr_owner.git -->
+<!--      * [new branch]      for-pull-request -> for-pull-request -->
+<!--     Branch for-pull-request set up to track remote branch for-pull-request from origin. -->
+<!-- ::: -->
+<ol start="4" type="1">
+<li>On github, make sure you are looking at the new branch (by choosing it from drop down menu) and open a PR from the new branch to <code>master</code> on the shared repo. All should do this (<em>Maintainer</em>, <em>Contributor A</em>, and <em>Contributor B</em>).</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/selecting_branch_on_github.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Image of drop down menu for branches, shows for-pull-request and master</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/new_pr_button.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">New Pull Request button</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/create_pr_screen.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Create PR screen</figcaption><p></p>
+</figure>
+</div>
+<ol start="5" type="1">
+<li><em>Maintainer</em> can then accept all three PRs on github.</li>
+</ol>
+<div class="spoiler">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/merge_pr.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Image of accepting PR</figcaption><p></p>
+</figure>
+</div>
+</div>
+<ol start="6" type="1">
+<li>For all three, <em>Maintainer</em>, <em>Contributor A</em>, and <em>Contributor B</em>, back on local, switch to master.</li>
+</ol>
+<div class="spoiler">
+<div class="sourceCode" id="cb27"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git checkout master</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Switched</span> to branch <span class="st">'master'</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Your</span> branch is up-to-date with <span class="st">'origin/master'</span>.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="7" type="1">
+<li><p>Pull changes.</p>
+<div class="spoiler">
+</div></li>
+</ol>
+<div class="sourceCode" id="cb28"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!-- remote: Enumerating objects: 1, done. remote: Counting objects: 100% (1/1), done. remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0 Unpacking objects: 100% (1/1), done. From https://github.com/jameshowison/pp2019_pr_owner 36cd034..6d0673d master -\> origin/master Updating 36cd034..6d0673d Fast-forward README.md \| 1 + 1 file changed, 1 insertion(+) \$ git status On branch master Your branch is up-to-date with 'origin/master'. -->
+<!-- nothing to commit, working tree clean -->
+<!--     </div> -->
+<!--     8. Delete the branch locally and on github -->
+<!--     <div class="spoiler"> -->
+<!--     ```sh -->
+<!--     $ git branch -d for-pull-request -->
+<!--     Deleted branch for-pull-request (was 01541c3). -->
+<!--     $git push origin --delete for-pull-request -->
+<!--     To https://github.com/jameshowison/pp2019_pr_owner.git -->
+<!--      - [deleted]         for-pull-request -->
+<!-- # Tags -->
+<!-- Tags help identify important points in the version history. They are also used for releases on github. They point to a specific commit, but are human readable, rather than the hash. So they are like a bookmark which brings you directly to a specific point in the repo history. -->
+<!-- Your task is to create three tags, `tag-animals`, `tag-colors`, `tag-noises` which reflect the merge points of different branches. -->
+<!-- 1.  Have *Maintainer* create a repository, and start with the file having only animals. -->
+<!-- 2.  *Maintainer* tag repo with `tag-animals` -->
+<!-- 3.  *Contributor A* create a branch `colors-for-tag`. *Contributor B* and *Maintainer* contribute to that branch (`lion yellow`) via pull requests. -->
+<!-- 4.  *Contributor A* merge `colors-for-tag` branch to master, than tag master as `tag-colors`. -->
+<!-- 5.  *Contributor B* create branch `noises-for-tag`. *Contributor A* and *Maintainer* contribute to that branch as well. (`lion yellow roar`) -->
+<!-- 6.  *Contributor B* merges that branch to master, then tag master as `tag-noises`. Others update. -->
+<!-- Look at the history via `git log`: -->
+<!-- ``` sh -->
+<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
+<!-- ``` -->
+<!-- To see the status of the repo at a tag, you can use -->
+<!-- ``` sh -->
+<!-- git checkout <tag_name> -->
+<!-- ``` -->
+<!-- You'll see a message about a "Detached HEAD" which sounds awful but actually means that Git wouldn't know where to put any new commits you make (since new commits are given HEAD as the parent). So tags are mostly used for read-only inspection of code at a particular point in history. -->
+<!-- # Split a pull request -->
+<!-- Here the scenario is that you've created a pull request but it hasn't yet been accepted. -->
+<!-- If you add additional commits to that branch then they will get added to the pull request. Remember, a pull request says, "Please come to this repo and get everything on this branch." So it's not the same as puttings some commits in a zip file and mailing them, it's more like puttings things into a particular spot (like a mailbox or deaddrop in a spy movie), and telling people to pick them up from there. -->
+<!-- So you can always add additional things before the person comes to pick them up. This is useful because if there is a conversation around the pull request then you can easily update things. For example, if someone said "Please fix a typo or pull from upstream before we consider your pull request," you'd be able to do so without opening another PR (just add, commit, push to your branch on your fork and the PR is updated). -->
+<!-- However, it is an issue if you *accidentally* add new commits to a branch before a pull request is accepted. Now your pull request has two sets of commits: the first set you meant to include and the second set you didn't. This mistake is particularly easy to make if you are developing on the `master` branch in your fork (which you shouldn't do), but also happens if you are have more than one contribution that you are working on, as when you are doing something else while waiting for a PR to be accepted. If you've accidentally added too many files to your pull request---something that is easy to do if you use `git add *` or some variant---you'll also find yourself needing to remove content from your PR. -->
+<!-- First, take a look at this in the Learning Git Visualizer, I have created a level called [Split Pull Request](https://learngitbranching.js.org/?gist_level_id=f7b4b63960ed80fa9a76728d853f2546). -->
+<!-- ## Split before submit -->
+<!-- Things would be better if you had created a new branch for the first set of commits, then a second branch for your second set of commits, never adding either set to your master branch and following the "always work on a (short-lived) feature branch" rule. Then each set of commits would be "sent" through a different pull request. -->
+<!--             / Branch for first set. -->
+<!--            / -->
+<!--     master - -->
+<!--             \ -->
+<!--              \ Branch for second set -->
+<!-- The grey sections below are commands, the white is output. -->
+<!-- ``` sh -->
+<!-- This is a git command that you should copy -->
+<!-- ``` -->
+<!--     This is output. -->
+<!-- Below, I make a new repo, create a README file and make a commit, and edit it once making another commit: -->
+<!-- ``` sh -->
+<!-- git init -->
+<!-- ``` -->
+<!--     Initialized empty Git repository in /Users/howison/Documents/UTexas/Courses/PeerProduction/practice/.git/ -->
+<!-- ``` sh -->
+<!-- touch README -->
+<!-- ``` -->
+<!-- ``` sh -->
+<!-- git add README -->
+<!-- ``` -->
+<!-- ``` sh -->
+<!-- git commit -m "Adding readme" -->
+<!-- ``` -->
+<!--     [master (root-commit) d5eb1e8] Adding readme -->
+<!--      1 file changed, 1 insertion(+) -->
+<!--      create mode 100644 README -->
+<!-- ``` sh -->
+<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
+<!-- ``` -->
+<!--     * d5eb1e8 (HEAD -> master) Adding readme -->
+<!-- So now we have a single commit on a single branch `master`. To create a new file we can use `touch` (which creates an empty file here, but that's ok). -->
+<!-- ``` sh -->
+<!-- touch master2 -->
+<!-- ``` -->
+<!-- ``` sh -->
+<!-- git add master2 -->
+<!-- ``` -->
+<!-- ``` sh -->
+<!-- git commit -m "add master2" -->
+<!-- ``` -->
+<!--     [master 749454e] add master2 -->
+<!--      1 file changed, 2 insertions(+) -->
+<!--     git log --oneline --abbrev-commit --all --graph --decorate --color -->
+<!--     * 749454e (HEAD -> master) add master2 -->
+<!--     * d5eb1e8 Adding readme -->
+<!-- Now we have added a commit on `master` so the `HEAD -> master` shows the 'tip' of the master branch. -->
+<!-- Now we can create the feature branch (`first_set_branch`) for the first set and look at the commits we've made. Using `git checkout` with `-b` creates a new branch: -->
+<!-- ``` sh -->
+<!-- git checkout -b first_set_branch -->
+<!-- ``` -->
+<!--     Switched to a new branch 'first_set_branch' -->
+<!-- ``` sh -->
+<!-- touch first_set_file -->
+<!-- ``` -->
+<!-- ``` sh -->
+<!-- git add first_set_file -->
+<!-- ``` -->
+<!-- ``` sh -->
+<!-- git commit -m "first set edit" -->
+<!-- ``` -->
+<!--     [first_set_branch d71ade9] first set edit -->
+<!--      1 file changed, 1 insertion(+) -->
+<!--      create mode 100644 first_set_file -->
+<!-- ``` sh -->
+<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
+<!-- ``` -->
+<!--     * d71ade9 (HEAD -> first_set_branch) first set edit -->
+<!--     * 749454e (master) add master2 -->
+<!--     * d5eb1e8 Adding readme -->
+<!-- Now we can see that we have two branches `(master)` and `first_set_branch`. `HEAD` shows us that we are currently in the `first_set_branch` branch. -->
+<!-- Now we're going to change back to master. -->
+<!-- ``` sh -->
+<!-- git checkout master -->
+<!-- ``` -->
+<!--     Switched to branch 'master' -->
+<!-- ``` sh -->
+<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
+<!-- ``` -->
+<!--     * d71ade9 (first_set_branch) first set edit -->
+<!--     * 749454e (HEAD -> master) add master2 -->
+<!--     * d5eb1e8 Adding readme -->
+<!-- See how the `HEAD` changed, showing us that we're looking at the master branch. Notice also that there is a commit (`d71ade9`) that isn't in `master`. -->
+<!-- Now we can create the second branch: -->
+<!-- ``` sh -->
+<!-- git checkout -b second_set_branch -->
+<!-- ``` -->
+<!--     Switched to a new branch 'second_set_branch' -->
+<!-- ``` sh -->
+<!-- touch second_set_file -->
+<!-- ``` -->
+<!-- ``` sh -->
+<!-- git add second_set_file -->
+<!-- ``` -->
+<!-- ``` sh -->
+<!-- git commit -m "first edit in second set" -->
+<!-- ``` -->
+<!--     [second_set_branch 9dc0a23] first edit in second set -->
+<!--      1 file changed, 1 insertion(+) -->
+<!--      create mode 100644 second_set_file -->
+<!-- ``` sh -->
+<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
+<!-- ``` -->
+<!--     * 9dc0a23 (HEAD -> second_set_branch) first edit in second set -->
+<!--     | * d71ade9 (first_set_branch) first set edit -->
+<!--     |/   -->
+<!--     * 749454e (master) add master2 -->
+<!--     * d5eb1e8 Adding readme -->
+<!-- Now the visualization has changed a bit. We can see that there are two branches that "come off" head after `749454e`. We can work independently, and could create pull requests for each branch separately. We are still on the second set's branch, let's add a second file to it: -->
+<!-- ``` sh -->
+<!-- touch second_set_file2 -->
+<!-- ``` -->
+<!-- ``` sh -->
+<!-- git add second_set_file2 -->
+<!-- ``` -->
+<!-- ``` sh -->
+<!-- git commit -m "added to second set" -->
+<!-- ``` -->
+<!--     [second_set_branch 04d6967] added to second set -->
+<!--      1 file changed, 1 insertion(+) -->
+<!--      create mode 100644 second_set_file2 -->
+<!-- ``` sh -->
+<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
+<!-- ``` -->
+<!--     * 04d6967 (HEAD -> second_set_branch) added to second set -->
+<!--     * 9dc0a23 first edit in second set -->
+<!--     | * d71ade9 (first_set_branch) first set edit -->
+<!--     |/   -->
+<!--     * 749454e (master) add master2 -->
+<!--     * d5eb1e8 Adding readme -->
+<!-- And just for fun swap back to the first branch and add a second file there: -->
+<!-- ``` sh -->
+<!-- git checkout first_set_branch -->
+<!-- ``` -->
+<!--     Switched to branch 'first_set_branch' -->
+<!--     git log --oneline --abbrev-commit --all --graph --decorate --color -->
+<!--     * 04d6967 (second_set_branch) added to second set -->
+<!--     * 9dc0a23 first edit in second set -->
+<!--     | * d71ade9 (HEAD -> first_set_branch) first set edit -->
+<!--     |/   -->
+<!--     * 749454e (master) add master2 -->
+<!--     * d5eb1e8 Adding readme -->
+<!-- ``` sh -->
+<!-- touch first_set_file2 -->
+<!-- ``` -->
+<!-- ``` sh -->
+<!-- git add first_set_file2 -->
+<!-- ``` -->
+<!-- ``` sh -->
+<!-- git commit -m "added second file to first set" -->
+<!-- ``` -->
+<!--     [first_set_branch b74cb32] added second file to first set -->
+<!--      1 file changed, 1 insertion(+) -->
+<!--      create mode 100644 first_set_file2 -->
+<!-- ``` sh -->
+<!-- git add first_set_file2 -->
+<!-- ``` -->
+<!-- ``` sh -->
+<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
+<!-- ``` -->
+<!--     * b74cb32 (HEAD -> first_set_branch) added second file to first set -->
+<!--     * d71ade9 first set edit -->
+<!--     | * 04d6967 (second_set_branch) added to second set -->
+<!--     | * 9dc0a23 first edit in second set -->
+<!--     |/   -->
+<!--     * 749454e (master) add master2 -->
+<!--     * d5eb1e8 Adding readme -->
+<!-- Now the branching in this in-terminal visualization is a bit clearer. -->
+<!-- Ok, so this is the right way to do it: with each file/commit on the correct branch (and thus separate PRs). -->
+<!-- ## Recover via splitting a PR -->
+<!-- Pretend we had never made the two additional branches but made those commits all on the master branch. Then if a pull request opened after the first set of files `51f2622` was never accepted, our second set would have just piled on top and been added to the pull request. -->
+<!--     git log --oneline --abbrev-commit --all --graph --decorate --color -->
+<!--     * b5d4aff (HEAD -> master) added to second set -->
+<!--     * dfa98b0 first edit in second set -->
+<!--     * 43bc368 added second file to first set -->
+<!--     * 51f2622 first set edit -->
+<!--     * f945961 add master2 -->
+<!--     * 367e25a Adding readme -->
+<!-- The problem here is that the top two commits (reading downward) are on `master` and should be on `second_set_branch` and the third and fourth commits are on `master` and should be on `first_set_branch`. -->
+<!-- So our challenge is to make this linear setup look like our branched setup above. There are a few routes we can take. -->
+<!-- First we're going to use the ability to create a new branch from an earlier point in history. By default `git checkout -b newbranch` will branch from the current HEAD, but we can tell it to branch earlier. So first we're going to create our two branches as though we'd done it before we started working, which is when HEAD was at `f945961`. -->
+<!-- ``` sh -->
+<!-- git checkout -b first_set_branch f945961 -->
+<!-- ``` -->
+<!--     Switched to a new branch 'first_set_branch' -->
+<!-- ``` sh -->
+<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
+<!-- ``` -->
+<!--     * b5d4aff (master) added to second set -->
+<!--     * dfa98b0 first edit in second set -->
+<!--     * 43bc368 added second file to first set -->
+<!--     * 51f2622 first set edit -->
+<!--     * f945961 (HEAD -> first_set_branch) add master2 -->
+<!--     * 367e25a Adding readme -->
+<!-- So now we can see `(HEAD -> first_set_branch)` at `f945961` as the branching point for first_set_branch. However the commits we need on that branch are not on it, we need to bring them over from `master`. -->
+<!-- We can do that using `git cherry-pick` pointing to each of the two commits we want to bring over. Below we can see (moving up the left) that we have a `first_set_branch` which has both of our needed commits. Note that this doesn't \``move'' them from the`master\` branch, but creates new commits with the same content. -->
+<!-- ``` sh -->
+<!-- git cherry-pick 51f2622 -->
+<!-- ``` -->
+<!--     [first_set_branch ef2a3ee] first set edit -->
+<!--      Date: Tue Apr 10 17:42:47 2018 -0500 -->
+<!--      1 file changed, 1 insertion(+) -->
+<!--      create mode 100644 first_set_file -->
+<!-- ``` sh -->
+<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
+<!-- ``` -->
+<!--     * ef2a3ee (HEAD -> first_set_branch) first set edit -->
+<!--     | * b5d4aff (master) added to second set -->
+<!--     | * dfa98b0 first edit in second set -->
+<!--     | * 43bc368 added second file to first set -->
+<!--     | * 51f2622 first set edit -->
+<!--     |/   -->
+<!--     * f945961 add master2 -->
+<!--     * 367e25a Adding readme -->
+<!-- ``` sh -->
+<!-- git cherry-pick 43bc368 -->
+<!-- ``` -->
+<!--     [first_set_branch 9f2b69a] added second file to first set -->
+<!--      Date: Tue Apr 10 17:43:07 2018 -0500 -->
+<!--      1 file changed, 1 insertion(+) -->
+<!--      create mode 100644 first_set_file2 -->
+<!-- ``` sh -->
+<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
+<!-- ``` -->
+<!--     * 9f2b69a (HEAD -> first_set_branch) added second file to first set -->
+<!--     * ef2a3ee first set edit -->
+<!--     | * b5d4aff (master) added to second set -->
+<!--     | * dfa98b0 first edit in second set -->
+<!--     | * 43bc368 added second file to first set -->
+<!--     | * 51f2622 first set edit -->
+<!--     |/   -->
+<!--     * f945961 add master2 -->
+<!--     * 367e25a Adding readme -->
+<!-- So that's good, because now we have the right commits on `first_set_branch`. (We also have them on master, but that's not a problem as we'd be making our pull request from `first_set_branch` not from master.) -->
+<!-- We can do the same thing to create our separate `second_set_branch`, starting by pointing back at the same branching point: -->
+<!--     git checkout -b second_set_branch f945961 -->
+<!--     Switched to a new branch 'second_set_branch' -->
+<!-- ``` sh -->
+<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
+<!-- ``` -->
+<!--     * 9f2b69a (first_set_branch) added second file to first set -->
+<!--     * ef2a3ee first set edit -->
+<!--     | * b5d4aff (master) added to second set -->
+<!--     | * dfa98b0 first edit in second set -->
+<!--     | * 43bc368 added second file to first set -->
+<!--     | * 51f2622 first set edit -->
+<!--     |/   -->
+<!--     * f945961 (HEAD -> second_set_branch) add master2 -->
+<!--     * 367e25a Adding readme -->
+<!-- ``` sh -->
+<!-- git cherry-pick dfa98b0 -->
+<!-- ``` -->
+<!--     [second_set_branch 0d8e90d] first edit in second set -->
+<!--      Date: Tue Apr 10 17:43:35 2018 -0500 -->
+<!--      1 file changed, 1 insertion(+) -->
+<!--      create mode 100644 second_set_file -->
+<!-- ``` sh -->
+<!-- git cherry-pick b5d4aff -->
+<!-- ``` -->
+<!--     [second_set_branch 0841579] added to second set -->
+<!--      Date: Tue Apr 10 17:43:57 2018 -0500 -->
+<!--      1 file changed, 1 insertion(+) -->
+<!--      create mode 100644 second_set_file2 -->
+<!-- ``` sh -->
+<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
+<!-- ``` -->
+<!--     * 0841579 (HEAD -> second_set_branch) added to second set -->
+<!--     * 0d8e90d first edit in second set -->
+<!--     | * 9f2b69a (first_set_branch) added second file to first set -->
+<!--     | * ef2a3ee first set edit -->
+<!--     |/   -->
+<!--     | * b5d4aff (master) added to second set -->
+<!--     | * dfa98b0 first edit in second set -->
+<!--     | * 43bc368 added second file to first set -->
+<!--     | * 51f2622 first set edit -->
+<!--     |/   -->
+<!--     * f945961 add master2 -->
+<!--     * 367e25a Adding readme -->
+<!-- So now we show three branches coming off at `f945961`: `master`, `first_set_branch`, and `second_set_branch`. Each of first_set_branch and second_set_branch have just the commits and files that they should: -->
+<!-- ``` sh -->
+<!-- git branch -->
+<!-- ``` -->
+<!--       first_set_branch -->
+<!--       master -->
+<!--     * second_set_branch -->
+<!-- ``` sh -->
+<!-- ls -->
+<!-- ``` -->
+<!--     README           second_set_file  second_set_file2 -->
+<!-- ``` sh -->
+<!-- git checkout first_set_branch -->
+<!-- ``` -->
+<!--     Switched to branch 'first_set_branch' -->
+<!-- ``` sh -->
+<!-- ls -->
+<!-- ``` -->
+<!--     README          first_set_file  first_set_file2 -->
+<!-- So now if we create pull requests from each of those branches, they'll contain just the content we wanted in each of them. Hurray! -->
+<!-- ### Exercise: -->
+<!-- Groups of 3. Nominate *Maintainer*, *Contributor A*, and *Contributor B*. -->
+<!-- 1.  *Maintainer* creates a repo on Github. -->
+<!-- 2.  *Maintainer* adds 2 commits and pushes. -->
+<!-- 3.  *Contributor A* and *Contributor B* fork and clone (and add upstream). -->
+<!-- 4.  *Contributor A* and *Contributor B* create a feature branch called \`will_need_split. -->
+<!-- 5.  *Contributor A* and *Contributor B* add four commits of four files on `will_need_split` -->
+<!-- 6.  *Contributor A* and *Contributor B* create a pull request to `upstream` from their `will_need_split` branch (including all four commits). -->
+<!-- 7.  *Maintainer* rejects the pull request, closing it and commenting "please split this up" (and direct which files go together, probably 2 in each.) -->
+<!-- 8.  *Contributor A* and *Contributor B* follow procedure above to end up with two new branches `split_branch_1` and `split_branch_2` send through separate pull requests with only the right commits/files in them. -->
+<!-- 9.  *Maintainer* eventually accepts each of the four split up pull requests. -->
+<!-- ### Dealing with remaining commits -->
+<!-- Now we just have to consider what to do about the additional commits on `master`. This is going to depend on a few things. Do you have additional commits on `master` that you haven't distributed among new branches? Do you want `master` to exactly reflect the history of `master` on `upstream`? How tolerant are you of "messy history"? It's also going to depend on whether `master` had been pushed up and whether others might have built on top of it. -->
+<!-- There are many options, here are two: -->
+<!-- 1.  Revert the commits that you "moved" to the branches. `git revert` creates "opposite" commits, that undo any changes. So if you lay a revert commit on top of a commit then the content is as though the commit was never made. -->
+<!-- 2.  Using `git reset -hard`, create a new branch from your branching point, then rename it to `master`, orphaning your current master. -->
+<!-- #### Using revert -->
+<!-- First I created a copy of the repo, `practice_split_revert/`, so I could show both options. Then I switched to the `master` branch in that copy. -->
+<!-- ``` sh -->
+<!-- cd .. -->
+<!-- ``` -->
+<!-- ``` sh -->
+<!-- cp -r practice_split practice_split_revert -->
+<!-- ``` -->
+<!-- ``` sh -->
+<!-- cd practice_split_revert/ -->
+<!-- ``` -->
+<!-- ``` sh -->
+<!-- git branch -->
+<!-- ``` -->
+<!--     * first_set_branch -->
+<!--       master -->
+<!--       second_set_branch -->
+<!-- ``` sh -->
+<!-- git checkout master -->
+<!-- ``` -->
+<!--     Switched to branch 'master' -->
+<!-- ``` sh -->
+<!-- git branch -->
+<!--   first_set_branch -->
+<!-- * master -->
+<!--   second_set_branch -->
+<!-- ``` -->
+<!-- ``` sh -->
+<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
+<!-- ``` -->
+<!--     * 0841579 (second_set_branch) added to second set -->
+<!--     * 0d8e90d first edit in second set -->
+<!--     | * 9f2b69a (first_set_branch) added second file to first set -->
+<!--     | * ef2a3ee first set edit -->
+<!--     |/   -->
+<!--     | * b5d4aff (HEAD -> master) added to second set -->
+<!--     | * dfa98b0 first edit in second set -->
+<!--     | * 43bc368 added second file to first set -->
+<!--     | * 51f2622 first set edit -->
+<!--     |/   -->
+<!--     * f945961 add master2 -->
+<!--     * 367e25a Adding readme -->
+<!-- Then I used a range expression (the `..`) with revert to revert the set of four commits on `master`. Note that the double dot range syntax used like this is left exclusive (i.e. you have to go back one further than the first you want). I also had to provide four commit messages, one for each of the reverting commits. -->
+<!--     git revert f945961..b5d4aff -->
+<!--     [master afcee46] Revert "added to second set" -->
+<!--      1 file changed, 1 deletion(-) -->
+<!--      delete mode 100644 second_set_file2 -->
+<!--     [master 45731a7] Revert "first edit in second set" -->
+<!--      1 file changed, 1 deletion(-) -->
+<!--      delete mode 100644 second_set_file -->
+<!--     [master 302d9de] Revert "added second file to first set" -->
+<!--      1 file changed, 1 deletion(-) -->
+<!--      delete mode 100644 first_set_file2 -->
+<!--     [master 0e022e3] Revert "first set edit" -->
+<!--      1 file changed, 1 deletion(-) -->
+<!--      delete mode 100644 first_set_file -->
+<!-- ``` sh -->
+<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
+<!-- ``` -->
+<!--     * 0e022e3 (HEAD -> master) Revert "first set edit" -->
+<!--     * 302d9de Revert "added second file to first set" -->
+<!--     * 45731a7 Revert "first edit in second set" -->
+<!--     * afcee46 Revert "added to second set" -->
+<!--     * b5d4aff added to second set -->
+<!--     * dfa98b0 first edit in second set -->
+<!--     * 43bc368 added second file to first set -->
+<!--     * 51f2622 first set edit -->
+<!--     | * 0841579 (second_set_branch) added to second set -->
+<!--     | * 0d8e90d first edit in second set -->
+<!--     |/   -->
+<!--     | * 9f2b69a (first_set_branch) added second file to first set -->
+<!--     | * ef2a3ee first set edit -->
+<!--     |/   -->
+<!--     * f945961 add master2 -->
+<!--     * 367e25a Adding readme -->
+<!-- ``` sh -->
+<!-- ls -->
+<!-- ``` -->
+<!--     README -->
+<!-- #### git reset --hard -->
+<!-- Again, I create a copy of the repo, practice_split_reset_master: -->
+<!-- ``` sh -->
+<!-- cp -r practice_split practice_split_reset_master -->
+<!-- ``` -->
+<!-- ``` sh -->
+<!-- cd practice_split_reset_master/ -->
+<!-- ``` -->
+<!-- ``` sh -->
+<!-- git checkout master -->
+<!-- ``` -->
+<!--     Switched to branch 'master' -->
+<!-- ``` sh -->
+<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
+<!-- ``` -->
+<!--     * 0841579 (second_set_branch) added to second set -->
+<!--     * 0d8e90d first edit in second set -->
+<!--     | * 9f2b69a (first_set_branch) added second file to first set -->
+<!--     | * ef2a3ee first set edit -->
+<!--     |/   -->
+<!--     | * b5d4aff (HEAD -> master) added to second set -->
+<!--     | * dfa98b0 first edit in second set -->
+<!--     | * 43bc368 added second file to first set -->
+<!--     | * 51f2622 first set edit -->
+<!--     |/   -->
+<!--     * f945961 add master2 -->
+<!--     * 367e25a Adding readme -->
+<!-- Now we use `git reset --hard` to force HEAD back to `f945961`. That disconnects the four unwanted commits (I *think* they aren't actually gone from .git folder yet, but they could be deleted any time as they aren't connected to anything.). -->
+<!-- ``` sh -->
+<!-- git reset --hard f945961 -->
+<!-- ``` -->
+<!--     HEAD is now at f945961 add master2 -->
+<!-- ``` sh -->
+<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
+<!-- ``` -->
+<!-- ``` sh -->
+<!-- * 0841579 (second_set_branch) added to second set -->
+<!-- * 0d8e90d first edit in second set -->
+<!-- | * 9f2b69a (first_set_branch) added second file to first set -->
+<!-- | * ef2a3ee first set edit -->
+<!-- |/   -->
+<!-- * f945961 (HEAD -> master) add master2 -->
+<!-- * 367e25a Adding readme -->
+<!-- ``` -->
+<!-- That seems neater, but keep in mind that if you'd pushed `master` to github while those commits were there, anyone else who had built on your repo would have lots of trouble. The `revert` approach goes for messier history, but has the advantage that it doesn't disconnect anyone else. -->
+<!-- # Rebase for synchronizing work -->
+<!-- When one is working on a problem, others may be working in parallel. And their parallel work may be finished before one's own work is. Thus the starting point for one person's work (branching point) can "go stale" making it harder to integrate. -->
+<!-- While `git merge` and resolving syntax level conflicts can resolve some of this, it is often easier to understand and review work if it is presented as changes against an updated starting point. -->
+<!-- As a concrete example imagine a project to build a dashboard. Imagine that you fork the repo in January to implement a new type of visualization (let's say a pie chart). You work on this during January and February, finally nailing it down at the start of March. Meanwhile, though, others in the project have spent February introducing a whole new way of accessing databases. By the time you make a pull request at the start of March things have changed a lot since you branched in January. -->
+<!-- If you submit a PR without updating, the maintainers will likely ask you to update your branch to make it work with the new database system. -->
+<!--     --January-|------February--------------|--March -->
+<!--               __pie_chart_branch___________ -->
+<!--              /                             \ -->
+<!--     master--|--|-----------------------|----|------- -->
+<!--                 \                     / -->
+<!--                  \__new_database_____/ -->
+<!-- First thing to do is to update your local repository with the changes from upstream. -->
+<!-- ``` sh -->
+<!-- git pull upstream master -->
+<!-- ``` -->
+<!-- Then you could try two options: -->
+<!-- 1.  Either merge `master` into `pie_chart_branch` yourself -->
+<!-- 2.  Rebase `pie_chart_branch` on master (as though `pie_chart_branch` was created in late February and you did all the work very quickly!) -->
+<!-- Option 1 is possible, but often merging your work involves touching parts of the system you don't know what much about and is better left to the core developers. In addition, merging in this way leaves merge commit messages and some projects really don't like those because they make the history harder to read. -->
+<!-- Option 2 is generally preferred, since it focuses on clear communication via PRs that are easier to read and review. -->
+<!-- Option 2 is called `rebase` and is explained usefully at [this page from the EdX project](https://github.com/edx/edx-platform/wiki/How-to-Rebase-a-Pull-Request). As you rebase, you can also `squash` some of your commits (treat many commits as one) to make them easier to follow for those reviewing your pull request. See the link above for details. -->
+<!-- # Removing something from history entirely. -->
+<!-- The purpose of `git` is to retain all of your history, so that you can go back to any point in development and recover (as well as experiment while not breaking the mainline of development). Simultaneously when we are working in the open that means that anyone can view any file that was ever in a repository. With that in mind it is not too surprising that if you accidentally add something to git and then push it to github you can have trouble putting "the genie back in the bottle." -->
+<!-- Let's say that we create a repo and add a README, then add a SPECIAL_SECRET file with the password "swordfish" in it. Note that I use `git add *` below which is a very common way to accidentally add a problematic file, try to get into the habit of adding files one by one. -->
+<!--     SOI-A14570-Howison:PeerProduction howison$ cd practice_history_edit/ -->
+<!--     git init -->
+<!--     Initialized empty Git repository in /Users/howison/Documents/UTexas/Courses/PeerProduction/practice_history_edit/.git/ -->
+<!--     vi README -->
+<!--     git status -->
+<!--     On branch master -->
+<!--     No commits yet -->
+<!--     Untracked files: -->
+<!--       (use "git add <file>..." to include in what will be committed) -->
+<!--             README -->
+<!--     nothing added to commit but untracked files present (use "git add" to track) -->
+<!--     git add README -->
+<!--     git commit -m "now we have a README" -->
+<!--     [master (root-commit) f4878b0] now we have a README -->
+<!--      1 file changed, 1 insertion(+) -->
+<!--      create mode 100644 README -->
+<!--     vi SPECIAL_SECRET -->
+<!--     git add * -->
+<!--     git commit -m "whoops added secret" -->
+<!--     [master 018f6b5] whoops added secret -->
+<!--      1 file changed, 1 insertion(+) -->
+<!--      create mode 100644 SPECIAL_SECRET -->
+<!--     git log --oneline --abbrev-commit --all --graph --decorate --color -->
+<!--     * 018f6b5 (HEAD -> master) whoops added secret -->
+<!--     * f4878b0 now we have a README -->
+<!-- Now I'll go ahead and make one more edit to README -->
+<!--     vi README -->
+<!--     git add READMEgit commit -m "README edit 2"[master 4d51f91] README edit 2 -->
+<!--      1 file changed, 1 insertion(+) -->
+<!--     git log --oneline --abbrev-commit --all --graph --decorate --color* 4d51f91 (HEAD -> master) README edit 2 -->
+<!--     * 018f6b5 whoops added secret -->
+<!--     * f4878b0 now we have a README -->
+<!--     ls -->
+<!--     README         SPECIAL_SECRET -->
+<!--     cat SPECIAL_SECRET -->
+<!--     swordfish -->
+<!-- Ok, so we realize that the password file got into git and we swing into action and delete it from git. -->
+<!--     git rm SPECIAL_SECRET -->
+<!--     rm 'SPECIAL_SECRET' -->
+<!--     git commit -m "phew removed it, or did we" -->
+<!--     [master ff229ba] phew removed it, or did we -->
+<!--      1 file changed, 1 deletion(-) -->
+<!--      delete mode 100644 SPECIAL_SECRET -->
+<!--     ls -->
+<!--     README -->
+<!-- So now the file is not there. Or rather it is not in our working directory. The problem is that it is still inside out `.git` folder and we can get it out easily. -->
+<!--     git checkout HEAD~1 -->
+<!--     Note: checking out 'HEAD~1'. -->
+<!--     You are in 'detached HEAD' state. You can look around, make experimental -->
+<!--     changes and commit them, and you can discard any commits you make in this -->
+<!--     state without impacting any branches by performing another checkout. -->
+<!--     If you want to create a new branch to retain commits you create, you may -->
+<!--     do so (now or later) by using -b with the checkout command again. Example: -->
+<!--       git checkout -b <new-branch-name> -->
+<!--     HEAD is now at 4d51f91... README edit 2 -->
+<!--     lsREADME         SPECIAL_SECRET -->
+<!--     cat SPECIAL_SECRET -->
+<!--     swordfish -->
+<!-- Here I just used `git checkout HEAD~1` which goes one commit back in time, to before we deleted the SPECIAL_SECRET file. Even if we were far ahead, or over on other branches etc, I could always get back by asking to see the code just after the commit that added the file `git checkout 018f6b5` (btw, to get out of `DETACHED HEAD` state just checkout the branch again, we're working on master so it would be `git checkout master`). -->
+<!-- So using `git rm` removes a file from the working directories but it doesn't remove it from the git history. And that's a sensible thing, usually you want to be able to go back in time. But sometimes you want to remove something from the history entirely. You can do that using the approaches outlined by Github here: [Removing sensitive data from a repository](https://help.github.com/articles/removing-sensitive-data-from-a-repository/) -->
+<!-- The process is a bit complex (as it should be) but simplified with the `bfg` tool, as described at the link above. First you have to download the tool (which requires Java to run) then follow the instructions step by step. -->
+<!-- Keep in mind that if you had pushed this sensitive info to a repo on github and others had then forked or cloned it then that info is not going to be deleted from the clones, so passwords should definitely be changed and you should ask everyone to delete forks/clones and start again. -->
+<!-- THere are a set of approachs to avoid uploading sensitive data. A good starting point is discipline around using `.gitignore` which will prevent adding files that should not be added. Another approach is to become familar with using environment variables to hold secrets. This is an evolving area, so ask others how they handle secrets (usually access credentials) when using git. -->
+<!-- # Undo almost anything -->
+<!-- Undo is sort of the point of version control, but it can be complicated. Here's a useful blog entry: [How to undo almost anything with git](https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/) -->
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../skills/github_solo.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">GitHub solo</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../skills/skills_faq.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Skills faq</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

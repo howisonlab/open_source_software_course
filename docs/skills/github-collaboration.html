@@ -258,6 +258,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#basic-forking-workflow-setup" id="toc-basic-forking-workflow-setup" class="nav-link" data-scroll-target="#basic-forking-workflow-setup"><span class="toc-section-number">10.2</span>  Basic forking workflow setup</a></li>
   <li><a href="#sharing-work-and-synchronizing" id="toc-sharing-work-and-synchronizing" class="nav-link" data-scroll-target="#sharing-work-and-synchronizing"><span class="toc-section-number">10.3</span>  Sharing work and synchronizing</a></li>
   <li><a href="#once-more-but-with-maintainer-editing-as-well." id="toc-once-more-but-with-maintainer-editing-as-well." class="nav-link" data-scroll-target="#once-more-but-with-maintainer-editing-as-well."><span class="toc-section-number">10.4</span>  Once more, but with maintainer editing as well.</a></li>
+  <li><a href="#generate-merge-conflict" id="toc-generate-merge-conflict" class="nav-link" data-scroll-target="#generate-merge-conflict"><span class="toc-section-number">10.5</span>  Generate merge conflict</a></li>
   </ul>
 </nav>
     </div>
@@ -469,30 +470,92 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="once-more-but-with-maintainer-editing-as-well." class="level2" data-number="10.4">
 <h2 data-number="10.4" class="anchored" data-anchor-id="once-more-but-with-maintainer-editing-as-well."><span class="header-section-number">10.4</span> Once more, but with maintainer editing as well.</h2>
-<!-- ## Generate merge conflict -->
-<!-- (If starting here, confirm that your Group of three has the setup in [Basic forking workflow setup](#basic_forking_workflow_setup) as the starting point.) -->
-<!-- The point of this exercise is to intentionally create conflicts in editing, to demonstrate how they show up in Pull Requests. -->
-<!-- 1.  *Maintainer* should create, add, commit, and push a file called `animals.txt` with this content: -->
-<!-- ```{=html} -->
-<!-- <!-- -->
-<p>–&gt; <!-- ``` --> <!--     lion --> <!--     tiger --> <!--     leopard --> <!--     turtle --></p>
-<!-- 3.  *Contributor A* and *Contributor B* should synchronize to receive this file. -->
-<!-- ::: spoiler -->
-<!-- ``` sh -->
-<!-- git pull upstream master -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- 4.  *Contributor A* and *Contributor B* each edit the file by adding a different color to the first line in the `animals.txt` (so it reads `lion red` or `lion green`). They add, commit, push to their forks. *Note that these edits are incompatible, so they will generate a conflict when we try to merge them below* -->
-<!-- 5.  *Contributor A* and *Contributor B* should then go to github and look at their forks. They should create a pull request by hitting the 'New Pull Request' button. Note that the pull request will not say "Able to automatically merge" but create the PR anyway. -->
-<!-- 6.  With everyone looking at *Maintainer*'s computer, *Maintainer* should refresh the github page for the shared repository and will see two pull-requests in the pull-request tab. Accept each one, resolving any conflicts that emerge. -->
-<!-- They can choose whatever contributions they want (the original line, the line with the color from *Contributor B* or the line with the color from *Contributor A*); however the file is after removing the `<<<<<` `========` and `>>>>>>` lines will be what is in the shared repository. -->
-<!-- 6.  Each person should then synchronize. For *Maintainer* that just means `git pull` (since they have a direct clone of upstream). For *Contributor B* and *Contributor A* they have to first get the changes in upstream, then push them to their fork. -->
-<!-- ::: spoiler -->
-<!-- ``` sh -->
-<!-- $ git pull upstream master -->
-<!-- $ git push -->
-<!-- ``` -->
-<!-- ::: -->
+<p>In the exercise above you may have noticed that the maintainer was not editing and contributing files, only ContributorA and ContributorB were.</p>
+<p>The maintainer is the owner of the shared repository (which we call “upstream”). For this reason they can work directly in that repository, and they don’t need to make their own fork.</p>
+<p><em>For the maintainer upstream and origin are the same</em></p>
+<p>The maintainer can directly use <code>git clone</code> on the shared repository.</p>
+<p>While the maintainer can use <code>git push</code> to directly move their changes into the shared repository, without going via a pull request.</p>
+<p>However, it is much better practice for the maintainer to also use pull requests. This places them on an equal footing with other contributors, so everyone else can follow the work and comment on it.</p>
+<p>Happily, maintainers can make a pull request from a branch in their repository to another branch (usually main/master).</p>
+<p>This gives us another insight: a Github pull request is from a branch to another branch; it doesn’t matter if those branches are in forked repos or in the same repo.</p>
+<ol type="1">
+<li><em>Maintainer</em> should clone the shared repo</li>
+</ol>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="op">&lt;</span>maintainer_url<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If the maintainer then runs:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote <span class="at">-v</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>they will see:</p>
+<pre><code>origin  &lt;maintainer_repo_url&gt; (fetch)
+origin  &lt;maintainer_repo_url&gt; (push)</code></pre>
+<p>So … for the maintainer (the owner of the shared repo) the shared repo on their clone is called origin, but those the maintainers (who are working through a fork) it is called upstream. This can be a little confusing. Remember that when we run <code>git clone</code> git automatically sets up a remote called ‘origin’.</p>
+<ol start="2" type="1">
+<li><em>Maintainer</em> creates a branch and changes to it:</li>
+</ol>
+<pre><code>git checkout -b new-maintainer-branch</code></pre>
+<ol start="3" type="1">
+<li><em>Maintainer</em> creates and saves a file called ‘maintainer.txt’</li>
+</ol>
+<p>You can do this with the same command that the Contributors used:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Content for the file"</span> <span class="op">&gt;&gt;</span> maintainer.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="4" type="1">
+<li><em>Maintainer</em> pushes up to the shared repo.</li>
+</ol>
+<pre><code>git push</code></pre>
+<p>Since the maintainer is working on a new branch, this creates a new branch on the shared repo on github.</p>
+<ol start="5" type="1">
+<li><em>Maintainer</em> views the new branch on github, creating a pull request.</li>
+</ol>
+<p>This pull request is a request (to themselves) to bring the code from the new-maintainer-branch branch to main.</p>
+<ol start="6" type="1">
+<li><p><em>ContributorA</em> and <em>ContributorB</em> should find the new PR (on the shared repo) and make comments (e.g., “Hey, looks good”).</p></li>
+<li><p>The <em>Maintainer</em> should merge the branch and close the PR.</p></li>
+<li><p>Everyone should update their own local repo (on Rstudio). That differs slightly between roles:</p></li>
+</ol>
+<ul>
+<li><p>Contributors (who are working through a fork) will need to get the changes from upstream so they need to use <code>git pull upstream</code>. Then, it makes sense to update their forks as well using <code>git push</code>.</p></li>
+<li><p>The maintainer (who cloned the shared repo) will just need <code>git pull</code>. They don’t need to push because the changes are alredy in the repo they cloned from.</p></li>
+</ul>
+</section>
+<section id="generate-merge-conflict" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="generate-merge-conflict"><span class="header-section-number">10.5</span> Generate merge conflict</h2>
+<p>(If starting here, confirm that your Group of three has the setup in <a href="#basic_forking_workflow_setup">Basic forking workflow setup</a> as the starting point.)</p>
+<p>The point of this exercise is to intentionally create conflicts in editing, to demonstrate how they show up in Pull Requests.</p>
+<ol type="1">
+<li><em>Maintainer</em> should change to the main branch</li>
+</ol>
+<pre><code>git checkout main</code></pre>
+<ol start="2" type="1">
+<li><em>Maintainer</em> should then create, add, commit, and push a file called <code>animals.txt</code> with this content:</li>
+</ol>
+<pre><code>lion
+tiger
+leopard
+turtle</code></pre>
+<ol start="3" type="1">
+<li><em>Contributor A</em> and <em>Contributor B</em> should synchronize to receive this file.</li>
+</ol>
+<div class="spoiler">
+<div class="sourceCode" id="cb20"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull upstream master</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li><em>Contributor A</em> and <em>Contributor B</em> should create and switch to a branch.</li>
+</ol>
+<div class="sourceCode" id="cb21"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> <span class="op">&lt;</span>username<span class="op">&gt;</span>-new-branch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>(The name of the branch doesn’t matter; you can use your github username just for convenience)</p>
+<p>5, <em>Contributor A</em> and <em>Contributor B</em> should each edit the animals.txt file by adding a different color to the first line in the <code>animals.txt</code> (so it reads <code>lion red</code> or <code>lion green</code>). They add, commit, push to their forks.</p>
+<p><strong>Note that these edits are incompatible, so they will generate a conflict when we try to merge them below</strong></p>
+<ol start="5" type="1">
+<li><p><em>Contributor A</em> and <em>Contributor B</em> should then go to github and look at their new branch on their forks. They should create a pull request by hitting the ‘New Pull Request’ button. Note that the pull request will not say “Able to automatically merge” (but go ahead and create the PR anyway.)</p></li>
+<li><p>With everyone looking at <em>Maintainer</em>’s computer, <em>Maintainer</em> should refresh the github page for the shared repository and will see two pull-requests in the pull-request tab. The maintainer should accept each PR, but will need to resolve any conflicts that emerge.</p></li>
+</ol>
+<p>They can choose whatever contributions they want (the original line, the line with the color from <em>Contributor B</em> or the line with the color from <em>Contributor A</em>); however the file is after removing the <code>&lt;&lt;&lt;&lt;&lt;</code> <code>========</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;</code> lines will be what is in the shared repository.</p>
+<ol start="6" type="1">
+<li>Each person should then synchronize. For <em>Maintainer</em> that just means <code>git pull</code> (since they have a direct clone of upstream). For <em>Contributor B</em> and <em>Contributor A</em> they have to first get the changes in upstream, then push them to their fork.</li>
+</ol>
+<div class="spoiler">
+<div class="sourceCode" id="cb22"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git pull upstream master</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <!-- # Once more, but with branches -->
 <!-- In the exercises above all the work was on the `master` branch. That was to keep things simple, but in reality new work should always be on a branch, usually called a (short-lived) "feature branch". Pull requests then come from the feature branch to the master branch on the shared repo. This is also true for *Maintainer* as well as *Contributor A* and *Contributor B*, the only difference for the *Maintainer* is that their pull request is from a branch inside the shared repo, while the *Contributor A* and *Contributor B* is from a branch in a different repository. -->
 <!-- (If starting here, confirm that your Group of three has the setup in [Basic forking workflow setup](#basic_forking_workflow_setup) as the starting point.) -->
