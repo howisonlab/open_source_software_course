@@ -260,6 +260,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#git-commit-throws-me-into-a-weird-mode" id="toc-git-commit-throws-me-into-a-weird-mode" class="nav-link" data-scroll-target="#git-commit-throws-me-into-a-weird-mode"><span class="toc-section-number">A.1.2</span>  git commit throws me into a weird mode</a></li>
   </ul></li>
   <li><a href="#sec-faq-home-git-folder" id="toc-sec-faq-home-git-folder" class="nav-link" data-scroll-target="#sec-faq-home-git-folder"><span class="toc-section-number">A.2</span>  I accidentally made my home folder a git repo</a></li>
+  <li><a href="#sec-gitviz" id="toc-sec-gitviz" class="nav-link" data-scroll-target="#sec-gitviz"><span class="toc-section-number">A.3</span>  Vizualizing git trees (aka gitviz)</a></li>
   </ul>
 </nav>
     </div>
@@ -320,7 +321,7 @@ After doing this, you may fix the identity used for this commit with:
 <li>Redo your commit using `git commit -m “Some message”</li>
 </ol>
 <p>See <a href="https://stackoverflow.com/questions/11828270/how-do-i-exit-vim" class="uri">https://stackoverflow.com/questions/11828270/how-do-i-exit-vim</a></p>
-<p><strong>The option below does not work in Rstudio because Rstudio captures the <kdb>Ctrl</kdb> key commands</strong></p>
+<p><strong>The option below does not work in Rstudio because Rstudio captures the</strong> <kdb>Ctrl</kdb> key commands</p>
 <p>You can also configure git to use another editor: <a href="https://stackoverflow.com/questions/2596805/how-do-i-make-git-use-the-editor-of-my-choice-for-editing-commit-messages" class="uri">https://stackoverflow.com/questions/2596805/how-do-i-make-git-use-the-editor-of-my-choice-for-editing-commit-messages</a></p>
 <p>For example, the <code>nano</code> editor is easier to use. You can set that run running</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> core.editor <span class="st">"nano"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -340,6 +341,38 @@ After doing this, you may fix the identity used for this commit with:
 <div class="sourceCode" id="cb6"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> backup_home_git</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> ./.git ./backup_home_git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now you could <code>cd backup_home_git</code> and use that folder as a git repo. But probably you are about to clone from github (in which case a new folder will be created) or you are about to use <code>git init</code> to create a new local repo (in which case you should create a folder first, <code>cd</code> into it, then run <code>git init</code>.</p>
+</section>
+<section id="sec-gitviz" class="level2" data-number="A.3">
+<h2 data-number="A.3" class="anchored" data-anchor-id="sec-gitviz"><span class="header-section-number">A.3</span> Vizualizing git trees (aka gitviz)</h2>
+<p>In this course we are using a command that I usually call “gitviz” for short:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span> <span class="at">--abbrev-commit</span> <span class="at">--all</span> <span class="at">--graph</span> <span class="at">--decorate</span> <span class="at">--color</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This produces reasonably readable graphs (especially for the teaching repos used in this course).</p>
+<p>They look like this:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jlh5498@educcomp04:~/github_repos/i320_test3$</span> git log <span class="at">--oneline</span> <span class="at">--abbrev-commit</span> <span class="at">--all</span> <span class="at">--graph</span> <span class="at">--decorate</span> <span class="at">--color</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span>   d8ab2c1 <span class="er">(</span><span class="ex">HEAD</span> <span class="at">-</span><span class="op">&gt;</span> main, origin/main, origin/HEAD<span class="kw">)</span> <span class="ex">Merge</span> pull request <span class="co">#1 from jameshowison/new-feature</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span><span class="ex">\ </span> </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> ffb601d <span class="er">(</span><span class="ex">origin/new-feature,</span> new-feature<span class="kw">)</span> <span class="ex">added</span> extra</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span><span class="ex">/</span>  </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> f256ee7 Added line to README</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 093fb0c Initial commit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Or as an image (with coloring as on Edupod Rstudio):</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/gitviz_example.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Image showing output of gitviz command shown as text above</figcaption><p></p>
+</figure>
+</div>
+<p>You can read a little more about how to read these graphs here <a href="https://stackoverflow.com/questions/22313343/git-graph-what-do-the-lines-and-asteriks-denote" class="uri">https://stackoverflow.com/questions/22313343/git-graph-what-do-the-lines-and-asteriks-denote</a></p>
+<p>Long story short:</p>
+<ul>
+<li>The asterisk characters (<code>*</code>) show a single commit</li>
+<li>The lines formed with characters like (<code>| \ /</code>) help us follow which branches a commit was on.</li>
+<li>The words in parens show branch names, and can include the names of remotes (e.g., <code>origin/new-feature</code> means the <code>new-feature</code> branch on the <code>origin</code> remote)</li>
+</ul>
+<p>It is a long command, so you can either keep it handy in a pastebin (I use Typinator) or you can register it as a command alias for git itself:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> alias.viz <span class="st">'log --oneline --abbrev-commit --all --graph --decorate --color'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>So then you can just type:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> viz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

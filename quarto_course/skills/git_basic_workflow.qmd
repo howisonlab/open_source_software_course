@@ -6,10 +6,10 @@ In this exercise, we will practice basic Linux command lines, including `ls`, `c
 
 Once we are able to move around in the shell, create files and directories, then we are ready for the basic git workflow, which is:
 
-1. edit a file
-2. save those edits
-3. `git add`
-4. `git commit -m "commit message"`
+1.  edit a file
+2.  save those edits
+3.  `git add`
+4.  `git commit -m "commit message"`
 
 > edit → save → add → commit
 
@@ -17,13 +17,13 @@ Once we are able to move around in the shell, create files and directories, then
 
 Goal of this step: get familiar with basic Linux command lines: `ls`, `cd`, `mkdir`and `touch`.
 
-Log in to the  R studio. The interface is shown like below. 
+Log in to the R studio. The interface is shown like below.
 
 Type `ls` in the terminal. It will list the files and directories in a specified directory or the current working directory if no directory is specified.
 
 ![](images/s1_0.png)
 
-Type `mkdir air_plane_exercise` in the terminal.  It will create a new directory with a specified name in the file system.
+Type `mkdir air_plane_exercise` in the terminal. It will create a new directory with a specified name in the file system.
 
 ![](images/s1_1.png)
 
@@ -35,17 +35,17 @@ Type `cd air_plane_exercise` in the terminal to change the current working direc
 
 ![](images/s1_3.png)
 
-Type `touch instructions.txt` in the terminal to create a new text file named "instructions" inside the air_plane_exercise folder.  You can type `ls` to check the updated files and folders. 
+Type `touch instructions.txt` in the terminal to create a new text file named "instructions" inside the air_plane_exercise folder. You can type `ls` to check the updated files and folders.
 
 ![](images/s1_4.png)
 
 Now go to the files explorer, double click the "air_plane_exercise" folder and then enter the "instructions.txt". Enter something in the text editor. Save the file. ![](images/s1_5.png)
 
-## Creating a git repo, 
+## Creating a git repo,
 
 Goal of this step: learn git init.
 
-Type `git init` in the terminal.  The `git init` command is typically used to start a new repository or to convert an existing project into a Git repository.
+Type `git init` in the terminal. The `git init` command is typically used to start a new repository or to convert an existing project into a Git repository.
 
 ![](images/s2_1.png)
 
@@ -73,8 +73,8 @@ Type `git status` to check status again. It should show "nothing to commit, work
 
 Make some changes:
 
-- edit the "instructions" text file, save it, git add it, git commit it
-- create another text file named "license", save it, git add it, git commit it
+-   edit the "instructions" text file, save it, git add it, git commit it
+-   create another text file named "license", save it, git add it, git commit it
 
 ## Using git log to understand what is in the repo
 
@@ -82,7 +82,7 @@ Goal of this step: learn git log
 
 Type git log in the terminal to display the commit history. It will show a list of all commits in the current branch, along with information about the author, date, and commit message for each one.
 
-The latest message will show at the top and the oldest will show at the bottom.  
+The latest message will show at the top and the oldest will show at the bottom.
 
 ![](images/s3_1.png)
 
@@ -90,44 +90,48 @@ You can also use `git log --oneline --abbrev-commit --all --graph` to show git l
 
 In class we will mostly add `--color` to this as well:
 
-```sh
+``` sh
 git log --oneline --abbrev-commit --all --graph --decorate --color
 ```
+
+You can learn more about reading the output of that command here: https://stackoverflow.com/questions/22313343/git-graph-what-do-the-lines-and-asteriks-denote
+
+The * characters show a single commit, the lines help us understand the branches.
 
 Here are the review of Linux command lines and Git command lines
 
 ## Linux Command Lines
 
-1. cd → change directory
+1.  cd → change directory
 
-   `cd` () is to change the current working directory to a specified directory.
+    `cd` () is to change the current working directory to a specified directory.
 
-2. ls → list files
+2.  ls → list files
 
-   `ls` (list directory contents) is to list the files and directories in a specified directory or the current working directory if no directory is specified.
+    `ls` (list directory contents) is to list the files and directories in a specified directory or the current working directory if no directory is specified.
 
-2. pwd → present working directory
-   
-   `pwd` shows the full path to the current directory. It can help understand how the files look. `tree ..` is another useful option (this goes up a directory using the two dots: `..` and `tree` shows the files in a hierarchical diagram.)
+3.  pwd → present working directory
 
-3. mkdir → make new directory
+    `pwd` shows the full path to the current directory. It can help understand how the files look. `tree ..` is another useful option (this goes up a directory using the two dots: `..` and `tree` shows the files in a hierarchical diagram.)
 
-   `mkdir` (make directory) is to create a new directory with a specified name in the file system.
+4.  mkdir → make new directory
 
-## Git 
+    `mkdir` (make directory) is to create a new directory with a specified name in the file system.
 
-1. Git add
+## Git
 
-   `git add` is a command used in Git to stage changes for a commit. It allows you to select which changes in the working directory will be included in the next commit.
+1.  Git add
 
-2. Git commit -m "message"
+    `git add` is a command used in Git to stage changes for a commit. It allows you to select which changes in the working directory will be included in the next commit.
 
-   `git commit` saves changes to the local repository. It takes all of the changes staged with `git add` and stores them as a new commit with a message describing the changes.
+2.  Git commit -m "message"
 
-3. Git status
+    `git commit` saves changes to the local repository. It takes all of the changes staged with `git add` and stores them as a new commit with a message describing the changes.
 
-   `git status` shows the state of the working directory and the staged changes, and it indicates which branch you are currently on.
+3.  Git status
 
-4. Git log
+    `git status` shows the state of the working directory and the staged changes, and it indicates which branch you are currently on.
 
-   `git log` is to display the commit history of a repository. It shows a list of all commits in the current branch, along with information about the author, date, and commit message for each one.
+4.  Git log
+
+    `git log` is to display the commit history of a repository. It shows a list of all commits in the current branch, along with information about the author, date, and commit message for each one.

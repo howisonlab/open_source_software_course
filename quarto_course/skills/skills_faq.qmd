@@ -4,25 +4,23 @@
 
 ### Set my name and email
 
-git wants to add your name and email to commits.  These are distinct from your `github` account (remember `git` can be used independently of an online service or with online services other than github).
+git wants to add your name and email to commits. These are distinct from your `github` account (remember `git` can be used independently of an online service or with online services other than github).
 
 If you are seeing messages that end like this:
 
-```
-You can suppress this message by setting them explicitly. Run the
-following command and follow the instructions in your editor to edit
-your configuration file:
+    You can suppress this message by setting them explicitly. Run the
+    following command and follow the instructions in your editor to edit
+    your configuration file:
 
-    git config --global --edit
+        git config --global --edit
 
-After doing this, you may fix the identity used for this commit with:
+    After doing this, you may fix the identity used for this commit with:
 
-    git commit --amend --reset-author
-```
+        git commit --amend --reset-author
 
-Then you can run these commands to set a username and email.  Note that these can be anything, they aren't a login or checked against anything, they are just metadata attached to your commits.  Nonetheless having them make sense for your identity makes sense when sharing code publically.  They can easily be a made up identifier (pseudonym/handle/accountname).
+Then you can run these commands to set a username and email. Note that these can be anything, they aren't a login or checked against anything, they are just metadata attached to your commits. Nonetheless having them make sense for your identity makes sense when sharing code publically. They can easily be a made up identifier (pseudonym/handle/accountname).
 
-```bash
+``` bash
 git config --global user.name "John Doe"
 $ git config --global user.email johndoe@example.com
 ```
@@ -52,13 +50,13 @@ The best option is to:
 
 See <https://stackoverflow.com/questions/11828270/how-do-i-exit-vim>
 
-**The option below does not work in Rstudio because Rstudio captures the <kdb>Ctrl</kdb> key commands**
+**The option below does not work in Rstudio because Rstudio captures the** <kdb>Ctrl</kdb> key commands
 
 You can also configure git to use another editor: <https://stackoverflow.com/questions/2596805/how-do-i-make-git-use-the-editor-of-my-choice-for-editing-commit-messages>
 
-For example, the `nano` editor is easier to use.  You can set that run running
+For example, the `nano` editor is easier to use. You can set that run running
 
-```bash
+``` bash
 git config --global core.editor "nano"
 ```
 
@@ -74,9 +72,9 @@ Then:
 
 If you are in your home folder but `git status` doesn't give a "fatal error" then you've accidentially made your home folder into a git repository (probably by running `git init` in that folder).
 
-In this case we need to undo this. We can't delete our home folder, because it has everything else inside it.  We have to somehow tell the computer that the home folder should not be a git repo. Happily, then only thing that makes it a git repo is that it has a `.git` folder inside it.  You can confirm by running:
+In this case we need to undo this. We can't delete our home folder, because it has everything else inside it. We have to somehow tell the computer that the home folder should not be a git repo. Happily, then only thing that makes it a git repo is that it has a `.git` folder inside it. You can confirm by running:
 
-```sh
+``` sh
 ls -lah
 ```
 
@@ -84,9 +82,56 @@ The `-a` flag to `ls` makes it show all files and folders, even the hidden ones 
 
 To fix this we could just delete the `.git` folder but we might lose data that way (if we had already added work to that repo). So safest thing is to make a new folder inside our home folder, and then move the `.git` there.
 
-```sh
+``` sh
 mkdir backup_home_git
 mv ./.git ./backup_home_git
 ```
 
 Now you could `cd backup_home_git` and use that folder as a git repo. But probably you are about to clone from github (in which case a new folder will be created) or you are about to use `git init` to create a new local repo (in which case you should create a folder first, `cd` into it, then run `git init`.
+
+## Vizualizing git trees (aka gitviz) {#sec-gitviz}
+
+In this course we are using a command that I usually call "gitviz" for short:
+
+```sh
+git log --oneline --abbrev-commit --all --graph --decorate --color
+```
+
+This produces reasonably readable graphs (especially for the teaching repos used in this course).
+
+They look like this:
+
+```bash
+jlh5498@educcomp04:~/github_repos/i320_test3$ git log --oneline --abbrev-commit --all --graph --decorate --color
+*   d8ab2c1 (HEAD -> main, origin/main, origin/HEAD) Merge pull request #1 from jameshowison/new-feature
+|\  
+| * ffb601d (origin/new-feature, new-feature) added extra
+|/  
+* f256ee7 Added line to README
+* 093fb0c Initial commit
+```
+
+Or as an image (with coloring as on Edupod Rstudio):
+
+![Image showing output of gitviz command shown as text above](images/gitviz_example.png)
+
+You can read a little more about how to read these graphs here <https://stackoverflow.com/questions/22313343/git-graph-what-do-the-lines-and-asteriks-denote>
+
+Long story short:
+
+* The asterisk characters (`*`) show a single commit
+* The lines formed with characters like (`| \ /`) help us follow which branches a commit was on.
+* The words in parens show branch names, and can include the names of remotes (e.g., `origin/new-feature` means the `new-feature` branch on the `origin` remote)
+
+It is a long command, so you can either keep it handy in a pastebin (I use Typinator) or you can register it as a command alias for git itself:
+
+```sh
+git config --global alias.viz 'log --oneline --abbrev-commit --all --graph --decorate --color'
+```
+
+So then you can just type:
+
+```sh
+git viz
+```
+
