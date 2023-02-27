@@ -49,6 +49,7 @@ format:
     theme: cosmo
     css: styles.css
     toc: true
+    code-copy: true
 #    highlight-style: espresso
 
 editor: visual
