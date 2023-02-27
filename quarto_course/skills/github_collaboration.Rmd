@@ -285,7 +285,7 @@ So ... for the maintainer (the owner of the shared repo) the shared repo on thei
 
 2. *Maintainer* creates a branch and changes to it:
 
-```
+```sh
 git checkout -b new-maintainer-branch
 ```
 
@@ -299,7 +299,7 @@ echo "Content for the file" >> maintainer.txt
 
 4. *Maintainer* pushes up to the shared repo.  Remember: GitHub email/PAT token as password. See @sec-github-solo You may also need to re-run the command with `set-upstream` to set up the branch on the remote repo.
 
-```
+```sh
 git push
 ```
 
@@ -315,21 +315,21 @@ This pull request is a request (to themselves) to bring the code from the new-ma
 
 8. Everyone should update their own local repo (on Rstudio). Everyone needs to switch to main (because that is where the PRs are merged to).
 
-```
+```sh
 git checkout main
 ```
 Then obtaining the changes, differs slightly between roles: 
 
 * Contributors (who are working through a fork) will need to get the changes from upstream so they need to pull from upstream main, then push to their forks
 
-```
+```sh
 git pull upstream main
 git push
 ```
 
 * The maintainer (who cloned the shared repo) will just need `git pull`. They don't need to push because the changes are already in the repo they cloned from.
 
-```
+```sh
 git pull
 ```
 
@@ -341,7 +341,7 @@ The point of this exercise is to intentionally create conflicts in editing, to d
 
 1. *Maintainer* should change to the main branch on their local repo (on EduPod Rstudio)
 
-```
+```sh
 git checkout main
 ```
 
@@ -439,37 +439,37 @@ $ git push
 <!--     Branch for-pull-request set up to track remote branch for-pull-request from origin. -->
 <!-- ::: -->
 
-4.  On github, make sure you are looking at the new branch (by choosing it from drop down menu) and open a PR from the new branch to `master` on the shared repo. All should do this (*Maintainer*, *Contributor A*, and *Contributor B*).
+<!-- 4.  On github, make sure you are looking at the new branch (by choosing it from drop down menu) and open a PR from the new branch to `master` on the shared repo. All should do this (*Maintainer*, *Contributor A*, and *Contributor B*). -->
 
-![Image of drop down menu for branches, shows for-pull-request and master](images/selecting_branch_on_github.png)
+<!-- ![Image of drop down menu for branches, shows for-pull-request and master](images/selecting_branch_on_github.png) -->
 
-![New Pull Request button](images/new_pr_button.png)
+<!-- ![New Pull Request button](images/new_pr_button.png) -->
 
-![Create PR screen](images/create_pr_screen.png)
+<!-- ![Create PR screen](images/create_pr_screen.png) -->
 
-5.  *Maintainer* can then accept all three PRs on github.
+<!-- 5.  *Maintainer* can then accept all three PRs on github. -->
 
-::: spoiler
-![Image of accepting PR](images/merge_pr.png)
-:::
+<!-- ::: spoiler -->
+<!-- ![Image of accepting PR](images/merge_pr.png) -->
+<!-- ::: -->
 
-6.  For all three, *Maintainer*, *Contributor A*, and *Contributor B*, back on local, switch to master.
+<!-- 6.  For all three, *Maintainer*, *Contributor A*, and *Contributor B*, back on local, switch to master. -->
 
-::: spoiler
-``` sh
-$ git checkout master
-Switched to branch 'master'
-Your branch is up-to-date with 'origin/master'.
-```
-:::
+<!-- ::: spoiler -->
+<!-- ``` sh -->
+<!-- $ git checkout master -->
+<!-- Switched to branch 'master' -->
+<!-- Your branch is up-to-date with 'origin/master'. -->
+<!-- ``` -->
+<!-- ::: -->
 
-7.  Pull changes.
+<!-- 7.  Pull changes. -->
 
-    <div class="spoiler">
+<!--     <div class="spoiler"> -->
 
-``` sh
-git pull
-```
+<!-- ``` sh -->
+<!-- git pull -->
+<!-- ``` -->
 
 <!-- remote: Enumerating objects: 1, done. remote: Counting objects: 100% (1/1), done. remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0 Unpacking objects: 100% (1/1), done. From https://github.com/jameshowison/pp2019_pr_owner 36cd034..6d0673d master -\> origin/master Updating 36cd034..6d0673d Fast-forward README.md \| 1 + 1 file changed, 1 insertion(+) \$ git status On branch master Your branch is up-to-date with 'origin/master'. -->
 
