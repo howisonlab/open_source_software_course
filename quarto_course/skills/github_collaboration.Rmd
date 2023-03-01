@@ -155,7 +155,8 @@ upstream <maintainers_repo_url> (fetch)
 upstream <maintainers_repo_url> (push)
 ```
 
-Note that git automatically creates the `origin` remote as whatever URL was used with `git clone`. 
+::: {.callout-note}
+Note that git automatically creates the `origin` remote as whatever URL was used with `git clone`. :::
 
 Each exercise below assumes this setup as the starting point.
 
@@ -198,7 +199,10 @@ git push
 ```
 :::
 
-Note, if you have trouble with GitHub authentication, remember that it is the email address associated with the GitHub account and the password has to be a PAT. That is the special password you copied from the GitHub site.  See @sec-github-solo for details.
+::: {.callout-note}
+If you have trouble with GitHub authentication, remember that it is the email address associated with the GitHub account and the password has to be a PAT. That is the special password you copied from the GitHub site.  See @sec-github-solo for details.
+:::
+
 
 You may also see a message about having an upstream branch. Something like this:
 
@@ -257,20 +261,20 @@ I've always thought it is a little strange that a contributor's fork doesn't dis
 
 In the exercise above you may have noticed that the maintainer was not editing and contributing files, only ContributorA and ContributorB were.
 
-The maintainer is the owner of the shared repository (which we call "upstream"). For this reason they can work directly in that repository, and they don't need to make their own fork.
+The maintainer is the owner of the shared repository (which we call "upstream"). For this reason they can work directly in that repository, and they don't need to make their own fork. The maintainer can directly use `git clone` on the shared repository.
 
-*For the maintainer upstream and origin are the same*
+::: {.callout-note}
+For the maintainer upstream and origin are the same; The Maintainer only has one remote set up.
+:::
 
-The maintainer can directly use `git clone` on the shared repository.
-
-The maintainer can still create pull requests. This places them on an equal footing with other contributors, so everyone else can follow the work and comment on it. Maintainers can make a pull request from a branch in their repository to another branch (usually main/master).
+The maintainer can still create pull requests (and they should do). This places them on an equal footing with other contributors, so everyone else can follow the work and comment on it. Maintainers can make a pull request from a branch in their repository to another branch (usually main/master).
 
 This gives us another insight: a Github pull request is from a branch to another branch; it doesn't matter if those branches are in forked repos or in the same repo.
 
 1. *Maintainer* should clone the shared repo
 
 ```sh
-git clone <maintainer_url>
+git clone MAINTAINER_URL
 ```
 
 If the maintainer then runs:
@@ -282,11 +286,11 @@ git remote -v
 they will see:
 
 ```
-origin  <maintainer_repo_url> (fetch)
-origin  <maintainer_repo_url> (push)
+origin  MAINTAINER_URL (fetch)
+origin  MAINTAINER_URL (push)
 ```
 
-So ... for the maintainer (the owner of the shared repo) the shared repo on their clone is called origin, but those the maintainers (who are working through a fork) it is called upstream. This can be a little confusing. Remember that when we run `git clone` git automatically sets up a remote called 'origin'.
+So ... for the maintainer (the owner of the shared repo) the shared repo on their clone is called `origin`, but those the maintainers (who are working through a fork) it is called `upstream`. This can be a little confusing. Remember that when we run `git clone` git automatically sets up a remote called `origin`.
 
 2. *Maintainer* creates a branch and changes to it:
 
@@ -302,7 +306,7 @@ You can do this with the same command that the Contributors used:
 echo "Content for the file" >> maintainer.txt
 ```
 
-4. *Maintainer* pushes up to the shared repo.  Remember: GitHub email/PAT token as password. See @sec-github-solo You may also need to re-run the command with `set-upstream` to set up the branch on the remote repo.
+4. *Maintainer* pushes up to the shared repo.  Remember: GitHub email/PAT token as password. See @sec-github-solo If you see a message about `--set-upstream` you will also have to copy that the command in the error message to set up the branch on the remote repo.
 
 ```sh
 git push
@@ -318,7 +322,7 @@ This pull request is a request (to themselves) to bring the code from the new-ma
 
 7. The *Maintainer* should merge the branch and close the PR.
 
-8. Everyone should update their own local repo (on Rstudio). Everyone needs to switch to main (because that is where the PRs are merged to).
+8. Everyone should update their own local repo (on Rstudio). First, everyone needs to switch to main (because that is where the PRs are merged to).
 
 ```sh
 git checkout main
@@ -370,20 +374,70 @@ git pull upstream main
 4.  *Contributor A* and *Contributor B* should both create and switch to a branch.
 
 ```sh
-git checkout -b animal-branch
+git checkout -b animal-branch-CONTRIBUTOR_NAME
 ```
 
 5, *Contributor A* and *Contributor B* should each edit the animals.txt file by adding their name to the first line in the `animals.txt` (so it reads `lion contributorA` or `lion contributorB`). They add, commit, push to their forks. 
 
-**Note that these edits are incompatible, so they will generate a conflict when we try to merge them below**
+::: {.callout-note}
+Note that these edits are incompatible, so they will generate a conflict when we try to merge them below.
 
-5.  *Contributor A* and *Contributor B* should then go to github and look at their animal-branch on their forks. They should create a pull request by hitting the 'New Pull Request' button. Note that the pull request will not say "Able to automatically merge" (but go ahead and create the PR anyway.)
+They are incompatible because git can't automatically merge them. Git works line by line and is quite smart (able to notice the insertion of lines, for example) but some merging of work needs human attention.
+:::
+
+5.  *Contributor A* and *Contributor B* should then go to github and look at their animal-branch on their forks. They should create a pull request by hitting the 'New Pull Request' button. Note that the pull request's may **not** say "Able to automatically merge" (but go ahead and create the PR anyway.)
 
 6.  With everyone looking at *Maintainer*'s computer, *Maintainer* should refresh the github page for the shared repository and will see two pull-requests in the pull-request tab. 
 
-The maintainer should accept each PR, but will need to resolve any conflicts that emerge. For small edits like this, we can edit the file on the github website. The maintainer can choose whatever contributions they want (the original line, the line from ContributorA, or the line from ContributorB; or both. When we resolve conflicts however the file is after removing the `<<<<<` `========` and `>>>>>>` lines will be what is in the shared repository.
+The maintainer should merge contributorA's branch. This should merge cleanly since contributorA directly edited the `lion` line that the maintainer wrote. 
 
-6.  Each person should then synchronize. For *Maintainer* that just means `git pull` (since they have a direct clone of upstream). For *Contributor B* and *Contributor A* they have to first get the changes in upstream, then push them to their fork.
+However, the second pull request will create a merge conflict. So the maintainer will have to resolve the conflict.
+
+### Resolving merge conflict
+
+For small edits like this, we can edit the file on the github website. 
+
+The maintainer can choose whatever contributions they want:
+- the original line
+- the line from ContributorA
+- the line from ContributorB
+- Both lines
+- Any other decision they make
+
+To show a conflict, git inserts special lines into the file, using these characters: `<<<<<` `========` and `>>>>>>` While those are present, git will not let us continue.
+
+::: {.callout-note}
+This way of showing a comparison between files is called a `diff`.  You can read more about diffs. [e.g., A tutorial on diff and diff format](http://www.math.utah.edu/docs/info/diff_3.html)
+:::
+
+To resolve the conflict we have to remove those lines.  As long as they are gone, git will accept whatever is in the file as the new desired state.  Git is only working at the syntax level, it does not check the semantics of the file (e.g., whether the code runs, or whether the resulting document is readable or logically consistent.)
+
+The maintainer should see the file marked with a conflict like:
+
+```
+<<<<<<< HEAD
+lion contributorA
+=======
+lion contributorB
+>>>>>>> animal-branch-contributorB
+tiger
+leopard
+turtle
+```
+
+We can read this as follows:
+
+> The code in HEAD has "contributorA" next to lion.  But the code in animal-branch-contributorB has conflicting code for that line, showing "contributorB" next to line.
+
+The maintainer should go ahead and remove the `<<<<<` `========` and `>>>>>>` lines, then save the file.
+
+To let git know we are done resolving a conflict we need to then `git add` and `git commit` that file.  If we are editing on GitHub that is done automatically for us.
+
+6.  Each person should then synchronize their local repos. 
+
+For the *Maintainer* that just means `git pull` (since they have a direct clone of upstream). 
+
+For *Contributor B* and *Contributor A* they have to first get the changes in upstream, then push them to their fork.
 
 ::: spoiler
 ``` sh
@@ -392,138 +446,40 @@ $ git push
 ```
 :::
 
-<!-- # Once more, but with branches -->
+## Deleting branches
 
-<!-- In the exercises above all the work was on the `master` branch. That was to keep things simple, but in reality new work should always be on a branch, usually called a (short-lived) "feature branch". Pull requests then come from the feature branch to the master branch on the shared repo. This is also true for *Maintainer* as well as *Contributor A* and *Contributor B*, the only difference for the *Maintainer* is that their pull request is from a branch inside the shared repo, while the *Contributor A* and *Contributor B* is from a branch in a different repository. -->
+We have been using branches as temporary working areas, intended to be used, merged, and then deleted.  Later we will discuss longer lived branches (such as a `staging` or `dev` branch).
 
-<!-- (If starting here, confirm that your Group of three has the setup in [Basic forking workflow setup](#basic_forking_workflow_setup) as the starting point.) -->
+For short lived branches, though, we usually want to delete them when they are merged.  GitHub offers that as an option after a PR is accepted.
 
-<!-- 1.  On local, create a branch (`for-pull-request`) -->
+We can also delete a branch on our local repo, then push that change up to GitHub.
 
-<!-- ::: spoiler -->
-<!-- ``` sh -->
-<!-- $ git checkout -b for-pull-request -->
-<!-- Switched to a new branch 'for-pull-request' -->
-<!-- ``` -->
-<!-- ::: -->
+```sh
+git branch -d localBranchName
+git push
+```
 
-<!-- 2.  Edit a file named after your role (ie "maintainer.txt", "contributorA.txt", or "contributorB.txt"), add, commit. -->
+Or we can do this with a single command:
 
-<!-- ::: spoiler -->
-<!-- ``` sh -->
-<!-- git add <your file> -->
-<!-- git commit -m "Edit to send via pull request" -->
-<!-- ``` -->
-<!-- ::: -->
+```
+git push origin --delete remoteBranchName
+```
 
-<!-- 3.  Push the branch to origin (`git push` will fail but the error message will show you a command that will run). Note that is the fork for *Contributor A* and *Contributor B* but the shared repo for *Maintainer*, but called `origin` for everyone. -->
+The maintainers should go ahead and delete their branches, push to GitHub and make sure that they are gone from the fork.  Note that we don't need to delete the contributor's branches from `upstream` because they never went there (the PR asked to bring the changes on the branches directly into the `main` branch on the shared repo).
 
-<!-- ::: spoiler -->
-<!-- ``` sh -->
-<!-- $ git push -->
-<!-- ``` -->
+## Exercises
 
-<!--     fatal: The current branch for-pull-request has no upstream branch. -->
-<!--     To push the current branch and set the remote as upstream, use -->
+1. Rotate your group, repeating the animals conflict exercise.  When you change maintainer you will need to repeat the repository set up (use entirely new repos on GitHub). Use edits to different lines in the animals file.  
 
-<!--         git push --set-upstream origin for-pull-request -->
+2. Experiment to find out what happens when a contributor adds additional commits to a branch on their fork, after they have opened a PR.
 
-<!-- Copy the `--set-upstream` line and execute. Note that the "upstream" here has nothing to do with the "upstream" remote (which is a name for the shared repo). Here it means "which remote should be connected to this branch" and almost always that is going to be an identically named branch in `origin`. -->
-
-<!-- ``` sh -->
-<!-- $git push --set-upstream origin for-pull-request -->
-<!-- ``` -->
-
-<!--     Total 0 (delta 0), reused 0 (delta 0) -->
-<!--     remote:  -->
-<!--     remote: Create a pull request for 'for-pull-request' on GitHub by visiting: -->
-<!--     remote:      https://github.com/jameshowison/pp2019_pr_owner/pull/new/for-pull-request -->
-<!--     remote:  -->
-<!--     To https://github.com/jameshowison/pp2019_pr_owner.git -->
-<!--      * [new branch]      for-pull-request -> for-pull-request -->
-<!--     Branch for-pull-request set up to track remote branch for-pull-request from origin. -->
-<!-- ::: -->
-
-<!-- 4.  On github, make sure you are looking at the new branch (by choosing it from drop down menu) and open a PR from the new branch to `master` on the shared repo. All should do this (*Maintainer*, *Contributor A*, and *Contributor B*). -->
-
-<!-- ![Image of drop down menu for branches, shows for-pull-request and master](images/selecting_branch_on_github.png) -->
-
-<!-- ![New Pull Request button](images/new_pr_button.png) -->
-
-<!-- ![Create PR screen](images/create_pr_screen.png) -->
-
-<!-- 5.  *Maintainer* can then accept all three PRs on github. -->
-
-<!-- ::: spoiler -->
-<!-- ![Image of accepting PR](images/merge_pr.png) -->
-<!-- ::: -->
-
-<!-- 6.  For all three, *Maintainer*, *Contributor A*, and *Contributor B*, back on local, switch to master. -->
-
-<!-- ::: spoiler -->
-<!-- ``` sh -->
-<!-- $ git checkout master -->
-<!-- Switched to branch 'master' -->
-<!-- Your branch is up-to-date with 'origin/master'. -->
-<!-- ``` -->
-<!-- ::: -->
-
-<!-- 7.  Pull changes. -->
-
-<!--     <div class="spoiler"> -->
-
-<!-- ``` sh -->
-<!-- git pull -->
-<!-- ``` -->
-
-<!-- remote: Enumerating objects: 1, done. remote: Counting objects: 100% (1/1), done. remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0 Unpacking objects: 100% (1/1), done. From https://github.com/jameshowison/pp2019_pr_owner 36cd034..6d0673d master -\> origin/master Updating 36cd034..6d0673d Fast-forward README.md \| 1 + 1 file changed, 1 insertion(+) \$ git status On branch master Your branch is up-to-date with 'origin/master'. -->
-
-<!-- nothing to commit, working tree clean -->
-
-<!--     </div> -->
-
-<!--     8. Delete the branch locally and on github -->
-
-<!--     <div class="spoiler"> -->
-<!--     ```sh -->
-<!--     $ git branch -d for-pull-request -->
-<!--     Deleted branch for-pull-request (was 01541c3). -->
-<!--     $git push origin --delete for-pull-request -->
-<!--     To https://github.com/jameshowison/pp2019_pr_owner.git -->
-<!--      - [deleted]         for-pull-request -->
-
-<!-- # Tags -->
-
-<!-- Tags help identify important points in the version history. They are also used for releases on github. They point to a specific commit, but are human readable, rather than the hash. So they are like a bookmark which brings you directly to a specific point in the repo history. -->
-
-<!-- Your task is to create three tags, `tag-animals`, `tag-colors`, `tag-noises` which reflect the merge points of different branches. -->
-
-<!-- 1.  Have *Maintainer* create a repository, and start with the file having only animals. -->
-<!-- 2.  *Maintainer* tag repo with `tag-animals` -->
-<!-- 3.  *Contributor A* create a branch `colors-for-tag`. *Contributor B* and *Maintainer* contribute to that branch (`lion yellow`) via pull requests. -->
-<!-- 4.  *Contributor A* merge `colors-for-tag` branch to master, than tag master as `tag-colors`. -->
-<!-- 5.  *Contributor B* create branch `noises-for-tag`. *Contributor A* and *Maintainer* contribute to that branch as well. (`lion yellow roar`) -->
-<!-- 6.  *Contributor B* merges that branch to master, then tag master as `tag-noises`. Others update. -->
-
-<!-- Look at the history via `git log`: -->
-
-<!-- ``` sh -->
-<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
-<!-- ``` -->
-
-<!-- To see the status of the repo at a tag, you can use -->
-
-<!-- ``` sh -->
-<!-- git checkout <tag_name> -->
-<!-- ``` -->
-
-<!-- You'll see a message about a "Detached HEAD" which sounds awful but actually means that Git wouldn't know where to put any new commits you make (since new commits are given HEAD as the parent). So tags are mostly used for read-only inspection of code at a particular point in history. -->
+2. Experiment to find out what happens if contributors don't synchronize their local repo after having their PR accepted.
 
 <!-- # Split a pull request -->
 
 <!-- Here the scenario is that you've created a pull request but it hasn't yet been accepted. -->
 
-<!-- If you add additional commits to that branch then they will get added to the pull request. Remember, a pull request says, "Please come to this repo and get everything on this branch." So it's not the same as puttings some commits in a zip file and mailing them, it's more like puttings things into a particular spot (like a mailbox or deaddrop in a spy movie), and telling people to pick them up from there. -->
+<!-- If you add additional commits to that branch then they will get added to the pull request. Remember, a pull request says, "Please come to this repo and get everything on this branch." So it's not the same as puting some commits in a zip file and mailing them, it's more like puting things into a particular spot (like a mailbox or dead-drop in a spy movie), and telling people to pick them up from there. -->
 
 <!-- So you can always add additional things before the person comes to pick them up. This is useful because if there is a conversation around the pull request then you can easily update things. For example, if someone said "Please fix a typo or pull from upstream before we consider your pull request," you'd be able to do so without opening another PR (just add, commit, push to your branch on your fork and the PR is updated). -->
 

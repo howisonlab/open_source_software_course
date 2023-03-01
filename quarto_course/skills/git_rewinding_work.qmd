@@ -119,3 +119,30 @@ Remember, git swaps out all the **tracked** files when you do a `checkout`. If y
 ## Revert - commits to undo commits
 
 See <https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/>
+
+<!-- # Tags -->
+
+<!-- Tags help identify important points in the version history. They are also used for releases on github. They point to a specific commit, but are human readable, rather than the hash. So they are like a bookmark which brings you directly to a specific point in the repo history. -->
+
+<!-- Your task is to create three tags, `tag-animals`, `tag-colors`, `tag-noises` which reflect the merge points of different branches. -->
+
+<!-- 1.  Have *Maintainer* create a repository, and start with the file having only animals. -->
+<!-- 2.  *Maintainer* tag repo with `tag-animals` -->
+<!-- 3.  *Contributor A* create a branch `colors-for-tag`. *Contributor B* and *Maintainer* contribute to that branch (`lion yellow`) via pull requests. -->
+<!-- 4.  *Contributor A* merge `colors-for-tag` branch to master, than tag master as `tag-colors`. -->
+<!-- 5.  *Contributor B* create branch `noises-for-tag`. *Contributor A* and *Maintainer* contribute to that branch as well. (`lion yellow roar`) -->
+<!-- 6.  *Contributor B* merges that branch to master, then tag master as `tag-noises`. Others update. -->
+
+<!-- Look at the history via `git log`: -->
+
+<!-- ``` sh -->
+<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
+<!-- ``` -->
+
+<!-- To see the status of the repo at a tag, you can use -->
+
+<!-- ``` sh -->
+<!-- git checkout <tag_name> -->
+<!-- ``` -->
+
+<!-- You'll see a message about a "Detached HEAD" which sounds awful but actually means that Git wouldn't know where to put any new commits you make (since new commits are given HEAD as the parent). So tags are mostly used for read-only inspection of code at a particular point in history. -->
