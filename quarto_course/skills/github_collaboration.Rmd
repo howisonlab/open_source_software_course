@@ -393,11 +393,14 @@ The maintainer should merge contributorA's branch. This should merge cleanly sin
 
 However, the second pull request will create a merge conflict. So the maintainer will have to resolve the conflict.
 
+![Viewing a PR on GitHub that will not merge cleanly, simple fixes can be applied via Resolve Conflicts button highlighted in purple](images/resolve_conflicts_button.png)
+
 ### Resolving merge conflict
 
 For small edits like this, we can edit the file on the github website. 
 
 The maintainer can choose whatever contributions they want:
+
 - the original line
 - the line from ContributorA
 - the line from ContributorB
