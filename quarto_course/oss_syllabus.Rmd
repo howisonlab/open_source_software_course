@@ -59,6 +59,7 @@ Official, updated version of syllabus always online at:
 
 https://howisonlab.github.io/open_source_software_course/oss_syllabus.html
 
+Class server at [Edupod Rstudio](https://edupod.cns.utexas.edu/).
 ```{r header_output}
 kable(header) %>%
   kable_styling(bootstrap_options = c("responsive", "striped"))

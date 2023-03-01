@@ -461,7 +461,7 @@ git push
 
 Or we can do this with a single command:
 
-```
+```sh
 git push origin --delete remoteBranchName
 ```
 

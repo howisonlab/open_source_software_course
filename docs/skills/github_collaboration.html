@@ -680,7 +680,7 @@ turtle</code></pre>
 <div class="sourceCode" id="cb28"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-d</span> localBranchName</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Or we can do this with a single command:</p>
-<pre><code>git push origin --delete remoteBranchName</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin <span class="at">--delete</span> remoteBranchName</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The maintainers should go ahead and delete their branches, push to GitHub and make sure that they are gone from the fork. Note that we don’t need to delete the contributor’s branches from <code>upstream</code> because they never went there (the PR asked to bring the changes on the branches directly into the <code>main</code> branch on the shared repo).</p>
 </section>
 <section id="exercises" class="level2" data-number="11.7">
