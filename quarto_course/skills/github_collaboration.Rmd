@@ -132,8 +132,8 @@ Then clone your repository and change directory into it.
 
 ::: spoiler
 ``` sh
-$ git clone <fork_repo_url>
-$ cd <repository_name>
+git clone <fork_repo_url>
+cd <repository_name>
 ```
 :::
 
@@ -141,7 +141,7 @@ $ cd <repository_name>
 
 ::: spoiler
 ``` sh
-$ git remote add upstream <maintainers_repo_url>
+git remote add upstream <maintainers_repo_url>
 ```
 :::
 
@@ -207,7 +207,7 @@ If you have trouble with GitHub authentication, remember that it is the email ad
 You may also see a message about having an upstream branch. Something like this:
 
 ```bash
-$ git push
+git push
 fatal: The current branch test-branch has no upstream branch.
 To push the current branch and set the remote as upstream, use
 
@@ -441,8 +441,8 @@ For *Contributor B* and *Contributor A* they have to first get the changes in up
 
 ::: spoiler
 ``` sh
-$ git pull upstream master
-$ git push
+git pull upstream master
+git push
 ```
 :::
 
