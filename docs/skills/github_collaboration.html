@@ -92,7 +92,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../skills/skills_faq.html" rel="next">
+<link href="../skills/git_cherrypick_split_pr.html" rel="next">
 <link href="../skills/github_solo.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -230,6 +230,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../skills/github_collaboration.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Github collaboration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/git_cherrypick_split_pr.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Split a Pull Request</span></a>
   </div>
 </li>
       </ul>
@@ -415,7 +420,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">origin</span>  <span class="op">&lt;</span>fork_repo_url<span class="op">&gt;</span> <span class="er">(</span><span class="ex">push</span><span class="kw">)</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">upstream</span> <span class="op">&lt;</span>maintainers_repo_url<span class="op">&gt;</span> <span class="er">(</span><span class="ex">fetch</span><span class="kw">)</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">upstream</span> <span class="op">&lt;</span>maintainers_repo_url<span class="op">&gt;</span> <span class="er">(</span><span class="ex">push</span><span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>::: {.callout-note} Note that git automatically creates the <code>origin</code> remote as whatever URL was used with <code>git clone</code>. :::</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note that git automatically creates the <code>origin</code> remote as whatever URL was used with <code>git clone</code>.</p>
+</div>
+</div>
 <p>Each exercise below assumes this setup as the starting point.</p>
 </section>
 <section id="sharing-work-and-synchronizing" class="level2" data-number="11.3">
@@ -703,452 +720,6 @@ turtle</code></pre>
 <li><p>Experiment to find out what happens when a contributor adds additional commits to a branch on their fork, after they have opened a PR.</p></li>
 <li><p>Experiment to find out what happens if contributors don’t synchronize their local repo after having their PR accepted.</p></li>
 </ol>
-<!-- # Split a pull request -->
-<!-- Here the scenario is that you've created a pull request but it hasn't yet been accepted. -->
-<!-- If you add additional commits to that branch then they will get added to the pull request. Remember, a pull request says, "Please come to this repo and get everything on this branch." So it's not the same as puting some commits in a zip file and mailing them, it's more like puting things into a particular spot (like a mailbox or dead-drop in a spy movie), and telling people to pick them up from there. -->
-<!-- So you can always add additional things before the person comes to pick them up. This is useful because if there is a conversation around the pull request then you can easily update things. For example, if someone said "Please fix a typo or pull from upstream before we consider your pull request," you'd be able to do so without opening another PR (just add, commit, push to your branch on your fork and the PR is updated). -->
-<!-- However, it is an issue if you *accidentally* add new commits to a branch before a pull request is accepted. Now your pull request has two sets of commits: the first set you meant to include and the second set you didn't. This mistake is particularly easy to make if you are developing on the `main` branch in your fork (which you shouldn't do), but also happens if you are have more than one contribution that you are working on, as when you are doing something else while waiting for a PR to be accepted. If you've accidentally added too many files to your pull request---something that is easy to do if you use `git add *` or some variant---you'll also find yourself needing to remove content from your PR. -->
-<!-- First, take a look at this in the Learning Git Visualizer, I have created a level called [Split Pull Request](https://learngitbranching.js.org/?gist_level_id=f7b4b63960ed80fa9a76728d853f2546). -->
-<!-- ## Split before submit -->
-<!-- Things would be better if you had created a new branch for the first set of commits, then a second branch for your second set of commits, never adding either set to your main branch and following the "always work on a (short-lived) feature branch" rule. Then each set of commits would be "sent" through a different pull request. -->
-<!--             / Branch for first set. -->
-<!--            / -->
-<!--     main - -->
-<!--             \ -->
-<!--              \ Branch for second set -->
-<!-- The grey sections below are commands, the white is output. -->
-<!-- ``` sh -->
-<!-- This is a git command that you should copy -->
-<!-- ``` -->
-<!--     This is output. -->
-<!-- Below, I make a new repo, create a README file and make a commit, and edit it once making another commit: -->
-<!-- ``` sh -->
-<!-- git init -->
-<!-- ``` -->
-<!--     Initialized empty Git repository in /Users/howison/Documents/UTexas/Courses/PeerProduction/practice/.git/ -->
-<!-- ``` sh -->
-<!-- touch README -->
-<!-- ``` -->
-<!-- ``` sh -->
-<!-- git add README -->
-<!-- ``` -->
-<!-- ``` sh -->
-<!-- git commit -m "Adding readme" -->
-<!-- ``` -->
-<!--     [main (root-commit) d5eb1e8] Adding readme -->
-<!--      1 file changed, 1 insertion(+) -->
-<!--      create mode 100644 README -->
-<!-- ``` sh -->
-<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
-<!-- ``` -->
-<!--     * d5eb1e8 (HEAD -> main) Adding readme -->
-<!-- So now we have a single commit on a single branch `main`. To create a new file we can use `touch` (which creates an empty file here, but that's ok). -->
-<!-- ``` sh -->
-<!-- touch main2 -->
-<!-- ``` -->
-<!-- ``` sh -->
-<!-- git add main2 -->
-<!-- ``` -->
-<!-- ``` sh -->
-<!-- git commit -m "add main2" -->
-<!-- ``` -->
-<!--     [main 749454e] add main2 -->
-<!--      1 file changed, 2 insertions(+) -->
-<!--     git log --oneline --abbrev-commit --all --graph --decorate --color -->
-<!--     * 749454e (HEAD -> main) add main2 -->
-<!--     * d5eb1e8 Adding readme -->
-<!-- Now we have added a commit on `main` so the `HEAD -> main` shows the 'tip' of the main branch. -->
-<!-- Now we can create the feature branch (`first_set_branch`) for the first set and look at the commits we've made. Using `git checkout` with `-b` creates a new branch: -->
-<!-- ``` sh -->
-<!-- git checkout -b first_set_branch -->
-<!-- ``` -->
-<!--     Switched to a new branch 'first_set_branch' -->
-<!-- ``` sh -->
-<!-- touch first_set_file -->
-<!-- ``` -->
-<!-- ``` sh -->
-<!-- git add first_set_file -->
-<!-- ``` -->
-<!-- ``` sh -->
-<!-- git commit -m "first set edit" -->
-<!-- ``` -->
-<!--     [first_set_branch d71ade9] first set edit -->
-<!--      1 file changed, 1 insertion(+) -->
-<!--      create mode 100644 first_set_file -->
-<!-- ``` sh -->
-<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
-<!-- ``` -->
-<!--     * d71ade9 (HEAD -> first_set_branch) first set edit -->
-<!--     * 749454e (main) add main2 -->
-<!--     * d5eb1e8 Adding readme -->
-<!-- Now we can see that we have two branches `(main)` and `first_set_branch`. `HEAD` shows us that we are currently in the `first_set_branch` branch. -->
-<!-- Now we're going to change back to main. -->
-<!-- ``` sh -->
-<!-- git checkout main -->
-<!-- ``` -->
-<!--     Switched to branch 'main' -->
-<!-- ``` sh -->
-<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
-<!-- ``` -->
-<!--     * d71ade9 (first_set_branch) first set edit -->
-<!--     * 749454e (HEAD -> main) add main2 -->
-<!--     * d5eb1e8 Adding readme -->
-<!-- See how the `HEAD` changed, showing us that we're looking at the main branch. Notice also that there is a commit (`d71ade9`) that isn't in `main`. -->
-<!-- Now we can create the second branch: -->
-<!-- ``` sh -->
-<!-- git checkout -b second_set_branch -->
-<!-- ``` -->
-<!--     Switched to a new branch 'second_set_branch' -->
-<!-- ``` sh -->
-<!-- touch second_set_file -->
-<!-- ``` -->
-<!-- ``` sh -->
-<!-- git add second_set_file -->
-<!-- ``` -->
-<!-- ``` sh -->
-<!-- git commit -m "first edit in second set" -->
-<!-- ``` -->
-<!--     [second_set_branch 9dc0a23] first edit in second set -->
-<!--      1 file changed, 1 insertion(+) -->
-<!--      create mode 100644 second_set_file -->
-<!-- ``` sh -->
-<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
-<!-- ``` -->
-<!--     * 9dc0a23 (HEAD -> second_set_branch) first edit in second set -->
-<!--     | * d71ade9 (first_set_branch) first set edit -->
-<!--     |/   -->
-<!--     * 749454e (main) add main2 -->
-<!--     * d5eb1e8 Adding readme -->
-<!-- Now the visualization has changed a bit. We can see that there are two branches that "come off" head after `749454e`. We can work independently, and could create pull requests for each branch separately. We are still on the second set's branch, let's add a second file to it: -->
-<!-- ``` sh -->
-<!-- touch second_set_file2 -->
-<!-- ``` -->
-<!-- ``` sh -->
-<!-- git add second_set_file2 -->
-<!-- ``` -->
-<!-- ``` sh -->
-<!-- git commit -m "added to second set" -->
-<!-- ``` -->
-<!--     [second_set_branch 04d6967] added to second set -->
-<!--      1 file changed, 1 insertion(+) -->
-<!--      create mode 100644 second_set_file2 -->
-<!-- ``` sh -->
-<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
-<!-- ``` -->
-<!--     * 04d6967 (HEAD -> second_set_branch) added to second set -->
-<!--     * 9dc0a23 first edit in second set -->
-<!--     | * d71ade9 (first_set_branch) first set edit -->
-<!--     |/   -->
-<!--     * 749454e (main) add main2 -->
-<!--     * d5eb1e8 Adding readme -->
-<!-- And just for fun swap back to the first branch and add a second file there: -->
-<!-- ``` sh -->
-<!-- git checkout first_set_branch -->
-<!-- ``` -->
-<!--     Switched to branch 'first_set_branch' -->
-<!--     git log --oneline --abbrev-commit --all --graph --decorate --color -->
-<!--     * 04d6967 (second_set_branch) added to second set -->
-<!--     * 9dc0a23 first edit in second set -->
-<!--     | * d71ade9 (HEAD -> first_set_branch) first set edit -->
-<!--     |/   -->
-<!--     * 749454e (main) add main2 -->
-<!--     * d5eb1e8 Adding readme -->
-<!-- ``` sh -->
-<!-- touch first_set_file2 -->
-<!-- ``` -->
-<!-- ``` sh -->
-<!-- git add first_set_file2 -->
-<!-- ``` -->
-<!-- ``` sh -->
-<!-- git commit -m "added second file to first set" -->
-<!-- ``` -->
-<!--     [first_set_branch b74cb32] added second file to first set -->
-<!--      1 file changed, 1 insertion(+) -->
-<!--      create mode 100644 first_set_file2 -->
-<!-- ``` sh -->
-<!-- git add first_set_file2 -->
-<!-- ``` -->
-<!-- ``` sh -->
-<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
-<!-- ``` -->
-<!--     * b74cb32 (HEAD -> first_set_branch) added second file to first set -->
-<!--     * d71ade9 first set edit -->
-<!--     | * 04d6967 (second_set_branch) added to second set -->
-<!--     | * 9dc0a23 first edit in second set -->
-<!--     |/   -->
-<!--     * 749454e (main) add main2 -->
-<!--     * d5eb1e8 Adding readme -->
-<!-- Now the branching in this in-terminal visualization is a bit clearer. -->
-<!-- Ok, so this is the right way to do it: with each file/commit on the correct branch (and thus separate PRs). -->
-<!-- ## Recover via splitting a PR -->
-<!-- Pretend we had never made the two additional branches but made those commits all on the main branch. Then if a pull request opened after the first set of files `51f2622` was never accepted, our second set would have just piled on top and been added to the pull request. -->
-<!--     git log --oneline --abbrev-commit --all --graph --decorate --color -->
-<!--     * b5d4aff (HEAD -> main) added to second set -->
-<!--     * dfa98b0 first edit in second set -->
-<!--     * 43bc368 added second file to first set -->
-<!--     * 51f2622 first set edit -->
-<!--     * f945961 add main2 -->
-<!--     * 367e25a Adding readme -->
-<!-- The problem here is that the top two commits (reading downward) are on `main` and should be on `second_set_branch` and the third and fourth commits are on `main` and should be on `first_set_branch`. -->
-<!-- So our challenge is to make this linear setup look like our branched setup above. There are a few routes we can take. -->
-<!-- First we're going to use the ability to create a new branch from an earlier point in history. By default `git checkout -b newbranch` will branch from the current HEAD, but we can tell it to branch earlier. So first we're going to create our two branches as though we'd done it before we started working, which is when HEAD was at `f945961`. -->
-<!-- ``` sh -->
-<!-- git checkout -b first_set_branch f945961 -->
-<!-- ``` -->
-<!--     Switched to a new branch 'first_set_branch' -->
-<!-- ``` sh -->
-<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
-<!-- ``` -->
-<!--     * b5d4aff (main) added to second set -->
-<!--     * dfa98b0 first edit in second set -->
-<!--     * 43bc368 added second file to first set -->
-<!--     * 51f2622 first set edit -->
-<!--     * f945961 (HEAD -> first_set_branch) add main2 -->
-<!--     * 367e25a Adding readme -->
-<!-- So now we can see `(HEAD -> first_set_branch)` at `f945961` as the branching point for first_set_branch. However the commits we need on that branch are not on it, we need to bring them over from `main`. -->
-<!-- We can do that using `git cherry-pick` pointing to each of the two commits we want to bring over. Below we can see (moving up the left) that we have a `first_set_branch` which has both of our needed commits. Note that this doesn't \``move'' them from the`main\` branch, but creates new commits with the same content. -->
-<!-- ``` sh -->
-<!-- git cherry-pick 51f2622 -->
-<!-- ``` -->
-<!--     [first_set_branch ef2a3ee] first set edit -->
-<!--      Date: Tue Apr 10 17:42:47 2018 -0500 -->
-<!--      1 file changed, 1 insertion(+) -->
-<!--      create mode 100644 first_set_file -->
-<!-- ``` sh -->
-<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
-<!-- ``` -->
-<!--     * ef2a3ee (HEAD -> first_set_branch) first set edit -->
-<!--     | * b5d4aff (main) added to second set -->
-<!--     | * dfa98b0 first edit in second set -->
-<!--     | * 43bc368 added second file to first set -->
-<!--     | * 51f2622 first set edit -->
-<!--     |/   -->
-<!--     * f945961 add main2 -->
-<!--     * 367e25a Adding readme -->
-<!-- ``` sh -->
-<!-- git cherry-pick 43bc368 -->
-<!-- ``` -->
-<!--     [first_set_branch 9f2b69a] added second file to first set -->
-<!--      Date: Tue Apr 10 17:43:07 2018 -0500 -->
-<!--      1 file changed, 1 insertion(+) -->
-<!--      create mode 100644 first_set_file2 -->
-<!-- ``` sh -->
-<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
-<!-- ``` -->
-<!--     * 9f2b69a (HEAD -> first_set_branch) added second file to first set -->
-<!--     * ef2a3ee first set edit -->
-<!--     | * b5d4aff (main) added to second set -->
-<!--     | * dfa98b0 first edit in second set -->
-<!--     | * 43bc368 added second file to first set -->
-<!--     | * 51f2622 first set edit -->
-<!--     |/   -->
-<!--     * f945961 add main2 -->
-<!--     * 367e25a Adding readme -->
-<!-- So that's good, because now we have the right commits on `first_set_branch`. (We also have them on main, but that's not a problem as we'd be making our pull request from `first_set_branch` not from main.) -->
-<!-- We can do the same thing to create our separate `second_set_branch`, starting by pointing back at the same branching point: -->
-<!--     git checkout -b second_set_branch f945961 -->
-<!--     Switched to a new branch 'second_set_branch' -->
-<!-- ``` sh -->
-<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
-<!-- ``` -->
-<!--     * 9f2b69a (first_set_branch) added second file to first set -->
-<!--     * ef2a3ee first set edit -->
-<!--     | * b5d4aff (main) added to second set -->
-<!--     | * dfa98b0 first edit in second set -->
-<!--     | * 43bc368 added second file to first set -->
-<!--     | * 51f2622 first set edit -->
-<!--     |/   -->
-<!--     * f945961 (HEAD -> second_set_branch) add main2 -->
-<!--     * 367e25a Adding readme -->
-<!-- ``` sh -->
-<!-- git cherry-pick dfa98b0 -->
-<!-- ``` -->
-<!--     [second_set_branch 0d8e90d] first edit in second set -->
-<!--      Date: Tue Apr 10 17:43:35 2018 -0500 -->
-<!--      1 file changed, 1 insertion(+) -->
-<!--      create mode 100644 second_set_file -->
-<!-- ``` sh -->
-<!-- git cherry-pick b5d4aff -->
-<!-- ``` -->
-<!--     [second_set_branch 0841579] added to second set -->
-<!--      Date: Tue Apr 10 17:43:57 2018 -0500 -->
-<!--      1 file changed, 1 insertion(+) -->
-<!--      create mode 100644 second_set_file2 -->
-<!-- ``` sh -->
-<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
-<!-- ``` -->
-<!--     * 0841579 (HEAD -> second_set_branch) added to second set -->
-<!--     * 0d8e90d first edit in second set -->
-<!--     | * 9f2b69a (first_set_branch) added second file to first set -->
-<!--     | * ef2a3ee first set edit -->
-<!--     |/   -->
-<!--     | * b5d4aff (main) added to second set -->
-<!--     | * dfa98b0 first edit in second set -->
-<!--     | * 43bc368 added second file to first set -->
-<!--     | * 51f2622 first set edit -->
-<!--     |/   -->
-<!--     * f945961 add main2 -->
-<!--     * 367e25a Adding readme -->
-<!-- So now we show three branches coming off at `f945961`: `main`, `first_set_branch`, and `second_set_branch`. Each of first_set_branch and second_set_branch have just the commits and files that they should: -->
-<!-- ``` sh -->
-<!-- git branch -->
-<!-- ``` -->
-<!--       first_set_branch -->
-<!--       main -->
-<!--     * second_set_branch -->
-<!-- ``` sh -->
-<!-- ls -->
-<!-- ``` -->
-<!--     README           second_set_file  second_set_file2 -->
-<!-- ``` sh -->
-<!-- git checkout first_set_branch -->
-<!-- ``` -->
-<!--     Switched to branch 'first_set_branch' -->
-<!-- ``` sh -->
-<!-- ls -->
-<!-- ``` -->
-<!--     README          first_set_file  first_set_file2 -->
-<!-- So now if we create pull requests from each of those branches, they'll contain just the content we wanted in each of them. Hurray! -->
-<!-- ### Exercise: -->
-<!-- Groups of 3. Nominate *Maintainer*, *Contributor A*, and *Contributor B*. -->
-<!-- 1.  *Maintainer* creates a repo on Github. -->
-<!-- 2.  *Maintainer* adds 2 commits and pushes. -->
-<!-- 3.  *Contributor A* and *Contributor B* fork and clone (and add upstream). -->
-<!-- 4.  *Contributor A* and *Contributor B* create a feature branch called \`will_need_split. -->
-<!-- 5.  *Contributor A* and *Contributor B* add four commits of four files on `will_need_split` -->
-<!-- 6.  *Contributor A* and *Contributor B* create a pull request to `upstream` from their `will_need_split` branch (including all four commits). -->
-<!-- 7.  *Maintainer* rejects the pull request, closing it and commenting "please split this up" (and direct which files go together, probably 2 in each.) -->
-<!-- 8.  *Contributor A* and *Contributor B* follow procedure above to end up with two new branches `split_branch_1` and `split_branch_2` send through separate pull requests with only the right commits/files in them. -->
-<!-- 9.  *Maintainer* eventually accepts each of the four split up pull requests. -->
-<!-- ### Dealing with remaining commits -->
-<!-- Now we just have to consider what to do about the additional commits on `main`. This is going to depend on a few things. Do you have additional commits on `main` that you haven't distributed among new branches? Do you want `main` to exactly reflect the history of `main` on `upstream`? How tolerant are you of "messy history"? It's also going to depend on whether `main` had been pushed up and whether others might have built on top of it. -->
-<!-- There are many options, here are two: -->
-<!-- 1.  Revert the commits that you "moved" to the branches. `git revert` creates "opposite" commits, that undo any changes. So if you lay a revert commit on top of a commit then the content is as though the commit was never made. -->
-<!-- 2.  Using `git reset -hard`, create a new branch from your branching point, then rename it to `main`, orphaning your current main. -->
-<!-- #### Using revert -->
-<!-- First I created a copy of the repo, `practice_split_revert/`, so I could show both options. Then I switched to the `main` branch in that copy. -->
-<!-- ``` sh -->
-<!-- cd .. -->
-<!-- ``` -->
-<!-- ``` sh -->
-<!-- cp -r practice_split practice_split_revert -->
-<!-- ``` -->
-<!-- ``` sh -->
-<!-- cd practice_split_revert/ -->
-<!-- ``` -->
-<!-- ``` sh -->
-<!-- git branch -->
-<!-- ``` -->
-<!--     * first_set_branch -->
-<!--       main -->
-<!--       second_set_branch -->
-<!-- ``` sh -->
-<!-- git checkout main -->
-<!-- ``` -->
-<!--     Switched to branch 'main' -->
-<!-- ``` sh -->
-<!-- git branch -->
-<!--   first_set_branch -->
-<!-- * main -->
-<!--   second_set_branch -->
-<!-- ``` -->
-<!-- ``` sh -->
-<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
-<!-- ``` -->
-<!--     * 0841579 (second_set_branch) added to second set -->
-<!--     * 0d8e90d first edit in second set -->
-<!--     | * 9f2b69a (first_set_branch) added second file to first set -->
-<!--     | * ef2a3ee first set edit -->
-<!--     |/   -->
-<!--     | * b5d4aff (HEAD -> main) added to second set -->
-<!--     | * dfa98b0 first edit in second set -->
-<!--     | * 43bc368 added second file to first set -->
-<!--     | * 51f2622 first set edit -->
-<!--     |/   -->
-<!--     * f945961 add main2 -->
-<!--     * 367e25a Adding readme -->
-<!-- Then I used a range expression (the `..`) with revert to revert the set of four commits on `main`. Note that the double dot range syntax used like this is left exclusive (i.e. you have to go back one further than the first you want). I also had to provide four commit messages, one for each of the reverting commits. -->
-<!--     git revert f945961..b5d4aff -->
-<!--     [main afcee46] Revert "added to second set" -->
-<!--      1 file changed, 1 deletion(-) -->
-<!--      delete mode 100644 second_set_file2 -->
-<!--     [main 45731a7] Revert "first edit in second set" -->
-<!--      1 file changed, 1 deletion(-) -->
-<!--      delete mode 100644 second_set_file -->
-<!--     [main 302d9de] Revert "added second file to first set" -->
-<!--      1 file changed, 1 deletion(-) -->
-<!--      delete mode 100644 first_set_file2 -->
-<!--     [main 0e022e3] Revert "first set edit" -->
-<!--      1 file changed, 1 deletion(-) -->
-<!--      delete mode 100644 first_set_file -->
-<!-- ``` sh -->
-<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
-<!-- ``` -->
-<!--     * 0e022e3 (HEAD -> main) Revert "first set edit" -->
-<!--     * 302d9de Revert "added second file to first set" -->
-<!--     * 45731a7 Revert "first edit in second set" -->
-<!--     * afcee46 Revert "added to second set" -->
-<!--     * b5d4aff added to second set -->
-<!--     * dfa98b0 first edit in second set -->
-<!--     * 43bc368 added second file to first set -->
-<!--     * 51f2622 first set edit -->
-<!--     | * 0841579 (second_set_branch) added to second set -->
-<!--     | * 0d8e90d first edit in second set -->
-<!--     |/   -->
-<!--     | * 9f2b69a (first_set_branch) added second file to first set -->
-<!--     | * ef2a3ee first set edit -->
-<!--     |/   -->
-<!--     * f945961 add main2 -->
-<!--     * 367e25a Adding readme -->
-<!-- ``` sh -->
-<!-- ls -->
-<!-- ``` -->
-<!--     README -->
-<!-- #### git reset --hard -->
-<!-- Again, I create a copy of the repo, practice_split_reset_main: -->
-<!-- ``` sh -->
-<!-- cp -r practice_split practice_split_reset_main -->
-<!-- ``` -->
-<!-- ``` sh -->
-<!-- cd practice_split_reset_main/ -->
-<!-- ``` -->
-<!-- ``` sh -->
-<!-- git checkout main -->
-<!-- ``` -->
-<!--     Switched to branch 'main' -->
-<!-- ``` sh -->
-<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
-<!-- ``` -->
-<!--     * 0841579 (second_set_branch) added to second set -->
-<!--     * 0d8e90d first edit in second set -->
-<!--     | * 9f2b69a (first_set_branch) added second file to first set -->
-<!--     | * ef2a3ee first set edit -->
-<!--     |/   -->
-<!--     | * b5d4aff (HEAD -> main) added to second set -->
-<!--     | * dfa98b0 first edit in second set -->
-<!--     | * 43bc368 added second file to first set -->
-<!--     | * 51f2622 first set edit -->
-<!--     |/   -->
-<!--     * f945961 add main2 -->
-<!--     * 367e25a Adding readme -->
-<!-- Now we use `git reset --hard` to force HEAD back to `f945961`. That disconnects the four unwanted commits (I *think* they aren't actually gone from .git folder yet, but they could be deleted any time as they aren't connected to anything.). -->
-<!-- ``` sh -->
-<!-- git reset --hard f945961 -->
-<!-- ``` -->
-<!--     HEAD is now at f945961 add main2 -->
-<!-- ``` sh -->
-<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
-<!-- ``` -->
-<!-- ``` sh -->
-<!-- * 0841579 (second_set_branch) added to second set -->
-<!-- * 0d8e90d first edit in second set -->
-<!-- | * 9f2b69a (first_set_branch) added second file to first set -->
-<!-- | * ef2a3ee first set edit -->
-<!-- |/   -->
-<!-- * f945961 (HEAD -> main) add main2 -->
-<!-- * 367e25a Adding readme -->
-<!-- ``` -->
-<!-- That seems neater, but keep in mind that if you'd pushed `main` to github while those commits were there, anyone else who had built on your repo would have lots of trouble. The `revert` approach goes for messier history, but has the advantage that it doesn't disconnect anyone else. -->
 <!-- # Rebase for synchronizing work -->
 <!-- When one is working on a problem, others may be working in parallel. And their parallel work may be finished before one's own work is. Thus the starting point for one person's work (branching point) can "go stale" making it harder to integrate. -->
 <!-- While `git merge` and resolving syntax level conflicts can resolve some of this, it is often easier to understand and review work if it is presented as changes against an updated starting point. -->
@@ -1383,8 +954,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../skills/skills_faq.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Skills faq</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../skills/git_cherrypick_split_pr.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Split a Pull Request</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

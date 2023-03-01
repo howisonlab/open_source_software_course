@@ -20,16 +20,16 @@ If you are seeing messages that end like this:
 
 Then you can run these commands to set a username and email. Note that these can be anything, they aren't a login or checked against anything, they are just metadata attached to your commits. Nonetheless having them make sense for your identity makes sense when sharing code publically. They can easily be a made up identifier (pseudonym/handle/accountname).
 
-``` bash
+```bash
 git config --global user.name "John Doe"
-$ git config --global user.email johndoe@example.com
+git config --global user.email johndoe@example.com
 ```
 
-### git commit throws me into a weird mode
+### git commit throws me into a weird mode {#sec-vim}
 
 If you type `git commit` just on its own rather than `git commit -m "Some message"` you will see something like this:
 
-``` bash
+```bash
 
 # Please enter the commit message for your changes. Lines starting
 # with '#' will be ignored, and an empty message aborts the commit.
@@ -44,8 +44,8 @@ The editor that you go into by default is the `vi` or `vim` editor. It can be co
 
 The best option is to:
 
-1.  Hit `esc` twice
-2.  Type `:q!`
+1.  Hit `esc` twice: <kbd>Esc</kbd> <kbd>Esc</kbd>  
+2.  Type `:q!` and hit <kbd>Enter</kbd>
 3.  Redo your commit using \`git commit -m "Some message"
 
 See <https://stackoverflow.com/questions/11828270/how-do-i-exit-vim>

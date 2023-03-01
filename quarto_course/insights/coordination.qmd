@@ -4,9 +4,9 @@ Coordination is a commonly used word, meaning what needs to be done for a group 
 
 In the academic field of organization science, coordination has a more specific meaning, provided by Malone and Crowston (1994)[^coordination-1].
 
-> Coordination is managing dependencies between activities
-
 [^coordination-1]: Malone, T. W., & Crowston, K. (1994). The interdisciplinary theory of coordination. ACM Computing Surveys, 26(1), 87--119. https://doi.org/10.1145/174666.174668 or http://ccs.mit.edu/papers/CCSWP157.html
+
+> Coordination is managing dependencies between activities
 
 We will learn what this means, and how it relates to motivation for participation in open source, and discuss the role that version control and repositories play.
 

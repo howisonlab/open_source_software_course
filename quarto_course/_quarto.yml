@@ -34,6 +34,7 @@ book:
       - skills/branching.qmd
       - skills/github_solo.qmd
       - skills/github_collaboration.Rmd
+      - skills/git_cherrypick_split_pr.qmd
     #     - git_sharing_conflicts.qmd
     #     - git_collaboration.qmd
     #     - unit_tests.qmd

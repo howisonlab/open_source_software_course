@@ -92,7 +92,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../skills/github_collaboration.html" rel="prev">
+<link href="../skills/git_cherrypick_split_pr.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -228,6 +228,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="../skills/github_collaboration.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Github collaboration</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/git_cherrypick_split_pr.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Split a Pull Request</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -257,7 +262,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#git-issues" id="toc-git-issues" class="nav-link active" data-scroll-target="#git-issues"><span class="toc-section-number">A.1</span>  git issues</a>
   <ul class="collapse">
   <li><a href="#set-my-name-and-email" id="toc-set-my-name-and-email" class="nav-link" data-scroll-target="#set-my-name-and-email"><span class="toc-section-number">A.1.1</span>  Set my name and email</a></li>
-  <li><a href="#git-commit-throws-me-into-a-weird-mode" id="toc-git-commit-throws-me-into-a-weird-mode" class="nav-link" data-scroll-target="#git-commit-throws-me-into-a-weird-mode"><span class="toc-section-number">A.1.2</span>  git commit throws me into a weird mode</a></li>
+  <li><a href="#sec-vim" id="toc-sec-vim" class="nav-link" data-scroll-target="#sec-vim"><span class="toc-section-number">A.1.2</span>  git commit throws me into a weird mode</a></li>
   </ul></li>
   <li><a href="#sec-faq-home-git-folder" id="toc-sec-faq-home-git-folder" class="nav-link" data-scroll-target="#sec-faq-home-git-folder"><span class="toc-section-number">A.2</span>  I accidentally made my home folder a git repo</a></li>
   <li><a href="#sec-gitviz" id="toc-sec-gitviz" class="nav-link" data-scroll-target="#sec-gitviz"><span class="toc-section-number">A.3</span>  Vizualizing git trees (aka gitviz)</a></li>
@@ -301,10 +306,10 @@ After doing this, you may fix the identity used for this commit with:
     git commit --amend --reset-author</code></pre>
 <p>Then you can run these commands to set a username and email. Note that these can be anything, they aren’t a login or checked against anything, they are just metadata attached to your commits. Nonetheless having them make sense for your identity makes sense when sharing code publically. They can easily be a made up identifier (pseudonym/handle/accountname).</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"John Doe"</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git config <span class="at">--global</span> user.email johndoe@example.com</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email johndoe@example.com</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="git-commit-throws-me-into-a-weird-mode" class="level3" data-number="A.1.2">
-<h3 data-number="A.1.2" class="anchored" data-anchor-id="git-commit-throws-me-into-a-weird-mode"><span class="header-section-number">A.1.2</span> git commit throws me into a weird mode</h3>
+<section id="sec-vim" class="level3" data-number="A.1.2">
+<h3 data-number="A.1.2" class="anchored" data-anchor-id="sec-vim"><span class="header-section-number">A.1.2</span> git commit throws me into a weird mode</h3>
 <p>If you type <code>git commit</code> just on its own rather than <code>git commit -m "Some message"</code> you will see something like this:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Please enter the commit message for your changes. Lines starting</span></span>
@@ -316,8 +321,9 @@ After doing this, you may fix the identity used for this commit with:
 <p>The editor that you go into by default is the <code>vi</code> or <code>vim</code> editor. It can be confusing because it has multiple modes (ie typing doesn’t always just produce text).</p>
 <p>The best option is to:</p>
 <ol type="1">
-<li>Hit <code>esc</code> twice</li>
-<li>Type <code>:q!</code></li>
+<li>Hit <code>esc</code> twice: <kbd>Esc</kbd> <kbd>Esc</kbd><br>
+</li>
+<li>Type <code>:q!</code> and hit <kbd>Enter</kbd></li>
 <li>Redo your commit using `git commit -m “Some message”</li>
 </ol>
 <p>See <a href="https://stackoverflow.com/questions/11828270/how-do-i-exit-vim" class="uri">https://stackoverflow.com/questions/11828270/how-do-i-exit-vim</a></p>
@@ -513,8 +519,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../skills/github_collaboration.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Github collaboration</span></span>
+      <a href="../skills/git_cherrypick_split_pr.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Split a Pull Request</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
