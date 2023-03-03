@@ -95,7 +95,13 @@ The `git push` command will move any new work from your local repo, up to GitHub
 git push
 ```
 
-Rstudio on EduPod will pop up a window for your username/password.  You must use the email address associated with your GitHub account, together with your PAT.  Your regular GitHub password will not work. You have to use the PAT you created in the previous step.  If you didn't copy it down, you can create a new one, don't forget to store it somewhere so that you can copy it for use in class.
+Rstudio on EduPod will pop up a window for your username/password.  You should use your GitHub username, but the PAT when asked for the password. Your regular GitHub password will not work. You have to use the PAT you created in the previous step.  If you didn't copy it down, you can create a new one, don't forget to store it somewhere so that you can copy it for use in class.
+
+By default you will have to re-enter this username/PAT any time you haven't run a `git push` command for 15 minutes.  More details in the FAQ on this in @sec-pass-popup but you can reduce pops by running:
+
+```sh
+git config --global credential.helper 'cache --timeout=10000000'
+```
 
 You may also see a message about needing to set an upstream branch. Something like this:
 
