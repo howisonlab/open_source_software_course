@@ -175,6 +175,7 @@ git log -1 --skip 1 --remerge-diff
 ```
 
 ```{bash}
+#| echo: false
+#| output: false
 rm -rf merge-conflict-example
 ```
-rm -rf merge-conflict-example
