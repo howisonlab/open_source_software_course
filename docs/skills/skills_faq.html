@@ -263,6 +263,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#sec-faq-home-git-folder" id="toc-sec-faq-home-git-folder" class="nav-link" data-scroll-target="#sec-faq-home-git-folder"><span class="header-section-number">A.2</span> I accidentally made my home folder a git repo</a></li>
   <li><a href="#sec-gitviz" id="toc-sec-gitviz" class="nav-link" data-scroll-target="#sec-gitviz"><span class="header-section-number">A.3</span> Vizualizing git trees (aka gitviz)</a></li>
+  <li><a href="#seeing-a-merge-conflict-using-git-log" id="toc-seeing-a-merge-conflict-using-git-log" class="nav-link" data-scroll-target="#seeing-a-merge-conflict-using-git-log"><span class="header-section-number">A.4</span> Seeing a merge conflict using git log</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/skills/skills_faq.qmd" class="toc-action">View source</a></p></div></div></nav>
     </div>
@@ -308,7 +309,7 @@ After doing this, you may fix the identity used for this commit with:
 <section id="sec-pass-popup" class="level3" data-number="A.1.2">
 <h3 data-number="A.1.2" class="anchored" data-anchor-id="sec-pass-popup"><span class="header-section-number">A.1.2</span> Password pop-up repeats too often</h3>
 <p>The username/password pop-up can come up too often. Especially with GitHub requiring a PAT (and not the same password used on the website) this can be a hassle, since the PAT is not configurable and has to be copy/pasted.</p>
-<p>Rstudio is generating that pop-up, but the frequency is controled by a gitconfig variable. The default without configuration is 15m so if we don’t run a git command for 15m it expires the cache and pops up again. We can make it show up less with:</p>
+<p>Rstudio is generating that pop-up, but the frequency is controlled by a gitconfig variable. The default without configuration is 15m so if we don’t run a git command for 15m it expires the cache and pops up again. We can make it show up less with:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> credential.helper <span class="st">'cache --timeout=10000000'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>That means that the cache won’t expire for 10,000,000 seconds (which is 16 weeks).</p>
 <p>Thanks to <a href="https://happygitwithr.com/https-pat.html#store-credentials-through-organic-git-use" class="uri">https://happygitwithr.com/https-pat.html#store-credentials-through-organic-git-use</a> and the Rstudio community forums for helping me with that <a href="https://community.rstudio.com/t/git-user-pass-pop-ups-when-using-git-in-terminal-window/161213" class="uri">https://community.rstudio.com/t/git-user-pass-pop-ups-when-using-git-in-terminal-window/161213</a></p>
@@ -384,6 +385,44 @@ After doing this, you may fix the identity used for this commit with:
 <div class="sourceCode" id="cb10"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> alias.viz <span class="st">'log --oneline --abbrev-commit --all --graph --decorate --color'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>So then you can just type:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> viz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="seeing-a-merge-conflict-using-git-log" class="level2" data-number="A.4">
+<h2 data-number="A.4" class="anchored" data-anchor-id="seeing-a-merge-conflict-using-git-log"><span class="header-section-number">A.4</span> Seeing a merge conflict using git log</h2>
+<p>In one assignment students have to submit a repo showing a resolved merge conflict when accepting a PR. This raised the question of whether I could see this looking at the repo. Student questions helped me figure that our, leading me to <a href="https://stackoverflow.com/questions/15277708/how-do-you-see-show-a-git-merge-conflict-resolution-that-was-done-given-a-mer" class="uri">https://stackoverflow.com/questions/15277708/how-do-you-see-show-a-git-merge-conflict-resolution-that-was-done-given-a-mer</a> which highlighted this as an issue in presenting merge conflicts for review. The most recent answer, led me to discover a new feature in <code>git</code></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--remerge-diff</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This enables one to see the files with the <code>&lt;&lt;&lt;&lt;&lt;&lt;</code> type conflict markers shown.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-rf</span> merge-conflict-example</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/jameshowison/merge-conflict-example.git</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> merge-conflict-example</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">-1</span> <span class="at">--skip</span> 1 <span class="at">--remerge-diff</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co">## Cloning into 'merge-conflict-example'...</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">## commit 50911dc2232965238790ad8ca3fdcabe56b41639</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">## Merge: 57c1c6c 99b328f</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">## Author: pablo-carbajo1 &lt;99198265+pablo-carbajo1@users.noreply.github.com&gt;</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">## Date:   Thu Mar 2 18:06:57 2023 -0600</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co">##     Merge branch 'main' into patch-1</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co">## diff --git a/animals.txt b/animals.txt</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co">## remerge CONFLICT (content): Merge conflict in animals.txt</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="co">## index f9970b6..f07b36e 100644</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="co">## --- a/animals.txt</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="co">## +++ b/animals.txt</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="co">## @@ -1,8 +1,5 @@</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="co">## -&lt;&lt;&lt;&lt;&lt;&lt;&lt; 57c1c6c (Update animals.txt)</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="co">##  lion Contributor B</span></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="co">## -=======</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a><span class="co">##  lion contributor A</span></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="co">## -&gt;&gt;&gt;&gt;&gt;&gt;&gt; 99b328f (Merge pull request #4 from lisahyuniko/patch-1)</span></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a><span class="co">##  tiger </span></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a><span class="co">##  leopard </span></span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a><span class="co">##  turtle</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-rf</span> merge-conflict-example</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>rm -rf merge-conflict-example</p>
 
 
 </section>

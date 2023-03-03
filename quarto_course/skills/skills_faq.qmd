@@ -1,3 +1,7 @@
+---
+engine: knitr
+---
+
 # Skills faq {#sec-skills-faq}
 
 ## git issues
@@ -150,3 +154,27 @@ So then you can just type:
 git viz
 ```
 
+## Seeing a merge conflict using git log
+
+In one assignment students have to submit a repo showing a resolved merge conflict when accepting a PR.  This raised the question of whether I could see this looking at the repo. Student questions helped me figure that our, leading me to <https://stackoverflow.com/questions/15277708/how-do-you-see-show-a-git-merge-conflict-resolution-that-was-done-given-a-mer> which highlighted this as an issue in presenting merge conflicts for review.  The most recent answer, led me to discover a new feature in `git` 
+
+```sh
+git log --remerge-diff
+```
+
+This enables one to see the files with the `<<<<<<` type conflict markers shown.
+
+```{sh}
+#| echo: true
+#| output: true
+#| collapse: true
+rm -rf merge-conflict-example
+git clone https://github.com/jameshowison/merge-conflict-example.git
+cd merge-conflict-example
+git log -1 --skip 1 --remerge-diff
+```
+
+```{bash}
+rm -rf merge-conflict-example
+```
+rm -rf merge-conflict-example
