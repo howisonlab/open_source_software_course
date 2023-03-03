@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.3.242">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -18,7 +18,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
 </style>
@@ -72,11 +72,16 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Syllabus for Open Source Software Development</span></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./oss_syllabus.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Syllabus for Open Source Software Development</span></a></li></ol></nav>
+      <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -84,32 +89,38 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Open Source Software Development: A socio-technical course</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/howisonlab/open_source_software_course/tree/master/quarto_course/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Open Source Software Development: A socio-technical course</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Open Source Software Development: A socio-technical course</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./oss_syllabus.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Syllabus for Open Source Software Development</span></a>
+  <a href="./oss_syllabus.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Syllabus for Open Source Software Development</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Insights</a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Insights</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -117,29 +128,34 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./insights/what_is_open_source.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction: What is open source?</span></a>
+  <a href="./insights/what_is_open_source.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction: What is open source?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./insights/motivations.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Motivations</span></a>
+  <a href="./insights/motivations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Motivations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./insights/licenses.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Licenses</span></a>
+  <a href="./insights/licenses.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Licenses</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./insights/coordination.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Coordination</span></a>
+  <a href="./insights/coordination.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Coordination</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Skills</a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Skills</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -147,39 +163,46 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./skills/git_basic_workflow.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Git basic workflow</span></a>
+  <a href="./skills/git_basic_workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Git basic workflow</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./skills/git_rewinding_work.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Rewinding work</span></a>
+  <a href="./skills/git_rewinding_work.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Rewinding work</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./skills/branching.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Local branching with Git.</span></a>
+  <a href="./skills/branching.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Local branching with Git.</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./skills/github_solo.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">GitHub solo</span></a>
+  <a href="./skills/github_solo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">GitHub solo</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./skills/github_collaboration.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Github collaboration</span></a>
+  <a href="./skills/github_collaboration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Github collaboration</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./skills/git_cherrypick_split_pr.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Split a Pull Request</span></a>
+  <a href="./skills/git_cherrypick_split_pr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Split a Pull Request</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Appendices</a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -187,7 +210,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./skills/skills_faq.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Skills faq</span></a>
+  <a href="./skills/skills_faq.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Skills faq</span></span></a>
   </div>
 </li>
       </ul>
@@ -195,60 +219,61 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#sec-syllabus" id="toc-sec-syllabus" class="nav-link active" data-scroll-target="#sec-syllabus"><span class="toc-section-number">2.1</span>  Syllabus</a></li>
-  <li><a href="#objectives-and-assignments" id="toc-objectives-and-assignments" class="nav-link" data-scroll-target="#objectives-and-assignments"><span class="toc-section-number">3</span>  Objectives and Assignments</a>
+  <li><a href="#sec-syllabus" id="toc-sec-syllabus" class="nav-link active" data-scroll-target="#sec-syllabus"><span class="header-section-number">2.1</span> Syllabus</a></li>
+  <li><a href="#objectives-and-assignments" id="toc-objectives-and-assignments" class="nav-link" data-scroll-target="#objectives-and-assignments"><span class="header-section-number">3</span> Objectives and Assignments</a>
   <ul class="collapse">
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives"><span class="toc-section-number">3.1</span>  Learning Objectives</a></li>
-  <li><a href="#assessments" id="toc-assessments" class="nav-link" data-scroll-target="#assessments"><span class="toc-section-number">3.2</span>  Assessments</a>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives"><span class="header-section-number">3.1</span> Learning Objectives</a></li>
+  <li><a href="#assessments" id="toc-assessments" class="nav-link" data-scroll-target="#assessments"><span class="header-section-number">3.2</span> Assessments</a>
   <ul class="collapse">
-  <li><a href="#participation-in-class-discussion-and-activities" id="toc-participation-in-class-discussion-and-activities" class="nav-link" data-scroll-target="#participation-in-class-discussion-and-activities"><span class="toc-section-number">3.2.1</span>  Participation in class discussion and activities</a></li>
-  <li><a href="#technical-challenges" id="toc-technical-challenges" class="nav-link" data-scroll-target="#technical-challenges"><span class="toc-section-number">3.2.2</span>  Technical Challenges</a></li>
-  <li><a href="#open-source-comparison-paper" id="toc-open-source-comparison-paper" class="nav-link" data-scroll-target="#open-source-comparison-paper"><span class="toc-section-number">3.2.3</span>  Open Source comparison paper</a></li>
-  <li><a href="#open-source-trace-data-analysis-project" id="toc-open-source-trace-data-analysis-project" class="nav-link" data-scroll-target="#open-source-trace-data-analysis-project"><span class="toc-section-number">3.2.4</span>  Open Source Trace Data analysis Project</a></li>
+  <li><a href="#participation-in-class-discussion-and-activities" id="toc-participation-in-class-discussion-and-activities" class="nav-link" data-scroll-target="#participation-in-class-discussion-and-activities"><span class="header-section-number">3.2.1</span> Participation in class discussion and activities</a></li>
+  <li><a href="#technical-challenges" id="toc-technical-challenges" class="nav-link" data-scroll-target="#technical-challenges"><span class="header-section-number">3.2.2</span> Technical Challenges</a></li>
+  <li><a href="#open-source-comparison-paper" id="toc-open-source-comparison-paper" class="nav-link" data-scroll-target="#open-source-comparison-paper"><span class="header-section-number">3.2.3</span> Open Source comparison paper</a></li>
+  <li><a href="#open-source-trace-data-analysis-project" id="toc-open-source-trace-data-analysis-project" class="nav-link" data-scroll-target="#open-source-trace-data-analysis-project"><span class="header-section-number">3.2.4</span> Open Source Trace Data analysis Project</a></li>
   </ul></li>
-  <li><a href="#materials" id="toc-materials" class="nav-link" data-scroll-target="#materials"><span class="toc-section-number">3.3</span>  Materials</a></li>
+  <li><a href="#materials" id="toc-materials" class="nav-link" data-scroll-target="#materials"><span class="header-section-number">3.3</span> Materials</a></li>
   </ul></li>
-  <li><a href="#course-outline" id="toc-course-outline" class="nav-link" data-scroll-target="#course-outline"><span class="toc-section-number">4</span>  Course Outline</a>
+  <li><a href="#course-outline" id="toc-course-outline" class="nav-link" data-scroll-target="#course-outline"><span class="header-section-number">4</span> Course Outline</a>
   <ul class="collapse">
-  <li><a href="#draft-course-schedule" id="toc-draft-course-schedule" class="nav-link" data-scroll-target="#draft-course-schedule"><span class="toc-section-number">4.1</span>  Draft Course Schedule</a></li>
-  <li><a href="#skills-readings" id="toc-skills-readings" class="nav-link" data-scroll-target="#skills-readings"><span class="toc-section-number">4.2</span>  Skills Readings</a></li>
-  <li><a href="#insight-readings" id="toc-insight-readings" class="nav-link" data-scroll-target="#insight-readings"><span class="toc-section-number">4.3</span>  Insight Readings</a></li>
+  <li><a href="#draft-course-schedule" id="toc-draft-course-schedule" class="nav-link" data-scroll-target="#draft-course-schedule"><span class="header-section-number">4.1</span> Draft Course Schedule</a></li>
+  <li><a href="#skills-readings" id="toc-skills-readings" class="nav-link" data-scroll-target="#skills-readings"><span class="header-section-number">4.2</span> Skills Readings</a></li>
+  <li><a href="#insight-readings" id="toc-insight-readings" class="nav-link" data-scroll-target="#insight-readings"><span class="header-section-number">4.3</span> Insight Readings</a></li>
   </ul></li>
-  <li><a href="#policies" id="toc-policies" class="nav-link" data-scroll-target="#policies"><span class="toc-section-number">5</span>  Policies</a>
+  <li><a href="#policies" id="toc-policies" class="nav-link" data-scroll-target="#policies"><span class="header-section-number">5</span> Policies</a>
   <ul class="collapse">
-  <li><a href="#class-recordings" id="toc-class-recordings" class="nav-link" data-scroll-target="#class-recordings"><span class="toc-section-number">5.1</span>  Class Recordings</a></li>
-  <li><a href="#academic-integrity" id="toc-academic-integrity" class="nav-link" data-scroll-target="#academic-integrity"><span class="toc-section-number">5.2</span>  Academic Integrity</a></li>
-  <li><a href="#student-rights-and-responsibilities" id="toc-student-rights-and-responsibilities" class="nav-link" data-scroll-target="#student-rights-and-responsibilities"><span class="toc-section-number">5.3</span>  Student rights and responsibilities</a></li>
-  <li><a href="#personal-pronoun-preference" id="toc-personal-pronoun-preference" class="nav-link" data-scroll-target="#personal-pronoun-preference"><span class="toc-section-number">5.4</span>  Personal Pronoun Preference</a></li>
-  <li><a href="#drop-policy" id="toc-drop-policy" class="nav-link" data-scroll-target="#drop-policy"><span class="toc-section-number">5.5</span>  Drop Policy</a></li>
-  <li><a href="#university-resources-for-students" id="toc-university-resources-for-students" class="nav-link" data-scroll-target="#university-resources-for-students"><span class="toc-section-number">5.6</span>  University Resources for Students</a>
+  <li><a href="#class-recordings" id="toc-class-recordings" class="nav-link" data-scroll-target="#class-recordings"><span class="header-section-number">5.1</span> Class Recordings</a></li>
+  <li><a href="#academic-integrity" id="toc-academic-integrity" class="nav-link" data-scroll-target="#academic-integrity"><span class="header-section-number">5.2</span> Academic Integrity</a></li>
+  <li><a href="#student-rights-and-responsibilities" id="toc-student-rights-and-responsibilities" class="nav-link" data-scroll-target="#student-rights-and-responsibilities"><span class="header-section-number">5.3</span> Student rights and responsibilities</a></li>
+  <li><a href="#personal-pronoun-preference" id="toc-personal-pronoun-preference" class="nav-link" data-scroll-target="#personal-pronoun-preference"><span class="header-section-number">5.4</span> Personal Pronoun Preference</a></li>
+  <li><a href="#drop-policy" id="toc-drop-policy" class="nav-link" data-scroll-target="#drop-policy"><span class="header-section-number">5.5</span> Drop Policy</a></li>
+  <li><a href="#university-resources-for-students" id="toc-university-resources-for-students" class="nav-link" data-scroll-target="#university-resources-for-students"><span class="header-section-number">5.6</span> University Resources for Students</a>
   <ul class="collapse">
-  <li><a href="#accessiblecompliant-statement" id="toc-accessiblecompliant-statement" class="nav-link" data-scroll-target="#accessiblecompliant-statement"><span class="toc-section-number">5.6.1</span>  Accessible/Compliant Statement:</a></li>
-  <li><a href="#accessible-inclusive-and-compliant-statement" id="toc-accessible-inclusive-and-compliant-statement" class="nav-link" data-scroll-target="#accessible-inclusive-and-compliant-statement"><span class="toc-section-number">5.6.2</span>  Accessible, Inclusive, and Compliant Statement:</a></li>
-  <li><a href="#counseling-and-mental-health-center" id="toc-counseling-and-mental-health-center" class="nav-link" data-scroll-target="#counseling-and-mental-health-center"><span class="toc-section-number">5.6.3</span>  Counseling and Mental Health Center</a></li>
-  <li><a href="#the-sanger-learning-center" id="toc-the-sanger-learning-center" class="nav-link" data-scroll-target="#the-sanger-learning-center"><span class="toc-section-number">5.6.4</span>  The Sanger Learning Center</a></li>
-  <li><a href="#university-writing-center-free-programs-for-grad-students" id="toc-university-writing-center-free-programs-for-grad-students" class="nav-link" data-scroll-target="#university-writing-center-free-programs-for-grad-students"><span class="toc-section-number">5.6.5</span>  University Writing Center free programs for grad students</a></li>
-  <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries"><span class="toc-section-number">5.6.6</span>  Libraries</a></li>
-  <li><a href="#it-services" id="toc-it-services" class="nav-link" data-scroll-target="#it-services"><span class="toc-section-number">5.6.7</span>  IT services</a></li>
-  <li><a href="#student-emergency-services" id="toc-student-emergency-services" class="nav-link" data-scroll-target="#student-emergency-services"><span class="toc-section-number">5.6.8</span>  Student Emergency Services</a></li>
-  <li><a href="#important-safety-information" id="toc-important-safety-information" class="nav-link" data-scroll-target="#important-safety-information"><span class="toc-section-number">5.6.9</span>  Important Safety Information</a></li>
+  <li><a href="#accessiblecompliant-statement" id="toc-accessiblecompliant-statement" class="nav-link" data-scroll-target="#accessiblecompliant-statement"><span class="header-section-number">5.6.1</span> Accessible/Compliant Statement:</a></li>
+  <li><a href="#accessible-inclusive-and-compliant-statement" id="toc-accessible-inclusive-and-compliant-statement" class="nav-link" data-scroll-target="#accessible-inclusive-and-compliant-statement"><span class="header-section-number">5.6.2</span> Accessible, Inclusive, and Compliant Statement:</a></li>
+  <li><a href="#counseling-and-mental-health-center" id="toc-counseling-and-mental-health-center" class="nav-link" data-scroll-target="#counseling-and-mental-health-center"><span class="header-section-number">5.6.3</span> Counseling and Mental Health Center</a></li>
+  <li><a href="#the-sanger-learning-center" id="toc-the-sanger-learning-center" class="nav-link" data-scroll-target="#the-sanger-learning-center"><span class="header-section-number">5.6.4</span> The Sanger Learning Center</a></li>
+  <li><a href="#university-writing-center-free-programs-for-grad-students" id="toc-university-writing-center-free-programs-for-grad-students" class="nav-link" data-scroll-target="#university-writing-center-free-programs-for-grad-students"><span class="header-section-number">5.6.5</span> University Writing Center free programs for grad students</a></li>
+  <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries"><span class="header-section-number">5.6.6</span> Libraries</a></li>
+  <li><a href="#it-services" id="toc-it-services" class="nav-link" data-scroll-target="#it-services"><span class="header-section-number">5.6.7</span> IT services</a></li>
+  <li><a href="#student-emergency-services" id="toc-student-emergency-services" class="nav-link" data-scroll-target="#student-emergency-services"><span class="header-section-number">5.6.8</span> Student Emergency Services</a></li>
+  <li><a href="#important-safety-information" id="toc-important-safety-information" class="nav-link" data-scroll-target="#important-safety-information"><span class="header-section-number">5.6.9</span> Important Safety Information</a></li>
   </ul></li>
   </ul></li>
   </ul>
-</nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/oss_syllabus.Rmd" class="toc-action">View source</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Syllabus for Open Source Software Development</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Syllabus for Open Source Software Development</span></h1>
 <p class="subtitle lead">I 320D - Topics in Human-Centered Data Science : Open Source Software Development</p>
 </div>
 
@@ -291,45 +316,45 @@ pre {
 <p>Class server at <a href="https://edupod.cns.utexas.edu/">Edupod Rstudio</a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-
-<table class="table table-responsive table-striped" style="margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:left;"> Course </th>
-   <th style="text-align:left;"> I 320D Topics in Human-Centered Data Science : Open Source Software Development </th>
-  </tr>
- </thead>
+<table class="table table-responsive table-striped table-sm" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Course</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">I 320D Topics in Human-Centered Data Science : Open Source Software Development</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:left;"> Professor </td>
-   <td style="text-align:left;"> James Howison </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Meeting Time </td>
-   <td style="text-align:left;"> Mondays and Wednesdays 9:30-10:45 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Location </td>
-   <td style="text-align:left;"> SZB 5.414 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Semester </td>
-   <td style="text-align:left;"> Spring 2023 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Unique No. </td>
-   <td style="text-align:left;"> 28120 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Office Hours </td>
-   <td style="text-align:left;"> Wed 3-4pm via Zoom at https://utexas.zoom.com/my/howisonlab Contact via Canvas email if not in room </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Contact Email </td>
-   <td style="text-align:left;"> jhowison@ischool.utexas.edu </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: left;">Professor</td>
+<td style="text-align: left;">James Howison</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Meeting Time</td>
+<td style="text-align: left;">Mondays and Wednesdays 9:30-10:45</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Location</td>
+<td style="text-align: left;">SZB 5.414</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Semester</td>
+<td style="text-align: left;">Spring 2023</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Unique No.</td>
+<td style="text-align: left;">28120</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Office Hours</td>
+<td style="text-align: left;">Wed 3-4pm via Zoom at https://utexas.zoom.com/my/howisonlab Contact via Canvas email if not in room</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Contact Email</td>
+<td style="text-align: left;">jhowison@ischool.utexas.edu</td>
+</tr>
 </tbody>
 </table>
+
 
 </div>
 </div>
@@ -370,43 +395,43 @@ pre {
 <h2 data-number="3.2" class="anchored" data-anchor-id="assessments"><span class="header-section-number">3.2</span> Assessments</h2>
 <div class="cell">
 <div class="cell-output-display">
-
-<table class="table table-responsive table-striped" style="margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:left;"> Assignment </th>
-   <th style="text-align:left;"> Percentage of Course Grade </th>
-   <th style="text-align:left;"> Due Date </th>
-  </tr>
- </thead>
+<table class="table table-responsive table-striped table-sm" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Assignment</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Percentage of Course Grade</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Due Date</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:left;"> Class Participation (discussion and activites) </td>
-   <td style="text-align:left;"> 10% </td>
-   <td style="text-align:left;"> Throughout course </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Technical challenges </td>
-   <td style="text-align:left;"> 40% </td>
-   <td style="text-align:left;"> Weekly homework challenges </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Open source comparison paper </td>
-   <td style="text-align:left;"> 20% </td>
-   <td style="text-align:left;"> Start of Spring Break </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Open Source Trace Data analysis Project report </td>
-   <td style="text-align:left;"> 25% </td>
-   <td style="text-align:left;"> Prior to Presentations </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Project presentation </td>
-   <td style="text-align:left;"> 5% </td>
-   <td style="text-align:left;"> Presentations </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: left;">Class Participation (discussion and activites)</td>
+<td style="text-align: left;">10%</td>
+<td style="text-align: left;">Throughout course</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Technical challenges</td>
+<td style="text-align: left;">40%</td>
+<td style="text-align: left;">Weekly homework challenges</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Open source comparison paper</td>
+<td style="text-align: left;">20%</td>
+<td style="text-align: left;">Start of Spring Break</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Open Source Trace Data analysis Project report</td>
+<td style="text-align: left;">25%</td>
+<td style="text-align: left;">Prior to Presentations</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Project presentation</td>
+<td style="text-align: left;">5%</td>
+<td style="text-align: left;">Presentations</td>
+</tr>
 </tbody>
 </table>
+
 
 </div>
 </div>
@@ -847,16 +872,10 @@ Presentations
 </section>
 <section id="skills-readings" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="skills-readings"><span class="header-section-number">4.2</span> Skills Readings</h2>
-<div class="cell">
-
-</div>
 </section>
 <section id="insight-readings" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="insight-readings"><span class="header-section-number">4.3</span> Insight Readings</h2>
 <p>Often I can link directly to websites or PDFs, but sometimes I will provide links to articles in journals etc. You must be able to get the article through the library, generally speaking using the <a href="http://vpn.utexas.edu">web VPN</a> is the most convenient approach. Another option that can sometimes work is <a href="http://unpaywall.org/">UnPaywall</a> which works to find an open access article version when looking at a publisher’s page for the article.</p>
-<div class="cell">
-
-</div>
 </section>
 </section>
 <section id="policies" class="level1" data-number="5">
@@ -975,9 +994,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1042,6 +1075,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {

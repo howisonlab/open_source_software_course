@@ -25,6 +25,21 @@ git config --global user.name "John Doe"
 git config --global user.email johndoe@example.com
 ```
 
+### Password pop-up repeats too often
+
+The username/password pop-up can come up too often. Especially with GitHub requiring a PAT (and not the same password used on the website) this can be a hassle, since the PAT is not configurable and has to be copy/pasted.
+
+Rstudio is generating that pop-up, but the frequency is controled by a gitconfig variable. The default without configuration is 15m so if we don't run a git command for 15m it expires the cache and pops up again. We can make it show up less with:
+
+```sh
+git config --global credential.helper 'cache --timeout=10000000'
+```
+
+
+That means that the cache won't expire for 10,000,000 seconds (which is 16 weeks).
+
+Thanks to <https://happygitwithr.com/https-pat.html#store-credentials-through-organic-git-use> and the Rstudio community forums for helping me with that <https://community.rstudio.com/t/git-user-pass-pop-ups-when-using-git-in-terminal-window/161213>
+
 ### git commit throws me into a weird mode {#sec-vim}
 
 If you type `git commit` just on its own rather than `git commit -m "Some message"` you will see something like this:

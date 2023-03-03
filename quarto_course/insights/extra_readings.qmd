@@ -1,0 +1,14 @@
+# Extra readings
+
+A storage place for things I come across that should be integrated into the course.
+
+[A Chance Gardener
+Harvesting open-source products and planting the next crop](https://queue.acm.org/detail.cfm?id=3286730&doi=10.1145%2F3277539.3286730)
+
+Neville-Neil, G. (2018). A Chance Gardener: Harvesting open-source products and planting the next crop. Queue, 16(4), Pages 50:13-Pages 50:17. https://doi.org/10.1145/3277539.3286730
+
+Xin, R., McKinney, W., Gates, A., & McCubbin, C. (2022). It takes a community---: The open source challenge. Communications of the ACM, 65(5), 48–55. https://doi.org/10.1145/3498568
+
+Klug, D., Bogart, C., & Herbsleb, J. D. (2021). “They Can Only Ever Guide”: How an Open Source Software Community Uses Roadmaps to Coordinate Effort. Proceedings of the ACM on Human-Computer Interaction, 5(CSCW1), 158:1-158:28. https://doi.org/10.1145/3449232
+
+Kaczorowski, M., Momot, F., Neville-Neil, G. V., & McCubbin, C. (2022). OSS Supply-chain Security: What Will It Take? Queue, 20(5), Pages 30:86-Pages 30:102. https://doi.org/10.1145/3570923
