@@ -268,8 +268,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#split-before-submit" id="toc-split-before-submit" class="nav-link active" data-scroll-target="#split-before-submit"><span class="header-section-number">13.1</span> Split before submit</a>
   <ul class="collapse">
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">13.1.1</span> Exercises</a></li>
-  <li><a href="#dealing-with-remaining-commits" id="toc-dealing-with-remaining-commits" class="nav-link" data-scroll-target="#dealing-with-remaining-commits"><span class="header-section-number">13.1.2</span> Dealing with remaining commits</a></li>
+  <li><a href="#learngitbranching-exercise" id="toc-learngitbranching-exercise" class="nav-link" data-scroll-target="#learngitbranching-exercise"><span class="header-section-number">13.1.1</span> LearnGitBranching exercise</a></li>
+  <li><a href="#cherry-pick-via-commandline-git" id="toc-cherry-pick-via-commandline-git" class="nav-link" data-scroll-target="#cherry-pick-via-commandline-git"><span class="header-section-number">13.1.2</span> Cherry-pick via commandline git</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">13.1.3</span> Exercises</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/skills/git_cherrypick_split_pr.qmd" class="toc-action">View source</a></p></div></div></nav>
@@ -365,6 +366,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<section id="learngitbranching-exercise" class="level3" data-number="13.1.1">
+<h3 data-number="13.1.1" class="anchored" data-anchor-id="learngitbranching-exercise"><span class="header-section-number">13.1.1</span> LearnGitBranching exercise</h3>
+<p>We can see an example of the overall workflow for splitting a PR using the LearnGitBranching Visualizer, I have created a level called <a href="https://learngitbranching.js.org/?gist_level_id=f7b4b63960ed80fa9a76728d853f2546">Split Pull Request</a>.</p>
+</section>
+<section id="cherry-pick-via-commandline-git" class="level3" data-number="13.1.2">
+<h3 data-number="13.1.2" class="anchored" data-anchor-id="cherry-pick-via-commandline-git"><span class="header-section-number">13.1.2</span> Cherry-pick via commandline git</h3>
 <p>You can see a situation like this in this repo on GitHub. Bring that to your working space with:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/jameshowison/i320d-needs-split.git</span>
@@ -438,17 +445,17 @@ Note
 <p>See more about this on the GitHub blog <a href="https://github.blog/2020-12-17-commits-are-snapshots-not-diffs/" class="uri">https://github.blog/2020-12-17-commits-are-snapshots-not-diffs/</a></p>
 </div>
 </div>
-<section id="exercises" class="level3" data-number="13.1.1">
-<h3 data-number="13.1.1" class="anchored" data-anchor-id="exercises"><span class="header-section-number">13.1.1</span> Exercises</h3>
-<section id="individual-exercises" class="level4" data-number="13.1.1.1">
-<h4 data-number="13.1.1.1" class="anchored" data-anchor-id="individual-exercises"><span class="header-section-number">13.1.1.1</span> Individual Exercises</h4>
+</section>
+<section id="exercises" class="level3" data-number="13.1.3">
+<h3 data-number="13.1.3" class="anchored" data-anchor-id="exercises"><span class="header-section-number">13.1.3</span> Exercises</h3>
+<section id="individual-exercises" class="level4" data-number="13.1.3.1">
+<h4 data-number="13.1.3.1" class="anchored" data-anchor-id="individual-exercises"><span class="header-section-number">13.1.3.1</span> Individual Exercises</h4>
 <ol type="1">
 <li>Now you work to get the <code>orange_branch</code> organized.</li>
-<li>Work through a similar example on Learning Git Visualizer, I have created a level called <a href="https://learngitbranching.js.org/?gist_level_id=f7b4b63960ed80fa9a76728d853f2546">Split Pull Request</a>.</li>
 </ol>
 </section>
-<section id="group-exercise" class="level4" data-number="13.1.1.2">
-<h4 data-number="13.1.1.2" class="anchored" data-anchor-id="group-exercise"><span class="header-section-number">13.1.1.2</span> Group Exercise</h4>
+<section id="group-exercise" class="level4" data-number="13.1.3.2">
+<h4 data-number="13.1.3.2" class="anchored" data-anchor-id="group-exercise"><span class="header-section-number">13.1.3.2</span> Group Exercise</h4>
 <p>Groups of 3. Nominate <em>Maintainer</em>, <em>Contributor A</em>, and <em>Contributor B</em>.</p>
 <ol type="1">
 <li><em>Maintainer</em> creates a repo on Github.</li>
@@ -461,122 +468,108 @@ Note
 <li><em>Contributor A</em> and <em>Contributor B</em> follow procedure above to end up with two new branches <code>split_branch_1</code> and <code>split_branch_2</code> send through separate pull requests with only the right commits/files in them.</li>
 <li><em>Maintainer</em> eventually accepts each of the four split up pull requests.</li>
 </ol>
-</section>
-</section>
-<section id="dealing-with-remaining-commits" class="level3" data-number="13.1.2">
-<h3 data-number="13.1.2" class="anchored" data-anchor-id="dealing-with-remaining-commits"><span class="header-section-number">13.1.2</span> Dealing with remaining commits</h3>
-<p>Remember when we <code>git cherry-pick</code> to move a commit, we don’t actually move it we create a copy (learngitbranching shows this by creating new commits called <code>C3'</code> and <code>C4'</code> (to distinguish from <code>C3</code> and <code>C4</code>).</p>
-<p>You can see this with the middle block of commits here (after the orange_branch is created). They are on main.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 170afe6 <span class="er">(</span><span class="ex">HEAD</span> <span class="at">-</span><span class="op">&gt;</span> orange_branch<span class="kw">)</span> <span class="ex">orange2</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> c7af009 orange1</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 2b82f41 <span class="er">(</span><span class="ex">apple_branch</span><span class="kw">)</span> <span class="ex">apple2</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 9ca623a apple1</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span><span class="ex">/</span>  </span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> c70df5a <span class="er">(</span><span class="ex">origin/main,</span> origin/HEAD, main<span class="kw">)</span> <span class="ex">orange2</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 423ad05 apple2</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 4f1fe99 orange1</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 91abdfb apple1</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span><span class="ex">/</span>  </span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 8e35b12 branch here</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> ea4d580 main1</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 252ff3f Initial commit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>So we have to consider what to do about the extra commits left on <code>main</code>. This is going to depend on a few things. Do you have additional commits on <code>main</code> that you haven’t distributed among new branches? Do you want <code>main</code> to exactly reflect the history of <code>main</code> on <code>upstream</code>? How tolerant are you of “messy history”? It’s also going to depend on whether <code>main</code> had been pushed up and whether others might have built on top of it.</p>
-<p>There are many options, here are two:</p>
-<ol type="1">
-<li>Revert the commits that you “moved” to the branches. <code>git revert</code> creates “opposite” commits, that undo any changes. So if you lay a revert commit on top of a commit then the content is as though the commit was never made. But they stay visible in the git history</li>
-<li>Using <code>git reset -hard</code>, create a new branch from your branching point, then rename it to <code>main</code>, orphaning your current main.</li>
-</ol>
-<p>If you had already shared these then you really only have the first option, as then if others started building on your work they will be ok. If you use <code>reset -hard</code> then this can cause big problems in other people’s repositories (as the history now differs in a way that git cannot recover).</p>
-<section id="using-revert" class="level4" data-number="13.1.2.1">
-<h4 data-number="13.1.2.1" class="anchored" data-anchor-id="using-revert"><span class="header-section-number">13.1.2.1</span> Using revert</h4>
-<p>First I created a copy of the repo, <code>practice_split_revert/</code>, so I could show both options. Then I switched to the <code>main</code> branch in that copy.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> i320d-needs-split i320d-needs-split-revert</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> i320d-needs-split-revert/</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Then I used a range expression (the <code>..</code>) with revert to revert the set of four commits on <code>main</code>. Note that the double dot range syntax used like this is left exclusive (i.e.&nbsp;you have to go back one further than the first you want). I also had to provide four commit messages, one for each of the reverting commits.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> revert 8e35b12..c70df5a</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[main</span> f195843] Revert <span class="st">"orange2"</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a> <span class="ex">1</span> file changed, 1 deletion<span class="er">(</span><span class="ex">-</span><span class="kw">)</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="ex">[main</span> 88fbee6] Revert <span class="st">"apple2"</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a> <span class="ex">1</span> file changed, 1 deletion<span class="er">(</span><span class="ex">-</span><span class="kw">)</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="ex">[main</span> 8513495] Revert <span class="st">"orange1"</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a> <span class="ex">1</span> file changed, 1 deletion<span class="er">(</span><span class="ex">-</span><span class="kw">)</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="ex">[main</span> eb9d80e] Revert <span class="st">"apple1"</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a> <span class="ex">1</span> file changed, 1 deletion<span class="er">(</span><span class="ex">-</span><span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>When using the range operator <code>..</code> it is left-exclusive, right-inclusive. This means you have to start one commit before the ones you want to include. So here I start with the “branch here” commit <code>8e35b12</code> even though I not reverting that commit.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>You have to provide a commit message for each revert commit. By default to get those git will push you into the <code>vi</code> editor, which can be disorientating. See section in FAQ: <a href="skills_faq.html#sec-vim"><span>Section&nbsp;A.1.3</span></a>. To accept the default commit messages, I hit <kbd>Esc</kbd> <kbd>Esc</kbd> <kbd>:wq</kbd> <kbd>Enter</kbd></p>
-</div>
-</div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span> <span class="at">--abbrev-commit</span> <span class="at">--all</span> <span class="at">--graph</span> <span class="at">--decorate</span> <span class="at">--color</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> eb9d80e <span class="er">(</span><span class="ex">HEAD</span> <span class="at">-</span><span class="op">&gt;</span> main<span class="kw">)</span> <span class="ex">Revert</span> <span class="st">"apple1"</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 8513495 Revert <span class="st">"orange1"</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 88fbee6 Revert <span class="st">"apple2"</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> f195843 Revert <span class="st">"orange2"</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> c70df5a <span class="er">(</span><span class="ex">origin/main,</span> origin/HEAD<span class="kw">)</span> <span class="ex">orange2</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 423ad05 apple2</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 4f1fe99 orange1</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 91abdfb apple1</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 170afe6 <span class="er">(</span><span class="ex">orange_branch</span><span class="kw">)</span> <span class="ex">orange2</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> c7af009 orange1</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span><span class="ex">/</span>  </span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 2b82f41 <span class="er">(</span><span class="ex">apple_branch</span><span class="kw">)</span> <span class="ex">apple2</span></span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 9ca623a apple1</span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span><span class="ex">/</span>  </span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 8e35b12 branch here</span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> ea4d580 main1</span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 252ff3f Initial commit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This is hard to love (as everything got uglier with the addition of the reverts) but it does definite explain what is intended and ensure that anyone working from <code>main</code> can continue to do so.</p>
-</section>
-<section id="git-reset-hard" class="level4" data-number="13.1.2.2">
-<h4 data-number="13.1.2.2" class="anchored" data-anchor-id="git-reset-hard"><span class="header-section-number">13.1.2.2</span> git reset –hard</h4>
-<p>Git reset can neaten things up, but only if you haven’t already pushed to GitHub.</p>
-<p>Again, I create a copy of the repo</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> i320d-needs-split i320d-needs-split-reset</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> i320d-needs-split-reset/</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span> <span class="at">--abbrev-commit</span> <span class="at">--all</span> <span class="at">--graph</span> <span class="at">--decorate</span> <span class="at">--color</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre><code>* 170afe6 (HEAD -&gt; orange_branch) orange2
-* c7af009 orange1
-| * 2b82f41 (apple_branch) apple2
-| * 9ca623a apple1
-|/  
-| * c70df5a (origin/main, origin/HEAD, main) orange2
-| * 423ad05 apple2
-| * 4f1fe99 orange1
-| * 91abdfb apple1
-|/  
-* 8e35b12 branch here
-* ea4d580 main1
-* 252ff3f Initial commit</code></pre>
-<p>Now we use <code>git reset --hard</code> to force HEAD on <code>main</code> back to <code>8e35b12</code>. That disconnects the four unwanted commits (I <em>think</em> they aren’t actually gone from .git folder yet, but they could be deleted any time as they aren’t connected to anything, they don’t show up in the graph or the log).</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--hard</span> 8e35b12</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre><code>HEAD is now at 8e35b12 </code></pre>
-<p>That seems neater, but keep in mind that if you’d pushed <code>main</code> to github while those commits were there, anyone else who had built on your repo would have lots of trouble. In fact if you do this with the repos above (which have already been pushed to GitHub then the four commits don’t disappear, they are still tagged with <code>origin/main</code> because they are on the remote.</p>
-<p>The <code>revert</code> approach means messier history, but has the advantage that it doesn’t disconnect anyone else.</p>
+<!-- ### Dealing with remaining commits -->
+<!-- Remember when we `git cherry-pick` to move a commit, we don't actually move it we create a copy (learngitbranching shows this by creating new commits called `C3'` and `C4'` (to distinguish from `C3` and `C4`). -->
+<!-- You can see this with the middle block of commits here (after the orange_branch is created). They are on main. -->
+<!-- ``` sh -->
+<!-- * 170afe6 (HEAD -> orange_branch) orange2 -->
+<!-- * c7af009 orange1 -->
+<!-- | * 2b82f41 (apple_branch) apple2 -->
+<!-- | * 9ca623a apple1 -->
+<!-- |/   -->
+<!-- | * c70df5a (origin/main, origin/HEAD, main) orange2 -->
+<!-- | * 423ad05 apple2 -->
+<!-- | * 4f1fe99 orange1 -->
+<!-- | * 91abdfb apple1 -->
+<!-- |/   -->
+<!-- * 8e35b12 branch here -->
+<!-- * ea4d580 main1 -->
+<!-- * 252ff3f Initial commit -->
+<!-- ``` -->
+<!-- So we have to consider what to do about the extra commits left on `main`. This is going to depend on a few things. Do you have additional commits on `main` that you haven't distributed among new branches? Do you want `main` to exactly reflect the history of `main` on `upstream`? How tolerant are you of "messy history"? It's also going to depend on whether `main` had been pushed up and whether others might have built on top of it. -->
+<!-- There are many options, here are two: -->
+<!-- 1.  Revert the commits that you "moved" to the branches. `git revert` creates "opposite" commits, that undo any changes. So if you lay a revert commit on top of a commit then the content is as though the commit was never made. But they stay visible in the git history -->
+<!-- 2.  Using `git reset -hard`, create a new branch from your branching point, then rename it to `main`, orphaning your current main. -->
+<!-- If you had already shared these then you really only have the first option, as then if others started building on your work they will be ok. If you use `reset -hard` then this can cause big problems in other people's repositories (as the history now differs in a way that git cannot recover). -->
+<!-- #### Using revert -->
+<!-- First I created a copy of the repo, `practice_split_revert/`, so I could show both options. Then I switched to the `main` branch in that copy. -->
+<!-- ``` sh -->
+<!-- cd .. -->
+<!-- cp -r i320d-needs-split i320d-needs-split-revert -->
+<!-- cd i320d-needs-split-revert/ -->
+<!-- git checkout main -->
+<!-- ``` -->
+<!-- Then I used a range expression (the `..`) with revert to revert the set of four commits on `main`. Note that the double dot range syntax used like this is left exclusive (i.e. you have to go back one further than the first you want). I also had to provide four commit messages, one for each of the reverting commits. -->
+<!-- ``` sh -->
+<!-- git revert 8e35b12..c70df5a -->
+<!-- [main f195843] Revert "orange2" -->
+<!--  1 file changed, 1 deletion(-) -->
+<!-- [main 88fbee6] Revert "apple2" -->
+<!--  1 file changed, 1 deletion(-) -->
+<!-- [main 8513495] Revert "orange1" -->
+<!--  1 file changed, 1 deletion(-) -->
+<!-- [main eb9d80e] Revert "apple1" -->
+<!--  1 file changed, 1 deletion(-) -->
+<!-- ``` -->
+<!-- ::: callout-warning -->
+<!-- When using the range operator `..` it is left-exclusive, right-inclusive. This means you have to start one commit before the ones you want to include. So here I start with the "branch here" commit `8e35b12` even though I not reverting that commit. -->
+<!-- ::: -->
+<!-- ::: callout-note -->
+<!-- You have to provide a commit message for each revert commit. By default to get those git will push you into the `vi` editor, which can be disorientating. See section in FAQ: @sec-vim. To accept the default commit messages, I hit <kbd>Esc</kbd> <kbd>Esc</kbd> <kbd>:wq</kbd> <kbd>Enter</kbd> -->
+<!-- ::: -->
+<!-- ``` sh -->
+<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
+<!-- ``` -->
+<!-- ``` sh -->
+<!-- * eb9d80e (HEAD -> main) Revert "apple1" -->
+<!-- * 8513495 Revert "orange1" -->
+<!-- * 88fbee6 Revert "apple2" -->
+<!-- * f195843 Revert "orange2" -->
+<!-- * c70df5a (origin/main, origin/HEAD) orange2 -->
+<!-- * 423ad05 apple2 -->
+<!-- * 4f1fe99 orange1 -->
+<!-- * 91abdfb apple1 -->
+<!-- | * 170afe6 (orange_branch) orange2 -->
+<!-- | * c7af009 orange1 -->
+<!-- |/   -->
+<!-- | * 2b82f41 (apple_branch) apple2 -->
+<!-- | * 9ca623a apple1 -->
+<!-- |/   -->
+<!-- * 8e35b12 branch here -->
+<!-- * ea4d580 main1 -->
+<!-- * 252ff3f Initial commit -->
+<!-- ``` -->
+<!-- This is hard to love (as everything got uglier with the addition of the reverts) but it does definite explain what is intended and ensure that anyone working from `main` can continue to do so. -->
+<!-- #### git reset --hard -->
+<!-- Git reset can neaten things up, but only if you haven't already pushed to GitHub. -->
+<!-- Again, I create a copy of the repo -->
+<!-- ``` sh -->
+<!-- cd .. -->
+<!-- cp -r i320d-needs-split i320d-needs-split-reset -->
+<!-- cd i320d-needs-split-reset/ -->
+<!-- git checkout main -->
+<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
+<!-- ``` -->
+<!--     * 170afe6 (HEAD -> orange_branch) orange2 -->
+<!--     * c7af009 orange1 -->
+<!--     | * 2b82f41 (apple_branch) apple2 -->
+<!--     | * 9ca623a apple1 -->
+<!--     |/   -->
+<!--     | * c70df5a (origin/main, origin/HEAD, main) orange2 -->
+<!--     | * 423ad05 apple2 -->
+<!--     | * 4f1fe99 orange1 -->
+<!--     | * 91abdfb apple1 -->
+<!--     |/   -->
+<!--     * 8e35b12 branch here -->
+<!--     * ea4d580 main1 -->
+<!--     * 252ff3f Initial commit -->
+<!-- Now we use `git reset --hard` to force HEAD on `main` back to `8e35b12`. That disconnects the four unwanted commits (I *think* they aren't actually gone from .git folder yet, but they could be deleted any time as they aren't connected to anything, they don't show up in the graph or the log). -->
+<!-- ``` sh -->
+<!-- git reset --hard 8e35b12 -->
+<!-- ``` -->
+<!--     HEAD is now at 8e35b12  -->
+<!-- That seems neater, but keep in mind that if you'd pushed `main` to github while those commits were there, anyone else who had built on your repo would have lots of trouble. In fact if you do this with the repos above (which have already been pushed to GitHub then the four commits don't disappear, they are still tagged with `origin/main` because they are on the remote. -->
+<!-- The `revert` approach means messier history, but has the advantage that it doesn't disconnect anyone else. -->
 
 
 </section>
