@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Open Source Software Development: A socio-technical course - 12&nbsp; Split a Pull Request</title>
+<title>Open Source Software Development: A socio-technical course - 13&nbsp; Split a Pull Request</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -111,7 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../skills/git_basic_workflow.html">Skills</a></li><li class="breadcrumb-item"><a href="../skills/git_cherrypick_split_pr.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Split a Pull Request</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../skills/git_basic_workflow.html">Skills</a></li><li class="breadcrumb-item"><a href="../skills/git_cherrypick_split_pr.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Split a Pull Request</span></a></li></ol></nav>
       <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -184,6 +184,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Coordination</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/governance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Governance</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -198,37 +204,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../skills/git_basic_workflow.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Git basic workflow</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Git basic workflow</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../skills/git_rewinding_work.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Rewinding work</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Rewinding work</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../skills/branching.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Local branching with Git.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Local branching with Git.</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../skills/github_solo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">GitHub solo</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">GitHub solo</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../skills/github_collaboration.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Github collaboration</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Github collaboration</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../skills/git_cherrypick_split_pr.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Split a Pull Request</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Split a Pull Request</span></span></a>
   </div>
 </li>
       </ul>
@@ -260,10 +266,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#split-before-submit" id="toc-split-before-submit" class="nav-link active" data-scroll-target="#split-before-submit"><span class="header-section-number">12.1</span> Split before submit</a>
+  <li><a href="#split-before-submit" id="toc-split-before-submit" class="nav-link active" data-scroll-target="#split-before-submit"><span class="header-section-number">13.1</span> Split before submit</a>
   <ul class="collapse">
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">12.1.1</span> Exercises</a></li>
-  <li><a href="#dealing-with-remaining-commits" id="toc-dealing-with-remaining-commits" class="nav-link" data-scroll-target="#dealing-with-remaining-commits"><span class="header-section-number">12.1.2</span> Dealing with remaining commits</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">13.1.1</span> Exercises</a></li>
+  <li><a href="#dealing-with-remaining-commits" id="toc-dealing-with-remaining-commits" class="nav-link" data-scroll-target="#dealing-with-remaining-commits"><span class="header-section-number">13.1.2</span> Dealing with remaining commits</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/skills/git_cherrypick_split_pr.qmd" class="toc-action">View source</a></p></div></div></nav>
@@ -273,7 +279,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Split a Pull Request</span></h1>
+<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Split a Pull Request</span></h1>
 </div>
 
 
@@ -298,8 +304,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This is useful because if there is a conversation around the pull request then you can easily update things. For example, if someone said “Please fix a typo or pull from upstream before we consider your pull request,” you’d be able to do so without opening another PR (just add, commit, push to your branch on your fork and the PR is updated).</p>
 <p>However, it is an issue if you <em>accidentally</em> add new commits to a branch before a pull request is accepted. Now your pull request has two sets of commits: the first set you meant to include and the second set you didn’t. This mistake is particularly easy to make if you are developing on the <code>main</code> branch in your fork (which you shouldn’t do), but also happens if you are have more than one contribution that you are working on, as when you are doing something else while waiting for a PR to be accepted. If you’ve accidentally added too many files to your pull request—something that is easy to do if you use <code>git add *</code> or some variant—you’ll also find yourself needing to remove content from your PR.</p>
 <p>This is where the delightfully named <code>git cherry-pick</code> can help us.</p>
-<section id="split-before-submit" class="level2" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="split-before-submit"><span class="header-section-number">12.1</span> Split before submit</h2>
+<section id="split-before-submit" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="split-before-submit"><span class="header-section-number">13.1</span> Split before submit</h2>
 <p>Things would be better if you had created a new branch for the first set of commits, then a second branch for your second set of commits, never adding either set to your main branch and following the “always work on a (short-lived) feature branch” rule. Then each set of commits would be “sent” through a different pull request.</p>
 <p>In other words we would be in good position to submit two separate pull requests:</p>
 <div class="cell">
@@ -432,17 +438,17 @@ Note
 <p>See more about this on the GitHub blog <a href="https://github.blog/2020-12-17-commits-are-snapshots-not-diffs/" class="uri">https://github.blog/2020-12-17-commits-are-snapshots-not-diffs/</a></p>
 </div>
 </div>
-<section id="exercises" class="level3" data-number="12.1.1">
-<h3 data-number="12.1.1" class="anchored" data-anchor-id="exercises"><span class="header-section-number">12.1.1</span> Exercises</h3>
-<section id="individual-exercises" class="level4" data-number="12.1.1.1">
-<h4 data-number="12.1.1.1" class="anchored" data-anchor-id="individual-exercises"><span class="header-section-number">12.1.1.1</span> Individual Exercises</h4>
+<section id="exercises" class="level3" data-number="13.1.1">
+<h3 data-number="13.1.1" class="anchored" data-anchor-id="exercises"><span class="header-section-number">13.1.1</span> Exercises</h3>
+<section id="individual-exercises" class="level4" data-number="13.1.1.1">
+<h4 data-number="13.1.1.1" class="anchored" data-anchor-id="individual-exercises"><span class="header-section-number">13.1.1.1</span> Individual Exercises</h4>
 <ol type="1">
 <li>Now you work to get the <code>orange_branch</code> organized.</li>
 <li>Work through a similar example on Learning Git Visualizer, I have created a level called <a href="https://learngitbranching.js.org/?gist_level_id=f7b4b63960ed80fa9a76728d853f2546">Split Pull Request</a>.</li>
 </ol>
 </section>
-<section id="group-exercise" class="level4" data-number="12.1.1.2">
-<h4 data-number="12.1.1.2" class="anchored" data-anchor-id="group-exercise"><span class="header-section-number">12.1.1.2</span> Group Exercise</h4>
+<section id="group-exercise" class="level4" data-number="13.1.1.2">
+<h4 data-number="13.1.1.2" class="anchored" data-anchor-id="group-exercise"><span class="header-section-number">13.1.1.2</span> Group Exercise</h4>
 <p>Groups of 3. Nominate <em>Maintainer</em>, <em>Contributor A</em>, and <em>Contributor B</em>.</p>
 <ol type="1">
 <li><em>Maintainer</em> creates a repo on Github.</li>
@@ -457,8 +463,8 @@ Note
 </ol>
 </section>
 </section>
-<section id="dealing-with-remaining-commits" class="level3" data-number="12.1.2">
-<h3 data-number="12.1.2" class="anchored" data-anchor-id="dealing-with-remaining-commits"><span class="header-section-number">12.1.2</span> Dealing with remaining commits</h3>
+<section id="dealing-with-remaining-commits" class="level3" data-number="13.1.2">
+<h3 data-number="13.1.2" class="anchored" data-anchor-id="dealing-with-remaining-commits"><span class="header-section-number">13.1.2</span> Dealing with remaining commits</h3>
 <p>Remember when we <code>git cherry-pick</code> to move a commit, we don’t actually move it we create a copy (learngitbranching shows this by creating new commits called <code>C3'</code> and <code>C4'</code> (to distinguish from <code>C3</code> and <code>C4</code>).</p>
 <p>You can see this with the middle block of commits here (after the orange_branch is created). They are on main.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 170afe6 <span class="er">(</span><span class="ex">HEAD</span> <span class="at">-</span><span class="op">&gt;</span> orange_branch<span class="kw">)</span> <span class="ex">orange2</span></span>
@@ -481,8 +487,8 @@ Note
 <li>Using <code>git reset -hard</code>, create a new branch from your branching point, then rename it to <code>main</code>, orphaning your current main.</li>
 </ol>
 <p>If you had already shared these then you really only have the first option, as then if others started building on your work they will be ok. If you use <code>reset -hard</code> then this can cause big problems in other people’s repositories (as the history now differs in a way that git cannot recover).</p>
-<section id="using-revert" class="level4" data-number="12.1.2.1">
-<h4 data-number="12.1.2.1" class="anchored" data-anchor-id="using-revert"><span class="header-section-number">12.1.2.1</span> Using revert</h4>
+<section id="using-revert" class="level4" data-number="13.1.2.1">
+<h4 data-number="13.1.2.1" class="anchored" data-anchor-id="using-revert"><span class="header-section-number">13.1.2.1</span> Using revert</h4>
 <p>First I created a copy of the repo, <code>practice_split_revert/</code>, so I could show both options. Then I switched to the <code>main</code> branch in that copy.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> i320d-needs-split i320d-needs-split-revert</span>
@@ -544,8 +550,8 @@ Note
 <span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 252ff3f Initial commit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This is hard to love (as everything got uglier with the addition of the reverts) but it does definite explain what is intended and ensure that anyone working from <code>main</code> can continue to do so.</p>
 </section>
-<section id="git-reset-hard" class="level4" data-number="12.1.2.2">
-<h4 data-number="12.1.2.2" class="anchored" data-anchor-id="git-reset-hard"><span class="header-section-number">12.1.2.2</span> git reset –hard</h4>
+<section id="git-reset-hard" class="level4" data-number="13.1.2.2">
+<h4 data-number="13.1.2.2" class="anchored" data-anchor-id="git-reset-hard"><span class="header-section-number">13.1.2.2</span> git reset –hard</h4>
 <p>Git reset can neaten things up, but only if you haven’t already pushed to GitHub.</p>
 <p>Again, I create a copy of the repo</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..</span>
@@ -814,7 +820,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../skills/github_collaboration.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Github collaboration</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Github collaboration</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
