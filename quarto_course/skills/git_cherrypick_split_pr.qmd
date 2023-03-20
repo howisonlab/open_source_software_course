@@ -1,4 +1,4 @@
-# Split a Pull Request {@sec-cherrypick}
+# Split a Pull Request {#sec-cherrypick}
 
 > Hey, thanks! Some of this looks great, but can you split this up into separate PRs?
 
@@ -177,7 +177,7 @@ Groups of 3. Nominate *Maintainer*, *Contributor A*, and *Contributor B*.
 1.  *Maintainer* creates a repo on Github.
 2.  *Maintainer* adds 2 commits and pushes.
 3.  *Contributor A* and *Contributor B* fork and clone (and add upstream).
-4.  *Contributor A* and *Contributor B* create a feature branch called \`will_need_split.
+4.  *Contributor A* and *Contributor B* create a feature branch called `will_need_split`.
 5.  *Contributor A* and *Contributor B* add four commits of four files on `will_need_split`
 6.  *Contributor A* and *Contributor B* create a pull request to `upstream` from their `will_need_split` branch (including all four commits).
 7.  *Maintainer* rejects the pull request, closing it and commenting "please split this up" (and direct which files go together, probably 2 in each.)

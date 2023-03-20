@@ -286,7 +286,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Split a Pull Request</span></h1>
+<h1 class="title"><span id="sec-cherrypick" class="quarto-section-identifier"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Split a Pull Request</span></span></h1>
 </div>
 
 
@@ -467,7 +467,7 @@ Note
 <li><em>Maintainer</em> creates a repo on Github.</li>
 <li><em>Maintainer</em> adds 2 commits and pushes.</li>
 <li><em>Contributor A</em> and <em>Contributor B</em> fork and clone (and add upstream).</li>
-<li><em>Contributor A</em> and <em>Contributor B</em> create a feature branch called `will_need_split.</li>
+<li><em>Contributor A</em> and <em>Contributor B</em> create a feature branch called <code>will_need_split</code>.</li>
 <li><em>Contributor A</em> and <em>Contributor B</em> add four commits of four files on <code>will_need_split</code></li>
 <li><em>Contributor A</em> and <em>Contributor B</em> create a pull request to <code>upstream</code> from their <code>will_need_split</code> branch (including all four commits).</li>
 <li><em>Maintainer</em> rejects the pull request, closing it and commenting “please split this up” (and direct which files go together, probably 2 in each.)</li>
