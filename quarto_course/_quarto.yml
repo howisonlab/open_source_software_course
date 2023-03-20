@@ -23,6 +23,7 @@ book:
       - insights/licenses.qmd
       - insights/coordination.qmd
       - insights/governance.qmd
+      - insights/bias_lack_of_diversity.qmd
     #     - knowledge_sharing.qmd
     #     - documentation.qmd
     #     - bias_and_lack_of_diversity.qmd

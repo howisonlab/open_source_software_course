@@ -497,7 +497,7 @@ insight_topics <- tribble(
   "Coordination @sec-coordination",
   "Governance and decision making @sec-gov",
   "Knowledge sharing",
-  "Bias and lack of diversity",
+  "Bias and lack of diversity @sec-diversity",
   "Agile and test driven development",
   "The stack and the stream",
   "Cybersecurity and open source"
