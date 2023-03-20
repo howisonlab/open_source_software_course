@@ -6,35 +6,29 @@ In class today we will undertake shared note-taking in groups on this topic, pre
 
 Examine these "developer surveys" to add data (agreeing or disagreeing) with the opening statement of this page:
 
-https://survey.stackoverflow.co/2022/
+<https://survey.stackoverflow.co/2022/>
 
-https://octoverse.github.com/
+<https://octoverse.github.com/>
 
 Odd numbered groups will read:
 
-Albusays, K., Bjorn, P., Dabbish, L., Ford, D., Murphy-Hill, E., Serebrenik, A., & Storey, M.-A. (2021). The Diversity Crisis in Software Development. IEEE Software, 38(2), 19–25.", "https://doi.org/10.1109/MS.2020.3045817
-"Bias and lack of diversity",
+Albusays, K., Bjorn, P., Dabbish, L., Ford, D., Murphy-Hill, E., Serebrenik, A., & Storey, M.-A. (2021). The Diversity Crisis in Software Development. IEEE Software, 38(2), 19–25. <https://doi.org/10.1109/MS.2020.3045817>
 
 Even numbered groups will read:
 
-Frluckaj, H., Dabbish, L., Widder, D. G., Qiu, H. S., & Herbsleb, J. D. (2022). Gender and Participation in Open Source Software Development. Proceedings of the ACM on Human-Computer Interaction, 6(CSCW2), 299:1-299:31. https://doi.org/10.1145/3555190
+Frluckaj, H., Dabbish, L., Widder, D. G., Qiu, H. S., & Herbsleb, J. D. (2022). Gender and Participation in Open Source Software Development. Proceedings of the ACM on Human-Computer Interaction, 6(CSCW2), 299:1-299:31. <https://doi.org/10.1145/3555190>
 
 Both will read: 
 
-Antin, J., Yee, R., Cheshire, C., & Nov, O. (2011). Gender Differences in Wikipedia Editing. In Proceedings of the 7th International Symposium on Wikis and Open Collaboration (pp. 11–14). New York, NY, USA: ACM.",
-  "https://doi.org/10.1145/2038558.2038561",
-
+Antin, J., Yee, R., Cheshire, C., & Nov, O. (2011). Gender Differences in Wikipedia Editing. In Proceedings of the 7th International Symposium on Wikis and Open Collaboration (pp. 11–14). New York, NY, USA: ACM. <https://doi.org/10.1145/2038558.2038561>
 
 And all of these articles:
 
-"Nearly All of Wikipedia Is Written By Just 1 Percent of Its Editors",
-    "https://motherboard.vice.com/en_us/article/7x47bb/wikipedia-editors-elite-diversity-foundation",
+"Nearly All of Wikipedia Is Written By Just 1 Percent of Its Editors" <https://motherboard.vice.com/en_us/article/7x47bb/wikipedia-editors-elite-diversity-foundation>,
 
-"Wikipedia page on gender bias in Wikipedia (so meta)",
-    "https://en.wikipedia.org/wiki/Gender_bias_on_Wikipedia",
+Wikipedia page on gender bias in Wikipedia (so meta) <https://en.wikipedia.org/wiki/Gender_bias_on_Wikipedia>
 
-"Inside Wikipedia’s Attempt to Use Artificial Intelligence to Combat Harassment",
-    "https://motherboard.vice.com/en_us/article/aeyvxz/wikipedia-jigsaw-google-artificial-intelligence",
+Inside Wikipedia’s Attempt to Use Artificial Intelligence to Combat Harassment <https://motherboard.vice.com/en_us/article/aeyvxz/wikipedia-jigsaw-google-artificial-intelligence>
 
 Questions for discussion:
 
