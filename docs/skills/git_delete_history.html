@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Open Source Software Development: A socio-technical course - 9&nbsp; Git basic workflow</title>
+<title>Open Source Software Development: A socio-technical course - 16&nbsp; Removing something from history entirely</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -63,8 +29,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../skills/git_rewinding_work.html" rel="next">
-<link href="../insights/bias_lack_of_diversity.html" rel="prev">
+<link href="../skills/skills_faq.html" rel="next">
+<link href="../skills/git_rebase.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -107,7 +73,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../skills/git_basic_workflow.html">Skills</a></li><li class="breadcrumb-item"><a href="../skills/git_basic_workflow.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Git basic workflow</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../skills/git_basic_workflow.html">Skills</a></li><li class="breadcrumb-item"><a href="../skills/git_delete_history.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Removing something from history entirely</span></a></li></ol></nav>
       <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -205,7 +171,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../skills/git_basic_workflow.html" class="sidebar-item-text sidebar-link active">
+  <a href="../skills/git_basic_workflow.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Git basic workflow</span></span></a>
   </div>
 </li>
@@ -247,7 +213,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../skills/git_delete_history.html" class="sidebar-item-text sidebar-link">
+  <a href="../skills/git_delete_history.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Removing something from history entirely</span></span></a>
   </div>
 </li>
@@ -276,26 +242,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">9.1</span> Overview</a></li>
-  <li><a href="#working-with-files-and-the-commandline-in-rstudio" id="toc-working-with-files-and-the-commandline-in-rstudio" class="nav-link" data-scroll-target="#working-with-files-and-the-commandline-in-rstudio"><span class="header-section-number">9.2</span> Working with files and the commandline in Rstudio</a></li>
-  <li><a href="#creating-a-git-repo" id="toc-creating-a-git-repo" class="nav-link" data-scroll-target="#creating-a-git-repo"><span class="header-section-number">9.3</span> Creating a git repo,</a></li>
-  <li><a href="#git-status-add-commit" id="toc-git-status-add-commit" class="nav-link" data-scroll-target="#git-status-add-commit"><span class="header-section-number">9.4</span> Git status, add, commit</a></li>
-  <li><a href="#using-git-log-to-understand-what-is-in-the-repo" id="toc-using-git-log-to-understand-what-is-in-the-repo" class="nav-link" data-scroll-target="#using-git-log-to-understand-what-is-in-the-repo"><span class="header-section-number">9.5</span> Using git log to understand what is in the repo</a></li>
-  <li><a href="#linux-command-lines" id="toc-linux-command-lines" class="nav-link" data-scroll-target="#linux-command-lines"><span class="header-section-number">9.6</span> Linux Command Lines</a></li>
-  <li><a href="#git" id="toc-git" class="nav-link" data-scroll-target="#git"><span class="header-section-number">9.7</span> Git</a></li>
-  </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/skills/git_basic_workflow.qmd" class="toc-action">View source</a></p></div></div></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-git_basic_workflow" class="quarto-section-identifier"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Git basic workflow</span></span></h1>
+<h1 class="title"><span id="sec-history" class="quarto-section-identifier"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Removing something from history entirely</span></span></h1>
 </div>
 
 
@@ -310,101 +264,81 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="overview" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">9.1</span> Overview</h2>
-<p>In this exercise, we will practice basic Linux command lines, including <code>ls</code>, <code>cd</code>, <code>mkdir</code>, <code>touch</code>and basic git commands including <code>git status</code>, <code>git add</code>, <code>git commit</code>, and <code>git log</code>.</p>
-<p>Once we are able to move around in the shell, create files and directories, then we are ready for the basic git workflow, which is:</p>
-<ol type="1">
-<li>edit a file</li>
-<li>save those edits</li>
-<li><code>git add</code></li>
-<li><code>git commit -m "commit message"</code></li>
-</ol>
-<blockquote class="blockquote">
-<p>edit → save → add → commit</p>
-</blockquote>
-</section>
-<section id="working-with-files-and-the-commandline-in-rstudio" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="working-with-files-and-the-commandline-in-rstudio"><span class="header-section-number">9.2</span> Working with files and the commandline in Rstudio</h2>
-<p>Goal of this step: get familiar with basic Linux command lines: <code>ls</code>, <code>cd</code>, <code>mkdir</code>and <code>touch</code>.</p>
-<p>Log in to the R studio. The interface is shown like below.</p>
-<p>Type <code>ls</code> in the terminal. It will list the files and directories in a specified directory or the current working directory if no directory is specified.</p>
-<p><img src="images/s1_0.png" class="img-fluid"></p>
-<p>Type <code>mkdir air_plane_exercise</code> in the terminal. It will create a new directory with a specified name in the file system.</p>
-<p><img src="images/s1_1.png" class="img-fluid"></p>
-<p>Type <code>ls</code> in the terminal to check the files and directories in current working directory.</p>
-<p><img src="images/s1_2.png" class="img-fluid"></p>
-<p>Type <code>cd air_plane_exercise</code> in the terminal to change the current working directory to <code>air_plane_exercise</code> folder.</p>
-<p><img src="images/s1_3.png" class="img-fluid"></p>
-<p>Type <code>touch instructions.txt</code> in the terminal to create a new text file named “instructions” inside the air_plane_exercise folder. You can type <code>ls</code> to check the updated files and folders.</p>
-<p><img src="images/s1_4.png" class="img-fluid"></p>
-<p>Now go to the files explorer, double click the “air_plane_exercise” folder and then enter the “instructions.txt”. Enter something in the text editor. Save the file. <img src="images/s1_5.png" class="img-fluid"></p>
-</section>
-<section id="creating-a-git-repo" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="creating-a-git-repo"><span class="header-section-number">9.3</span> Creating a git repo,</h2>
-<p>Goal of this step: learn git init.</p>
-<p>Type <code>git init</code> in the terminal. The <code>git init</code> command is typically used to start a new repository or to convert an existing project into a Git repository.</p>
-<p><img src="images/s2_1.png" class="img-fluid"></p>
-</section>
-<section id="git-status-add-commit" class="level2" data-number="9.4">
-<h2 data-number="9.4" class="anchored" data-anchor-id="git-status-add-commit"><span class="header-section-number">9.4</span> Git status, add, commit</h2>
-<p>Goal of this step: learn git status, git add, and git commit</p>
-<p>Make some changes in the “instructions.txt” and save it.</p>
-<p>Type <code>git status</code> in the terminal to show the state of the working directory and the staged changes. You will see <code>untracked files</code>.</p>
-<p><img src="images/s2_2.png" class="img-fluid"></p>
-<p>Type <code>git add</code> in the terminal to stage changes for a commit. It allows you to select which changes in the working directory will be included in the next commit.</p>
-<p>Type <code>git status</code> in the terminal, you will see “changes to be committed”<img src="images/s2_3.png" class="img-fluid"></p>
-<p>Type <code>git commit -m "paper plane2"</code>to save changes to the local repository. It takes all of the changes staged with <code>git add</code> and stores them as a new commit with a message describing the changes.</p>
-<p><img src="images/s2_4.png" class="img-fluid"></p>
-<p>Type <code>git status</code> to check status again. It should show “nothing to commit, working tree clean”.</p>
-<p><img src="images/s2_5.png" class="img-fluid"></p>
-<p>Make some changes:</p>
-<ul>
-<li>edit the “instructions” text file, save it, git add it, git commit it</li>
-<li>create another text file named “license”, save it, git add it, git commit it</li>
-</ul>
-</section>
-<section id="using-git-log-to-understand-what-is-in-the-repo" class="level2" data-number="9.5">
-<h2 data-number="9.5" class="anchored" data-anchor-id="using-git-log-to-understand-what-is-in-the-repo"><span class="header-section-number">9.5</span> Using git log to understand what is in the repo</h2>
-<p>Goal of this step: learn git log</p>
-<p>Type git log in the terminal to display the commit history. It will show a list of all commits in the current branch, along with information about the author, date, and commit message for each one.</p>
-<p>The latest message will show at the top and the oldest will show at the bottom.</p>
-<p><img src="images/s3_1.png" class="img-fluid"></p>
-<p>You can also use <code>git log --oneline --abbrev-commit --all --graph</code> to show git log in short. <img src="images/s3_2.png" class="img-fluid"></p>
-<p>In class we will mostly add <code>--color</code> to this as well:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span> <span class="at">--abbrev-commit</span> <span class="at">--all</span> <span class="at">--graph</span> <span class="at">--decorate</span> <span class="at">--color</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>You can learn more about reading the output of that command here: https://stackoverflow.com/questions/22313343/git-graph-what-do-the-lines-and-asteriks-denote</p>
-<p>The * characters show a single commit, the lines help us understand the branches.</p>
-<p>Here are the review of Linux command lines and Git command lines</p>
-</section>
-<section id="linux-command-lines" class="level2" data-number="9.6">
-<h2 data-number="9.6" class="anchored" data-anchor-id="linux-command-lines"><span class="header-section-number">9.6</span> Linux Command Lines</h2>
-<ol type="1">
-<li><p>cd → change directory</p>
-<p><code>cd</code> () is to change the current working directory to a specified directory.</p></li>
-<li><p>ls → list files</p>
-<p><code>ls</code> (list directory contents) is to list the files and directories in a specified directory or the current working directory if no directory is specified.</p></li>
-<li><p>pwd → present working directory</p>
-<p><code>pwd</code> shows the full path to the current directory. It can help understand how the files look. <code>tree ..</code> is another useful option (this goes up a directory using the two dots: <code>..</code> and <code>tree</code> shows the files in a hierarchical diagram.)</p></li>
-<li><p>mkdir → make new directory</p>
-<p><code>mkdir</code> (make directory) is to create a new directory with a specified name in the file system.</p></li>
-</ol>
-</section>
-<section id="git" class="level2" data-number="9.7">
-<h2 data-number="9.7" class="anchored" data-anchor-id="git"><span class="header-section-number">9.7</span> Git</h2>
-<ol type="1">
-<li><p>Git add</p>
-<p><code>git add</code> is a command used in Git to stage changes for a commit. It allows you to select which changes in the working directory will be included in the next commit.</p></li>
-<li><p>Git commit -m “message”</p>
-<p><code>git commit</code> saves changes to the local repository. It takes all of the changes staged with <code>git add</code> and stores them as a new commit with a message describing the changes.</p></li>
-<li><p>Git status</p>
-<p><code>git status</code> shows the state of the working directory and the staged changes, and it indicates which branch you are currently on.</p></li>
-<li><p>Git log</p>
-<p><code>git log</code> is to display the commit history of a repository. It shows a list of all commits in the current branch, along with information about the author, date, and commit message for each one.</p></li>
-</ol>
+<p>The purpose of <code>git</code> is to retain all of your history, so that you can go back to any point in development and recover (as well as experiment while not breaking the mainline of development). Simultaneously when we are working in the open that means that anyone can view any file that was ever in a repository. With that in mind it is not too surprising that if you accidentally add something to git and then push it to github you can have trouble putting “the genie back in the bottle.”</p>
+<p>Let’s say that we create a repo and add a README, then add a SPECIAL_SECRET file with the password “swordfish” in it. Note that I use <code>git add *</code> below which is a very common way to accidentally add a problematic file, try to get into the habit of adding files one by one.</p>
+<pre><code>$ cd practice_history_edit/
+git init
+Initialized empty Git repository in /Users/howison/Documents/UTexas/Courses/PeerProduction/practice_history_edit/.git/
+vi README
+git status
+On branch main
+
+No commits yet
+
+Untracked files:
+  (use "git add &lt;file&gt;..." to include in what will be committed)
+
+        README
+
+nothing added to commit but untracked files present (use "git add" to track)
+git add README
+git commit -m "now we have a README"
+[main (root-commit) f4878b0] now we have a README
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README
+vi SPECIAL_SECRET
+git add *
+git commit -m "whoops added secret"
+[main 018f6b5] whoops added secret
+ 1 file changed, 1 insertion(+)
+ create mode 100644 SPECIAL_SECRET
+git log --oneline --abbrev-commit --all --graph --decorate --color
+* 018f6b5 (HEAD -&gt; main) whoops added secret
+* f4878b0 now we have a README</code></pre>
+<p>Now I’ll go ahead and make one more edit to README</p>
+<pre><code>vi README
+git add READMEgit commit -m "README edit 2"[main 4d51f91] README edit 2
+ 1 file changed, 1 insertion(+)
+git log --oneline --abbrev-commit --all --graph --decorate --color* 4d51f91 (HEAD -&gt; main) README edit 2
+* 018f6b5 whoops added secret
+* f4878b0 now we have a README
+ls
+README         SPECIAL_SECRET
+cat SPECIAL_SECRET
+swordfish</code></pre>
+<p>Ok, so we realize that the password file got into git and we swing into action and delete it from git.</p>
+<pre><code>git rm SPECIAL_SECRET
+rm 'SPECIAL_SECRET'
+git commit -m "phew removed it, or did we"
+[main ff229ba] phew removed it, or did we
+ 1 file changed, 1 deletion(-)
+ delete mode 100644 SPECIAL_SECRET
+ls
+README</code></pre>
+<p>So now the file is not there. Or rather it is not in our working directory. The problem is that it is still inside out <code>.git</code> folder and we can get it out easily.</p>
+<pre><code>git checkout HEAD~1
+Note: checking out 'HEAD~1'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b &lt;new-branch-name&gt;
+
+HEAD is now at 4d51f91... README edit 2
+lsREADME         SPECIAL_SECRET
+cat SPECIAL_SECRET
+swordfish</code></pre>
+<p>Here I just used <code>git checkout HEAD~1</code> which goes one commit back in time, to before we deleted the SPECIAL_SECRET file. Even if we were far ahead, or over on other branches etc, I could always get back by asking to see the code just after the commit that added the file <code>git checkout 018f6b5</code> (btw, to get out of <code>DETACHED HEAD</code> state just checkout the branch again, we’re working on main so it would be <code>git checkout main</code>).</p>
+<p>So using <code>git rm</code> removes a file from the working directories but it doesn’t remove it from the git history. And that’s a sensible thing, usually you want to be able to go back in time. But sometimes you want to remove something from the history entirely. You can do that using the approaches outlined by Github here: <a href="https://help.github.com/articles/removing-sensitive-data-from-a-repository/">Removing sensitive data from a repository</a></p>
+<p>The process is a bit complex (as it should be) but simplified with the <code>bfg</code> tool, as described at the link above. First you have to download the tool (which requires Java to run) then follow the instructions step by step.</p>
+<p>Keep in mind that if you had pushed this sensitive info to a repo on github and others had then forked or cloned it then that info is not going to be deleted from the clones, so passwords should definitely be changed and you should ask everyone to delete forks/clones and start again.</p>
+<p>There are a set of approaches to avoid uploading sensitive data. A good starting point is discipline around using <code>.gitignore</code> which will prevent adding files that should not be added. Another approach is to become familiar with using environment variables to hold secrets. This is an evolving area, so ask others in your organization how they handle secrets (usually access credentials) when using git. One recent approach (specific to GitHub is <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets" class="uri">https://docs.github.com/en/actions/security-guides/encrypted-secrets</a>)</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -642,13 +576,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../insights/bias_lack_of_diversity.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bias and Lack of Diversity</span></span>
+      <a href="../skills/git_rebase.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Rebase for synchronizing work</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../skills/git_rewinding_work.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Rewinding work</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../skills/skills_faq.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Skills faq</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -656,4 +590,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/skills/git_delete_history.qmd" class="toc-action">View source</a></p></div></div></div></div></footer></body></html>

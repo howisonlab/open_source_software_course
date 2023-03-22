@@ -1,0 +1,110 @@
+# Rebase for synchronizing work {#sec-rebase}
+
+> Thanks for your contribution; could you rebase this against main?  Thanks!
+
+That is also a common request from maintainers, and one that can cause confusion for new contributors.
+
+When one is working on a problem, others may be working in parallel. And their parallel work may be finished before one's own work is. Thus the starting point for one person's work (branching point) can "go stale" making it harder to integrate.
+
+While `git merge` and resolving syntax level conflicts can resolve some of this, it is often easier to understand and review work if it is presented as changes against an updated starting point.
+
+As a concrete example imagine a project to build a dashboard. Imagine that you fork the repo in January to implement a new type of visualization (let's say a pie chart). You work on this during January and February, finally nailing it down at the start of March. Meanwhile, though, others in the project have spent February introducing a whole new way of accessing databases. By the time you make a pull request at the start of March things have changed a lot since you branched in January.
+
+If you submit a PR without updating, the maintainers will likely ask you to update your branch to make it work with the new database system.
+
+    --January-|------February--------------|--March
+
+              __pie_chart_branch___________
+             /                             \
+    main--|--|-----------------------|----|-------
+                \                     /
+                 \__new_database_____/
+
+First thing to do is to update your local repository with the changes from upstream.
+
+``` sh
+git pull upstream main
+```
+
+Then you could try two options:
+
+1.  Either merge `main` into `pie_chart_branch` yourself (this is what we did in earlier exercises)
+2.  Rebase `pie_chart_branch` on main (as though `pie_chart_branch` was created in late February and you did all the work very quickly!)
+
+Option 1 is possible, but often merging your work involves touching parts of the system you don't know what much about and is better left to the core developers. In addition, merging in this way leaves merge commit messages and some projects really don't like those because they make the history harder to read. It also leaves all of your "intermediate" commits in the history (things like "fix typo" and "forgot comma"). Some find that too much information.
+
+Option 2 is generally preferred, since it focuses on clear communication via PRs that are easier to read and review.  Often this just means a single commit showing the differences between the most updated work and the work that you want to contribute.
+
+Option 2 is called `rebase`. We specify a new starting point, and git gives us a little UI in which we can choose which commits to include, which to squash, and we can even reorder commits.
+
+Learngitbranching has a tutorial which we will do now.  Chose square 2 in the "Moving work around" section (titled Interactive Rebase Intro).
+
+A full git textual introduction is available here <https://github.com/openedx/edx-platform/wiki/How-to-Rebase-a-Pull-Request>
+
+
+<!-- ```sh -->
+<!-- cd ~ -->
+<!-- git clone https://github.com/jameshowison/320d_rebase_example.git -->
+<!-- cd 320d_rebase_example -->
+
+<!-- ``` -->
+
+<!-- Our git viz command (See @sec-viz to set up) shows us the situation: -->
+
+<!-- ```sh -->
+<!-- $ git viz -->
+<!-- * cb7f3ad (HEAD -> pie_chart_branch) pie chart 3 -->
+<!-- * 4412c7f pie chart 2 -->
+<!-- * 98602e3 pie chart 1 -->
+<!-- | * 958ed94 (main) database 2 -->
+<!-- | * ab98ea5 database 1 -->
+<!-- |/   -->
+<!-- * 4e8da02 second edit -->
+<!-- * e39f9e1 first edit -->
+<!-- ``` -->
+
+<!-- We have new work on `main` that happened after we branched to work on `pie_chart_branch`.  We also have three separate commits for `pie_chart_branch`.  We want to _squash_ those three commits down to one commit, and we want that commit to represent changes _as though we branched off main after the `database 2` commit.  In this way it is as though we did our work all at once with the latest codebase (instead of over weeks as others continued to work). -->
+
+<!-- We confirm that we are on our working branch. We know there are three commits we want to rebase, so we run `rebase -i HEAD~3` which gives us an _interactive_ rebase starting three commits back from HEAD. -->
+
+<!-- ```sh -->
+<!-- git checkout pie_chart_branch -->
+<!-- git rebase -i HEAD~3 -->
+<!-- ``` -->
+
+<!-- This puts us into a textual UI, with guidance at the bottom. We can use the arrow keys to move around. Each line is a commit, the lines are instructions and are executed in order. -->
+
+<!-- ``` -->
+<!-- pick 98602e3 pie chart 1 -->
+<!-- pick 4412c7f pie chart 2 -->
+<!-- pick cb7f3ad pie chart 3 -->
+
+<!-- # Rebase 4e8da02..cb7f3ad onto 4e8da02 (3 commands) -->
+<!-- # -->
+<!-- # Commands: -->
+<!-- # p, pick <commit> = use commit -->
+<!-- # r, reword <commit> = use commit, but edit the commit message -->
+<!-- # e, edit <commit> = use commit, but stop for amending -->
+<!-- # s, squash <commit> = use commit, but meld into previous commit -->
+<!-- # f, fixup [-C | -c] <commit> = like "squash" but keep only the previous -->
+<!-- #                    commit's log message, unless -C is used, in which case -->
+<!-- #                    keep only this commit's message; -c is same as -C but -->
+<!-- #                    opens the editor -->
+<!-- # x, exec <command> = run command (the rest of the line) using shell -->
+<!-- # b, break = stop here (continue rebase later with 'git rebase --continue') -->
+<!-- # d, drop <commit> = remove commit -->
+<!-- # l, label <label> = label current HEAD with a name -->
+<!-- # t, reset <label> = reset HEAD to a label -->
+<!-- # m, merge [-C <commit> | -c <commit>] <label> [# <oneline>] -->
+<!-- # .       create a merge commit using the original merge commit's -->
+<!-- # .       message (or the oneline, if no original merge commit was -->
+<!-- # .       specified); use -c <commit> to reword the commit message -->
+<!-- # -->
+<!-- # These lines can be re-ordered; they are executed from top to bottom. -->
+<!-- ``` -->
+
+
+
+
+<!-- and is explained usefully at [this page from the EdX project](https://github.com/edx/edx-platform/wiki/How-to-Rebase-a-Pull-Request). As you rebase, you can also `squash` some of your commits (treat many commits as one) to make them easier to follow for those reviewing your pull request. See the link above for details. -->
+

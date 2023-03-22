@@ -63,7 +63,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../skills/git_cherrypick_split_pr.html" rel="prev">
+<link href="../skills/git_delete_history.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -238,6 +238,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Split a Pull Request</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/git_rebase.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Rebase for synchronizing work</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/git_delete_history.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Removing something from history entirely</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -372,7 +384,7 @@ After doing this, you may fix the identity used for this commit with:
 <div class="sourceCode" id="cb8"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span> <span class="at">--abbrev-commit</span> <span class="at">--all</span> <span class="at">--graph</span> <span class="at">--decorate</span> <span class="at">--color</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This produces reasonably readable graphs (especially for the teaching repos used in this course).</p>
 <p>They look like this:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jlh5498@educcomp04:~/github_repos/i320_test3$</span> git log <span class="at">--oneline</span> <span class="at">--abbrev-commit</span> <span class="at">--all</span> <span class="at">--graph</span> <span class="at">--decorate</span> <span class="at">--color</span></span>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jlh5498@educcomp04:~/github_repos/i320_test3,,\n</span> git log <span class="at">--oneline</span> <span class="at">--abbrev-commit</span> <span class="at">--all</span> <span class="at">--graph</span> <span class="at">--decorate</span> <span class="at">--color</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span>   d8ab2c1 <span class="er">(</span><span class="ex">HEAD</span> <span class="at">-</span><span class="op">&gt;</span> main, origin/main, origin/HEAD<span class="kw">)</span> <span class="ex">Merge</span> pull request <span class="co">#1 from jameshowison/new-feature</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span><span class="ex">\ </span> </span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> ffb601d <span class="er">(</span><span class="ex">origin/new-feature,</span> new-feature<span class="kw">)</span> <span class="ex">added</span> extra</span>
@@ -431,6 +443,57 @@ After doing this, you may fix the identity used for this commit with:
 <span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a><span class="co">##  leopard </span></span>
 <span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a><span class="co">##  turtle</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<!-- # Why does ggplot require less tidy data for multiline graphs? (aka longer less tidy) -->
+<!-- tl;dr: when using a `group` like aes (`group` itself or `color`) you often need to transform data from a wider (but tidy) format into a longer (and arguably less tidy) format. -->
+<!-- In the Tidy Data paper Wickham shows an example of tidying data from a longer format to a wider format. In the example he creates two new columns `tmax` and `tmin`. He argues that this wider format is tidier because each row contains an observation with two measured variables (tmax and tmin). -->
+
+<!-- ![Table 12 from Wickham's Tidy Data paper](images/tidydata_table12_tmax_tmin.png){fig-alt="Tables showing a longer form on the left (a type column called 'element' with the values tmax and tmin), and a wider form on the right (separate columns titled tmax and tmin)"} -->
+<!-- ```{r} -->
+
+<!-- table12_df_wider <- tribble( -->
+<!--   ~id, ~date, ~element, ~value, -->
+<!--   #--------------------------- -->
+<!--   "MX17004", 2010-01-30, "tmax", 27.8, -->
+<!--   "MX17004", 2010-01-30, "tmin", 14.5, -->
+<!--   "MX17004", 2010-02-02, "tmax", 27.3, -->
+<!--   "MX17004", 2010-02-02, "tmin", 14.4, -->
+<!--   "MX17004", 2010-02-03, "tmax", 24.1, -->
+<!--   "MX17004", 2010-02-03, "tmin", 14.4, -->
+<!--   "MX17004", 2010-02-11, "tmax", 29.7, -->
+<!--   "MX17004", 2010-02-11, "tmin", 13.4, -->
+<!--   "MX17004", 2010-02-23, "tmax", 29.9, -->
+<!--   "MX17004", 2010-02-23, "tmin", 10.7 -->
+<!-- ) -->
+
+<!-- table12_tidy <- table12_df_wider %>%  -->
+<!--   pivot_wider(names_from = element, values_from = value) -->
+
+<!-- table12_tidy -->
+<!-- ``` -->
+<!-- Yet it is common to want to graph both of these variables as a multi-line graph. This is possible because both variables are expressed in the same terms (both are degrees), so only a single scale is needed. Nonetheless, this is actually tricky to do in this wider tidier format. Because it requires two column names, which must be hard coded. We also can't easily get a legend. -->
+<!-- ```{r} -->
+
+<!-- table12_tidy %>%  -->
+<!--   ggplot(aes(x = date)) + -->
+<!--   geom_line(aes(y = tmin), color = "green") + -->
+<!--   geom_line(aes(y = tmax), color = "blue") -->
+<!-- ``` -->
+<!-- Another approach enables us to get as many lines as there are, and get automatic colors and legends. This uses the `group` aesthetic. But to do this we need all the column names in a single column as strings. This changes our data back into the longer format. -->
+<!-- ```{r} -->
+
+<!-- table12_longer_again <- table12_tidy %>%  -->
+<!--   pivot_longer(cols = c(tmax, tmin), names_to = "measure", values_to = "temperature") -->
+
+<!-- table12_longer_again -->
+<!-- ``` -->
+
+<!-- This is identical to where we started, with Table 12a (other than changed column names!). Yet this can be much more easily graphed, giving much easier access and automatic scales (and thus legends). -->
+<!-- ```{r} -->
+
+<!-- table12_longer_again %>%  -->
+<!--   ggplot(aes(x = date, y = temperature, color = measure)) +  -->
+<!--   geom_line() -->
+<!-- ``` -->
 
 
 </section>
@@ -671,8 +734,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../skills/git_cherrypick_split_pr.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Split a Pull Request</span></span>
+      <a href="../skills/git_delete_history.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Removing something from history entirely</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

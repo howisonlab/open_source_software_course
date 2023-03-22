@@ -473,7 +473,7 @@ skills_topics <- tribble(
   "Sharing and collaborating via github @sec-github-solo ", "git clone, remote, push",
   "Collaboration conflicts and workflows @sec-github-collaboration ", "github fork, pull request, pull upstream",
   "Splitting PRs @sec-cherrypick ", "merge, conflicts, mark resolved, cherrypick, collaboration workflows  ",
-  # "git rebase"
+  "Rebase @sec-rebase and Managing Secrets @sec-history ", "git rebase",
   # "Documentation and Q&A", "github flavored markdown",
   "Unit Tests", "Test suites",
   "Continuous Integration", "Travis CI integration, Github Actions",

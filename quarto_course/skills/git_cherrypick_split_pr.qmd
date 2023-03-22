@@ -71,7 +71,7 @@ We can see an example of the overall workflow for splitting a PR using the Learn
 
 You can see a situation like this in this repo on GitHub. Bring that to your working space with:
 
-``` sh
+```sh
 cd ~
 git clone https://github.com/jameshowison/i320d-needs-split.git
 cd i320d-needs-split
