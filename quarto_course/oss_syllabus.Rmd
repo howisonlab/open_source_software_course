@@ -57,11 +57,11 @@ library(knitr)
 
 Official, updated version of syllabus always online at:
 
-https://howisonlab.github.io/open_source_software_course/oss_syllabus.html
+<https://howisonlab.github.io/open_source_software_course/oss_syllabus.html>
 
 Class server at [Edupod Rstudio](https://edupod.cns.utexas.edu/).
 
-Jump to Course Outline: @sec-outline
+Jump to [Course Outline](#outline)
 
 ```{r header_output}
 kable(header) %>%
@@ -77,7 +77,7 @@ This course explores "open source software development" which is a name for the 
 
 The "open source way" is also known as "peer production" and that way of working extends beyond open source, to places like Wikipedia. Perhaps not coincidentally the Wikipedia page on [Peer Production](https://en.wikipedia.org/wiki/Peer_production) is quite useful:
 
-> \[A\] way of producing goods and services that relies on self-organizing communities of individuals. In such communities, the labor of a large number of people is coordinated towards a shared outcome.
+> $$A$$ way of producing goods and services that relies on self-organizing communities of individuals. In such communities, the labor of a large number of people is coordinated towards a shared outcome.
 
 As we learn about open source and peer production we'll learn to distinguish it from different kinds of online collaborations, such as crowdsourcing, citizen science, question and answer sites, and mere sharing of code. Near synonyms for the way of working taught in this course are: "The open source way", "Open collaboration", "Open mass production".
 
@@ -177,7 +177,7 @@ Readings, tutorials, and will be provided via pages linked from the class calend
 
 I will enroll the class in [DataCamp](https://www.datacamp.com/), giving students free access to the DataCamp courses (including their premium courses). In particular we will be using their interactive course on `git` during classes in the first half of the course. I encourage students to explore their other course options during the semester.
 
-# Course Outline {#sec-outline}
+# Course Outline {#outline}
 
 ## Draft Course Schedule
 
@@ -503,15 +503,15 @@ skills_topics <- tribble(
 insight_topics <- tribble(
   ~insight_topic,
   #----------
-  "What is open source? @sec-what-is-open-source",
-  "Motivations and Asking questions people want to answer @sec-motivations",
+  "What is open source? @sec-what-is-open-source ",
+  "Motivations and Asking questions people want to answer @sec-motivations ",
   "Licenses @sec-licenses",
-  "Coordination @sec-coordination",
-  "Governance and decision making @sec-gov",
+  "Coordination @sec-coordination ",
+  "Governance and decision making @sec-gov ",
   "Knowledge sharing",
-  "Bias and lack of diversity @sec-diversity",
+  "Bias and lack of diversity @sec-diversity ",
+  "The stack and the stream @sec-stack-and-stream ",
   "Agile and test driven development",
-  "The stack and the stream",
   "Cybersecurity and open source"
   # ""
   # "Peer production in Art and Culture"
@@ -682,7 +682,7 @@ Class Recordings: Class recordings are reserved only for students in this class 
 
 ## Academic Integrity
 
-Each student in the course is expected to abide by the University of Texas Honor Code: "As a student of The University of Texas at Austin, I shall abide by the core values of the University and uphold academic integrity." Plagiarism is taken very seriously at UT. Therefore, if you use words or ideas that are not your own (or that you have used in previous class), you must cite your sources. Otherwise you will be guilty of plagiarism and subject to academic disciplinary action, including failure of the course. In particular, students are reminded that proper citation requires mentioning sources when you use them, not just in a general list of references at the end of a document. You are responsible for understanding UT's Academic Honesty and the University Honor Code which can be found at the following web address: http://deanofstudents.utexas.edu/sjs/acint_student.php
+Each student in the course is expected to abide by the University of Texas Honor Code: "As a student of The University of Texas at Austin, I shall abide by the core values of the University and uphold academic integrity." Plagiarism is taken very seriously at UT. Therefore, if you use words or ideas that are not your own (or that you have used in previous class), you must cite your sources. Otherwise you will be guilty of plagiarism and subject to academic disciplinary action, including failure of the course. In particular, students are reminded that proper citation requires mentioning sources when you use them, not just in a general list of references at the end of a document. You are responsible for understanding UT's Academic Honesty and the University Honor Code which can be found at the following web address: <http://deanofstudents.utexas.edu/sjs/acint_student.php>
 
 ## Student rights and responsibilities
 
@@ -708,7 +708,7 @@ Professional courtesy and sensitivity are especially important with respect to i
 
 ## Drop Policy
 
-If you want to drop a class after the 12th class day, you'll need to execute a Q drop before the Q-drop deadline, which typically occurs near the middle of the semester. Under Texas law, you are only allowed six Q drops while you are in college at any public Texas institution. For more information, see: http://www.utexas.edu/ugs/csacc/academic/adddrop/qdrop
+If you want to drop a class after the 12th class day, you'll need to execute a Q drop before the Q-drop deadline, which typically occurs near the middle of the semester. Under Texas law, you are only allowed six Q drops while you are in college at any public Texas institution. For more information, see: <http://www.utexas.edu/ugs/csacc/academic/adddrop/qdrop>
 
 International students *must* [meet with the international office](https://world.utexas.edu/isss/visa/maintain/student) before dropping a class that would put them below full-time status. Although it is worth noting that there are legitimate reasons that allow International students to be below full-time status, so if you think you are failing a course (or just performing below your expectations) don't make assumptions either way, speak with the international office to discover your options.
 
@@ -718,21 +718,21 @@ Your success in this class is important to me. We will all need accommodations a
 
 ### Accessible/Compliant Statement:
 
-If you are a student with a disability, or think you may have a disability, and need accommodations please contact Disability and Access (D&A). You may refer to D&A's website for contact and more information: http://diversity.utexas.edu/disability/. If you are already registered with D&A, please deliver your Accommodation Letter to me as early as possible in the semester so we can discuss your approved accommodations.
+If you are a student with a disability, or think you may have a disability, and need accommodations please contact Disability and Access (D&A). You may refer to D&A's website for contact and more information: <http://diversity.utexas.edu/disability/>. If you are already registered with D&A, please deliver your Accommodation Letter to me as early as possible in the semester so we can discuss your approved accommodations.
 
 ### Accessible, Inclusive, and Compliant Statement:
 
-The university is committed to creating an accessible and inclusive learning environment consistent with university policy and federal and state law. Please let me know if you experience any barriers to learning so I can work with you to ensure you have equal opportunity to participate fully in this course. If you are a student with a disability, or think you may have a disability, and need accommodations please contact Disability and Access (D&A). Please refer to D&A's website for contact and more information: http://diversity.utexas.edu/disability/. If you are already registered with D&A , please deliver your Accommodation Letter to me as early as possible in the semester so we can discuss your approved accommodations and needs in this course.
+The university is committed to creating an accessible and inclusive learning environment consistent with university policy and federal and state law. Please let me know if you experience any barriers to learning so I can work with you to ensure you have equal opportunity to participate fully in this course. If you are a student with a disability, or think you may have a disability, and need accommodations please contact Disability and Access (D&A). Please refer to D&A's website for contact and more information: <http://diversity.utexas.edu/disability/>. If you are already registered with D&A , please deliver your Accommodation Letter to me as early as possible in the semester so we can discuss your approved accommodations and needs in this course.
 
 ### Counseling and Mental Health Center
 
 All of us benefit from support during times of struggle. You are not alone. There are many helpful resources available on campus and an important part of the college experience is learning how to ask for help. Asking for support sooner rather than later is often helpful.
 
-If you or anyone you know experiences any academic stress, difficult life events, or feelings like anxiety or depression, we strongly encourage you to seek support. http://www.cmhc.utexas.edu/individualcounseling.html
+If you or anyone you know experiences any academic stress, difficult life events, or feelings like anxiety or depression, we strongly encourage you to seek support. <http://www.cmhc.utexas.edu/individualcounseling.html>
 
 ### The Sanger Learning Center
 
-All students, including graduate students, are welcome to take advantage of Sanger Center's classes and workshops, private learning specialist appointments, peer academic coaching, and tutoring for more than 70 courses in 15 different subject areas. For more information, please visit https://ugs.utexas.edu/slc/grad or call 512-471-3614 (JES A332).
+All students, including graduate students, are welcome to take advantage of Sanger Center's classes and workshops, private learning specialist appointments, peer academic coaching, and tutoring for more than 70 courses in 15 different subject areas. For more information, please visit <https://ugs.utexas.edu/slc/grad> or call 512-471-3614 (JES A332).
 
 ### [University Writing Center free programs for grad students](http://uwc.utexas.edu/grad/)
 
@@ -746,11 +746,11 @@ All students, including graduate students, are welcome to take advantage of Sang
 
 If you have concerns about the safety or behavior of fellow students, TAs or Professors, call BCAL (the Behavior Concerns Advice Line): 512-232-5050. Your call can be anonymous. If something doesn't feel right---it probably isn't. Trust your instincts and share your concerns.
 
-The following recommendations regarding emergency evacuation from the Office of Campus Safety and Security, 512-471-5767, http://www.utexas.edu/safety/
+The following recommendations regarding emergency evacuation from the Office of Campus Safety and Security, 512-471-5767, <http://www.utexas.edu/safety/>
 
 Occupants of buildings on The University of Texas at Austin campus are required to evacuate buildings when a fire alarm is activated. Alarm activation or announcement requires exiting and assembling outside.
 
 -   Familiarize yourself with all exit doors of each classroom and building you may occupy. Remember that the nearest exit door may not be the one you used when entering the building.
 -   Students requiring assistance in evacuation shall inform their instructor in writing during the first week of class.
 -   In the event of an evacuation, follow the instruction of faculty or class instructors. Do not re-enter a building unless given instructions by the following: Austin Fire Department, The University of Texas at Austin Police Department, or Fire Prevention Services office.
--   Link to information regarding emergency evacuation routes and emergency procedures can be found at: http://www.utexas.edu/emergency
+-   Link to information regarding emergency evacuation routes and emergency procedures can be found at: <http://www.utexas.edu/emergency>
