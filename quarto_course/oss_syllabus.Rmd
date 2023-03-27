@@ -61,6 +61,8 @@ https://howisonlab.github.io/open_source_software_course/oss_syllabus.html
 
 Class server at [Edupod Rstudio](https://edupod.cns.utexas.edu/).
 
+Jump to Course Outline: @sec-outline
+
 ```{r header_output}
 kable(header) %>%
   kable_styling(bootstrap_options = c("responsive", "striped"))
@@ -71,7 +73,7 @@ kable(header) %>%
 
 # Objectives and Assignments
 
-This course explores "open source software development" which is a name for the open collaborations that produce open source software. Open source software is a thing that is built by people, an artifact. But the way that it is developed, the way that people work together to build it is of great interest. "The open source way" is of practical interest for everyone building software, because open source development has lead the creation of ways of working used throughout software work. For social and organizational scholars, "the open source way" is of inte3rest in advancing our theories of how people can work together and how technology matters.
+This course explores "open source software development" which is a name for the open collaborations that produce open source software. Open source software is a thing that is built by people, an artifact. But the way that it is developed, the way that people work together to build it is of great interest. "The open source way" is of practical interest for everyone building software, because open source development has lead the creation of ways of working used throughout software work. For social and organizational scholars, "the open source way" is of interest in advancing our theories of how people can work together and how technology matters.
 
 The "open source way" is also known as "peer production" and that way of working extends beyond open source, to places like Wikipedia. Perhaps not coincidentally the Wikipedia page on [Peer Production](https://en.wikipedia.org/wiki/Peer_production) is quite useful:
 
@@ -141,11 +143,19 @@ Hints on participation:
 
 The course will have assignments based on the technical topics we are learning, including use of the DataCamp course (see below).
 
-### Open Source comparison paper
+### Analogies paper
 
-For this assignment students will write a 1,000 word scholarly essay describing and analyzing efforts to adapt the "open source way" outside of software development. Students will be given a list of five projects they need to research and analyze to compare to "the open source way". Examples could include open hardware, open governance, open culture. The paper should draw on the conceptual literature to compare and contrast the challenge faced by these adaptation efforts to what we've learned about "the open source way". The paper will also describe the collaboration infrastructure used and compare it to the technologies we have learned in class).
+See Canvas.
 
-The paper will be authored in Plain Text or Markdown and submitted via a pull request to the class github. Include your name in the filename and at the top of the document, and include a note at the top of the file telling me which formal citation approach you are using (e.g., APA, MLA, etc). Students are cautioned that as a scholarly paper proper citation and use of sources is required otherwise students will face academic misconduct proceedings. See ["Academic Integrity" presentation](https://utexas.zoom.us/rec/share/AjF6eoJH2heRWqQkTAHAQTfpp05UbE7WRhT-vQFw9wYevV8YBjpE2AJ_2PD07Mca.2v_7lGqZ0OoKbJzG) if at all unsure.
+### Paper or project
+
+See Canvas.
+
+<!-- ### Open Source comparison paper -->
+
+<!-- For this assignment students will write a 1,000 word scholarly essay describing and analyzing efforts to adapt the "open source way" outside of software development. Students will be given a list of five projects they need to research and analyze to compare to "the open source way". Examples could include open hardware, open governance, open culture. The paper should draw on the conceptual literature to compare and contrast the challenge faced by these adaptation efforts to what we've learned about "the open source way". The paper will also describe the collaboration infrastructure used and compare it to the technologies we have learned in class). -->
+
+<!-- The paper will be authored in Plain Text or Markdown and submitted via a pull request to the class github. Include your name in the filename and at the top of the document, and include a note at the top of the file telling me which formal citation approach you are using (e.g., APA, MLA, etc). Students are cautioned that as a scholarly paper proper citation and use of sources is required otherwise students will face academic misconduct proceedings. See ["Academic Integrity" presentation](https://utexas.zoom.us/rec/share/AjF6eoJH2heRWqQkTAHAQTfpp05UbE7WRhT-vQFw9wYevV8YBjpE2AJ_2PD07Mca.2v_7lGqZ0OoKbJzG) if at all unsure. -->
 
 ### Open Source Trace Data analysis Project
 
@@ -167,7 +177,7 @@ Readings, tutorials, and will be provided via pages linked from the class calend
 
 I will enroll the class in [DataCamp](https://www.datacamp.com/), giving students free access to the DataCamp courses (including their premium courses). In particular we will be using their interactive course on `git` during classes in the first half of the course. I encourage students to explore their other course options during the semester.
 
-# Course Outline
+# Course Outline {#sec-outline}
 
 ## Draft Course Schedule
 

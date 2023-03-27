@@ -24,12 +24,14 @@ book:
       - insights/coordination.qmd
       - insights/governance.qmd
       - insights/bias_lack_of_diversity.qmd
+      - insights/stack_and_stream.qmd
+    
+      # - insights/agile_development.qmd
     #     - knowledge_sharing.qmd
     #     - documentation.qmd
     #     - bias_and_lack_of_diversity.qmd
     #     - agile_development.qmd
-    #     - stack_and_stream.qmd
-    #     - cybersecurity_oss.qmd
+    #     - cybersecurity_oss.qmd https://xkcd.wtf/2166/
     
     
     - part: "Skills"

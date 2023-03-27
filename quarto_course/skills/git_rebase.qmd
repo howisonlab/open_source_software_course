@@ -37,7 +37,7 @@ Option 2 is generally preferred, since it focuses on clear communication via PRs
 
 Option 2 is called `rebase`. We specify a new starting point, and git gives us a little UI in which we can choose which commits to include, which to squash, and we can even reorder commits.
 
-Learngitbranching has a tutorial which we will do now.  Chose square 2 in the "Moving work around" section (titled Interactive Rebase Intro).
+Learngitbranching has a tutorial which we will do now.  Chose square 2 in the "Moving work around" section (titled Interactive Rebase Intro). <https://learngitbranching.js.org/?level=move2>
 
 A full git textual introduction is available here <https://github.com/openedx/edx-platform/wiki/How-to-Rebase-a-Pull-Request>
 
