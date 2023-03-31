@@ -12,15 +12,17 @@ git wants to add your name and email to commits. These are distinct from your `g
 
 If you are seeing messages that end like this:
 
-    You can suppress this message by setting them explicitly. Run the
-    following command and follow the instructions in your editor to edit
-    your configuration file:
+```         
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
 
-        git config --global --edit
+    git config --global --edit
 
-    After doing this, you may fix the identity used for this commit with:
+After doing this, you may fix the identity used for this commit with:
 
-        git commit --amend --reset-author
+    git commit --amend --reset-author
+```
 
 Then you can run these commands to set a username and email. Note that these can be anything, they aren't a login or checked against anything, they are just metadata attached to your commits. Nonetheless having them make sense for your identity makes sense when sharing code publically. They can easily be a made up identifier (pseudonym/handle/accountname).
 
@@ -179,6 +181,27 @@ git log -1 --skip 1 --remerge-diff
 rm -rf merge-conflict-example
 ```
 
+# How to add an image using quarto on edupod
+
+Quarto is like html in that the main `.qmd` document references separate image files, rather than incorporates them inside the main file itself.  You have to place the images separetely (and also `git add` the image files separately).
+
+On Edupod getting figures into your quarto document takes two steps:
+
+1. Upload the file to the server
+
+![](images/upload_file_to_edupod.png)
+
+2. Use the Visual mode in the quarto file editor to insert the picture.
+
+![](images/insert_image_to_qmd.png)
+
+Using the Render button will confirm that your images are found.
+
+Then don't forget to `git add` the image files as well.  Run a `git status` to check which files are included.
+
+
+
+
 <!-- # Why does ggplot require less tidy data for multiline graphs? (aka longer less tidy) -->
 
 <!-- tl;dr: when using a `group` like aes (`group` itself or `color`) you often need to transform data from a wider (but tidy) format into a longer (and arguably less tidy) format. -->
@@ -188,25 +211,41 @@ rm -rf merge-conflict-example
 <!-- ![Table 12 from Wickham's Tidy Data paper](images/tidydata_table12_tmax_tmin.png){fig-alt="Tables showing a longer form on the left (a type column called 'element' with the values tmax and tmin), and a wider form on the right (separate columns titled tmax and tmin)"} -->
 
 <!-- ```{r} -->
+
 <!-- table12_df_wider <- tribble( -->
+
 <!--   ~id, ~date, ~element, ~value, -->
+
 <!--   #--------------------------- -->
+
 <!--   "MX17004", 2010-01-30, "tmax", 27.8, -->
+
 <!--   "MX17004", 2010-01-30, "tmin", 14.5, -->
+
 <!--   "MX17004", 2010-02-02, "tmax", 27.3, -->
+
 <!--   "MX17004", 2010-02-02, "tmin", 14.4, -->
+
 <!--   "MX17004", 2010-02-03, "tmax", 24.1, -->
+
 <!--   "MX17004", 2010-02-03, "tmin", 14.4, -->
+
 <!--   "MX17004", 2010-02-11, "tmax", 29.7, -->
+
 <!--   "MX17004", 2010-02-11, "tmin", 13.4, -->
+
 <!--   "MX17004", 2010-02-23, "tmax", 29.9, -->
+
 <!--   "MX17004", 2010-02-23, "tmin", 10.7 -->
+
 <!-- ) -->
 
 <!-- table12_tidy <- table12_df_wider %>%  -->
+
 <!--   pivot_wider(names_from = element, values_from = value) -->
 
 <!-- table12_tidy -->
+
 <!-- ``` -->
 
 <!-- Yet it is common to want to graph both of these variables as a multi-line graph. This is possible because both variables are expressed in the same terms (both are degrees), so only a single scale is needed. Nonetheless, this is actually tricky to do in this wider tidier format. Because it requires two column names, which must be hard coded. We also can't easily get a legend. -->
@@ -214,24 +253,35 @@ rm -rf merge-conflict-example
 <!-- ```{r} -->
 
 <!-- table12_tidy %>%  -->
+
 <!--   ggplot(aes(x = date)) + -->
+
 <!--   geom_line(aes(y = tmin), color = "green") + -->
+
 <!--   geom_line(aes(y = tmax), color = "blue") -->
+
 <!-- ``` -->
 
 <!-- Another approach enables us to get as many lines as there are, and get automatic colors and legends. This uses the `group` aesthetic. But to do this we need all the column names in a single column as strings. This changes our data back into the longer format. -->
 
 <!-- ```{r} -->
+
 <!-- table12_longer_again <- table12_tidy %>%  -->
+
 <!--   pivot_longer(cols = c(tmax, tmin), names_to = "measure", values_to = "temperature") -->
 
 <!-- table12_longer_again -->
+
 <!-- ``` -->
 
 <!-- This is identical to where we started, with Table 12a (other than changed column names!). Yet this can be much more easily graphed, giving much easier access and automatic scales (and thus legends). -->
 
 <!-- ```{r} -->
+
 <!-- table12_longer_again %>%  -->
+
 <!--   ggplot(aes(x = date, y = temperature, color = measure)) +  -->
+
 <!--   geom_line() -->
+
 <!-- ``` -->

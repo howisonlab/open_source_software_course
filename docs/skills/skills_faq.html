@@ -294,6 +294,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#sec-faq-home-git-folder" id="toc-sec-faq-home-git-folder" class="nav-link" data-scroll-target="#sec-faq-home-git-folder"><span class="header-section-number">A.2</span> I accidentally made my home folder a git repo</a></li>
   <li><a href="#sec-gitviz" id="toc-sec-gitviz" class="nav-link" data-scroll-target="#sec-gitviz"><span class="header-section-number">A.3</span> Vizualizing git trees (aka gitviz)</a></li>
   <li><a href="#seeing-a-merge-conflict-using-git-log" id="toc-seeing-a-merge-conflict-using-git-log" class="nav-link" data-scroll-target="#seeing-a-merge-conflict-using-git-log"><span class="header-section-number">A.4</span> Seeing a merge conflict using git log</a></li>
+  <li><a href="#how-to-add-an-image-using-quarto-on-edupod" id="toc-how-to-add-an-image-using-quarto-on-edupod" class="nav-link" data-scroll-target="#how-to-add-an-image-using-quarto-on-edupod"><span class="header-section-number">B</span> How to add an image using quarto on edupod</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/skills/skills_faq.qmd" class="toc-action">View source</a></p></div></div></nav>
     </div>
@@ -449,6 +450,21 @@ After doing this, you may fix the identity used for this commit with:
 <span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a><span class="co">##  leopard </span></span>
 <span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a><span class="co">##  turtle</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="how-to-add-an-image-using-quarto-on-edupod" class="level1" data-number="B">
+<h1 data-number="B"><span class="header-section-number">B</span> How to add an image using quarto on edupod</h1>
+<p>Quarto is like html in that the main <code>.qmd</code> document references separate image files, rather than incorporates them inside the main file itself. You have to place the images separetely (and also <code>git add</code> the image files separately).</p>
+<p>On Edupod getting figures into your quarto document takes two steps:</p>
+<ol type="1">
+<li>Upload the file to the server</li>
+</ol>
+<p><img src="images/upload_file_to_edupod.png" class="img-fluid"></p>
+<ol start="2" type="1">
+<li>Use the Visual mode in the quarto file editor to insert the picture.</li>
+</ol>
+<p><img src="images/insert_image_to_qmd.png" class="img-fluid"></p>
+<p>Using the Render button will confirm that your images are found.</p>
+<p>Then don’t forget to <code>git add</code> the image files as well. Run a <code>git status</code> to check which files are included.</p>
 <!-- # Why does ggplot require less tidy data for multiline graphs? (aka longer less tidy) -->
 <!-- tl;dr: when using a `group` like aes (`group` itself or `color`) you often need to transform data from a wider (but tidy) format into a longer (and arguably less tidy) format. -->
 <!-- In the Tidy Data paper Wickham shows an example of tidying data from a longer format to a wider format. In the example he creates two new columns `tmax` and `tmin`. He argues that this wider format is tidier because each row contains an observation with two measured variables (tmax and tmin). -->
