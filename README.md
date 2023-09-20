@@ -1,5 +1,7 @@
 This is the repository for I320D: Open Source Software Development.
 
+See full syllabus for the course: https://howisonlab.github.io/open_source_software_course/oss_syllabus.html
+
 The course is a fork of a masters course called, "Peer Production".  You can see the [full syllabus for Peer Production](https://jameshowison.github.io/peer_production_course/pp_syllabus.html) to get an overview.
 
 The undergraduate version, currently being developed, will be similar in many ways:
