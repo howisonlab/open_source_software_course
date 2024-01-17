@@ -1,6 +1,6 @@
 project:
   type: book
-  output-dir: ../docs/2023-01-spring
+  output-dir: ../docs/current
 
 book:
   title: "Open Source Software Development: A socio-technical course"

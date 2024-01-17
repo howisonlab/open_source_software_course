@@ -43,11 +43,11 @@ library(lubridate)
 header <- tribble(
   ~`Course`, ~`I 320D Topics in Human-Centered Data Science : Open Source Software Development`,
   "Professor", "James Howison",
-  "Meeting Time", "Mondays and Wednesdays 9:30-10:45",
-  "Location", "SZB 5.414",
-  "Semester", "Spring 2023",
-  "Unique No.", "28120",
-  "Office Hours", "Wed 3-4pm via Zoom at https://utexas.zoom.com/my/howisonlab Contact via Canvas email if not in room",
+  "Meeting Time", "Mondays and Wednesdays 3:30 PM - 04:45 PM",
+  "Location", "SZB 4.508",
+  "Semester", "Spring 2024",
+  "Unique No.", "27450",
+  "Office Hours", "By appointment booked at http://james.howison.name/calendar/",
   "Contact Email", "jhowison@ischool.utexas.edu"
 )
 library(knitr)
@@ -55,13 +55,9 @@ library(knitr)
 
 ## Syllabus {#sec-syllabus}
 
-*_Archived Version from Spring 2023_*
-
 Official, updated version of syllabus always online at:
 
-<https://howisonlab.github.io/open_source_software_course/oss_syllabus.html>
-
-Class server at [Edupod Rstudio](https://edupod.cns.utexas.edu/).
+<https://howisonlab.github.io/open_source_software_course/current/oss_syllabus.html>
 
 Jump to [Course Outline](#outline)
 
@@ -85,7 +81,7 @@ As we learn about open source and peer production we'll learn to distinguish it 
 
 This is a course is about a sociotechnical phenomenon and it takes a sociotechnical approach. In practice this means that we'll be learning both conceptual insight and practical skills. The course weaves together learning how to use key technologies of collaboration (e.g., git, github, travisCI, markdown) at the same time that we learn social and organizational theory about peer production (e.g., the role of copyright licenses, motivations of participants, governance models, coordination theory, models of collaboration risk, cultures of collaboration).
 
-There are no prereqs for this course. While we will be discussing software development students will not be required to program. We will use the command line as we learn to use `git` and `github` everything will be covered in class. I try to build [a set of analogies for git and github](analogies_for_git.html), going beyond teaching the commands to give ways to think about git.
+There are no prereqs for this course. While we will be discussing software development students will not be required to program. We will use the command line as we learn to use `git` and `github` and everything will be covered in class. I try to build [a set of analogies for git and github](analogies_for_git.html), going beyond teaching the commands to give ways to think about git.
 
 Students will need access to a computer for classes, any version of Windows, Mac, or Linux will do. Students facing difficulties with their IT should contact the iSchool help desk (via [help\@ischool.utexas.edu](mailto:help@ischool.utexas.edu){.email}) who can refer on to other resources as available.
 
@@ -116,10 +112,10 @@ assessments <- tribble(
   ~`Assignment`, ~`Percentage of Course Grade`,~`Due Date`,
   #-----------------------
   "Class Participation (discussion and activites)", "10%", "Throughout course",
-  "Technical challenges", "40%", "Weekly homework challenges",
-  "Git Analogies Paper (was Open Source Comparison Paper)", "20%", "March 31 (was: Start of Spring Break)",
-  "Open Source Trace Data analysis Project report", "25%", "End of second last class week. Prior to Presentations",
-  "Project presentation", "5%", "Final Class Week"
+  "Technical challenges", "40%", "Weekly homework challenges throughout the semester",
+  "Git Analogies Paper", "20%", "Start of Spring Break",
+  " UT Austin open source projects", "5%", "Two weeks after Spring Break",
+  "Open Source Trace Data analysis Project report", "25%", "Start of last class week.",
 )
 ```
 
@@ -149,35 +145,73 @@ The course will have assignments based on the technical topics we are learning, 
 
 #### Analogies paper
 
-See Canvas.
+How would you explain what we have been learning about git to your future work teammates?
 
-#### Paper or project
+In this assignment you will describe three different analogies for git-based collaboration (including branching, GitHub, and PRs). No more than two analogies can be found online (use references!), at least one you must create yourself. Each analogy should cover as much of git and GitHub collaboration as possible.
 
-See Canvas.
+For each, include both text and pictures. You should have approximately 2 pages per analogy (~500-750 words). Pictures can be photos you find online, or diagrams you create yourself (digital collage can be useful).  You should include connections between your analogy and the specific git and GitHub commands we have learned (e.g., init, add, commit, push, pull, create PR, merge, etc.). In particular, you must include a discussion of "splitting a pull request" including git cherry-pick.  Your analogies should cover multiple commands (not a one analogy for one command); each should cover as much of git and GitHub collaboration as possible.
 
-### Presentation
+In a final 1-2 pages of writing (~350-750 words), Compare and contrast your three analogies in reference to this question: How would each analogy help your teammates? What might it make clear, what might it hide or obfuscate?  How might using a combination of your analogies help? Could that combination make things more difficult?
 
-Students will create and give a presentation to present in the final week of classes.  See Canvas for details.
+Your paper must be submitted as a PR at https://github.com/howisonlab/oss_spring2024_analogies
+
+Include a note at the top of the file telling me which formal citation approach you are using (e.g., APA, MLA, etc). Students are cautioned that as a scholarly paper proper citation and use of sources is required otherwise students will face academic misconduct proceedings. See UTexas materials on Academic Integrity at https://deanofstudents.utexas.edu/conduct/academicintegrity.php
+
+GenAI: For this assignment, I give you specific permission to use GenAI systems like ChatGPT. The requirement, however, is that you must include the sequence of prompts you used, your analysis of the analogy provided by the system, discuss how you adapted the analogy for presentation in the paper, and how you added images/diagrams (as well as including this analogy in your compare and contrast).
+
+The structure of the paper should be as follows (a page is ~300-500 words):
+
+```
+# Introduction (~ 1-2 paragraphs/100-200 words)
+
+# Analogy 1 (~1 page including images/~500 words)
+
+# Analogy 2 (~1 page including images/~500 words)
+
+# Analogy 3 (~1 page including images/~500 words)
+
+# Compare and Contrast Analogies (1-2 pages of writing, ~350-750 words).
+
+# References (excluded from any word counts).
+```
+
+#### UT Austin open source projects
+
+For this assignment you will research open source projects that involve faculty at UT Austin.  You will:
+
+1. Identify at least five projects using a search strategy (and describe your strategy)
+2. Describe each project's online profile. How do the projects describe themselves?
+3. Identify the main contributors to each repository. Who are they, what role do they have at the university (faculty, research staff, graduate students). How do their websites compare to the websites of other open source projects you have looked at?
+4. Use the concepts introduced in this course to compare and contrast how these projects are organized. You should discuss both how they use git and GitHub, and social organizational aspects of the projects.
+
+#### Final Paper or project
+
+Pick one of the following two options:
+
+1. Conduct a trace data analysis that compares at least 3 projects contained in this provided dataset: 
+
+https://github.com/howisonlab/transition_augur/raw/main/oss_data.zip
+
+The code used to pull these data is here: https://github.com/howisonlab/transition_augur
+
+The ER diagram for the underlying data is linked in the notebook in that repo.
+
+These are open source projects funded by the US National Science Foundation during the last decade in a program called SI2. The data is collected from GitHub using the augur project from Linux Foundation. The files when unzipped are quite large, commits.csv has over 4.5million rows.  You will not be able to work with these files in Excel (for example) but they should work ok with tools like Tableau or Pandas/Matplotlib.
+
+Your analysis should use the trace data collected to address insight concepts that we have discussed during the course, for example: Leadership, Coordination, Motivation, Dependency (including interdependency), Governance, Bias and lack of diversity.  You should provide figures (most likely multiple time-series analyses) and you must relate your work to either a discussion in the book http://producingoss.com/ or a trace data analysis of open source data you find in the peer reviewed literature. One suggested source is the the Mining Software Repositories conference: http://www.msrconf.org/  Your project document should include multiple figures and ~300-500 words of writing.  Think the equivalent of about 3 pages.
+
+2. Write a 1,000-1,500 word scholarly comparative analysis of 3 open source projects that connect with your interests. Explain why you chose these three projects to compare. You should include in your discussion topics such as: leadership, collaboration, license choice, ownership, contribution process, how the project seeks to attract contributions, how the project uses collaboration infrastructure. You must include screenshots and you must discuss at least one PR for each project (of course you can discuss more). You should reference literature from the course and connect with the discussion in at least two additional peer reviewed articles. You may find these two review articles a useful place to identify relevant literature: https://doi.org/10.1145/2089125.2089127 or https://www.misqresearchcurations.org/blog/2021/12/7/information-systems-development
+
+
+Submission: 
+
+Submit by making a PR to  https://github.com/howisonlab/oss_spring2023_assignments/projects/<yourname> Note that it should be a separate PR from other assignment submissions; this means you must use a different branch name for this work.
+
+Include a note at the top of the file telling me which formal citation approach you are using (e.g., APA, MLA, etc). Students are cautioned that as a scholarly paper proper citation and use of sources is required otherwise students will face academic misconduct proceedings. See ["Academic Integrity" presentation](https://utexas.zoom.us/rec/share/AjF6eoJH2heRWqQkTAHAQTfpp05UbE7WRhT-vQFw9wYevV8YBjpE2AJ_2PD07Mca.2v_7lGqZ0OoKbJzG) if at all unsure.
 
 ### Late submission policy
 
 The late policy for papers/projects/presentation is a 10% reduction for submissions up to 24 hours after the due time, but zero points after that. You can, of course, contact me if you have an emergency.
-
-<!-- ### Open Source comparison paper -->
-
-<!-- For this assignment students will write a 1,000 word scholarly essay describing and analyzing efforts to adapt the "open source way" outside of software development. Students will be given a list of five projects they need to research and analyze to compare to "the open source way". Examples could include open hardware, open governance, open culture. The paper should draw on the conceptual literature to compare and contrast the challenge faced by these adaptation efforts to what we've learned about "the open source way". The paper will also describe the collaboration infrastructure used and compare it to the technologies we have learned in class). -->
-
-<!-- The paper will be authored in Plain Text or Markdown and submitted via a pull request to the class github. Include your name in the filename and at the top of the document, and include a note at the top of the file telling me which formal citation approach you are using (e.g., APA, MLA, etc). Students are cautioned that as a scholarly paper proper citation and use of sources is required otherwise students will face academic misconduct proceedings. See ["Academic Integrity" presentation](https://utexas.zoom.us/rec/share/AjF6eoJH2heRWqQkTAHAQTfpp05UbE7WRhT-vQFw9wYevV8YBjpE2AJ_2PD07Mca.2v_7lGqZ0OoKbJzG) if at all unsure. -->
-
-<!--### Open Source Trace Data analysis Project
-
-Students will be introduced to datasets of archives of activity in open source projects and develop their own analysis. For example, students might want to highlight those participants that are most active over time in a project, show whether leadership has changed within projects, or analyze license usage over time.
-
-There are three graded components, each to be submitted via a pull request. All components should reference the insight readings that we do throughout the course.
-
-1.  Identifying and describing a project. \~500 words. Authored in plain text or markdown (ensure file is encoded with Unicode UTF-8 encoding and Unix/LF-only line endings). This paper should clearly identify the intended analysis and argue for its relevance, including using literature to identify expectations. Include your name in the filename and at the top of the document, and include a note at the top of the file telling me which formal citation approach you are using (e.g., APA, MLA, etc).
-
-2.  Implementing the analysis and report. \~500-1000 words, authored in RMarkdown, using the citation features. Students should describe the dataset, their analysis (possibly including graphs), and their interpretation. Students should compare their experience with their expectations described in the first paper and use at least two references from our conceptual literature to justify their inquiry. Create a folder in assignment_submission/trace_data_project/your_name and all files in that folder. Submit via a pull request from a branch created just for this submission (i.e., not master), and post that URL to the Canvas assignment, ensure this is a separate PR from your slide submission (below).-->
 
 ## Materials
 
@@ -484,7 +518,8 @@ insight_readings <- tribble(
 skills_topics <- tribble(
   ~skill_topic, ~tech_commands,
   #-------------------------------------
-#  "Tech setup workshop", "[terminal, command line, git install, github account](./docs/tech_setup.html)",
+  "Syllabus Review", "",
+  #  "Tech setup workshop", "[terminal, command line, git install, github account](./docs/tech_setup.html)",
   "Paper Planes: Version Control", "git add, commit via paper planes and tables",  
 "Git basic workflow @sec-git_basic_workflow ", "git add, commit (locally)",
 #  "Commits, blobs, and tree", "git diff continued HEAD and HEAD~1",
@@ -494,14 +529,15 @@ skills_topics <- tribble(
   "Collaboration conflicts and workflows @sec-github-collaboration ", "github fork, pull request, pull upstream",
   "Splitting PRs @sec-cherrypick ", "merge, conflicts, mark resolved, cherrypick, collaboration workflows  ",
   "Rebase @sec-rebase and Managing Secrets @sec-history ", "git rebase",
-  "Git analogies paper workshop", "quarto and markdown",
-  "Final paper/project workshop", "quarto presentations",
-  "Final paper/project workshop", "quarto and markdown"
-  # "Documentation and Q&A", "github flavored markdown",
-  # "Unit Tests", "Test suites",
-  # "Continuous Integration", "Travis CI integration, Github Actions",
+  # "Git analogies paper workshop", "quarto and markdown",
+ 
+  "Documentation and Q&A", "github flavored markdown",
+  "Unit Tests", "Test suites",
+  "Continuous Integration", "Travis CI integration, Github Actions",
   # "Release management", "github releases, git tag",
-  # "Creating and distributing packages", "python packages, pypy pinning",
+  "Creating and distributing packages", "python packages, pypy pinning",
+ # "Final paper/project workshop", "markdown",
+ #  "Final paper/project workshop", "markdown"
   
  # "Wikipedia Editing", "wiki syntax, referencing",
 #  "Executable Papers", "rmarkdown, knitr, rstudio",
@@ -525,14 +561,14 @@ insight_topics <- tribble(
   "Bias and lack of diversity @sec-diversity ",
   "The stack and the stream @sec-stack-and-stream ",
   "Agile and test driven development",
-  "Cybersecurity and open source"
-  # ""
-  # "Peer production in Art and Culture"
+  "Cybersecurity and open source",
+  "Open software work in science and research",
+  "Peer production in Art and Culture"
 ) %>% mutate(topic = "Insights") %>%  rownames_to_column()
 
 introduction_topics <- tibble(introduction_topic = c("Syllabus Review", "Paper Planes: Innovation and collaboration"), topic = "Introduction") %>%  rownames_to_column()
 
-presentation_topics <- tibble(presentation_topic = c("Presentations", "Presentations"), topic = "Presentations") %>%  rownames_to_column()
+# presentation_topics <- tibble(presentation_topic = c("Presentations", "Presentations"), topic = "Presentations") %>%  rownames_to_column()
 
 
 # content_classes <- full_join(insight_topics, skills_topics, by="rowname") %>%
@@ -557,23 +593,22 @@ expand_days <- function(start, end) {
 no_meetings <- tribble(
   ~period_start, ~period_end, ~class_name,
   #--------------------
-   "2023-01-16", "2023-01-16", "No meeting: MLK day",
-   "2023-03-13", "2023-03-18", "No meeting: Spring Break",
-   "2023-01-31", "2023-02-02", "No meeting: Ice Storm",
-   "2023-02-20", "2023-02-20", "No meeting: Instructor Travel",
+   "2024-01-15", "2024-01-15", "No meeting: MLK day",
+   "2024-03-11", "2024-03-15", "No meeting: Spring Break",
+   "2024-03-04", "2024-03-08", "No meeting: Project Time",
   
 ) %>%
   mutate(days_list = map2(period_start, period_end, expand_days)) %>%
   select(class_name, days_list) %>%
   unnest()
 
-first_class_day = parse_datetime("2023-01-09")
+first_class_day = parse_datetime("2024-01-15")
 
-last_class_day = parse_datetime("2023-04-21")
+last_class_day = parse_datetime("2024-04-29")
 
-first_mon = parse_datetime("2023-01-09")
+first_mon = parse_datetime("2024-01-15")
 
-first_wed = parse_datetime("2023-01-11")
+first_wed = parse_datetime("2024-01-17")
 
 # class Tuesday 9-11:45
 all_mon <- seq(first_mon, to = last_class_day, by = "week")
@@ -589,8 +624,8 @@ meets_schedule <- tibble(class_day = all_classes) %>%
   mutate(week_num = isoweek(class_day) - 1,
          day_of_week = wday(class_day, label=T)) %>% 
   mutate(topic = case_when(
-                   week_num == 1 ~ "Introduction",
-                   week_num == max(week_num) ~ "Presentations",
+#                   week_num == 1 ~ "Introduction",
+#                   week_num == max(week_num) ~ "Presentations",
                    day_of_week == "Mon" & meets == T ~ "Insights",
                    day_of_week == "Wed" & meets == T ~ "Skills",
                    TRUE ~ "No Meeting"
@@ -600,9 +635,10 @@ meets_schedule <- tibble(class_day = all_classes) %>%
   mutate(topic_order = row_number() %>%  as.character) %>% 
   left_join(insight_topics, by = c("topic", "topic_order" = "rowname")) %>% 
   left_join(skills_topics, by = c("topic", "topic_order" = "rowname")) %>% 
-  left_join(introduction_topics, by = c("topic", "topic_order" = "rowname")) %>% 
-  left_join(presentation_topics, by = c("topic", "topic_order" = "rowname")) %>% 
-  mutate(class_name = coalesce(class_name, insight_topic, skill_topic, introduction_topic, presentation_topic)) %>% 
+#  left_join(introduction_topics, by = c("topic", "topic_order" = "rowname")) %>% 
+#  left_join(presentation_topics, by = c("topic", "topic_order" = "rowname")) %>% 
+  mutate(class_name = coalesce(class_name, insight_topic, skill_topic)) %>%   # mutate(class_name = coalesce(class_name, insight_topic, skill_topic, introduction_topic, presentation_topic)) %>% 
+  
   select(-ends_with("topic"))
 
 ```
@@ -718,6 +754,11 @@ With these rights come responsibilities:
 ## Personal Pronoun Preference
 
 Professional courtesy and sensitivity are especially important with respect to individuals and topics dealing with differences of race, culture, religion, politics, sexual orientation, gender, gender variance, and nationalities. Class rosters are provided to the instructor with the student's legal name. I will gladly honor your request to address you by an alternate name or gender pronoun. Please advise me of this preference early in the semester so that I may make appropriate changes to my records.
+
+
+## DEI in classroom discussions
+
+[Texas Senate Bill 17](https://capitol.texas.gov/tlodocs/88R/billtext/pdf/SB00017F.pdf), the recent law that outlaws diversity, equity, and inclusion programs at public colleges and universities in Texas, does not in any way affect content, instruction or discussion in a course at public colleges and universities in Texas. Expectations and academic freedom for teaching and class discussion have not been altered post-SB 17, and students should not feel the need to censor their speech pertaining to topics including race and racism, structural inequality, LGBTQ+ issues, or diversity, equity, and inclusion.
 
 ## Drop Policy
 

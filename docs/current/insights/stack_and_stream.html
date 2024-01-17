@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.475">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Open Source Software Development: A socio-technical course - 9&nbsp; From Stack, to stream, to ecosystem.</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../skills/git_basic_workflow.html" rel="next">
+<link href="../insights/bias_lack_of_diversity.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">From Stack, to stream, to ecosystem.</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Open Source Software Development: A socio-technical course</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/howisonlab/open_source_software_course/tree/master/quarto_course/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Open Source Software Development: A socio-technical course</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../oss_syllabus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Syllabus for Open Source Software Development</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Insights</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/what_is_open_source.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction: What is open source?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/motivations.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Motivations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/licenses.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Licenses</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/coordination.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Coordination</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/governance.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Governance</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/bias_lack_of_diversity.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bias and Lack of Diversity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/stack_and_stream.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">From Stack, to stream, to ecosystem.</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Skills</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/git_basic_workflow.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Git basic workflow</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/git_rewinding_work.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Rewinding work</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/branching.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Local branching with Git.</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/github_solo.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">GitHub solo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/github_collaboration.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Github collaboration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/git_cherrypick_split_pr.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Split a Pull Request</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/git_rebase.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Rebase for synchronizing work</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/git_delete_history.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Removing something from history entirely</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Appendices</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/skills_faq.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Skills faq</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#stack" id="toc-stack" class="nav-link active" data-scroll-target="#stack"><span class="toc-section-number">9.1</span>  Stack</a></li>
+  <li><a href="#package-managers" id="toc-package-managers" class="nav-link" data-scroll-target="#package-managers"><span class="toc-section-number">9.2</span>  Package managers</a></li>
+  <li><a href="#stream" id="toc-stream" class="nav-link" data-scroll-target="#stream"><span class="toc-section-number">9.3</span>  Stream</a></li>
+  <li><a href="#ecosystem" id="toc-ecosystem" class="nav-link" data-scroll-target="#ecosystem"><span class="toc-section-number">9.4</span>  Ecosystem</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/insights/stack_and_stream.qmd" class="toc-action">View source</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-stack-and-stream" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">From Stack, to stream, to ecosystem.</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Metaphors help us build an image of the organization of complicated sociotechnical systems. In this class I discuss three key metaphors employed in the discourse around software and the organization of its production and distribution: a “stack”, a “stream” (esp.&nbsp;“upstream”/“downstream”) and “ecosystem”.</p>
+<section id="stack" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="stack"><span class="header-section-number">9.1</span> Stack</h2>
+<p><img src="images/stack.png" class="img-fluid"></p>
+<p>When a programmer writes code they do so in a concrete workspace, a filesystem containing libraries which we can think of as their raw materials. That filesystem might be on a laptop, a server accessed by ssh or through a notebook server, or a docker image. Together with tools to write code (editors) and local configurations (.profile) these workspaces are called dev environments.</p>
+<p>The actual code newly written by the programmer orchestrates this assemblage of code to build analyses, create graphs, do science. That code is a thin layer sitting atop a range of received code, from plotting libraries, filesystem utilities, operating systems. We refer to these chunks of code in various ways, libraries, packages, modules, services and we refer to the language used to access that code as interfaces, APIs, hooks, exposed names of methods/procedures. For any particular piece of code it is possible to trace paths of execution from the newly written code (sometimes called a “call tree”), through calls and parameter lists.</p>
+<p>The way that new code “sits on top of” received code is often visible to the programmer on error when they scan the “stacktrace” looking for the location of errors and hints on how to overcome them.</p>
+<p><img src="images/stacktrace_with_scikit_learn.png" class="img-fluid"></p>
+<p>The stack in stacktrace refers to a very specific set of memory locations and post-compiler processes of code execution, but colloquially we have come to refer to the assemblage of code underlying newly written code in the workspace as “the stack”. This metaphor makes clear the layering of dependency between code: packages called by newly written code are thought of as lying immediately below, and indeed physically supporting, the newly written code. The packages called by that first supporting layer are seen to support that layer, lying physically beneath and supporting all the layers above. Abstracting from any particular execution path of a particular piece of code, we understand packages to underlie and support any package which calls code from them, the typical patterns of usage forming a picture of hierarchy. From this understanding we get the ubiqutious “stack diagram” showing a neat layered structure. (Incidentally a “full stack” developer is one that is expected to be able to write code across the data and execution paths in locally written software, not usually “down” into the full stacktrace!).</p>
+<p>Being lower in the stack is a result of having more code (especially packages which are themselves called by other packages) that calls you, and thereby being involved in a wider range of software execution paths. A filesystem module would be involved in game development and in climate change modeling; a graphing library called from code to describe election results and counting cat pictures on twitter. These different kinds of applications and analyses reflected in more specialized packages can be thought of as structures of packages stacked atop other packages, moving upwards through an ever more elaborate stack diagram, showing spires of specialization, both in application area and in higher-level language, Python vs dotNet for example. Frequently we see alternative stacks, even within specific areas, such as R vs Python datascience or even within a language group, such as R tidyverse vs “base R” vs R data.table.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://www.explainxkcd.com/wiki/index.php/2347:_Dependency"><img src="images/dependency.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+<!-- 
+[^stack_and_stream-1]
+
+[^stack_and_stream-1]: Footnote: In generalities this idea works, but in practice the hierarchy is far from a "proper hiearchy" with clear separate stacks, because it is complicated by end-user code that calls deep into a stack or data flow dependencies that write out data files (e.g., csv or json) with one stack, and read them with another stack entirely, jumping across spires, discuss that below. -->
+<p><img src="images/cuda_software_stack.jpg" class="img-fluid"></p>
+<p>In terms of workspaces this means that these “lower” packages were present in a wide range of different workspaces, as new code was written. In different workspaces working on different kinds of code, needing different kinds of analyses, algorithms, and capabilities, different sets of packages are present.</p>
+<p>How then do packages get to workspaces?</p>
+<p>In “user space” software is often obtained by visiting a website and hitting “download,” receiving an application to be copied to a location on the computer. Even much vaunted “app stores” are merely a pay-walled version of this. In “dev space” code can arrive in this way, with a user downloading source code, sometimes called a “tar-ball” after the historical tool to pack many files into one for ease of downloading, and unpacking it into their programming workspace. This is problematic, though, because the downloaded code is not useful without its dependencies, the relatively lower layers in the stack. Resolving this leads to practices that provide dependencies together with the downloaded code (through techniques such as “static compilation” or bundling). Or rather providing reduced slices of the underlying libraries, reflecting the precise execution path, rather than the full set of underlying code and its possiblities. Unsurprising when stacks of code can be large (or very large, such as the notorious TeXLive which is over a gigabyte in size). Quite quickly, installing software this way can result in multiple copies of underlying code being present on the computer, located in different bundles installed at different times and in different places. For programs in “user space” this is only mildly problematic, taking up more space than strictly needed, but space is cheap and the complexity is entirely hidden from the user.</p>
+<p>In “dev space”, though, the programmer may want to access different capabilities of underlying libraries (unleashing the “innovation potential” of the “option value” inherent in “modularity” as management science would put it, see <a href="coordination.html"><span>Chapter&nbsp;6</span></a>). As a toy example consider downloading code that sorts a list of addresses by zipcode, bundling a numeric sort from an underlying library. Should we now want to sort alphabetically we would either have to implement that ourselves with new code, or obtain the underlying library to gain the alphabetical sort capability.</p>
+<p>Pretty soon, we would have multiple versions of the underlying library, and all the packages underlying them, lying chaotically around the filesystem, each installed at different times and having sometimes subtly different behaviors. Given the complexities of the many ways that compilers look for and prioritize code this can lead to immensely frustrating confusions (Any one that has struggled to understand the PATH parameter in Java, or been stymied by a stray .py file named the same as an obscure library, will attest). This situation will result in code that is hard to reuse because it is heavily dependent on the location in which it is written, with hardcoded paths, and special cases.</p>
+</section>
+<section id="package-managers" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="package-managers"><span class="header-section-number">9.2</span> Package managers</h2>
+<p>Enter the package manager. Package managers stand between the projects writing packages and the individual workspaces of programmers. Examples include Python’s pip, Perl’s CPAN, R’s CRAN, Javascript’s npm, and Java’s Maven, as well as operating system distributions (such as Debian’s apt-get) and cross-language collections such as Homebrew, SBGrid, and Anaconda. All subtly different, their vision includes an installation tool that programmers use to identify the high-level library they want to access, a well-specified location for installed software. They include a metadata scheme to describe dependencies and a graph traversal approach to “resolve dependencies”. Together this allows programmers to install libraries and have the package manager take care of ensuring a minimal and coordinated install of underlying packages.</p>
+<p>Package managers also enable programmers to smoothly update the libraries in their workspaces to newer versions, taking care of the cascading need for updates further down in the stack. Yet not all packages are ready to interact with newer versions of down stack packages, packager managers can also keep older versions installed and available to those parts of the stack that need them (sometimes called “pinning”). The ability of packager manager to update software stacks means that novel capabilities can be distributed out to potential programmer users, while facilitating stability and coordination across the installed stack in individual programmer workspaces.</p>
+</section>
+<section id="stream" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="stream"><span class="header-section-number">9.3</span> Stream</h2>
+<p><img src="images/P1010026-1024x768.jpg" class="img-fluid"></p>
+<p>https://www.mountainhearth.com/2015/02/rivulets.html</p>
+<p>The production system that produces the stack is spoken about as a stream.</p>
+<p>The stream flows along paths defined by dependency links and, over time, things move along these links, new capabilities, approaches, and sometimes bugs and problems!</p>
+<p>The language here is far from precise (and confusing if one thinks too literally!), but in general packages lower in the stack are considered to be “upstream” (towards the source) and packages closer to specialized users, are considered to be “downstream” (even though they are higher in the stack diagrams).</p>
+<p>The image is of rivulets, diverging into smaller and smaller specialized paths akin to the “spires” in the stack metaphor.</p>
+<p>The stream analogy is particularly useful when thinking about how changes spread out, becoming used by nearby packages, and eventually making their way to programmer’s workspaces via package managers.</p>
+<p>Consider a new piece of software functionality, such as a novel analysis, a new data structure, or a bug-fix. In a concrete sense these originate in a specific programmers workspace and must be distributed to spread out to eventual users. In practice this means that the change has to travel back “upstream” before traveling “downstream” through the packager manager managed flow that will eventually bring it to the workspaces of other developers.</p>
+<p>That “upstream” flow likely starts with a push from the programmer’s local filesystem, into their repository hosted online (e.g., github). If the change is instantiated as a new package itself, it can make its way into the package management flow through submission to a package manager (which pulls from the repository, confirms dependency information, builds, tests, and publishes the package and its documentation).</p>
+<p>If the change is not a new package itself, but an edit to an existing package, before that change can enter the flow and travel downstream to programmers, the change needs to move from the individual programmer’s repository into the main repository for the package. In this case the individual programmer’s repository is a “fork” of the main package repository, which means that the repository hosting service (github, gitlab etc) stores the connection between the repositories, making it easy to initiate a “pull request” (colloquially called a PR). A PR is a note to the maintainers of the destination package repository that a proposed change is available and ready for pickup. The maintainers, change author, and package community, can then test and discuss the change. If appropriate, the maintainers can “merge the PR” bringing the change into the development version of the package, to be included in a new versioned release submitted to the package manager.</p>
+<p>Changes thus enter the package manager facilitated flow, and travel down paths defined by dependency relationships.</p>
+<p>The speed at which changes travel depends on a few factors. Perhaps a user of the package is watching the PR and ready to rapidly update the code in their workspace to tackle an analysis issue on a deadline, or perhaps an update of dependencies happens as a downstream package is getting ready to deploy updates of their own by “rolling” up a new release. Updates can also be quite slow, as end-user scientists return months later to previous workflows after collecting new data or inventing new techniques. Updates flowing can also be blisteringly quick, in that package management systems or individual package projects themselves can undertake “continuous integration” which means automatically updating all components frequently (daily or even on every commit of new code). Continuous integration is an approach to gain early insight into issues caused by changes in the underlying stack.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://www.flickr.com/photos/mrhayata/6933963596"><img src="images/ripples.jpg" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+<p>https://www.flickr.com/photos/mrhayata/6933963596</p>
+<p>As changes propagate downstream they bring with them implications and work. A package project updating dependencies may be receiving new opportunities, new ways to simplify and implement long-standing desires of the project and its users, unlocking a flurry of consequential activity and excitement in the receiving project.</p>
+<p>Or, less sanguinely, a project may discover that their code no longer builds, due to “breaking changes” in the underlying libraries, requiring the receiving project to either resolve these issues through local workarounds or adaptations, or essentially reject the flow of changes by “pinning” their dependency to an earlier version.</p>
+<p>Perhaps more pernicious still are changes in behavior of underlying libraries that are not obvious at build time, and don’t show up in batteries of tests, but only when a package is in use in the field. Thus a change in an underlying library can appear benign but lead to confusing bug reports. These issues can take time to trace to the changed dependency, appearing at first to be newly discovered issues in the receiving project’s own evolving code. Even when the issue is traced to the change in the dependency, work is still implied as the package developers have to now act as users of the underlying dependency and report the issue to the “upstream” package. Developers can try to exhort their own users to report the issue upstream, but the intricacies of just how the issue in the dependency is causing the problem in the user space often requires protracted, three-way discussions between the downstream user, the developers of the package being immediately used, and the developers of the underlying dependency.</p>
+<p>An appreciation of the scale of the work implied by package updates comes into focus when one recognizes that each change arriving at each downstream package can cause changes at the receiving package, and those reaction changes are themselves incorporated in new releases and thus moved into the flow, and themselves travel to their own downstream packages and users, each potentially kicking off new rounds of changes, a cascade of reactions to reactions to reactions, reverberating and criss-crossing throughout the network of package dependencies.</p>
+<p>The pressure to be up to date (and thus the pressure to undertake the adaptation work needed) comes not only from the new opportunities offered by changes, but also because it is far easier to get insight and help from both developers and fellow users when encountering problems or learning about software when one is working with relatively recent code. Not only are developers more aware of how recent versions work, they are far more likely to be motivated to help, both to explain the work they have recently done and share the new opportunities they are bringing to downstream users, but also to identify, characterize, and resolve possible bugs introduced. Finally, issues faced by users can stem from bugs already fixed, so “getting on the same page” is seen as respectful of package developers and active users time.</p>
+</section>
+<section id="ecosystem" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="ecosystem"><span class="header-section-number">9.4</span> Ecosystem</h2>
+<p>How then from stream to ecosystem? The packages seem to be alive, altering the landscape on which other packages live, creating and consuming resources of time, attention, and opportunities. But to really grasp the core of the ecosystem metaphor we must take a detour to the question of how researchers come to locate software.</p>
+<p>Surprisingly little is known about the uptake of software by developers, including how they first hear of packages, how they investigate and evaluate packages, and the path from initial discovery to regular use (and the path by which software falls out of use). Different kinds of paths may exist for different kinds of software, especially differing as software is closer to the scientific method frontier. For example, perhaps PIs or senior personnel are more involved in the selection of packages which closely model and implement scientific theories and analyses, while decisions about dataflow and execution infrastructure are taken by more junior developers.</p>
+<p>The literature on software choice has largely developed in the user-space domain, and particularly around enterprise software. Typically this highlights usability, and perceived ease of use. When the choice is between programming libraries, rather than point-and-click software these factors may express themselves differently. For example it seems very likely that useability and perceived ease of use are thought of in terms of compatibility with existing toolchains. These compatibilities are sometimes spoken of as “affinities” and include aspects such as language, data format expectations (input, output, and working data structures), design philosophies expressed in software architectures. In analysis code, undoubtedly scientific domain or topic reflect affinities as well. These affinities are likely related to (or even signaled by) overlapping developers and supporters (both individuals and organizations), developing in a structurational way. Additional affinities might include well known examples of use, such as in widely read blogs ((this is why Articles are aggregated in Runiverse)), conference presentations, tutorials, or discussions on Q&amp;A sites/forums/mailing lists.</p>
+<p>These affinities give rise to the feeling of <em>physical closeness</em> between packages which is core to how developers discuss code. This idea of closeness is reflected in the metaphors employed, from calling packages “nearby” talking about “neighborhoods” and “communities”, as well as grouping into vertical/horizontal closeness in the “stack” metaphor, and geographic connection in the “stream” metaphor. In particular as package affinities develop, giving rise to downstream packages, the language expresses not only closeness of packages with affinities, but a clustering, a tightening of affinities and links within the cluster and de-emphasis of links across clusters, leading to a perception of separateness.</p>
+<p>This idea can be seen in the language of “software ecosystems”, usually reflecting a cluster around some central artifact or library. The core element of that metaphor is closeness and the provision of services to each other, relatively local relationships that enable collective, sustained, evolving function. Ecosystems, as they become denser, also develop new functionality, perhaps coming to be alternatives to software already in that “space”. Here the ecosystem metaphor again invokes the ecological idea of competition for space, and the resources that space implies, albeit with deep vagueness about whether users, developer time, or option-value from dependencies, are the things being competed for.</p>
+<!-- The perception of distance between software ecosystems (or packages) reflects not actual physical distance but the work needed to "migrate" or "bridge" between software ecosystems. The work here is not the flow within the package management system, but the programming effort needed within the lab or team undertaking the science. Much of that effort is to do with organization of development environments, a sort of local infrastructural work that reflects a great investment of time, rendering programming attempts and experiments difficult. Moreover the "migration" metaphor neatly captures the cultural elements of working within different software ecosystems, including knowing where and how to get help and information, understanding practices of requesting work from others, pacing of activity and likely future pathways of development (e.g., knowing which parts of the ecosystem have energy and are likely to develop in the ways that you need). (e.g., a newcomer might pick up older code, working from previously published examples not realizing that the methods they are using are already outdated). -->
+<p>Ecosystems can be nested, with specific ecosystems embedded within more general software clusters. As one zooms out more expansive metaphors of space and connection are used, including planet and universe, but generally the idea of embedded ecosystems continues to work well. For example, one might say that the ggplot ecosystem is embedded in the tidyverse which is embedded in the R ecosystem which is embedded in the data science ecosystem. Generally, though, the metaphor seems most apt for clusters of software that are scaled so that individuals can monitor and perceive activity.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../insights/bias_lack_of_diversity.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bias and Lack of Diversity</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../skills/git_basic_workflow.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Git basic workflow</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
