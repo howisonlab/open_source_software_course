@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.475">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="James Howison">
+
+<title>Open Source Software Development: A socio-technical course - 2&nbsp; Syllabus for Open Source Software Development</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./insights/what_is_open_source.html" rel="next">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="site_libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
+<script src="site_libs/bsTable-3.3.7/bootstrapTable.js"></script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Syllabus for Open Source Software Development</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Open Source Software Development: A socio-technical course</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/howisonlab/open_source_software_course/tree/master/quarto_course/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Open Source Software Development: A socio-technical course</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./oss_syllabus.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Syllabus for Open Source Software Development</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Insights</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./insights/what_is_open_source.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction: What is open source?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./insights/motivations.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Motivations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./insights/licenses.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Licenses</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./insights/coordination.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Coordination</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./insights/governance.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Governance</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./insights/bias_lack_of_diversity.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bias and Lack of Diversity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./insights/stack_and_stream.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">From Stack, to stream, to ecosystem.</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Skills</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./skills/git_basic_workflow.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Git basic workflow</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./skills/git_rewinding_work.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Rewinding work</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./skills/branching.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Local branching with Git.</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./skills/github_solo.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">GitHub solo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./skills/github_collaboration.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Github collaboration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./skills/git_cherrypick_split_pr.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Split a Pull Request</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./skills/git_rebase.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Rebase for synchronizing work</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./skills/git_delete_history.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Removing something from history entirely</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Appendices</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./skills/skills_faq.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Skills faq</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-syllabus" id="toc-sec-syllabus" class="nav-link active" data-scroll-target="#sec-syllabus"><span class="toc-section-number">2.1</span>  Syllabus</a></li>
+  <li><a href="#objectives-and-assignments" id="toc-objectives-and-assignments" class="nav-link" data-scroll-target="#objectives-and-assignments"><span class="toc-section-number">3</span>  Objectives and Assignments</a>
+  <ul class="collapse">
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives"><span class="toc-section-number">3.1</span>  Learning Objectives</a></li>
+  <li><a href="#assessments" id="toc-assessments" class="nav-link" data-scroll-target="#assessments"><span class="toc-section-number">3.2</span>  Assessments</a>
+  <ul class="collapse">
+  <li><a href="#participation-in-class-discussion-and-activities" id="toc-participation-in-class-discussion-and-activities" class="nav-link" data-scroll-target="#participation-in-class-discussion-and-activities"><span class="toc-section-number">3.2.1</span>  Participation in class discussion and activities</a></li>
+  <li><a href="#technical-challenges" id="toc-technical-challenges" class="nav-link" data-scroll-target="#technical-challenges"><span class="toc-section-number">3.2.2</span>  Technical Challenges</a></li>
+  <li><a href="#papers-and-projects" id="toc-papers-and-projects" class="nav-link" data-scroll-target="#papers-and-projects"><span class="toc-section-number">3.2.3</span>  Papers and Projects</a></li>
+  <li><a href="#presentation" id="toc-presentation" class="nav-link" data-scroll-target="#presentation"><span class="toc-section-number">3.2.4</span>  Presentation</a></li>
+  <li><a href="#late-submission-policy" id="toc-late-submission-policy" class="nav-link" data-scroll-target="#late-submission-policy"><span class="toc-section-number">3.2.5</span>  Late submission policy</a></li>
+  </ul></li>
+  <li><a href="#materials" id="toc-materials" class="nav-link" data-scroll-target="#materials"><span class="toc-section-number">3.3</span>  Materials</a></li>
+  </ul></li>
+  <li><a href="#outline" id="toc-outline" class="nav-link" data-scroll-target="#outline"><span class="toc-section-number">4</span>  Course Outline</a>
+  <ul class="collapse">
+  <li><a href="#draft-course-schedule" id="toc-draft-course-schedule" class="nav-link" data-scroll-target="#draft-course-schedule"><span class="toc-section-number">4.1</span>  Draft Course Schedule</a></li>
+  <li><a href="#skills-readings" id="toc-skills-readings" class="nav-link" data-scroll-target="#skills-readings"><span class="toc-section-number">4.2</span>  Skills Readings</a></li>
+  <li><a href="#insight-readings" id="toc-insight-readings" class="nav-link" data-scroll-target="#insight-readings"><span class="toc-section-number">4.3</span>  Insight Readings</a></li>
+  </ul></li>
+  <li><a href="#policies" id="toc-policies" class="nav-link" data-scroll-target="#policies"><span class="toc-section-number">5</span>  Policies</a>
+  <ul class="collapse">
+  <li><a href="#class-recordings" id="toc-class-recordings" class="nav-link" data-scroll-target="#class-recordings"><span class="toc-section-number">5.1</span>  Class Recordings</a></li>
+  <li><a href="#academic-integrity" id="toc-academic-integrity" class="nav-link" data-scroll-target="#academic-integrity"><span class="toc-section-number">5.2</span>  Academic Integrity</a></li>
+  <li><a href="#student-rights-and-responsibilities" id="toc-student-rights-and-responsibilities" class="nav-link" data-scroll-target="#student-rights-and-responsibilities"><span class="toc-section-number">5.3</span>  Student rights and responsibilities</a></li>
+  <li><a href="#personal-pronoun-preference" id="toc-personal-pronoun-preference" class="nav-link" data-scroll-target="#personal-pronoun-preference"><span class="toc-section-number">5.4</span>  Personal Pronoun Preference</a></li>
+  <li><a href="#drop-policy" id="toc-drop-policy" class="nav-link" data-scroll-target="#drop-policy"><span class="toc-section-number">5.5</span>  Drop Policy</a></li>
+  <li><a href="#university-resources-for-students" id="toc-university-resources-for-students" class="nav-link" data-scroll-target="#university-resources-for-students"><span class="toc-section-number">5.6</span>  University Resources for Students</a>
+  <ul class="collapse">
+  <li><a href="#accessiblecompliant-statement" id="toc-accessiblecompliant-statement" class="nav-link" data-scroll-target="#accessiblecompliant-statement"><span class="toc-section-number">5.6.1</span>  Accessible/Compliant Statement:</a></li>
+  <li><a href="#accessible-inclusive-and-compliant-statement" id="toc-accessible-inclusive-and-compliant-statement" class="nav-link" data-scroll-target="#accessible-inclusive-and-compliant-statement"><span class="toc-section-number">5.6.2</span>  Accessible, Inclusive, and Compliant Statement:</a></li>
+  <li><a href="#counseling-and-mental-health-center" id="toc-counseling-and-mental-health-center" class="nav-link" data-scroll-target="#counseling-and-mental-health-center"><span class="toc-section-number">5.6.3</span>  Counseling and Mental Health Center</a></li>
+  <li><a href="#the-sanger-learning-center" id="toc-the-sanger-learning-center" class="nav-link" data-scroll-target="#the-sanger-learning-center"><span class="toc-section-number">5.6.4</span>  The Sanger Learning Center</a></li>
+  <li><a href="#university-writing-center-free-programs-for-grad-students" id="toc-university-writing-center-free-programs-for-grad-students" class="nav-link" data-scroll-target="#university-writing-center-free-programs-for-grad-students"><span class="toc-section-number">5.6.5</span>  University Writing Center free programs for grad students</a></li>
+  <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries"><span class="toc-section-number">5.6.6</span>  Libraries</a></li>
+  <li><a href="#it-services" id="toc-it-services" class="nav-link" data-scroll-target="#it-services"><span class="toc-section-number">5.6.7</span>  IT services</a></li>
+  <li><a href="#student-emergency-services" id="toc-student-emergency-services" class="nav-link" data-scroll-target="#student-emergency-services"><span class="toc-section-number">5.6.8</span>  Student Emergency Services</a></li>
+  <li><a href="#important-safety-information" id="toc-important-safety-information" class="nav-link" data-scroll-target="#important-safety-information"><span class="toc-section-number">5.6.9</span>  Important Safety Information</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/oss_syllabus.qmd" class="toc-action">View source</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Syllabus for Open Source Software Development</span></h1>
+<p class="subtitle lead">I 320D - Topics in Human-Centered Data Science : Open Source Software Development</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>James Howison </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="cell">
+<style type="text/css">
+pre {
+    outline: 1px solid #ccc; 
+    padding: 5px; 
+    margin: 5px; 
+    white-space: pre-wrap;       
+    white-space: -moz-pre-wrap;  
+    white-space: -pre-wrap;      
+    white-space: -o-pre-wrap;    
+    word-wrap: break-word;       
+}
+</style>
+</div>
+<section id="sec-syllabus" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="sec-syllabus"><span class="header-section-number">2.1</span> Syllabus</h2>
+<p><em><em>Archived Version from Spring 2023</em></em></p>
+<p>Official, updated version of syllabus always online at:</p>
+<p><a href="https://howisonlab.github.io/open_source_software_course/oss_syllabus.html" class="uri">https://howisonlab.github.io/open_source_software_course/oss_syllabus.html</a></p>
+<p>Class server at <a href="https://edupod.cns.utexas.edu/">Edupod Rstudio</a>.</p>
+<p>Jump to <a href="#outline">Course Outline</a></p>
+<div class="cell">
+<div class="cell-output-display">
+
+<table class="table table-responsive table-striped" style="margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Course </th>
+   <th style="text-align:left;"> I 320D Topics in Human-Centered Data Science : Open Source Software Development </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Professor </td>
+   <td style="text-align:left;"> James Howison </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Meeting Time </td>
+   <td style="text-align:left;"> Mondays and Wednesdays 9:30-10:45 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Location </td>
+   <td style="text-align:left;"> SZB 5.414 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Semester </td>
+   <td style="text-align:left;"> Spring 2023 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Unique No. </td>
+   <td style="text-align:left;"> 28120 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Office Hours </td>
+   <td style="text-align:left;"> Wed 3-4pm via Zoom at https://utexas.zoom.com/my/howisonlab Contact via Canvas email if not in room </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Contact Email </td>
+   <td style="text-align:left;"> jhowison@ischool.utexas.edu </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</section>
+<section id="objectives-and-assignments" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Objectives and Assignments</h1>
+<p>This course explores “open source software development” which is a name for the open collaborations that produce open source software. Open source software is a thing that is built by people, an artifact. But the way that it is developed, the way that people work together to build it is of great interest. “The open source way” is of practical interest for everyone building software, because open source development has lead the creation of ways of working used throughout software work. For social and organizational scholars, “the open source way” is of interest in advancing our theories of how people can work together and how technology matters.</p>
+<p>The “open source way” is also known as “peer production” and that way of working extends beyond open source, to places like Wikipedia. Perhaps not coincidentally the Wikipedia page on <a href="https://en.wikipedia.org/wiki/Peer_production">Peer Production</a> is quite useful:</p>
+<blockquote class="blockquote">
+<p>A way of producing goods and services that relies on self-organizing communities of individuals. In such communities, the labor of a large number of people is coordinated towards a shared outcome.</p>
+</blockquote>
+<p>As we learn about open source and peer production we’ll learn to distinguish it from different kinds of online collaborations, such as crowdsourcing, citizen science, question and answer sites, and mere sharing of code. Near synonyms for the way of working taught in this course are: “The open source way”, “Open collaboration”, “Open mass production”.</p>
+<p>This is a course is about a sociotechnical phenomenon and it takes a sociotechnical approach. In practice this means that we’ll be learning both conceptual insight and practical skills. The course weaves together learning how to use key technologies of collaboration (e.g., git, github, travisCI, markdown) at the same time that we learn social and organizational theory about peer production (e.g., the role of copyright licenses, motivations of participants, governance models, coordination theory, models of collaboration risk, cultures of collaboration).</p>
+<p>There are no prereqs for this course. While we will be discussing software development students will not be required to program. We will use the command line as we learn to use <code>git</code> and <code>github</code> everything will be covered in class. I try to build <a href="analogies_for_git.html">a set of analogies for git and github</a>, going beyond teaching the commands to give ways to think about git.</p>
+<p>Students will need access to a computer for classes, any version of Windows, Mac, or Linux will do. Students facing difficulties with their IT should contact the iSchool help desk (via <a href="mailto:help@ischool.utexas.edu" class="email">help@ischool.utexas.edu</a>) who can refer on to other resources as available.</p>
+<section id="learning-objectives" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="learning-objectives"><span class="header-section-number">3.1</span> Learning Objectives</h2>
+<p>Students will be able to:</p>
+<ul>
+<li>Understand what open source software is as an artifact</li>
+<li>Understand what is distinctive about the way that it is produced</li>
+<li>Know how to interact with open source software projects</li>
+<li>Know how the open source way has informed modern software development work (including in data science)</li>
+<li>Conceptually distinguish open source from other organizational forms or phenomena, such as corporations, crowdsourcing, open access publishing, and communities of practice.</li>
+<li>Reason about how, why, and when open source peer production works (and when it does not!)</li>
+<li>Engage critically with published research and popular discourse about open source</li>
+</ul>
+<p>Practically students will be able to:</p>
+<ul>
+<li>Install and use <code>git</code> to manage versions in their own work</li>
+<li>Participate in <code>github</code> hosted peer production (making and receiving pull requests)</li>
+<li>Create and publish documents in <code>markdown</code> and <code>wikitext</code> format</li>
+<li>Ask technical questions that people want to answer</li>
+<li>Analyze trace data from open source software projects</li>
+</ul>
+</section>
+<section id="assessments" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="assessments"><span class="header-section-number">3.2</span> Assessments</h2>
+<div class="cell">
+<div class="cell-output-display">
+
+<table class="table table-responsive table-striped" style="margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Assignment </th>
+   <th style="text-align:left;"> Percentage of Course Grade </th>
+   <th style="text-align:left;"> Due Date </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Class Participation (discussion and activites) </td>
+   <td style="text-align:left;"> 10% </td>
+   <td style="text-align:left;"> Throughout course </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Technical challenges </td>
+   <td style="text-align:left;"> 40% </td>
+   <td style="text-align:left;"> Weekly homework challenges </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Git Analogies Paper (was Open Source Comparison Paper) </td>
+   <td style="text-align:left;"> 20% </td>
+   <td style="text-align:left;"> March 31 (was: Start of Spring Break) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Open Source Trace Data analysis Project report </td>
+   <td style="text-align:left;"> 25% </td>
+   <td style="text-align:left;"> End of second last class week. Prior to Presentations </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Project presentation </td>
+   <td style="text-align:left;"> 5% </td>
+   <td style="text-align:left;"> Final Class Week </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>There is no final exam for this course. 100-90:A, 90 &gt; grade &gt; 85: A-, 85 &gt; grade &gt; 80 B- and so on.</p>
+<section id="participation-in-class-discussion-and-activities" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="participation-in-class-discussion-and-activities"><span class="header-section-number">3.2.1</span> Participation in class discussion and activities</h3>
+<p>Students are expected to attend class and to participate in discussion and activities. Students should email the professor prior to class if they cannot make it. Material throughout the course builds on earlier material (both technical and conceptual). If you cannot make class you should refer to the online materials first and then consult with your classmates. Office hours are not for personal replays of teaching, nor can they compensate for not participating in discussion.</p>
+<p>Hints on participation:</p>
+<ul>
+<li>Useful participation can come from asking questions if you don’t understand the point someone is making. If you have questions, very likely others do to.</li>
+<li>You can also summarize discussion which helps everyone by giving them something to test their understanding of the discussion.</li>
+<li>You can challenge or disagree with people, sometimes that can be introducing a counter-example or questioning whether evidence really means what the speaker originally thought.</li>
+<li>I really welcome examples from your own experience. For example if there is an organization, movement, or line of thought (modern/traditional) in your culture that relates to open source development, I would love that to be part of the discussion.</li>
+</ul>
+</section>
+<section id="technical-challenges" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="technical-challenges"><span class="header-section-number">3.2.2</span> Technical Challenges</h3>
+<p>The course will have assignments based on the technical topics we are learning, including use of the DataCamp course (see below).</p>
+</section>
+<section id="papers-and-projects" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="papers-and-projects"><span class="header-section-number">3.2.3</span> Papers and Projects</h3>
+<section id="analogies-paper" class="level4" data-number="3.2.3.1">
+<h4 data-number="3.2.3.1" class="anchored" data-anchor-id="analogies-paper"><span class="header-section-number">3.2.3.1</span> Analogies paper</h4>
+<p>See Canvas.</p>
+</section>
+<section id="paper-or-project" class="level4" data-number="3.2.3.2">
+<h4 data-number="3.2.3.2" class="anchored" data-anchor-id="paper-or-project"><span class="header-section-number">3.2.3.2</span> Paper or project</h4>
+<p>See Canvas.</p>
+</section>
+</section>
+<section id="presentation" class="level3" data-number="3.2.4">
+<h3 data-number="3.2.4" class="anchored" data-anchor-id="presentation"><span class="header-section-number">3.2.4</span> Presentation</h3>
+<p>Students will create and give a presentation to present in the final week of classes. See Canvas for details.</p>
+</section>
+<section id="late-submission-policy" class="level3" data-number="3.2.5">
+<h3 data-number="3.2.5" class="anchored" data-anchor-id="late-submission-policy"><span class="header-section-number">3.2.5</span> Late submission policy</h3>
+<p>The late policy for papers/projects/presentation is a 10% reduction for submissions up to 24 hours after the due time, but zero points after that. You can, of course, contact me if you have an emergency.</p>
+<!-- ### Open Source comparison paper -->
+<!-- For this assignment students will write a 1,000 word scholarly essay describing and analyzing efforts to adapt the "open source way" outside of software development. Students will be given a list of five projects they need to research and analyze to compare to "the open source way". Examples could include open hardware, open governance, open culture. The paper should draw on the conceptual literature to compare and contrast the challenge faced by these adaptation efforts to what we've learned about "the open source way". The paper will also describe the collaboration infrastructure used and compare it to the technologies we have learned in class). -->
+<!-- The paper will be authored in Plain Text or Markdown and submitted via a pull request to the class github. Include your name in the filename and at the top of the document, and include a note at the top of the file telling me which formal citation approach you are using (e.g., APA, MLA, etc). Students are cautioned that as a scholarly paper proper citation and use of sources is required otherwise students will face academic misconduct proceedings. See ["Academic Integrity" presentation](https://utexas.zoom.us/rec/share/AjF6eoJH2heRWqQkTAHAQTfpp05UbE7WRhT-vQFw9wYevV8YBjpE2AJ_2PD07Mca.2v_7lGqZ0OoKbJzG) if at all unsure. -->
+<!--### Open Source Trace Data analysis Project
+
+Students will be introduced to datasets of archives of activity in open source projects and develop their own analysis. For example, students might want to highlight those participants that are most active over time in a project, show whether leadership has changed within projects, or analyze license usage over time.
+
+There are three graded components, each to be submitted via a pull request. All components should reference the insight readings that we do throughout the course.
+
+1.  Identifying and describing a project. \~500 words. Authored in plain text or markdown (ensure file is encoded with Unicode UTF-8 encoding and Unix/LF-only line endings). This paper should clearly identify the intended analysis and argue for its relevance, including using literature to identify expectations. Include your name in the filename and at the top of the document, and include a note at the top of the file telling me which formal citation approach you are using (e.g., APA, MLA, etc).
+
+2.  Implementing the analysis and report. \~500-1000 words, authored in RMarkdown, using the citation features. Students should describe the dataset, their analysis (possibly including graphs), and their interpretation. Students should compare their experience with their expectations described in the first paper and use at least two references from our conceptual literature to justify their inquiry. Create a folder in assignment_submission/trace_data_project/your_name and all files in that folder. Submit via a pull request from a branch created just for this submission (i.e., not master), and post that URL to the Canvas assignment, ensure this is a separate PR from your slide submission (below).-->
+</section>
+</section>
+<section id="materials" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="materials"><span class="header-section-number">3.3</span> Materials</h2>
+<p>There are no required texts for this course and no materials to purchase.</p>
+<p>Readings, tutorials, and will be provided via pages linked from the class calendar below.</p>
+<p>I will enroll the class in <a href="https://www.datacamp.com/">DataCamp</a>, giving students free access to the DataCamp courses (including their premium courses). In particular we will be using their interactive course on <code>git</code> during classes in the first half of the course. I encourage students to explore their other course options during the semester.</p>
+</section>
+</section>
+<section id="outline" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Course Outline</h1>
+<section id="draft-course-schedule" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="draft-course-schedule"><span class="header-section-number">4.1</span> Draft Course Schedule</h2>
+<p>Table below shows classes and topics planned. Each class has both an insight (aka theory, conceptual) and a skills (aka tech, practical) component. These will become links to materials for the class.</p>
+
+<table class="table table-responsive table-striped" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="3">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+First Class
+</div>
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="3">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Second Class
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:right;">
+Week
+</th>
+<th style="text-align:left;">
+Day
+</th>
+<th style="text-align:left;">
+Module
+</th>
+<th style="text-align:left;">
+Topic
+</th>
+<th style="text-align:left;">
+Day
+</th>
+<th style="text-align:left;">
+Module
+</th>
+<th style="text-align:left;">
+Topic
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+<span style="     color: #5D3A9B !important;">Mon Jan 09</span>
+</td>
+<td style="text-align:left;">
+Introduction
+</td>
+<td style="text-align:left;">
+Syllabus Review
+</td>
+<td style="text-align:left;">
+<span style="     color: #5D3A9B !important;">Wed Jan 11</span>
+</td>
+<td style="text-align:left;">
+Introduction
+</td>
+<td style="text-align:left;">
+Paper Planes: Innovation and collaboration
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+<span style="     text-decoration: line-through;color: #E66100 !important;">Mon Jan 16</span>
+</td>
+<td style="text-align:left;">
+No Meeting
+</td>
+<td style="text-align:left;">
+No meeting: MLK day
+</td>
+<td style="text-align:left;">
+<span style="     color: #5D3A9B !important;">Wed Jan 18</span>
+</td>
+<td style="text-align:left;">
+Skills
+</td>
+<td style="text-align:left;">
+Paper Planes: Version Control<br><em>git add, commit via paper planes and tables</em>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+<span style="     color: #5D3A9B !important;">Mon Jan 23</span>
+</td>
+<td style="text-align:left;">
+Insights
+</td>
+<td style="text-align:left;">
+What is open source? <a href="insights/what_is_open_source.html"><span>Chapter&nbsp;3</span></a>
+</td>
+<td style="text-align:left;">
+<span style="     color: #5D3A9B !important;">Wed Jan 25</span>
+</td>
+<td style="text-align:left;">
+Skills
+</td>
+<td style="text-align:left;">
+Git basic workflow <a href="skills/git_basic_workflow.html"><span>Chapter&nbsp;10</span></a> <br><em>git add, commit (locally)</em>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+<span style="     color: #5D3A9B !important;">Mon Jan 30</span>
+</td>
+<td style="text-align:left;">
+Insights
+</td>
+<td style="text-align:left;">
+Motivations and Asking questions people want to answer <a href="insights/motivations.html"><span>Chapter&nbsp;4</span></a>
+</td>
+<td style="text-align:left;">
+<span style="     text-decoration: line-through;color: #E66100 !important;">Wed Feb 01</span>
+</td>
+<td style="text-align:left;">
+No Meeting
+</td>
+<td style="text-align:left;">
+No meeting: Ice Storm
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+<span style="     color: #5D3A9B !important;">Mon Feb 06</span>
+</td>
+<td style="text-align:left;">
+Insights
+</td>
+<td style="text-align:left;">
+Licenses <a href="insights/licenses.html"><span>Chapter&nbsp;5</span></a>
+</td>
+<td style="text-align:left;">
+<span style="     color: #5D3A9B !important;">Wed Feb 08</span>
+</td>
+<td style="text-align:left;">
+Skills
+</td>
+<td style="text-align:left;">
+Rewinding work <a href="skills/git_rewinding_work.html"><span>Chapter&nbsp;11</span></a> <br><em>revert, other undos, checking out old versions, rewriting history</em>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+<span style="     color: #5D3A9B !important;">Mon Feb 13</span>
+</td>
+<td style="text-align:left;">
+Insights
+</td>
+<td style="text-align:left;">
+Coordination <a href="insights/coordination.html"><span>Chapter&nbsp;6</span></a>
+</td>
+<td style="text-align:left;">
+<span style="     color: #5D3A9B !important;">Wed Feb 15</span>
+</td>
+<td style="text-align:left;">
+Skills
+</td>
+<td style="text-align:left;">
+Branching <a href="skills/branching.html"><span>Chapter&nbsp;12</span></a> <br><em>git checkout, merge.</em>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:left;">
+<span style="     text-decoration: line-through;color: #E66100 !important;">Mon Feb 20</span>
+</td>
+<td style="text-align:left;">
+No Meeting
+</td>
+<td style="text-align:left;">
+No meeting: Instructor Travel
+</td>
+<td style="text-align:left;">
+<span style="     color: #5D3A9B !important;">Wed Feb 22</span>
+</td>
+<td style="text-align:left;">
+Skills
+</td>
+<td style="text-align:left;">
+Sharing and collaborating via github <a href="skills/github_solo.html"><span>Chapter&nbsp;13</span></a> <br><em>git clone, remote, push</em>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+<span style="     color: #5D3A9B !important;">Mon Feb 27</span>
+</td>
+<td style="text-align:left;">
+Insights
+</td>
+<td style="text-align:left;">
+Governance and decision making <a href="insights/governance.html"><span>Chapter&nbsp;7</span></a>
+</td>
+<td style="text-align:left;">
+<span style="     color: #5D3A9B !important;">Wed Mar 01</span>
+</td>
+<td style="text-align:left;">
+Skills
+</td>
+<td style="text-align:left;">
+Collaboration conflicts and workflows <a href="skills/github_collaboration.html"><span>Chapter&nbsp;14</span></a> <br><em>github fork, pull request, pull upstream</em>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+<span style="     color: #5D3A9B !important;">Mon Mar 06</span>
+</td>
+<td style="text-align:left;">
+Insights
+</td>
+<td style="text-align:left;">
+Knowledge sharing
+</td>
+<td style="text-align:left;">
+<span style="     color: #5D3A9B !important;">Wed Mar 08</span>
+</td>
+<td style="text-align:left;">
+Skills
+</td>
+<td style="text-align:left;">
+Splitting PRs <a href="skills/git_cherrypick_split_pr.html"><span>Chapter&nbsp;15</span></a> <br><em>merge, conflicts, mark resolved, cherrypick, collaboration workflows </em>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:left;">
+<span style="     text-decoration: line-through;color: #E66100 !important;">Mon Mar 13</span>
+</td>
+<td style="text-align:left;">
+No Meeting
+</td>
+<td style="text-align:left;">
+No meeting: Spring Break
+</td>
+<td style="text-align:left;">
+<span style="     text-decoration: line-through;color: #E66100 !important;">Wed Mar 15</span>
+</td>
+<td style="text-align:left;">
+No Meeting
+</td>
+<td style="text-align:left;">
+No meeting: Spring Break
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:left;">
+<span style="     color: #5D3A9B !important;">Mon Mar 20</span>
+</td>
+<td style="text-align:left;">
+Insights
+</td>
+<td style="text-align:left;">
+Bias and lack of diversity <a href="insights/bias_lack_of_diversity.html"><span>Chapter&nbsp;8</span></a>
+</td>
+<td style="text-align:left;">
+<span style="     color: #5D3A9B !important;">Wed Mar 22</span>
+</td>
+<td style="text-align:left;">
+Skills
+</td>
+<td style="text-align:left;">
+Rebase <a href="skills/git_rebase.html"><span>Chapter&nbsp;16</span></a> and Managing Secrets <a href="skills/git_delete_history.html"><span>Chapter&nbsp;17</span></a> <br><em>git rebase</em>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:left;">
+<span style="     color: #5D3A9B !important;">Mon Mar 27</span>
+</td>
+<td style="text-align:left;">
+Insights
+</td>
+<td style="text-align:left;">
+The stack and the stream <a href="insights/stack_and_stream.html"><span>Chapter&nbsp;9</span></a>
+</td>
+<td style="text-align:left;">
+<span style="     color: #5D3A9B !important;">Wed Mar 29</span>
+</td>
+<td style="text-align:left;">
+Skills
+</td>
+<td style="text-align:left;">
+Git analogies paper workshop<br><em>quarto and markdown</em>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:left;">
+<span style="     color: #5D3A9B !important;">Mon Apr 03</span>
+</td>
+<td style="text-align:left;">
+Insights
+</td>
+<td style="text-align:left;">
+Agile and test driven development
+</td>
+<td style="text-align:left;">
+<span style="     color: #5D3A9B !important;">Wed Apr 05</span>
+</td>
+<td style="text-align:left;">
+Skills
+</td>
+<td style="text-align:left;">
+Final paper/project workshop<br><em>quarto presentations</em>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+<span style="     color: #5D3A9B !important;">Mon Apr 10</span>
+</td>
+<td style="text-align:left;">
+Insights
+</td>
+<td style="text-align:left;">
+Cybersecurity and open source
+</td>
+<td style="text-align:left;">
+<span style="     color: #5D3A9B !important;">Wed Apr 12</span>
+</td>
+<td style="text-align:left;">
+Skills
+</td>
+<td style="text-align:left;">
+Final paper/project workshop<br><em>quarto and markdown</em>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:left;">
+<span style="     color: #5D3A9B !important;">Mon Apr 17</span>
+</td>
+<td style="text-align:left;">
+Presentations
+</td>
+<td style="text-align:left;">
+Presentations
+</td>
+<td style="text-align:left;">
+<span style="     color: #5D3A9B !important;">Wed Apr 19</span>
+</td>
+<td style="text-align:left;">
+Presentations
+</td>
+<td style="text-align:left;">
+Presentations
+</td>
+</tr>
+</tbody>
+
+</table>
+</section>
+<section id="skills-readings" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="skills-readings"><span class="header-section-number">4.2</span> Skills Readings</h2>
+<div class="cell">
+
+</div>
+</section>
+<section id="insight-readings" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="insight-readings"><span class="header-section-number">4.3</span> Insight Readings</h2>
+<p>Often I can link directly to websites or PDFs, but sometimes I will provide links to articles in journals etc. You must be able to get the article through the library, generally speaking using the <a href="http://vpn.utexas.edu">web VPN</a> is the most convenient approach. Another option that can sometimes work is <a href="http://unpaywall.org/">UnPaywall</a> which works to find an open access article version when looking at a publisher’s page for the article.</p>
+<div class="cell">
+
+</div>
+</section>
+</section>
+<section id="policies" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Policies</h1>
+<section id="class-recordings" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="class-recordings"><span class="header-section-number">5.1</span> Class Recordings</h2>
+<p>Class Recordings: Class recordings are reserved only for students in this class for educational purposes and are protected under FERPA. The recordings should not be shared outside the class in any form. Violation of this restriction by a student could lead to Student Misconduct proceedings. Guidance on public access to class recordings can be found <a href="https://covid.provost.utexas.edu/faculty/search/?query=can%2520i%2520make%2520recordings%2520public">here</a>.</p>
+</section>
+<section id="academic-integrity" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="academic-integrity"><span class="header-section-number">5.2</span> Academic Integrity</h2>
+<p>Each student in the course is expected to abide by the University of Texas Honor Code: “As a student of The University of Texas at Austin, I shall abide by the core values of the University and uphold academic integrity.” Plagiarism is taken very seriously at UT. Therefore, if you use words or ideas that are not your own (or that you have used in previous class), you must cite your sources. Otherwise you will be guilty of plagiarism and subject to academic disciplinary action, including failure of the course. In particular, students are reminded that proper citation requires mentioning sources when you use them, not just in a general list of references at the end of a document. You are responsible for understanding UT’s Academic Honesty and the University Honor Code which can be found at the following web address: <a href="http://deanofstudents.utexas.edu/sjs/acint_student.php" class="uri">http://deanofstudents.utexas.edu/sjs/acint_student.php</a></p>
+</section>
+<section id="student-rights-and-responsibilities" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="student-rights-and-responsibilities"><span class="header-section-number">5.3</span> Student rights and responsibilities</h2>
+<ul>
+<li>You have a right to a learning environment that supports mental and physical wellness.</li>
+<li>You have a right to respect.</li>
+<li>You have a right to be assessed and graded fairly.</li>
+<li>You have a right to freedom of opinion and expression.</li>
+<li>You have a right to privacy and confidentiality.</li>
+<li>You have a right to meaningful and equal participation, and to self-organize groups to improve your learning environment.</li>
+<li>You have a right to learn in an environment that is welcoming to all people. No student shall be isolated, excluded or diminished in any way.</li>
+</ul>
+<p>With these rights come responsibilities:</p>
+<ul>
+<li>You are responsible for taking care of yourself, managing your time, and communicating with the teaching team and with others if things start to feel out of control or overwhelming.</li>
+<li>You are responsible for acting in a way that is worthy of respect and always respectful of others.</li>
+<li>Your experience with this course is directly related to the quality of the energy that you bring to it, and your energy shapes the quality of your peers’ experiences.</li>
+<li>You are responsible for creating an inclusive environment and for speaking up when someone is excluded. In particular, you are responsible for ensuring that your participation does not exclude the participation of others. Office hours are available for in-depth further discussion of advanced topics or other interests that pursuing in depth during class would exclude others.</li>
+<li>You are responsible for holding yourself accountable to these standards, holding each other to these standards, and holding the teaching team accountable as well.</li>
+</ul>
+</section>
+<section id="personal-pronoun-preference" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="personal-pronoun-preference"><span class="header-section-number">5.4</span> Personal Pronoun Preference</h2>
+<p>Professional courtesy and sensitivity are especially important with respect to individuals and topics dealing with differences of race, culture, religion, politics, sexual orientation, gender, gender variance, and nationalities. Class rosters are provided to the instructor with the student’s legal name. I will gladly honor your request to address you by an alternate name or gender pronoun. Please advise me of this preference early in the semester so that I may make appropriate changes to my records.</p>
+</section>
+<section id="drop-policy" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="drop-policy"><span class="header-section-number">5.5</span> Drop Policy</h2>
+<p>If you want to drop a class after the 12th class day, you’ll need to execute a Q drop before the Q-drop deadline, which typically occurs near the middle of the semester. Under Texas law, you are only allowed six Q drops while you are in college at any public Texas institution. For more information, see: <a href="http://www.utexas.edu/ugs/csacc/academic/adddrop/qdrop" class="uri">http://www.utexas.edu/ugs/csacc/academic/adddrop/qdrop</a></p>
+<p>International students <em>must</em> <a href="https://world.utexas.edu/isss/visa/maintain/student">meet with the international office</a> before dropping a class that would put them below full-time status. Although it is worth noting that there are legitimate reasons that allow International students to be below full-time status, so if you think you are failing a course (or just performing below your expectations) don’t make assumptions either way, speak with the international office to discover your options.</p>
+</section>
+<section id="university-resources-for-students" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="university-resources-for-students"><span class="header-section-number">5.6</span> University Resources for Students</h2>
+<p>Your success in this class is important to me. We will all need accommodations at different times because we all learn differently. If there are aspects of this course that prevent you from learning or exclude you, please let me know as soon as possible. Together we’ll develop strategies to meet both your needs and the requirements of the course. There are also a range of resources on campus, detailed below.</p>
+<section id="accessiblecompliant-statement" class="level3" data-number="5.6.1">
+<h3 data-number="5.6.1" class="anchored" data-anchor-id="accessiblecompliant-statement"><span class="header-section-number">5.6.1</span> Accessible/Compliant Statement:</h3>
+<p>If you are a student with a disability, or think you may have a disability, and need accommodations please contact Disability and Access (D&amp;A). You may refer to D&amp;A’s website for contact and more information: <a href="http://diversity.utexas.edu/disability/" class="uri">http://diversity.utexas.edu/disability/</a>. If you are already registered with D&amp;A, please deliver your Accommodation Letter to me as early as possible in the semester so we can discuss your approved accommodations.</p>
+</section>
+<section id="accessible-inclusive-and-compliant-statement" class="level3" data-number="5.6.2">
+<h3 data-number="5.6.2" class="anchored" data-anchor-id="accessible-inclusive-and-compliant-statement"><span class="header-section-number">5.6.2</span> Accessible, Inclusive, and Compliant Statement:</h3>
+<p>The university is committed to creating an accessible and inclusive learning environment consistent with university policy and federal and state law. Please let me know if you experience any barriers to learning so I can work with you to ensure you have equal opportunity to participate fully in this course. If you are a student with a disability, or think you may have a disability, and need accommodations please contact Disability and Access (D&amp;A). Please refer to D&amp;A’s website for contact and more information: <a href="http://diversity.utexas.edu/disability/" class="uri">http://diversity.utexas.edu/disability/</a>. If you are already registered with D&amp;A , please deliver your Accommodation Letter to me as early as possible in the semester so we can discuss your approved accommodations and needs in this course.</p>
+</section>
+<section id="counseling-and-mental-health-center" class="level3" data-number="5.6.3">
+<h3 data-number="5.6.3" class="anchored" data-anchor-id="counseling-and-mental-health-center"><span class="header-section-number">5.6.3</span> Counseling and Mental Health Center</h3>
+<p>All of us benefit from support during times of struggle. You are not alone. There are many helpful resources available on campus and an important part of the college experience is learning how to ask for help. Asking for support sooner rather than later is often helpful.</p>
+<p>If you or anyone you know experiences any academic stress, difficult life events, or feelings like anxiety or depression, we strongly encourage you to seek support. <a href="http://www.cmhc.utexas.edu/individualcounseling.html" class="uri">http://www.cmhc.utexas.edu/individualcounseling.html</a></p>
+</section>
+<section id="the-sanger-learning-center" class="level3" data-number="5.6.4">
+<h3 data-number="5.6.4" class="anchored" data-anchor-id="the-sanger-learning-center"><span class="header-section-number">5.6.4</span> The Sanger Learning Center</h3>
+<p>All students, including graduate students, are welcome to take advantage of Sanger Center’s classes and workshops, private learning specialist appointments, peer academic coaching, and tutoring for more than 70 courses in 15 different subject areas. For more information, please visit <a href="https://ugs.utexas.edu/slc/grad" class="uri">https://ugs.utexas.edu/slc/grad</a> or call 512-471-3614 (JES A332).</p>
+</section>
+<section id="university-writing-center-free-programs-for-grad-students" class="level3" data-number="5.6.5">
+<h3 data-number="5.6.5" class="anchored" data-anchor-id="university-writing-center-free-programs-for-grad-students"><span class="header-section-number">5.6.5</span> <a href="http://uwc.utexas.edu/grad/">University Writing Center free programs for grad students</a></h3>
+</section>
+<section id="libraries" class="level3" data-number="5.6.6">
+<h3 data-number="5.6.6" class="anchored" data-anchor-id="libraries"><span class="header-section-number">5.6.6</span> <a href="http://www.lib.utexas.edu/">Libraries</a></h3>
+</section>
+<section id="it-services" class="level3" data-number="5.6.7">
+<h3 data-number="5.6.7" class="anchored" data-anchor-id="it-services"><span class="header-section-number">5.6.7</span> <a href="http://www.utexas.edu/its/">IT services</a></h3>
+</section>
+<section id="student-emergency-services" class="level3" data-number="5.6.8">
+<h3 data-number="5.6.8" class="anchored" data-anchor-id="student-emergency-services"><span class="header-section-number">5.6.8</span> <a href="http://deanofstudents.utexas.edu/emergency/">Student Emergency Services</a></h3>
+</section>
+<section id="important-safety-information" class="level3" data-number="5.6.9">
+<h3 data-number="5.6.9" class="anchored" data-anchor-id="important-safety-information"><span class="header-section-number">5.6.9</span> Important Safety Information</h3>
+<p>If you have concerns about the safety or behavior of fellow students, TAs or Professors, call BCAL (the Behavior Concerns Advice Line): 512-232-5050. Your call can be anonymous. If something doesn’t feel right—it probably isn’t. Trust your instincts and share your concerns.</p>
+<p>The following recommendations regarding emergency evacuation from the Office of Campus Safety and Security, 512-471-5767, <a href="http://www.utexas.edu/safety/" class="uri">http://www.utexas.edu/safety/</a></p>
+<p>Occupants of buildings on The University of Texas at Austin campus are required to evacuate buildings when a fire alarm is activated. Alarm activation or announcement requires exiting and assembling outside.</p>
+<ul>
+<li>Familiarize yourself with all exit doors of each classroom and building you may occupy. Remember that the nearest exit door may not be the one you used when entering the building.</li>
+<li>Students requiring assistance in evacuation shall inform their instructor in writing during the first week of class.</li>
+<li>In the event of an evacuation, follow the instruction of faculty or class instructors. Do not re-enter a building unless given instructions by the following: Austin Fire Department, The University of Texas at Austin Police Department, or Fire Prevention Services office.</li>
+<li>Link to information regarding emergency evacuation routes and emergency procedures can be found at: <a href="http://www.utexas.edu/emergency" class="uri">http://www.utexas.edu/emergency</a></li>
+</ul>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Open Source Software Development: A socio-technical course</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./insights/what_is_open_source.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction: What is open source?</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

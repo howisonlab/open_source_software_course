@@ -1,6 +1,6 @@
 project:
   type: book
-  output-dir: ../docs
+  output-dir: ../docs/2023-01-spring
 
 book:
   title: "Open Source Software Development: A socio-technical course"
@@ -15,7 +15,7 @@ book:
     pinned: true
   chapters:
     - index.qmd
-    - oss_syllabus.Rmd
+    - oss_syllabus.qmd
     - part: "Insights"
       chapters:
       - insights/what_is_open_source.qmd

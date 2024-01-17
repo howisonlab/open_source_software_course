@@ -1,0 +1,769 @@
+---
+title: "Syllabus for Open Source Software Development"
+label: #sec-syllabus
+author: "James Howison"
+subtitle: "I 320D - Topics in Human-Centered Data Science : Open Source Software Development"
+always_allow_html: yes
+output:
+  html_document:
+    toc: no
+    toc_depth: 2
+    toc_float:
+      collapsed: no
+      smooth_scroll: no
+  pdf_document:
+    toc: yes
+    toc_depth: '2'
+  word_document:
+    toc: yes
+    toc_depth: '2'
+---
+
+```{css, echo=FALSE}
+pre {
+    outline: 1px solid #ccc; 
+    padding: 5px; 
+    margin: 5px; 
+    white-space: pre-wrap;       
+    white-space: -moz-pre-wrap;  
+    white-space: -pre-wrap;      
+    white-space: -o-pre-wrap;    
+    word-wrap: break-word;       
+}
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(kableExtra)
+# library(fontawesome)
+library(tidyverse)
+library(glue)
+library(lubridate)
+
+header <- tribble(
+  ~`Course`, ~`I 320D Topics in Human-Centered Data Science : Open Source Software Development`,
+  "Professor", "James Howison",
+  "Meeting Time", "Mondays and Wednesdays 9:30-10:45",
+  "Location", "SZB 5.414",
+  "Semester", "Spring 2023",
+  "Unique No.", "28120",
+  "Office Hours", "Wed 3-4pm via Zoom at https://utexas.zoom.com/my/howisonlab Contact via Canvas email if not in room",
+  "Contact Email", "jhowison@ischool.utexas.edu"
+)
+library(knitr)
+```
+
+## Syllabus {#sec-syllabus}
+
+*_Archived Version from Spring 2023_*
+
+Official, updated version of syllabus always online at:
+
+<https://howisonlab.github.io/open_source_software_course/oss_syllabus.html>
+
+Class server at [Edupod Rstudio](https://edupod.cns.utexas.edu/).
+
+Jump to [Course Outline](#outline)
+
+```{r header_output}
+kable(header) %>%
+  kable_styling(bootstrap_options = c("responsive", "striped"))
+
+# [!(`r fa('link')`)](#objectives-and-assignments)
+
+```
+
+# Objectives and Assignments
+
+This course explores "open source software development" which is a name for the open collaborations that produce open source software. Open source software is a thing that is built by people, an artifact. But the way that it is developed, the way that people work together to build it is of great interest. "The open source way" is of practical interest for everyone building software, because open source development has lead the creation of ways of working used throughout software work. For social and organizational scholars, "the open source way" is of interest in advancing our theories of how people can work together and how technology matters.
+
+The "open source way" is also known as "peer production" and that way of working extends beyond open source, to places like Wikipedia. Perhaps not coincidentally the Wikipedia page on [Peer Production](https://en.wikipedia.org/wiki/Peer_production) is quite useful:
+
+> A way of producing goods and services that relies on self-organizing communities of individuals. In such communities, the labor of a large number of people is coordinated towards a shared outcome.
+
+As we learn about open source and peer production we'll learn to distinguish it from different kinds of online collaborations, such as crowdsourcing, citizen science, question and answer sites, and mere sharing of code. Near synonyms for the way of working taught in this course are: "The open source way", "Open collaboration", "Open mass production".
+
+This is a course is about a sociotechnical phenomenon and it takes a sociotechnical approach. In practice this means that we'll be learning both conceptual insight and practical skills. The course weaves together learning how to use key technologies of collaboration (e.g., git, github, travisCI, markdown) at the same time that we learn social and organizational theory about peer production (e.g., the role of copyright licenses, motivations of participants, governance models, coordination theory, models of collaboration risk, cultures of collaboration).
+
+There are no prereqs for this course. While we will be discussing software development students will not be required to program. We will use the command line as we learn to use `git` and `github` everything will be covered in class. I try to build [a set of analogies for git and github](analogies_for_git.html), going beyond teaching the commands to give ways to think about git.
+
+Students will need access to a computer for classes, any version of Windows, Mac, or Linux will do. Students facing difficulties with their IT should contact the iSchool help desk (via [help\@ischool.utexas.edu](mailto:help@ischool.utexas.edu){.email}) who can refer on to other resources as available.
+
+## Learning Objectives
+
+Students will be able to:
+
+-   Understand what open source software is as an artifact
+-   Understand what is distinctive about the way that it is produced
+-   Know how to interact with open source software projects
+-   Know how the open source way has informed modern software development work (including in data science)
+-   Conceptually distinguish open source from other organizational forms or phenomena, such as corporations, crowdsourcing, open access publishing, and communities of practice.
+-   Reason about how, why, and when open source peer production works (and when it does not!)
+-   Engage critically with published research and popular discourse about open source
+
+Practically students will be able to:
+
+-   Install and use `git` to manage versions in their own work
+-   Participate in `github` hosted peer production (making and receiving pull requests)
+-   Create and publish documents in `markdown` and `wikitext` format
+-   Ask technical questions that people want to answer
+-   Analyze trace data from open source software projects
+
+## Assessments
+
+```{r assessments_table, include=FALSE}
+assessments <- tribble(
+  ~`Assignment`, ~`Percentage of Course Grade`,~`Due Date`,
+  #-----------------------
+  "Class Participation (discussion and activites)", "10%", "Throughout course",
+  "Technical challenges", "40%", "Weekly homework challenges",
+  "Git Analogies Paper (was Open Source Comparison Paper)", "20%", "March 31 (was: Start of Spring Break)",
+  "Open Source Trace Data analysis Project report", "25%", "End of second last class week. Prior to Presentations",
+  "Project presentation", "5%", "Final Class Week"
+)
+```
+
+```{r assessment_output}
+kable(assessments) %>%
+  kable_styling(bootstrap_options = c("responsive", "striped"))
+```
+
+There is no final exam for this course. 100-90:A, 90 \> grade \> 85: A-, 85 \> grade \> 80 B- and so on.
+
+### Participation in class discussion and activities
+
+Students are expected to attend class and to participate in discussion and activities. Students should email the professor prior to class if they cannot make it. Material throughout the course builds on earlier material (both technical and conceptual). If you cannot make class you should refer to the online materials first and then consult with your classmates. Office hours are not for personal replays of teaching, nor can they compensate for not participating in discussion.
+
+Hints on participation:
+
+-   Useful participation can come from asking questions if you don't understand the point someone is making. If you have questions, very likely others do to.
+-   You can also summarize discussion which helps everyone by giving them something to test their understanding of the discussion.
+-   You can challenge or disagree with people, sometimes that can be introducing a counter-example or questioning whether evidence really means what the speaker originally thought.
+-   I really welcome examples from your own experience. For example if there is an organization, movement, or line of thought (modern/traditional) in your culture that relates to open source development, I would love that to be part of the discussion.
+
+### Technical Challenges
+
+The course will have assignments based on the technical topics we are learning, including use of the DataCamp course (see below).
+
+### Papers and Projects
+
+#### Analogies paper
+
+See Canvas.
+
+#### Paper or project
+
+See Canvas.
+
+### Presentation
+
+Students will create and give a presentation to present in the final week of classes.  See Canvas for details.
+
+### Late submission policy
+
+The late policy for papers/projects/presentation is a 10% reduction for submissions up to 24 hours after the due time, but zero points after that. You can, of course, contact me if you have an emergency.
+
+<!-- ### Open Source comparison paper -->
+
+<!-- For this assignment students will write a 1,000 word scholarly essay describing and analyzing efforts to adapt the "open source way" outside of software development. Students will be given a list of five projects they need to research and analyze to compare to "the open source way". Examples could include open hardware, open governance, open culture. The paper should draw on the conceptual literature to compare and contrast the challenge faced by these adaptation efforts to what we've learned about "the open source way". The paper will also describe the collaboration infrastructure used and compare it to the technologies we have learned in class). -->
+
+<!-- The paper will be authored in Plain Text or Markdown and submitted via a pull request to the class github. Include your name in the filename and at the top of the document, and include a note at the top of the file telling me which formal citation approach you are using (e.g., APA, MLA, etc). Students are cautioned that as a scholarly paper proper citation and use of sources is required otherwise students will face academic misconduct proceedings. See ["Academic Integrity" presentation](https://utexas.zoom.us/rec/share/AjF6eoJH2heRWqQkTAHAQTfpp05UbE7WRhT-vQFw9wYevV8YBjpE2AJ_2PD07Mca.2v_7lGqZ0OoKbJzG) if at all unsure. -->
+
+<!--### Open Source Trace Data analysis Project
+
+Students will be introduced to datasets of archives of activity in open source projects and develop their own analysis. For example, students might want to highlight those participants that are most active over time in a project, show whether leadership has changed within projects, or analyze license usage over time.
+
+There are three graded components, each to be submitted via a pull request. All components should reference the insight readings that we do throughout the course.
+
+1.  Identifying and describing a project. \~500 words. Authored in plain text or markdown (ensure file is encoded with Unicode UTF-8 encoding and Unix/LF-only line endings). This paper should clearly identify the intended analysis and argue for its relevance, including using literature to identify expectations. Include your name in the filename and at the top of the document, and include a note at the top of the file telling me which formal citation approach you are using (e.g., APA, MLA, etc).
+
+2.  Implementing the analysis and report. \~500-1000 words, authored in RMarkdown, using the citation features. Students should describe the dataset, their analysis (possibly including graphs), and their interpretation. Students should compare their experience with their expectations described in the first paper and use at least two references from our conceptual literature to justify their inquiry. Create a folder in assignment_submission/trace_data_project/your_name and all files in that folder. Submit via a pull request from a branch created just for this submission (i.e., not master), and post that URL to the Canvas assignment, ensure this is a separate PR from your slide submission (below).-->
+
+## Materials
+
+There are no required texts for this course and no materials to purchase.
+
+Readings, tutorials, and will be provided via pages linked from the class calendar below.
+
+I will enroll the class in [DataCamp](https://www.datacamp.com/), giving students free access to the DataCamp courses (including their premium courses). In particular we will be using their interactive course on `git` during classes in the first half of the course. I encourage students to explore their other course options during the semester.
+
+# Course Outline {#outline}
+
+## Draft Course Schedule
+
+Table below shows classes and topics planned. Each class has both an insight (aka theory, conceptual) and a skills (aka tech, practical) component. These will become links to materials for the class.
+
+```{r courseoutline, include=FALSE}
+
+readings <- tribble(
+  ~reading_text, ~reading_link, ~topic_assigned,
+  #----------------------------
+  "DataCamp Git Chapter 1 - Basic Workflow",
+    "https://campus.datacamp.com/courses/introduction-to-git-for-data-science/basic-workflow",
+    "Git basic workflow",
+  
+  "DataCamp Git Chapter 2 - Repositories",
+    "https://campus.datacamp.com/courses/introduction-to-git-for-data-science/repositories",
+    "Git basic workflow",
+  
+  "Only the very first lesson of \"Learning Git Branching\" site (useful visualizations of trees)",
+    "https://learngitbranching.js.org/",
+    "Git basic workflow",
+  
+  "Useful Blog on undo in git (keep for reference)",
+    "https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/",
+  "Rewinding work @sec-rewinding",
+
+  "DataCamp Git Chapter 3 - Undo",
+  "https://campus.datacamp.com/courses/introduction-to-git-for-data-science/undo",
+    "Rewinding work",
+  
+  "DataCamp Git Chapter 4 - Branches",
+    "https://campus.datacamp.com/courses/introduction-to-git-for-data-science/working-with-branches",
+    "Branching",
+  
+  "DataCamp Git Chapter 5 - Collaborating",
+    "https://campus.datacamp.com/courses/introduction-to-git-for-data-science/collaborating",
+    "Sharing and conflicts",
+  
+  "Atlassian materials on git workflows (esp. forking workflow)",
+  "https://www.atlassian.com/git/tutorials/comparing-workflows",
+    "Sharing and conflicts",
+  
+  "TravisCI For Beginners",
+    "https://docs.travis-ci.com/user/for-beginners/",
+    "Testing and Continuous Integration",
+  
+  "TravisCI Getting Started",
+    "https://docs.travis-ci.com/user/getting-started/",
+    "Testing and Continuous Integration",
+  
+  "Github Release Announcement",
+    "https://github.com/blog/1547-release-your-software",
+    "Release management",
+  
+  "Github Help on Releases",
+    "https://help.github.com/articles/creating-releases/",
+    "Release management",
+  
+  "Github Markdown",
+    "https://guides.github.com/features/mastering-markdown/",
+    "Documentation and Q&A",
+  
+  "Commonmark Markdown Tutorial",
+    "http://commonmark.org/help/tutorial/",
+    "Documentation and Q&A",
+  
+  "Citations and references in Markdown",
+    "https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html",
+    "Documentation and Q&A",
+  
+  # "Wikipedia Student Tutorial",
+  #   "https://en.wikipedia.org/wiki/Wikipedia:Training/For_students",
+  #   "Wikipedia Editing",
+  # 
+  # "Datacamp Rmarkdown - All 2 chapters",
+  #   "https://campus.datacamp.com/courses/communicating-with-data-in-the-tidyverse/introduction-to-rmarkdown?ex=1",
+  #   "Executable Papers",
+  # # "Marking your work with a CC license",
+  #   "https://wiki.creativecommons.org/wiki/Marking_your_work_with_a_CC_license",
+  #   "Machine Readable Creative Commons Licenses",
+  # "CC Best practices for attribution",
+  #   "https://wiki.creativecommons.org/wiki/Best_practices_for_attribution",
+  #   "Machine Readable Creative Commons Licenses",
+  # "Additional Git Exercises",
+  #   "docs/additional_git_exercises.html",
+  #   "Rewinding Git and additional exercises"
+)
+
+insight_readings <- tribble(
+  ~reading_text, ~reading_link, ~topic_assigned,
+  #--------------------------------
+  "Richard Stallman. (2001, May 29). Richard M. Stallman’s speech: “Free Software: Freedom and Cooperation” [Speech Transcript]",
+  "https://www.gnu.org/philosophy/rms-nyu-2001-transcript.txt",
+  "What is Open Source",
+  "Vice News 2020, March 3. Farmers Are Hacking Their Tractors Because of a Repair Ban.",
+  "https://www.youtube.com/watch?v=EPYy_g8NzmI",
+  "What is Open Source",
+  "From 2:00 through 7:50 (ie just ~5mins) Nadia Eghbal. (2020, December 3). The Making and Maintenance of our Open Source Infrastructure",
+  "https://www.youtube.com/watch?v=5wLKnN3To-k?start=2:00",
+  "What is Open Source",
+
+  # "Benkler, Peer Production and Cooperation.",
+  #   "http://www.benkler.org/Peer%20production%20and%20cooperation%2009.pdf",
+  #   "Peer production vs other organizational forms",
+  # "Levine, S. S., & Prietula, M. J. (2013). Open Collaboration for Innovation: Principles and Performance. Organization Science, 25(5), 1414–1433.",
+  #   "https://doi.org/10.1287/orsc.2013.0872",
+  #   "Peer production vs other organizational forms",
+  # "Eric Raymond. The Cathdral and the Bazaar",
+  #   "http://www.catb.org/esr/writings/cathedral-bazaar/cathedral-bazaar/",
+  #   "Peer production vs other organizational forms",
+  # "Richard Millington. Types of online communities.",
+  # "https://www.feverbee.com/types-of-community-and-activity-within-the-community/",
+  # "Peer production vs other organizational forms",
+  # "Don Tapscott. Wikinomics. Chpt 3: \"Peer Pioneers\" (p. 77)",
+  #   "https://archive.org/details/wikinomicshowmas00taps_0",
+  #   "Peer production vs other organizational forms",
+  # "Section \"Discovery: Participation Observation\" in Howison, J., & Crowston, K. (2014). Collaboration through open superposition: A theory of the open source way. MIS Quarterly, 38(1), 29–50.",
+  #   "http://james.howison.name/pubs/howison-2014-superposition.pdf",
+  #   "Peer production case studies",
+  # "Chapter \"Coordinating Collaboration\" of Kelty, C. M. (2008). Two Bits: The Cultural Significance of Free Software. Durham: Duke University Press Books.",
+  #   "http://twobits.net/pub/Kelty-TwoBits.pdf",
+  #   "Peer production case studies",
+  # "Giving it Away: How Red Hat Software Stumbled Across a New Economic Model and Helped Improve an Industry. Robert Young (Founder of RedHat software)",
+  #   "http://www.oreilly.com/openbook/opensources/book/young.html",
+  #   "Peer production case studies",
+  # "Freeing the Source: The Story of Mozilla (Jim Hamerly and Tom Paquin with Susan Walton)",
+  #   "http://www.oreilly.com/openbook/opensources/book/netrev.html",
+  #   "Peer production case studies",
+  # "Geiger, R. S., & Ribes, D. (2010). The Work of Sustaining Order in Wikipedia: The Banning of a Vandal. In Proceedings of the 2010 ACM Conference on Computer Supported Cooperative Work (pp. 117–126). New York, NY, USA: ACM.",
+  #   "https://doi.org/10.1145/1718918.1718941",
+  #   "Peer production case studies",
+  # "GNU General Public License v 3.0",
+  #   "https://www.gnu.org/licenses/gpl-3.0.txt",
+  #   "Licenses",
+  "Chapter \"Writing Copyright Licenses\" of Kelty, C. M. (2008). Two Bits: The Cultural Significance of Free Software. Durham: Duke University Press Books.",
+    "https://twobits.net/pub/Kelty-TwoBits.pdf#page=195",
+    "Licenses",
+  "The Open Source Definition",
+  "https://opensource.org/osd",
+  "Licenses",
+
+  "Creative Commons v4.0 license BY-SA (read others if you have time)",
+    "https://creativecommons.org/licenses/by-sa/4.0/",
+    "Licenses",
+  # "More background about the Cisco case, FSF blog",
+  #   "https://www.fsf.org/blogs/licensing/2008-12-cisco-complaint",
+  #   "Licenses",
+  "FSF Settles Suit Against Cisco",
+    "https://www.fsf.org/news/2009-05-cisco-settlement.html",
+    "Licenses",
+  # "Black Duck Software: Open Source License Compliance",
+  #   "https://www.blackducksoftware.com/solutions/open-source-license-compliance",
+  #   "Licenses",
+  # "The Legal Side of Open Source",
+  #   "https://opensource.guide/legal/",
+  #   "Licenses",
+  # "Broadening node.js contributions (Contributor Agreement)",
+  #   "https://www.joyent.com/blog/broadening-node-js-contributions",
+  #   "Licenses",
+  "Amazon: NOT OK - why we had to change Elastic licensing. (2021, January 19). Elastic Blog.", "https://www.elastic.co/blog/why-license-change-AWS",
+  "Licenses",
+  # "Cracks are showing in Enterprise Open Source's foundations",
+  # "https://news.ycombinator.com/item?id=25943393",
+  # "Licenses",
+  "Carlos Munoz Ferrandis. (2022, August 31). OpenRAIL: Towards open and responsible AI licensing frameworks. Hugging Face Blog.",
+  "https://huggingface.co/blog/open_rail",
+  "Licenses",
+  # "Introducing: Funds for Open Source",
+  # "https://blog.opencollective.com/funds-for-open-source/",
+  #   "Motivations",
+  # "Ryan, R. M., & Deci, E. L. (2000). Intrinsic and Extrinsic Motivations: Classic Definitions and New Directions. Contemporary Educational Psychology, 25(1), 54–67.",
+  #   "https://doi.org/10.1006/ceps.1999.1020",
+  #   "Motivations",
+  # "Section on Motivations in: Crowston, K., Wei, K., Howison, J., & Wiggins, A. (2012). Free (Libre) Open Source Software Development: What We Know and What We Do Not Know. ACM Computing Surveys, 44(2), Article 7.",
+  #   "https://doi.org/10.1145/2089125.2089127",
+  #   "Motivations",
+  # "Lee, A., Carver, J. C., & Bosu, A. (2017). Understanding the Impressions, Motivations, and Barriers of One Time Code Contributors to FLOSS Projects: A Survey. In Proceedings of the 39th International Conference on Software Engineering (pp. 187–197). Piscataway, NJ, USA: IEEE Press.",
+  # "https://doi.org/10.1109/ICSE.2017.25",
+  # "Motivations",
+  # "Crowston, K., & Fagnot, I. (2018). Stages of motivation for contributing user-generated content: A theory and empirical test. International Journal of Human-Computer Studies, 109, 89–101.",
+  #   "https://doi.org/10.1016/j.ijhcs.2017.08.005",
+  #   "Motivations",
+  "Malone, T. W., & Crowston, K. (1994). The interdisciplinary theory of coordination. ACM Computing Surveys, 26(1), 87–119.",
+    "https://doi.org/10.1145/174666.174668",
+    "Coordination",
+  "Expectancy Theory (Wikipedia)",
+    "https://en.wikipedia.org/wiki/Expectancy_theory",
+    "Coordination",
+  "Expectancy Theory (useful figure)",
+    "https://iedunote.com/expentancey-theory",
+    "Coordination",
+#  "Kiggundu, M. N. (1983). Task interdependence and job design: Test of a theory. Organizational Behavior and Human Performance, 31(2), 145–172.",
+ #   "https://doi.org/10.1016/0030-5073(83)90118-6",
+#    "Coordination",
+
+  "Rest of Howison, J., & Crowston, K. (2014). Collaboration through open superposition: A theory of the open source way. MIS Quarterly, 38(1), 29–50.",
+    "http://james.howison.name/pubs/howison-2014-superposition.pdf",
+    "Coordination",
+  "Slides for Open Superposition presentation",
+    "presentations/Howison-PP-OpenSuperposition.pdf",
+    "Coordination",
+"Crowston, K., Saltz, J. S., Rezgui, A., Hegde, Y., & You, S. (2019). Socio-technical Affordances for Stigmergic Coordination Implemented in MIDST, a Tool for Data-Science Teams. Proceedings of the ACM on Human-Computer Interaction, 3(CSCW), 1–25.",
+"https://doi.org/10.1145/3359219",
+"Coordination",
+  "Lindberg, A., Berente, N., Gaskin, J., & Lyytinen, K. (2016). Coordinating Interdependencies in Online Communities: A Study of an Open Source Software Project. Information Systems Research, 27(4), 751–772.",
+    "https://doi.org/10.1287/isre.2016.0673",
+    "Coordination",
+
+  "OSS Watch Governance Models",
+    "http://oss-watch.ac.uk/resources/governancemodels",
+    "Governance",
+  "Shah, S. K. (2006). Motivation, governance, and the viability of hybrid forms in open source software development. Management Science, 52(7), 1000–1014.",
+    "https://doi.org/10.1287/mnsc.1060.0553",
+    "Governance",
+  "Chapter 4 \"Social and Political Infrastructure\" from Fogel, Karl (2018) \"Producing OSS: How to Run a Successful Free Software Project\"",
+    "https://producingoss.com/en/social-infrastructure.html",
+    "Governance",
+  "Chapter 8 \"Managing Participants\" from from Fogel, Karl (2018) \"Producing OSS: How to Run a Successful Free Software Project\"",
+    "https://producingoss.com/en/managing-participants.html",
+    "Governance",
+  "Optional (except for Doctoral and aspiring doctoral students) Shaikh, M., & Henfridsson, O. (2017). Governing open source software through coordination processes. Information and Organization, 27(2), 116–135.",
+    "https://doi.org/10.1016/j.infoandorg.2017.04.001",
+    "Governance",
+  # "Coleman, E. G. (2012). Coding Freedom: The Ethics and Aesthetics of Hacking. Princeton: Princeton University Press.",
+  # "",
+  # "Governance",
+  "Giddings, R. V. (1984). Accommodating Uncertainty in Software Design. Commun. ACM, 27(5), 428–434.",
+    "https://doi.org/10.1145/358189.358066",
+    "Agile and Test Driven Development",
+  "Wikpedia on Continuous Integration",
+  "https://en.wikipedia.org/wiki/Test-driven_development",
+    "Agile and Test Driven Development",
+  "Vasilescu, B., Yu, Y., Wang, H., Devanbu, P., & Filkov, V. (2015). Quality and Productivity Outcomes Relating to Continuous Integration in GitHub. In Proceedings of the 2015 10th Joint Meeting on Foundations of Software Engineering (pp. 805–816). New York, NY, USA: ACM.",
+  "https://doi.org/10.1145/2786805.2786850",
+  "Agile and Test Driven Development",
+  "Raymond, E. S., & Moen, R. (2001). How To Ask Questions The Smart Way.",
+  "http://catb.org/~esr/faqs/smart-questions.html",
+  "Knowledge Sharing",
+      "Lakhani, K., & von Hippel, E. (2003). How open source software works: \"free\" user-to-user assistance. Research Policy, 32(6), 923–943.",
+    "https://doi.org/10.1016/S0048-7333(02)00095-1",
+      "Knowledge Sharing",
+"Albusays, K., Bjorn, P., Dabbish, L., Ford, D., Murphy-Hill, E., Serebrenik, A., & Storey, M.-A. (2021). The Diversity Crisis in Software Development. IEEE Software, 38(2), 19–25.", "https://doi.org/10.1109/MS.2020.3045817",
+"Bias and lack of diversity",
+  "Antin, J., Yee, R., Cheshire, C., & Nov, O. (2011). Gender Differences in Wikipedia Editing. In Proceedings of the 7th International Symposium on Wikis and Open Collaboration (pp. 11–14). New York, NY, USA: ACM.",
+  "https://doi.org/10.1145/2038558.2038561",
+  "Bias and lack of diversity",
+  "Hecht, B., & Gergle, D. (2010). The Tower of Babel Meets Web 2.0: User-generated Content and Its Applications in a Multilingual Context. In Proceedings of the SIGCHI Conference on Human Factors in Computing Systems (pp. 291–300). New York, NY, USA: ACM. https://doi.org/10.1145/1753326.1753370",
+  "http://dgergle.soc.northwestern.edu/resources/HechtAndGergle_TowerOfBabel-CHI2010.pdf",
+  "Bias and lack of diversity",
+  "Nearly All of Wikipedia Is Written By Just 1 Percent of Its Editors",
+    "https://motherboard.vice.com/en_us/article/7x47bb/wikipedia-editors-elite-diversity-foundation",
+  "Bias and lack of diversity",
+  "Wikipedia page on gender bias in Wikipedia (so meta)",
+    "https://en.wikipedia.org/wiki/Gender_bias_on_Wikipedia",
+    "Bias and lack of diversity",
+  "Inside Wikipedia’s Attempt to Use Artificial Intelligence to Combat Harassment",
+    "https://motherboard.vice.com/en_us/article/aeyvxz/wikipedia-jigsaw-google-artificial-intelligence",
+    "Bias and lack of diversity",
+  "A Code of Conduct for Open Source Projects (click through to markdown version)",
+    "https://www.contributor-covenant.org/",
+    "Bias and lack of diversity",
+  "Kittur, A., & Kraut, R. E. (2008). Harnessing the Wisdom of Crowds in Wikipedia: Quality Through Coordination. In Proceedings of the ACM Conference on Computer-Supported Cooperative Work (CSCW 2008) (pp. 37–46). San Diego, CA.",
+  "https://doi.org/10.1145/1460563.1460572",
+  "Peer production in Wikipedia",
+  "Butler, B., Joyce, E., & Pike, J. (2008). Don’t Look Now, but We’Ve Created a Bureaucracy: The Nature and Roles of Policies and Rules in Wikipedia. In Proceedings of the SIGCHI Conference on Human Factors in Computing Systems (pp. 1101–1110). New York, NY, USA: ACM.",
+  "https://doi.org/10.1145/1357054.1357227",
+  "Peer production in Wikipedia",
+"Baker, M. J., Détienne, F., & Barcellini, F. (2017). Argumentation and Conflict Management in Online Epistemic Communities: A Narrative Approach to Wikipedia Debates. In Interpersonal Argumentation in Educational and Professional Contexts (pp. 141–157). Springer, Cham.",
+   "https://doi.org/10.1007/978-3-319-59084-4_7",
+   "Peer production in Wikipedia",
+"Should CC-Licensed Content be Used to Train AI? It Depends. (2021, March 4). Creative Commons.", "https://creativecommons.org/2021/03/04/should-cc-licensed-content-be-used-to-train-ai-it-depends/",
+    "Peer production in Wikipedia",
+#-----------------
+"Stodden, V. (2010). The Scientific Method in Practice: Reproducibility in the Computational Sciences (SSRN Scholarly Paper No. ID 1550193). Rochester, NY: Social Science Research Network.",
+  "http://papers.ssrn.com/abstract=1550193",
+  "Peer production in Science",
+"Ince, D. C., Hatton, L., & Graham-Cumming, J. (2012). The case for open computer programs. Nature, 482(7386), 485–488.",
+   "https://doi.org/10.1038/nature10836",
+  "Peer production in Science",
+"Prlić, A., & Procter, J. B. (2012). Ten Simple Rules for the Open Development of Scientific Software. PLOS Comput Biol, 8(12), e1002802.",
+  "https://doi.org/10.1371/journal.pcbi.1002802",
+  "Peer production in Science",
+"Gil Yolanda, David Cédric H., Demir Ibrahim, Essawy Bakinam T., Fulweiler Robinson W., Goodall Jonathan L., … Yu Xuan. (2016). Toward the Geoscience Paper of the Future: Best practices for documenting and sharing research from data to software to provenance. Earth and Space Science, 3(10), 388–415.",
+"https://doi.org/10.1002/2015EA000136",
+   "Peer production in Science",
+"Howison, J., & Herbsleb, J. D. (2013). Incentives and integration in scientific software production. In Proceedings of the ACM Conference on Computer Supported Cooperative Work (pp. 459–470). San Antonio, TX.",
+   "https://doi.org/10.1145/2441776.2441828",
+   "Peer production in Science",
+"Jupyter, Mathematica, and the Future of the Research Paper (Paul Romer, famous economist)",
+"https://paulromer.net/jupyter-mathematica-and-the-future-of-the-research-paper/",
+"Peer production in Science"
+  )
+
+skills_topics <- tribble(
+  ~skill_topic, ~tech_commands,
+  #-------------------------------------
+#  "Tech setup workshop", "[terminal, command line, git install, github account](./docs/tech_setup.html)",
+  "Paper Planes: Version Control", "git add, commit via paper planes and tables",  
+"Git basic workflow @sec-git_basic_workflow ", "git add, commit (locally)",
+#  "Commits, blobs, and tree", "git diff continued HEAD and HEAD~1",
+  "Rewinding work @sec-rewinding ", "revert, other undos, checking out old versions, rewriting history",
+  "Branching @sec-branching ", "git checkout, merge.",  
+  "Sharing and collaborating via github @sec-github-solo ", "git clone, remote, push",
+  "Collaboration conflicts and workflows @sec-github-collaboration ", "github fork, pull request, pull upstream",
+  "Splitting PRs @sec-cherrypick ", "merge, conflicts, mark resolved, cherrypick, collaboration workflows  ",
+  "Rebase @sec-rebase and Managing Secrets @sec-history ", "git rebase",
+  "Git analogies paper workshop", "quarto and markdown",
+  "Final paper/project workshop", "quarto presentations",
+  "Final paper/project workshop", "quarto and markdown"
+  # "Documentation and Q&A", "github flavored markdown",
+  # "Unit Tests", "Test suites",
+  # "Continuous Integration", "Travis CI integration, Github Actions",
+  # "Release management", "github releases, git tag",
+  # "Creating and distributing packages", "python packages, pypy pinning",
+  
+ # "Wikipedia Editing", "wiki syntax, referencing",
+#  "Executable Papers", "rmarkdown, knitr, rstudio",
+  # "Rewinding Git and additional exercises", "[More Git exercises](docs/additional_git_exercises.html): git revert, rebase, cherry-pick. Also see [Commits are Snapshots not diffs](https://github.blog/2020-12-17-commits-are-snapshots-not-diffs/)",
+  # "Reserved class", "none"
+  # "Machine Readable Creative Commons Licenses", "CC web tools and xml"
+) %>% 
+  mutate(topic = "Skills") %>%  
+  rownames_to_column() %>% 
+  mutate(skill_topic = {.} %>% str_glue_data("{skill_topic}<br/><em>{tech_commands}</em>"))
+
+insight_topics <- tribble(
+  ~insight_topic,
+  #----------
+  "What is open source? @sec-what-is-open-source ",
+  "Motivations and Asking questions people want to answer @sec-motivations ",
+  "Licenses @sec-licenses",
+  "Coordination @sec-coordination ",
+  "Governance and decision making @sec-gov ",
+  "Knowledge sharing",
+  "Bias and lack of diversity @sec-diversity ",
+  "The stack and the stream @sec-stack-and-stream ",
+  "Agile and test driven development",
+  "Cybersecurity and open source"
+  # ""
+  # "Peer production in Art and Culture"
+) %>% mutate(topic = "Insights") %>%  rownames_to_column()
+
+introduction_topics <- tibble(introduction_topic = c("Syllabus Review", "Paper Planes: Innovation and collaboration"), topic = "Introduction") %>%  rownames_to_column()
+
+presentation_topics <- tibble(presentation_topic = c("Presentations", "Presentations"), topic = "Presentations") %>%  rownames_to_column()
+
+
+# content_classes <- full_join(insight_topics, skills_topics, by="rowname") %>%
+#  #  mutate(skill_topic = glue_data(., "{skill_topic}{tech_commands}")) %>%
+#   select(insight_topic, skill_topic, tech_commands) %>%
+#   rownames_to_column(var = "class_name") %>%
+#   mutate(class_name = str_c("Content", "class", class_name, sep=" "))
+# 
+first_class <- tibble(class_name = c("Syllabus Review and Paper Planes activities"))
+# 
+# last_classes <- tibble(class_name = c("Presentations"))
+# 
+# schedule <- bind_rows(first_class, content_classes, last_classes) %>% rownames_to_column()
+```
+
+```{r figure_class_meets, include=F}
+
+expand_days <- function(start, end) {
+  tibble(days_list = seq(from = parse_datetime(start), to = parse_datetime(end), by = "day"))
+}
+
+no_meetings <- tribble(
+  ~period_start, ~period_end, ~class_name,
+  #--------------------
+   "2023-01-16", "2023-01-16", "No meeting: MLK day",
+   "2023-03-13", "2023-03-18", "No meeting: Spring Break",
+   "2023-01-31", "2023-02-02", "No meeting: Ice Storm",
+   "2023-02-20", "2023-02-20", "No meeting: Instructor Travel",
+  
+) %>%
+  mutate(days_list = map2(period_start, period_end, expand_days)) %>%
+  select(class_name, days_list) %>%
+  unnest()
+
+first_class_day = parse_datetime("2023-01-09")
+
+last_class_day = parse_datetime("2023-04-21")
+
+first_mon = parse_datetime("2023-01-09")
+
+first_wed = parse_datetime("2023-01-11")
+
+# class Tuesday 9-11:45
+all_mon <- seq(first_mon, to = last_class_day, by = "week")
+all_wed <- seq(first_wed, to = last_class_day, by = "week")
+# all_thursdays <- c(parse_datetime("2020-08-27"))
+
+all_classes <- c(all_mon, all_wed, recursive = T) %>% sort 
+
+meets_schedule <- tibble(class_day = all_classes) %>%
+  # add no meeting days to schedule
+  left_join(no_meetings, by = c("class_day" = "days_list")) %>%
+  mutate(meets = if_else(is.na(class_name), TRUE, FALSE)) %>% 
+  mutate(week_num = isoweek(class_day) - 1,
+         day_of_week = wday(class_day, label=T)) %>% 
+  mutate(topic = case_when(
+                   week_num == 1 ~ "Introduction",
+                   week_num == max(week_num) ~ "Presentations",
+                   day_of_week == "Mon" & meets == T ~ "Insights",
+                   day_of_week == "Wed" & meets == T ~ "Skills",
+                   TRUE ~ "No Meeting"
+                   )
+         ) %>% 
+  group_by(topic) %>% 
+  mutate(topic_order = row_number() %>%  as.character) %>% 
+  left_join(insight_topics, by = c("topic", "topic_order" = "rowname")) %>% 
+  left_join(skills_topics, by = c("topic", "topic_order" = "rowname")) %>% 
+  left_join(introduction_topics, by = c("topic", "topic_order" = "rowname")) %>% 
+  left_join(presentation_topics, by = c("topic", "topic_order" = "rowname")) %>% 
+  mutate(class_name = coalesce(class_name, insight_topic, skill_topic, introduction_topic, presentation_topic)) %>% 
+  select(-ends_with("topic"))
+
+```
+
+```{r}
+#| results: asis
+
+meets_schedule %>%
+  mutate(day_name = class_day %>% format("%a"),
+        formatted_day = class_day %>% format("%a %b %d"),
+        formatted_day = cell_spec(formatted_day, "html", color = ifelse(meets == TRUE, "#5D3A9B", "#E66100"), strikeout = ! meets)) %>%
+  select(-meets) %>% 
+  # Make Mon/Wed column to eventually be column header
+ #  unite(column_header, day_name, topic, sep = " - ") %>% 
+  select(week_num, day_name, formatted_day, topic, class_name) %>%
+  pivot_longer(cols = c(formatted_day, topic, class_name)) %>% 
+  unite(column_header, day_name, name, sep = " - ") %>% 
+  pivot_wider(names_from = column_header, values_from = value) %>% 
+  
+  # replace_na(list(skill_topic = "none", insight_topic = "none", tech_commands = "none")) %>%
+   kable("html", escape = FALSE, col.names = c("Week", "Day", "Module", "Topic", "Day", "Module", "Topic")) %>%
+   add_header_above(c(" ", "First Class" = 3, "Second Class" = 3)) %>% 
+   kable_styling(bootstrap_options = c("responsive", "striped")) |>
+   unclass() |> cat() # to make quarto references work https://github.com/quarto-dev/quarto-cli/issues/3340
+```
+
+## Skills Readings
+
+```{r, eval=F}
+
+# get dates for readings.
+dated_readings <- readings %>% left_join(meets_schedule, by = c("class_name" = "skill_topic"))
+
+dated_readings <- readings
+
+group_counts <- dated_readings %>%
+  arrange(class_day) %>%
+  group_by(topic_assigned, class_day) %>%
+  summarize(group_size = n(), .groups = 'drop') %>%
+  arrange(class_day) %>%
+  select(-class_day) %>%
+  deframe()
+
+# group_indexes <- setNames(group_counts$group_size, group_counts$topic_assigned)
+
+dated_readings %>%
+  mutate(reading_link = glue("[link]({reading_link})")) %>%
+  arrange(class_day) %>%
+  select(reading_text, reading_link) %>%
+  kable("html", escape = FALSE, col.names = NULL) %>%
+  kable_styling(bootstrap_options = c("responsive", "striped")) %>%
+  kableExtra::group_rows(index = group_counts) %>%
+  {.}
+```
+
+## Insight Readings
+
+Often I can link directly to websites or PDFs, but sometimes I will provide links to articles in journals etc. You must be able to get the article through the library, generally speaking using the [web VPN](http://vpn.utexas.edu) is the most convenient approach. Another option that can sometimes work is [UnPaywall](http://unpaywall.org/) which works to find an open access article version when looking at a publisher's page for the article.
+
+```{r, eval=F}
+insight_dated <- insight_readings %>% left_join(meetings, by = c("topic_assigned" = "insight_topic"))
+
+group_counts <- insight_dated %>%
+  arrange(class_day) %>%
+  group_by(topic_assigned, class_day) %>%
+  # group_by(topic_assigned, class_day) %>%
+  summarize(group_size = n(), .groups = 'drop') %>%
+  arrange(class_day) %>%
+  select(-class_day) %>%
+  deframe
+
+# group_indexes <- setNames(group_counts$group_size, group_counts$topic_assigned)
+
+insight_dated %>%
+  mutate(reading_link = glue("[link]({reading_link})")) %>%
+  arrange(class_day) %>%
+  select(reading_text, reading_link) %>%
+  kable("html", escape = FALSE, col.names = NULL) %>%
+  kable_styling(bootstrap_options = c("responsive", "striped")) %>%
+  kableExtra::group_rows(index = group_counts) %>%
+  {.}
+
+```
+
+# Policies
+
+## Class Recordings
+
+Class Recordings: Class recordings are reserved only for students in this class for educational purposes and are protected under FERPA. The recordings should not be shared outside the class in any form. Violation of this restriction by a student could lead to Student Misconduct proceedings. Guidance on public access to class recordings can be found [here](https://covid.provost.utexas.edu/faculty/search/?query=can%2520i%2520make%2520recordings%2520public).
+
+## Academic Integrity
+
+Each student in the course is expected to abide by the University of Texas Honor Code: "As a student of The University of Texas at Austin, I shall abide by the core values of the University and uphold academic integrity." Plagiarism is taken very seriously at UT. Therefore, if you use words or ideas that are not your own (or that you have used in previous class), you must cite your sources. Otherwise you will be guilty of plagiarism and subject to academic disciplinary action, including failure of the course. In particular, students are reminded that proper citation requires mentioning sources when you use them, not just in a general list of references at the end of a document. You are responsible for understanding UT's Academic Honesty and the University Honor Code which can be found at the following web address: <http://deanofstudents.utexas.edu/sjs/acint_student.php>
+
+## Student rights and responsibilities
+
+-   You have a right to a learning environment that supports mental and physical wellness.
+-   You have a right to respect.
+-   You have a right to be assessed and graded fairly.
+-   You have a right to freedom of opinion and expression.
+-   You have a right to privacy and confidentiality.
+-   You have a right to meaningful and equal participation, and to self-organize groups to improve your learning environment.
+-   You have a right to learn in an environment that is welcoming to all people. No student shall be isolated, excluded or diminished in any way.
+
+With these rights come responsibilities:
+
+-   You are responsible for taking care of yourself, managing your time, and communicating with the teaching team and with others if things start to feel out of control or overwhelming.
+-   You are responsible for acting in a way that is worthy of respect and always respectful of others.
+-   Your experience with this course is directly related to the quality of the energy that you bring to it, and your energy shapes the quality of your peers' experiences.
+-   You are responsible for creating an inclusive environment and for speaking up when someone is excluded. In particular, you are responsible for ensuring that your participation does not exclude the participation of others. Office hours are available for in-depth further discussion of advanced topics or other interests that pursuing in depth during class would exclude others.
+-   You are responsible for holding yourself accountable to these standards, holding each other to these standards, and holding the teaching team accountable as well.
+
+## Personal Pronoun Preference
+
+Professional courtesy and sensitivity are especially important with respect to individuals and topics dealing with differences of race, culture, religion, politics, sexual orientation, gender, gender variance, and nationalities. Class rosters are provided to the instructor with the student's legal name. I will gladly honor your request to address you by an alternate name or gender pronoun. Please advise me of this preference early in the semester so that I may make appropriate changes to my records.
+
+## Drop Policy
+
+If you want to drop a class after the 12th class day, you'll need to execute a Q drop before the Q-drop deadline, which typically occurs near the middle of the semester. Under Texas law, you are only allowed six Q drops while you are in college at any public Texas institution. For more information, see: <http://www.utexas.edu/ugs/csacc/academic/adddrop/qdrop>
+
+International students *must* [meet with the international office](https://world.utexas.edu/isss/visa/maintain/student) before dropping a class that would put them below full-time status. Although it is worth noting that there are legitimate reasons that allow International students to be below full-time status, so if you think you are failing a course (or just performing below your expectations) don't make assumptions either way, speak with the international office to discover your options.
+
+## University Resources for Students
+
+Your success in this class is important to me. We will all need accommodations at different times because we all learn differently. If there are aspects of this course that prevent you from learning or exclude you, please let me know as soon as possible. Together we'll develop strategies to meet both your needs and the requirements of the course. There are also a range of resources on campus, detailed below.
+
+### Accessible/Compliant Statement:
+
+If you are a student with a disability, or think you may have a disability, and need accommodations please contact Disability and Access (D&A). You may refer to D&A's website for contact and more information: <http://diversity.utexas.edu/disability/>. If you are already registered with D&A, please deliver your Accommodation Letter to me as early as possible in the semester so we can discuss your approved accommodations.
+
+### Accessible, Inclusive, and Compliant Statement:
+
+The university is committed to creating an accessible and inclusive learning environment consistent with university policy and federal and state law. Please let me know if you experience any barriers to learning so I can work with you to ensure you have equal opportunity to participate fully in this course. If you are a student with a disability, or think you may have a disability, and need accommodations please contact Disability and Access (D&A). Please refer to D&A's website for contact and more information: <http://diversity.utexas.edu/disability/>. If you are already registered with D&A , please deliver your Accommodation Letter to me as early as possible in the semester so we can discuss your approved accommodations and needs in this course.
+
+### Counseling and Mental Health Center
+
+All of us benefit from support during times of struggle. You are not alone. There are many helpful resources available on campus and an important part of the college experience is learning how to ask for help. Asking for support sooner rather than later is often helpful.
+
+If you or anyone you know experiences any academic stress, difficult life events, or feelings like anxiety or depression, we strongly encourage you to seek support. <http://www.cmhc.utexas.edu/individualcounseling.html>
+
+### The Sanger Learning Center
+
+All students, including graduate students, are welcome to take advantage of Sanger Center's classes and workshops, private learning specialist appointments, peer academic coaching, and tutoring for more than 70 courses in 15 different subject areas. For more information, please visit <https://ugs.utexas.edu/slc/grad> or call 512-471-3614 (JES A332).
+
+### [University Writing Center free programs for grad students](http://uwc.utexas.edu/grad/)
+
+### [Libraries](http://www.lib.utexas.edu/)
+
+### [IT services](http://www.utexas.edu/its/)
+
+### [Student Emergency Services](http://deanofstudents.utexas.edu/emergency/)
+
+### Important Safety Information
+
+If you have concerns about the safety or behavior of fellow students, TAs or Professors, call BCAL (the Behavior Concerns Advice Line): 512-232-5050. Your call can be anonymous. If something doesn't feel right---it probably isn't. Trust your instincts and share your concerns.
+
+The following recommendations regarding emergency evacuation from the Office of Campus Safety and Security, 512-471-5767, <http://www.utexas.edu/safety/>
+
+Occupants of buildings on The University of Texas at Austin campus are required to evacuate buildings when a fire alarm is activated. Alarm activation or announcement requires exiting and assembling outside.
+
+-   Familiarize yourself with all exit doors of each classroom and building you may occupy. Remember that the nearest exit door may not be the one you used when entering the building.
+-   Students requiring assistance in evacuation shall inform their instructor in writing during the first week of class.
+-   In the event of an evacuation, follow the instruction of faculty or class instructors. Do not re-enter a building unless given instructions by the following: Austin Fire Department, The University of Texas at Austin Police Department, or Fire Prevention Services office.
+-   Link to information regarding emergency evacuation routes and emergency procedures can be found at: <http://www.utexas.edu/emergency>

@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.475">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Open Source Software Development: A socio-technical course - 4&nbsp; Motivations</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../insights/licenses.html" rel="next">
+<link href="../insights/what_is_open_source.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Motivations</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Open Source Software Development: A socio-technical course</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/howisonlab/open_source_software_course/tree/master/quarto_course/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Open Source Software Development: A socio-technical course</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../oss_syllabus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Syllabus for Open Source Software Development</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Insights</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/what_is_open_source.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction: What is open source?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/motivations.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Motivations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/licenses.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Licenses</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/coordination.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Coordination</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/governance.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Governance</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/bias_lack_of_diversity.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bias and Lack of Diversity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/stack_and_stream.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">From Stack, to stream, to ecosystem.</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Skills</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/git_basic_workflow.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Git basic workflow</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/git_rewinding_work.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Rewinding work</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/branching.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Local branching with Git.</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/github_solo.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">GitHub solo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/github_collaboration.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Github collaboration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/git_cherrypick_split_pr.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Split a Pull Request</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/git_rebase.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Rebase for synchronizing work</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/git_delete_history.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Removing something from history entirely</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Appendices</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/skills_faq.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Skills faq</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#how-to-ask-questions-people-want-to-answer" id="toc-how-to-ask-questions-people-want-to-answer" class="nav-link active" data-scroll-target="#how-to-ask-questions-people-want-to-answer"><span class="toc-section-number">4.1</span>  How to ask questions people want to answer</a>
+  <ul class="collapse">
+  <li><a href="#rtfm" id="toc-rtfm" class="nav-link" data-scroll-target="#rtfm"><span class="toc-section-number">4.1.1</span>  RTFM</a></li>
+  <li><a href="#engaging-intellectual-curiosity" id="toc-engaging-intellectual-curiosity" class="nav-link" data-scroll-target="#engaging-intellectual-curiosity"><span class="toc-section-number">4.1.2</span>  Engaging intellectual curiosity</a></li>
+  <li><a href="#steps-to-answered-question" id="toc-steps-to-answered-question" class="nav-link" data-scroll-target="#steps-to-answered-question"><span class="toc-section-number">4.1.3</span>  Steps to answered question</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples"><span class="toc-section-number">4.1.4</span>  Examples</a></li>
+  </ul></li>
+  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources"><span class="toc-section-number">4.2</span>  Resources</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/insights/motivations.qmd" class="toc-action">View source</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-motivations" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Motivations</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="how-to-ask-questions-people-want-to-answer" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="how-to-ask-questions-people-want-to-answer"><span class="header-section-number">4.1</span> How to ask questions people want to answer</h2>
+<p><strong>Much of this material is based on <a href="http://www.catb.org/~esr/faqs/smart-questions.html">How To Ask Questions The Smart Way, Eric Raymond and Rick Moen</a> with the addition of academic references and frameworks.</strong></p>
+<p>Open source projects are famous for having direct access to very knowledgeable people about the source code. Unlike when you purchase software, you can very likely get questions in front of some of the people that wrote the underlying code.</p>
+<p>But ask yourself why they are there, reading and answering user questions. What drives them, what motivates them?</p>
+<section id="rtfm" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="rtfm"><span class="header-section-number">4.1.1</span> RTFM</h3>
+<p>There is always a risk that a poorly asked question will be met with this response:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/rtfm_mug_gubatron.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">RTFM Mug by Gubatron (CC-licensed http://www.flickr.com/photos/gubatron/3102412751)</figcaption><p></p>
+</figure>
+</div>
+<p>RTFM means to “Read the F***ing Manual” (which I’ll read as Read the Fine Manual). This rather unfriendly, and indeed unwelcoming response can occur when a question is asked in a way that doesn’t understand what it is that motivates people to participate in online support forums for software.</p>
+<blockquote class="blockquote">
+<p>I note that open communities are not necessarily welcoming places. In fact they can be quite aggressive, even toxic. It is perhaps not unrelated that open communities are also no diverse. We will discuss this later in the course when we consider Bias and Lack of Diversity in <span class="citation" data-cites="bias-and-lack-of-diversity">@bias-and-lack-of-diversity</span></p>
+</blockquote>
+<p>Lakhani and von Hippel (2003) studied the Apache <code>httpd</code> mailing list. They mailed a survey link to participants the first time they saw them post to the list, only mailing each person once. They received responses from 28.9% of info providers, and 16.6% info seekers.</p>
+<p>They report that :</p>
+<ul>
+<li><p>spending time in the forum had excellent ROI (return on investment) for information seekers (Seekers saved 9 minutes for every 1 minute spent writing questions).</p></li>
+<li><p>Providers answer questions that are easy for them, rarely do they seek out additional information to help answer.</p></li>
+<li><p>Information Providers invest a lot of time in the forum, average of 80 hours a year.</p></li>
+<li><p>Key motivations to answer were reciprocity and reputation within Apache (not career prospects)</p></li>
+<li><p>But information providers are primarily there to learn (&gt;90% of time spent reading, not answering).</p></li>
+</ul>
+<p>So, very knowledgeable people answer people’s questions when it is easy for them to do so (not spending time preparing and researching, this is not Q&amp;A for $$$ like Quora). So what is it that brings them to these forums (thus making it quick and easy for them to answer): learning.</p>
+<p>Huh? What do already knowledgeable people learn by hanging out watching less knowledgeable people ask questions?</p>
+<p><strong>Exercise</strong></p>
+<ul>
+<li>What does someone learn from reading questions (and answers) in a technical forum?</li>
+<li>What does someone learn from answering?</li>
+</ul>
+</section>
+<section id="engaging-intellectual-curiosity" class="level3" data-number="4.1.2">
+<h3 data-number="4.1.2" class="anchored" data-anchor-id="engaging-intellectual-curiosity"><span class="header-section-number">4.1.2</span> Engaging intellectual curiosity</h3>
+<ul>
+<li>Experts love interesting problems and the solving of them.</li>
+<li>Interesting problems are those that reveal some new insights</li>
+<li>Uninteresting problems are either obvious or unsolvable (poorly specified or not actionable).</li>
+<li>Ask questions like an intellectual partner.</li>
+</ul>
+</section>
+<section id="steps-to-answered-question" class="level3" data-number="4.1.3">
+<h3 data-number="4.1.3" class="anchored" data-anchor-id="steps-to-answered-question"><span class="header-section-number">4.1.3</span> Steps to answered question</h3>
+<p><em>Again, this is derived from <a href="http://www.catb.org/~esr/faqs/smart-questions.html">How To Ask Questions The Smart Way, Eric Raymond and Rick Moen</a></em></p>
+<ol type="1">
+<li><p>Choose the right venue</p></li>
+<li><p>Do (and show) your homework</p></li>
+<li><p>Convey your situation</p></li>
+<li><p>Ask an actionable question</p></li>
+<li><p>Engage the interest of your audience</p></li>
+<li><p>Follow up showing that you tried their suggestions. Don’t be the “Ok, fixed it now” guy</p></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://www.explainxkcd.com/wiki/index.php/979:_Wisdom_of_the_Ancients"><img src="https://imgs.xkcd.com/comics/wisdom_of_the_ancients.png" class="img-fluid figure-img"></a></p>
+<p></p><figcaption class="figure-caption">https://www.explainxkcd.com/wiki/index.php/979:_Wisdom_of_the_Ancients</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="examples" class="level3" data-number="4.1.4">
+<h3 data-number="4.1.4" class="anchored" data-anchor-id="examples"><span class="header-section-number">4.1.4</span> Examples</h3>
+<section id="j-random-hacker" class="level4" data-number="4.1.4.1">
+<h4 data-number="4.1.4.1" class="anchored" data-anchor-id="j-random-hacker"><span class="header-section-number">4.1.4.1</span> J Random Hacker</h4>
+<p>Directly from (http://www.catb.org/~esr/faqs/smart-questions.html#examples)[http://www.catb.org/~esr/faqs/smart-questions.html#examples]</p>
+<blockquote class="blockquote">
+<p><strong>Stupid</strong>: I’m having problems with my motherboard. Can anybody help?</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><em>J. Random Hacker’s response to this is likely to be “Right. Do you need burping and diapering, too?” followed by a punch of the delete key.</em></p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Smart</strong>: I tried X, Y, and Z on the S2464 motherboard. When that didn’t work, I tried A, B, and C. Note the curious symptom when I tried C. Obviously the florbish is grommicking, but the results aren’t what one might expect. What are the usual causes of grommicking on Athlon MP motherboards? Anybody got ideas for more tests I can run to pin down the problem?</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><em>This person, on the other hand, seems worthy of an answer. He/she has exhibited problem-solving intelligence rather than passively waiting for an answer to drop from on high.</em></p>
+</blockquote>
+<blockquote class="blockquote">
+<p>In the last question, notice the subtle but important difference between demanding “Give me an answer” and “Please help me figure out what additional diagnostics I can run to achieve enlightenment.”</p>
+</blockquote>
+</section>
+<section id="getting-it-wrong-and-yet-so-wrong" class="level4" data-number="4.1.4.2">
+<h4 data-number="4.1.4.2" class="anchored" data-anchor-id="getting-it-wrong-and-yet-so-wrong"><span class="header-section-number">4.1.4.2</span> Getting it wrong (and yet so wrong)</h4>
+<p>The second example is one from my person experience.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/howison_right_but_wrong.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">An email sent to the R Bugs Website, I included a large file with dump from <code>sample</code> command to help with debugging</figcaption><p></p>
+</figure>
+</div>
+<p>I received two different responses:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/r-inferno.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">A vaguely chilling RTFM style response</figcaption><p></p>
+</figure>
+</div>
+<p>So, what happened? Well, the second response made it much more clear.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/friendly-response.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">A friendlier response: this was not a bug!</figcaption><p></p>
+</figure>
+</div>
+<p>So … I had done some things right, but I had made a mistake. Sending to the r-bugs mailing list implied that I thought there was a bug. But there wasn’t, it wasn’t a problem with R, it was a problem with my computer setup. I should have sent this to another forum first, one for general support, instead I had implied that there was a bug in R. Insulting people’s work is a risky way to try to get their help!</p>
+</section>
+</section>
+</section>
+<section id="resources" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="resources"><span class="header-section-number">4.2</span> Resources</h2>
+<p>An article detailing how one open source participant is able to fund their work as a maintainer <a href="https://words.filippo.io/full-time-maintainer/" class="uri">https://words.filippo.io/full-time-maintainer/</a></p>
+<p>Fogel, K. (1999). Open Source Development with CVS. Coriolis Open Press, Scottsdale, AZ.</p>
+<p>Crowston, K., Wei, K., Howison, J., and Wiggins, A. (2011). Free (libre) open source software development: What we know and what we do not know. ACM Computing Surveys, forthcoming.</p>
+<p>Bacon, J. (2009). The Art of Community: Building the New Age of Participation. O’Reilly Media.</p>
+<p>Raymond, E. S. and Moen, R. (2001). How to ask questions the smart way. Webpage. <a href="http://www.catb.org/esr/faqs/smart-questions.html" class="uri">http://www.catb.org/esr/faqs/smart-questions.html</a></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../insights/what_is_open_source.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction: What is open source?</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../insights/licenses.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Licenses</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
