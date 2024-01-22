@@ -552,7 +552,7 @@ skills_topics <- tribble(
 insight_topics <- tribble(
   ~insight_topic,
   #----------
-  "What is open source? @sec-what-is-open-source ",
+  "What is open source? @sec-what-is-open-source Paper Planes and Innovation @sec-paper-planes-and-innovation",
   "Motivations and Asking questions people want to answer @sec-motivations ",
   "Licenses @sec-licenses",
   "Coordination @sec-coordination ",

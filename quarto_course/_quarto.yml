@@ -18,6 +18,7 @@ book:
     - oss_syllabus.qmd
     - part: "Insights"
       chapters:
+      - insights/paper_plane_innovation.qmd
       - insights/what_is_open_source.qmd
       - insights/motivations.qmd
       - insights/licenses.qmd

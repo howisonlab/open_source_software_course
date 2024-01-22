@@ -1,0 +1,77 @@
+# Paper planes as an analogy for peer production
+
+This exercise is part one of two.
+
+Both have students folding paper planes as an analogy for (potentially) collaborative work.
+
+This first exercise focuses on collaborative innovation. It is designed to make concrete the idea of sharing work and building on the designs of others. Designs are expressed as both artifacts (planes) and source code (instructions). It gradually introduces the role that intellectual property can play (patents and copyright) and thus motivates open source licences.
+
+The second exercise focuses on version control. It is designed to make concrete the basics of git repositories and collaboration. The exercise introduces the idea of working spaces and repositories. The work continues to be making changes to paper planes, and different versions are placed on trays to be stored (as numbered versions) in the repository. We progress from individual work in the repository, to more than one person contributing to the repository. That enables us to introduce the idea of synchronizing with a shared repository. Currently the exercises ends with identifying and resolving a conflict.
+
+## Exercise 1: Paper Planes and Innovation {#sec-paper-planes-and-innovation}
+
+Materials needed:
+
+- copier paper (for folding and writing)
+- black, blue, red pens.
+
+### Can we copy a paper plane?
+
+Everyone in the class should take some paper and create a paper airplane, writing their name somewhere.
+
+The class will then line up on one side and see whose plane gets closest to the other wall.
+
+The instructor will designate the closest plane as the "Advanced Design".
+
+Everyone returns to seats and instructor shows the "Advanced Design" on the document camera.
+
+Question for writing: 
+
+- Are other students in the class allowed to copy this design?  Why or why not?  
+- Should they be allowed?
+- How does this choice affect innovation and invention in the world?
+
+Discuss with partners.
+
+### Instructions for building a plane
+
+We will make a new assumption: we can only build a plane by following written instructions.
+
+Everyone in the class should create instructions for building their plane. Include about 3 steps.
+
+The instructions for the "Advanced Design" get shown on the document camera.
+
+Question:
+
+- Can other students copy the additional "Advanced Design" steps?  Why or why not?
+
+### A million dollar competition
+
+Groups of six (3 pairs):
+1. Originator and folder
+2. Improver1 and folder
+3. Improver2 and folder
+
+1. Originator passes their basic plane instructions (black ink) to their folder.
+2. Originator makes a copy of their instructions, hands to Improver1.
+3. Improver1 copies Originator's instructions, adding a step in red pen.  
+4. Improver1 hands to their folder, then makes a copy for Improver2.
+5. Improver2 makes an edit (in blue pen), passes to their Folder.
+
+We should end up with three designs and three planes.
+
+Imagine a competition with a prize of _one million dollars_.  All three designs are entered.
+
+Question for writing:
+
+1. If the originator wins, who should get the money?  Why?
+2. If Improver2 wins, who should get the money? Why? What ratios seem fair to you?
+
+Now further imagine a global series of competitions, with lots of opportunities to win millions of dollars.  And Improver2's design is the best. They can't make all the competitions themselves, so they decide to license their design such that anyone can use it, but they have to pay $10,000 for each competition.
+
+Question for writing:
+
+1. Do you think this is fair? Why or why not?
+2. Do you think this is legal?
+3. The originator asks Improver2 for their design. Should Improver2 have to give it to the Originator?  What about Improver1? Should they also get a free copy?
+4. How do you think these situations impact invention and innovation? In what ways might it help and in what ways might it hurt?
