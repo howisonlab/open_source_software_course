@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Open Source Software Development: A socio-technical course - 12&nbsp; Rewinding work</title>
+<title>Open Source Software Development: A socio-technical course - 13&nbsp; Rewinding work</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -133,7 +133,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Rewinding work</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Rewinding work</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -229,42 +229,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../skills/git_basic_workflow.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Git basic workflow</span></a>
+  <a href="../skills/paper_planes_git.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Paper Planes Exercise 2: Version control and collaboration</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../skills/git_rewinding_work.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Rewinding work</span></a>
+  <a href="../skills/git_basic_workflow.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Git basic workflow</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../skills/branching.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Local branching with Git.</span></a>
+  <a href="../skills/git_rewinding_work.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Rewinding work</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../skills/github_solo.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">GitHub solo</span></a>
+  <a href="../skills/branching.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Local branching with Git.</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../skills/github_collaboration.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Github collaboration</span></a>
+  <a href="../skills/github_solo.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">GitHub solo</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../skills/git_cherrypick_split_pr.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Split a Pull Request</span></a>
+  <a href="../skills/github_collaboration.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Github collaboration</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../skills/git_rebase.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Rebase for synchronizing work</span></a>
+  <a href="../skills/git_cherrypick_split_pr.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Split a Pull Request</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../skills/git_delete_history.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Removing something from history entirely</span></a>
+  <a href="../skills/git_rebase.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Rebase for synchronizing work</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/git_delete_history.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Removing something from history entirely</span></a>
   </div>
 </li>
       </ul>
@@ -293,9 +298,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#prep-exercise." id="toc-prep-exercise." class="nav-link active" data-scroll-target="#prep-exercise."><span class="toc-section-number">12.1</span>  Prep exercise.</a></li>
-  <li><a href="#why-rewind" id="toc-why-rewind" class="nav-link" data-scroll-target="#why-rewind"><span class="toc-section-number">12.2</span>  Why rewind?</a></li>
-  <li><a href="#revert---commits-to-undo-commits" id="toc-revert---commits-to-undo-commits" class="nav-link" data-scroll-target="#revert---commits-to-undo-commits"><span class="toc-section-number">12.3</span>  Revert - commits to undo commits</a></li>
+  <li><a href="#prep-exercise." id="toc-prep-exercise." class="nav-link active" data-scroll-target="#prep-exercise."><span class="toc-section-number">13.1</span>  Prep exercise.</a></li>
+  <li><a href="#why-rewind" id="toc-why-rewind" class="nav-link" data-scroll-target="#why-rewind"><span class="toc-section-number">13.2</span>  Why rewind?</a></li>
+  <li><a href="#revert---commits-to-undo-commits" id="toc-revert---commits-to-undo-commits" class="nav-link" data-scroll-target="#revert---commits-to-undo-commits"><span class="toc-section-number">13.3</span>  Revert - commits to undo commits</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/skills/git_rewinding_work.qmd" class="toc-action">View source</a></p></div></div></nav>
     </div>
@@ -304,7 +309,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-rewinding" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Rewinding work</span></span></h1>
+<h1 class="title"><span id="sec-rewinding" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Rewinding work</span></span></h1>
 </div>
 
 
@@ -319,8 +324,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="prep-exercise." class="level2" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="prep-exercise."><span class="header-section-number">12.1</span> Prep exercise.</h2>
+<section id="prep-exercise." class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="prep-exercise."><span class="header-section-number">13.1</span> Prep exercise.</h2>
 <p>Log into the server: <a href="https://edupod.cns.utexas.edu/" class="uri">https://edupod.cns.utexas.edu/</a> and choose Rstudio. Then your task is to create a git repository that when you run our long viz command</p>
 <pre><code>git log --oneline --abbrev-commit --all --graph --decorate --color</code></pre>
 <p>Your screen shows this result:</p>
@@ -330,8 +335,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 1b2162e made first edit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Hint: You will need to start by making a directory called <code>test-rewind</code>.</p>
 </section>
-<section id="why-rewind" class="level2" data-number="12.2">
-<h2 data-number="12.2" class="anchored" data-anchor-id="why-rewind"><span class="header-section-number">12.2</span> Why rewind?</h2>
+<section id="why-rewind" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="why-rewind"><span class="header-section-number">13.2</span> Why rewind?</h2>
 <p>When we are working we often want to try things out before we are 100% sure that they will work. We want to be able to experiment and find our way through a problem. If our experiment doesn’t work, we want to be able to step backwards in time, to find an earlier version that is a good new starting point.</p>
 <p>In many ways this is identical to the idea of a “save point” in a game. We can step backwards in time and try again. We can reload that point at any time in the future. In our paper plane analogy, we can reach out and grab any tray in our repository.</p>
 <p>Git enables us to save full copies of our working directory. We can then get back to the state of our work at any time we made a commit. When we check out a historical state, we get the files and the folders as as they were. So git actually swaps out the directory.</p>
@@ -396,8 +401,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 1b2162e made first edit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Remember, git swaps out all the <strong>tracked</strong> files when you do a <code>checkout</code>. If you have untracked files you will find they are unaffected by a <code>git checkout</code>. Create a file called <code>my-untracked-file</code> run <code>git status</code> then run <code>git checkout &lt;earlier-commit&gt;</code> (where <code>&lt;earlier-commit&gt;</code> is a hash for your first commit), then run <code>git status</code> again.</p>
 </section>
-<section id="revert---commits-to-undo-commits" class="level2" data-number="12.3">
-<h2 data-number="12.3" class="anchored" data-anchor-id="revert---commits-to-undo-commits"><span class="header-section-number">12.3</span> Revert - commits to undo commits</h2>
+<section id="revert---commits-to-undo-commits" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="revert---commits-to-undo-commits"><span class="header-section-number">13.3</span> Revert - commits to undo commits</h2>
 <p>See <a href="https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/" class="uri">https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/</a></p>
 <!-- # Tags -->
 <!-- Tags help identify important points in the version history. They are also used for releases on github. They point to a specific commit, but are human readable, rather than the hash. So they are like a bookmark which brings you directly to a specific point in the repo history. -->
@@ -558,12 +563,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../skills/git_basic_workflow.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Git basic workflow</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Git basic workflow</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../skills/branching.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Local branching with Git.</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Local branching with Git.</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Open Source Software Development: A socio-technical course - 13&nbsp; Local branching with Git.</title>
+<title>Open Source Software Development: A socio-technical course - 14&nbsp; Local branching with Git.</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -135,7 +135,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Local branching with Git.</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Local branching with Git.</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -231,42 +231,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../skills/git_basic_workflow.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Git basic workflow</span></a>
+  <a href="../skills/paper_planes_git.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Paper Planes Exercise 2: Version control and collaboration</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../skills/git_rewinding_work.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Rewinding work</span></a>
+  <a href="../skills/git_basic_workflow.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Git basic workflow</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../skills/branching.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Local branching with Git.</span></a>
+  <a href="../skills/git_rewinding_work.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Rewinding work</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../skills/github_solo.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">GitHub solo</span></a>
+  <a href="../skills/branching.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Local branching with Git.</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../skills/github_collaboration.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Github collaboration</span></a>
+  <a href="../skills/github_solo.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">GitHub solo</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../skills/git_cherrypick_split_pr.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Split a Pull Request</span></a>
+  <a href="../skills/github_collaboration.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Github collaboration</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../skills/git_rebase.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Rebase for synchronizing work</span></a>
+  <a href="../skills/git_cherrypick_split_pr.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Split a Pull Request</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../skills/git_delete_history.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Removing something from history entirely</span></a>
+  <a href="../skills/git_rebase.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Rebase for synchronizing work</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/git_delete_history.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Removing something from history entirely</span></a>
   </div>
 </li>
       </ul>
@@ -295,12 +300,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#branching-with-local-git" id="toc-branching-with-local-git" class="nav-link active" data-scroll-target="#branching-with-local-git"><span class="toc-section-number">14</span>  Branching with local git</a>
+  <li><a href="#branching-with-local-git" id="toc-branching-with-local-git" class="nav-link active" data-scroll-target="#branching-with-local-git"><span class="toc-section-number">15</span>  Branching with local git</a>
   <ul class="collapse">
-  <li><a href="#a-scenario" id="toc-a-scenario" class="nav-link" data-scroll-target="#a-scenario"><span class="toc-section-number">14.1</span>  A scenario</a></li>
-  <li><a href="#coordinating-new-work-while-keeping-old-work-running" id="toc-coordinating-new-work-while-keeping-old-work-running" class="nav-link" data-scroll-target="#coordinating-new-work-while-keeping-old-work-running"><span class="toc-section-number">14.2</span>  Coordinating new work while keeping old work running</a>
+  <li><a href="#a-scenario" id="toc-a-scenario" class="nav-link" data-scroll-target="#a-scenario"><span class="toc-section-number">15.1</span>  A scenario</a></li>
+  <li><a href="#coordinating-new-work-while-keeping-old-work-running" id="toc-coordinating-new-work-while-keeping-old-work-running" class="nav-link" data-scroll-target="#coordinating-new-work-while-keeping-old-work-running"><span class="toc-section-number">15.2</span>  Coordinating new work while keeping old work running</a>
   <ul class="collapse">
-  <li><a href="#exercises-in-class" id="toc-exercises-in-class" class="nav-link" data-scroll-target="#exercises-in-class"><span class="toc-section-number">14.2.1</span>  Exercises (in-class):</a></li>
+  <li><a href="#exercises-in-class" id="toc-exercises-in-class" class="nav-link" data-scroll-target="#exercises-in-class"><span class="toc-section-number">15.2.1</span>  Exercises (in-class):</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -311,7 +316,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-branching" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Local branching with Git.</span></span></h1>
+<h1 class="title"><span id="sec-branching" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Local branching with Git.</span></span></h1>
 </div>
 
 
@@ -346,19 +351,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 }
 </style>
 </div>
-<section id="branching-with-local-git" class="level1" data-number="14">
-<h1 data-number="14"><span class="header-section-number">14</span> Branching with local git</h1>
+<section id="branching-with-local-git" class="level1" data-number="15">
+<h1 data-number="15"><span class="header-section-number">15</span> Branching with local git</h1>
 <p>Branching (and merging) is a useful way to keep different tasks organized and synchronized, even when working locally with git. Below we will work through a scenario for git branching, showing the commands and two different vizualizations. Eventually branching becomes a key part of working with github and shared repositories, but it is useful to approach it separately first.</p>
-<section id="a-scenario" class="level2" data-number="14.1">
-<h2 data-number="14.1" class="anchored" data-anchor-id="a-scenario"><span class="header-section-number">14.1</span> A scenario</h2>
+<section id="a-scenario" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="a-scenario"><span class="header-section-number">15.1</span> A scenario</h2>
 <p>Imagine you are running a coffee roaster. You have code that produces a daily report that is emailed to your team. Each day the point of sale system makes new data available. Each night your computer executes a script (<code>report_script.Rmd</code>) to access the data, create, and email the report.</p>
 <p>We are going to manage a situation where we want to: 1. experiment and break things 2. keep things running</p>
 <p>It is very hard to do these things at the same time. Branching helps us to do this.</p>
 <p>One option might be to maintain different versions of files using different file names (<code>report_script.Rmd</code> and <code>new_report_script.Rmd</code>. This becomes very messy when we have many files and folders involved (<code>/images</code> and <code>/new_images</code>???). This is even worse when we have multiple experiments and attempts going on in parallel and entirely hopeless when we move online and are working with groups of people.</p>
 <p>Recall, though, that git enables us to “swap out” our working directory. Until now we’ve kept this linear, each new version added after the last. But branching enables us to keep parallel lines of commits (as though we had two lines of trays with on our paper plane repository table).</p>
 </section>
-<section id="coordinating-new-work-while-keeping-old-work-running" class="level2" data-number="14.2">
-<h2 data-number="14.2" class="anchored" data-anchor-id="coordinating-new-work-while-keeping-old-work-running"><span class="header-section-number">14.2</span> Coordinating new work while keeping old work running</h2>
+<section id="coordinating-new-work-while-keeping-old-work-running" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="coordinating-new-work-while-keeping-old-work-running"><span class="header-section-number">15.2</span> Coordinating new work while keeping old work running</h2>
 <p>Currently the report is pretty simple, it’s just a table of sales divided up between in-store and online. Each day’s sales are added as a new row in the table.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> scratch_branching</span>
@@ -490,8 +495,8 @@ Fast-forward
 <!-- <video height="480" controls> -->
 <!--   <source src=""> -->
 <!-- </video> -->
-<section id="exercises-in-class" class="level3" data-number="14.2.1">
-<h3 data-number="14.2.1" class="anchored" data-anchor-id="exercises-in-class"><span class="header-section-number">14.2.1</span> Exercises (in-class):</h3>
+<section id="exercises-in-class" class="level3" data-number="15.2.1">
+<h3 data-number="15.2.1" class="anchored" data-anchor-id="exercises-in-class"><span class="header-section-number">15.2.1</span> Exercises (in-class):</h3>
 <ol type="1">
 <li>Go to “Learn Git Branching” site: <a href="https://learngitbranching.js.org/" class="uri">https://learngitbranching.js.org/</a>. (Note that this site is multi-locale, see the small planet icon in the bottom right?)</li>
 <li>Do exercises 2 and 3 (“Branching in Git” and “Merging in Git”)</li>
@@ -645,12 +650,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../skills/git_rewinding_work.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Rewinding work</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Rewinding work</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../skills/github_solo.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">GitHub solo</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">GitHub solo</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

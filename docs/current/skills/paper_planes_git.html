@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Open Source Software Development: A socio-technical course - 5&nbsp; Motivations</title>
+<title>Open Source Software Development: A socio-technical course - 11&nbsp; Paper Planes Exercise 2: Version control and collaboration</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,8 +29,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../insights/licenses.html" rel="next">
-<link href="../insights/what_is_open_source.html" rel="prev">
+<link href="../skills/git_basic_workflow.html" rel="next">
+<link href="../insights/stack_and_stream.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -70,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Motivations</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Paper Planes Exercise 2: Version control and collaboration</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -126,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../insights/motivations.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Motivations</span></a>
+  <a href="../insights/motivations.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Motivations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -166,7 +166,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../skills/paper_planes_git.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Paper Planes Exercise 2: Version control and collaboration</span></a>
+  <a href="../skills/paper_planes_git.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Paper Planes Exercise 2: Version control and collaboration</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -235,23 +235,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#how-to-ask-questions-people-want-to-answer" id="toc-how-to-ask-questions-people-want-to-answer" class="nav-link active" data-scroll-target="#how-to-ask-questions-people-want-to-answer"><span class="toc-section-number">5.1</span>  How to ask questions people want to answer</a>
-  <ul class="collapse">
-  <li><a href="#rtfm" id="toc-rtfm" class="nav-link" data-scroll-target="#rtfm"><span class="toc-section-number">5.1.1</span>  RTFM</a></li>
-  <li><a href="#engaging-intellectual-curiosity" id="toc-engaging-intellectual-curiosity" class="nav-link" data-scroll-target="#engaging-intellectual-curiosity"><span class="toc-section-number">5.1.2</span>  Engaging intellectual curiosity</a></li>
-  <li><a href="#steps-to-answered-question" id="toc-steps-to-answered-question" class="nav-link" data-scroll-target="#steps-to-answered-question"><span class="toc-section-number">5.1.3</span>  Steps to answered question</a></li>
-  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples"><span class="toc-section-number">5.1.4</span>  Examples</a></li>
-  </ul></li>
-  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources"><span class="toc-section-number">5.2</span>  Resources</a></li>
+  <li><a href="#sequential-work" id="toc-sequential-work" class="nav-link active" data-scroll-target="#sequential-work"><span class="toc-section-number">11.1</span>  Sequential work</a></li>
+  <li><a href="#parallel-mergeable-work" id="toc-parallel-mergeable-work" class="nav-link" data-scroll-target="#parallel-mergeable-work"><span class="toc-section-number">11.2</span>  Parallel mergeable work</a></li>
+  <li><a href="#parllel-conflicting-work" id="toc-parllel-conflicting-work" class="nav-link" data-scroll-target="#parllel-conflicting-work"><span class="toc-section-number">11.3</span>  Parllel conflicting work</a></li>
+  <li><a href="#images-from-earlier-hopefully-stil-useful" id="toc-images-from-earlier-hopefully-stil-useful" class="nav-link" data-scroll-target="#images-from-earlier-hopefully-stil-useful"><span class="toc-section-number">11.4</span>  Images from earlier (hopefully stil useful)</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/insights/motivations.qmd" class="toc-action">View source</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/skills/paper_planes_git.qmd" class="toc-action">View source</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-motivations" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Motivations</span></span></h1>
+<h1 class="title"><span id="sec-planes-git" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Paper Planes Exercise 2: Version control and collaboration</span></span></h1>
 </div>
 
 
@@ -266,123 +262,119 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="how-to-ask-questions-people-want-to-answer" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="how-to-ask-questions-people-want-to-answer"><span class="header-section-number">5.1</span> How to ask questions people want to answer</h2>
-<p><strong>Much of this material is based on <a href="http://www.catb.org/~esr/faqs/smart-questions.html">How To Ask Questions The Smart Way, Eric Raymond and Rick Moen</a> with the addition of academic references and frameworks.</strong></p>
-<p>Open source projects are famous for having direct access to very knowledgeable people about the source code. Unlike when you purchase software, you can very likely get questions in front of some of the people that wrote the underlying code.</p>
-<p>But ask yourself why they are there, reading and answering user questions. What drives them, what motivates them?</p>
-<section id="rtfm" class="level3" data-number="5.1.1">
-<h3 data-number="5.1.1" class="anchored" data-anchor-id="rtfm"><span class="header-section-number">5.1.1</span> RTFM</h3>
-<p>There is always a risk that a poorly asked question will be met with this response:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/rtfm_mug_gubatron.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">RTFM Mug by Gubatron (CC-licensed http://www.flickr.com/photos/gubatron/3102412751)</figcaption><p></p>
-</figure>
-</div>
-<p>RTFM means to “Read the F***ing Manual” (which I’ll read as Read the Fine Manual). This rather unfriendly, and indeed unwelcoming response can occur when a question is asked in a way that doesn’t understand what it is that motivates people to participate in online support forums for software.</p>
-<blockquote class="blockquote">
-<p>I note that open communities are not necessarily welcoming places. In fact they can be quite aggressive, even toxic. It is perhaps not unrelated that open communities are also no diverse. We will discuss this later in the course when we consider Bias and Lack of Diversity in <span class="citation" data-cites="bias-and-lack-of-diversity">@bias-and-lack-of-diversity</span></p>
-</blockquote>
-<p>Lakhani and von Hippel (2003) studied the Apache <code>httpd</code> mailing list. They mailed a survey link to participants the first time they saw them post to the list, only mailing each person once. They received responses from 28.9% of info providers, and 16.6% info seekers.</p>
-<p>They report that :</p>
-<ul>
-<li><p>spending time in the forum had excellent ROI (return on investment) for information seekers (Seekers saved 9 minutes for every 1 minute spent writing questions).</p></li>
-<li><p>Providers answer questions that are easy for them, rarely do they seek out additional information to help answer.</p></li>
-<li><p>Information Providers invest a lot of time in the forum, average of 80 hours a year.</p></li>
-<li><p>Key motivations to answer were reciprocity and reputation within Apache (not career prospects)</p></li>
-<li><p>But information providers are primarily there to learn (&gt;90% of time spent reading, not answering).</p></li>
-</ul>
-<p>So, very knowledgeable people answer people’s questions when it is easy for them to do so (not spending time preparing and researching, this is not Q&amp;A for $$$ like Quora). So what is it that brings them to these forums (thus making it quick and easy for them to answer): learning.</p>
-<p>Huh? What do already knowledgeable people learn by hanging out watching less knowledgeable people ask questions?</p>
-<p><strong>Exercise</strong></p>
-<ul>
-<li>What does someone learn from reading questions (and answers) in a technical forum?</li>
-<li>What does someone learn from answering?</li>
-</ul>
-</section>
-<section id="engaging-intellectual-curiosity" class="level3" data-number="5.1.2">
-<h3 data-number="5.1.2" class="anchored" data-anchor-id="engaging-intellectual-curiosity"><span class="header-section-number">5.1.2</span> Engaging intellectual curiosity</h3>
-<ul>
-<li>Experts love interesting problems and the solving of them.</li>
-<li>Interesting problems are those that reveal some new insights</li>
-<li>Uninteresting problems are either obvious or unsolvable (poorly specified or not actionable).</li>
-<li>Ask questions like an intellectual partner.</li>
-</ul>
-</section>
-<section id="steps-to-answered-question" class="level3" data-number="5.1.3">
-<h3 data-number="5.1.3" class="anchored" data-anchor-id="steps-to-answered-question"><span class="header-section-number">5.1.3</span> Steps to answered question</h3>
-<p><em>Again, this is derived from <a href="http://www.catb.org/~esr/faqs/smart-questions.html">How To Ask Questions The Smart Way, Eric Raymond and Rick Moen</a></em></p>
-<ol type="1">
-<li><p>Choose the right venue</p></li>
-<li><p>Do (and show) your homework</p></li>
-<li><p>Convey your situation</p></li>
-<li><p>Ask an actionable question</p></li>
-<li><p>Engage the interest of your audience</p></li>
-<li><p>Follow up showing that you tried their suggestions. Don’t be the “Ok, fixed it now” guy</p></li>
+<p>Organize into groups of 3 around a table. Figure out alphabetical order of first names. First person is Originator, Second person is Improver1, Third is Improver2.</p>
+<p>Unlike the competitive environment from Monday, let’s assume that there is no competition between plane flyers, it’s all about the love (or if they do compete it’s not on plane designs).</p>
+<p>Instructions flow around just for the asking.</p>
+<p>But since they rely on each other, eventually it makes sense to have a central place to gather the improvements, a central place to bring them together.</p>
+<p>Our proxy for work will be small paper planes, made from post-it notes. You can think of these as akin to source code files.</p>
+<p>Git stores full versions of our workspaces. This means all the files and folders in our source code project. Git stores full copies of work as it was. In our exercise we will use a folded piece of paper as a proxy for the workspace. Think of it like a tray on which all our work sits. We will have lots of copies of these workspaces. We will call these a “commit”.</p>
+<p>In this exercise we will be making lots of copies. And that is, fundamentally, how git works. For this reason it is really important that you take the time to make the needed copies.</p>
+<p>Our commit will be a creased piece of paper, with a paper plane on it, together with a name for the commit and a comment. We will write the name and comment directly on the creased piece of paper. The name we will use will be the letter V followed by three random letters. Examples could be <code>VKKT</code> or <code>VGTD</code> or <code>VLLT</code>. No need to worry about sequences, these are just names.</p>
+<p>We will make a copy of the work a few times: 1. Copy on clone 1. When we start working on a new version. We need a copy from our repository so we can work on it. We will call this “copy on checkout”</p>
+<ol start="2" type="1">
+<li>When we offer our changes back to others. We will call this “copy on pull”.</li>
 </ol>
+<section id="sequential-work" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="sequential-work"><span class="header-section-number">11.1</span> Sequential work</h2>
+<p>Our first scenario will be sequential work, meaning that the Originator works, then Improver1, then Improver2, but noone working at the same time.</p>
+<ol type="1">
+<li><p>The originator creates a commit, with a basic plane. Mark this with a name (e.g., <code>VKKF</code> or <code>VEDS</code>) and a comment (e.g., <code>My first attempt</code>). Store this in front of you (in your “repository”).</p></li>
+<li><p>Improver1 makes a copy of the whole repository (we call this a “clone”) into the space in front of them. This means making a copy of the single commit.</p></li>
+<li><p>Improver1 does a “checkout” on that commit. This means making a copy of the commit (including the name, but not the comment) and the paper plane, as a starting point for work.</p></li>
+<li><p>Improver1 makes an improvement to the checked out copy. Take the nose of the plane and fold it back.</p></li>
+<li><p>Check this new version into your repository. Cross out the copied version name (just a single line, keep it readable) and write a new name below it (e.g., <code>VGDU</code>). That crossed out name now shows the parent. Place this commit to the right of your repository.</p></li>
+<li><p>Take a pink postit note and write on it “Please come get <code>VGDU</code> and pass it to the Originator. This is your <em>pull request</em>.</p></li>
+<li><p>The Originator will then do <em>a pull</em> by looking at <code>VGDU</code> in Improver1’s repository, make a copy and check it into their own repository.</p></li>
+<li><p>Improver2 will then clone the Originator’s repository. This means making a new copy of both commits and placing them in front of Improver2.</p></li>
+<li><p>Improver2 will then do a <em>checkout</em> which means making another complete copy of <code>VGDU</code> (which is the work as it was when Improver1 finished).</p></li>
+<li><p>Improver2 can then do new work. Fold the tips of each wing up.</p></li>
+<li><p>Improver2 can then commit that work back into their repository. Cross out the existing name (<code>VGDU</code>) and create a new name, add a comment about the work that you’ve done.</p></li>
+<li><p>Improver2 take a pink postit note, “Please come get <new name="">” (replace <new name=""> with the name starting with a <code>V</code> that you chose, e.g., <code>VFGT</code>)</new></new></p></li>
+<li><p>Originator should pull Improver2’s work by making a full copy of Improver2’s commit, then merge it into their repository.</p></li>
+<li><p>Improver1 should then synchronize with the Originator by making a pull (make a full copy of the new last commit in Originator’s repo, and place it in their own repository).</p></li>
+</ol>
+<p>Yes, that’s a lot of steps, and a lot of copies!</p>
+</section>
+<section id="parallel-mergeable-work" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="parallel-mergeable-work"><span class="header-section-number">11.2</span> Parallel mergeable work</h2>
+<p>Sometimes people work at the same time, rather than in a sequence as above. We will simulate this.</p>
+<ol type="1">
+<li><p>Improver1 should checkout a copy of the last commit in their repo (which should be Improver2’s wing tip folds) (Yes, this means making a full new copy)</p></li>
+<li><p>Improver2 should do the same.</p></li>
+<li><p>Improver1 should add a design to the left wing of the plane, using a pen (maybe a star or lightening bolt)</p></li>
+<li><p>Improver2 should add a design to the right wing of the plane, also using a pen (maybe a heart or question mark)</p></li>
+<li><p>Both should check that work into their repository (crossing out the old <code>V</code> name and creating new random <code>V</code> name and adding a comment).</p></li>
+<li><p>Both should send a pink postit to the Originator syaing “Come get my <code>V</code> name”.</p></li>
+<li><p>All work together to make a new copy of each new commit.</p></li>
+<li><p>The Originator pulls work from Improver1 into their repository and merges it in.</p></li>
+<li><p>Then the Originator pulls work from Improver2. This can complete automatically because the changes don’t conflict with each other; they are in different places and nothing prevents a plane from having a design on it’s left wing and on it’s right wing at the same time.</p></li>
+<li><p>Each Improver should syncrhonize their repository, pulling this new commit across. Note that the parent of this commit will be different in each of their repositories (because each has their own work as the base, and then the merged work).</p></li>
+</ol>
+</section>
+<section id="parllel-conflicting-work" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="parllel-conflicting-work"><span class="header-section-number">11.3</span> Parllel conflicting work</h2>
+<p>Above we saw what happens when two people work at the same time. In that case git was able to merge the work automatically. But some changes can be incompatible, and create what is called “an edit conflict”. Then we have some choices to make … and there can be social repercussions.</p>
+<ol type="1">
+<li><p>Both Improver1 and Improver2 should checkout a copy of the last commit they synchronized from the Originator’s repository.</p></li>
+<li><p>Improver1 should edit the plane by <em>unfolding</em> the nose. Then check that commit into their repo (crossing out the parent name, creating a new one and adding a comment.)</p></li>
+<li><p>Improver2 should edit the plane by <em>double folding</em> the nose. Then check that commit into their repo (crossing out the parent name, creating a new one and adding a comment.)</p></li>
+<li><p>Both improvers should send a Pull Request using a pink postit.</p></li>
+<li><p>The Originator should pull Improver2’s change (making a copy) and merge it into their repo (make sure the parent lines up).</p></li>
+<li><p>Then the Originator should pull Improver1’s change (everyone helps make a copy) and place it in front of them.</p></li>
+</ol>
+<p>The conflict exists because the nose can’t be both <em>double folded</em> and <em>unfolded</em>.</p>
+<p>The Originator now has to make a decision. They could reject Improver1’s changes, or they could make a third completely new change and check that into the repository.</p>
+<p>There are a few ways that projects handle this situation:</p>
+<ol type="1">
+<li>“Benevolent Dictator”. The Originator just decides on their own.</li>
+<li>“Voting”. They group votes and majority rules (the Originator follows the overall wishes)</li>
+<li>Configuration. They make the software complex enough to have a run-time configuration setting so that everyone can determine for themselves how it will work.</li>
+<li>The project splits … Improver1 is upset that their change wasn’t accepted, they schism and now we have two, incompatible projects out in the world (sometimes called a “hard fork” or an “unfriendly fork”.)</li>
+</ol>
+</section>
+<section id="images-from-earlier-hopefully-stil-useful" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="images-from-earlier-hopefully-stil-useful"><span class="header-section-number">11.4</span> Images from earlier (hopefully stil useful)</h2>
+<ol type="1">
+<li><p>Originator invents the paper plane by telling Folder1 what to do. They name it as Version 0.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://www.explainxkcd.com/wiki/index.php/979:_Wisdom_of_the_Ancients"><img src="https://imgs.xkcd.com/comics/wisdom_of_the_ancients.png" class="img-fluid figure-img"></a></p>
-<p></p><figcaption class="figure-caption">https://www.explainxkcd.com/wiki/index.php/979:_Wisdom_of_the_Ancients</figcaption><p></p>
+<p><img src="paper_planes_git_files\v0.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">v0</figcaption><p></p>
 </figure>
-</div>
-</section>
-<section id="examples" class="level3" data-number="5.1.4">
-<h3 data-number="5.1.4" class="anchored" data-anchor-id="examples"><span class="header-section-number">5.1.4</span> Examples</h3>
-<section id="j-random-hacker" class="level4" data-number="5.1.4.1">
-<h4 data-number="5.1.4.1" class="anchored" data-anchor-id="j-random-hacker"><span class="header-section-number">5.1.4.1</span> J Random Hacker</h4>
-<p>Directly from (http://www.catb.org/~esr/faqs/smart-questions.html#examples)[http://www.catb.org/~esr/faqs/smart-questions.html#examples]</p>
-<blockquote class="blockquote">
-<p><strong>Stupid</strong>: I’m having problems with my motherboard. Can anybody help?</p>
-</blockquote>
-<blockquote class="blockquote">
-<p><em>J. Random Hacker’s response to this is likely to be “Right. Do you need burping and diapering, too?” followed by a punch of the delete key.</em></p>
-</blockquote>
-<blockquote class="blockquote">
-<p><strong>Smart</strong>: I tried X, Y, and Z on the S2464 motherboard. When that didn’t work, I tried A, B, and C. Note the curious symptom when I tried C. Obviously the florbish is grommicking, but the results aren’t what one might expect. What are the usual causes of grommicking on Athlon MP motherboards? Anybody got ideas for more tests I can run to pin down the problem?</p>
-</blockquote>
-<blockquote class="blockquote">
-<p><em>This person, on the other hand, seems worthy of an answer. He/she has exhibited problem-solving intelligence rather than passively waiting for an answer to drop from on high.</em></p>
-</blockquote>
-<blockquote class="blockquote">
-<p>In the last question, notice the subtle but important difference between demanding “Give me an answer” and “Please help me figure out what additional diagnostics I can run to achieve enlightenment.”</p>
-</blockquote>
-</section>
-<section id="getting-it-wrong-and-yet-so-wrong" class="level4" data-number="5.1.4.2">
-<h4 data-number="5.1.4.2" class="anchored" data-anchor-id="getting-it-wrong-and-yet-so-wrong"><span class="header-section-number">5.1.4.2</span> Getting it wrong (and yet so wrong)</h4>
-<p>The second example is one from my person experience.</p>
+</div></li>
+<li><p>Improver 1 loves it and asks for one copy. The originator send a copy to Improver 1. <img src="paper_planes_git_files\v0_copy_to_improver1.png" class="img-fluid" alt="v0copy2improver1"></p></li>
+<li><p>Improver 1 invents an improvement, making Version 1. <img src="paper_planes_git_files\v1.png" class="img-fluid" alt="v1"></p></li>
+<li><p>Improver 1 sends their improvement to Originator. Originator make it official.<img src="paper_planes_git_files\v1_official.png" class="img-fluid" alt="v1_official"></p></li>
+<li><p>Improver 2 gets that improvement along with the original.<img src="paper_planes_git_files\send_v1to_improver2.png" class="img-fluid" alt="sendv1toi2"></p></li>
+<li><p>Improver sends their improvement back to Originator, who accepts it, making Version 2 the official version. Now everyone can can work off that version, for future improvements.<img src="paper_planes_git_files\v2_official.png" class="img-fluid" alt="v2_official"></p></li>
+</ol>
+<p>Everything is hunky dory until Improver 2 takes Version 2 and suggests adding a single flap to each wing, while simultaneously Improver 1 is also working with Version 2 and suggests adding two flaps to each wing.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/howison_right_but_wrong.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">An email sent to the R Bugs Website, I included a large file with dump from <code>sample</code> command to help with debugging</figcaption><p></p>
+<p><img src="paper_planes_git_files\v2_to_i1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">v2_to_i1</figcaption><p></p>
 </figure>
 </div>
-<p>I received two different responses:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/r-inferno.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">A vaguely chilling RTFM style response</figcaption><p></p>
+<p><img src="paper_planes_git_files\v3.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">v3</figcaption><p></p>
 </figure>
 </div>
-<p>So, what happened? Well, the second response made it much more clear.</p>
+<p>Originator receives these improvements, sees that they are incompatible.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/friendly-response.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">A friendlier response: this was not a bug!</figcaption><p></p>
+<p><img src="paper_planes_git_files\conflict.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">conflict</figcaption><p></p>
 </figure>
 </div>
-<p>So … I had done some things right, but I had made a mistake. Sending to the r-bugs mailing list implied that I thought there was a bug. But there wasn’t, it wasn’t a problem with R, it was a problem with my computer setup. I should have sent this to another forum first, one for general support, instead I had implied that there was a bug in R. Insulting people’s work is a risky way to try to get their help!</p>
-</section>
-</section>
-</section>
-<section id="resources" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="resources"><span class="header-section-number">5.2</span> Resources</h2>
-<p>An article detailing how one open source participant is able to fund their work as a maintainer <a href="https://words.filippo.io/full-time-maintainer/" class="uri">https://words.filippo.io/full-time-maintainer/</a></p>
-<p>Fogel, K. (1999). Open Source Development with CVS. Coriolis Open Press, Scottsdale, AZ.</p>
-<p>Crowston, K., Wei, K., Howison, J., and Wiggins, A. (2011). Free (libre) open source software development: What we know and what we do not know. ACM Computing Surveys, forthcoming.</p>
-<p>Bacon, J. (2009). The Art of Community: Building the New Age of Participation. O’Reilly Media.</p>
-<p>Raymond, E. S. and Moen, R. (2001). How to ask questions the smart way. Webpage. <a href="http://www.catb.org/esr/faqs/smart-questions.html" class="uri">http://www.catb.org/esr/faqs/smart-questions.html</a></p>
+<p>Now what?<img src="paper_planes_git_files\conflict_solved.png" class="img-fluid" alt="conflict"></p>
+<ul>
+<li>choose only one to be Version 3 (benevolent dictator choice).</li>
+<li>make flap number into a configuration variable.</li>
+</ul>
+<p>Version 3 is released with configuration variable. New improvements start coming in. Some are not problematic, such as wing-tips turned up. But some only work for the one flap config, so the project gets pretty complicated. Originator changes their mind and says that, actually, everything has to be single flap from now on.</p>
+<p>The double flappers can either adapt or they can take the codebase, and start a new central “clearinghouse” for improvements. A project schism.</p>
 
 
 </section>
@@ -523,13 +515,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../insights/what_is_open_source.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction: What is open source?</span></span>
+      <a href="../insights/stack_and_stream.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">From Stack, to stream, to ecosystem.</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../insights/licenses.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Licenses</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../skills/git_basic_workflow.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Git basic workflow</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

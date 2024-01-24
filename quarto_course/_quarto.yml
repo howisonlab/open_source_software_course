@@ -37,6 +37,7 @@ book:
     
     - part: "Skills"
       chapters:
+      - skills/paper_planes_git.qmd
       - skills/git_basic_workflow.qmd
       - skills/git_rewinding_work.qmd
       - skills/branching.qmd
