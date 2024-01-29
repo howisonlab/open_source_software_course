@@ -1,53 +1,54 @@
 # Paper Planes Exercise 2: Version control and collaboration {#sec-planes-git}
 
-Organize into groups of 3 around a table. Figure out alphabetical order of first names.  First person is Originator, Second person is Improver1, Third is Improver2.
+Organize into groups of 3 around a table. Figure out alphabetical order of first names. First person is Originator, Second person is Improver1, Third is Improver2.
 
-Unlike the competitive environment from Monday, let's assume that there is no competition between plane flyers, it's all about the love (or if they do compete it's not on plane designs). 
+Unlike the competitive environment from Monday, let's assume that there is no competition between plane flyers, it's all about the love (or if they do compete it's not on plane designs).
 
-Instructions flow around just for the asking. 
+Instructions flow around just for the asking.
 
-But since they rely on each other, eventually it makes sense to have a central place to gather the improvements, a central place to bring them together. 
+But since they rely on each other, eventually it makes sense to have a central place to gather the improvements, a central place to bring them together.
 
 Our proxy for work will be small paper planes, made from post-it notes. You can think of these as akin to source code files.
 
-Git stores full versions of our workspaces.  This means all the files and folders in our source code project. Git stores full copies of work as it was.  In our exercise we will use a folded piece of paper as a proxy for the workspace. Think of it like a tray on which all our work sits.  We will have lots of copies of these workspaces. We will call these a "commit".
+We will set up a table like in the image below, with two spaces for each person: their "working area" (right in front of them) and their "repository" (just further in front).
 
-In this exercise we will be making lots of copies.  And that is, fundamentally, how git works.  For this reason it is really important that you take the time to make the needed copies.
+![](paper_planes_git_files/1_table_setup.jpg)
 
-Our commit will be a creased piece of paper, with a paper plane on it, together with a name for the commit and a comment.  We will write the name and comment directly on the creased piece of paper.  The name we will use will be the letter V followed by three random letters.  Examples could be `VKKT` or `VGTD` or `VLLT`.  No need to worry about sequences, these are just names.
+Git stores full versions of our working areas. This means all the files and folders in our source code project. Git stores full copies of work as it was. In our exercise we will use a folded piece of paper as a proxy. Think of it like a tray on which all our work sits. We will have lots of copies of these workspaces.
 
-We will make a copy of the work a few times:
-1. Copy on clone
-1. When we start working on a new version. We need a copy from our repository so we can work on it.  We will call this "copy on checkout"
+In this exercise we will be making lots of copies. And that is, fundamentally, how git works. For this reason it is really important that you take the time to make the needed copies.
 
-2. When we offer our changes back to others.  We will call this "copy on pull".
+We will need to make a new copy of a workspace each time work moves around. As we'll see that will happen when work moves out of a repository.
 
+Our commit will be a creased piece of paper, with a paper plane on it, together with a name for the commit and a comment. We will write the name and comment directly on the creased piece of paper. The name we will use will be the letter V followed by three random letters. Examples could be `VKKT` or `VGTD` or `VLLT`. No need to worry about sequences, these are just names.
 
 ## Sequential work
 
 Our first scenario will be sequential work, meaning that the Originator works, then Improver1, then Improver2, but noone working at the same time.
 
-1. The originator creates a commit, with a basic plane.  Mark this with a name (e.g., `VKKF` or `VEDS`) and a comment (e.g., `My first attempt`). Store this in front of you (in your "repository").
+1.  The originator creates a commit, with a basic plane. Mark this with a name (e.g., `VKKF` or `VEDS`) and a comment (e.g., `My first attempt`). Store this in front of you (in your "repository").
 
-2. Improver1 makes a copy of the whole repository (we call this a "clone") into the space in front of them.  This means making a copy of the single commit.
+2.  Improver1 makes a copy of the whole repository (we call this a "clone") into the space in front of them. This means making a copy of the single commit.
 
-3. Improver1 does a "checkout" on that commit. This means making a copy of the commit (including the name, but not the comment) and the paper plane, as a starting point for work.
+# ![1_original_plane.png](paper_planes_git_files\original_plane.png)
 
-4. Improver1 makes an improvement to the checked out copy.  Take the nose of the plane and fold it back.
+3.  Improver1 does a "checkout" on that commit. This means making another copy of the commit (including the name, but not the comment) and the paper plane, as a starting point for work.
 
-5. Check this new version into your repository. Cross out the copied version name (just a single line, keep it readable) and write a new name below it (e.g., `VGDU`). That crossed out name now shows the parent. Place this commit to the right of your repository.
+4.  Improver1 makes an improvement to the checked out copy. Take the nose of the plane and fold it back.
 
-6. Take a pink postit note and write on it "Please come get `VGDU` and pass it to the Originator. This is your _pull request_.
+5.  Check this new version into your repository. Cross out the copied version name (just a single line, keep it readable) and write a new name below it (e.g., `VGDU`). That crossed out name now shows the parent. Place this commit to the right of your repository.
 
-7. The Originator will then do _a pull_ by looking at `VGDU` in Improver1's repository, make a copy and check it into their own repository.
+6.  Take a pink postit note and write on it "Please come get `VGDU` and pass it to the Originator. This is your *pull request*.
 
-8. Improver2 will then clone the Originator's repository.  This means making a new copy of both commits and placing them in front of Improver2.
+7.  The Originator will then do *a pull* by looking at `VGDU` in Improver1's repository, make a copy and check it into their own repository.
 
-9. Improver2 will then do a _checkout_ which means making another complete copy of `VGDU` (which is the work as it was when Improver1 finished).
+8.  Improver2 will then clone the Originator's repository. This means making a new copy of both commits and placing them in front of Improver2.
 
-10. Improver2 can then do new work.  Fold the tips of each wing up.
+9.  Improver2 will then do a *checkout* which means making another complete copy of `VGDU` (which is the work as it was when Improver1 finished).
 
-11. Improver2 can then commit that work back into their repository.  Cross out the existing name (`VGDU`) and create a new name, add a comment about the work that you've done.
+10. Improver2 can then do new work. Fold the tips of each wing up.
+
+11. Improver2 can then commit that work back into their repository. Cross out the existing name (`VGDU`) and create a new name (e.g., `VFFD`), add a comment about the work that you've done.
 
 12. Improver2 take a pink postit note, "Please come get <new name>" (replace <new name> with the name starting with a `V` that you chose, e.g., `VFGT`)
 
@@ -59,90 +60,86 @@ Yes, that's a lot of steps, and a lot of copies!
 
 ## Parallel mergeable work
 
-Sometimes people work at the same time, rather than in a sequence as above.  We will simulate this.
+Sometimes people work at the same time, rather than in a sequence as above. We will simulate this.
 
-1. Improver1 should checkout a copy of the last commit in their repo (which should be Improver2's wing tip folds) (Yes, this means making a full new copy)
+1.  Improver1 should checkout a copy of the last commit in their repo (which should be Improver2's wing tip folds) (Yes, this means making a full new copy)
 
-2. Improver2 should do the same.
+2.  Improver2 should do the same.
 
-3. Improver1 should add a design to the left wing of the plane, using a pen (maybe a star or lightening bolt)
+3.  Improver1 should add a design to the left wing of the plane, using a pen (maybe a star or lightening bolt)
 
-4. Improver2 should add a design to the right wing of the plane, also using a pen (maybe a heart or question mark)
+4.  Improver2 should add a design to the right wing of the plane, also using a pen (maybe a heart or question mark)
 
-5. Both should check that work into their repository (crossing out the old `V` name and creating new random `V` name and adding a comment).
+5.  Both should check that work into their repository (crossing out the old `V` name and creating new random `V` name and adding a comment).
 
-6. Both should send a pink postit to the Originator syaing "Come get my `V` name".
+6.  Both should send a pink postit to the Originator syaing "Come get my `V` name".
 
-7. All work together to make a new copy of each new commit.
+7.  All work together to make a new copy of each new commit.
 
-8. The Originator pulls work from Improver1 into their repository and merges it in. 
+8.  The Originator pulls work from Improver1 into their repository and merges it in.
 
-9. Then the Originator pulls work from Improver2.  This can complete automatically because the changes don't conflict with each other; they are in different places and nothing prevents a plane from having a design on it's left wing and on it's right wing at the same time.
+9.  Then the Originator pulls work from Improver2. This can complete automatically because the changes don't conflict with each other; they are in different places and nothing prevents a plane from having a design on it's left wing and on it's right wing at the same time.
 
 10. Each Improver should syncrhonize their repository, pulling this new commit across. Note that the parent of this commit will be different in each of their repositories (because each has their own work as the base, and then the merged work).
 
 ## Parllel conflicting work
 
-Above we saw what happens when two people work at the same time.  In that case git was able to merge the work automatically.  But some changes can be incompatible, and create what is called "an edit conflict".  Then we have some choices to make ... and there can be social repercussions.
+Above we saw what happens when two people work at the same time. In that case git was able to merge the work automatically. But some changes can be incompatible, and create what is called "an edit conflict". Then we have some choices to make ... and there can be social repercussions.
 
-1. Both Improver1 and Improver2 should checkout a copy of the last commit they synchronized from the Originator's repository.
+1.  Both Improver1 and Improver2 should checkout a copy of the last commit they synchronized from the Originator's repository.
 
-2. Improver1 should edit the plane by _unfolding_ the nose.  Then check that commit into their repo (crossing out the parent name, creating a new one and adding a comment.)
+2.  Improver1 should edit the plane by *unfolding* the nose. Then check that commit into their repo (crossing out the parent name, creating a new one and adding a comment.)
 
-3. Improver2 should edit the plane by _double folding_ the nose. Then check that commit into their repo (crossing out the parent name, creating a new one and adding a comment.)
+3.  Improver2 should edit the plane by *double folding* the nose. Then check that commit into their repo (crossing out the parent name, creating a new one and adding a comment.)
 
-4. Both improvers should send a Pull Request using a pink postit.
+4.  Both improvers should send a Pull Request using a pink postit.
 
-5. The Originator should pull Improver2's change (making a copy) and merge it into their repo (make sure the parent lines up).
+5.  The Originator should pull Improver2's change (making a copy) and merge it into their repo (make sure the parent lines up).
 
-6. Then the Originator should pull Improver1's change (everyone helps make a copy) and place it in front of them.
+6.  Then the Originator should pull Improver1's change (everyone helps make a copy) and place it in front of them.
 
-The conflict exists because the nose can't be both _double folded_ and _unfolded_.
+The conflict exists because the nose can't be both *double folded* and *unfolded*.
 
-The Originator now has to make a decision.  They could reject Improver1's changes, or they could make a third completely new change and check that into the repository.
+The Originator now has to make a decision. They could reject Improver1's changes, or they could make a third completely new change and check that into the repository.
 
 There are a few ways that projects handle this situation:
 
-1. "Benevolent Dictator".  The Originator just decides on their own.
-2. "Voting". They group votes and majority rules (the Originator follows the overall wishes)
-3. Configuration.  They make the software complex enough to have a run-time configuration setting so that everyone can determine for themselves how it will work.
-4. The project splits ... Improver1 is upset that their change wasn't accepted, they schism and now we have two, incompatible projects out in the world (sometimes called a "hard fork" or an "unfriendly fork".)
+1.  "Benevolent Dictator". The Originator just decides on their own.
+2.  "Voting". They group votes and majority rules (the Originator follows the overall wishes)
+3.  Configuration. They make the software complex enough to have a run-time configuration setting so that everyone can determine for themselves how it will work.
+4.  The project splits ... Improver1 is upset that their change wasn't accepted, they schism and now we have two, incompatible projects out in the world (sometimes called a "hard fork" or an "unfriendly fork".)
 
 ## Images from earlier (hopefully stil useful)
 
-1. Originator invents the paper plane by telling Folder1 what to do. They name it as Version 0. 
+1.  Originator invents the paper plane by telling Folder1 what to do. They name it as Version 0.
 
-   ![v0](paper_planes_git_files\v0.png)
+    ![v0](paper_planes_git_files\v0.png)
 
-2. Improver 1 loves it and asks for one copy.  The originator send a copy to Improver 1. ![v0copy2improver1](paper_planes_git_files\v0_copy_to_improver1.png)
+2.  Improver 1 loves it and asks for one copy. The originator send a copy to Improver 1. ![v0copy2improver1](paper_planes_git_files\v0_copy_to_improver1.png)
 
-   
+3.  Improver 1 invents an improvement, making Version 1. ![v1](paper_planes_git_files\v1.png)
 
-3. Improver 1 invents an improvement, making Version 1. ![v1](paper_planes_git_files\v1.png)
+4.  Improver 1 sends their improvement to Originator. Originator make it official.![v1_official](paper_planes_git_files\v1_official.png)
 
-4. Improver 1 sends their improvement to Originator.  Originator make it official.![v1_official](paper_planes_git_files\v1_official.png)
+5.  Improver 2 gets that improvement along with the original.![sendv1toi2](paper_planes_git_files\send_v1to_improver2.png)
 
-5. Improver 2 gets that improvement along with the original.![sendv1toi2](paper_planes_git_files\send_v1to_improver2.png)
+6.  Improver sends their improvement back to Originator, who accepts it, making Version 2 the official version. Now everyone can can work off that version, for future improvements.![v2_official](paper_planes_git_files\v2_official.png)
 
-6. Improver sends their improvement back to Originator, who accepts it, making Version 2 the official version. Now everyone can can work off that version, for future improvements.![v2_official](paper_planes_git_files\v2_official.png)
-
-Everything is hunky dory until Improver 2 takes Version 2 and suggests adding a single flap to each wing, while simultaneously Improver 1 is also working with Version 2 and suggests adding two flaps to each wing.  
+Everything is hunky dory until Improver 2 takes Version 2 and suggests adding a single flap to each wing, while simultaneously Improver 1 is also working with Version 2 and suggests adding two flaps to each wing.
 
 ![v2_to_i1](paper_planes_git_files\v2_to_i1.png)
 
 ![v3](paper_planes_git_files\v3.png)
 
-
-
-Originator receives these improvements, sees that they are incompatible.  
+Originator receives these improvements, sees that they are incompatible.
 
 ![conflict](paper_planes_git_files\conflict.png)
 
 Now what?![conflict](paper_planes_git_files\conflict_solved.png)
 
-- choose only one to be Version 3 (benevolent dictator choice).
-- make flap number into a configuration variable.
+-   choose only one to be Version 3 (benevolent dictator choice).
+-   make flap number into a configuration variable.
 
-Version 3 is released with configuration variable.  New improvements start coming in. Some are not problematic, such as wing-tips turned up. But some only work for the one flap config, so the project gets pretty complicated. Originator changes their mind and says that, actually, everything has to be single flap from now on.
+Version 3 is released with configuration variable. New improvements start coming in. Some are not problematic, such as wing-tips turned up. But some only work for the one flap config, so the project gets pretty complicated. Originator changes their mind and says that, actually, everything has to be single flap from now on.
 
-The double flappers can either adapt or they can take the codebase, and start a new central "clearinghouse" for improvements.  A project schism.  
+The double flappers can either adapt or they can take the codebase, and start a new central "clearinghouse" for improvements. A project schism.

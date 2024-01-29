@@ -98,6 +98,38 @@ So, what happened? Well, the second response made it much more clear.
 
 So ... I had done some things right, but I had made a mistake. Sending to the r-bugs mailing list implied that I thought there was a bug. But there wasn't, it wasn't a problem with R, it was a problem with my computer setup. I should have sent this to another forum first, one for general support, instead I had implied that there was a bug in R. Insulting people's work is a risky way to try to get their help!
 
+## Theories of motivation
+
+When organizational science asks about motivation we create taxonomies of different kinds of motivation.
+
+A classic taxonomy is "intrinsic" vs "extrinsic" motivation. These labels are usually used informally, creating a distinction between motivations/desires that are somehow located "internally" (intrinsic) and those that are located "externally" to the individual (thus extrinsic).
+
+Internally located motivation are things like enjoyment, fun. Externally located motivations are things that are worthwhile because of their outcomes in the world, such as getting paid, changing the world, pleasing others.
+
+The distinction is useful, but is far from the end of the motivation story.
+
+Exercise: Talk with your partner and identify:
+
+1.  A thing you only do for fun
+2.  A thing you only do for the rewards available
+3.  A thing that seems both internal and external motivations (intrinsic and extrinsic)
+4.  A thing you do that has neither.
+
+Theorists have developed more elaborate frameworks. This one is from a theory of motivation called "self-determination theory" (Ryan and Deci, 2000):
+
+![](motivations_files/SDT_Motivation.png)
+
+This adds an additional dimension to the "location" of motivation which they call "Perceived locus of control" which is our own sense of whether someone is forcing us to do a particular activity, or whether we understand this to be our own choice.
+
+In open source, people that stick around come to develop and talk about a real identification and integration of the goals of a particular project and their own goals. Some theorists talk about this leading to strong "organizational citizenship".
+
+Talking with your partner, can you identify:
+
+1.  A situation where you do an activity because you think it is worthwhile, even if you don't get rewards.
+2.  A situation in which you gave up an activity you used to value ... why did you give it up?
+
+One core idea in self-determination theory is that human development and life satisfaction comes from undertaking activities that move to the right in the diagram: from externally caused through introjection, identification, and integration.
+
 ## Resources
 
 An article detailing how one open source participant is able to fund their work as a maintainer <https://words.filippo.io/full-time-maintainer/>
@@ -108,7 +140,6 @@ Crowston, K., Wei, K., Howison, J., and Wiggins, A. (2011). Free (libre) open so
 
 Bacon, J. (2009). The Art of Community: Building the New Age of Participation. O’Reilly Media.
 
-Raymond, E. S. and Moen, R. (2001). How to ask questions the smart way. Webpage.
-<http://www.catb.org/esr/faqs/smart-questions.html>
+Raymond, E. S. and Moen, R. (2001). How to ask questions the smart way. Webpage. <http://www.catb.org/esr/faqs/smart-questions.html>
 
-
+Ryan, R. M., & Deci, E. L. (2000). Intrinsic and Extrinsic Motivations: Classic Definitions and New Directions. Contemporary Educational Psychology, 25(1), 54–67. https://doi.org/10.1006/ceps.1999.1020
