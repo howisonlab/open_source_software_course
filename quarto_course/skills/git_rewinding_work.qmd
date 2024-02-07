@@ -2,11 +2,11 @@
 
 ## Prep exercise.
 
-Log into the server: <https://edupod.cns.utexas.edu/> and choose Rstudio. Then your task is to create a git repository that when you run our long viz command
+Your task is to create a git repository that when you run our long viz command
 
     git log --oneline --abbrev-commit --all --graph --decorate --color
 
-Your screen shows this result:
+Your screen shows this result (the commit hash abbreviations, like `1b2162e` will vary on your repo)
 
 ``` bash
 test-rewind % git log --oneline --abbrev-commit --all --graph --decorate --color                         
@@ -15,7 +15,7 @@ test-rewind % git log --oneline --abbrev-commit --all --graph --decorate --color
 * 1b2162e made first edit
 ```
 
-Hint: You will need to start by making a directory called `test-rewind`.
+Hint: You will need to start by making a directory called `test-rewind` then using `cd test-rewind` to change into it, and using `git init` to establish a git repo.
 
 ## Why rewind?
 
@@ -25,7 +25,11 @@ In many ways this is identical to the idea of a "save point" in a game. We can s
 
 Git enables us to save full copies of our working directory. We can then get back to the state of our work at any time we made a commit. When we check out a historical state, we get the files and the folders as as they were. So git actually swaps out the directory.
 
-When I first started using git, I found this a bit confusing. usually when one restores from a backup, it is more like downloading a file. One gets to choose: - what to call the newly obtained older version - where to put it - what to do if there is a file that would be over-written.
+When I first started using git, I found this a bit confusing. usually when one restores from a backup, it is more like downloading a file. One gets to choose: 
+
+- what to call the newly obtained older version 
+- where to put it 
+- what to do if there is a file that would be over-written.
 
 What git does, though, is it swaps out all the files and folders with the previous version.
 
@@ -36,6 +40,8 @@ Thus we can have `untracked` files or folders hanging around in our working fold
 1.  git checks that all tracked files are in a "clean" state. This means that they are unchanged from the last commit. This is git checking that you have "saved your work" before it swaps out the files.
 2.  git goes to its repository, locates the commit you ask for, and swaps all the tracked files and folders in the working directory.
 3.  git remembers what commit you've moved to, so that if you make edits you can decide how they should be applied into the stream of commits in your repository.
+
+Question for you to answer: What happens to _untracked_ files when you run a `git checkout`
 
 To move backwards in time we use the `git checkout` command. We have to let git know which commit we want to go back to. We can specify that using the name that git uses, which is the hash (e.g., `1b2162e`) shown by git log.
 
@@ -88,9 +94,11 @@ jlh5498@INFO-A64206 test-rewind % git log --oneline --abbrev-commit --all --grap
 
 See how the word `HEAD` now appears on the bottom line and not the top line? This is git's way of telling us what is checked out.
 
-When git says `detached HEAD` (a little intense sounding) git is highlight for us that our current working directory is not at the last commit. This means that if we try to make a new `commit` git wants us to know that it won't just pop onto the top of the repo like usual. (git will create an unnamed branch, we'll discuss branches later).
+When git says `detached HEAD` (a little intense sounding) git is highlight for us that our current working directory is not at the last commit. This means that if we try to make a new `commit` git wants us to know that it won't just pop onto the top of the repo like usual.
 
-For now, though, we can inspect files back at this version, and we can shift to another version (using `checkout`). For example we can move back to our top commit, using `git checkout main` (where `main` might be `master` on a system configured with an older `git`).
+For now, though, we can inspect files back at this version, and we can shift to another version (using `checkout`). For example we can move back to our top commit, using `git checkout main`.
+
+If you see a `error: pathspec 'main' did not match any file(s) known to git` use `git checkout master` (newer git installs use `main` and older installs use `master`).
 
 ``` bash
 jlh5498@INFO-A64206 test-rewind % git checkout main
@@ -114,11 +122,31 @@ jlh5498@INFO-A64206 test-rewind % git log --oneline --abbrev-commit --all --grap
 * 1b2162e made first edit
 ```
 
+While we can always use the hash abbreviations like `50590c5` as names for commits, there is also a relative syntax.
+
+`git checkout HEAD~1`
+
+will get the commit one back from where `HEAD` is currently pointing.  `HEAD~2` will be 2 back, and so on.  `HEAD~` (without any number after the tilde) is a shortcut for `HEAD~1`
+
 Remember, git swaps out all the **tracked** files when you do a `checkout`. If you have untracked files you will find they are unaffected by a `git checkout`. Create a file called `my-untracked-file` run `git status` then run `git checkout <earlier-commit>` (where `<earlier-commit>` is a hash for your first commit), then run `git status` again.
+
+## Undo
+
+Sometimes (well often, really) we need to undo things we've done in git. Unfortunately there isn't one `Ctrl-Z` type undo process in git.  Here are three common scenarios with our `edit, save, add, commit` cycle.
+
+### git restore --staged Undo adding files (before commit)
+
+When we add a file, we are placing the file onto the tray, ready to copy into the repository. In git language we use `git add` we are "staging" a set of changes ready to commit. If we run `git status` we will see the files added under `Changes to be committeed` (usually shown in green).
+
+Sometimes we accidentally add files with changes that we don't want to include in the commit (e.g., because they are unrelated to the current set of changes and would just clutter the commit up for people trying to understand it)
+
+Helpful, the output of `git status` helps coach us how to fix this.  We can use `git restore --staged <file>` This works with individual files, but `<file>` can also refer to a folder, in which case all the files inside that folder will be unstaged.
 
 ## Revert - commits to undo commits
 
-See <https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/>
+Once we have made a commit we face a different problem.  Git is like a "ledger" in accounting that provides an "audit trail": we can't just easily delete something from history.  Instead we can make a commit that reverses the mistake.  One analogy that I like is that if the mistaken commit is "matter" then the revert commit is "anti-matter", it exactly reverses all the changes of the mistaken commit. See <https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/>
+
+This does leave the history looking a bit messy. We will explore other opportunities to tidy things up later in the course.  One note at this point: if things like passwords get into the git history, it can be very difficult to entirely eliminate them from the history (and one never knows if others have unchanged copies) so generally if passwords or other secrets (like API keys) get into a git repository then it's time to change the password or secret!
 
 <!-- # Tags -->
 

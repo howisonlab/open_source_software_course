@@ -300,7 +300,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul>
   <li><a href="#prep-exercise." id="toc-prep-exercise." class="nav-link active" data-scroll-target="#prep-exercise."><span class="toc-section-number">13.1</span>  Prep exercise.</a></li>
   <li><a href="#why-rewind" id="toc-why-rewind" class="nav-link" data-scroll-target="#why-rewind"><span class="toc-section-number">13.2</span>  Why rewind?</a></li>
-  <li><a href="#revert---commits-to-undo-commits" id="toc-revert---commits-to-undo-commits" class="nav-link" data-scroll-target="#revert---commits-to-undo-commits"><span class="toc-section-number">13.3</span>  Revert - commits to undo commits</a></li>
+  <li><a href="#undo" id="toc-undo" class="nav-link" data-scroll-target="#undo"><span class="toc-section-number">13.3</span>  Undo</a>
+  <ul class="collapse">
+  <li><a href="#git-restore-staged-undo-adding-files-before-commit" id="toc-git-restore-staged-undo-adding-files-before-commit" class="nav-link" data-scroll-target="#git-restore-staged-undo-adding-files-before-commit"><span class="toc-section-number">13.3.1</span>  git restore –staged Undo adding files (before commit)</a></li>
+  </ul></li>
+  <li><a href="#revert---commits-to-undo-commits" id="toc-revert---commits-to-undo-commits" class="nav-link" data-scroll-target="#revert---commits-to-undo-commits"><span class="toc-section-number">13.4</span>  Revert - commits to undo commits</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/skills/git_rewinding_work.qmd" class="toc-action">View source</a></p></div></div></nav>
     </div>
@@ -326,21 +330,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <section id="prep-exercise." class="level2" data-number="13.1">
 <h2 data-number="13.1" class="anchored" data-anchor-id="prep-exercise."><span class="header-section-number">13.1</span> Prep exercise.</h2>
-<p>Log into the server: <a href="https://edupod.cns.utexas.edu/" class="uri">https://edupod.cns.utexas.edu/</a> and choose Rstudio. Then your task is to create a git repository that when you run our long viz command</p>
+<p>Your task is to create a git repository that when you run our long viz command</p>
 <pre><code>git log --oneline --abbrev-commit --all --graph --decorate --color</code></pre>
-<p>Your screen shows this result:</p>
+<p>Your screen shows this result (the commit hash abbreviations, like <code>1b2162e</code> will vary on your repo)</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">test-rewind</span> % git log <span class="at">--oneline</span> <span class="at">--abbrev-commit</span> <span class="at">--all</span> <span class="at">--graph</span> <span class="at">--decorate</span> <span class="at">--color</span>                         </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 50590c5 <span class="er">(</span><span class="ex">HEAD</span> <span class="at">-</span><span class="op">&gt;</span> main<span class="kw">)</span> <span class="ex">made</span> third edit</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 39f89db made second edit</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 1b2162e made first edit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Hint: You will need to start by making a directory called <code>test-rewind</code>.</p>
+<p>Hint: You will need to start by making a directory called <code>test-rewind</code> then using <code>cd test-rewind</code> to change into it, and using <code>git init</code> to establish a git repo.</p>
 </section>
 <section id="why-rewind" class="level2" data-number="13.2">
 <h2 data-number="13.2" class="anchored" data-anchor-id="why-rewind"><span class="header-section-number">13.2</span> Why rewind?</h2>
 <p>When we are working we often want to try things out before we are 100% sure that they will work. We want to be able to experiment and find our way through a problem. If our experiment doesn’t work, we want to be able to step backwards in time, to find an earlier version that is a good new starting point.</p>
 <p>In many ways this is identical to the idea of a “save point” in a game. We can step backwards in time and try again. We can reload that point at any time in the future. In our paper plane analogy, we can reach out and grab any tray in our repository.</p>
 <p>Git enables us to save full copies of our working directory. We can then get back to the state of our work at any time we made a commit. When we check out a historical state, we get the files and the folders as as they were. So git actually swaps out the directory.</p>
-<p>When I first started using git, I found this a bit confusing. usually when one restores from a backup, it is more like downloading a file. One gets to choose: - what to call the newly obtained older version - where to put it - what to do if there is a file that would be over-written.</p>
+<p>When I first started using git, I found this a bit confusing. usually when one restores from a backup, it is more like downloading a file. One gets to choose:</p>
+<ul>
+<li>what to call the newly obtained older version</li>
+<li>where to put it</li>
+<li>what to do if there is a file that would be over-written.</li>
+</ul>
 <p>What git does, though, is it swaps out all the files and folders with the previous version.</p>
 <p>As we’ve seen, though, git is more fine-grained than a video game save-point. We often have files that have changed that we don’t want included in our save-point, this is why we have the <code>git add</code> stage before <code>git commit</code>.</p>
 <p>Thus we can have <code>untracked</code> files or folders hanging around in our working folder. Git won’t change these when we do a checkout. So what happens is:</p>
@@ -349,6 +358,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>git goes to its repository, locates the commit you ask for, and swaps all the tracked files and folders in the working directory.</li>
 <li>git remembers what commit you’ve moved to, so that if you make edits you can decide how they should be applied into the stream of commits in your repository.</li>
 </ol>
+<p>Question for you to answer: What happens to <em>untracked</em> files when you run a <code>git checkout</code></p>
 <p>To move backwards in time we use the <code>git checkout</code> command. We have to let git know which commit we want to go back to. We can specify that using the name that git uses, which is the hash (e.g., <code>1b2162e</code>) shown by git log.</p>
 <p>Starting with our 3 commit test-rewind repo:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jlh5498@INFO-A64206</span> test-rewind % git log <span class="at">--oneline</span> <span class="at">--abbrev-commit</span> <span class="at">--all</span> <span class="at">--graph</span> <span class="at">--decorate</span> <span class="at">--color</span></span>
@@ -382,8 +392,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 39f89db made second edit</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 1b2162e <span class="er">(</span><span class="ex">HEAD</span><span class="kw">)</span> <span class="ex">made</span> first edit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>See how the word <code>HEAD</code> now appears on the bottom line and not the top line? This is git’s way of telling us what is checked out.</p>
-<p>When git says <code>detached HEAD</code> (a little intense sounding) git is highlight for us that our current working directory is not at the last commit. This means that if we try to make a new <code>commit</code> git wants us to know that it won’t just pop onto the top of the repo like usual. (git will create an unnamed branch, we’ll discuss branches later).</p>
-<p>For now, though, we can inspect files back at this version, and we can shift to another version (using <code>checkout</code>). For example we can move back to our top commit, using <code>git checkout main</code> (where <code>main</code> might be <code>master</code> on a system configured with an older <code>git</code>).</p>
+<p>When git says <code>detached HEAD</code> (a little intense sounding) git is highlight for us that our current working directory is not at the last commit. This means that if we try to make a new <code>commit</code> git wants us to know that it won’t just pop onto the top of the repo like usual.</p>
+<p>For now, though, we can inspect files back at this version, and we can shift to another version (using <code>checkout</code>). For example we can move back to our top commit, using <code>git checkout main</code>.</p>
+<p>If you see a <code>error: pathspec 'main' did not match any file(s) known to git</code> use <code>git checkout master</code> (newer git installs use <code>main</code> and older installs use <code>master</code>).</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jlh5498@INFO-A64206</span> test-rewind % git checkout main</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">jlh5498@INFO-A64206</span> test-rewind % git log <span class="at">--oneline</span> <span class="at">--abbrev-commit</span> <span class="at">--all</span> <span class="at">--graph</span> <span class="at">--decorate</span> <span class="at">--color</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 50590c5 <span class="er">(</span><span class="ex">HEAD</span> <span class="at">-</span><span class="op">&gt;</span> main<span class="kw">)</span> <span class="ex">made</span> third edit</span>
@@ -399,11 +410,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 50590c5 made third edit</span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 39f89db made second edit</span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 1b2162e made first edit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>While we can always use the hash abbreviations like <code>50590c5</code> as names for commits, there is also a relative syntax.</p>
+<p><code>git checkout HEAD~1</code></p>
+<p>will get the commit one back from where <code>HEAD</code> is currently pointing. <code>HEAD~2</code> will be 2 back, and so on. <code>HEAD~</code> (without any number after the tilde) is a shortcut for <code>HEAD~1</code></p>
 <p>Remember, git swaps out all the <strong>tracked</strong> files when you do a <code>checkout</code>. If you have untracked files you will find they are unaffected by a <code>git checkout</code>. Create a file called <code>my-untracked-file</code> run <code>git status</code> then run <code>git checkout &lt;earlier-commit&gt;</code> (where <code>&lt;earlier-commit&gt;</code> is a hash for your first commit), then run <code>git status</code> again.</p>
 </section>
-<section id="revert---commits-to-undo-commits" class="level2" data-number="13.3">
-<h2 data-number="13.3" class="anchored" data-anchor-id="revert---commits-to-undo-commits"><span class="header-section-number">13.3</span> Revert - commits to undo commits</h2>
-<p>See <a href="https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/" class="uri">https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/</a></p>
+<section id="undo" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="undo"><span class="header-section-number">13.3</span> Undo</h2>
+<p>Sometimes (well often, really) we need to undo things we’ve done in git. Unfortunately there isn’t one <code>Ctrl-Z</code> type undo process in git. Here are three common scenarios with our <code>edit, save, add, commit</code> cycle.</p>
+<section id="git-restore-staged-undo-adding-files-before-commit" class="level3" data-number="13.3.1">
+<h3 data-number="13.3.1" class="anchored" data-anchor-id="git-restore-staged-undo-adding-files-before-commit"><span class="header-section-number">13.3.1</span> git restore –staged Undo adding files (before commit)</h3>
+<p>When we add a file, we are placing the file onto the tray, ready to copy into the repository. In git language we use <code>git add</code> we are “staging” a set of changes ready to commit. If we run <code>git status</code> we will see the files added under <code>Changes to be committeed</code> (usually shown in green).</p>
+<p>Sometimes we accidentally add files with changes that we don’t want to include in the commit (e.g., because they are unrelated to the current set of changes and would just clutter the commit up for people trying to understand it)</p>
+<p>Helpful, the output of <code>git status</code> helps coach us how to fix this. We can use <code>git restore --staged &lt;file&gt;</code> This works with individual files, but <code>&lt;file&gt;</code> can also refer to a folder, in which case all the files inside that folder will be unstaged.</p>
+</section>
+</section>
+<section id="revert---commits-to-undo-commits" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="revert---commits-to-undo-commits"><span class="header-section-number">13.4</span> Revert - commits to undo commits</h2>
+<p>Once we have made a commit we face a different problem. Git is like a “ledger” in accounting that provides an “audit trail”: we can’t just easily delete something from history. Instead we can make a commit that reverses the mistake. One analogy that I like is that if the mistaken commit is “matter” then the revert commit is “anti-matter”, it exactly reverses all the changes of the mistaken commit. See <a href="https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/" class="uri">https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/</a></p>
+<p>This does leave the history looking a bit messy. We will explore other opportunities to tidy things up later in the course. One note at this point: if things like passwords get into the git history, it can be very difficult to entirely eliminate them from the history (and one never knows if others have unchanged copies) so generally if passwords or other secrets (like API keys) get into a git repository then it’s time to change the password or secret!</p>
 <!-- # Tags -->
 <!-- Tags help identify important points in the version history. They are also used for releases on github. They point to a specific commit, but are human readable, rather than the hash. So they are like a bookmark which brings you directly to a specific point in the repo history. -->
 <!-- Your task is to create three tags, `tag-animals`, `tag-colors`, `tag-noises` which reflect the merge points of different branches. -->
