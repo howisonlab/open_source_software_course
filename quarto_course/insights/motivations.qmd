@@ -1,5 +1,9 @@
 # Motivations {#sec-motivations}
 
+## Readings
+
+5m youtube video. [Linus Torvalds talking about finding Kernel maintainers](https://www.youtube.com/watch?v=eWfUaFNSPhM)
+
 ## How to ask questions people want to answer
 
 **Much of this material is based on [How To Ask Questions The Smart Way, Eric Raymond and Rick Moen](http://www.catb.org/~esr/faqs/smart-questions.html) with the addition of academic references and frameworks.**

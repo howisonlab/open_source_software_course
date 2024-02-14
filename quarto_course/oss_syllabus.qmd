@@ -563,7 +563,7 @@ insight_topics <- tribble(
   "Agile and test driven development",
   "Cybersecurity and open source",
   "Open software work in science and research",
-  "Peer production in Art and Culture"
+  # "Peer production in Art and Culture"
 ) %>% mutate(topic = "Insights") %>%  rownames_to_column()
 
 introduction_topics <- tibble(introduction_topic = c("Syllabus Review", "Paper Planes: Innovation and collaboration"), topic = "Introduction") %>%  rownames_to_column()
@@ -596,7 +596,7 @@ no_meetings <- tribble(
    "2024-01-15", "2024-01-15", "No meeting: MLK day",
    "2024-03-11", "2024-03-15", "No meeting: Spring Break",
    "2024-03-04", "2024-03-08", "No meeting: Project Time",
-  
+   "2024-04-08", "2024-04-08", "No meeting: Eclipse Day"
 ) %>%
   mutate(days_list = map2(period_start, period_end, expand_days)) %>%
   select(class_name, days_list) %>%
