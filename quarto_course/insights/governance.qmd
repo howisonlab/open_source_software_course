@@ -3,7 +3,19 @@
 <!-- Pre-class prep: -->
 <!-- - create google docs numbered by group. (e.g. 21 students --> 3 groups) -->
 
-How do open source projects make decisions? 
+## Pre-Readings
+
+1. Ross Gardler & Gabriel Hanganu. (2013). Governance models. OSS-Watch.ac.uk. <http://oss-watch.ac.uk/resources/governancemodels>
+
+2. Karl Fogel. (2020). Chapter 8: Managing Participants. In "Producing OSS" Book. <https://producingoss.com/en/managing-participants.html>
+
+3. "How Open Source communities are evolving" <https://blog.weareopen.coop/how-open-source-communities-are-evolving-9cc768249777>. Presents a useful typology from Nadia Eghbhal's work
+
+4. Apache Foundation guide to voting in projects. <https://www.apache.org/foundation/voting.html>
+
+Extra optional reading: Podcast on "Learning from Open Source": <https://a16z.com/podcast/learning-from-open-source-communities/>.  We will have readings from this later in the course, so useful to do now.
+
+# How do open source projects make decisions? 
 
 Working in a project requires many decisions, e.g.,:
 
