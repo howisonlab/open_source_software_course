@@ -1,6 +1,6 @@
 # GitHub solo {#sec-github-solo}
 
-Thus far your repositories have all been in your local filespace. This is often on a laptop, although for consistency this semester as we learn, we have been creating and using repos on [Edupod Rstudio](https://edupod.cns.utexas.edu/).
+Thus far your repositories have all been in your local filespace. This is often on a laptop, although for consistency this semester as we learn, we have been creating and using repos on DataCamp.
 
 Even when working on one's own (solo), it can be convenient to have a backup in the cloud. Git hosting services provide this. Examples include Github, GitLab, and BitBucket. As we will see later, these services also provide a platform for collaborating with others, but they work just as well as a backup for solo work.
 
@@ -28,7 +28,7 @@ You should copy the URL using the little grey box-on-box on the right.
 
 Now that we have an empty repo on Github, we can bring it down to our local space.  This uses a git command called `git clone`. 
 
-Go to the [Edupod Rstudio](https://edupod.cns.utexas.edu/) and to the Terminal tab.
+Go to the Terminal on DataCamp.
 
 Before running git clone, everyone needs to ensure they are in a folder that is not inside another repo. You can place repos anywhere you want. I suggest placing them all into your home folder on edupod. You can be sure you are there by running this command (read as "cd tilde" because tilde is a shortcut for your home directory).
 
@@ -74,6 +74,13 @@ git add README.md
 git commit -m "Added line to README"
 ```
 
+Note that you may have to set the `user.email` and `user.name` fields.  These do not have to match up with your GitHub username and/or email.
+
+```sh
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+```
+
 ## Obtain special password for commandline git (PAT)
 
 Your password for GitHub will give you access to the GitHub web interface, but to connect `git` on the commandline to GitHub we need a *Personal Access Token* (PAT).  You can think of this as a special use password. Go to https://github.com/settings/tokens
@@ -95,7 +102,7 @@ The `git push` command will move any new work from your local repo, up to GitHub
 git push
 ```
 
-Rstudio on EduPod will pop up a window for your username/password.  You should use your GitHub username, but the PAT when asked for the password. Your regular GitHub password will not work. You have to use the PAT you created in the previous step.  If you didn't copy it down, you can create a new one, don't forget to store it somewhere so that you can copy it for use in class.
+git will ask for your username/password.  You should use your GitHub username, but the PAT when asked for the password. Your regular GitHub password will not work. You have to use the PAT you created in the previous step.  If you didn't copy it down, you can create a new one, don't forget to store it somewhere so that you can copy it for use in class.
 
 By default you will have to re-enter this username/PAT any time you haven't run a `git push` command for 15 minutes.  More details in the FAQ on this in @sec-pass-popup but you can reduce pops by running:
 
