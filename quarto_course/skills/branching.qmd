@@ -324,7 +324,7 @@ Which will show us this (using an image here because the color doesn't copy):
 
 We can also see this visually using learngitbranching, see the short video below.
 
-{{< video images/Git-branching_viz.mov height="480" >}}
+{{<images/Git-branching_viz.mov height="480" >}}
 
 <!-- <video height="480" controls> -->
 <!--   <source src=""> -->
