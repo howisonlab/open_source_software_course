@@ -62,6 +62,8 @@ When you see this prompt, even though it says "password" you must use your PAT t
 Password for 'https://<your_github_username>@github.com': 
 ```
 
+On windows you may have to use the right-click context menu to paste into the terminal.
+
 ### Password pop-up repeats too often {#sec-pass-popup}
 
 The username/password pop-up can come up too often. Especially with GitHub requiring a PAT (and not the same password used on the website) this can be a hassle, since the PAT is not configurable and has to be copy/pasted.

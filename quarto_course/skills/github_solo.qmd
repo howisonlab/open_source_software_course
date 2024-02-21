@@ -1,3 +1,8 @@
+---
+resources:
+  - "*.mp4"
+---
+
 # GitHub solo {#sec-github-solo}
 
 Thus far your repositories have all been in your local filespace. This is often on a laptop, although for consistency this semester as we learn, we have been creating and using repos on DataCamp.
@@ -103,9 +108,15 @@ Your password for GitHub will give you access to the GitHub web interface, but t
 2. Chose "Generate New Token (classic)" from the drop down (**not Fine-grained**)
 3. Select "repo" "workflow" and "user" permissions and then hit "Generate Token"
 
-You will then be able to copy the PAT.You need to keep this somewhere you can copy from in class. I put it into my password manager (I use 1password).  Note that this gives full access to your GitHub account, so if you have work stuff or other things in there, come talk to me or use a "fine-grained access token" scoped only to the repos for this class.
+You will then be able to copy the PAT. You need to keep this somewhere you can copy from in class. I put it into my password manager (I use 1password).  Note that this gives full access to your GitHub account, so if you have work stuff or other things in there, come talk to me or use a "fine-grained access token" scoped only to the repos for this class.
 
 {{< video images/generate_pat_token.mp4 >}}
+
+::: {.callout-note}
+Windows users may have trouble pasting the PAT into the terminal. You may have to use the right-click menu and then choose paste.
+
+Similarly, right-click can also work for copy in the termainl windows.
+:::
 
 ## Send your changes up to GitHub 
 
