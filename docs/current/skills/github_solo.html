@@ -310,9 +310,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#editsaveaddcommit-as-usual" id="toc-editsaveaddcommit-as-usual" class="nav-link" data-scroll-target="#editsaveaddcommit-as-usual"><span class="header-section-number">15.4</span> Edit/Save/Add/Commit as usual</a></li>
   <li><a href="#obtain-special-password-for-commandline-git-pat" id="toc-obtain-special-password-for-commandline-git-pat" class="nav-link" data-scroll-target="#obtain-special-password-for-commandline-git-pat"><span class="header-section-number">15.5</span> Obtain special password for commandline git (PAT)</a></li>
   <li><a href="#send-your-changes-up-to-github" id="toc-send-your-changes-up-to-github" class="nav-link" data-scroll-target="#send-your-changes-up-to-github"><span class="header-section-number">15.6</span> Send your changes up to GitHub</a></li>
-  <li><a href="#find-your-branch-on-github-create-and-merge-pull-request" id="toc-find-your-branch-on-github-create-and-merge-pull-request" class="nav-link" data-scroll-target="#find-your-branch-on-github-create-and-merge-pull-request"><span class="header-section-number">15.7</span> Find your branch on GitHub, create and merge Pull Request</a></li>
-  <li><a href="#synchronize-your-local-repo" id="toc-synchronize-your-local-repo" class="nav-link" data-scroll-target="#synchronize-your-local-repo"><span class="header-section-number">15.8</span> Synchronize your local repo</a></li>
-  <li><a href="#summary-figure" id="toc-summary-figure" class="nav-link" data-scroll-target="#summary-figure"><span class="header-section-number">15.9</span> Summary figure:</a></li>
+  <li><a href="#go-to-github-to-confirm" id="toc-go-to-github-to-confirm" class="nav-link" data-scroll-target="#go-to-github-to-confirm"><span class="header-section-number">15.7</span> Go to GitHub to confirm</a></li>
+  <li><a href="#working-with-branches-locally-and-remotely" id="toc-working-with-branches-locally-and-remotely" class="nav-link" data-scroll-target="#working-with-branches-locally-and-remotely"><span class="header-section-number">15.8</span> Working with branches locally and remotely</a></li>
+  <li><a href="#find-your-branch-on-github-create-and-merge-pull-request" id="toc-find-your-branch-on-github-create-and-merge-pull-request" class="nav-link" data-scroll-target="#find-your-branch-on-github-create-and-merge-pull-request"><span class="header-section-number">15.9</span> Find your branch on GitHub, create and merge Pull Request</a></li>
+  <li><a href="#synchronize-your-local-repo" id="toc-synchronize-your-local-repo" class="nav-link" data-scroll-target="#synchronize-your-local-repo"><span class="header-section-number">15.10</span> Synchronize your local repo</a></li>
+  <li><a href="#summary-figure" id="toc-summary-figure" class="nav-link" data-scroll-target="#summary-figure"><span class="header-section-number">15.11</span> Summary figure:</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/skills/github_solo.qmd" class="toc-action">View source</a></p></div></div></nav>
     </div>
@@ -336,7 +338,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>Thus far your repositories have all been in your local filespace. This is often on a laptop, although for consistency this semester as we learn, we have been creating and using repos on datacamp.</p>
+<p>Thus far your repositories have all been in your local filespace. This is often on a laptop, although for consistency this semester as we learn, we have been creating and using repos on DataCamp.</p>
 <p>Even when working on one’s own (solo), it can be convenient to have a backup in the cloud. Git hosting services provide this. Examples include Github, GitLab, and BitBucket. As we will see later, these services also provide a platform for collaborating with others, but they work just as well as a backup for solo work.</p>
 <section id="create-a-github-account" class="level2" data-number="15.1">
 <h2 data-number="15.1" class="anchored" data-anchor-id="create-a-github-account"><span class="header-section-number">15.1</span> Create a GitHub account</h2>
@@ -369,7 +371,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>For my example repo in the image above this would be:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/jameshowison/i320d-test1.git</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> i320d-test1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>You will need to replace the repo URL and the repository name to match yours like:</p>
+<p>You will need to replace the repo URL and the repository name to match yours. The general form looks like this (but you replace the <code>&lt;repo_url&gt;</code> and <code>&lt;repository_name&gt;</code> placeholders.)</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="op">&lt;</span>repo_url<span class="op">&gt;</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="op">&lt;</span>repository_name<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
@@ -380,37 +382,79 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="at">-e</span> <span class="st">"\n\nA new line in README"</span> <span class="op">&gt;&gt;</span> README.md</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add README.md</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Added line to README"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note that you may have to set the <code>user.email</code> and <code>user.name</code> fields. These do not have to match up with your GitHub username and/or email.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"you@example.com"</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Your Name"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now we are ready to send data back up to GitHub. While the repo is public readable, it is not public writeable. If we try to send things up using the <code>git push</code> command we will see this error.</p>
+<pre><code>git push
+remote: No anonymous write access.
+fatal: Authentication failed for 'https://github.com/jameshowison/i320d-testing2024.git/'</code></pre>
+<p>Only people with special permission can add things to the repository. So we have to set up authentication. To clear anything out (and avoid being asked for these details a lot) we need to run:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> credential.helper <span class="st">'cache --timeout=10000000'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="obtain-special-password-for-commandline-git-pat" class="level2" data-number="15.5">
 <h2 data-number="15.5" class="anchored" data-anchor-id="obtain-special-password-for-commandline-git-pat"><span class="header-section-number">15.5</span> Obtain special password for commandline git (PAT)</h2>
-<p>Your password for GitHub will give you access to the GitHub web interface, but to connect <code>git</code> on the commandline to GitHub we need a <em>Personal Access Token</em> (PAT). You can think of this as a special use password. Go to https://github.com/settings/tokens</p>
+<p>Your password for GitHub will give you access to the GitHub web interface, but to connect <code>git</code> on the commandline to GitHub we need a <em>Personal Access Token</em> (PAT). You can think of this as a special use password. Go to <a href="https://github.com/settings/tokens" class="uri">https://github.com/settings/tokens</a> (You will need to be logged into GitHub).</p>
 <ol type="1">
 <li>Click “Generate token”.<br>
 </li>
-<li>Chose “Generate New Token (classic)” from the drop down</li>
+<li>Chose “Generate New Token (classic)” from the drop down (<strong>not Fine-grained</strong>)</li>
 <li>Select “repo” “workflow” and “user” permissions and then hit “Generate Token”</li>
 </ol>
-<p>You will then be able to copy the PAT. You need to keep this somewhere you can copy from in class. I put it into my password manager (I use 1password). Note that this gives full access to your GitHub account, so if you have work stuff or other things in there, come talk to me or use a “fine-grained access token” scoped only to the repos for this class.</p>
+<p>You will then be able to copy the PAT.You need to keep this somewhere you can copy from in class. I put it into my password manager (I use 1password). Note that this gives full access to your GitHub account, so if you have work stuff or other things in there, come talk to me or use a “fine-grained access token” scoped only to the repos for this class.</p>
 <div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="images/generate_pat_token.mp4"></video></div>
 </section>
 <section id="send-your-changes-up-to-github" class="level2" data-number="15.6">
 <h2 data-number="15.6" class="anchored" data-anchor-id="send-your-changes-up-to-github"><span class="header-section-number">15.6</span> Send your changes up to GitHub</h2>
 <p>The <code>git push</code> command will move any new work from your local repo, up to GitHub.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>git will ask for your username/password. You should use your GitHub username, but the PAT when asked for the password. Your regular GitHub password will not work. You have to use the PAT you created in the previous step. If you didn’t copy it down, you can create a new one, don’t forget to store it somewhere so that you can copy it for use in class.</p>
-<p>By default you will have to re-enter this username/PAT any time you haven’t run a <code>git push</code> command for 15 minutes. More details in the FAQ on this in <a href="skills_faq.html#sec-pass-popup"><span>Section&nbsp;A.1.2</span></a> but you can reduce pops by running:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> credential.helper <span class="st">'cache --timeout=10000000'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>You may also see a message about needing to set an upstream branch. Something like this:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git push</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">fatal:</span> The current branch test-branch has no upstream branch.</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">To</span> push the current branch and set the remote as upstream, use</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">git</span> push <span class="at">--set-upstream</span> origin test-branch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>You can copy that suggested command within terminal as run it. This tells git to create your new branch on the origin remote.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>git will ask for your username/password. You should use your GitHub username, but the PAT when asked for the password. <strong>Your regular GitHub password will not work</strong>. You have to use the PAT you created in the previous step. If you didn’t copy it down, you can create a new one, don’t forget to store it somewhere so that you can copy it for use in class.</p>
+<p>By default you will have to re-enter this username/PAT any time you haven’t run a <code>git push</code> command for 15 minutes. More details in the FAQ on this in <a href="skills_faq.html#sec-pass-popup"><span>Section&nbsp;A.1.3</span></a> but you can reduce pops by running:</p>
 </section>
-<section id="find-your-branch-on-github-create-and-merge-pull-request" class="level2" data-number="15.7">
-<h2 data-number="15.7" class="anchored" data-anchor-id="find-your-branch-on-github-create-and-merge-pull-request"><span class="header-section-number">15.7</span> Find your branch on GitHub, create and merge Pull Request</h2>
-<p>On GitHub you can now find your branch using the Branch drop-down.</p>
+<section id="go-to-github-to-confirm" class="level2" data-number="15.7">
+<h2 data-number="15.7" class="anchored" data-anchor-id="go-to-github-to-confirm"><span class="header-section-number">15.7</span> Go to GitHub to confirm</h2>
+<p>Now head to GitHub to confirm that your changes made it up to the server.</p>
+</section>
+<section id="working-with-branches-locally-and-remotely" class="level2" data-number="15.8">
+<h2 data-number="15.8" class="anchored" data-anchor-id="working-with-branches-locally-and-remotely"><span class="header-section-number">15.8</span> Working with branches locally and remotely</h2>
+<p>We can create branches locally, and then push them up to GitHub.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch test-new-branch</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout test-new-branch</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Change on new-branch"</span> <span class="op">&gt;&gt;</span> README.md </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add README.md </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"change on locally created branch"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now we have a branch locally, but that branch is not in the repo on GitHub. This means we may see a message about needing to set an <em>upstream branch</em>. Something like this:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git push</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">fatal:</span> The current branch test-branch has no upstream branch.</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="ex">To</span> push the current branch and set the remote as upstream, use</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">git</span> push <span class="at">--set-upstream</span> origin test-branch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can copy that suggested command within terminal and run it. This tells git to create your new branch on the origin remote.</p>
+<p>You should see something like:</p>
+<pre><code>:~/workspace/i320d-testing2024$ git push --set-upstream origin test-new-branch
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 315 bytes | 35.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: 
+remote: Create a pull request for 'test-new-branch' on GitHub by visiting:
+remote:      https://github.com/jameshowison/i320d-testing2024/pull/new/test-new-branch
+remote: 
+To https://github.com/jameshowison/i320d-testing2024.git
+ * [new branch]      test-new-branch -&gt; test-new-branch
+branch 'test-new-branch' set up to track 'origin/test-new-branch'.</code></pre>
+<p>(Remember if you see a <code>fatal: Authentication failed</code> message follow instructions here: <a href="skills_faq.html#sec-github-login"><span>Section&nbsp;A.1.2</span></a>)</p>
+</section>
+<section id="find-your-branch-on-github-create-and-merge-pull-request" class="level2" data-number="15.9">
+<h2 data-number="15.9" class="anchored" data-anchor-id="find-your-branch-on-github-create-and-merge-pull-request"><span class="header-section-number">15.9</span> Find your branch on GitHub, create and merge Pull Request</h2>
+<p>On GitHub you can now find your branch. You have to view your repo on GitHub. A short cut to find the URL is:</p>
+<pre><code>repl@7b713e22-bb6b-4af5-a696-f8554c4158c6:~/workspace/i320d-testing2024$ git remote -v
+origin  https://github.com/jameshowison/i320d-testing2024.git (fetch)
+origin  https://github.com/jameshowison/i320d-testing2024.git (push)</code></pre>
+<p>And then copy the URL (with or without the .git at the end).</p>
+<p>Once you see your repo on GitHub, you can find your branch using the Branch drop-down.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/selecting_branch_on_github.png" class="img-fluid figure-img"></p>
@@ -431,7 +475,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p></p><figcaption class="figure-caption">Image showing New PR interface. A purple circle highlights the section discussed below</figcaption><p></p>
 </figure>
 </div>
-<p>Notice the purple circle that shows <code>base: main &lt;-- compare: new-feature</code>. Notice that the arrow points right to left. The destination of the PR comes first (here it is <code>main</code>) and the place we are merging from comes second (here it is <code>new-feature</code>).</p>
+<p>Notice the purple circle that shows <code>base: main &lt;-- compare: new-feature</code>. Notice that the arrow points <strong>right to left</strong>. The destination of the PR comes first (here it is <code>main</code>) and the place we are merging from comes second (here it is <code>new-feature</code>).</p>
 <p>The interface shows that the branches can be merged automatically. This means that the changes in the <code>new-feature</code> branch would not cause conflicts if merged into <code>main</code>.</p>
 <p>You can go ahead and Create the PR.</p>
 <p>This will lead to a PR page, where you could chat about the suggested changes.</p>
@@ -441,19 +485,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p></p><figcaption class="figure-caption">Image showing PR. A purple circle highlights the section discussed below</figcaption><p></p>
 </figure>
 </div>
-<p>Notice the sentence in the purple circle: <code>jameshowison wants to merge 1 commit into main from new-feature</code> that is a useful succient summary of what a PR is: it is a request to merge a set of commits from one branch into another.</p>
+<p>Notice the sentence in the purple circle: <code>jameshowison wants to merge 1 commit into main from new-feature</code> that is a useful succinct summary of what a PR is: it is a request to merge a set of commits from one branch into another.</p>
 <p>If you hit the “Merge Pull Request” button GitHub will merge the branch to main, close the PR, and suggest that you delete the branch.</p>
 </section>
-<section id="synchronize-your-local-repo" class="level2" data-number="15.8">
-<h2 data-number="15.8" class="anchored" data-anchor-id="synchronize-your-local-repo"><span class="header-section-number">15.8</span> Synchronize your local repo</h2>
+<section id="synchronize-your-local-repo" class="level2" data-number="15.10">
+<h2 data-number="15.10" class="anchored" data-anchor-id="synchronize-your-local-repo"><span class="header-section-number">15.10</span> Synchronize your local repo</h2>
 <p>All the PR steps have happened on GitHub only, so they aren’t yet reflected in your local repo. We have merged <code>new-feature</code> to <code>main</code> on GitHub.</p>
 <p>At this point you need to synchronize by first switching to main:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>and then get changes from the remote</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You will see something like:</p>
+<pre><code>~/workspace/i320d-testing2024$ git checkout main
+Switched to branch 'main'
+Your branch is behind 'origin/main' by 2 commits, and can be fast-forwarded.
+  (use "git pull" to update your local branch)</code></pre>
+<pre><code>~/workspace/i320d-testing2024$ git pull
+Updating 441124e..8ba5e91
+Fast-forward
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)</code></pre>
+<p>and if you run</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>you will see that everything is synchronized. (<code>origin/main</code> means the branch up on GitHub)</p>
+<pre><code>~/workspace/i320d-testing2024$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean</code></pre>
 </section>
-<section id="summary-figure" class="level2 page-columns page-full" data-number="15.9">
-<h2 data-number="15.9" class="anchored" data-anchor-id="summary-figure"><span class="header-section-number">15.9</span> Summary figure:</h2>
+<section id="summary-figure" class="level2 page-columns page-full" data-number="15.11">
+<h2 data-number="15.11" class="anchored" data-anchor-id="summary-figure"><span class="header-section-number">15.11</span> Summary figure:</h2>
 <div class="column-screen-inset">
 <div class="cell">
 <div class="cell-output-display">

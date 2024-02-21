@@ -300,8 +300,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#git-issues" id="toc-git-issues" class="nav-link active" data-scroll-target="#git-issues"><span class="header-section-number">A.1</span> git issues</a>
   <ul class="collapse">
   <li><a href="#set-my-name-and-email" id="toc-set-my-name-and-email" class="nav-link" data-scroll-target="#set-my-name-and-email"><span class="header-section-number">A.1.1</span> Set my name and email</a></li>
-  <li><a href="#sec-pass-popup" id="toc-sec-pass-popup" class="nav-link" data-scroll-target="#sec-pass-popup"><span class="header-section-number">A.1.2</span> Password pop-up repeats too often</a></li>
-  <li><a href="#sec-vim" id="toc-sec-vim" class="nav-link" data-scroll-target="#sec-vim"><span class="header-section-number">A.1.3</span> git commit throws me into a weird mode</a></li>
+  <li><a href="#sec-github-login" id="toc-sec-github-login" class="nav-link" data-scroll-target="#sec-github-login"><span class="header-section-number">A.1.2</span> Login to GitHub</a></li>
+  <li><a href="#sec-pass-popup" id="toc-sec-pass-popup" class="nav-link" data-scroll-target="#sec-pass-popup"><span class="header-section-number">A.1.3</span> Password pop-up repeats too often</a></li>
+  <li><a href="#sec-vim" id="toc-sec-vim" class="nav-link" data-scroll-target="#sec-vim"><span class="header-section-number">A.1.4</span> git commit throws me into a weird mode</a></li>
   </ul></li>
   <li><a href="#sec-faq-home-git-folder" id="toc-sec-faq-home-git-folder" class="nav-link" data-scroll-target="#sec-faq-home-git-folder"><span class="header-section-number">A.2</span> I accidentally made my home folder a git repo</a></li>
   <li><a href="#sec-gitviz" id="toc-sec-gitviz" class="nav-link" data-scroll-target="#sec-gitviz"><span class="header-section-number">A.3</span> Vizualizing git trees (aka gitviz)</a></li>
@@ -349,23 +350,37 @@ After doing this, you may fix the identity used for this commit with:
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"John Doe"</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email johndoe@example.com</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="sec-pass-popup" class="level3" data-number="A.1.2">
-<h3 data-number="A.1.2" class="anchored" data-anchor-id="sec-pass-popup"><span class="header-section-number">A.1.2</span> Password pop-up repeats too often</h3>
+<section id="sec-github-login" class="level3" data-number="A.1.2">
+<h3 data-number="A.1.2" class="anchored" data-anchor-id="sec-github-login"><span class="header-section-number">A.1.2</span> Login to GitHub</h3>
+<p>On the commandline we have to use the username/PAT combination. The password that works to log into GitHub on the web will not work.</p>
+<p>If you see this message:</p>
+<pre><code>remote: No anonymous write access.
+fatal: Authentication failed for &lt;repo_url&gt;</code></pre>
+<p>Then you need to log in, but first reset the credential cache:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> credential.helper <span class="st">'cache --timeout=10000000'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Then repeat the command that failed (hit the up-arrow twice usually brings it up).</p>
+<p>When you see this prompt, use your GitHub username (not the email address)</p>
+<pre><code>Username for 'https://github.com': &lt;your_github_username&gt; </code></pre>
+<p>When you see this prompt, even though it says “password” you must use your PAT token:</p>
+<pre><code>Password for 'https://&lt;your_github_username&gt;@github.com': </code></pre>
+</section>
+<section id="sec-pass-popup" class="level3" data-number="A.1.3">
+<h3 data-number="A.1.3" class="anchored" data-anchor-id="sec-pass-popup"><span class="header-section-number">A.1.3</span> Password pop-up repeats too often</h3>
 <p>The username/password pop-up can come up too often. Especially with GitHub requiring a PAT (and not the same password used on the website) this can be a hassle, since the PAT is not configurable and has to be copy/pasted.</p>
 <p>Rstudio is generating that pop-up, but the frequency is controlled by a gitconfig variable. The default without configuration is 15m so if we don’t run a git command for 15m it expires the cache and pops up again. We can make it show up less with:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> credential.helper <span class="st">'cache --timeout=10000000'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> credential.helper <span class="st">'cache --timeout=10000000'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>That means that the cache won’t expire for 10,000,000 seconds (which is 16 weeks).</p>
 <p>Thanks to <a href="https://happygitwithr.com/https-pat.html#store-credentials-through-organic-git-use" class="uri">https://happygitwithr.com/https-pat.html#store-credentials-through-organic-git-use</a> and the Rstudio community forums for helping me with that <a href="https://community.rstudio.com/t/git-user-pass-pop-ups-when-using-git-in-terminal-window/161213" class="uri">https://community.rstudio.com/t/git-user-pass-pop-ups-when-using-git-in-terminal-window/161213</a></p>
 </section>
-<section id="sec-vim" class="level3" data-number="A.1.3">
-<h3 data-number="A.1.3" class="anchored" data-anchor-id="sec-vim"><span class="header-section-number">A.1.3</span> git commit throws me into a weird mode</h3>
+<section id="sec-vim" class="level3" data-number="A.1.4">
+<h3 data-number="A.1.4" class="anchored" data-anchor-id="sec-vim"><span class="header-section-number">A.1.4</span> git commit throws me into a weird mode</h3>
 <p>If you type <code>git commit</code> just on its own rather than <code>git commit -m "Some message"</code> you will see something like this:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Please enter the commit message for your changes. Lines starting</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># with '#' will be ignored, and an empty message aborts the commit.</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># On branch master</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Your branch is up to date with 'origin/master'.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Please enter the commit message for your changes. Lines starting</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># with '#' will be ignored, and an empty message aborts the commit.</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># On branch master</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Your branch is up to date with 'origin/master'.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>git needs a commit message. When you don’t provide one it throws you into a text editor, expecting you to type a small novel.</p>
 <p>The editor that you go into by default is the <code>vi</code> or <code>vim</code> editor. It can be confusing because it has multiple modes (ie typing doesn’t always just produce text).</p>
 <p>The best option is to:</p>
@@ -379,7 +394,7 @@ After doing this, you may fix the identity used for this commit with:
 <p><strong>The option below does not work in Rstudio because Rstudio captures the</strong> <kdb>Ctrl</kdb> key commands</p>
 <p>You can also configure git to use another editor: <a href="https://stackoverflow.com/questions/2596805/how-do-i-make-git-use-the-editor-of-my-choice-for-editing-commit-messages" class="uri">https://stackoverflow.com/questions/2596805/how-do-i-make-git-use-the-editor-of-my-choice-for-editing-commit-messages</a></p>
 <p>For example, the <code>nano</code> editor is easier to use. You can set that run running</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> core.editor <span class="st">"nano"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> core.editor <span class="st">"nano"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In <code>nano</code> we can type a commit message as usual. The bottom of the screen shows commands. Nano uses the <code>^</code> symbol to represent the <kdb>Ctrl key. We have to save the file and then exit Nano. So to save the message and return to the commandline we use:</kdb></p>
 <p><kbd>Ctrl</kbd> + <kbd>O</kbd></p>
 <p>Then:</p>
@@ -390,26 +405,26 @@ After doing this, you may fix the identity used for this commit with:
 <h2 data-number="A.2" class="anchored" data-anchor-id="sec-faq-home-git-folder"><span class="header-section-number">A.2</span> I accidentally made my home folder a git repo</h2>
 <p>If you are in your home folder but <code>git status</code> doesn’t give a “fatal error” then you’ve accidentially made your home folder into a git repository (probably by running <code>git init</code> in that folder).</p>
 <p>In this case we need to undo this. We can’t delete our home folder, because it has everything else inside it. We have to somehow tell the computer that the home folder should not be a git repo. Happily, then only thing that makes it a git repo is that it has a <code>.git</code> folder inside it. You can confirm by running:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lah</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lah</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The <code>-a</code> flag to <code>ls</code> makes it show all files and folders, even the hidden ones that start with a dot.</p>
 <p>To fix this we could just delete the <code>.git</code> folder but we might lose data that way (if we had already added work to that repo). So safest thing is to make a new folder inside our home folder, and then move the <code>.git</code> there.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> backup_home_git</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> ./.git ./backup_home_git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> backup_home_git</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> ./.git ./backup_home_git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now you could <code>cd backup_home_git</code> and use that folder as a git repo. But probably you are about to clone from github (in which case a new folder will be created) or you are about to use <code>git init</code> to create a new local repo (in which case you should create a folder first, <code>cd</code> into it, then run <code>git init</code>.</p>
 </section>
 <section id="sec-gitviz" class="level2" data-number="A.3">
 <h2 data-number="A.3" class="anchored" data-anchor-id="sec-gitviz"><span class="header-section-number">A.3</span> Vizualizing git trees (aka gitviz)</h2>
 <p>In this course we are using a command that I usually call “gitviz” for short:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span> <span class="at">--abbrev-commit</span> <span class="at">--all</span> <span class="at">--graph</span> <span class="at">--decorate</span> <span class="at">--color</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span> <span class="at">--abbrev-commit</span> <span class="at">--all</span> <span class="at">--graph</span> <span class="at">--decorate</span> <span class="at">--color</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This produces reasonably readable graphs (especially for the teaching repos used in this course).</p>
 <p>They look like this:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jlh5498@educcomp04:~/github_repos/i320_test3,,\n</span> git log <span class="at">--oneline</span> <span class="at">--abbrev-commit</span> <span class="at">--all</span> <span class="at">--graph</span> <span class="at">--decorate</span> <span class="at">--color</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span>   d8ab2c1 <span class="er">(</span><span class="ex">HEAD</span> <span class="at">-</span><span class="op">&gt;</span> main, origin/main, origin/HEAD<span class="kw">)</span> <span class="ex">Merge</span> pull request <span class="co">#1 from jameshowison/new-feature</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span><span class="ex">\ </span> </span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> ffb601d <span class="er">(</span><span class="ex">origin/new-feature,</span> new-feature<span class="kw">)</span> <span class="ex">added</span> extra</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span><span class="ex">/</span>  </span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> f256ee7 Added line to README</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 093fb0c Initial commit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jlh5498@educcomp04:~/github_repos/i320_test3,,\n</span> git log <span class="at">--oneline</span> <span class="at">--abbrev-commit</span> <span class="at">--all</span> <span class="at">--graph</span> <span class="at">--decorate</span> <span class="at">--color</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span>   d8ab2c1 <span class="er">(</span><span class="ex">HEAD</span> <span class="at">-</span><span class="op">&gt;</span> main, origin/main, origin/HEAD<span class="kw">)</span> <span class="ex">Merge</span> pull request <span class="co">#1 from jameshowison/new-feature</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span><span class="ex">\ </span> </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> ffb601d <span class="er">(</span><span class="ex">origin/new-feature,</span> new-feature<span class="kw">)</span> <span class="ex">added</span> extra</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span><span class="ex">/</span>  </span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> f256ee7 Added line to README</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 093fb0c Initial commit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Or as an image (with coloring as on Edupod Rstudio):</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -425,42 +440,42 @@ After doing this, you may fix the identity used for this commit with:
 <li>The words in parens show branch names, and can include the names of remotes (e.g., <code>origin/new-feature</code> means the <code>new-feature</code> branch on the <code>origin</code> remote)</li>
 </ul>
 <p>It is a long command, so you can either keep it handy in a pastebin (I use Typinator) or you can register it as a command alias for git itself:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> alias.viz <span class="st">'log --oneline --abbrev-commit --all --graph --decorate --color'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> alias.viz <span class="st">'log --oneline --abbrev-commit --all --graph --decorate --color'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>So then you can just type:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> viz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> viz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="seeing-a-merge-conflict-using-git-log" class="level2" data-number="A.4">
 <h2 data-number="A.4" class="anchored" data-anchor-id="seeing-a-merge-conflict-using-git-log"><span class="header-section-number">A.4</span> Seeing a merge conflict using git log</h2>
 <p>In one assignment students have to submit a repo showing a resolved merge conflict when accepting a PR. This raised the question of whether I could see this looking at the repo. Student questions helped me figure that our, leading me to <a href="https://stackoverflow.com/questions/15277708/how-do-you-see-show-a-git-merge-conflict-resolution-that-was-done-given-a-mer" class="uri">https://stackoverflow.com/questions/15277708/how-do-you-see-show-a-git-merge-conflict-resolution-that-was-done-given-a-mer</a> which highlighted this as an issue in presenting merge conflicts for review. The most recent answer, led me to discover a new feature in <code>git</code></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--remerge-diff</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--remerge-diff</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This enables one to see the files with the <code>&lt;&lt;&lt;&lt;&lt;&lt;</code> type conflict markers shown.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-rf</span> merge-conflict-example</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/jameshowison/merge-conflict-example.git</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> merge-conflict-example</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">-1</span> <span class="at">--skip</span> 1 <span class="at">--remerge-diff</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co">## Cloning into 'merge-conflict-example'...</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">## commit 50911dc2232965238790ad8ca3fdcabe56b41639</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">## Merge: 57c1c6c 99b328f</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">## Author: pablo-carbajo1 &lt;99198265+pablo-carbajo1@users.noreply.github.com&gt;</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">## Date:   Thu Mar 2 18:06:57 2023 -0600</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co">##     Merge branch 'main' into patch-1</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co">## diff --git a/animals.txt b/animals.txt</span></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co">## remerge CONFLICT (content): Merge conflict in animals.txt</span></span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="co">## index f9970b6..f07b36e 100644</span></span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="co">## --- a/animals.txt</span></span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="co">## +++ b/animals.txt</span></span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="co">## @@ -1,8 +1,5 @@</span></span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="co">## -&lt;&lt;&lt;&lt;&lt;&lt;&lt; 57c1c6c (Update animals.txt)</span></span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="co">##  lion Contributor B</span></span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="co">## -=======</span></span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a><span class="co">##  lion contributor A</span></span>
-<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="co">## -&gt;&gt;&gt;&gt;&gt;&gt;&gt; 99b328f (Merge pull request #4 from lisahyuniko/patch-1)</span></span>
-<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a><span class="co">##  tiger </span></span>
-<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a><span class="co">##  leopard </span></span>
-<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a><span class="co">##  turtle</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-rf</span> merge-conflict-example</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/jameshowison/merge-conflict-example.git</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> merge-conflict-example</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">-1</span> <span class="at">--skip</span> 1 <span class="at">--remerge-diff</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co">## Cloning into 'merge-conflict-example'...</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co">## commit 50911dc2232965238790ad8ca3fdcabe56b41639</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co">## Merge: 57c1c6c 99b328f</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co">## Author: pablo-carbajo1 &lt;99198265+pablo-carbajo1@users.noreply.github.com&gt;</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co">## Date:   Thu Mar 2 18:06:57 2023 -0600</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co">##     Merge branch 'main' into patch-1</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co">## diff --git a/animals.txt b/animals.txt</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="co">## remerge CONFLICT (content): Merge conflict in animals.txt</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="co">## index f9970b6..f07b36e 100644</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="co">## --- a/animals.txt</span></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a><span class="co">## +++ b/animals.txt</span></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a><span class="co">## @@ -1,8 +1,5 @@</span></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a><span class="co">## -&lt;&lt;&lt;&lt;&lt;&lt;&lt; 57c1c6c (Update animals.txt)</span></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a><span class="co">##  lion Contributor B</span></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a><span class="co">## -=======</span></span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a><span class="co">##  lion contributor A</span></span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a><span class="co">## -&gt;&gt;&gt;&gt;&gt;&gt;&gt; 99b328f (Merge pull request #4 from lisahyuniko/patch-1)</span></span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a><span class="co">##  tiger </span></span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a><span class="co">##  leopard </span></span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a><span class="co">##  turtle</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="how-to-add-an-image-using-quarto-on-edupod" class="level1" data-number="B">

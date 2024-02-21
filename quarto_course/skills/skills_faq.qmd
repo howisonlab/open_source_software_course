@@ -31,6 +31,37 @@ git config --global user.name "John Doe"
 git config --global user.email johndoe@example.com
 ```
 
+### Login to GitHub {#sec-github-login}
+
+On the commandline we have to use the username/PAT combination. The password that works to log into GitHub on the web will not work.
+
+If you see this message:
+
+```
+remote: No anonymous write access.
+fatal: Authentication failed for <repo_url>
+```
+
+Then you need to log in, but first reset the credential cache:
+
+```sh
+git config --global credential.helper 'cache --timeout=10000000'
+```
+
+Then repeat the command that failed (hit the up-arrow twice usually brings it up).
+
+When you see this prompt, use your GitHub username (not the email address)
+
+```
+Username for 'https://github.com': <your_github_username> 
+```
+
+When you see this prompt, even though it says "password" you must use your PAT token:
+
+```
+Password for 'https://<your_github_username>@github.com': 
+```
+
 ### Password pop-up repeats too often {#sec-pass-popup}
 
 The username/password pop-up can come up too often. Especially with GitHub requiring a PAT (and not the same password used on the website) this can be a hassle, since the PAT is not configurable and has to be copy/pasted.
