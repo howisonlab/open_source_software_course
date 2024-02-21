@@ -413,7 +413,7 @@ fatal: Authentication failed for 'https://github.com/jameshowison/i320d-testing2
 </section>
 <section id="go-to-github-to-confirm" class="level2" data-number="15.7">
 <h2 data-number="15.7" class="anchored" data-anchor-id="go-to-github-to-confirm"><span class="header-section-number">15.7</span> Go to GitHub to confirm</h2>
-<p>Now head to GitHub to confirm that your changes made it up to the server.</p>
+<p>Now head to GitHub to confirm that your changes made it up to the server. You can use <code>git remote -v</code> as a shortcut to find the URL of the repo, if it isn’t still open in your browser. See <a href="skills_faq.html#sec-find-github-url"><span>Section&nbsp;A.1.4</span></a> for more.</p>
 </section>
 <section id="working-with-branches-locally-and-remotely" class="level2" data-number="15.8">
 <h2 data-number="15.8" class="anchored" data-anchor-id="working-with-branches-locally-and-remotely"><span class="header-section-number">15.8</span> Working with branches locally and remotely</h2>
@@ -449,11 +449,7 @@ branch 'test-new-branch' set up to track 'origin/test-new-branch'.</code></pre>
 </section>
 <section id="find-your-branch-on-github-create-and-merge-pull-request" class="level2" data-number="15.9">
 <h2 data-number="15.9" class="anchored" data-anchor-id="find-your-branch-on-github-create-and-merge-pull-request"><span class="header-section-number">15.9</span> Find your branch on GitHub, create and merge Pull Request</h2>
-<p>On GitHub you can now find your branch. You have to view your repo on GitHub. A short cut to find the URL is:</p>
-<pre><code>repl@7b713e22-bb6b-4af5-a696-f8554c4158c6:~/workspace/i320d-testing2024$ git remote -v
-origin  https://github.com/jameshowison/i320d-testing2024.git (fetch)
-origin  https://github.com/jameshowison/i320d-testing2024.git (push)</code></pre>
-<p>And then copy the URL (with or without the .git at the end).</p>
+<p>On GitHub you can now find your branch. You have to view your repo on GitHub (remember <a href="skills_faq.html#sec-find-github-url"><span>Section&nbsp;A.1.4</span></a> for shortcut to find URL.)</p>
 <p>Once you see your repo on GitHub, you can find your branch using the Branch drop-down.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -492,9 +488,9 @@ origin  https://github.com/jameshowison/i320d-testing2024.git (push)</code></pre
 <h2 data-number="15.10" class="anchored" data-anchor-id="synchronize-your-local-repo"><span class="header-section-number">15.10</span> Synchronize your local repo</h2>
 <p>All the PR steps have happened on GitHub only, so they aren’t yet reflected in your local repo. We have merged <code>new-feature</code> to <code>main</code> on GitHub.</p>
 <p>At this point you need to synchronize by first switching to main:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>and then get changes from the remote</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>You will see something like:</p>
 <pre><code>~/workspace/i320d-testing2024$ git checkout main
 Switched to branch 'main'
@@ -506,7 +502,7 @@ Fast-forward
  README.md | 1 +
  1 file changed, 1 insertion(+)</code></pre>
 <p>and if you run</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>you will see that everything is synchronized. (<code>origin/main</code> means the branch up on GitHub)</p>
 <pre><code>~/workspace/i320d-testing2024$ git status
 On branch main
@@ -516,7 +512,7 @@ nothing to commit, working tree clean</code></pre>
 </section>
 <section id="summary-figure" class="level2 page-columns page-full" data-number="15.11">
 <h2 data-number="15.11" class="anchored" data-anchor-id="summary-figure"><span class="header-section-number">15.11</span> Summary figure:</h2>
-<div class="column-screen-inset">
+<div class="column-body-outset">
 <div class="cell">
 <div class="cell-output-display">
 <div>
