@@ -1,8 +1,6 @@
 project:
   type: book
   output-dir: ../docs/current
-  resources:
-    - "*.mp4"
 
 book:
   title: "Open Source Software Development: A socio-technical course"

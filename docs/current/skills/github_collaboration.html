@@ -418,9 +418,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol start="4" type="1">
 <li><em>Contributor A</em> and <em>Contributor B</em> should clone their fork repo to their working space.</li>
 </ol>
-<p>Usually this is a laptop, but this semester we are using <a href="http://edupod.cns.utexas.edu/">Eduhub Rstudio</a>, which you can access as usual via that link.</p>
-<p>Log into Rstudio, and work in the Terminal tab. Before running git clone, everyone needs to ensure they are in a folder that is not inside another repo. You can place repos anywhere you want. I suggest placing them all into your home folder on edupod. You can be sure you are there by running this command (read as “cd tilde” because tilde is a shortcut for your home directory).</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Usually this is a laptop, but this semester we are using DataCamp, which you can access as usual via that link.</p>
+<p>Log into DataCamp, and work in the Terminal tab. Before running git clone, everyone needs to ensure they are in a folder that is not inside another repo. You can place repos anywhere you want. I suggest placing them all into the <code>workspace</code> folder on DataCamp. You can be sure you are there by running this command (read as “cd tilde” because tilde is a shortcut for your home directory).</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/workspace</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>To be sure that you aren’t inside another repo you can run <code>git status</code> and you <em>want</em> to see a fatal error.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">fatal:</span> not a git repository <span class="er">(</span><span class="ex">or</span> any parent up to mount point /stor/home<span class="kw">)</span></span>
@@ -550,7 +550,7 @@ Note
 </div>
 <p>Now the contributors need to synchronize with the shared repo. They first have to switch to the main branch, then they can use <code>git pull</code> to bring the new files from the other contributor into their local repo.</p>
 <ol start="6" type="1">
-<li><em>Contributor A</em> and <em>Contributor B</em> should swith to main, then pull upstream.</li>
+<li><em>Contributor A</em> and <em>Contributor B</em> should switch to main, then pull upstream.</li>
 </ol>
 <div class="spoiler">
 <div class="sourceCode" id="cb11"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span>
