@@ -181,7 +181,7 @@ git checkout -b YOUR_ROLE_NAME-new-branch
 echo "A line of content" >> YOUR_ROLE_NAME.txt
 ```
 
-(replace YOUR_ROLE_NAME with maintainerA or maintainerB)
+(replace YOUR_ROLE_NAME with contributorA or contributorB)
 
 2.  Add and commit your new file.
 
