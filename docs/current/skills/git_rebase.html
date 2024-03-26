@@ -93,6 +93,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Submit"
   }
 }</script>
+<meta name="mermaid-theme" content="default">
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
@@ -297,7 +301,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -322,8 +326,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>That is also a common request from maintainers, and one that can cause confusion for new contributors.</p>
 <p>When one is working on a problem, others may be working in parallel. And their parallel work may be finished before one’s own work is. Thus the starting point for one person’s work (branching point) can “go stale” making it harder to integrate.</p>
 <p>While <code>git merge</code> and resolving syntax level conflicts can resolve some of this, it is often easier to understand and review work if it is presented as changes against an updated starting point.</p>
-<p>As a concrete example imagine a project to build a dashboard. Imagine that you fork the repo in January to implement a new type of visualization (let’s say a pie chart). You work on this during January and February, finally nailing it down at the start of March. Meanwhile, though, others in the project have spent February introducing a whole new way of accessing databases. By the time you make a pull request at the start of March things have changed a lot since you branched in January.</p>
-<p>If you submit a PR without updating, the maintainers will likely ask you to update your branch to make it work with the new database system.</p>
+<p>As a concrete example imagine a project to build a dashboard.</p>
+<p>Imagine that you fork the repo in January to implement a new type of visualization (let’s say a pie chart). You work on this during January and February, finally nailing it down at the start of March. Meanwhile, though, others in the project have spent February introducing a whole new way of accessing databases.</p>
+<p>By the time you make a pull request at the start of March things have changed a lot since you branched in January.</p>
 <pre><code>--January-|------February--------------|--March
 
           __pie_chart_branch___________
@@ -331,16 +336,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 main--|--|-----------------------|----|-------
             \                     /
              \__new_database_____/</code></pre>
+<div class="column-body-outset">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<div>
+<pre class="mermaid mermaid-js">---
+config:
+  gitGraph:
+    parallelCommits: true
+    mainBranchOrder: 1
+---
+gitGraph
+  commit
+  commit
+  commit type: HIGHLIGHT
+  branch pie_chart_branch order: 0
+  commit
+  commit
+  checkout main
+  commit
+  branch new_database order: 2
+  commit
+  commit
+  checkout main
+  merge new_database
+  commit
+  checkout pie_chart_branch
+  commit
+  commit
+  commit
+  checkout main
+  merge pie_chart_branch
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>If you submit a PR without updating, the maintainers will likely ask you to update your branch to make it work with the new database system.</p>
 <p>First thing to do is to update your local repository with the changes from upstream.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull upstream main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Then you could try two options:</p>
 <ol type="1">
 <li>Either merge <code>main</code> into <code>pie_chart_branch</code> yourself (this is what we did in earlier exercises)</li>
-<li>Rebase <code>pie_chart_branch</code> on main (as though <code>pie_chart_branch</code> was created in late February and you did all the work very quickly!)</li>
+<li>Rebase <code>pie_chart_branch</code> on main</li>
 </ol>
 <p>Option 1 is possible, but often merging your work involves touching parts of the system you don’t know what much about and is better left to the core developers. In addition, merging in this way leaves merge commit messages and some projects really don’t like those because they make the history harder to read. It also leaves all of your “intermediate” commits in the history (things like “fix typo” and “forgot comma”). Some find that too much information.</p>
-<p>Option 2 is generally preferred, since it focuses on clear communication via PRs that are easier to read and review. Often this just means a single commit showing the differences between the most updated work and the work that you want to contribute.</p>
-<p>Option 2 is called <code>rebase</code>. We specify a new starting point, and git gives us a little UI in which we can choose which commits to include, which to squash, and we can even reorder commits.</p>
+<p>Option 2 is generally preferred, since it focuses on clear communication via PRs that are easier to read and review. Often this just means a single commit showing the differences between the most updated work and the work that you want to contribute. For those viewing the history, it will be just the same as if <code>pie_chart_branch</code> was created in late February and you did all the work very quickly!</p>
+<p>Option 2 is called <code>rebase</code>. We specify a new starting point, and git gives us a little UI in which we can choose which commits to include, which to “squash”, and we can even reorder commits.</p>
 <p>Learngitbranching has a tutorial which we will do now. Chose square 2 in the “Moving work around” section (titled Interactive Rebase Intro). <a href="https://learngitbranching.js.org/?level=move2" class="uri">https://learngitbranching.js.org/?level=move2</a></p>
 <p>A full git textual introduction is available here <a href="https://github.com/openedx/edx-platform/wiki/How-to-Rebase-a-Pull-Request" class="uri">https://github.com/openedx/edx-platform/wiki/How-to-Rebase-a-Pull-Request</a></p>
 <!-- ```sh -->

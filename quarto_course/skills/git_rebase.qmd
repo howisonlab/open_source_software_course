@@ -8,9 +8,11 @@ When one is working on a problem, others may be working in parallel. And their p
 
 While `git merge` and resolving syntax level conflicts can resolve some of this, it is often easier to understand and review work if it is presented as changes against an updated starting point.
 
-As a concrete example imagine a project to build a dashboard. Imagine that you fork the repo in January to implement a new type of visualization (let's say a pie chart). You work on this during January and February, finally nailing it down at the start of March. Meanwhile, though, others in the project have spent February introducing a whole new way of accessing databases. By the time you make a pull request at the start of March things have changed a lot since you branched in January.
+As a concrete example imagine a project to build a dashboard. 
 
-If you submit a PR without updating, the maintainers will likely ask you to update your branch to make it work with the new database system.
+Imagine that you fork the repo in January to implement a new type of visualization (let's say a pie chart). You work on this during January and February, finally nailing it down at the start of March. Meanwhile, though, others in the project have spent February introducing a whole new way of accessing databases. 
+
+By the time you make a pull request at the start of March things have changed a lot since you branched in January.
 
     --January-|------February--------------|--March
 
@@ -19,6 +21,40 @@ If you submit a PR without updating, the maintainers will likely ask you to upda
     main--|--|-----------------------|----|-------
                 \                     /
                  \__new_database_____/
+
+:::{.column-body-outset}
+```{mermaid}
+---
+config:
+  gitGraph:
+    parallelCommits: true
+    mainBranchOrder: 1
+---
+gitGraph
+  commit
+  commit
+  commit type: HIGHLIGHT
+  branch pie_chart_branch order: 0
+  commit
+  commit
+  checkout main
+  commit
+  branch new_database order: 2
+  commit
+  commit
+  checkout main
+  merge new_database
+  commit
+  checkout pie_chart_branch
+  commit
+  commit
+  commit
+  checkout main
+  merge pie_chart_branch
+```
+:::
+
+If you submit a PR without updating, the maintainers will likely ask you to update your branch to make it work with the new database system.
 
 First thing to do is to update your local repository with the changes from upstream.
 
@@ -29,13 +65,13 @@ git pull upstream main
 Then you could try two options:
 
 1.  Either merge `main` into `pie_chart_branch` yourself (this is what we did in earlier exercises)
-2.  Rebase `pie_chart_branch` on main (as though `pie_chart_branch` was created in late February and you did all the work very quickly!)
+2.  Rebase `pie_chart_branch` on main
 
 Option 1 is possible, but often merging your work involves touching parts of the system you don't know what much about and is better left to the core developers. In addition, merging in this way leaves merge commit messages and some projects really don't like those because they make the history harder to read. It also leaves all of your "intermediate" commits in the history (things like "fix typo" and "forgot comma"). Some find that too much information.
 
-Option 2 is generally preferred, since it focuses on clear communication via PRs that are easier to read and review.  Often this just means a single commit showing the differences between the most updated work and the work that you want to contribute.
+Option 2 is generally preferred, since it focuses on clear communication via PRs that are easier to read and review.  Often this just means a single commit showing the differences between the most updated work and the work that you want to contribute. For those viewing the history, it will be just the same as if `pie_chart_branch` was created in late February and you did all the work very quickly!
 
-Option 2 is called `rebase`. We specify a new starting point, and git gives us a little UI in which we can choose which commits to include, which to squash, and we can even reorder commits.
+Option 2 is called `rebase`. We specify a new starting point, and git gives us a little UI in which we can choose which commits to include, which to "squash", and we can even reorder commits.
 
 Learngitbranching has a tutorial which we will do now.  Chose square 2 in the "Moving work around" section (titled Interactive Rebase Intro). <https://learngitbranching.js.org/?level=move2>
 

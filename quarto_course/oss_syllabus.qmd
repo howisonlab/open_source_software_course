@@ -246,7 +246,7 @@ readings <- tribble(
   
   "Useful Blog on undo in git (keep for reference)",
     "https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/",
-  "Rewinding work @sec-rewinding",
+  "Rewinding work @sec-rewinding and Managing Secrets @sec-history",
 
   "DataCamp Git Chapter 3 - Undo",
   "https://campus.datacamp.com/courses/introduction-to-git-for-data-science/undo",
@@ -528,7 +528,7 @@ skills_topics <- tribble(
   "Sharing and collaborating via github @sec-github-solo ", "git clone, remote, push",
   "Collaboration conflicts and workflows @sec-github-collaboration ", "github fork, pull request, pull upstream",
   "Splitting PRs @sec-cherrypick ", "merge, conflicts, mark resolved, cherrypick, collaboration workflows  ",
-  "Rebase @sec-rebase and Managing Secrets @sec-history ", "git rebase",
+  "Rebase @sec-rebase ", "git rebase",
   # "Git analogies paper workshop", "quarto and markdown",
  
   "Documentation and Q&A", "github flavored markdown",
