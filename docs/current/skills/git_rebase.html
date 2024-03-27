@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.242">
+<meta name="generator" content="quarto-1.4.552">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -80,7 +80,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -89,8 +95,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <meta name="mermaid-theme" content="default">
@@ -108,13 +116,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../skills/paper_planes_git.html">Skills</a></li><li class="breadcrumb-item"><a href="../skills/git_rebase.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Rebase for synchronizing work</span></a></li></ol></nav>
-      <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../skills/paper_planes_git.html">Skills</a></li><li class="breadcrumb-item"><a href="../skills/git_rebase.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Rebase for synchronizing work</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -123,7 +131,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Open Source Software Development: A socio-technical course</a> 
@@ -155,7 +163,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
  <span class="menu-text">Insights</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -214,7 +222,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
  <span class="menu-text">Skills</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -279,7 +287,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -295,15 +303,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#adding-squash" id="toc-adding-squash" class="nav-link active" data-scroll-target="#adding-squash"><span class="header-section-number">18.1</span> Adding squash</a></li>
+  <li><a href="#rebase-exercise" id="toc-rebase-exercise" class="nav-link" data-scroll-target="#rebase-exercise"><span class="header-section-number">19</span> Rebase Exercise</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/skills/git_rebase.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../skills/paper_planes_git.html">Skills</a></li><li class="breadcrumb-item"><a href="../skills/git_rebase.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Rebase for synchronizing work</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-rebase" class="quarto-section-identifier"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Rebase for synchronizing work</span></span></h1>
 </div>
@@ -318,7 +333,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
+
 
 <blockquote class="blockquote">
 <p>Thanks for your contribution; could you rebase this against main? Thanks!</p>
@@ -337,9 +354,10 @@ main--|--|-----------------------|----|-------
             \                     /
              \__new_database_____/</code></pre>
 <div class="column-body-outset">
-<div class="cell">
+<div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
+<p></p><figure class="figure"><p></p>
 <div>
 <pre class="mermaid mermaid-js">---
 config:
@@ -370,6 +388,7 @@ gitGraph
   merge pie_chart_branch
 </pre>
 </div>
+<p></p></figure><p></p>
 </div>
 </div>
 </div>
@@ -387,60 +406,183 @@ gitGraph
 <p>Option 2 is called <code>rebase</code>. We specify a new starting point, and git gives us a little UI in which we can choose which commits to include, which to “squash”, and we can even reorder commits.</p>
 <p>Learngitbranching has a tutorial which we will do now. Chose square 2 in the “Moving work around” section (titled Interactive Rebase Intro). <a href="https://learngitbranching.js.org/?level=move2" class="uri">https://learngitbranching.js.org/?level=move2</a></p>
 <p>A full git textual introduction is available here <a href="https://github.com/openedx/edx-platform/wiki/How-to-Rebase-a-Pull-Request" class="uri">https://github.com/openedx/edx-platform/wiki/How-to-Rebase-a-Pull-Request</a></p>
-<!-- ```sh -->
-<!-- cd ~ -->
-<!-- git clone https://github.com/jameshowison/320d_rebase_example.git -->
+<!-- git clone https://github.com/jameshowison/320d_rebase_example.git  -->
 <!-- cd 320d_rebase_example -->
-<!-- ``` -->
-<!-- Our git viz command (See @sec-viz to set up) shows us the situation: -->
-<!-- ```sh -->
-<!-- $ git viz -->
-<!-- * cb7f3ad (HEAD -> pie_chart_branch) pie chart 3 -->
-<!-- * 4412c7f pie chart 2 -->
-<!-- * 98602e3 pie chart 1 -->
-<!-- | * 958ed94 (main) database 2 -->
-<!-- | * ab98ea5 database 1 -->
-<!-- |/   -->
-<!-- * 4e8da02 second edit -->
-<!-- * e39f9e1 first edit -->
-<!-- ``` -->
-<!-- We have new work on `main` that happened after we branched to work on `pie_chart_branch`.  We also have three separate commits for `pie_chart_branch`.  We want to _squash_ those three commits down to one commit, and we want that commit to represent changes _as though we branched off main after the `database 2` commit.  In this way it is as though we did our work all at once with the latest codebase (instead of over weeks as others continued to work). -->
-<!-- We confirm that we are on our working branch. We know there are three commits we want to rebase, so we run `rebase -i HEAD~3` which gives us an _interactive_ rebase starting three commits back from HEAD. -->
-<!-- ```sh -->
+<!-- echo "first commit" >> README.md -->
+<!-- git add README.md -->
+<!-- git commit -m "first commit" -->
+<!-- echo "second commit" >> README.md -->
+<!-- git add README.md -->
+<!-- git commit -m "second commit" -->
+<!-- git push -->
+<!-- git checkout -b pie_chart_branch -->
+<!-- echo "pie_chart_one" >> pie_chart.md -->
+<!-- git add pie_chart.md -->
+<!-- git commit -m "pie chart 1" -->
+<!-- echo "pie_chart_two" >> pie_chart.md -->
+<!-- git add pie_chart.md -->
+<!-- git commit -m "pie chart 2" -->
+<!-- git checkout main -->
+<!-- echo "database 1 on main" >> database.md -->
+<!-- git add database.md -->
+<!-- git commit -m "database 1" -->
+<!-- echo "database 1 on main" >> database.md -->
+<!-- git add database.md -->
+<!-- git commit -m "database 2" -->
 <!-- git checkout pie_chart_branch -->
-<!-- git rebase -i HEAD~3 -->
-<!-- ``` -->
-<!-- This puts us into a textual UI, with guidance at the bottom. We can use the arrow keys to move around. Each line is a commit, the lines are instructions and are executed in order. -->
-<!-- ``` -->
-<!-- pick 98602e3 pie chart 1 -->
-<!-- pick 4412c7f pie chart 2 -->
-<!-- pick cb7f3ad pie chart 3 -->
-<!-- # Rebase 4e8da02..cb7f3ad onto 4e8da02 (3 commands) -->
-<!-- # -->
-<!-- # Commands: -->
-<!-- # p, pick <commit> = use commit -->
-<!-- # r, reword <commit> = use commit, but edit the commit message -->
-<!-- # e, edit <commit> = use commit, but stop for amending -->
-<!-- # s, squash <commit> = use commit, but meld into previous commit -->
-<!-- # f, fixup [-C | -c] <commit> = like "squash" but keep only the previous -->
-<!-- #                    commit's log message, unless -C is used, in which case -->
-<!-- #                    keep only this commit's message; -c is same as -C but -->
-<!-- #                    opens the editor -->
-<!-- # x, exec <command> = run command (the rest of the line) using shell -->
-<!-- # b, break = stop here (continue rebase later with 'git rebase --continue') -->
-<!-- # d, drop <commit> = remove commit -->
-<!-- # l, label <label> = label current HEAD with a name -->
-<!-- # t, reset <label> = reset HEAD to a label -->
-<!-- # m, merge [-C <commit> | -c <commit>] <label> [# <oneline>] -->
-<!-- # .       create a merge commit using the original merge commit's -->
-<!-- # .       message (or the oneline, if no original merge commit was -->
-<!-- # .       specified); use -c <commit> to reword the commit message -->
-<!-- # -->
-<!-- # These lines can be re-ordered; they are executed from top to bottom. -->
-<!-- ``` -->
-<!-- and is explained usefully at [this page from the EdX project](https://github.com/edx/edx-platform/wiki/How-to-Rebase-a-Pull-Request). As you rebase, you can also `squash` some of your commits (treat many commits as one) to make them easier to follow for those reviewing your pull request. See the link above for details. -->
+<!-- echo "pie_chart_three" >> pie_chart.md -->
+<!-- git add pie_chart.md -->
+<!-- git commit -m "pie chart 3" -->
+<p>We have an example set up. First we will clone it, change directory into the repo, and then switch to the pie_chart_branch.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone git clone https://github.com/jameshowison/320d_rebase_example.git</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> 320d-rebase-example</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout pie_chart_branch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Our git viz command (See <a href="skills_faq.html#sec-gitviz" class="quarto-xref"><span>Section A.3</span></a> to set up) shows us the situation:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git viz</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 83f6236 <span class="er">(</span><span class="ex">HEAD</span> <span class="at">-</span><span class="op">&gt;</span> pie_chart_branch, origin/pie_chart_branch<span class="kw">)</span> <span class="ex">pie</span> chart 3</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 6780d4e pie chart 2</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 54b2ecb pie chart 1</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 3417133 <span class="er">(</span><span class="ex">origin/main,</span> origin/HEAD, main<span class="kw">)</span> <span class="ex">database</span> 2</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 32c1b1c database 1</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span><span class="ex">/</span>  </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 52bd3fd second commit</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 0aefb6a first commit</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 9ad07d3 Initial commit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We have two branches (main and pie_chart_branch). pie_chart_branch branched off from main at 52bd3fd, and since then more work has been added to main (the database related commits). We also have three separate commits for <code>pie_chart_branch</code>.</p>
+<p>So, in a prettier diagram, the situation looks like this:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">---
+config:
+  gitGraph:
+    parallelCommits: true
+---
+gitGraph
+  commit
+  commit
+  commit type: HIGHLIGHT
+  branch pie_chart_branch
+  commit
+  commit
+  checkout main
+  commit
+  commit
+  checkout pie_chart_branch
+  commit
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>But we want it to look as though pie_chart_branch came off the tip of main, like this:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">---
+config:
+  gitGraph:
+    parallelCommits: true
+---
+gitGraph
+  commit
+  commit
+  commit type: HIGHLIGHT
+  commit
+  commit
+  branch pie_chart_branch
+  commit
+  commit
+  commit
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>To accomplish this we can use a git command called <code>rebase</code>. We say that we will “rebase” the pie_chart_branch against <code>main</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch pie_chart_branch</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> rebase <span class="at">-i</span> main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This puts us into a textual UI, with guidance at the bottom. We can use the arrow keys to move around. In this UI we are editing a text file (so we are using the Nano editor). Each line is a commit, the lines are instructions and are executed in order.</p>
+<p><img src="git_rebase_files/rebase_no_squash.png" class="img-fluid"></p>
+<p>We use <kbd>Ctrl</kbd> + <kbd>O</kbd> to save (aka “write-Out”) and <kbd>Ctrl</kbd>+<kbd>X</kbd> to exit the editor. We should see a count of commits being rebased and then a message about a successful rebase. Using <code>git viz</code> will then show us:</p>
+<pre><code>* 16fa532 (HEAD -&gt; pie_chart_branch) pie chart 3
+* bf585ba pie chart 2
+* a2591db pie chart 1
+* 3417133 (origin/main, origin/HEAD, main) database 2
+* 32c1b1c database 1
+| * 83f6236 (origin/pie_chart_branch) pie chart 3
+| * 6780d4e pie chart 2
+| * 54b2ecb pie chart 1
+|/  
+* 52bd3fd second commit
+* 0aefb6a first commit
+* 9ad07d3 Initial commit</code></pre>
+<p>This is a little hard to read. This is because the <code>origin/</code> branches are shwoing (and those are up on the GitHub server and not yet changed). Look closely at the <code>pie_chart_branch</code> and down the left column. We now see that <code>pie chart 1</code> commit comes directly after the two commits on main, just as though the work started there.</p>
+<p>To get this to also be reflected on the server we would have to do a “force push” <code>git push -f</code> which makes the server reflect the local repo. Note that this is usual for rebase on branches, but one should be very hesitant with any force operations on main or a branch shared with others. (Since you are not the owners of the repo, you won’t be able to do a force push here). After the force push, things are neater:</p>
+<pre><code>* 16fa532 (HEAD -&gt; pie_chart_branch, origin/pie_chart_branch) pie chart 3
+* bf585ba pie chart 2
+* a2591db pie chart 1
+* 3417133 (origin/main, origin/HEAD, main) database 2
+* 32c1b1c database 1
+* 52bd3fd second commit
+* 0aefb6a first commit
+* 9ad07d3 Initial commit</code></pre>
+<p>You might be thinking, didn’t we do pretty much the same thing with <code>cherrypick</code>? And yes, in this situation <code>rebase</code> is very similar to cherrypick.</p>
+<p>Rebase does offer some additional opportunities though. The textual UI shows more options than just ‘pick’. One otion is ‘squash’ which takes changes from multiple commits and presents them in a single commit. This can make a git history easier for teammates to understand.</p>
+<section id="adding-squash" class="level2" data-number="18.1">
+<h2 data-number="18.1" class="anchored" data-anchor-id="adding-squash"><span class="header-section-number">18.1</span> Adding squash</h2>
+<p>We want to <em>squash</em> those three commits down to one commit, and (like before) we want that commit to represent changes <em>as though</em> we had branched off main after the <code>database 2</code> commit. First, remove the directory we have been working in and reset things with a new clone.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-rf</span> 320d_rebase_example</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/jameshowison/320d_rebase_example.git</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> 320d_rebase_example</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch pie_chart_branch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Just as before we use:</p>
+<pre><code>git rebase -i main</code></pre>
+<p>This puts us back into a textual UI, with guidance at the bottom. This time instead of leaving all three as ‘pick’ we change two of them to squash. We do this by editing the file so that two of the lines show <code>s</code> instead of <code>pick</code>.</p>
+<p><img src="git_rebase_files/squash_commits.png" class="img-fluid"></p>
+<p>After we use <kbd>Ctrl</kbd> + O to save (aka “write-Out”) and <kbd>Ctrl</kbd>+X to exit the editor, git completes the squash by including all the changes in a single commit. We are then returned to the editor to create a new commit message.</p>
+<p><img src="git_rebase_files/squash_commit_message.png" class="img-fluid"></p>
+<p>Finally, we can use git viz to see the new situation.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Successfully</span> rebased and updated refs/heads/pie_chart_branch.</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">repl@70e1b3d7-2edb-4b9d-affe-b74ce4e8cc24:~/workspace/320d_rebase_example$</span> git viz</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> c367b8a <span class="er">(</span><span class="ex">HEAD</span> <span class="at">-</span><span class="op">&gt;</span> pie_chart_branch<span class="kw">)</span> <span class="ex">pie</span> chart 1</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> ed1f195 <span class="er">(</span><span class="ex">origin/pie_chart_branch</span><span class="kw">)</span> <span class="ex">pie</span> chart 3</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 0ade683 pie chart 2</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 467a235 pie chart 1</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span><span class="ex">/</span>  </span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 958ed94 <span class="er">(</span><span class="ex">origin/main,</span> origin/HEAD, main<span class="kw">)</span> <span class="ex">database</span> 2</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> ab98ea5 database 1</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span><span class="ex">/</span>  </span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 4e8da02 second edit</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> e39f9e1 first edit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ignore the remote branch (origin/pie_chart_branch), and focus only on the local branch (HEAD -&gt; pie_chart_branch). Instead of all three commits, we now only see a single commit (c367b8a).</p>
+<p>Note that in these examples we did not encounter any conflicts (because edits were all on different files). In reality, though, when commits are moved around, rebased, and squashed, sometimes those operations result in conflicts (just as happens with merge). In that case git add the conflict symbols (<code>&lt;&lt;&lt;&lt;&lt;&lt;</code> and <code>==========</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>) which all need to be removed, then the files added and finally we run <code>git rebase --continue</code>. Git does provide useful messages through that process with guidance on the likely next steps.</p>
+</section>
+<section id="rebase-exercise" class="level1" data-number="19">
+<h1 data-number="19"><span class="header-section-number">19</span> Rebase Exercise</h1>
+<p>In groups of three, a Maintainer and two contributors, begin by setting up the collaboration network (a new repo, forks, clones and setting upstream). Then work together to implement these steps:</p>
+<ol type="1">
+<li>Maintainer makes two commits to the main branch, contributors use <code>git pull upstream main</code> to synchronize.</li>
+<li>Each contributor creates a feature branch, and adds two commits to a file with their name.</li>
+<li>Contributors create PRs that the Maintainer sees on the upstream/sahred repository.</li>
+<li>Maintainer can accept one, merging to main.</li>
+<li>Maintainer then asks the other contributor to rebase their contribution.</li>
+<li>The contributor doing the rebase first does a <code>git pull upstream main</code> to get the new work onto the main branch in their local git.</li>
+<li>Then the contributor uses rebase and squash (as above) and uses <code>git push -f</code> to get their fork syncrhonized with their rebase.</li>
+<li>Maintainer should then check the PR and they will find only a single commit (the two previous ones squashed together), now looking as though it branched off main after the first contributor’s work. Maintainer can then accept the rebased PR.</li>
+<li>Both contributors should sychronize (<code>git pull upstream main</code> and then git push to sync their forks.)</li>
+</ol>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -522,10 +664,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -535,8 +694,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -548,7 +716,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -592,6 +883,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -617,6 +909,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -678,12 +996,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../skills/git_cherrypick_split_pr.html" class="pagination-link">
+      <a href="../skills/git_cherrypick_split_pr.html" class="pagination-link" aria-label="Split a Pull Request">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Split a Pull Request</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../skills/git_delete_history.html" class="pagination-link">
+      <a href="../skills/git_delete_history.html" class="pagination-link" aria-label="Removing something from history entirely">
         <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Removing something from history entirely</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -692,4 +1010,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/skills/git_rebase.qmd" class="toc-action">View source</a></p></div></div></div></div></footer></body></html>
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/skills/git_rebase.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>

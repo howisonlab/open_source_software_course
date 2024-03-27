@@ -58,7 +58,7 @@ If you submit a PR without updating, the maintainers will likely ask you to upda
 
 First thing to do is to update your local repository with the changes from upstream.
 
-``` sh
+```sh
 git pull upstream main
 ```
 
@@ -73,74 +73,215 @@ Option 2 is generally preferred, since it focuses on clear communication via PRs
 
 Option 2 is called `rebase`. We specify a new starting point, and git gives us a little UI in which we can choose which commits to include, which to "squash", and we can even reorder commits.
 
+
+
 Learngitbranching has a tutorial which we will do now.  Chose square 2 in the "Moving work around" section (titled Interactive Rebase Intro). <https://learngitbranching.js.org/?level=move2>
 
 A full git textual introduction is available here <https://github.com/openedx/edx-platform/wiki/How-to-Rebase-a-Pull-Request>
 
 
-<!-- ```sh -->
-<!-- cd ~ -->
-<!-- git clone https://github.com/jameshowison/320d_rebase_example.git -->
+<!-- git clone https://github.com/jameshowison/320d_rebase_example.git  -->
 <!-- cd 320d_rebase_example -->
-
-<!-- ``` -->
-
-<!-- Our git viz command (See @sec-viz to set up) shows us the situation: -->
-
-<!-- ```sh -->
-<!-- $ git viz -->
-<!-- * cb7f3ad (HEAD -> pie_chart_branch) pie chart 3 -->
-<!-- * 4412c7f pie chart 2 -->
-<!-- * 98602e3 pie chart 1 -->
-<!-- | * 958ed94 (main) database 2 -->
-<!-- | * ab98ea5 database 1 -->
-<!-- |/   -->
-<!-- * 4e8da02 second edit -->
-<!-- * e39f9e1 first edit -->
-<!-- ``` -->
-
-<!-- We have new work on `main` that happened after we branched to work on `pie_chart_branch`.  We also have three separate commits for `pie_chart_branch`.  We want to _squash_ those three commits down to one commit, and we want that commit to represent changes _as though we branched off main after the `database 2` commit.  In this way it is as though we did our work all at once with the latest codebase (instead of over weeks as others continued to work). -->
-
-<!-- We confirm that we are on our working branch. We know there are three commits we want to rebase, so we run `rebase -i HEAD~3` which gives us an _interactive_ rebase starting three commits back from HEAD. -->
-
-<!-- ```sh -->
+<!-- echo "first commit" >> README.md -->
+<!-- git add README.md -->
+<!-- git commit -m "first commit" -->
+<!-- echo "second commit" >> README.md -->
+<!-- git add README.md -->
+<!-- git commit -m "second commit" -->
+<!-- git push -->
+<!-- git checkout -b pie_chart_branch -->
+<!-- echo "pie_chart_one" >> pie_chart.md -->
+<!-- git add pie_chart.md -->
+<!-- git commit -m "pie chart 1" -->
+<!-- echo "pie_chart_two" >> pie_chart.md -->
+<!-- git add pie_chart.md -->
+<!-- git commit -m "pie chart 2" -->
+<!-- git checkout main -->
+<!-- echo "database 1 on main" >> database.md -->
+<!-- git add database.md -->
+<!-- git commit -m "database 1" -->
+<!-- echo "database 1 on main" >> database.md -->
+<!-- git add database.md -->
+<!-- git commit -m "database 2" -->
 <!-- git checkout pie_chart_branch -->
-<!-- git rebase -i HEAD~3 -->
-<!-- ``` -->
-
-<!-- This puts us into a textual UI, with guidance at the bottom. We can use the arrow keys to move around. Each line is a commit, the lines are instructions and are executed in order. -->
-
-<!-- ``` -->
-<!-- pick 98602e3 pie chart 1 -->
-<!-- pick 4412c7f pie chart 2 -->
-<!-- pick cb7f3ad pie chart 3 -->
-
-<!-- # Rebase 4e8da02..cb7f3ad onto 4e8da02 (3 commands) -->
-<!-- # -->
-<!-- # Commands: -->
-<!-- # p, pick <commit> = use commit -->
-<!-- # r, reword <commit> = use commit, but edit the commit message -->
-<!-- # e, edit <commit> = use commit, but stop for amending -->
-<!-- # s, squash <commit> = use commit, but meld into previous commit -->
-<!-- # f, fixup [-C | -c] <commit> = like "squash" but keep only the previous -->
-<!-- #                    commit's log message, unless -C is used, in which case -->
-<!-- #                    keep only this commit's message; -c is same as -C but -->
-<!-- #                    opens the editor -->
-<!-- # x, exec <command> = run command (the rest of the line) using shell -->
-<!-- # b, break = stop here (continue rebase later with 'git rebase --continue') -->
-<!-- # d, drop <commit> = remove commit -->
-<!-- # l, label <label> = label current HEAD with a name -->
-<!-- # t, reset <label> = reset HEAD to a label -->
-<!-- # m, merge [-C <commit> | -c <commit>] <label> [# <oneline>] -->
-<!-- # .       create a merge commit using the original merge commit's -->
-<!-- # .       message (or the oneline, if no original merge commit was -->
-<!-- # .       specified); use -c <commit> to reword the commit message -->
-<!-- # -->
-<!-- # These lines can be re-ordered; they are executed from top to bottom. -->
-<!-- ``` -->
+<!-- echo "pie_chart_three" >> pie_chart.md -->
+<!-- git add pie_chart.md -->
+<!-- git commit -m "pie chart 3" -->
 
 
+We have an example set up.  First we will clone it, change directory into the repo, and then switch to the pie_chart_branch.
 
+```sh
+cd ~
+git clone git clone https://github.com/jameshowison/320d_rebase_example.git
+cd 320d-rebase-example
+git checkout pie_chart_branch
+```
 
-<!-- and is explained usefully at [this page from the EdX project](https://github.com/edx/edx-platform/wiki/How-to-Rebase-a-Pull-Request). As you rebase, you can also `squash` some of your commits (treat many commits as one) to make them easier to follow for those reviewing your pull request. See the link above for details. -->
+Our git viz command (See @sec-gitviz to set up) shows us the situation:
 
+```sh
+$ git viz
+* 83f6236 (HEAD -> pie_chart_branch, origin/pie_chart_branch) pie chart 3
+* 6780d4e pie chart 2
+* 54b2ecb pie chart 1
+| * 3417133 (origin/main, origin/HEAD, main) database 2
+| * 32c1b1c database 1
+|/  
+* 52bd3fd second commit
+* 0aefb6a first commit
+* 9ad07d3 Initial commit
+```
+
+We have two branches (main and pie_chart_branch). pie_chart_branch branched off from main at 52bd3fd, and since then more work has been added to main (the database related commits). We also have three separate commits for `pie_chart_branch`. 
+
+So, in a prettier diagram, the situation looks like this:
+
+```{mermaid}
+---
+config:
+  gitGraph:
+    parallelCommits: true
+---
+gitGraph
+  commit
+  commit
+  commit type: HIGHLIGHT
+  branch pie_chart_branch
+  commit
+  commit
+  checkout main
+  commit
+  commit
+  checkout pie_chart_branch
+  commit
+```
+
+But we want it to look as though pie_chart_branch came off the tip of main, like this:
+
+```{mermaid}
+---
+config:
+  gitGraph:
+    parallelCommits: true
+---
+gitGraph
+  commit
+  commit
+  commit type: HIGHLIGHT
+  commit
+  commit
+  branch pie_chart_branch
+  commit
+  commit
+  commit
+```
+
+To accomplish this we can use a git command called `rebase`.  We say that we will "rebase" the pie_chart_branch against `main`.
+
+```sh
+git switch pie_chart_branch
+git rebase -i main
+```
+
+This puts us into a textual UI, with guidance at the bottom. We can use the arrow keys to move around. In this UI we are editing a text file (so we are using the Nano editor). Each line is a commit, the lines are instructions and are executed in order.
+
+![](git_rebase_files/rebase_no_squash.png)
+
+We use <kbd>Ctrl</kbd> + <kbd>O</kbd> to save (aka "write-Out") and <kbd>Ctrl</kbd>+<kbd>X</kbd> to exit the editor.  We should see a count of commits being rebased and then a message about a successful rebase.  Using `git viz` will then show us:
+
+```
+* 16fa532 (HEAD -> pie_chart_branch) pie chart 3
+* bf585ba pie chart 2
+* a2591db pie chart 1
+* 3417133 (origin/main, origin/HEAD, main) database 2
+* 32c1b1c database 1
+| * 83f6236 (origin/pie_chart_branch) pie chart 3
+| * 6780d4e pie chart 2
+| * 54b2ecb pie chart 1
+|/  
+* 52bd3fd second commit
+* 0aefb6a first commit
+* 9ad07d3 Initial commit
+```
+
+This is a little hard to read. This is because the `origin/` branches are shwoing (and those are up on the GitHub server and not yet changed).  Look closely at the `pie_chart_branch` and down the left column.  We now see that `pie chart 1` commit comes directly after the two commits on main, just as though the work started there.
+
+To get this to also be reflected on the server we would have to do a "force push" `git push -f` which makes the server reflect the local repo. Note that this is usual for rebase on branches, but one should be very hesitant with any force operations on main or a branch shared with others. (Since you are not the owners of the repo, you won't be able to do a force push here). After the force push, things are neater:
+
+```
+* 16fa532 (HEAD -> pie_chart_branch, origin/pie_chart_branch) pie chart 3
+* bf585ba pie chart 2
+* a2591db pie chart 1
+* 3417133 (origin/main, origin/HEAD, main) database 2
+* 32c1b1c database 1
+* 52bd3fd second commit
+* 0aefb6a first commit
+* 9ad07d3 Initial commit
+```
+
+You might be thinking, didn't we do pretty much the same thing with `cherrypick`?  And yes, in this situation `rebase` is very similar to cherrypick.
+
+Rebase does offer some additional opportunities though. The textual UI shows more options than just 'pick'.  One otion is 'squash' which takes changes from multiple commits and presents them in a single commit.  This can make a git history easier for teammates to understand.
+
+## Adding squash
+
+We want to _squash_ those three commits down to one commit, and (like before) we want that commit to represent changes _as though_ we had branched off main after the `database 2` commit. 
+First, remove the directory we have been working in and reset things with a new clone.
+
+```sh
+cd ..
+rm -rf 320d_rebase_example
+git clone https://github.com/jameshowison/320d_rebase_example.git
+cd 320d_rebase_example
+git switch pie_chart_branch
+```
+
+Just as before we use:
+
+```
+git rebase -i main
+```
+
+This puts us back into a textual UI, with guidance at the bottom. This time instead of leaving all three as 'pick' we change two of them to squash. We do this by editing the file so that two of the lines show `s` instead of `pick`.
+
+![](git_rebase_files/squash_commits.png)
+
+After we use <kbd>Ctrl</kbd> + O to save (aka "write-Out") and <kbd>Ctrl</kbd>+X to exit the editor, git completes the squash by including all the changes in a single commit.  We are then returned to the editor to create a new commit message.
+
+![](git_rebase_files/squash_commit_message.png)
+
+Finally, we can use git viz to see the new situation.
+
+```sh
+Successfully rebased and updated refs/heads/pie_chart_branch.
+repl@70e1b3d7-2edb-4b9d-affe-b74ce4e8cc24:~/workspace/320d_rebase_example$ git viz
+* c367b8a (HEAD -> pie_chart_branch) pie chart 1
+| * ed1f195 (origin/pie_chart_branch) pie chart 3
+| * 0ade683 pie chart 2
+| * 467a235 pie chart 1
+|/  
+| * 958ed94 (origin/main, origin/HEAD, main) database 2
+| * ab98ea5 database 1
+|/  
+* 4e8da02 second edit
+* e39f9e1 first edit
+```
+
+Ignore the remote branch (origin/pie_chart_branch), and focus only on the local branch (HEAD -> pie_chart_branch). Instead of all three commits, we now only see a single commit (c367b8a).
+
+Note that in these examples we did not encounter any conflicts (because edits were all on different files).  In reality, though, when commits are moved around, rebased, and squashed, sometimes those operations result in conflicts (just as happens with merge).  In that case git add the conflict symbols (`<<<<<<` and `==========` and `>>>>>>>>>`) which all need to be removed, then the files added and finally we run `git rebase --continue`.  Git does provide useful messages through that process with guidance on the likely next steps.
+
+# Rebase Exercise
+
+In groups of three, a Maintainer and two contributors, begin by setting up the collaboration network (a new repo, forks, clones and setting upstream).  Then work together to implement these steps:
+
+1. Maintainer makes two commits to the main branch, contributors use `git pull upstream main` to synchronize.
+2. Each contributor creates a feature branch, and adds two commits to a file with their name.
+3. Contributors create PRs that the Maintainer sees on the upstream/sahred repository.
+4. Maintainer can accept one, merging to main.
+5. Maintainer then asks the other contributor to rebase their contribution.
+6. The contributor doing the rebase first does a `git pull upstream main` to get the new work onto the main branch in their local git.
+7. Then the contributor uses rebase and squash (as above) and uses `git push -f` to get their fork syncrhonized with their rebase.
+8. Maintainer should then check the PR and they will find only a single commit (the two previous ones squashed together), now looking as though it branched off main after the first contributor's work.  Maintainer can then accept the rebased PR.
+9. Both contributors should sychronize (`git pull upstream main` and then git push to sync their forks.)
