@@ -404,25 +404,54 @@ gitGraph
 <p>Option 1 is possible, but often merging your work involves touching parts of the system you don’t know what much about and is better left to the core developers. In addition, merging in this way leaves merge commit messages and some projects really don’t like those because they make the history harder to read. It also leaves all of your “intermediate” commits in the history (things like “fix typo” and “forgot comma”). Some find that too much information.</p>
 <p>Option 2 is generally preferred, since it focuses on clear communication via PRs that are easier to read and review. Often this just means a single commit showing the differences between the most updated work and the work that you want to contribute. For those viewing the history, it will be just the same as if <code>pie_chart_branch</code> was created in late February and you did all the work very quickly!</p>
 <p>Option 2 is called <code>rebase</code>. We specify a new starting point, and git gives us a little UI in which we can choose which commits to include, which to “squash”, and we can even reorder commits.</p>
-<p>Learngitbranching has a tutorial which we will do now. Chose square 2 in the “Moving work around” section (titled Interactive Rebase Intro). <a href="https://learngitbranching.js.org/?level=move2" class="uri">https://learngitbranching.js.org/?level=move2</a></p>
-<p>A full git textual introduction is available here <a href="https://github.com/openedx/edx-platform/wiki/How-to-Rebase-a-Pull-Request" class="uri">https://github.com/openedx/edx-platform/wiki/How-to-Rebase-a-Pull-Request</a></p>
-<p>git clone https://github.com/jameshowison/320d_rebase_example.git cd 320d_rebase_example echo “first commit” &gt;&gt; README.md git add README.md git commit -m “first commit” echo “second commit” &gt;&gt; README.md git add README.md git commit -m “second commit” git push git checkout -b pie_chart_branch echo “pie_chart_one” &gt;&gt; pie_chart.md git add pie_chart.md git commit -m “pie chart 1” echo “pie_chart_two” &gt;&gt; pie_chart.md git add pie_chart.md git commit -m “pie chart 2” git checkout main echo “database 1 on main” &gt;&gt; database.md git add database.md git commit -m “database 1” echo “database 1 on main” &gt;&gt; database.md git add database.md git commit -m “database 2” git checkout pie_chart_branch echo “pie_chart_three” &gt;&gt; pie_chart.md git add pie_chart.md git commit -m “pie chart 3”</p>
+<!-- git clone https://github.com/jameshowison/320d_rebase_example.git -->
+<!-- cd 320d_rebase_example -->
+<!-- echo "first commit" >> README.md -->
+<!-- git add README.md -->
+<!-- git commit -m "first commit" -->
+<!-- echo "second commit" >> README.md -->
+<!-- git add README.md -->
+<!-- git commit -m "second commit" -->
+<!-- git checkout -b pie_chart_branch -->
+<!-- echo "pie_chart_one" >> pie_chart.md -->
+<!-- git add pie_chart.md -->
+<!-- git commit -m "pie chart 1" -->
+<!-- echo "pie_chart_two" >> pie_chart.md -->
+<!-- git add pie_chart.md -->
+<!-- git commit -m "pie chart 2" -->
+<!-- git checkout main -->
+<!-- echo "database 1 on main" >> database.md -->
+<!-- git add database.md -->
+<!-- git commit -m "database 1" -->
+<!-- echo "database 1 on main" >> database.md -->
+<!-- git add database.md -->
+<!-- git commit -m "database 2" -->
+<!-- git checkout pie_chart_branch -->
+<!-- echo "pie_chart_three" >> pie_chart.md -->
+<!-- git add pie_chart.md -->
+<!-- git commit -m "pie chart 3" -->
+<!-- git push -->
+<!-- git checkout main -->
+<!-- git push -->
 <p>We have an example set up. First we will clone it, change directory into the repo, and then switch to the pie_chart_branch.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone git clone https://github.com/jameshowison/320d_rebase_example.git</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/jameshowison/320d_rebase_example.git</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> 320d_rebase_example</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout pie_chart_branch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Then, to make git happy, be sure to set your user and email (this happens because DataCamp resets these variables from session to session):</p>
+<pre><code>git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com</code></pre>
 <p>Our git viz command (See <a href="skills_faq.html#sec-gitviz" class="quarto-xref"><span>Section A.3</span></a> to set up) shows us the situation:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git viz</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 5988585 <span class="er">(</span><span class="ex">main</span><span class="kw">)</span> <span class="ex">database</span> 2</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 3eff4b3 database 1</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> b7e1b11 <span class="er">(</span><span class="ex">HEAD</span> <span class="at">-</span><span class="op">&gt;</span> pie_chart_branch<span class="kw">)</span> <span class="ex">pie</span> chart 3</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 6beebfd pie chart 2</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> b458a22 pie chart 1</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span><span class="ex">/</span>  </span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 63e71c6 <span class="er">(</span><span class="ex">origin/main,</span> origin/HEAD<span class="kw">)</span> <span class="ex">second</span> commit</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> f9981b3 first commit</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> a3f0539 Initial commit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git viz</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 2b6a2cf <span class="er">(</span><span class="ex">origin/main,</span> origin/HEAD, main<span class="kw">)</span> <span class="ex">database</span> 2</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 70c14e7 database 1</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 246e49e <span class="er">(</span><span class="ex">HEAD</span> <span class="at">-</span><span class="op">&gt;</span> pie_chart_branch, origin/pie_chart_branch<span class="kw">)</span> <span class="ex">pie</span> chart 3</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 4c12962 pie chart 2</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 123593a pie chart 1</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span><span class="ex">/</span>  </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> ccd6067 second commit</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 512525e first commit</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 20b7fb5 Initial commit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>We have two branches (main and pie_chart_branch). pie_chart_branch branched off from main at “second commit”, and since then more work has been added to main (the database related commits). We also have three separate commits for <code>pie_chart_branch</code>.</p>
 <p>So, in a prettier diagram, the situation looks like this:</p>
 <div class="cell" data-layout-align="default">
@@ -483,8 +512,8 @@ gitGraph
 </div>
 </div>
 <p>To accomplish this we can use a git command called <code>rebase</code>. We say that we will “rebase” the pie_chart_branch against <code>main</code>.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch pie_chart_branch</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> rebase <span class="at">-i</span> main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch pie_chart_branch</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> rebase <span class="at">-i</span> main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This puts us into a textual UI, with guidance at the bottom. We can use the arrow keys to move around. In this UI we are editing a text file (so we are using the Nano editor). Each line is a commit, the lines are instructions and are executed in order.</p>
 <p><img src="git_rebase_files/rebase_no_squash.png" class="img-fluid"></p>
 <p>We use <kbd>Ctrl</kbd> + <kbd>O</kbd> to save (aka “write-Out”) and <kbd>Ctrl</kbd>+<kbd>X</kbd> to exit the editor. We should see a count of commits being rebased and then a message about a successful rebase. Using <code>git viz</code> will then show us:</p>
@@ -515,11 +544,11 @@ gitGraph
 <section id="adding-squash" class="level2" data-number="18.1">
 <h2 data-number="18.1" class="anchored" data-anchor-id="adding-squash"><span class="header-section-number">18.1</span> Adding squash</h2>
 <p>We want to <em>squash</em> those three commits down to one commit, and (like before) we want that commit to represent changes <em>as though</em> we had branched off main after the <code>database 2</code> commit. First, remove the directory we have been working in and reset things with a new clone.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-rf</span> 320d_rebase_example</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/jameshowison/320d_rebase_example.git</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> 320d_rebase_example</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch pie_chart_branch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-rf</span> 320d_rebase_example</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/jameshowison/320d_rebase_example.git</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> 320d_rebase_example</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch pie_chart_branch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Just as before we use:</p>
 <pre><code>git rebase -i main</code></pre>
 <p>This puts us back into a textual UI, with guidance at the bottom. This time instead of leaving all three as ‘pick’ we change two of them to squash. We do this by editing the file so that two of the lines show <code>s</code> instead of <code>pick</code>.</p>
@@ -527,18 +556,18 @@ gitGraph
 <p>After we use <kbd>Ctrl</kbd> + O to save (aka “write-Out”) and <kbd>Ctrl</kbd>+X to exit the editor, git completes the squash by including all the changes in a single commit. We are then returned to the editor to create a new commit message.</p>
 <p><img src="git_rebase_files/squash_commit_message.png" class="img-fluid"></p>
 <p>Finally, we can use git viz to see the new situation.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Successfully</span> rebased and updated refs/heads/pie_chart_branch.</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">repl@70e1b3d7-2edb-4b9d-affe-b74ce4e8cc24:~/workspace/320d_rebase_example$</span> git viz</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> c367b8a <span class="er">(</span><span class="ex">HEAD</span> <span class="at">-</span><span class="op">&gt;</span> pie_chart_branch<span class="kw">)</span> <span class="ex">pie</span> chart 1</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> ed1f195 <span class="er">(</span><span class="ex">origin/pie_chart_branch</span><span class="kw">)</span> <span class="ex">pie</span> chart 3</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 0ade683 pie chart 2</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 467a235 pie chart 1</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span><span class="ex">/</span>  </span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 958ed94 <span class="er">(</span><span class="ex">origin/main,</span> origin/HEAD, main<span class="kw">)</span> <span class="ex">database</span> 2</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> ab98ea5 database 1</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span><span class="ex">/</span>  </span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 4e8da02 second edit</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> e39f9e1 first edit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Successfully</span> rebased and updated refs/heads/pie_chart_branch.</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">repl@70e1b3d7-2edb-4b9d-affe-b74ce4e8cc24:~/workspace/320d_rebase_example$</span> git viz</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> c367b8a <span class="er">(</span><span class="ex">HEAD</span> <span class="at">-</span><span class="op">&gt;</span> pie_chart_branch<span class="kw">)</span> <span class="ex">pie</span> chart 1</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> ed1f195 <span class="er">(</span><span class="ex">origin/pie_chart_branch</span><span class="kw">)</span> <span class="ex">pie</span> chart 3</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 0ade683 pie chart 2</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 467a235 pie chart 1</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span><span class="ex">/</span>  </span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 958ed94 <span class="er">(</span><span class="ex">origin/main,</span> origin/HEAD, main<span class="kw">)</span> <span class="ex">database</span> 2</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> ab98ea5 database 1</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span><span class="ex">/</span>  </span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 4e8da02 second edit</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> e39f9e1 first edit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Ignore the remote branch (origin/pie_chart_branch), and focus only on the local branch (HEAD -&gt; pie_chart_branch). Instead of all three commits, we now only see a single commit (c367b8a).</p>
 <p>Note that in these examples we did not encounter any conflicts (because edits were all on different files). In reality, though, when commits are moved around, rebased, and squashed, sometimes those operations result in conflicts (just as happens with merge). In that case git add the conflict symbols (<code>&lt;&lt;&lt;&lt;&lt;&lt;</code> and <code>==========</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>) which all need to be removed, then the files added and finally we run <code>git rebase --continue</code>. Git does provide useful messages through that process with guidance on the likely next steps.</p>
 </section>

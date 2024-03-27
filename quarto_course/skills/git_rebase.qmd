@@ -73,64 +73,66 @@ Option 2 is generally preferred, since it focuses on clear communication via PRs
 
 Option 2 is called `rebase`. We specify a new starting point, and git gives us a little UI in which we can choose which commits to include, which to "squash", and we can even reorder commits.
 
-
-
-Learngitbranching has a tutorial which we will do now.  Chose square 2 in the "Moving work around" section (titled Interactive Rebase Intro). <https://learngitbranching.js.org/?level=move2>
-
-A full git textual introduction is available here <https://github.com/openedx/edx-platform/wiki/How-to-Rebase-a-Pull-Request>
-
-
-git clone https://github.com/jameshowison/320d_rebase_example.git
-cd 320d_rebase_example
-echo "first commit" >> README.md
-git add README.md
-git commit -m "first commit"
-echo "second commit" >> README.md
-git add README.md
-git commit -m "second commit"
-git push
-git checkout -b pie_chart_branch
-echo "pie_chart_one" >> pie_chart.md
-git add pie_chart.md
-git commit -m "pie chart 1"
-echo "pie_chart_two" >> pie_chart.md
-git add pie_chart.md
-git commit -m "pie chart 2"
-git checkout main
-echo "database 1 on main" >> database.md
-git add database.md
-git commit -m "database 1"
-echo "database 1 on main" >> database.md
-git add database.md
-git commit -m "database 2"
-git checkout pie_chart_branch
-echo "pie_chart_three" >> pie_chart.md
-git add pie_chart.md
-git commit -m "pie chart 3"
+<!-- git clone https://github.com/jameshowison/320d_rebase_example.git -->
+<!-- cd 320d_rebase_example -->
+<!-- echo "first commit" >> README.md -->
+<!-- git add README.md -->
+<!-- git commit -m "first commit" -->
+<!-- echo "second commit" >> README.md -->
+<!-- git add README.md -->
+<!-- git commit -m "second commit" -->
+<!-- git checkout -b pie_chart_branch -->
+<!-- echo "pie_chart_one" >> pie_chart.md -->
+<!-- git add pie_chart.md -->
+<!-- git commit -m "pie chart 1" -->
+<!-- echo "pie_chart_two" >> pie_chart.md -->
+<!-- git add pie_chart.md -->
+<!-- git commit -m "pie chart 2" -->
+<!-- git checkout main -->
+<!-- echo "database 1 on main" >> database.md -->
+<!-- git add database.md -->
+<!-- git commit -m "database 1" -->
+<!-- echo "database 1 on main" >> database.md -->
+<!-- git add database.md -->
+<!-- git commit -m "database 2" -->
+<!-- git checkout pie_chart_branch -->
+<!-- echo "pie_chart_three" >> pie_chart.md -->
+<!-- git add pie_chart.md -->
+<!-- git commit -m "pie chart 3" -->
+<!-- git push -->
+<!-- git checkout main -->
+<!-- git push -->
 
 
 We have an example set up.  First we will clone it, change directory into the repo, and then switch to the pie_chart_branch.
 
 ```sh
 cd ~
-git clone git clone https://github.com/jameshowison/320d_rebase_example.git
+git clone https://github.com/jameshowison/320d_rebase_example.git
 cd 320d_rebase_example
 git checkout pie_chart_branch
+```
+
+Then, to make git happy, be sure to set your user and email (this happens because DataCamp resets these variables from session to session):
+
+```
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
 ```
 
 Our git viz command (See @sec-gitviz to set up) shows us the situation:
 
 ```sh
 $ git viz
-* 5988585 (main) database 2
-* 3eff4b3 database 1
-| * b7e1b11 (HEAD -> pie_chart_branch) pie chart 3
-| * 6beebfd pie chart 2
-| * b458a22 pie chart 1
+* 2b6a2cf (origin/main, origin/HEAD, main) database 2
+* 70c14e7 database 1
+| * 246e49e (HEAD -> pie_chart_branch, origin/pie_chart_branch) pie chart 3
+| * 4c12962 pie chart 2
+| * 123593a pie chart 1
 |/  
-* 63e71c6 (origin/main, origin/HEAD) second commit
-* f9981b3 first commit
-* a3f0539 Initial commit
+* ccd6067 second commit
+* 512525e first commit
+* 20b7fb5 Initial commit
 ```
 
 We have two branches (main and pie_chart_branch). pie_chart_branch branched off from main at "second commit", and since then more work has been added to main (the database related commits). We also have three separate commits for `pie_chart_branch`. 
