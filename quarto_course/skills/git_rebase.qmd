@@ -80,33 +80,33 @@ Learngitbranching has a tutorial which we will do now.  Chose square 2 in the "M
 A full git textual introduction is available here <https://github.com/openedx/edx-platform/wiki/How-to-Rebase-a-Pull-Request>
 
 
-<!-- git clone https://github.com/jameshowison/320d_rebase_example.git  -->
-<!-- cd 320d_rebase_example -->
-<!-- echo "first commit" >> README.md -->
-<!-- git add README.md -->
-<!-- git commit -m "first commit" -->
-<!-- echo "second commit" >> README.md -->
-<!-- git add README.md -->
-<!-- git commit -m "second commit" -->
-<!-- git push -->
-<!-- git checkout -b pie_chart_branch -->
-<!-- echo "pie_chart_one" >> pie_chart.md -->
-<!-- git add pie_chart.md -->
-<!-- git commit -m "pie chart 1" -->
-<!-- echo "pie_chart_two" >> pie_chart.md -->
-<!-- git add pie_chart.md -->
-<!-- git commit -m "pie chart 2" -->
-<!-- git checkout main -->
-<!-- echo "database 1 on main" >> database.md -->
-<!-- git add database.md -->
-<!-- git commit -m "database 1" -->
-<!-- echo "database 1 on main" >> database.md -->
-<!-- git add database.md -->
-<!-- git commit -m "database 2" -->
-<!-- git checkout pie_chart_branch -->
-<!-- echo "pie_chart_three" >> pie_chart.md -->
-<!-- git add pie_chart.md -->
-<!-- git commit -m "pie chart 3" -->
+git clone https://github.com/jameshowison/320d_rebase_example.git
+cd 320d_rebase_example
+echo "first commit" >> README.md
+git add README.md
+git commit -m "first commit"
+echo "second commit" >> README.md
+git add README.md
+git commit -m "second commit"
+git push
+git checkout -b pie_chart_branch
+echo "pie_chart_one" >> pie_chart.md
+git add pie_chart.md
+git commit -m "pie chart 1"
+echo "pie_chart_two" >> pie_chart.md
+git add pie_chart.md
+git commit -m "pie chart 2"
+git checkout main
+echo "database 1 on main" >> database.md
+git add database.md
+git commit -m "database 1"
+echo "database 1 on main" >> database.md
+git add database.md
+git commit -m "database 2"
+git checkout pie_chart_branch
+echo "pie_chart_three" >> pie_chart.md
+git add pie_chart.md
+git commit -m "pie chart 3"
 
 
 We have an example set up.  First we will clone it, change directory into the repo, and then switch to the pie_chart_branch.
@@ -114,7 +114,7 @@ We have an example set up.  First we will clone it, change directory into the re
 ```sh
 cd ~
 git clone git clone https://github.com/jameshowison/320d_rebase_example.git
-cd 320d-rebase-example
+cd 320d_rebase_example
 git checkout pie_chart_branch
 ```
 
@@ -122,18 +122,18 @@ Our git viz command (See @sec-gitviz to set up) shows us the situation:
 
 ```sh
 $ git viz
-* 83f6236 (HEAD -> pie_chart_branch, origin/pie_chart_branch) pie chart 3
-* 6780d4e pie chart 2
-* 54b2ecb pie chart 1
-| * 3417133 (origin/main, origin/HEAD, main) database 2
-| * 32c1b1c database 1
+* 5988585 (main) database 2
+* 3eff4b3 database 1
+| * b7e1b11 (HEAD -> pie_chart_branch) pie chart 3
+| * 6beebfd pie chart 2
+| * b458a22 pie chart 1
 |/  
-* 52bd3fd second commit
-* 0aefb6a first commit
-* 9ad07d3 Initial commit
+* 63e71c6 (origin/main, origin/HEAD) second commit
+* f9981b3 first commit
+* a3f0539 Initial commit
 ```
 
-We have two branches (main and pie_chart_branch). pie_chart_branch branched off from main at 52bd3fd, and since then more work has been added to main (the database related commits). We also have three separate commits for `pie_chart_branch`. 
+We have two branches (main and pie_chart_branch). pie_chart_branch branched off from main at "second commit", and since then more work has been added to main (the database related commits). We also have three separate commits for `pie_chart_branch`. 
 
 So, in a prettier diagram, the situation looks like this:
 
@@ -155,6 +155,7 @@ gitGraph
   commit
   checkout pie_chart_branch
   commit
+  
 ```
 
 But we want it to look as though pie_chart_branch came off the tip of main, like this:
@@ -175,6 +176,7 @@ gitGraph
   commit
   commit
   commit
+  
 ```
 
 To accomplish this we can use a git command called `rebase`.  We say that we will "rebase" the pie_chart_branch against `main`.
@@ -220,9 +222,9 @@ To get this to also be reflected on the server we would have to do a "force push
 * 9ad07d3 Initial commit
 ```
 
-You might be thinking, didn't we do pretty much the same thing with `cherrypick`?  And yes, in this situation `rebase` is very similar to cherrypick.
+You might be thinking, didn't we do pretty much the same thing with `cherrypick`?  And yes, in this situation `rebase` [is very similar to cherrypick](https://stackoverflow.com/questions/11835948/git-cherry-pick-vs-rebase).
 
-Rebase does offer some additional opportunities though. The textual UI shows more options than just 'pick'.  One otion is 'squash' which takes changes from multiple commits and presents them in a single commit.  This can make a git history easier for teammates to understand.
+Rebase does offer some additional opportunities though. Notice that the textual UI shows more options than just 'pick'.  One otion is 'squash' which takes changes from multiple commits and presents them in a single commit.  This can make a git history easier for teammates to understand.
 
 ## Adding squash
 
