@@ -1,5 +1,7 @@
 ---
 engine: knitr
+execute:
+  freeze: auto  # re-render only when source changes
 ---
 
 # Skills faq {#sec-skills-faq}

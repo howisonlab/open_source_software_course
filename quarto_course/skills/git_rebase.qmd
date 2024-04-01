@@ -258,18 +258,16 @@ After we use <kbd>Ctrl</kbd> + O to save (aka "write-Out") and <kbd>Ctrl</kbd>+X
 Finally, we can use git viz to see the new situation.
 
 ```sh
-Successfully rebased and updated refs/heads/pie_chart_branch.
-repl@70e1b3d7-2edb-4b9d-affe-b74ce4e8cc24:~/workspace/320d_rebase_example$ git viz
-* c367b8a (HEAD -> pie_chart_branch) pie chart 1
-| * ed1f195 (origin/pie_chart_branch) pie chart 3
-| * 0ade683 pie chart 2
-| * 467a235 pie chart 1
+* 32f895e (HEAD -> pie_chart_branch) Here I have tidied up the history to make it easier to read. Pie chart draws pies.
+* 2b6a2cf (origin/main, origin/HEAD, main) database 2
+* 70c14e7 database 1
+| * 246e49e (origin/pie_chart_branch) pie chart 3
+| * 4c12962 pie chart 2
+| * 123593a pie chart 1
 |/  
-| * 958ed94 (origin/main, origin/HEAD, main) database 2
-| * ab98ea5 database 1
-|/  
-* 4e8da02 second edit
-* e39f9e1 first edit
+* ccd6067 second commit
+* 512525e first commit
+* 20b7fb5 Initial commit
 ```
 
 Ignore the remote branch (origin/pie_chart_branch), and focus only on the local branch (HEAD -> pie_chart_branch). Instead of all three commits, we now only see a single commit (c367b8a).

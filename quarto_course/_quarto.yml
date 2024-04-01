@@ -26,6 +26,7 @@ book:
       - insights/governance.qmd
       - insights/bias_lack_of_diversity.qmd
       - insights/stack_and_stream.qmd
+      - insights/agile.qmd
     
       # - insights/agile_development.qmd
     #     - knowledge_sharing.qmd

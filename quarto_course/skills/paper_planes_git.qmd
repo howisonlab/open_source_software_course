@@ -80,9 +80,9 @@ Sometimes people work at the same time, rather than in a sequence as above. We w
 
 9.  Then the Originator pulls work from Improver2. This can complete automatically because the changes don't conflict with each other; they are in different places and nothing prevents a plane from having a design on it's left wing and on it's right wing at the same time.
 
-10. Each Improver should syncrhonize their repository, pulling this new commit across. Note that the parent of this commit will be different in each of their repositories (because each has their own work as the base, and then the merged work).
+10. Each Improver should synchronize their repository, pulling this new commit across. Note that the parent of this commit will be different in each of their repositories (because each has their own work as the base, and then the merged work).
 
-## Parllel conflicting work
+## Parallel conflicting work
 
 Above we saw what happens when two people work at the same time. In that case git was able to merge the work automatically. But some changes can be incompatible, and create what is called "an edit conflict". Then we have some choices to make ... and there can be social repercussions.
 

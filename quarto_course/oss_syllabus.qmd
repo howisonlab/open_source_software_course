@@ -4,6 +4,8 @@ label: #sec-syllabus
 author: "James Howison"
 subtitle: "I 320D - Topics in Human-Centered Data Science : Open Source Software Development"
 always_allow_html: yes
+execute:
+  freeze: auto  # re-render only when source changes
 output:
   html_document:
     toc: no
@@ -531,13 +533,13 @@ skills_topics <- tribble(
   "Rebase @sec-rebase ", "git rebase",
   # "Git analogies paper workshop", "quarto and markdown",
  
-  "Documentation and Q&A", "github flavored markdown",
+#   "Documentation and Q&A", "github flavored markdown",
   "Unit Tests", "Test suites",
   "Continuous Integration", "Travis CI integration, Github Actions",
   # "Release management", "github releases, git tag",
+  "Final paper/project workshop", "",
   "Creating and distributing packages", "python packages, pypy pinning",
- # "Final paper/project workshop", "markdown",
- #  "Final paper/project workshop", "markdown"
+  "Final paper/project workshop", "markdown"
   
  # "Wikipedia Editing", "wiki syntax, referencing",
 #  "Executable Papers", "rmarkdown, knitr, rstudio",
@@ -560,8 +562,9 @@ insight_topics <- tribble(
   "Knowledge sharing",
   "Bias and lack of diversity @sec-diversity ",
   "The stack and the stream @sec-stack-and-stream ",
-  "Agile and test driven development",
-  "Cybersecurity and open source",
+  "Iterative Development, Tests, and Continuous Integration @sec-agile ",
+  "Final paper/project workshop",
+  # "Cybersecurity and open source",
   "Open software work in science and research",
   # "Peer production in Art and Culture"
 ) %>% mutate(topic = "Insights") %>%  rownames_to_column()
