@@ -116,7 +116,7 @@ assessments <- tribble(
   "Class Participation (discussion and activites)", "10%", "Throughout course",
   "Technical challenges", "40%", "Weekly homework challenges throughout the semester",
   "Git Analogies Paper", "20%", "Start of Spring Break",
-  " UT Austin open source projects", "5%", "Two weeks after Spring Break",
+ # " UT Austin open source projects", "5%", "Two weeks after Spring Break",
   "Open Source Trace Data analysis Project report", "25%", "Start of last class week.",
 )
 ```
@@ -534,7 +534,7 @@ skills_topics <- tribble(
   # "Git analogies paper workshop", "quarto and markdown",
  
 #   "Documentation and Q&A", "github flavored markdown",
-  "Unit Tests", "Test suites",
+  "Tests @sec-tests ", "pytest",
   "Continuous Integration", "Travis CI integration, Github Actions",
   # "Release management", "github releases, git tag",
   "Final paper/project workshop", "",

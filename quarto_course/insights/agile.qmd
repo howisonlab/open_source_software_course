@@ -14,7 +14,6 @@ In software engineering, iterative development is contrasted with "the waterfall
 
 https://www.techtarget.com/searchsoftwarequality/definition/waterfall-model
 
-
 In contrast, Iterative development expects many short repeated cycles of build, release, feedback, and redesign. A team doing iterative development seeks to quickly produce working software and get it in front of potential users. A core idea here is that it is hard for potential users to describe their requirements in the abstract, but it is easier for them to give feedback when they have something "in their hands". This is because people think more clearly when their bodies are involved (an idea called "embodied cognition") or at least real things like actual documents or real data in a database, more closely approximating the situation in which they would be using the software (an idea called "situated cognition).
 
 There are many useful comparisons of agile and iterative development, including [the Medium article that contains this figure](https://medium.com/@ashutoshagrawal1010/agile-methodology-incremental-and-iterative-way-of-development-a6614116ae68).
