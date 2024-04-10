@@ -9,6 +9,7 @@ Continuous integration helps a project to stay synchronized, acheiving coordinat
 3. **Regressions** Where bugs that were dealt with reoccur after changes. Regressions happen because, despite a fix, the situation that created the bug in the first place continues. For example, that might be due to the logic or architecture creating common misunderstandings, or having complex special cases that interact in ways that are hard for developers to keep in their mind as they program.
 
 Projects accomplish Continuous Integration by:
+
 1. Having policies that encourage small units of work (sometimes known as "atomic commits" using the idea of an atom as a particularly small building block.).  An example of a policy would be requiring formal code review as part of a PR, where one criteria being examined is whether the PR could be split into smaller units of work.
 2. Automatically running test suites.
 
