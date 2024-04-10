@@ -6,15 +6,15 @@
 
 They help with the challenge of coordination among developers as codebases change, serving as an executable reminder of developers intentions.
 
-In this class we will get some experience with writing and executing multiple tests (making a "test suite").  We will get to the point where individual contributors can run the tests prior to making a PR, serving as an individual level check. In the class on Continuous Integration we will learn how to use Github Actions so that these tests are automatically run when a PR is created, and have GitHub report the results.
+In this class we will get some experience with writing and executing multiple tests (making a "test suite"). We will get to the point where individual contributors can run the tests prior to making a PR, serving as an individual level check. In the class on Continuous Integration we will learn how to use Github Actions so that these tests are automatically run when a PR is created, and have GitHub report the results.
 
 A software test consists of:
 
-1. identifies the code which should be tests,
+1. identifies the code which should be tested
 1. provides a way to run the code
-1. provides known input,
-1. an expected output (or behavior), and 
-1. a way to compare expected vs actual output.
+1. provides known input
+1. an expected output (or behavior)
+1. a way to compare expected vs actual output
 
 We will be using the python pytest library.
 
@@ -104,10 +104,12 @@ pytest is run from the commandline. We pass it the name of a source file (my_cod
 
 We can have more than one `assert` within a test, but only if all of them pass does the whole test pass.
 
-To run from the command line we need to move to Terminal ("Run" → "Terminal" on DataCamp). We will first get code from GitHub, change into the directory.
+To run from the command line we need to move to Terminal ("Run" → "Terminal" on DataCamp). 
+
+First go to this [example repo on GitHub](https://github.com/howisonlab/i320d-pytest-example.git), and make your own fork.  Then clone that fork down and change into that directory.
 
 ```sh
-git clone https://github.com/howisonlab/i320d-pytest-example.git
+git clone <your_fork_url>
 cd i320d-pytest-example/
 ```
 
@@ -149,11 +151,12 @@ In the next class we will get GitHub to run these tests for us.  Essentially tha
 1. Report back on the results, specifically show whether all tests passed, and if they didn't tell us which ones did not pass.
 :::
 
+
 ## Dealing with bad input
 
-One very common kind of bug is when the code can't handle unexpected input.  For example, what happens if our function hits input like `'mobile'` (which is not a phone).  This is very for coordination since future developers might not understand what we assumed would be passed to a function.  So we can use tests to see if our function will behave in the appropriate way.
+One very common kind of bug is when the code can't handle unexpected input.  For example, what happens if our function hits input like `'mobile'` (which is not a phone).  This is very useful for coordination since future developers might not understand what we assumed would be passed to a function.  So we can use tests to see if our function will behave in the appropriate way.
 
-In programming we can indicate that we've received something we weren't expecting and can't handle is to **throw an exception**. This will enable us to communicate effectively with future programmers.  When we define our own exceptions we can better describe the issue, avoiding just letting code fail.  If we don't throw a specific exception, Python will end up throwing an obscure exception somewhere deep down the stack, or returning invalid output (but blithly keep going)
+In programming we can indicate that we've received something we weren't expecting and can't handle is to **raise an Error**. This will enable us to communicate effectively with future programmers.  When we define our own error we can better describe the issue, avoiding just letting code fail.  If we don't throw a specific error, Python will end up throwing an obscure exception somewhere deep down the stack, or returning invalid output (but blithely keep going).
 
 For example, if we pass our function a phone number that is too short, what will currently happen?  Run this in a cell in a notebook.
 
@@ -261,9 +264,13 @@ If you are wondering why it only says "1 passed" that is because pytest only cou
 
 ## Exercises
 
-Get your own fork of the `i320d-pytest-example` repo and clone it to your workspace.
+Use your fork of the `i320d-pytest-example` repo and clone it to your workspace. To edit the files you can either use 'nano' or you can edit them on GitHub (look for the pen button when viewing a file), remembering to use `git pull` to bring your edits down to your clone.
 
 1. Add an additional assertion to the `test_fix_phone_num` function that tests these inputs: `5554429876` and `3216543333`.
-2. Add a test that specifies that the function should be able to handle these inputs: `555-442-98761` and `(321) 654 3333`. Give your test a communicative name.
+2. Add a test (meaning a whole separate function starting with `test_`, not just additional asserts) that specifies that the function should be able to handle these inputs: `555-442-98761` and `(321) 654 3333`. Give your test a communicative name.  These tests will fail at the moment.
 3. Shift the ValueError assertion into its own test
 4. Implement a test that checks that a ValueError is raised if the input is not all digits. (Hint: you can use the `.isdigit()` method on a string)
+
+## Additional resources
+
+[Pytest Awesome Project}(https://github.com/augustogoulart/awesome-pytest): a curated list of pytest resources (including training courses).

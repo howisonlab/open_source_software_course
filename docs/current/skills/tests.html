@@ -63,7 +63,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../skills/skills_faq.html" rel="next">
+<link href="../skills/continuous_integration.html" rel="next">
 <link href="../skills/git_delete_history.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -289,6 +289,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Testing</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/continuous_integration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Continuous Integration (aka CI/CD)</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -323,6 +329,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#running-pytest" id="toc-running-pytest" class="nav-link" data-scroll-target="#running-pytest"><span class="header-section-number">21.3</span> Running pytest</a></li>
   <li><a href="#dealing-with-bad-input" id="toc-dealing-with-bad-input" class="nav-link" data-scroll-target="#dealing-with-bad-input"><span class="header-section-number">21.4</span> Dealing with bad input</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">21.5</span> Exercises</a></li>
+  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources"><span class="header-section-number">21.6</span> Additional resources</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/skills/tests.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
@@ -356,11 +363,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In this class we will get some experience with writing and executing multiple tests (making a “test suite”). We will get to the point where individual contributors can run the tests prior to making a PR, serving as an individual level check. In the class on Continuous Integration we will learn how to use Github Actions so that these tests are automatically run when a PR is created, and have GitHub report the results.</p>
 <p>A software test consists of:</p>
 <ol type="1">
-<li>identifies the code which should be tests,</li>
+<li>identifies the code which should be tested</li>
 <li>provides a way to run the code</li>
-<li>provides known input,</li>
-<li>an expected output (or behavior), and</li>
-<li>a way to compare expected vs actual output.</li>
+<li>provides known input</li>
+<li>an expected output (or behavior)</li>
+<li>a way to compare expected vs actual output</li>
 </ol>
 <p>We will be using the python pytest library.</p>
 <section id="needed-programming-concepts" class="level2" data-number="21.1">
@@ -410,8 +417,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="21.3" class="anchored" data-anchor-id="running-pytest"><span class="header-section-number">21.3</span> Running pytest</h2>
 <p>pytest is run from the commandline. We pass it the name of a source file (my_code.py), it finds all the functions that start with <code>test_</code> and runs them. In our example if the <code>assert</code> line sees <code>True</code> then the test passes.</p>
 <p>We can have more than one <code>assert</code> within a test, but only if all of them pass does the whole test pass.</p>
-<p>To run from the command line we need to move to Terminal (“Run” → “Terminal” on DataCamp). We will first get code from GitHub, change into the directory.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/howisonlab/i320d-pytest-example.git</span>
+<p>To run from the command line we need to move to Terminal (“Run” → “Terminal” on DataCamp).</p>
+<p>First go to this <a href="https://github.com/howisonlab/i320d-pytest-example.git">example repo on GitHub</a>, and make your own fork. Then clone that fork down and change into that directory.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="op">&lt;</span>your_fork_url<span class="op">&gt;</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> i320d-pytest-example/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now we have our function and our test. You can quickly glance at a file on the commandline using</p>
 <pre><code>cat my_code.py</code></pre>
@@ -455,8 +463,8 @@ Prelude to Continuous Integration
 </section>
 <section id="dealing-with-bad-input" class="level2" data-number="21.4">
 <h2 data-number="21.4" class="anchored" data-anchor-id="dealing-with-bad-input"><span class="header-section-number">21.4</span> Dealing with bad input</h2>
-<p>One very common kind of bug is when the code can’t handle unexpected input. For example, what happens if our function hits input like <code>'mobile'</code> (which is not a phone). This is very for coordination since future developers might not understand what we assumed would be passed to a function. So we can use tests to see if our function will behave in the appropriate way.</p>
-<p>In programming we can indicate that we’ve received something we weren’t expecting and can’t handle is to <strong>throw an exception</strong>. This will enable us to communicate effectively with future programmers. When we define our own exceptions we can better describe the issue, avoiding just letting code fail. If we don’t throw a specific exception, Python will end up throwing an obscure exception somewhere deep down the stack, or returning invalid output (but blithly keep going)</p>
+<p>One very common kind of bug is when the code can’t handle unexpected input. For example, what happens if our function hits input like <code>'mobile'</code> (which is not a phone). This is very useful for coordination since future developers might not understand what we assumed would be passed to a function. So we can use tests to see if our function will behave in the appropriate way.</p>
+<p>In programming we can indicate that we’ve received something we weren’t expecting and can’t handle is to <strong>raise an Error</strong>. This will enable us to communicate effectively with future programmers. When we define our own error we can better describe the issue, avoiding just letting code fail. If we don’t throw a specific error, Python will end up throwing an obscure exception somewhere deep down the stack, or returning invalid output (but blithely keep going).</p>
 <p>For example, if we pass our function a phone number that is too short, what will currently happen? Run this in a cell in a notebook.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>short_num <span class="op">=</span> <span class="st">"51"</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -535,13 +543,17 @@ my_code_error.py::test_fix_phone_num PASSED                           [100%]
 </section>
 <section id="exercises" class="level2" data-number="21.5">
 <h2 data-number="21.5" class="anchored" data-anchor-id="exercises"><span class="header-section-number">21.5</span> Exercises</h2>
-<p>Get your own fork of the <code>i320d-pytest-example</code> repo and clone it to your workspace.</p>
+<p>Use your fork of the <code>i320d-pytest-example</code> repo and clone it to your workspace. To edit the files you can either use ‘nano’ or you can edit them on GitHub (look for the pen button when viewing a file), remembering to use <code>git pull</code> to bring your edits down to your clone.</p>
 <ol type="1">
 <li>Add an additional assertion to the <code>test_fix_phone_num</code> function that tests these inputs: <code>5554429876</code> and <code>3216543333</code>.</li>
-<li>Add a test that specifies that the function should be able to handle these inputs: <code>555-442-98761</code> and <code>(321) 654 3333</code>. Give your test a communicative name.</li>
+<li>Add a test (meaning a whole separate function starting with <code>test_</code>, not just additional asserts) that specifies that the function should be able to handle these inputs: <code>555-442-98761</code> and <code>(321) 654 3333</code>. Give your test a communicative name. These tests will fail at the moment.</li>
 <li>Shift the ValueError assertion into its own test</li>
 <li>Implement a test that checks that a ValueError is raised if the input is not all digits. (Hint: you can use the <code>.isdigit()</code> method on a string)</li>
 </ol>
+</section>
+<section id="additional-resources" class="level2" data-number="21.6">
+<h2 data-number="21.6" class="anchored" data-anchor-id="additional-resources"><span class="header-section-number">21.6</span> Additional resources</h2>
+<p>[Pytest Awesome Project}(https://github.com/augustogoulart/awesome-pytest): a curated list of pytest resources (including training courses).</p>
 
 
 </section>
@@ -963,8 +975,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../skills/skills_faq.html" class="pagination-link" aria-label="Skills faq">
-        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Skills faq</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../skills/continuous_integration.html" class="pagination-link" aria-label="Continuous Integration (aka CI/CD)">
+        <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Continuous Integration (aka CI/CD)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

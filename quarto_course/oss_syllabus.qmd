@@ -535,8 +535,8 @@ skills_topics <- tribble(
  
 #   "Documentation and Q&A", "github flavored markdown",
   "Tests @sec-tests ", "pytest",
-  "Continuous Integration", "Travis CI integration, Github Actions",
-  # "Release management", "github releases, git tag",
+  "Continuous Integration @sec-ci ", "Github Actions",
+  # "Release management", "github releases, git ta g",
   "Final paper/project workshop", "",
   "Creating and distributing packages", "python packages, pypy pinning",
   "Final paper/project workshop", "markdown"

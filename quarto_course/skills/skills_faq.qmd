@@ -228,6 +228,20 @@ git log -1 --skip 1 --remerge-diff
 rm -rf merge-conflict-example
 ```
 
+## Gathering the code as though the PR had been accepted {#sec-fetch-pr}
+
+Sometimes it is useful to be able to work with the code that would result if the PR was accepted, but without actually accepting the PR. Sometimes this is called "previewing the PR". It is useful when working with PRs from others, and can also be useful when working on our own branches, but where we don't want to merge that branch to main (which is a difficult operation to undo).
+
+On GitHub (and other online repositories like Gitlab or BitBucket) we can do this because the pull requests are added to the online repository, somewhat like branches. [We can access these](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally) using the git `fetch` command pointing to the `pull` part of the repository.
+
+```sh
+git fetch origin pull/123/head:pr-123
+git checkout pr-123
+```
+
+This obtains the code **as though the PR had been accepted** and then makes a new _local branch_ that we can work with. Notice, though, that thje new local branch is not the same branch that the PR is for ... it is a local copy. Therefore we would not push that new local branch back up to GitHub, preferring to work with the PR itself (and [here is documentation about how to allow others to edit your PRs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork)). 
+
+
 # How to add an image using quarto on edupod
 
 Quarto is like html in that the main `.qmd` document references separate image files, rather than incorporates them inside the main file itself.  You have to place the images separetely (and also `git add` the image files separately).
@@ -245,7 +259,6 @@ On Edupod getting figures into your quarto document takes two steps:
 Using the Render button will confirm that your images are found.
 
 Then don't forget to `git add` the image files as well.  Run a `git status` to check which files are included.
-
 
 
 

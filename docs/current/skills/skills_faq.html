@@ -63,7 +63,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../skills/tests.html" rel="prev">
+<link href="../skills/continuous_integration.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -288,6 +288,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Testing</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/continuous_integration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Continuous Integration (aka CI/CD)</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -328,6 +334,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#sec-faq-home-git-folder" id="toc-sec-faq-home-git-folder" class="nav-link" data-scroll-target="#sec-faq-home-git-folder"><span class="header-section-number">A.2</span> I accidentally made my home folder a git repo</a></li>
   <li><a href="#sec-gitviz" id="toc-sec-gitviz" class="nav-link" data-scroll-target="#sec-gitviz"><span class="header-section-number">A.3</span> Vizualizing git trees (aka gitviz)</a></li>
   <li><a href="#seeing-a-merge-conflict-using-git-log" id="toc-seeing-a-merge-conflict-using-git-log" class="nav-link" data-scroll-target="#seeing-a-merge-conflict-using-git-log"><span class="header-section-number">A.4</span> Seeing a merge conflict using git log</a></li>
+  <li><a href="#sec-fetch-pr" id="toc-sec-fetch-pr" class="nav-link" data-scroll-target="#sec-fetch-pr"><span class="header-section-number">A.5</span> Gathering the code as though the PR had been accepted</a></li>
   <li><a href="#how-to-add-an-image-using-quarto-on-edupod" id="toc-how-to-add-an-image-using-quarto-on-edupod" class="nav-link" data-scroll-target="#how-to-add-an-image-using-quarto-on-edupod"><span class="header-section-number">B</span> How to add an image using quarto on edupod</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/skills/skills_faq.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
@@ -509,6 +516,14 @@ fatal: Authentication failed for &lt;repo_url&gt;</code></pre>
 <span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a><span class="co">##  leopard </span></span>
 <span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a><span class="co">##  turtle</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="sec-fetch-pr" class="level2" data-number="A.5">
+<h2 data-number="A.5" class="anchored" data-anchor-id="sec-fetch-pr"><span class="header-section-number">A.5</span> Gathering the code as though the PR had been accepted</h2>
+<p>Sometimes it is useful to be able to work with the code that would result if the PR was accepted, but without actually accepting the PR. Sometimes this is called “previewing the PR”. It is useful when working with PRs from others, and can also be useful when working on our own branches, but where we don’t want to merge that branch to main (which is a difficult operation to undo).</p>
+<p>On GitHub (and other online repositories like Gitlab or BitBucket) we can do this because the pull requests are added to the online repository, somewhat like branches. <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally">We can access these</a> using the git <code>fetch</code> command pointing to the <code>pull</code> part of the repository.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch origin pull/123/head:pr-123</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout pr-123</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This obtains the code <strong>as though the PR had been accepted</strong> and then makes a new <em>local branch</em> that we can work with. Notice, though, that thje new local branch is not the same branch that the PR is for … it is a local copy. Therefore we would not push that new local branch back up to GitHub, preferring to work with the PR itself (and <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork">here is documentation about how to allow others to edit your PRs</a>).</p>
 </section>
 <section id="how-to-add-an-image-using-quarto-on-edupod" class="level1" data-number="B">
 <h1 data-number="B"><span class="header-section-number">B</span> How to add an image using quarto on edupod</h1>
@@ -982,8 +997,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../skills/tests.html" class="pagination-link" aria-label="Testing">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Testing</span></span>
+      <a href="../skills/continuous_integration.html" class="pagination-link" aria-label="Continuous Integration (aka CI/CD)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Continuous Integration (aka CI/CD)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
