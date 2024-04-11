@@ -522,22 +522,22 @@ skills_topics <- tribble(
   #-------------------------------------
   "Syllabus Review", "",
   #  "Tech setup workshop", "[terminal, command line, git install, github account](./docs/tech_setup.html)",
-  "Paper Planes: Version Control @sec-planes-git ", "git add, commit via paper planes and tables",  
-"Git basic workflow @sec-git_basic_workflow ", "git add, commit (locally)",
+  "Paper Planes: Version Control @sec-planes-git", "git add, commit via paper planes and tables",  
+"Git basic workflow @sec-git_basic_workflow", "git add, commit (locally)",
 #  "Commits, blobs, and tree", "git diff continued HEAD and HEAD~1",
   "Rewinding work @sec-rewinding ", "revert, other undos, checking out old versions, rewriting history",
   "Branching @sec-branching ", "git checkout, merge.",  
   "Sharing and collaborating via github @sec-github-solo ", "git clone, remote, push",
   "Collaboration conflicts and workflows @sec-github-collaboration ", "github fork, pull request, pull upstream",
   "Splitting PRs @sec-cherrypick ", "merge, conflicts, mark resolved, cherrypick, collaboration workflows  ",
-  "Rebase @sec-rebase ", "git rebase",
+  "Rebase @sec-rebase", "git rebase",
   # "Git analogies paper workshop", "quarto and markdown",
  
 #   "Documentation and Q&A", "github flavored markdown",
-  "Tests @sec-tests ", "pytest",
-  "Continuous Integration @sec-ci ", "Github Actions",
+  "Tests @sec-tests", "pytest",
+  "Continuous Integration @sec-ci", "Github Actions",
   # "Release management", "github releases, git ta g",
-  "Final paper/project workshop", "",
+  "Final paper/project workshop ", "",
   "Creating and distributing packages", "python packages, pypy pinning",
   "Final paper/project workshop", "markdown"
   
@@ -549,7 +549,7 @@ skills_topics <- tribble(
 ) %>% 
   mutate(topic = "Skills") %>%  
   rownames_to_column() %>% 
-  mutate(skill_topic = {.} %>% str_glue_data("{skill_topic}<br/><em>{tech_commands}</em>"))
+  mutate(skill_topic = {.} %>% str_glue_data("{skill_topic} <br/><em>{tech_commands}</em>"))
 
 insight_topics <- tribble(
   ~insight_topic,
