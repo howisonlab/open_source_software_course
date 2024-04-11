@@ -52,15 +52,12 @@ The first part of the file (shown above) provides a name for the workflow (`Run 
 
 Then next parts of the file layout the abstract steps as shown above:
 
-First we establish the operating system for the test runner virtual machine.  Here we say that we want to use `ubuntu-latest` (which is a flavor of unix), and that we want to test against `python 3.10`.
+First we establish the operating system for the test runner virtual machine.  Here we say that we want to use `ubuntu-latest` (which is a flavor of unix).
 
 ```yaml
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.10"]
 ```
 
 Then we specify that we want to checkout the code for the PR. Github Actions allows us to refer to chunks of code defined by GitHub. This is just like using a function from a library (where the `uses` command gives the name of the function and the `with` block provides parameters)
@@ -73,10 +70,9 @@ Then we specify that we want to checkout the code for the PR. Github Actions all
 Then we actually install the needed version of python.
 
 ```yaml
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v4
+    - uses: actions/setup-python@v4
       with:
-        python-version: ${{ matrix.python-version }}
+        python-version: '3.10' 
 ```
 
 Then we install any needed dependencies (here we just check that pytest is installed)
@@ -91,6 +87,34 @@ Then we install any needed dependencies (here we just check that pytest is insta
 Finally we reuse a community contributed piece of code called `pytest-summary` and give it the parameter `my_code.py` so that we know which file pytest will run against ([see documentation of pytest-summary here](https://dariocurr.medium.com/show-a-helpful-pytest-summary-on-github-actions-2351faa92fe)).  `pytest-summary` both runs the tests and provides a template so that GitHub can pretty print the test results.
 
 ```yaml
+    - name: Pytest summary
+      uses: dariocurr/pytest-summary@v2
+      with:
+        paths: my_code.py
+```
+
+Together, then the file looks like:
+
+```yaml
+name: Run pytest tests
+
+on: 
+  pull_request:
+    branches: 
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.10' 
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pytest
     - name: Pytest summary
       uses: dariocurr/pytest-summary@v2
       with:
