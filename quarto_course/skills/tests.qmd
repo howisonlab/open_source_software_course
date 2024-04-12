@@ -1,0 +1,276 @@
+# Testing {#sec-tests}
+
+> Maintainer: _"Can you add some tests and make sure they pass?"
+
+**Test suites** allow a programming group to define expected behaviors and verify them using software tests. Then, when changes are introduced to the codebase, the test suite can show that the changes have not accidentally altered the expected behaviors.
+
+They help with the challenge of coordination among developers as codebases change, serving as an executable reminder of developers intentions.
+
+In this class we will get some experience with writing and executing multiple tests (making a "test suite"). We will get to the point where individual contributors can run the tests prior to making a PR, serving as an individual level check. In the class on Continuous Integration we will learn how to use Github Actions so that these tests are automatically run when a PR is created, and have GitHub report the results.
+
+A software test consists of:
+
+1. identifies the code which should be tested
+1. provides a way to run the code
+1. provides known input
+1. an expected output (or behavior)
+1. a way to compare expected vs actual output
+
+We will be using the python pytest library.
+
+## Needed programming concepts
+
+In order to understand how tests work in pytest we need to know a few programming concepts: functions, parameters, and exceptions.
+
+A **function** is a reuseable chunk of code. A function is defined by providing a name and then providing the chunk of code.  We can then use the chunk of code by calling the name from other code.
+
+A **parameter** is an object that the function receives, it is usually a piece of data like a piece of text or a number.
+
+The **return value** of a function is the output that is returned.  When a function is called from other code, we can replace the function with its return value to help understand what will happen in the code.
+
+For example, imagine we are working with phone numbers.  We want to re-format phone numbers to make them readable. For example, if we were given `5125555678` we would want to reformat that to show `(512) 555 5678`
+
+```python
+def fix_phone_num(phone_num_to_fix):
+  # given "5125558823". Split the parts, then recombine and return
+  area_code = phone_num_to_fix[0:3] # 512 (first three digits)
+  three_part = phone_num_to_fix[3:6] # 555 (next three digits)
+  four_part = phone_num_to_fix[6:] # # 8823 (last four digits)
+  
+  fixed_num = "(" + area_code + ")" + " " + three_part + " " + four_part 
+  
+  return fixed_num
+```
+
+The variable `phone_num_to_fix` is the _parameter_, the _function name_ is `fix_phone_num`, and the _return value_ will be the contents of the variable `fixed_num` (which are the parts stiched back together).
+
+We can manually test our function in a notebook using two cells. The first cell has the code above to define the function, and the second cell has code to run the function. We can then inspect what it returns.
+
+```python
+bad_num = "5125558823"
+
+fix_phone_num(bad_num)
+```
+
+If we run this code in a cell in a notebook, we will see the result is
+
+```
+'(512) 555 8823'
+```
+
+The starting/ending single quote marks (`'   '`) are python's way of telling us that this is a string. Manually we look inside that and see that yes, our code is properly formatted.
+
+pytest allows us to automate this process.
+
+## Automating
+
+To automate this idea we will use pytest.  pytest looks through a python file and runs all functions that start with `test_`.
+
+To define a test for `pytest` we need one additional concept: `assert`.  An assertion is a statement that checks if a piece of code returns `True` or `False`. If `assert` sees `True` then the test has passed. If it sees `False` then the test has failed. We can use it to check whether our function (given a particular input) gives us our expected output.
+
+So now we have our function above and one additional function (the test) which has an `assert` within it.
+
+```python
+import pytest
+
+def test_fix_phone_num():
+  assert fix_phone_num("5125558823") == '(512) 555 8823'
+```  
+
+The `assert` line here receives an equality test `==`. If the two sides are the same, then it returns `True`. So to work this through python will execute:
+
+```python
+assert fix_phone_num("5125558823") == '(512) 555 8823'
+```
+
+then the call to fix_phone_num(""5125558823") will make python move into the function. The string parts will be split up, then recombined, and finally the call to `return` will bring us back to the `assert` line, the call to the function will be replaced by the return value and so python will see:
+
+```python
+assert '(512) 555 8823' == '(512) 555 8823'
+```
+
+Python will compare the left and right sides, which are the same. That comparison will return `True`, so python will see:
+
+```python
+assert True
+```
+
+When pytest runs this code sees `assert True` it understands that that part of the test has passed.  
+
+
+## Running pytest
+
+pytest is run from the commandline. We pass it the name of a source file (my_code.py), it finds all the functions that start with `test_` and runs them.  In our example if the `assert` line sees `True` then the test passes.
+
+We can have more than one `assert` within a test, but only if all of them pass does the whole test pass.
+
+To run from the command line we need to move to Terminal ("Run" → "Terminal" on DataCamp). 
+
+First go to this [example repo on GitHub](https://github.com/howisonlab/i320d-pytest-example.git), and make your own fork.  Then clone that fork down and change into that directory.
+
+```sh
+git clone <your_fork_url>
+cd i320d-pytest-example/
+```
+
+Now we have our function and our test.  You can quickly glance at a file on the commandline using
+
+```
+cat my_code.py
+```
+
+Then we can run tests using
+
+```
+$ pytest -v my_code.py
+```
+
+The `-v` makes the output `verbose` which I think is helpful because it shows all the tests that ran by name.
+
+The output looks like
+```sh
+=========================== test session starts ============================
+platform linux -- Python 3.8.10, pytest-7.1.2, pluggy-1.0.0 -- /usr/bin/python3
+cachedir: .pytest_cache
+rootdir: /work/files/workspace/i320d-pytest-example
+plugins: dash-2.13.0, web3-5.31.0, anyio-3.6.1
+collected 1 item                                                           
+
+my_code.py::test_fix_phone_num PASSED                                [100%]
+
+============================ 1 passed in 0.03s =============================
+```
+
+::: {.callout-note collapse="true" title="Prelude to Continuous Integration"}
+In the next class we will get GitHub to run these tests for us.  Essentially that means that when we set up a PR we will ask GitHub to:
+
+1. Set up a virtual machine
+1. Check out the codebase as though the PR had been applied to `main`
+1. Install any needed dependencies
+1. Run the `pytest` command
+1. Report back on the results, specifically show whether all tests passed, and if they didn't tell us which ones did not pass.
+:::
+
+
+## Dealing with bad input
+
+One very common kind of bug is when the code can't handle unexpected input.  For example, what happens if our function hits input like `'mobile'` (which is not a phone).  This is very useful for coordination since future developers might not understand what we assumed would be passed to a function.  So we can use tests to see if our function will behave in the appropriate way.
+
+In programming we can indicate that we've received something we weren't expecting and can't handle is to **raise an Error**. This will enable us to communicate effectively with future programmers.  When we define our own error we can better describe the issue, avoiding just letting code fail.  If we don't throw a specific error, Python will end up throwing an obscure exception somewhere deep down the stack, or returning invalid output (but blithely keep going).
+
+For example, if we pass our function a phone number that is too short, what will currently happen?  Run this in a cell in a notebook.
+
+```python
+short_num = "51"
+
+fix_phone_num("51")
+```
+
+Python will return `'(51)  '.  That is not a valid phone number. (If you are wondering why it doesn't throw an error, I was too, apparently string slicing doesn't throw errors, even when the index passed is too high).
+
+What should our function do if it encounters something that it can't turn into a valid phone number?  The answer is that it should raise an Error.  And we should throw the most specific kind of Error.  Here that is going to be a `ValueError`
+
+This brings us to another idea in testing: we should write the test first, see that it fails, then write the code.  This feels a little backwards, but the idea is that helps quality. The idea is called [Test Driven Development](https://en.wikipedia.org/wiki/Test-driven_development)
+
+Here we can test whether code raises an Error using the `pytest.raises` function which we can use to check that, given a known bad input, our function will give us a helpful error.
+
+```python
+def test_fix_phone_num():
+  assert fix_phone_num("5125558823") == '(512) 555 8823'
+  
+  # Now check that a too short string gives a ValueError
+  with pytest.raises(ValueError):
+    fix_phone_num("51")
+```
+
+Now if we run our test, we will see it fail:
+
+```sh
+========================= test session starts =========================
+platform linux -- Python 3.8.10, pytest-7.1.2, pluggy-1.0.0 -- /usr/bin/python3
+cachedir: .pytest_cache
+rootdir: /work/files/workspace/i320d-pytest-example
+plugins: dash-2.13.0, web3-5.31.0, anyio-3.6.1
+collected 1 item                                                      
+
+my_code.py::test_fix_phone_num FAILED                           [100%]
+
+============================== FAILURES ===============================
+_________________________ test_fix_phone_num __________________________
+
+    def test_fix_phone_num():
+      assert fix_phone_num("5125558823") == '(512) 555 8823'
+    
+      # Now check that a too short string gives a ValueError
+      with pytest.raises(ValueError):
+>       fix_phone_num("51")
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+my_code.py:18: Failed
+======================= short test summary info =======================
+FAILED my_code.py::test_fix_phone_num - Failed: DID NOT RAISE <class...
+========================== 1 failed in 0.17s ==========================
+```
+
+So now we know what we need to do.  This is called "sanity checking" inputs.  We can add an `if` statement to know whether to raise an error.
+
+
+```python
+def fix_phone_num(phone_num_to_fix):
+  # can only handle numbers that are exactly 10 digits long
+  if (len(phone_num_to_fix) != 10):
+    raise ValueError("Can only format numbers that are exactly 10 digits long")
+  
+  ...
+```
+
+Now instead of invalid output, we get an Error with a specific message and we get guidance of where the problem is.  If we run that code manually in a notebook we see:
+
+```sh
+---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+Cell In[30], line 3
+      1 short_num = "51"
+----> 3 fix_phone_num("51")
+
+Cell In[29], line 4, in fix_phone_num(phone_num_to_fix)
+      1 def fix_phone_num(phone_num_to_fix):
+      2   # can only handle numbers that are exactly 10 digits long
+      3   if (len(phone_num_to_fix) != 10):
+----> 4     raise ValueError("Can only format numbers that are exactly 10 digits long")
+      6   # given "5125558823". Split the parts, then recombine and return
+      7   area_code = phone_num_to_fix[0:2] # 512 (first three digits)
+
+ValueError: Can only format numbers that are exactly 10 digits long
+```
+
+And if we run pytest on the commandline, we will see that the test passes (because calling with "51" does indeed throw the expected ValueError).
+
+```
+$ pytest -v my_code_error.py 
+============================ test session starts ============================
+platform linux -- Python 3.8.10, pytest-7.1.2, pluggy-1.0.0 -- /usr/bin/python3
+cachedir: .pytest_cache
+rootdir: /work/files/workspace/i320d-pytest-example
+plugins: dash-2.13.0, web3-5.31.0, anyio-3.6.1
+collected 1 item                                                            
+
+my_code_error.py::test_fix_phone_num PASSED                           [100%]
+
+============================= 1 passed in 0.05s =============================
+```
+
+If you are wondering why it only says "1 passed" that is because pytest only counts the number of functions (beginning with `test_`). It doesn't count the number of assertions. If you'd prefer to see these two checks as different tests, then you have to create a new `test_` method (e.g., `test_value_error_on_wrong_length`).
+
+## Exercises
+
+Use your fork of the `i320d-pytest-example` repo and clone it to your workspace. To edit the files you can either use 'nano' or you can edit them on GitHub (look for the pen button when viewing a file), remembering to use `git pull` to bring your edits down to your clone.
+
+1. Add an additional assertion to the `test_fix_phone_num` function that tests these inputs: `5554429876` and `3216543333`.
+2. Add a test (meaning a whole separate function starting with `test_`, not just additional asserts) that specifies that the function should be able to handle these inputs: `555-442-98761` and `(321) 654 3333`. Give your test a communicative name.  These tests will fail at the moment.
+3. Shift the ValueError assertion into its own test
+4. Implement a test that checks that a ValueError is raised if the input is not all digits. (Hint: you can use the `.isdigit()` method on a string)
+
+## Additional resources
+
+[Pytest Awesome Project}(https://github.com/augustogoulart/awesome-pytest): a curated list of pytest resources (including training courses).

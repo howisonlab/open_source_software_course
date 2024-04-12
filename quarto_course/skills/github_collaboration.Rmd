@@ -106,12 +106,12 @@ flowchart LR
 
 4. *Contributor A* and *Contributor B* should clone their fork repo to their working space. 
 
-Usually this is a laptop, but this semester we are using [Eduhub Rstudio](http://edupod.cns.utexas.edu/), which you can access as usual via that link.  
+Usually this is a laptop, but this semester we are using DataCamp, which you can access as usual via that link.  
 
-Log into Rstudio, and work in the Terminal tab. Before running git clone, everyone needs to ensure they are in a folder that is not inside another repo. You can place repos anywhere you want. I suggest placing them all into your home folder on edupod. You can be sure you are there by running this command (read as "cd tilde" because tilde is a shortcut for your home directory).
+Log into DataCamp, and work in the Terminal tab. Before running git clone, everyone needs to ensure they are in a folder that is not inside another repo. You can place repos anywhere you want. I suggest placing them all into the `workspace` folder on DataCamp. You can be sure you are there by running this command (read as "cd tilde" because tilde is a shortcut for your home directory).
 
 ```sh
-cd ~
+cd ~/workspace
 ```
 
 To be sure that you aren't inside another repo you can run `git status` and you *want* to see a fatal error.
@@ -181,7 +181,7 @@ git checkout -b YOUR_ROLE_NAME-new-branch
 echo "A line of content" >> YOUR_ROLE_NAME.txt
 ```
 
-(replace YOUR_ROLE_NAME with maintainerA or maintainerB)
+(replace YOUR_ROLE_NAME with contributorA or contributorB)
 
 2.  Add and commit your new file.
 
@@ -239,7 +239,7 @@ The *Maintainer* can accept both pull requests, which will merge files into the 
 
 Now the contributors need to synchronize with the shared repo. They first have to switch to the main branch, then they can use `git pull` to bring the new files from the other contributor into their local repo. 
 
-6.  *Contributor A* and *Contributor B* should swith to main, then pull upstream.
+6.  *Contributor A* and *Contributor B* should switch to main, then pull upstream.
 
 ::: spoiler
 ``` sh

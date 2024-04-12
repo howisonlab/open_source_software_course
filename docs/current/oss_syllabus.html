@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.242">
+<meta name="generator" content="quarto-1.4.552">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,11 +62,12 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
-
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <link href="site_libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
@@ -76,13 +83,13 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./oss_syllabus.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Syllabus for Open Source Software Development</span></a></li></ol></nav>
-      <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./oss_syllabus.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Syllabus for Open Source Software Development</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -91,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Open Source Software Development: A socio-technical course</a> 
@@ -123,7 +130,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
  <span class="menu-text">Insights</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -176,13 +183,19 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">From Stack, to stream, to ecosystem.</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./insights/agile.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Iterative Development, Regression Tests, and Continuous Integration</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
  <span class="menu-text">Skills</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -190,55 +203,67 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./skills/paper_planes_git.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Paper Planes Exercise 2: Version control and collaboration</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Paper Planes Exercise 2: Version control and collaboration</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./skills/git_basic_workflow.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Git basic workflow</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Git basic workflow</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./skills/git_rewinding_work.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Rewinding work</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Rewinding work</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./skills/branching.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Local branching with Git.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Local branching with Git.</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./skills/github_solo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">GitHub solo</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">GitHub solo</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./skills/github_collaboration.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Github collaboration</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Github collaboration</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./skills/git_cherrypick_split_pr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Split a Pull Request</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Split a Pull Request</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./skills/git_rebase.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Rebase for synchronizing work</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Rebase for synchronizing work</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./skills/git_delete_history.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Removing something from history entirely</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Removing something from history entirely</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./skills/tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Testing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./skills/continuous_integration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Continuous Integration (aka CI/CD)</span></span></a>
   </div>
 </li>
       </ul>
@@ -247,7 +272,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -263,7 +288,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -311,7 +336,7 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/oss_syllabus.qmd" class="toc-action">View source</a></p></div></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/oss_syllabus.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -338,7 +363,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <div class="cell">
 <style type="text/css">
@@ -361,7 +388,9 @@ pre {
 <p>Jump to <a href="#outline">Course Outline</a></p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table table-responsive table-striped table-sm" data-quarto-postprocess="true">
+<div>
+<div class="table-responsive">
+<table class="table table-striped table-sm small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Course</th>
@@ -399,8 +428,10 @@ pre {
 </tr>
 </tbody>
 </table>
+</div>
 
 
+</div>
 </div>
 </div>
 </section>
@@ -440,7 +471,9 @@ pre {
 <h2 data-number="3.2" class="anchored" data-anchor-id="assessments"><span class="header-section-number">3.2</span> Assessments</h2>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table table-responsive table-striped table-sm" data-quarto-postprocess="true">
+<div>
+<div class="table-responsive">
+<table class="table table-striped table-sm small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Assignment</th>
@@ -465,19 +498,16 @@ pre {
 <td style="text-align: left;">Start of Spring Break</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">UT Austin open source projects</td>
-<td style="text-align: left;">5%</td>
-<td style="text-align: left;">Two weeks after Spring Break</td>
-</tr>
-<tr class="odd">
 <td style="text-align: left;">Open Source Trace Data analysis Project report</td>
 <td style="text-align: left;">25%</td>
 <td style="text-align: left;">Start of last class week.</td>
 </tr>
 </tbody>
 </table>
+</div>
 
 
+</div>
 </div>
 </div>
 <p>There is no final exam for this course. 100-90:A, 90 &gt; grade &gt; 85: A-, 85 &gt; grade &gt; 80 B- and so on.</p>
@@ -566,7 +596,6 @@ pre {
 <section id="draft-course-schedule" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="draft-course-schedule"><span class="header-section-number">4.1</span> Draft Course Schedule</h2>
 <p>Table below shows classes and topics planned. Each class has both an insight (aka theory, conceptual) and a skills (aka tech, practical) component. These will become links to materials for the class.</p>
-
 <table class="table table-responsive table-striped" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -628,7 +657,7 @@ No meeting: MLK day
 Skills
 </td>
 <td style="text-align:left;">
-Syllabus Review<br><em></em>
+Syllabus Review <br><em></em>
 </td>
 </tr>
 <tr>
@@ -642,7 +671,7 @@ Syllabus Review<br><em></em>
 Insights
 </td>
 <td style="text-align:left;">
-What is open source? <a href="insights/what_is_open_source.html"><span>Chapter&nbsp;4</span></a> Paper Planes and Innovation <a href="insights/paper_plane_innovation.html#sec-paper-planes-and-innovation"><span>Section&nbsp;3.1</span></a>
+What is open source? <a href="insights/what_is_open_source.html" class="quarto-xref"><span>Chapter 4</span></a> Paper Planes and Innovation <a href="insights/paper_plane_innovation.html#sec-paper-planes-and-innovation" class="quarto-xref"><span>Section 3.1</span></a>
 </td>
 <td style="text-align:left;">
 <span style="     color: #5D3A9B !important;">Wed Jan 24</span>
@@ -651,7 +680,7 @@ What is open source? <a href="insights/what_is_open_source.html"><span>Chapter&n
 Skills
 </td>
 <td style="text-align:left;">
-Paper Planes: Version Control <a href="skills/paper_planes_git.html"><span>Chapter&nbsp;11</span></a> <br><em>git add, commit via paper planes and tables</em>
+Paper Planes: Version Control <a href="skills/paper_planes_git.html" class="quarto-xref"><span>Chapter 12</span></a> <br><em>git add, commit via paper planes and tables</em>
 </td>
 </tr>
 <tr>
@@ -665,7 +694,7 @@ Paper Planes: Version Control <a href="skills/paper_planes_git.html"><span>Chapt
 Insights
 </td>
 <td style="text-align:left;">
-Motivations and Asking questions people want to answer <a href="insights/motivations.html"><span>Chapter&nbsp;5</span></a>
+Motivations and Asking questions people want to answer <a href="insights/motivations.html" class="quarto-xref"><span>Chapter 5</span></a>
 </td>
 <td style="text-align:left;">
 <span style="     color: #5D3A9B !important;">Wed Jan 31</span>
@@ -674,7 +703,7 @@ Motivations and Asking questions people want to answer <a href="insights/motivat
 Skills
 </td>
 <td style="text-align:left;">
-Git basic workflow <a href="skills/git_basic_workflow.html"><span>Chapter&nbsp;12</span></a> <br><em>git add, commit (locally)</em>
+Git basic workflow <a href="skills/git_basic_workflow.html" class="quarto-xref"><span>Chapter 13</span></a> <br><em>git add, commit (locally)</em>
 </td>
 </tr>
 <tr>
@@ -688,7 +717,7 @@ Git basic workflow <a href="skills/git_basic_workflow.html"><span>Chapter&nbsp;1
 Insights
 </td>
 <td style="text-align:left;">
-Licenses <a href="insights/licenses.html"><span>Chapter&nbsp;6</span></a>
+Licenses <a href="insights/licenses.html" class="quarto-xref"><span>Chapter 6</span></a>
 </td>
 <td style="text-align:left;">
 <span style="     color: #5D3A9B !important;">Wed Feb 07</span>
@@ -697,7 +726,7 @@ Licenses <a href="insights/licenses.html"><span>Chapter&nbsp;6</span></a>
 Skills
 </td>
 <td style="text-align:left;">
-Rewinding work <a href="skills/git_rewinding_work.html"><span>Chapter&nbsp;13</span></a> <br><em>revert, other undos, checking out old versions, rewriting history</em>
+Rewinding work <a href="skills/git_rewinding_work.html" class="quarto-xref"><span>Chapter 14</span></a> <br><em>revert, other undos, checking out old versions, rewriting history</em>
 </td>
 </tr>
 <tr>
@@ -711,7 +740,7 @@ Rewinding work <a href="skills/git_rewinding_work.html"><span>Chapter&nbsp;13</s
 Insights
 </td>
 <td style="text-align:left;">
-Coordination <a href="insights/coordination.html"><span>Chapter&nbsp;7</span></a>
+Coordination <a href="insights/coordination.html" class="quarto-xref"><span>Chapter 7</span></a>
 </td>
 <td style="text-align:left;">
 <span style="     color: #5D3A9B !important;">Wed Feb 14</span>
@@ -720,7 +749,7 @@ Coordination <a href="insights/coordination.html"><span>Chapter&nbsp;7</span></a
 Skills
 </td>
 <td style="text-align:left;">
-Branching <a href="skills/branching.html"><span>Chapter&nbsp;14</span></a> <br><em>git checkout, merge.</em>
+Branching <a href="skills/branching.html" class="quarto-xref"><span>Chapter 15</span></a> <br><em>git checkout, merge.</em>
 </td>
 </tr>
 <tr>
@@ -734,7 +763,7 @@ Branching <a href="skills/branching.html"><span>Chapter&nbsp;14</span></a> <br><
 Insights
 </td>
 <td style="text-align:left;">
-Governance and decision making <a href="insights/governance.html"><span>Chapter&nbsp;8</span></a>
+Governance and decision making <a href="insights/governance.html" class="quarto-xref"><span>Chapter 8</span></a>
 </td>
 <td style="text-align:left;">
 <span style="     color: #5D3A9B !important;">Wed Feb 21</span>
@@ -743,7 +772,7 @@ Governance and decision making <a href="insights/governance.html"><span>Chapter&
 Skills
 </td>
 <td style="text-align:left;">
-Sharing and collaborating via github <a href="skills/github_solo.html"><span>Chapter&nbsp;15</span></a> <br><em>git clone, remote, push</em>
+Sharing and collaborating via github <a href="skills/github_solo.html" class="quarto-xref"><span>Chapter 16</span></a> <br><em>git clone, remote, push</em>
 </td>
 </tr>
 <tr>
@@ -766,7 +795,7 @@ Knowledge sharing
 Skills
 </td>
 <td style="text-align:left;">
-Collaboration conflicts and workflows <a href="skills/github_collaboration.html"><span>Chapter&nbsp;16</span></a> <br><em>github fork, pull request, pull upstream</em>
+Collaboration conflicts and workflows <a href="skills/github_collaboration.html" class="quarto-xref"><span>Chapter 17</span></a> <br><em>github fork, pull request, pull upstream</em>
 </td>
 </tr>
 <tr>
@@ -826,7 +855,7 @@ No meeting: Spring Break
 Insights
 </td>
 <td style="text-align:left;">
-Bias and lack of diversity <a href="insights/bias_lack_of_diversity.html"><span>Chapter&nbsp;9</span></a>
+Bias and lack of diversity <a href="insights/bias_lack_of_diversity.html" class="quarto-xref"><span>Chapter 9</span></a>
 </td>
 <td style="text-align:left;">
 <span style="     color: #5D3A9B !important;">Wed Mar 20</span>
@@ -835,7 +864,7 @@ Bias and lack of diversity <a href="insights/bias_lack_of_diversity.html"><span>
 Skills
 </td>
 <td style="text-align:left;">
-Splitting PRs <a href="skills/git_cherrypick_split_pr.html"><span>Chapter&nbsp;17</span></a> <br><em>merge, conflicts, mark resolved, cherrypick, collaboration workflows </em>
+Splitting PRs <a href="skills/git_cherrypick_split_pr.html" class="quarto-xref"><span>Chapter 18</span></a> <br><em>merge, conflicts, mark resolved, cherrypick, collaboration workflows </em>
 </td>
 </tr>
 <tr>
@@ -849,7 +878,7 @@ Splitting PRs <a href="skills/git_cherrypick_split_pr.html"><span>Chapter&nbsp;1
 Insights
 </td>
 <td style="text-align:left;">
-The stack and the stream <a href="insights/stack_and_stream.html"><span>Chapter&nbsp;10</span></a>
+The stack and the stream <a href="insights/stack_and_stream.html" class="quarto-xref"><span>Chapter 10</span></a>
 </td>
 <td style="text-align:left;">
 <span style="     color: #5D3A9B !important;">Wed Mar 27</span>
@@ -858,7 +887,7 @@ The stack and the stream <a href="insights/stack_and_stream.html"><span>Chapter&
 Skills
 </td>
 <td style="text-align:left;">
-Rebase <a href="skills/git_rebase.html"><span>Chapter&nbsp;18</span></a> and Managing Secrets <a href="skills/git_delete_history.html"><span>Chapter&nbsp;19</span></a> <br><em>git rebase</em>
+Rebase <a href="skills/git_rebase.html" class="quarto-xref"><span>Chapter 19</span></a> <br><em>git rebase</em>
 </td>
 </tr>
 <tr>
@@ -872,7 +901,7 @@ Rebase <a href="skills/git_rebase.html"><span>Chapter&nbsp;18</span></a> and Man
 Insights
 </td>
 <td style="text-align:left;">
-Agile and test driven development
+Iterative Development, Tests, and Continuous Integration <a href="insights/agile.html" class="quarto-xref"><span>Chapter 11</span></a>
 </td>
 <td style="text-align:left;">
 <span style="     color: #5D3A9B !important;">Wed Apr 03</span>
@@ -881,7 +910,7 @@ Agile and test driven development
 Skills
 </td>
 <td style="text-align:left;">
-Documentation and Q&amp;A<br><em>github flavored markdown</em>
+Tests <a href="skills/tests.html" class="quarto-xref"><span>Chapter 21</span></a> <br><em>pytest</em>
 </td>
 </tr>
 <tr>
@@ -904,7 +933,7 @@ No meeting: Eclipse Day
 Skills
 </td>
 <td style="text-align:left;">
-Unit Tests<br><em>Test suites</em>
+Continuous Integration <a href="skills/continuous_integration.html" class="quarto-xref"><span>Chapter 22</span></a> <br><em>Github Actions</em>
 </td>
 </tr>
 <tr>
@@ -918,7 +947,7 @@ Unit Tests<br><em>Test suites</em>
 Insights
 </td>
 <td style="text-align:left;">
-Cybersecurity and open source
+Final paper/project workshop
 </td>
 <td style="text-align:left;">
 <span style="     color: #5D3A9B !important;">Wed Apr 17</span>
@@ -927,7 +956,7 @@ Cybersecurity and open source
 Skills
 </td>
 <td style="text-align:left;">
-Continuous Integration<br><em>Travis CI integration, Github Actions</em>
+Final paper/project workshop <br><em></em>
 </td>
 </tr>
 <tr>
@@ -950,7 +979,7 @@ Open software work in science and research
 Skills
 </td>
 <td style="text-align:left;">
-Creating and distributing packages<br><em>python packages, pypy pinning</em>
+Creating and distributing packages <br><em>python packages, pypy pinning</em>
 </td>
 </tr>
 <tr>
@@ -977,7 +1006,6 @@ NA
 </td>
 </tr>
 </tbody>
-
 </table>
 </section>
 <section id="skills-readings" class="level2" data-number="4.2">
@@ -1160,10 +1188,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1173,8 +1218,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1186,7 +1240,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1230,6 +1407,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1255,6 +1433,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1316,12 +1520,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link">
+      <a href="./index.html" class="pagination-link" aria-label="Open Source Software Development: A socio-technical course">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Open Source Software Development: A socio-technical course</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./insights/paper_plane_innovation.html" class="pagination-link">
+      <a href="./insights/paper_plane_innovation.html" class="pagination-link" aria-label="Paper planes as an analogy for peer production">
         <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Paper planes as an analogy for peer production</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -1330,4 +1534,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/oss_syllabus.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>

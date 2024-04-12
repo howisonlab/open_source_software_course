@@ -20,6 +20,8 @@ Frluckaj, H., Dabbish, L., Widder, D. G., Qiu, H. S., & Herbsleb, J. D. (2022). 
 
 Both will read: 
 
+Padala, H. S., Mendez, C., Fronchetti, F., Steinmacher, I., Steine-Hanson, Z., Hilderbrand, C., Horvath, A., Hill, C., Simpson, L., Burnett, M., Gerosa, M., & Sarma, A. (2022). How Gender-Biased Tools Shape Newcomer Experiences in OSS Projects. IEEE Transactions on Software Engineering, 48(1), 241–259. https://doi.org/10.1109/TSE.2020.2984173
+
 Antin, J., Yee, R., Cheshire, C., & Nov, O. (2011). Gender Differences in Wikipedia Editing. In Proceedings of the 7th International Symposium on Wikis and Open Collaboration (pp. 11–14). New York, NY, USA: ACM. <https://doi.org/10.1145/2038558.2038561>
 
 And all of these articles:
@@ -29,6 +31,10 @@ And all of these articles:
 Wikipedia page on gender bias in Wikipedia (so meta) <https://en.wikipedia.org/wiki/Gender_bias_on_Wikipedia>
 
 Inside Wikipedia’s Attempt to Use Artificial Intelligence to Combat Harassment <https://motherboard.vice.com/en_us/article/aeyvxz/wikipedia-jigsaw-google-artificial-intelligence>
+
+
+
+
 
 Questions for discussion:
 

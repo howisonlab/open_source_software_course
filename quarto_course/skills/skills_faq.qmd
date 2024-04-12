@@ -1,5 +1,7 @@
 ---
 engine: knitr
+execute:
+  freeze: auto  # re-render only when source changes
 ---
 
 # Skills faq {#sec-skills-faq}
@@ -31,6 +33,39 @@ git config --global user.name "John Doe"
 git config --global user.email johndoe@example.com
 ```
 
+### Login to GitHub {#sec-github-login}
+
+On the commandline we have to use the username/PAT combination. The password that works to log into GitHub on the web will not work.
+
+If you see this message:
+
+```
+remote: No anonymous write access.
+fatal: Authentication failed for <repo_url>
+```
+
+Then you need to log in, but first reset the credential cache:
+
+```sh
+git config --global credential.helper 'cache --timeout=10000000'
+```
+
+Then repeat the command that failed (hit the up-arrow twice usually brings it up).
+
+When you see this prompt, use your GitHub username (not the email address)
+
+```
+Username for 'https://github.com': <your_github_username> 
+```
+
+When you see this prompt, even though it says "password" you must use your PAT token:
+
+```
+Password for 'https://<your_github_username>@github.com': 
+```
+
+On windows you may have to use the right-click context menu to paste into the terminal.
+
 ### Password pop-up repeats too often {#sec-pass-popup}
 
 The username/password pop-up can come up too often. Especially with GitHub requiring a PAT (and not the same password used on the website) this can be a hassle, since the PAT is not configurable and has to be copy/pasted.
@@ -44,6 +79,18 @@ git config --global credential.helper 'cache --timeout=10000000'
 That means that the cache won't expire for 10,000,000 seconds (which is 16 weeks).
 
 Thanks to <https://happygitwithr.com/https-pat.html#store-credentials-through-organic-git-use> and the Rstudio community forums for helping me with that <https://community.rstudio.com/t/git-user-pass-pop-ups-when-using-git-in-terminal-window/161213>
+
+### Shortcut to find GitHub URL {#sec-find-github-url}
+
+A short cut to find the URL is `git remote -v`
+
+```sh
+~/workspace/i320d-testing2024$ git remote -v
+origin  https://github.com/jameshowison/i320d-testing2024.git (fetch)
+origin  https://github.com/jameshowison/i320d-testing2024.git (push)
+```
+
+And then copy the URL (with or without the .git at the end).  On windows you may need to use the right-click context menu for copy and paste in a terminal.
 
 ### git commit throws me into a weird mode {#sec-vim}
 
@@ -181,6 +228,20 @@ git log -1 --skip 1 --remerge-diff
 rm -rf merge-conflict-example
 ```
 
+## Gathering the code as though the PR had been accepted {#sec-fetch-pr}
+
+Sometimes it is useful to be able to work with the code that would result if the PR was accepted, but without actually accepting the PR. Sometimes this is called "previewing the PR". It is useful when working with PRs from others, and can also be useful when working on our own branches, but where we don't want to merge that branch to main (which is a difficult operation to undo).
+
+On GitHub (and other online repositories like Gitlab or BitBucket) we can do this because the pull requests are added to the online repository, somewhat like branches. [We can access these](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally) using the git `fetch` command pointing to the `pull` part of the repository.
+
+```sh
+git fetch origin pull/123/head:pr-123
+git checkout pr-123
+```
+
+This obtains the code **as though the PR had been accepted** and then makes a new _local branch_ that we can work with. Notice, though, that thje new local branch is not the same branch that the PR is for ... it is a local copy. Therefore we would not push that new local branch back up to GitHub, preferring to work with the PR itself (and [here is documentation about how to allow others to edit your PRs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork)). 
+
+
 # How to add an image using quarto on edupod
 
 Quarto is like html in that the main `.qmd` document references separate image files, rather than incorporates them inside the main file itself.  You have to place the images separetely (and also `git add` the image files separately).
@@ -198,7 +259,6 @@ On Edupod getting figures into your quarto document takes two steps:
 Using the Render button will confirm that your images are found.
 
 Then don't forget to `git add` the image files as well.  Run a `git status` to check which files are included.
-
 
 
 

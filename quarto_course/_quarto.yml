@@ -1,6 +1,8 @@
 project:
   type: book
   output-dir: ../docs/current
+  preview:
+    port: 4200
 
 book:
   title: "Open Source Software Development: A socio-technical course"
@@ -26,6 +28,7 @@ book:
       - insights/governance.qmd
       - insights/bias_lack_of_diversity.qmd
       - insights/stack_and_stream.qmd
+      - insights/agile.qmd
     
       # - insights/agile_development.qmd
     #     - knowledge_sharing.qmd
@@ -46,6 +49,8 @@ book:
       - skills/git_cherrypick_split_pr.qmd
       - skills/git_rebase.qmd
       - skills/git_delete_history.qmd
+      - skills/tests.qmd
+      - skills/continuous_integration.qmd
     #     - git_sharing_conflicts.qmd
     #     - git_collaboration.qmd
     #     - unit_tests.qmd

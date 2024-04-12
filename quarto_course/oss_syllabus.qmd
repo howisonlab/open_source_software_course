@@ -4,6 +4,8 @@ label: #sec-syllabus
 author: "James Howison"
 subtitle: "I 320D - Topics in Human-Centered Data Science : Open Source Software Development"
 always_allow_html: yes
+execute:
+  freeze: auto  # re-render only when source changes
 output:
   html_document:
     toc: no
@@ -114,7 +116,7 @@ assessments <- tribble(
   "Class Participation (discussion and activites)", "10%", "Throughout course",
   "Technical challenges", "40%", "Weekly homework challenges throughout the semester",
   "Git Analogies Paper", "20%", "Start of Spring Break",
-  " UT Austin open source projects", "5%", "Two weeks after Spring Break",
+ # " UT Austin open source projects", "5%", "Two weeks after Spring Break",
   "Open Source Trace Data analysis Project report", "25%", "Start of last class week.",
 )
 ```
@@ -246,7 +248,7 @@ readings <- tribble(
   
   "Useful Blog on undo in git (keep for reference)",
     "https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/",
-  "Rewinding work @sec-rewinding",
+  "Rewinding work @sec-rewinding and Managing Secrets @sec-history",
 
   "DataCamp Git Chapter 3 - Undo",
   "https://campus.datacamp.com/courses/introduction-to-git-for-data-science/undo",
@@ -520,24 +522,24 @@ skills_topics <- tribble(
   #-------------------------------------
   "Syllabus Review", "",
   #  "Tech setup workshop", "[terminal, command line, git install, github account](./docs/tech_setup.html)",
-  "Paper Planes: Version Control @sec-planes-git ", "git add, commit via paper planes and tables",  
-"Git basic workflow @sec-git_basic_workflow ", "git add, commit (locally)",
+  "Paper Planes: Version Control @sec-planes-git", "git add, commit via paper planes and tables",  
+"Git basic workflow @sec-git_basic_workflow", "git add, commit (locally)",
 #  "Commits, blobs, and tree", "git diff continued HEAD and HEAD~1",
   "Rewinding work @sec-rewinding ", "revert, other undos, checking out old versions, rewriting history",
   "Branching @sec-branching ", "git checkout, merge.",  
   "Sharing and collaborating via github @sec-github-solo ", "git clone, remote, push",
   "Collaboration conflicts and workflows @sec-github-collaboration ", "github fork, pull request, pull upstream",
   "Splitting PRs @sec-cherrypick ", "merge, conflicts, mark resolved, cherrypick, collaboration workflows  ",
-  "Rebase @sec-rebase and Managing Secrets @sec-history ", "git rebase",
+  "Rebase @sec-rebase", "git rebase",
   # "Git analogies paper workshop", "quarto and markdown",
  
-  "Documentation and Q&A", "github flavored markdown",
-  "Unit Tests", "Test suites",
-  "Continuous Integration", "Travis CI integration, Github Actions",
-  # "Release management", "github releases, git tag",
+#   "Documentation and Q&A", "github flavored markdown",
+  "Tests @sec-tests", "pytest",
+  "Continuous Integration @sec-ci", "Github Actions",
+  # "Release management", "github releases, git ta g",
+  "Final paper/project workshop ", "",
   "Creating and distributing packages", "python packages, pypy pinning",
- # "Final paper/project workshop", "markdown",
- #  "Final paper/project workshop", "markdown"
+  "Final paper/project workshop", "markdown"
   
  # "Wikipedia Editing", "wiki syntax, referencing",
 #  "Executable Papers", "rmarkdown, knitr, rstudio",
@@ -547,7 +549,7 @@ skills_topics <- tribble(
 ) %>% 
   mutate(topic = "Skills") %>%  
   rownames_to_column() %>% 
-  mutate(skill_topic = {.} %>% str_glue_data("{skill_topic}<br/><em>{tech_commands}</em>"))
+  mutate(skill_topic = {.} %>% str_glue_data("{skill_topic} <br/><em>{tech_commands}</em>"))
 
 insight_topics <- tribble(
   ~insight_topic,
@@ -560,8 +562,9 @@ insight_topics <- tribble(
   "Knowledge sharing",
   "Bias and lack of diversity @sec-diversity ",
   "The stack and the stream @sec-stack-and-stream ",
-  "Agile and test driven development",
-  "Cybersecurity and open source",
+  "Iterative Development, Tests, and Continuous Integration @sec-agile ",
+  "Final paper/project workshop",
+  # "Cybersecurity and open source",
   "Open software work in science and research",
   # "Peer production in Art and Culture"
 ) %>% mutate(topic = "Insights") %>%  rownames_to_column()
