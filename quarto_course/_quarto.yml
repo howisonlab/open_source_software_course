@@ -51,6 +51,8 @@ book:
       - skills/git_delete_history.qmd
       - skills/tests.qmd
       - skills/continuous_integration.qmd
+      - skills/packaging.qmd
+      
     #     - git_sharing_conflicts.qmd
     #     - git_collaboration.qmd
     #     - unit_tests.qmd
