@@ -12,8 +12,7 @@ Our proxy for work will be small paper planes, made from post-it notes. You can 
 
 We will set up a table like in the image below, with two spaces for each person: their "working area" (right in front of them) and their "repository" (just further in front).
 
-![](paper_planes_git_files/1_table_setup.jpg)
-
+![v1](paper_planes_git_files/paper_planes_git_files_v-01.png)
 Git stores full versions of our working areas. This means all the files and folders in our source code project. Git stores full copies of work as it was. In our exercise we will use a folded piece of paper as a proxy. Think of it like a tray on which all our work sits. We will have lots of copies of these workspaces.
 
 In this exercise we will be making lots of copies. And that is, fundamentally, how git works. For this reason it is really important that you take the time to make the needed copies.
@@ -24,37 +23,50 @@ Our commit will be a creased piece of paper, with a paper plane on it, together 
 
 ## Sequential work
 
-Our first scenario will be sequential work, meaning that the Originator works, then Improver1, then Improver2, but noone working at the same time.
-
+Our first scenario will be sequential work, meaning that the Originator works, then Improver1, then Improver2, but none working at the same time.
+![v2](paper_planes_git_files/paper_planes_git_files_v-02.png)
 1.  The originator creates a commit, with a basic plane. Mark this with a name (e.g., `VKKF` or `VEDS`) and a comment (e.g., `My first attempt`). Store this in front of you (in your "repository").
+![v3](paper_planes_git_files/paper_planes_git_files_v-03.png)
 
 2.  Improver1 makes a copy of the whole repository (we call this a "clone") into the space in front of them. This means making a copy of the single commit.
+![v4](paper_planes_git_files/paper_planes_git_files_v-04.png)
 
-# ![1_original_plane.png](paper_planes_git_files\original_plane.png)
 
 3.  Improver1 does a "checkout" on that commit. This means making another copy of the commit (including the name, but not the comment) and the paper plane, as a starting point for work.
+![v5](paper_planes_git_files/paper_planes_git_files_v-05.png)
 
 4.  Improver1 makes an improvement to the checked out copy. Take the nose of the plane and fold it back.
+![v6](paper_planes_git_files/paper_planes_git_files_v-06.png)
+
 
 5.  Check this new version into your repository. Cross out the copied version name (just a single line, keep it readable) and write a new name below it (e.g., `VGDU`). That crossed out name now shows the parent. Place this commit to the right of your repository.
+![v7](paper_planes_git_files/paper_planes_git_files_v-07.png)
 
 6.  Take a pink postit note and write on it "Please come get `VGDU` and pass it to the Originator. This is your *pull request*.
+![v8](paper_planes_git_files/paper_planes_git_files_v-08.png)
 
 7.  The Originator will then do *a pull* by looking at `VGDU` in Improver1's repository, make a copy and check it into their own repository.
+![v9](paper_planes_git_files/paper_planes_git_files_v-09.png)
 
 8.  Improver2 will then clone the Originator's repository. This means making a new copy of both commits and placing them in front of Improver2.
+![v10](paper_planes_git_files/paper_planes_git_files_v-10.png)
 
 9.  Improver2 will then do a *checkout* which means making another complete copy of `VGDU` (which is the work as it was when Improver1 finished).
+![v11](paper_planes_git_files/paper_planes_git_files_v-11.png)
 
 10. Improver2 can then do new work. Fold the tips of each wing up.
+![v12](paper_planes_git_files/paper_planes_git_files_v-12.png)
 
 11. Improver2 can then commit that work back into their repository. Cross out the existing name (`VGDU`) and create a new name (e.g., `VFFD`), add a comment about the work that you've done.
-
+![v13](paper_planes_git_files/paper_planes_git_files_v-13.png)
 12. Improver2 take a pink postit note, "Please come get <new name>" (replace <new name> with the name starting with a `V` that you chose, e.g., `VFGT`)
+![v14](paper_planes_git_files/paper_planes_git_files_v-14.png)
 
 13. Originator should pull Improver2's work by making a full copy of Improver2's commit, then merge it into their repository.
+ ![v15](paper_planes_git_files/paper_planes_git_files_v-15.png)
 
 14. Improver1 should then synchronize with the Originator by making a pull (make a full copy of the new last commit in Originator's repo, and place it in their own repository).
+![v16](paper_planes_git_files/paper_planes_git_files_v-16.png)
 
 Yes, that's a lot of steps, and a lot of copies!
 
@@ -108,38 +120,3 @@ There are a few ways that projects handle this situation:
 2.  "Voting". They group votes and majority rules (the Originator follows the overall wishes)
 3.  Configuration. They make the software complex enough to have a run-time configuration setting so that everyone can determine for themselves how it will work.
 4.  The project splits ... Improver1 is upset that their change wasn't accepted, they schism and now we have two, incompatible projects out in the world (sometimes called a "hard fork" or an "unfriendly fork".)
-
-## Images from earlier (hopefully stil useful)
-
-1.  Originator invents the paper plane by telling Folder1 what to do. They name it as Version 0.
-
-    ![v0](paper_planes_git_files\v0.png)
-
-2.  Improver 1 loves it and asks for one copy. The originator send a copy to Improver 1. ![v0copy2improver1](paper_planes_git_files\v0_copy_to_improver1.png)
-
-3.  Improver 1 invents an improvement, making Version 1. ![v1](paper_planes_git_files\v1.png)
-
-4.  Improver 1 sends their improvement to Originator. Originator make it official.![v1_official](paper_planes_git_files\v1_official.png)
-
-5.  Improver 2 gets that improvement along with the original.![sendv1toi2](paper_planes_git_files\send_v1to_improver2.png)
-
-6.  Improver sends their improvement back to Originator, who accepts it, making Version 2 the official version. Now everyone can can work off that version, for future improvements.![v2_official](paper_planes_git_files\v2_official.png)
-
-Everything is hunky dory until Improver 2 takes Version 2 and suggests adding a single flap to each wing, while simultaneously Improver 1 is also working with Version 2 and suggests adding two flaps to each wing.
-
-![v2_to_i1](paper_planes_git_files\v2_to_i1.png)
-
-![v3](paper_planes_git_files\v3.png)
-
-Originator receives these improvements, sees that they are incompatible.
-
-![conflict](paper_planes_git_files\conflict.png)
-
-Now what?![conflict](paper_planes_git_files\conflict_solved.png)
-
--   choose only one to be Version 3 (benevolent dictator choice).
--   make flap number into a configuration variable.
-
-Version 3 is released with configuration variable. New improvements start coming in. Some are not problematic, such as wing-tips turned up. But some only work for the one flap config, so the project gets pretty complicated. Originator changes their mind and says that, actually, everything has to be single flap from now on.
-
-The double flappers can either adapt or they can take the codebase, and start a new central "clearinghouse" for improvements. A project schism.
