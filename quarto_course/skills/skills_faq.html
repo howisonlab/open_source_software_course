@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.553">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>skills_faq</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="skills_faq_files/libs/clipboard/clipboard.min.js"></script>
+<script src="skills_faq_files/libs/quarto-html/quarto.js"></script>
+<script src="skills_faq_files/libs/quarto-html/popper.min.js"></script>
+<script src="skills_faq_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="skills_faq_files/libs/quarto-html/anchor.min.js"></script>
+<link href="skills_faq_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="skills_faq_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="skills_faq_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="skills_faq_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="skills_faq_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="sec-skills-faq" class="level1">
+<h1>Skills faq</h1>
+<section id="git-issues" class="level2">
+<h2 class="anchored" data-anchor-id="git-issues">git issues</h2>
+<section id="set-my-name-and-email" class="level3">
+<h3 class="anchored" data-anchor-id="set-my-name-and-email">Set my name and email</h3>
+<p>git wants to add your name and email to commits. These are distinct from your <code>github</code> account (remember <code>git</code> can be used independently of an online service or with online services other than github).</p>
+<p>If you are seeing messages that end like this:</p>
+<pre><code>You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author</code></pre>
+<p>Then you can run these commands to set a username and email. Note that these can be anything, they aren’t a login or checked against anything, they are just metadata attached to your commits. Nonetheless having them make sense for your identity makes sense when sharing code publically. They can easily be a made up identifier (pseudonym/handle/accountname).</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"John Doe"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email johndoe@example.com</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="sec-github-login" class="level3">
+<h3 class="anchored" data-anchor-id="sec-github-login">Login to GitHub</h3>
+<p>On the commandline we have to use the username/PAT combination. The password that works to log into GitHub on the web will not work.</p>
+<p>If you see this message:</p>
+<pre><code>remote: No anonymous write access.
+fatal: Authentication failed for &lt;repo_url&gt;</code></pre>
+<p>Then you need to log in, but first reset the credential cache:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> credential.helper <span class="st">'cache --timeout=10000000'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Then repeat the command that failed (hit the up-arrow twice usually brings it up).</p>
+<p>When you see this prompt, use your GitHub username (not the email address)</p>
+<pre><code>Username for 'https://github.com': &lt;your_github_username&gt; </code></pre>
+<p>When you see this prompt, even though it says “password” you must use your PAT token:</p>
+<pre><code>Password for 'https://&lt;your_github_username&gt;@github.com': </code></pre>
+<p>On windows you may have to use the right-click context menu to paste into the terminal.</p>
+</section>
+<section id="sec-pass-popup" class="level3">
+<h3 class="anchored" data-anchor-id="sec-pass-popup">Password pop-up repeats too often</h3>
+<p>The username/password pop-up can come up too often. Especially with GitHub requiring a PAT (and not the same password used on the website) this can be a hassle, since the PAT is not configurable and has to be copy/pasted.</p>
+<p>Rstudio is generating that pop-up, but the frequency is controlled by a gitconfig variable. The default without configuration is 15m so if we don’t run a git command for 15m it expires the cache and pops up again. We can make it show up less with:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> credential.helper <span class="st">'cache --timeout=10000000'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>That means that the cache won’t expire for 10,000,000 seconds (which is 16 weeks).</p>
+<p>Thanks to <a href="https://happygitwithr.com/https-pat.html#store-credentials-through-organic-git-use" class="uri">https://happygitwithr.com/https-pat.html#store-credentials-through-organic-git-use</a> and the Rstudio community forums for helping me with that <a href="https://community.rstudio.com/t/git-user-pass-pop-ups-when-using-git-in-terminal-window/161213" class="uri">https://community.rstudio.com/t/git-user-pass-pop-ups-when-using-git-in-terminal-window/161213</a></p>
+</section>
+<section id="sec-find-github-url" class="level3">
+<h3 class="anchored" data-anchor-id="sec-find-github-url">Shortcut to find GitHub URL</h3>
+<p>A short cut to find the URL is <code>git remote -v</code></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">~/workspace/i320d-testing2024$</span> git remote <span class="at">-v</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">origin</span>  https://github.com/jameshowison/i320d-testing2024.git <span class="er">(</span><span class="ex">fetch</span><span class="kw">)</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">origin</span>  https://github.com/jameshowison/i320d-testing2024.git <span class="er">(</span><span class="ex">push</span><span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>And then copy the URL (with or without the .git at the end). On windows you may need to use the right-click context menu for copy and paste in a terminal.</p>
+</section>
+<section id="sec-vim" class="level3">
+<h3 class="anchored" data-anchor-id="sec-vim">git commit throws me into a weird mode</h3>
+<p>If you type <code>git commit</code> just on its own rather than <code>git commit -m "Some message"</code> you will see something like this:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Please enter the commit message for your changes. Lines starting</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># with '#' will be ignored, and an empty message aborts the commit.</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># On branch master</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Your branch is up to date with 'origin/master'.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>git needs a commit message. When you don’t provide one it throws you into a text editor, expecting you to type a small novel.</p>
+<p>The editor that you go into by default is the <code>vi</code> or <code>vim</code> editor. It can be confusing because it has multiple modes (ie typing doesn’t always just produce text).</p>
+<p>The best option is to:</p>
+<ol type="1">
+<li>Hit <code>esc</code> twice: <kbd>Esc</kbd> <kbd>Esc</kbd><br>
+</li>
+<li>Type <code>:q!</code> and hit <kbd>Enter</kbd></li>
+<li>Redo your commit using `git commit -m “Some message”</li>
+</ol>
+<p>See <a href="https://stackoverflow.com/questions/11828270/how-do-i-exit-vim" class="uri">https://stackoverflow.com/questions/11828270/how-do-i-exit-vim</a></p>
+<p><strong>The option below does not work in Rstudio because Rstudio captures the</strong> <kdb>Ctrl</kdb> key commands</p>
+<p>You can also configure git to use another editor: <a href="https://stackoverflow.com/questions/2596805/how-do-i-make-git-use-the-editor-of-my-choice-for-editing-commit-messages" class="uri">https://stackoverflow.com/questions/2596805/how-do-i-make-git-use-the-editor-of-my-choice-for-editing-commit-messages</a></p>
+<p>For example, the <code>nano</code> editor is easier to use. You can set that run running</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> core.editor <span class="st">"nano"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In <code>nano</code> we can type a commit message as usual. The bottom of the screen shows commands. Nano uses the <code>^</code> symbol to represent the <kdb>Ctrl key. We have to save the file and then exit Nano. So to save the message and return to the commandline we use:</kdb></p>
+<p><kbd>Ctrl</kbd> + <kbd>O</kbd></p>
+<p>Then:</p>
+<p><kbd>Ctrl</kbd> + <kbd>X</kbd></p>
+</section>
+</section>
+<section id="sec-faq-home-git-folder" class="level2">
+<h2 class="anchored" data-anchor-id="sec-faq-home-git-folder">I accidentally made my home folder a git repo</h2>
+<p>If you are in your home folder but <code>git status</code> doesn’t give a “fatal error” then you’ve accidentially made your home folder into a git repository (probably by running <code>git init</code> in that folder).</p>
+<p>In this case we need to undo this. We can’t delete our home folder, because it has everything else inside it. We have to somehow tell the computer that the home folder should not be a git repo. Happily, then only thing that makes it a git repo is that it has a <code>.git</code> folder inside it. You can confirm by running:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lah</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The <code>-a</code> flag to <code>ls</code> makes it show all files and folders, even the hidden ones that start with a dot.</p>
+<p>To fix this we could just delete the <code>.git</code> folder but we might lose data that way (if we had already added work to that repo). So safest thing is to make a new folder inside our home folder, and then move the <code>.git</code> there.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> backup_home_git</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> ./.git ./backup_home_git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now you could <code>cd backup_home_git</code> and use that folder as a git repo. But probably you are about to clone from github (in which case a new folder will be created) or you are about to use <code>git init</code> to create a new local repo (in which case you should create a folder first, <code>cd</code> into it, then run <code>git init</code>.</p>
+</section>
+<section id="sec-gitviz" class="level2">
+<h2 class="anchored" data-anchor-id="sec-gitviz">Vizualizing git trees (aka gitviz)</h2>
+<p>In this course we are using a command that I usually call “gitviz” for short:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span> <span class="at">--abbrev-commit</span> <span class="at">--all</span> <span class="at">--graph</span> <span class="at">--decorate</span> <span class="at">--color</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This produces reasonably readable graphs (especially for the teaching repos used in this course).</p>
+<p>They look like this:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jlh5498@educcomp04:~/github_repos/i320_test3,,\n</span> git log <span class="at">--oneline</span> <span class="at">--abbrev-commit</span> <span class="at">--all</span> <span class="at">--graph</span> <span class="at">--decorate</span> <span class="at">--color</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span>   d8ab2c1 <span class="er">(</span><span class="ex">HEAD</span> <span class="at">-</span><span class="op">&gt;</span> main, origin/main, origin/HEAD<span class="kw">)</span> <span class="ex">Merge</span> pull request <span class="co">#1 from jameshowison/new-feature</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span><span class="ex">\ </span> </span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> ffb601d <span class="er">(</span><span class="ex">origin/new-feature,</span> new-feature<span class="kw">)</span> <span class="ex">added</span> extra</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span><span class="ex">/</span>  </span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> f256ee7 Added line to README</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 093fb0c Initial commit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Or as an image (with coloring as on Edupod Rstudio):</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/gitviz_example.png" class="img-fluid figure-img"></p>
+<figcaption>Image showing output of gitviz command shown as text above</figcaption>
+</figure>
+</div>
+<p>You can read a little more about how to read these graphs here <a href="https://stackoverflow.com/questions/22313343/git-graph-what-do-the-lines-and-asteriks-denote" class="uri">https://stackoverflow.com/questions/22313343/git-graph-what-do-the-lines-and-asteriks-denote</a></p>
+<p>Long story short:</p>
+<ul>
+<li>The asterisk characters (<code>*</code>) show a single commit</li>
+<li>The lines formed with characters like (<code>| \ /</code>) help us follow which branches a commit was on.</li>
+<li>The words in parens show branch names, and can include the names of remotes (e.g., <code>origin/new-feature</code> means the <code>new-feature</code> branch on the <code>origin</code> remote)</li>
+</ul>
+<p>It is a long command, so you can either keep it handy in a pastebin (I use Typinator) or you can register it as a command alias for git itself:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> alias.viz <span class="st">'log --oneline --abbrev-commit --all --graph --decorate --color'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>So then you can just type:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> viz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="seeing-a-merge-conflict-using-git-log" class="level2">
+<h2 class="anchored" data-anchor-id="seeing-a-merge-conflict-using-git-log">Seeing a merge conflict using git log</h2>
+<p>In one assignment students have to submit a repo showing a resolved merge conflict when accepting a PR. This raised the question of whether I could see this looking at the repo. Student questions helped me figure that our, leading me to <a href="https://stackoverflow.com/questions/15277708/how-do-you-see-show-a-git-merge-conflict-resolution-that-was-done-given-a-mer" class="uri">https://stackoverflow.com/questions/15277708/how-do-you-see-show-a-git-merge-conflict-resolution-that-was-done-given-a-mer</a> which highlighted this as an issue in presenting merge conflicts for review. The most recent answer, led me to discover a new feature in <code>git</code></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--remerge-diff</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This enables one to see the files with the <code>&lt;&lt;&lt;&lt;&lt;&lt;</code> type conflict markers shown.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-rf</span> merge-conflict-example</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/jameshowison/merge-conflict-example.git</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> merge-conflict-example</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">-1</span> <span class="at">--skip</span> 1 <span class="at">--remerge-diff</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co">## Cloning into 'merge-conflict-example'...</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co">## commit 50911dc2232965238790ad8ca3fdcabe56b41639</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co">## Merge: 57c1c6c 99b328f</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co">## Author: pablo-carbajo1 &lt;99198265+pablo-carbajo1@users.noreply.github.com&gt;</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co">## Date:   Thu Mar 2 18:06:57 2023 -0600</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="co">##     Merge branch 'main' into patch-1</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="co">## diff --git a/animals.txt b/animals.txt</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="co">## remerge CONFLICT (content): Merge conflict in animals.txt</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="co">## index f9970b6..f07b36e 100644</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="co">## --- a/animals.txt</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="co">## +++ b/animals.txt</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="co">## @@ -1,8 +1,5 @@</span></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a><span class="co">## -&lt;&lt;&lt;&lt;&lt;&lt;&lt; 57c1c6c (Update animals.txt)</span></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a><span class="co">##  lion Contributor B</span></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a><span class="co">## -=======</span></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a><span class="co">##  lion contributor A</span></span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a><span class="co">## -&gt;&gt;&gt;&gt;&gt;&gt;&gt; 99b328f (Merge pull request #4 from lisahyuniko/patch-1)</span></span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a><span class="co">##  tiger </span></span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a><span class="co">##  leopard </span></span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a><span class="co">##  turtle</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="sec-fetch-pr" class="level2">
+<h2 class="anchored" data-anchor-id="sec-fetch-pr">Gathering the code as though the PR had been accepted</h2>
+<p>Sometimes it is useful to be able to work with the code that would result if the PR was accepted, but without actually accepting the PR. Sometimes this is called “previewing the PR”. It is useful when working with PRs from others, and can also be useful when working on our own branches, but where we don’t want to merge that branch to main (which is a difficult operation to undo).</p>
+<p>On GitHub (and other online repositories like Gitlab or BitBucket) we can do this because the pull requests are added to the online repository, somewhat like branches. <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally">We can access these</a> using the git <code>fetch</code> command pointing to the <code>pull</code> part of the repository.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch origin pull/123/head:pr-123</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout pr-123</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This obtains the code <strong>as though the PR had been accepted</strong> and then makes a new <em>local branch</em> that we can work with. Notice, though, that thje new local branch is not the same branch that the PR is for … it is a local copy. Therefore we would not push that new local branch back up to GitHub, preferring to work with the PR itself (and <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork">here is documentation about how to allow others to edit your PRs</a>).</p>
+</section>
+</section>
+<section id="how-to-set-up-github-locally" class="level1">
+<h1>How to set up GitHub locally</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Mac</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Windows</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<ul>
+<li>For Mac users
+<ul>
+<li>Use Spotlight to find a app called Terminal to check whether Git has already been installed into your Mac: enter<code>Git --version</code>.</li>
+<li>If not, please Install Git with Homebrew: enter links to an external site.<code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/</code><br>
+<code>install/HEAD/install.sh)"</code></li>
+<li>Once Homebrew is installed: enter <code>Brew install git</code>.</li>
+<li>Enter <code>Git --version</code> to check it again.</li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sometimes you will be asked to download the Xcode command line tools to make better use of the terminal, just hit Enter several times following the instructions displayed on the terminal. If you are unable to install Homebrew successfully, enter <code>Xcode-select --install</code> to install Python through Xcode.</p>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<ul>
+<li>For PC users
+<ul>
+<li>Go to the page to download <a href="https://posit.co/download/rstudio-desktop/">R and R studio</a>. </li>
+<li>Open RStudio, Go to <code>Tools</code> &gt; <code>Global Options</code> &gt; <code>Git/SVN</code>. This is where you configure Git. Ensure that the path to the Git executable is correct, it should be the similar path in your Git installation directory on Windows. (You can skip this step if everything goes well)</li>
+<li>Click on <code>File</code> &gt; <code>New Project</code> in RStudio. Select <code>Version Control</code> and then <code>Git</code>. Enter the <code>Repository URL</code> from GitHub and the <code>Local directory name</code> where you want to save the project. Click <code>Create Project</code>.</li>
+<li>Click on <code>Tools</code> &gt; <code>Terminal</code> &gt; <code>New Terminal</code> to create your terminal work space.</li>
+<li>If you want to change the UI interface’s background. ( I recommend Tomorrow Night 80s )Go to <code>Tools</code> &gt; <code>Global Options</code> &gt; <code>Appearance</code> &gt; <code>Editor theme</code>.</li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Please remember to click <code>Apply</code> after making any changes. And you can also use the R Studio’s GUI to add and commit without typing in the terminal.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="how-to-add-an-image-using-quarto-on-edupod" class="level1">
+<h1>How to add an image using quarto on edupod</h1>
+<p>Quarto is like html in that the main <code>.qmd</code> document references separate image files, rather than incorporates them inside the main file itself. You have to place the images separetely (and also <code>git add</code> the image files separately).</p>
+<p>On Edupod getting figures into your quarto document takes two steps:</p>
+<ol type="1">
+<li>Upload the file to the server</li>
+</ol>
+<p><img src="images/upload_file_to_edupod.png" class="img-fluid"></p>
+<ol start="2" type="1">
+<li>Use the Visual mode in the quarto file editor to insert the picture.</li>
+</ol>
+<p><img src="images/insert_image_to_qmd.png" class="img-fluid"></p>
+<p>Using the Render button will confirm that your images are found.</p>
+<p>Then don’t forget to <code>git add</code> the image files as well. Run a <code>git status</code> to check which files are included.</p>
+<!-- # Why does ggplot require less tidy data for multiline graphs? (aka longer less tidy) -->
+<!-- tl;dr: when using a `group` like aes (`group` itself or `color`) you often need to transform data from a wider (but tidy) format into a longer (and arguably less tidy) format. -->
+<!-- In the Tidy Data paper Wickham shows an example of tidying data from a longer format to a wider format. In the example he creates two new columns `tmax` and `tmin`. He argues that this wider format is tidier because each row contains an observation with two measured variables (tmax and tmin). -->
+<!-- ![Table 12 from Wickham's Tidy Data paper](images/tidydata_table12_tmax_tmin.png){fig-alt="Tables showing a longer form on the left (a type column called 'element' with the values tmax and tmin), and a wider form on the right (separate columns titled tmax and tmin)"} -->
+<!-- ```{r} -->
+<!-- table12_df_wider <- tribble( -->
+<!--   ~id, ~date, ~element, ~value, -->
+<!--   #--------------------------- -->
+<!--   "MX17004", 2010-01-30, "tmax", 27.8, -->
+<!--   "MX17004", 2010-01-30, "tmin", 14.5, -->
+<!--   "MX17004", 2010-02-02, "tmax", 27.3, -->
+<!--   "MX17004", 2010-02-02, "tmin", 14.4, -->
+<!--   "MX17004", 2010-02-03, "tmax", 24.1, -->
+<!--   "MX17004", 2010-02-03, "tmin", 14.4, -->
+<!--   "MX17004", 2010-02-11, "tmax", 29.7, -->
+<!--   "MX17004", 2010-02-11, "tmin", 13.4, -->
+<!--   "MX17004", 2010-02-23, "tmax", 29.9, -->
+<!--   "MX17004", 2010-02-23, "tmin", 10.7 -->
+<!-- ) -->
+<!-- table12_tidy <- table12_df_wider %>%  -->
+<!--   pivot_wider(names_from = element, values_from = value) -->
+<!-- table12_tidy -->
+<!-- ``` -->
+<!-- Yet it is common to want to graph both of these variables as a multi-line graph. This is possible because both variables are expressed in the same terms (both are degrees), so only a single scale is needed. Nonetheless, this is actually tricky to do in this wider tidier format. Because it requires two column names, which must be hard coded. We also can't easily get a legend. -->
+<!-- ```{r} -->
+<!-- table12_tidy %>%  -->
+<!--   ggplot(aes(x = date)) + -->
+<!--   geom_line(aes(y = tmin), color = "green") + -->
+<!--   geom_line(aes(y = tmax), color = "blue") -->
+<!-- ``` -->
+<!-- Another approach enables us to get as many lines as there are, and get automatic colors and legends. This uses the `group` aesthetic. But to do this we need all the column names in a single column as strings. This changes our data back into the longer format. -->
+<!-- ```{r} -->
+<!-- table12_longer_again <- table12_tidy %>%  -->
+<!--   pivot_longer(cols = c(tmax, tmin), names_to = "measure", values_to = "temperature") -->
+<!-- table12_longer_again -->
+<!-- ``` -->
+<!-- This is identical to where we started, with Table 12a (other than changed column names!). Yet this can be much more easily graphed, giving much easier access and automatic scales (and thus legends). -->
+<!-- ```{r} -->
+<!-- table12_longer_again %>%  -->
+<!--   ggplot(aes(x = date, y = temperature, color = measure)) +  -->
+<!--   geom_line() -->
+<!-- ``` -->
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
