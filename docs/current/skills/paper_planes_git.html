@@ -297,12 +297,8 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#sequential-work" id="toc-sequential-work" class="nav-link active" data-scroll-target="#sequential-work"><span class="header-section-number">12.1</span> Sequential work</a></li>
-  <li><a href="#original_plane.png" id="toc-original_plane.png" class="nav-link" data-scroll-target="#original_plane.png"><span class="header-section-number">13</span> <img src="paper_planes_git_files\original_plane.png" class="img-fluid" alt="1_original_plane.png"></a>
-  <ul class="collapse">
-  <li><a href="#parallel-mergeable-work" id="toc-parallel-mergeable-work" class="nav-link" data-scroll-target="#parallel-mergeable-work"><span class="header-section-number">13.1</span> Parallel mergeable work</a></li>
-  <li><a href="#parallel-conflicting-work" id="toc-parallel-conflicting-work" class="nav-link" data-scroll-target="#parallel-conflicting-work"><span class="header-section-number">13.2</span> Parallel conflicting work</a></li>
-  <li><a href="#images-from-earlier-hopefully-stil-useful" id="toc-images-from-earlier-hopefully-stil-useful" class="nav-link" data-scroll-target="#images-from-earlier-hopefully-stil-useful"><span class="header-section-number">13.3</span> Images from earlier (hopefully stil useful)</a></li>
-  </ul></li>
+  <li><a href="#parallel-mergeable-work" id="toc-parallel-mergeable-work" class="nav-link" data-scroll-target="#parallel-mergeable-work"><span class="header-section-number">12.2</span> Parallel mergeable work</a></li>
+  <li><a href="#parallel-conflicting-work" id="toc-parallel-conflicting-work" class="nav-link" data-scroll-target="#parallel-conflicting-work"><span class="header-section-number">12.3</span> Parallel conflicting work</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/skills/paper_planes_git.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
@@ -333,39 +329,63 @@ ul.task-list li input[type="checkbox"] {
 <p>Instructions flow around just for the asking.</p>
 <p>But since they rely on each other, eventually it makes sense to have a central place to gather the improvements, a central place to bring them together.</p>
 <p>Our proxy for work will be small paper planes, made from post-it notes. You can think of these as akin to source code files.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="paper_planes_git_files/paper_plane_photo_1.png" class="img-fluid figure-img"></p>
+<figcaption>paper_plane</figcaption>
+</figure>
+</div>
 <p>We will set up a table like in the image below, with two spaces for each person: their “working area” (right in front of them) and their “repository” (just further in front).</p>
-<p><img src="paper_planes_git_files/1_table_setup.jpg" class="img-fluid"></p>
-<p>Git stores full versions of our working areas. This means all the files and folders in our source code project. Git stores full copies of work as it was. In our exercise we will use a folded piece of paper as a proxy. Think of it like a tray on which all our work sits. We will have lots of copies of these workspaces.</p>
+<p><img src="paper_planes_git_files/paper_planes_git_files_v-01.png" class="img-fluid" alt="v1"> Git stores full versions of our working areas. This means all the files and folders in our source code project. Git stores full copies of work as it was. In our exercise we will use a folded piece of white paper as a proxy. Think of it like a tray on which all our work sits. We will have lots of copies of these workspaces.</p>
 <p>In this exercise we will be making lots of copies. And that is, fundamentally, how git works. For this reason it is really important that you take the time to make the needed copies.</p>
 <p>We will need to make a new copy of a workspace each time work moves around. As we’ll see that will happen when work moves out of a repository.</p>
 <p>Our commit will be a creased piece of paper, with a paper plane on it, together with a name for the commit and a comment. We will write the name and comment directly on the creased piece of paper. The name we will use will be the letter V followed by three random letters. Examples could be <code>VKKT</code> or <code>VGTD</code> or <code>VLLT</code>. No need to worry about sequences, these are just names.</p>
+<p>Here is an example of this exercise underway, see lots of copies of the postit planes and the white commit trays.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="paper_planes_git_files/paper_plane_photo_2.png" class="img-fluid figure-img"></p>
+<figcaption>exercise underway</figcaption>
+</figure>
+</div>
 <section id="sequential-work" class="level2" data-number="12.1">
 <h2 data-number="12.1" class="anchored" data-anchor-id="sequential-work"><span class="header-section-number">12.1</span> Sequential work</h2>
-<p>Our first scenario will be sequential work, meaning that the Originator works, then Improver1, then Improver2, but noone working at the same time.</p>
-<ol type="1">
-<li><p>The originator creates a commit, with a basic plane. Mark this with a name (e.g., <code>VKKF</code> or <code>VEDS</code>) and a comment (e.g., <code>My first attempt</code>). Store this in front of you (in your “repository”).</p></li>
-<li><p>Improver1 makes a copy of the whole repository (we call this a “clone”) into the space in front of them. This means making a copy of the single commit.</p></li>
+<p>Our first scenario will be sequential work, meaning that the Originator works, then Improver1, then Improver2, but none working at the same time. <img src="paper_planes_git_files/paper_planes_git_files_v-02.png" class="img-fluid" alt="v2"> 1. The originator creates a commit, with a basic plane. Mark this with a name (e.g., <code>VKKF</code> or <code>VEDS</code>) and a comment (e.g., <code>My first attempt</code>). Store this in front of you (in your “repository”). <img src="paper_planes_git_files/paper_planes_git_files_v-03.png" class="img-fluid" alt="v3"></p>
+<ol start="2" type="1">
+<li><p>Improver1 makes a copy of the whole repository (we call this a “clone”) into the space in front of them. This means making a copy of the single commit. <img src="paper_planes_git_files/paper_planes_git_files_v-04.png" class="img-fluid" alt="v4"></p></li>
+<li><p>Improver1 does a “checkout” on that commit. This means making another copy of the commit (including the name, but not the comment) and the paper plane, as a starting point for work. <img src="paper_planes_git_files/paper_planes_git_files_v-05.png" class="img-fluid" alt="v5"></p></li>
+<li><p>Improver1 makes an improvement to the checked out copy. Take the nose of the plane and fold it back. It should look like this:</p></li>
 </ol>
-</section>
-<section id="original_plane.png" class="level1" data-number="13">
-<h1 data-number="13"><span class="header-section-number">13</span> <img src="paper_planes_git_files\original_plane.png" class="img-fluid" alt="1_original_plane.png"></h1>
-<ol start="3" type="1">
-<li><p>Improver1 does a “checkout” on that commit. This means making another copy of the commit (including the name, but not the comment) and the paper plane, as a starting point for work.</p></li>
-<li><p>Improver1 makes an improvement to the checked out copy. Take the nose of the plane and fold it back.</p></li>
-<li><p>Check this new version into your repository. Cross out the copied version name (just a single line, keep it readable) and write a new name below it (e.g., <code>VGDU</code>). That crossed out name now shows the parent. Place this commit to the right of your repository.</p></li>
-<li><p>Take a pink postit note and write on it “Please come get <code>VGDU</code> and pass it to the Originator. This is your <em>pull request</em>.</p></li>
-<li><p>The Originator will then do <em>a pull</em> by looking at <code>VGDU</code> in Improver1’s repository, make a copy and check it into their own repository.</p></li>
-<li><p>Improver2 will then clone the Originator’s repository. This means making a new copy of both commits and placing them in front of Improver2.</p></li>
-<li><p>Improver2 will then do a <em>checkout</em> which means making another complete copy of <code>VGDU</code> (which is the work as it was when Improver1 finished).</p></li>
-<li><p>Improver2 can then do new work. Fold the tips of each wing up.</p></li>
-<li><p>Improver2 can then commit that work back into their repository. Cross out the existing name (<code>VGDU</code>) and create a new name (e.g., <code>VFFD</code>), add a comment about the work that you’ve done.</p></li>
-<li><p>Improver2 take a pink postit note, “Please come get <new name="">” (replace <new name=""> with the name starting with a <code>V</code> that you chose, e.g., <code>VFGT</code>)</new></new></p></li>
-<li><p>Originator should pull Improver2’s work by making a full copy of Improver2’s commit, then merge it into their repository.</p></li>
-<li><p>Improver1 should then synchronize with the Originator by making a pull (make a full copy of the new last commit in Originator’s repo, and place it in their own repository).</p></li>
+<p><img src="paper_planes_git_files/paper_plane_photo_3.png" class="img-fluid" alt="folded nose"> <img src="paper_planes_git_files/paper_planes_git_files_v-06.png" class="img-fluid" alt="v6"></p>
+<ol start="5" type="1">
+<li><p>Check this new version into your repository. Cross out the copied version name (just a single line, keep it readable) and write a new name below it (e.g., <code>VGDU</code>). That crossed out name now shows the parent. Place this commit to the right of your repository. <img src="paper_planes_git_files/paper_planes_git_files_v-07.png" class="img-fluid" alt="v7"></p></li>
+<li><p>Take a pink postit note and write on it “Please come get <code>VGDU</code> and pass it to the Originator. This is your <em>pull request</em>. <img src="paper_planes_git_files/paper_planes_git_files_v-08.png" class="img-fluid" alt="v8"></p></li>
+<li><p>The Originator will then do <em>a pull</em> by looking at <code>VGDU</code> in Improver1’s repository, make a copy and check it into their own repository. <img src="paper_planes_git_files/paper_planes_git_files_v-09.png" class="img-fluid" alt="v9"></p></li>
+<li><p>Improver2 will then clone the Originator’s repository. This means making a new copy of both commits and placing them in front of Improver2. <img src="paper_planes_git_files/paper_planes_git_files_v-10.png" class="img-fluid" alt="v10"></p></li>
+<li><p>Improver2 will then do a <em>checkout</em> which means making another complete copy of <code>VGDU</code> (which is the work as it was when Improver1 finished). <img src="paper_planes_git_files/paper_planes_git_files_v-11.png" class="img-fluid" alt="v11"></p></li>
+<li><p>Improver2 can then do new work. Fold the tips of each wing up. The plane should now look like this (see the folded nose from Improver1 and the newly folded up wing tips?):</p></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="paper_planes_git_files/paper_plane_photo_4.png" class="img-fluid figure-img"></p>
+<figcaption>folded nose</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="paper_planes_git_files/paper_planes_git_files_v-12.png" class="img-fluid figure-img"></p>
+<figcaption>v12</figcaption>
+</figure>
+</div>
+<ol start="11" type="1">
+<li><p>Improver2 can then commit that work back into their repository. Cross out the existing name (<code>VGDU</code>) and create a new name (e.g., <code>VFFD</code>), add a comment about the work that you’ve done. <img src="paper_planes_git_files/paper_planes_git_files_v-13.png" class="img-fluid" alt="v13"></p></li>
+<li><p>Improver2 take a pink postit note, “Please come get <new name="">” (replace <new name=""> with the name starting with a <code>V</code> that you chose, e.g., <code>VFGT</code>) <img src="paper_planes_git_files/paper_planes_git_files_v-14.png" class="img-fluid" alt="v14"></new></new></p></li>
+<li><p>Originator should pull Improver2’s work by making a full copy of Improver2’s commit, then merge it into their repository. <img src="paper_planes_git_files/paper_planes_git_files_v-15.png" class="img-fluid" alt="v15"></p></li>
+<li><p>Improver1 should then synchronize with the Originator by making a pull (make a full copy of the new last commit in Originator’s repo, and place it in their own repository). <img src="paper_planes_git_files/paper_planes_git_files_v-16.png" class="img-fluid" alt="v16"></p></li>
 </ol>
 <p>Yes, that’s a lot of steps, and a lot of copies!</p>
-<section id="parallel-mergeable-work" class="level2" data-number="13.1">
-<h2 data-number="13.1" class="anchored" data-anchor-id="parallel-mergeable-work"><span class="header-section-number">13.1</span> Parallel mergeable work</h2>
+</section>
+<section id="parallel-mergeable-work" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="parallel-mergeable-work"><span class="header-section-number">12.2</span> Parallel mergeable work</h2>
 <p>Sometimes people work at the same time, rather than in a sequence as above. We will simulate this.</p>
 <ol type="1">
 <li><p>Improver1 should checkout a copy of the last commit in their repo (which should be Improver2’s wing tip folds) (Yes, this means making a full new copy)</p></li>
@@ -380,8 +400,8 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Each Improver should synchronize their repository, pulling this new commit across. Note that the parent of this commit will be different in each of their repositories (because each has their own work as the base, and then the merged work).</p></li>
 </ol>
 </section>
-<section id="parallel-conflicting-work" class="level2" data-number="13.2">
-<h2 data-number="13.2" class="anchored" data-anchor-id="parallel-conflicting-work"><span class="header-section-number">13.2</span> Parallel conflicting work</h2>
+<section id="parallel-conflicting-work" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="parallel-conflicting-work"><span class="header-section-number">12.3</span> Parallel conflicting work</h2>
 <p>Above we saw what happens when two people work at the same time. In that case git was able to merge the work automatically. But some changes can be incompatible, and create what is called “an edit conflict”. Then we have some choices to make … and there can be social repercussions.</p>
 <ol type="1">
 <li><p>Both Improver1 and Improver2 should checkout a copy of the last commit they synchronized from the Originator’s repository.</p></li>
@@ -400,53 +420,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Configuration. They make the software complex enough to have a run-time configuration setting so that everyone can determine for themselves how it will work.</li>
 <li>The project splits … Improver1 is upset that their change wasn’t accepted, they schism and now we have two, incompatible projects out in the world (sometimes called a “hard fork” or an “unfriendly fork”.)</li>
 </ol>
-</section>
-<section id="images-from-earlier-hopefully-stil-useful" class="level2" data-number="13.3">
-<h2 data-number="13.3" class="anchored" data-anchor-id="images-from-earlier-hopefully-stil-useful"><span class="header-section-number">13.3</span> Images from earlier (hopefully stil useful)</h2>
-<ol type="1">
-<li><p>Originator invents the paper plane by telling Folder1 what to do. They name it as Version 0.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="paper_planes_git_files\v0.png" class="img-fluid figure-img"></p>
-<figcaption>v0</figcaption>
-</figure>
-</div></li>
-<li><p>Improver 1 loves it and asks for one copy. The originator send a copy to Improver 1. <img src="paper_planes_git_files\v0_copy_to_improver1.png" class="img-fluid" alt="v0copy2improver1"></p></li>
-<li><p>Improver 1 invents an improvement, making Version 1. <img src="paper_planes_git_files\v1.png" class="img-fluid" alt="v1"></p></li>
-<li><p>Improver 1 sends their improvement to Originator. Originator make it official.<img src="paper_planes_git_files\v1_official.png" class="img-fluid" alt="v1_official"></p></li>
-<li><p>Improver 2 gets that improvement along with the original.<img src="paper_planes_git_files\send_v1to_improver2.png" class="img-fluid" alt="sendv1toi2"></p></li>
-<li><p>Improver sends their improvement back to Originator, who accepts it, making Version 2 the official version. Now everyone can can work off that version, for future improvements.<img src="paper_planes_git_files\v2_official.png" class="img-fluid" alt="v2_official"></p></li>
-</ol>
-<p>Everything is hunky dory until Improver 2 takes Version 2 and suggests adding a single flap to each wing, while simultaneously Improver 1 is also working with Version 2 and suggests adding two flaps to each wing.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="paper_planes_git_files\v2_to_i1.png" class="img-fluid figure-img"></p>
-<figcaption>v2_to_i1</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="paper_planes_git_files\v3.png" class="img-fluid figure-img"></p>
-<figcaption>v3</figcaption>
-</figure>
-</div>
-<p>Originator receives these improvements, sees that they are incompatible.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="paper_planes_git_files\conflict.png" class="img-fluid figure-img"></p>
-<figcaption>conflict</figcaption>
-</figure>
-</div>
-<p>Now what?<img src="paper_planes_git_files\conflict_solved.png" class="img-fluid" alt="conflict"></p>
-<ul>
-<li>choose only one to be Version 3 (benevolent dictator choice).</li>
-<li>make flap number into a configuration variable.</li>
-</ul>
-<p>Version 3 is released with configuration variable. New improvements start coming in. Some are not problematic, such as wing-tips turned up. But some only work for the one flap config, so the project gets pretty complicated. Originator changes their mind and says that, actually, everything has to be single flap from now on.</p>
-<p>The double flappers can either adapt or they can take the codebase, and start a new central “clearinghouse” for improvements. A project schism.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
