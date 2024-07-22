@@ -260,23 +260,7 @@ Using the Render button will confirm that your images are found.
 
 Then don't forget to `git add` the image files as well.  Run a `git status` to check which files are included.
 
-# Tab Set Play
 
-::: {.panel-tabset}
-
-## Mac
-
-Some content
-
-## Windows
-
-Some content
-
-## Other
-
-Still more.
-
-:::
 
 <!-- # Why does ggplot require less tidy data for multiline graphs? (aka longer less tidy) -->
 

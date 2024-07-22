@@ -18,6 +18,9 @@ Even numbered groups will read:
 
 Frluckaj, H., Dabbish, L., Widder, D. G., Qiu, H. S., & Herbsleb, J. D. (2022). Gender and Participation in Open Source Software Development. Proceedings of the ACM on Human-Computer Interaction, 6(CSCW2), 299:1-299:31. <https://doi.org/10.1145/3555190>
 
+Qiu, H. S., Zhao, Z. H., Yu, T. K., Wang, J., Ma, A., Fang, H., Dabbish, L., & Vasilescu, B. (2023). Gender Representation Among Contributors to Open-Source Infrastructure: An Analysis of 20 Package Manager Ecosystems. 2023 IEEE/ACM 45th International Conference on Software Engineering: Software Engineering in Society (ICSE-SEIS), 180–187. https://doi.org/10.1109/ICSE-SEIS58686.2023.00025
+
+
 Both will read: 
 
 Padala, H. S., Mendez, C., Fronchetti, F., Steinmacher, I., Steine-Hanson, Z., Hilderbrand, C., Horvath, A., Hill, C., Simpson, L., Burnett, M., Gerosa, M., & Sarma, A. (2022). How Gender-Biased Tools Shape Newcomer Experiences in OSS Projects. IEEE Transactions on Software Engineering, 48(1), 241–259. https://doi.org/10.1109/TSE.2020.2984173

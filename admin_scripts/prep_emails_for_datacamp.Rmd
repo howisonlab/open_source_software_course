@@ -9,15 +9,17 @@ library(tidyverse)
 library(janitor)
 library(glue)
 library(clipr)
+library(readxl)
 ```
 
 ```{r}
-from_clips <- read_tsv(here("admin_scripts/clips_nro4.WBY")) %>% 
+from_clips <- read_tsv(here("admin_scripts/Feb_clips_nro4.WBY")) %>% 
   janitor::clean_names() %>% 
   drop_na(email)
 
 from_clips %>% 
-  pull(email) %>%
+  mutate(eid_email = str_glue("{ut_eid}@eid.utexas.edu")) %>% 
+  pull(eid_email) %>%
   str_c(collapse = " ") %>%
   write_clip()
 
@@ -35,4 +37,52 @@ from_clips %>%
   write_clip()
   
 ```
+```{r}
+library(writexl)
 
+student_names <- from_clips %>% 
+  mutate(standard_name = student %>% snakecase::to_any_case()) %>% 
+  # now randomly select, without replacement, 30 rows for each student.
+  select(standard_name)
+
+#reproduce selecton
+set.seed(77) 
+num_per_student = 30
+
+
+github_accounts <- read_excel("simple-github-account-url-list-2024-04-22.xlsx") %>% 
+  select(github_account_name = name, github_url = html_url) %>% 
+  mutate(github_url = xl_hyperlink(github_url, name = github_url)) %>%
+
+  # randomly select just the right number of total 
+  slice_sample(n = nrow(student_names) * num_per_student) %>% 
+  mutate(student_reviewer = rep(student_names$standard_name, num_per_student))
+
+
+
+github_accounts %>% 
+  select(-github_account_name) %>% 
+ # mutate(affliated = "", likely_role ="", school_department = "", comment_e.g._personal_url = "") %>% 
+  nest(selected_rows = -student_reviewer) %>% 
+  deframe() %>%
+  writexl::write_xlsx(path = "github_account_assessment.xlsx")
+```
+
+
+```{r}
+
+departments <- read_csv("just_departments.csv")
+
+# pick 5 departments per student.
+
+# from_clips %>% mutate(dept_list = str_flatten_comma(sample(departments$dept_name, size = 5)))
+
+from_clips %>% mutate(dept_list = map(student, ~ sample(departments$dept_name, size = 7)),
+                      dept_list = map_chr(dept_list, str_flatten_comma)) %>% 
+  select(student, ut_eid, dept_list) %>%
+  mutate(student = student %>% str_to_title()) %>% 
+  write_csv("departments_to_check.csv")
+  
+
+
+```
