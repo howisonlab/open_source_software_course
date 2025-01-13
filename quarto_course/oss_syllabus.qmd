@@ -55,6 +55,24 @@ header <- tribble(
 library(knitr)
 ```
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(kableExtra)
+# library(fontawesome)
+library(tidyverse)
+library(glue)
+library(lubridate)
+
+header <- tribble(
+  ~`Course`, ~`I 320D and 320S: Open Source Software Development`,
+  "Teaching Assistant", "Will Beason",
+  "Office Hours Availability", "Thursdays and Fridays 9am-3pm by appointment",
+  "Office Hours Link", "https://calendly.com/beason-utexas/30min",
+  "Contact Email", "wab773@eid.utexas.edu"
+)
+library(knitr)
+```
+
 ## Syllabus {#sec-syllabus}
 
 Official, updated version of syllabus always online at:
