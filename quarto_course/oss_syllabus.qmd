@@ -50,25 +50,11 @@ header <- tribble(
   "Semester", "Spring 2025",
   "Unique No.", "28190",
   "Office Hours", "By appointment booked at http://james.howison.name/calendar/",
-  "Contact Email", "jhowison@ischool.utexas.edu"
-)
-library(knitr)
-```
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-library(kableExtra)
-# library(fontawesome)
-library(tidyverse)
-library(glue)
-library(lubridate)
-
-header <- tribble(
-  ~`Course`, ~`I 320D and 320S: Open Source Software Development`,
+  "Contact Email", "jhowison@ischool.utexas.edu",
   "Teaching Assistant", "Will Beason",
-  "Office Hours Availability", "Thursdays and Fridays 9am-3pm by appointment",
-  "Office Hours Link", "https://calendly.com/beason-utexas/30min",
-  "Contact Email", "wab773@eid.utexas.edu"
+  "TA Office Hours Availability", "Thursdays and Fridays 9am-3pm by appointment",
+  "TA Office Hours Link", "https://calendly.com/beason-utexas/30min",
+  "TA Contact Email", "wab773@eid.utexas.edu"
 )
 library(knitr)
 ```
