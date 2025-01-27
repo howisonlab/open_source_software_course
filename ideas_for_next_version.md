@@ -30,3 +30,22 @@ Make packages line up with stack and stream lecture.
 
 Add open source hardware, using the Thingiverse paper that I AC1 for last CSCW cycle.
 
+-------------------------
+25 July 2024 08:45
+
+Consider adding to introductory material.
+
+Leach, J., Nafus, D., & Krieger, B. (2009). Freedom Imagined: Morality and Aesthetics in Open Source Software Design. Ethnos, 74(1), 51–71. https://doi.org/10.1080/00141840902751188
+
+-------------------------
+22 January 2025 16:52
+
+For paper planes exercise, definitely don't have them create a commit prior to the start of the exercise.
+
+-------------------------
+27 January 2025 17:40
+
+do artifact/source table as a handout.
+
+
+
