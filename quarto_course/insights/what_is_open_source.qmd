@@ -56,7 +56,7 @@ https://posit.co/products/open-source/rstudio/ https://jupyter.org/governance/pr
 
 The readings focused on this, highlighting current challenges in repair. You read about farmers who purchase John Deere farm equipment. Many want to be able to work on their equipment on their own, right on the farm. This is both because they are at a great distance from dealers, the equipment is expensive to transport, and they have paid a lot for the equipment and object to paying more to keep it working.
 
-In many ways this is the same situation that Richard Stallman (found of the Free Software Foundation) faced when dealing with the printer in his office. This is one of the foundational stories of the free software movement.
+In many ways this is the same situation that Richard Stallman (founder of the Free Software Foundation) faced when dealing with the printer in his office. This is one of the foundational stories of the free software movement.
 
 Have you faced issues in trying to repair something? What prevented you?
 
