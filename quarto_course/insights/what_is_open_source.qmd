@@ -60,7 +60,7 @@ library(gt)
 library(gtExtras)
 tribble(
   ~thing, ~example, ~artifact, ~source,
-  "Software", "Downloadable App",        "Mini motorways",  "Code (e.g., C, Java, Python)", 
+  "Software", "Mini Motorways",        "Downloadable App",  "Code (e.g., C, Java, Python)", 
   "Web Page", "http://james.howison.name/index.html", "Rendered page on screen", "HTML (plus CSS, plus JavaScript)",
   "Graphics card", "AMD GTX1080ti",  "the physical card", "Gerber file", 
   "Movie", "Captain America", ".mov file", "...",
