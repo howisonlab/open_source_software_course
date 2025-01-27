@@ -44,11 +44,46 @@ Open source is everywhere:
 -   Wifi routers
 -   Cars, Radios, Watches, Batteries
 
-https://thenewstack.io/the-open-source-lesson-of-the-linksys-wrt54g-router/
+-   https://thenewstack.io/the-open-source-lesson-of-the-linksys-wrt54g-router/
 
 -   Datascience software.
+  -   https://posit.co/products/open-source/rstudio/ 
+  -   https://jupyter.org/governance/projectlicense.html
 
-https://posit.co/products/open-source/rstudio/ https://jupyter.org/governance/projectlicense.html
+
+## What is "source"?
+
+```{r}
+#| echo: false
+library(tidyverse)
+library(gt)
+library(gtExtras)
+tribble(
+  ~thing, ~example, ~artifact, ~source,
+  "Software", "Downloadable App",        "Mini motorways",  "Code (e.g., C, Java, Python)", 
+  "Web Page", "http://james.howison.name/index.html", "Rendered page on screen", "HTML (plus CSS, plus JavaScript)",
+  "Graphics card", "AMD GTX1080ti",  "the physical card", "Gerber file", 
+  "Movie", "Captain America", ".mov file", "...",
+  "Scientific Paper", "...", "A pdf", "...",
+  "A building", " ... ", "...", "..."
+) |> gt() |> gt_theme_guardian()
+
+
+```
+
+The source is what is needed to build the artifact, what is created in the process of creation, and what is needed to make changes in an artifact.
+
+Colfer and Baldwin talk about open source as having "actionable transparency"; we can see the source ... but we can also take action with the source.
+
+Activity/Discussion:
+
+1. Work with the table above:
+
+  - Fill out the missing cells in the table above.
+  - Add a line for the thing assigned to your group.
+  - Add two further lines you as a group make up.
+
+2. Discuss: Beyond the stuff of source, what else is needed for open collaboration?
 
 ## Why open source?
 
