@@ -4,3 +4,5 @@
 .RData
 .Ruserdata
 docker-compose.yml
+
+/.idea
