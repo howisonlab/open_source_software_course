@@ -55,6 +55,8 @@ Open source is everywhere:
 
 ```{r}
 #| echo: false
+library(conflicted)
+options(tidyverse.quiet = TRUE)
 library(tidyverse)
 library(gt)
 library(gtExtras)
