@@ -208,7 +208,9 @@ Include a note at the top of the file telling me which formal citation approach 
 
 ### Late submission policy
 
-The late policy for papers/projects/presentation is a 10% reduction for submissions up to 24 hours after the due time, but zero points after that. You can, of course, contact me if you have an emergency.
+The late policy for papers/projects/presentation is a 10% reduction (minimum one point) for submissions up to 24 hours after the due time, but zero points after that.
+If assignment answers are discussed in class, submissions will not be accepted after.
+You can, of course, contact me if you have an emergency.
 
 ## Materials
 
