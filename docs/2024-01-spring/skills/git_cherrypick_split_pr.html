@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.552">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Open Source Software Development: A socio-technical course - 18&nbsp; Split a Pull Request</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../skills/git_rebase.html" rel="next">
+<link href="../skills/github_collaboration.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<meta name="mermaid-theme" content="default">
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../skills/paper_planes_git.html">Skills</a></li><li class="breadcrumb-item"><a href="../skills/git_cherrypick_split_pr.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Split a Pull Request</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Open Source Software Development: A socio-technical course</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/howisonlab/open_source_software_course/tree/master/quarto_course/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Open Source Software Development: A socio-technical course</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../oss_syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Syllabus for Open Source Software Development</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Insights</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/paper_plane_innovation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Paper planes as an analogy for peer production</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/what_is_open_source.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction: What is open source?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/motivations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Motivations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/licenses.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Licenses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/coordination.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Coordination</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/governance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Governance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/bias_lack_of_diversity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Bias and Lack of Diversity</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/stack_and_stream.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">From Stack, to stream, to ecosystem.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/agile.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Iterative Development, Regression Tests, and Continuous Integration</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Skills</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/paper_planes_git.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Paper Planes Exercise 2: Version control and collaboration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/git_basic_workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Git basic workflow</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/git_rewinding_work.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Rewinding work</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/branching.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Local branching with Git.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/github_solo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">GitHub solo</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/github_collaboration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Github collaboration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/git_cherrypick_split_pr.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Split a Pull Request</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/git_rebase.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Rebase for synchronizing work</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/git_delete_history.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Removing something from history entirely</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Testing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/continuous_integration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Continuous Integration (aka CI/CD)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/packaging.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Packages to distibute code</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/skills_faq.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Skills faq</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#split-before-submit" id="toc-split-before-submit" class="nav-link active" data-scroll-target="#split-before-submit"><span class="header-section-number">18.1</span> Split before submit</a>
+  <ul class="collapse">
+  <li><a href="#learngitbranching-exercise" id="toc-learngitbranching-exercise" class="nav-link" data-scroll-target="#learngitbranching-exercise"><span class="header-section-number">18.1.1</span> LearnGitBranching exercise</a></li>
+  <li><a href="#cherry-pick-via-commandline-git" id="toc-cherry-pick-via-commandline-git" class="nav-link" data-scroll-target="#cherry-pick-via-commandline-git"><span class="header-section-number">18.1.2</span> Cherry-pick via commandline git</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">18.1.3</span> Exercises</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/skills/git_cherrypick_split_pr.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../skills/paper_planes_git.html">Skills</a></li><li class="breadcrumb-item"><a href="../skills/git_cherrypick_split_pr.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Split a Pull Request</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-cherrypick" class="quarto-section-identifier"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Split a Pull Request</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<blockquote class="blockquote">
+<p>Hey, thanks! Some of this looks great, but can you split this up into separate PRs?</p>
+</blockquote>
+<p>Sometimes maintainers like part of the work that a contributor has done, but they don’t like all of it.</p>
+<p>In this situation, a maintainer might respond to a pull request by asking you to split your contributions into a few different pull requests. This can help keep different contributions separate, smaller, and make them easier to discuss. You might remember the importance of small layers from the week on Coordination and discussion of the Superposition paper in <a href="../insights/coordination.html" class="quarto-xref"><span>Chapter 7</span></a>.</p>
+<p>One common cause of mixing up different pieces of work in one pull request is forgetting to change branches in your repo. If you add additional commits to that branch then they will get added to the pull request. Remember, a pull request says, “Please come to this repo and get everything on this branch.” So it’s not the same as including some commits in a zip file and mailing them, it’s more like placing things into a particular spot (like a mailbox or dead-drop in a spy movie), and telling people to pick them up from there.</p>
+<p>So you can always add additional things before the person comes to pick them up.</p>
+<p>This is useful because if there is a conversation around the pull request then you can easily update things. For example, if someone said “Please fix a typo or pull from upstream before we consider your pull request,” you’d be able to do so without opening another PR (just add, commit, push to your branch on your fork and the PR is updated).</p>
+<p>However, it is an issue if you <em>accidentally</em> add new commits to a branch before a pull request is accepted. Now your pull request has two sets of commits: the first set you meant to include and the second set you didn’t. This mistake is particularly easy to make if you are developing on the <code>main</code> branch in your fork (which you shouldn’t do), but also happens if you are have more than one contribution that you are working on, as when you are doing something else while waiting for a PR to be accepted. If you’ve accidentally added too many files to your pull request—something that is easy to do if you use <code>git add *</code> or some variant—you’ll also find yourself needing to remove content from your PR.</p>
+<p>This is where the delightfully named <code>git cherry-pick</code> can help us.</p>
+<section id="split-before-submit" class="level2" data-number="18.1">
+<h2 data-number="18.1" class="anchored" data-anchor-id="split-before-submit"><span class="header-section-number">18.1</span> Split before submit</h2>
+<p>Things would be better if you had created a new branch for the first set of commits, then a second branch for your second set of commits, never adding either set to your main branch and following the “always work on a (short-lived) feature branch” rule. Then each set of commits would be “sent” through a different pull request.</p>
+<p>In other words we would be in good position to submit two separate pull requests:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">gitGraph
+  commit id: "main1"
+  commit id: "main2"
+  commit id: "branch here" type: HIGHLIGHT
+  branch first_set
+  commit id: "apple1"
+  commit id: "apple2"
+  checkout main
+  branch second_set
+  commit id: "orange1"
+  commit id: "orange2"
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>But instead we have everything mixed up together on one branch.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">gitGraph
+  commit id: "main1"
+  commit id: "main2"
+  commit id: "branch here" type: HIGHLIGHT
+  branch all_mixed_up
+  commit id: "apple1"
+  commit id: "orange1"
+  commit id: "apple2"
+  commit id: "orange2"
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>We might have forgotten to branch at all, and so have everything stuck on <code>main</code></p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">gitGraph
+  commit id: "main1"
+  commit id: "main2"
+  commit id: "branch here" type: HIGHLIGHT
+  commit id: "apple1"
+  commit id: "orange1"
+  commit id: "apple2"
+  commit id: "orange2"
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<section id="learngitbranching-exercise" class="level3" data-number="18.1.1">
+<h3 data-number="18.1.1" class="anchored" data-anchor-id="learngitbranching-exercise"><span class="header-section-number">18.1.1</span> LearnGitBranching exercise</h3>
+<p>We can see an example of the overall workflow for splitting a PR using the LearnGitBranching Visualizer, I have created a level called <a href="https://learngitbranching.js.org/?gist_level_id=f7b4b63960ed80fa9a76728d853f2546">Split Pull Request</a>.</p>
+</section>
+<section id="cherry-pick-via-commandline-git" class="level3" data-number="18.1.2">
+<h3 data-number="18.1.2" class="anchored" data-anchor-id="cherry-pick-via-commandline-git"><span class="header-section-number">18.1.2</span> Cherry-pick via commandline git</h3>
+<p>You can see a situation like this in this repo on GitHub. Bring that to your working space with:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/jameshowison/i320d-needs-split.git</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> i320d-needs-split</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If you then run our gitviz command (see <a href="skills_faq.html#sec-gitviz" class="quarto-xref"><span>Section A.3</span></a> for how to set up a short cut for that)</p>
+<p>You will see both our apple and orange edits all together on the <code>main</code> branch.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jlh5498@educcomp04:~/github_repos/i320d-needs-split$</span> git log <span class="at">--oneline</span> <span class="at">--abbrev-commit</span> <span class="at">--all</span> <span class="at">--graph</span> <span class="at">--decorate</span> <span class="at">--color</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> c70df5a <span class="er">(</span><span class="ex">HEAD</span> <span class="at">-</span><span class="op">&gt;</span> main<span class="kw">)</span> <span class="ex">orange2</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 423ad05 apple2</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 4f1fe99 orange1</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 91abdfb apple1</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 8e35b12 branch here</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> ea4d580 main1</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 252ff3f Initial commit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We eventually want this to look like our first graph above, with two new branches (apple_branch and orange_branch):</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jlh5498@educcomp04:~/github_repos/i320d-needs-split$</span> git log <span class="at">--oneline</span> <span class="at">--abbrev-commit</span> <span class="at">--all</span> <span class="at">--graph</span> <span class="at">--decorate</span> <span class="at">--color</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 09d5482 <span class="er">(</span><span class="ex">HEAD</span> <span class="at">-</span><span class="op">&gt;</span> orange_branch<span class="kw">)</span> <span class="ex">orange2</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 2137500 orange1</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> c8fd64d <span class="er">(</span><span class="ex">apple_branch</span><span class="kw">)</span> <span class="ex">apple2</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 1a5ac49 apple1</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span><span class="ex">/</span>  </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 158f2c4 <span class="er">(</span><span class="ex">main</span><span class="kw">)</span> <span class="ex">branch</span> here</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 96d65c3 main2</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 7036c11 main 1</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 252ff3f Initial commit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To get there we will take three steps:</p>
+<ol type="1">
+<li>Create a new branch, specifying the starting point</li>
+<li>Move the relevant commits to the new branch</li>
+<li>Push to the fork, create a new pull request</li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> apple_branch 8e35b12</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The <code>8e35b12</code> here is the commit id of the point at which we want the branch to start. Until now when we’ve created a branch we have done so while sitting at <code>HEAD</code> but git allows us to create a branch back in time. Git does this by adding metadata to the earlier commit (labeling it with a branch label).</p>
+<p>Then we can move the commits using <code>git cherry-pick</code>. Note that this doesn’t <em>move</em> them from the <code>main</code> branch, but creates new commits with the same content. This is very much like copying files from one directory into another directory (except we are moving commits from a branch to another branch).</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> cherry-pick 91abdfb 423ad05</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Again the strings <code>91abdfb</code> and <code>423ad05</code> identify specific commits. We can provide a list (like above), just one, and it is also possible to provide a range if you want a full sequence of commits.</p>
+<p>After the cherry-pick we see:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jlh5498@educcomp04:~/github_repos/i320d-needs-split$</span> git cherry-pick 91abdfb 423ad05</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[apple_branch</span> 9ca623a] apple1</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a> <span class="ex">Date:</span> Wed Mar 1 15:31:38 2023 <span class="at">-0600</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a> <span class="ex">1</span> file changed, 1 insertion<span class="er">(</span><span class="ex">+</span><span class="kw">)</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ex">[apple_branch</span> 2b82f41] apple2</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a> <span class="ex">Date:</span> Wed Mar 1 15:31:38 2023 <span class="at">-0600</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a> <span class="ex">1</span> file changed, 1 insertion<span class="er">(</span><span class="ex">+</span><span class="kw">)</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="ex">jlh5498@educcomp04:~/github_repos/i320d-needs-split$</span> git log <span class="at">--oneline</span> <span class="at">--abbrev-commit</span> <span class="at">--all</span> <span class="at">--graph</span> <span class="at">--decorate</span> <span class="at">--color</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 2b82f41 <span class="er">(</span><span class="ex">HEAD</span> <span class="at">-</span><span class="op">&gt;</span> apple_branch<span class="kw">)</span> <span class="ex">apple2</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 9ca623a apple1</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> c70df5a <span class="er">(</span><span class="ex">origin/main,</span> origin/HEAD, main<span class="kw">)</span> <span class="ex">orange2</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 423ad05 apple2</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 4f1fe99 orange1</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 91abdfb apple1</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span><span class="ex">/</span>  </span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 8e35b12 branch here</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> ea4d580 main1</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 252ff3f Initial commit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We can then use <code>git push</code> as normal to push the <code>apple_branch</code> up to the fork and make a pull request.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Moving around commits using cherry-pick shows us why it is so important to understand commits as full copies of the state of the working directory, as full snapshots of our files. If commits were just the changes (just a bunch of <code>diffs</code>) then we would have to apply them in the order they were created, otherwise we’d get nonsense results.</p>
+<p>But because commits are full copies of everything, we can move them around without any logical problems. Think of reordering the trays with the paper planes we used in the first class.</p>
+<p>In fact, all that git is doing is re-writing the parent for each commit.</p>
+<p>And branches are just like little post-its added to some commits, they are just metadata pointers. Neat, isn’t it?</p>
+<p>See more about this on the GitHub blog <a href="https://github.blog/2020-12-17-commits-are-snapshots-not-diffs/" class="uri">https://github.blog/2020-12-17-commits-are-snapshots-not-diffs/</a></p>
+</div>
+</div>
+</section>
+<section id="exercises" class="level3" data-number="18.1.3">
+<h3 data-number="18.1.3" class="anchored" data-anchor-id="exercises"><span class="header-section-number">18.1.3</span> Exercises</h3>
+<section id="individual-exercises" class="level4" data-number="18.1.3.1">
+<h4 data-number="18.1.3.1" class="anchored" data-anchor-id="individual-exercises"><span class="header-section-number">18.1.3.1</span> Individual Exercises</h4>
+<ol type="1">
+<li>Now you work to get the <code>orange_branch</code> organized.</li>
+</ol>
+</section>
+<section id="group-exercise" class="level4" data-number="18.1.3.2">
+<h4 data-number="18.1.3.2" class="anchored" data-anchor-id="group-exercise"><span class="header-section-number">18.1.3.2</span> Group Exercise</h4>
+<p>Groups of 3. Nominate <em>Maintainer</em>, <em>Contributor A</em>, and <em>Contributor B</em>.</p>
+<ol type="1">
+<li><em>Maintainer</em> creates a repo on Github.</li>
+<li><em>Maintainer</em> adds 2 commits and pushes.</li>
+<li><em>Contributor A</em> and <em>Contributor B</em> fork and clone (and add upstream).</li>
+<li><em>Contributor A</em> and <em>Contributor B</em> create a feature branch called <code>will_need_split</code>.</li>
+<li><em>Contributor A</em> and <em>Contributor B</em> add four commits of four files on <code>will_need_split</code></li>
+<li><em>Contributor A</em> and <em>Contributor B</em> create a pull request to <code>upstream</code> from their <code>will_need_split</code> branch (including all four commits).</li>
+<li><em>Maintainer</em> rejects the pull request, closing it and commenting “please split this up” (and direct which files go together, probably 2 in each.)</li>
+<li><em>Contributor A</em> and <em>Contributor B</em> follow procedure above to end up with two new branches <code>split_branch_1</code> and <code>split_branch_2</code> send through separate pull requests with only the right commits/files in them.</li>
+<li><em>Maintainer</em> eventually accepts each of the four split up pull requests.</li>
+</ol>
+<!-- ### Dealing with remaining commits -->
+<!-- Remember when we `git cherry-pick` to move a commit, we don't actually move it we create a copy (learngitbranching shows this by creating new commits called `C3'` and `C4'` (to distinguish from `C3` and `C4`). -->
+<!-- You can see this with the middle block of commits here (after the orange_branch is created). They are on main. -->
+<!-- ``` sh -->
+<!-- * 170afe6 (HEAD -> orange_branch) orange2 -->
+<!-- * c7af009 orange1 -->
+<!-- | * 2b82f41 (apple_branch) apple2 -->
+<!-- | * 9ca623a apple1 -->
+<!-- |/   -->
+<!-- | * c70df5a (origin/main, origin/HEAD, main) orange2 -->
+<!-- | * 423ad05 apple2 -->
+<!-- | * 4f1fe99 orange1 -->
+<!-- | * 91abdfb apple1 -->
+<!-- |/   -->
+<!-- * 8e35b12 branch here -->
+<!-- * ea4d580 main1 -->
+<!-- * 252ff3f Initial commit -->
+<!-- ``` -->
+<!-- So we have to consider what to do about the extra commits left on `main`. This is going to depend on a few things. Do you have additional commits on `main` that you haven't distributed among new branches? Do you want `main` to exactly reflect the history of `main` on `upstream`? How tolerant are you of "messy history"? It's also going to depend on whether `main` had been pushed up and whether others might have built on top of it. -->
+<!-- There are many options, here are two: -->
+<!-- 1.  Revert the commits that you "moved" to the branches. `git revert` creates "opposite" commits, that undo any changes. So if you lay a revert commit on top of a commit then the content is as though the commit was never made. But they stay visible in the git history -->
+<!-- 2.  Using `git reset -hard`, create a new branch from your branching point, then rename it to `main`, orphaning your current main. -->
+<!-- If you had already shared these then you really only have the first option, as then if others started building on your work they will be ok. If you use `reset -hard` then this can cause big problems in other people's repositories (as the history now differs in a way that git cannot recover). -->
+<!-- #### Using revert -->
+<!-- First I created a copy of the repo, `practice_split_revert/`, so I could show both options. Then I switched to the `main` branch in that copy. -->
+<!-- ``` sh -->
+<!-- cd .. -->
+<!-- cp -r i320d-needs-split i320d-needs-split-revert -->
+<!-- cd i320d-needs-split-revert/ -->
+<!-- git checkout main -->
+<!-- ``` -->
+<!-- Then I used a range expression (the `..`) with revert to revert the set of four commits on `main`. Note that the double dot range syntax used like this is left exclusive (i.e. you have to go back one further than the first you want). I also had to provide four commit messages, one for each of the reverting commits. -->
+<!-- ``` sh -->
+<!-- git revert 8e35b12..c70df5a -->
+<!-- [main f195843] Revert "orange2" -->
+<!--  1 file changed, 1 deletion(-) -->
+<!-- [main 88fbee6] Revert "apple2" -->
+<!--  1 file changed, 1 deletion(-) -->
+<!-- [main 8513495] Revert "orange1" -->
+<!--  1 file changed, 1 deletion(-) -->
+<!-- [main eb9d80e] Revert "apple1" -->
+<!--  1 file changed, 1 deletion(-) -->
+<!-- ``` -->
+<!-- ::: callout-warning -->
+<!-- When using the range operator `..` it is left-exclusive, right-inclusive. This means you have to start one commit before the ones you want to include. So here I start with the "branch here" commit `8e35b12` even though I not reverting that commit. -->
+<!-- ::: -->
+<!-- ::: callout-note -->
+<!-- You have to provide a commit message for each revert commit. By default to get those git will push you into the `vi` editor, which can be disorientating. See section in FAQ: @sec-vim. To accept the default commit messages, I hit <kbd>Esc</kbd> <kbd>Esc</kbd> <kbd>:wq</kbd> <kbd>Enter</kbd> -->
+<!-- ::: -->
+<!-- ``` sh -->
+<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
+<!-- ``` -->
+<!-- ``` sh -->
+<!-- * eb9d80e (HEAD -> main) Revert "apple1" -->
+<!-- * 8513495 Revert "orange1" -->
+<!-- * 88fbee6 Revert "apple2" -->
+<!-- * f195843 Revert "orange2" -->
+<!-- * c70df5a (origin/main, origin/HEAD) orange2 -->
+<!-- * 423ad05 apple2 -->
+<!-- * 4f1fe99 orange1 -->
+<!-- * 91abdfb apple1 -->
+<!-- | * 170afe6 (orange_branch) orange2 -->
+<!-- | * c7af009 orange1 -->
+<!-- |/   -->
+<!-- | * 2b82f41 (apple_branch) apple2 -->
+<!-- | * 9ca623a apple1 -->
+<!-- |/   -->
+<!-- * 8e35b12 branch here -->
+<!-- * ea4d580 main1 -->
+<!-- * 252ff3f Initial commit -->
+<!-- ``` -->
+<!-- This is hard to love (as everything got uglier with the addition of the reverts) but it does definite explain what is intended and ensure that anyone working from `main` can continue to do so. -->
+<!-- #### git reset --hard -->
+<!-- Git reset can neaten things up, but only if you haven't already pushed to GitHub. -->
+<!-- Again, I create a copy of the repo -->
+<!-- ``` sh -->
+<!-- cd .. -->
+<!-- cp -r i320d-needs-split i320d-needs-split-reset -->
+<!-- cd i320d-needs-split-reset/ -->
+<!-- git checkout main -->
+<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
+<!-- ``` -->
+<!--     * 170afe6 (HEAD -> orange_branch) orange2 -->
+<!--     * c7af009 orange1 -->
+<!--     | * 2b82f41 (apple_branch) apple2 -->
+<!--     | * 9ca623a apple1 -->
+<!--     |/   -->
+<!--     | * c70df5a (origin/main, origin/HEAD, main) orange2 -->
+<!--     | * 423ad05 apple2 -->
+<!--     | * 4f1fe99 orange1 -->
+<!--     | * 91abdfb apple1 -->
+<!--     |/   -->
+<!--     * 8e35b12 branch here -->
+<!--     * ea4d580 main1 -->
+<!--     * 252ff3f Initial commit -->
+<!-- Now we use `git reset --hard` to force HEAD on `main` back to `8e35b12`. That disconnects the four unwanted commits (I *think* they aren't actually gone from .git folder yet, but they could be deleted any time as they aren't connected to anything, they don't show up in the graph or the log). -->
+<!-- ``` sh -->
+<!-- git reset --hard 8e35b12 -->
+<!-- ``` -->
+<!--     HEAD is now at 8e35b12  -->
+<!-- That seems neater, but keep in mind that if you'd pushed `main` to github while those commits were there, anyone else who had built on your repo would have lots of trouble. In fact if you do this with the repos above (which have already been pushed to GitHub then the four commits don't disappear, they are still tagged with `origin/main` because they are on the remote. -->
+<!-- The `revert` approach means messier history, but has the advantage that it doesn't disconnect anyone else. -->
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../skills/github_collaboration.html" class="pagination-link" aria-label="Github collaboration">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Github collaboration</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../skills/git_rebase.html" class="pagination-link" aria-label="Rebase for synchronizing work">
+        <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Rebase for synchronizing work</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/skills/git_cherrypick_split_pr.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>

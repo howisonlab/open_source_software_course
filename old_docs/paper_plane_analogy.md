@@ -41,46 +41,7 @@ Improver 2: "No, I think I'll sell copies (without instructions) for $100 a pop"
 
 Judge: "Well, now it matters which open source license you used. If GPL then Improver 2 has to give you the instructions for the improvement, if not (e.g., BSD 3 clause, or MIT license) then Improver 2 is within their rights." (or a Creative Commons version of this, did it have SA or not?)
 
-## Exercise 2: Version control and collaboration
 
-Now let's assume that there is no competition between plane flyers, it's all about the love (or if they do compete it's not on plane designs). Instructions flow around just for the asking. But since they rely on each other, eventually it makes sense to have a central place to gather the improvements, a central place to bring them together. (everyone either has to contribute improvements or wants to, no one can withdraw an improvement at a later date).
-
-1. Originator invents the paper plane by telling Folder1 what to do. They name it as Version 0. 
-
-   ![v0](images\v0.png)
-
-2. Improver 1 loves it and asks for one copy.  The originator send a copy to Improver 1. ![v0copy2improver1](images\v0_copy_to_improver1.png)
-
-   
-
-3. Improver 1 invents an improvement, making Version 1. ![v1](images\v1.png)
-
-4. Improver 1 sends their improvement to Originator.  Originator make it official.![v1_official](images\v1_official.png)
-
-5. Improver 2 gets that improvement along with the original.![sendv1toi2](images\send_v1to_improver2.png)
-
-6. Improver sends their improvement back to Originator, who accepts it, making Version 2 the official version. Now everyone can can work off that version, for future improvements.![v2_official](images\v2_official.png)
-
-Everything is hunky dory until Improver 2 takes Version 2 and suggests adding a single flap to each wing, while simultaneously Improver 1 is also working with Version 2 and suggests adding two flaps to each wing.  
-
-![v2_to_i1](images\v2_to_i1.png)
-
-![v3](images\v3.png)
-
-
-
-Originator receives these improvements, sees that they are incompatible.  
-
-![conflict](images\conflict.png)
-
-Now what?![conflict](images\conflict_solved.png)
-
-- choose only one to be Version 3 (benevolent dictator choice).
-- make flap number into a configuration variable.
-
-Version 3 is released with configuration variable.  New improvements start coming in. Some are not problematic, such as wing-tips turned up. But some only work for the one flap config, so the project gets pretty complicated. Originator changes their mind and says that, actually, everything has to be single flap from now on.
-
-The double flappers can either adapt or they can take the codebase, and start a new central "clearinghouse" for improvements.  A project schism.  
 
 The money making firm (not open source)
 ====================

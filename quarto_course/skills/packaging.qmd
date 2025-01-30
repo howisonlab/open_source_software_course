@@ -1,0 +1,50 @@
+# Packages to distibute code {#sec-packaging}
+
+Packages are ways of distributing software. We discussed packages in the material on Stack, Streak and Ecosystem: @sec-stack-and-stream
+
+Packages enable us to build on the work of others, when we install packages and import them into our code.
+
+But eventually we will have code that we want to distribute to others, whether that be classmates or others within our organization, or perhaps the world at large.
+
+There are a few ways that we can distribute code, all with pros and cons.
+
+Copy and paste. We can send code to others by simply copying and pasting, then sending perhaps by Slack or even through email.  A slightly more advanced approach is to use a `gist` or `pastebin` such as <https://gist.github.com/> or <http://pastebin.com>. Copy and pasting is quick but it is limited.  We then have no way of updating the code, or of knowing where it is used.
+
+We can, of course, share code via GitHub or GitLab.  Here we can publish a repository, either publicly or within our Organization, and give people the URL.  Then people can `clone` the code into their individual workspaces.  At least then the potential user can re-visit for updates and our user would know where they could contact people for issues or even to share improvements.
+
+But GitHub on its own does not offer much to manage the complexities of developing software and keeping things up to date over time.  For that we must turn to packaging and to package distribution systems which provides the python packages that can be installed by `pip`.  These offer much greater effectiveness: the package publisher can provide updates, bugfixes or improvements, and the user can get informed about when updates are available and have them automatically downloaded.
+
+Packages and package management offer a few other important advantages:
+
+- Packages keep code cleaner by creating `namespaces` for functions that tend to go together.
+- Packages can be used to set up and maintain `virtual environments` so that users can have different versions of packages installed.  These can be crucial to help teams know that they are working with the same underlying code.
+- Analyses can be more reproducible
+- Packages enable organizations to share code effectively among their teams
+    - Teams can benefit from the work of others so that everyone can be more efficient
+    - Different groups can all use the same packages, making their solutions more consistent, so that analyses are comparable.
+- Packages can provide an appropriate location for running tests
+- Packages provide a way to scale up software. Data Scientists often develop code in a Notebook ... which is very convenient for the analyst but not something that can be made into a web API which thousands of developers or products can use in real time.  When we build packages they can be deployed in the cloud, and turned into [microservices](https://en.wikipedia.org/wiki/Microservices) using services like Kubernetes.
+    
+# What is needed for package management?
+
+Packaging can be thought about in four steps:
+
+1. Encapsulating code in a chunk that can be moved around
+2. Metadata that describes the package, including authorship, licensing and, crucially, dependencies.
+3. An installation tool that can bring packages from the server into local environments, and check and manage dependencies.
+4. A server location to which packages can be published
+
+Different languages and software ecosystems implement these steps themselves.
+
+In Python, for examples, Encapsulation is done with directories, which have files inside with the code ("regular" some_code_name.py files. Metadata is done with additional files inside the directories. The tool `pip` handles both installation and dependency resolution.  For the server that hosts the packages there is one broad public server called `PyPI` (which stands for the *PY*thon *P*ackage *I*ndex), but it is also possible for individual organizations to run a version "behind the firewall" to manage packages within their organization.
+
+In R, encapsulation is also done thorugh directories, metadata through files.  Package installation is done within the R base software. In R there are a few important central repositories, including CRAN (*C*omprehensive *R* *A*rchive *N*etwork) and Bioconductor (a separate package manager focused on biology packages, an example of convergent evolution).  There are lots of different mirrors for CRAN.  
+
+Package management "behind the firewall" is so important to firms, that the company that builds `Rstudio` now offers package management for both R and Python <https://packagemanager.posit.co/client/#/> both publically and within companies.  Similarly [Anaconda](https://www.anaconda.com/) a company based in Austin offers package management across an eve wider set of languages.
+
+## From code to published package in Python
+
+For these materials we will work through a Data Camp course (which you are welcome to finish), called [Developing Python Packages](https://campus.datacamp.com/courses/developing-python-packages).  
+
+The course shows how to take code and wrap it in a directory with special files, then how to publish it to PyPI (using a special repository just for testing).
+

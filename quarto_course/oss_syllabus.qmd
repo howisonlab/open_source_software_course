@@ -2,7 +2,7 @@
 title: "Syllabus for Open Source Software Development"
 label: #sec-syllabus
 author: "James Howison"
-subtitle: "I 320D - Topics in Human-Centered Data Science : Open Source Software Development"
+subtitle: "I320D and I320S: Open Source Software Development"
 always_allow_html: yes
 execute:
   freeze: auto  # re-render only when source changes
@@ -43,14 +43,18 @@ library(glue)
 library(lubridate)
 
 header <- tribble(
-  ~`Course`, ~`I 320D Topics in Human-Centered Data Science : Open Source Software Development`,
+  ~`Course`, ~`I 320D and 320S: Open Source Software Development`,
   "Professor", "James Howison",
   "Meeting Time", "Mondays and Wednesdays 3:30 PM - 04:45 PM",
-  "Location", "SZB 4.508",
-  "Semester", "Spring 2024",
-  "Unique No.", "27450",
+  "Location", "SZB 3.508",
+  "Semester", "Spring 2025",
+  "Unique No.", "28190",
   "Office Hours", "By appointment booked at http://james.howison.name/calendar/",
-  "Contact Email", "jhowison@ischool.utexas.edu"
+  "Contact Email", "jhowison@ischool.utexas.edu",
+  "Teaching Assistant", "Will Beason",
+  "TA Office Hours Availability", "Thursdays and Fridays 9am-3pm by appointment",
+  "TA Office Hours Link", "https://calendly.com/beason-utexas/30min",
+  "TA Contact Email", "wab773@eid.utexas.edu"
 )
 library(knitr)
 ```
@@ -113,9 +117,9 @@ Practically students will be able to:
 assessments <- tribble(
   ~`Assignment`, ~`Percentage of Course Grade`,~`Due Date`,
   #-----------------------
-  "Class Participation (discussion and activites)", "10%", "Throughout course",
-  "Technical challenges", "40%", "Weekly homework challenges throughout the semester",
-  "Git Analogies Paper", "20%", "Start of Spring Break",
+  "Class Participation (discussion and activites)", "15%", "Throughout course",
+  "Weekly Homework challenges", "40%", "Weekly homework challenges throughout the semester",
+  "Git Analogies Paper", "20%", "Week after Spring Break",
  # " UT Austin open source projects", "5%", "Two weeks after Spring Break",
   "Open Source Trace Data analysis Project report", "25%", "Start of last class week.",
 )
@@ -139,9 +143,9 @@ Hints on participation:
 -   You can challenge or disagree with people, sometimes that can be introducing a counter-example or questioning whether evidence really means what the speaker originally thought.
 -   I really welcome examples from your own experience. For example if there is an organization, movement, or line of thought (modern/traditional) in your culture that relates to open source development, I would love that to be part of the discussion.
 
-### Technical Challenges
+### Weekly Homework Challenges
 
-The course will have assignments based on the technical topics we are learning, including use of the DataCamp course (see below).
+The course will have assignments based on bth insight and skills topics we are learning (with some leaning towards skills), including use of the DataCamp course (see below).
 
 ### Papers and Projects
 
@@ -155,7 +159,7 @@ For each, include both text and pictures. You should have approximately 2 pages 
 
 In a final 1-2 pages of writing (~350-750 words), Compare and contrast your three analogies in reference to this question: How would each analogy help your teammates? What might it make clear, what might it hide or obfuscate?  How might using a combination of your analogies help? Could that combination make things more difficult?
 
-Your paper must be submitted as a PR at https://github.com/howisonlab/oss_spring2024_analogies
+Your paper must be submitted as a PR (will be taught in the course).
 
 Include a note at the top of the file telling me which formal citation approach you are using (e.g., APA, MLA, etc). Students are cautioned that as a scholarly paper proper citation and use of sources is required otherwise students will face academic misconduct proceedings. See UTexas materials on Academic Integrity at https://deanofstudents.utexas.edu/conduct/academicintegrity.php
 
@@ -176,15 +180,6 @@ The structure of the paper should be as follows (a page is ~300-500 words):
 
 # References (excluded from any word counts).
 ```
-
-#### UT Austin open source projects
-
-For this assignment you will research open source projects that involve faculty at UT Austin.  You will:
-
-1. Identify at least five projects using a search strategy (and describe your strategy)
-2. Describe each project's online profile. How do the projects describe themselves?
-3. Identify the main contributors to each repository. Who are they, what role do they have at the university (faculty, research staff, graduate students). How do their websites compare to the websites of other open source projects you have looked at?
-4. Use the concepts introduced in this course to compare and contrast how these projects are organized. You should discuss both how they use git and GitHub, and social organizational aspects of the projects.
 
 #### Final Paper or project
 
@@ -207,13 +202,15 @@ Your analysis should use the trace data collected to address insight concepts th
 
 Submission: 
 
-Submit by making a PR to  https://github.com/howisonlab/oss_spring2023_assignments/projects/<yourname> Note that it should be a separate PR from other assignment submissions; this means you must use a different branch name for this work.
+Submit by making a PR. Note that it should be a separate PR from other assignment submissions; this means you must use a different branch name for this work.
 
 Include a note at the top of the file telling me which formal citation approach you are using (e.g., APA, MLA, etc). Students are cautioned that as a scholarly paper proper citation and use of sources is required otherwise students will face academic misconduct proceedings. See ["Academic Integrity" presentation](https://utexas.zoom.us/rec/share/AjF6eoJH2heRWqQkTAHAQTfpp05UbE7WRhT-vQFw9wYevV8YBjpE2AJ_2PD07Mca.2v_7lGqZ0OoKbJzG) if at all unsure.
 
 ### Late submission policy
 
-The late policy for papers/projects/presentation is a 10% reduction for submissions up to 24 hours after the due time, but zero points after that. You can, of course, contact me if you have an emergency.
+The late policy for papers/projects/presentation is a 10% reduction (minimum one point) for submissions up to 24 hours after the due time, but zero points after that.
+If assignment answers are discussed in class, submissions will not be accepted after.
+You can, of course, contact me if you have an emergency.
 
 ## Materials
 
@@ -520,7 +517,6 @@ insight_readings <- tribble(
 skills_topics <- tribble(
   ~skill_topic, ~tech_commands,
   #-------------------------------------
-  "Syllabus Review", "",
   #  "Tech setup workshop", "[terminal, command line, git install, github account](./docs/tech_setup.html)",
   "Paper Planes: Version Control @sec-planes-git", "git add, commit via paper planes and tables",  
 "Git basic workflow @sec-git_basic_workflow", "git add, commit (locally)",
@@ -537,9 +533,9 @@ skills_topics <- tribble(
   "Tests @sec-tests", "pytest",
   "Continuous Integration @sec-ci", "Github Actions",
   # "Release management", "github releases, git ta g",
-  "Final paper/project workshop ", "",
-  "Creating and distributing packages", "python packages, pypy pinning",
-  "Final paper/project workshop", "markdown"
+  "Creating and distributing packages @sec-packaging", "python packages, pypy pinning",
+  "Final paper/project workshop", "markdown",
+  "Final paper/project workshop", "markdown",
   
  # "Wikipedia Editing", "wiki syntax, referencing",
 #  "Executable Papers", "rmarkdown, knitr, rstudio",
@@ -554,19 +550,20 @@ skills_topics <- tribble(
 insight_topics <- tribble(
   ~insight_topic,
   #----------
-  "What is open source? @sec-what-is-open-source Paper Planes and Innovation @sec-paper-planes-and-innovation",
+  "Syllabus Review & Paper Planes and Innovation @sec-paper-planes-and-innovation",
+  "What is open source? @sec-what-is-open-source",
   "Motivations and Asking questions people want to answer @sec-motivations ",
   "Licenses @sec-licenses",
   "Coordination @sec-coordination ",
   "Governance and decision making @sec-gov ",
   "Knowledge sharing",
   "Bias and lack of diversity @sec-diversity ",
-  "The stack and the stream @sec-stack-and-stream ",
   "Iterative Development, Tests, and Continuous Integration @sec-agile ",
-  "Final paper/project workshop",
-  # "Cybersecurity and open source",
+  "The stack and the stream @sec-stack-and-stream ",
+  "Cybersecurity and open source",
   "Open software work in science and research",
-  # "Peer production in Art and Culture"
+  "Peer production in Art and Culture",
+  "What's Next? (likely industry speaker)"
 ) %>% mutate(topic = "Insights") %>%  rownames_to_column()
 
 introduction_topics <- tibble(introduction_topic = c("Syllabus Review", "Paper Planes: Innovation and collaboration"), topic = "Introduction") %>%  rownames_to_column()
@@ -596,24 +593,26 @@ expand_days <- function(start, end) {
 no_meetings <- tribble(
   ~period_start, ~period_end, ~class_name,
   #--------------------
-   "2024-01-15", "2024-01-15", "No meeting: MLK day",
-   "2024-03-11", "2024-03-15", "No meeting: Spring Break",
-   "2024-03-04", "2024-03-08", "No meeting: Project Time",
-   "2024-04-08", "2024-04-08", "No meeting: Eclipse Day"
+   "2025-01-15", "2025-01-15", "No meeting: Instructor travel",
+   "2025-01-20", "2025-01-20", "No meeting: MLK day",
+ #  "2025-01-28", "2025-02-02", "No meeting: Instructor travel",
+  
+   # "2025-03-12", "2025-03-12", "", 
+     "2025-03-17", "2025-03-22", "No meeting: Spring Break",
+ #  "2024-04-08", "2024-04-08", "No meeting: Eclipse Day"
 ) %>%
   mutate(days_list = map2(period_start, period_end, expand_days)) %>%
   select(class_name, days_list) %>%
   unnest()
 
-first_class_day = parse_datetime("2024-01-15")
+first_class_day = parse_datetime("2025-01-13")
 
-last_class_day = parse_datetime("2024-04-29")
+last_class_day = parse_datetime("2025-04-28")
 
-first_mon = parse_datetime("2024-01-15")
+first_mon = parse_datetime("2025-01-13")
 
-first_wed = parse_datetime("2024-01-17")
+first_wed = parse_datetime("2025-01-15")
 
-# class Tuesday 9-11:45
 all_mon <- seq(first_mon, to = last_class_day, by = "week")
 all_wed <- seq(first_wed, to = last_class_day, by = "week")
 # all_thursdays <- c(parse_datetime("2020-08-27"))

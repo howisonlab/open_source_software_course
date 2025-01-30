@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.552">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Open Source Software Development: A socio-technical course - 13&nbsp; Git basic workflow</title>
+<title>13&nbsp; Git basic workflow – Open Source Software Development: A socio-technical course</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -70,10 +70,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f2151062440e71a1d76e61548d0dfb49.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -112,13 +112,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../skills/paper_planes_git.html">Skills</a></li><li class="breadcrumb-item"><a href="../skills/git_basic_workflow.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Git basic workflow</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -157,9 +157,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Insights</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -222,9 +222,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Skills</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -295,13 +295,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Continuous Integration (aka CI/CD)</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/packaging.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Packages to distibute code</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -326,11 +332,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">13.1</span> Overview</a></li>
   <li><a href="#working-with-files-and-the-commandline-in-rstudio" id="toc-working-with-files-and-the-commandline-in-rstudio" class="nav-link" data-scroll-target="#working-with-files-and-the-commandline-in-rstudio"><span class="header-section-number">13.2</span> Working with files and the commandline in Rstudio</a></li>
-  <li><a href="#creating-a-git-repo" id="toc-creating-a-git-repo" class="nav-link" data-scroll-target="#creating-a-git-repo"><span class="header-section-number">13.3</span> Creating a git repo,</a></li>
+  <li><a href="#creating-a-git-repository-repo" id="toc-creating-a-git-repository-repo" class="nav-link" data-scroll-target="#creating-a-git-repository-repo"><span class="header-section-number">13.3</span> Creating a git repository (“repo”)</a></li>
   <li><a href="#git-status-add-commit" id="toc-git-status-add-commit" class="nav-link" data-scroll-target="#git-status-add-commit"><span class="header-section-number">13.4</span> Git status, add, commit</a></li>
   <li><a href="#using-git-log-to-understand-what-is-in-the-repo" id="toc-using-git-log-to-understand-what-is-in-the-repo" class="nav-link" data-scroll-target="#using-git-log-to-understand-what-is-in-the-repo"><span class="header-section-number">13.5</span> Using git log to understand what is in the repo</a></li>
-  <li><a href="#linux-command-lines" id="toc-linux-command-lines" class="nav-link" data-scroll-target="#linux-command-lines"><span class="header-section-number">13.6</span> Linux Command Lines</a></li>
-  <li><a href="#git" id="toc-git" class="nav-link" data-scroll-target="#git"><span class="header-section-number">13.7</span> Git</a></li>
+  <li><a href="#git-commands" id="toc-git-commands" class="nav-link" data-scroll-target="#git-commands"><span class="header-section-number">13.6</span> Git Commands</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/skills/git_basic_workflow.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
@@ -372,46 +377,249 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="working-with-files-and-the-commandline-in-rstudio" class="level2" data-number="13.2">
 <h2 data-number="13.2" class="anchored" data-anchor-id="working-with-files-and-the-commandline-in-rstudio"><span class="header-section-number">13.2</span> Working with files and the commandline in Rstudio</h2>
-<p>Goal of this step: get familiar with basic Linux command lines: <code>ls</code>, <code>cd</code>, <code>mkdir</code>and <code>touch</code>.</p>
-<p>Log in to the DataCamp interface. Go to the Workspaces section. We will be using the terminal in DataCamp.</p>
-<p><img src="git_basic_workflow_files/datacamp_createworkspace.png" class="img-fluid"></p>
-<p>You get to the terminal through the <em>Run</em> menu:</p>
-<p><img src="git_basic_workflow_files/datacamp_run_menu.png" class="img-fluid"></p>
-<p>Some of the images below are of a terminal in a different application (Rstudio). The git commands and output are the same.</p>
-<p>Type <code>ls</code> in the terminal. It will list the files and directories in a specified directory or the current working directory if no directory is specified.</p>
+<p>Goal of this step: get familiar with basic Linux command line instructions:</p>
+<ul>
+<li><code>pwd</code>, which shows the <u><strong>p</strong></u>ath to your current <u><strong>w</strong></u>orking <u><strong>d</strong></u>irectory</li>
+<li><code>ls</code>, which <u><strong>l</strong></u>i<u><strong>s</strong></u>ts the contents of your current directory</li>
+<li><code>cd</code>, which lets you <u><strong>c</strong></u>hange the <u><strong>d</strong></u>irectory you’re in</li>
+<li><code>mkdir</code>, which <u><strong>m</strong></u>a<u><strong>k</strong></u>es a new <u><strong>dir</strong></u>ectory</li>
+<li><code>touch</code>, which creates a new (empty) file</li>
+<li><code>rm</code>, which <u><strong>r</strong></u>e<u><strong>m</strong></u>oves files and directories</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Cleaning your terminal
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>If your screen is full of unwanted text, hit <code>CTRL+L</code> to clear it.</p>
+</div>
+</div>
+</div>
+<p>Log in to the EDU Pod Rstudio interface: <a href="https://edupod.cns.utexas.edu/rstudio/">https://edupod.cns.utexas.edu/rstudio/</a></p>
+<p><img src="git_basic_workflow_files/edupod_rstudio_login.png" class="img-fluid"></p>
+<p>Use the same username and password you use to log into UTDirect and Canvas. You should see a screen that looks like the below. This is the interface for working with R, which we’ll come back to later in the course.</p>
+<p><img src="git_basic_workflow_files/edupod_rstudio_terminal_tab.png" class="img-fluid"></p>
+<p>For now we’re interested in getting to the terminal. You should see a tab labeled Terminal, marked in red above.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Getting your terminal back
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You may not see a terminal tab, or in the future might accidentally exit out of it. To get the terminal back, you can either use the toolbar at the top of the screen with Tools → Terminal → New Terminal, or use the keyboard shortcut <code>ALT+SHIFT+R</code>.</p>
+</div>
+</div>
+</div>
+<p>You should be greeted by a mostly blank screen, with a line that looks like this near the top:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">wab773@educcomp04:~$</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This basically just says who I am, <code>wab773</code>, that I am signed in to a computer called <code>educcomp04</code>, and that I am in a directory called <code>~</code>. The dollar sign indicates that I can type a command after it.</p>
+<p>When you perform actions in a terminal, they are performed in what is called your “working directory”. This just means that if you tell your computer to say, make a file, it will default to making it right where it thinks you are at that moment. So first, we want to know how to make sure we know where the computer thinks we are.</p>
+<p>Type <code>pwd</code> in the terminal and hit the <code>ENTER</code> key. (You always have to hit <code>ENTER</code> to tell the computer to execute the command.) You should see something like this:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">wab773@educcomp04:~$</span> pwd</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">/stor/home/wab773</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This is where the computer thinks we are, and where it will assume we want it to do things we tell it to do (unless we tell it otherwise).</p>
+<p>Feel free to copy and paste commands from here to the terminal - you need to hit <code>CTRL+SHIFT+V</code> to paste instead of just `CTRL+V``.</p>
+<p>Type <code>ls</code> in the terminal. It will list the files and directories in the current working directory.</p>
 <p><img src="images/s1_0.png" class="img-fluid"></p>
-<p>Type <code>mkdir air_plane_exercise</code> in the terminal. It will create a new directory with a specified name in the file system.</p>
-<p><img src="images/s1_1.png" class="img-fluid"></p>
-<p>Type <code>ls</code> in the terminal to check the files and directories in current working directory.</p>
-<p><img src="images/s1_2.png" class="img-fluid"></p>
-<p>Type <code>cd air_plane_exercise</code> in the terminal to change the current working directory to <code>air_plane_exercise</code> folder.</p>
-<p><img src="images/s1_3.png" class="img-fluid"></p>
-<p>Type <code>touch instructions.txt</code> in the terminal to create a new text file named “instructions” inside the air_plane_exercise folder. You can type <code>ls</code> to check the updated files and folders.</p>
-<p><img src="images/s1_4.png" class="img-fluid"></p>
+<p>Type <code>touch instructions.txt</code> in the terminal to create a new text file named “instructions”. We’re actually running a program called <code>touch</code> with the argument <code>instructions.txt</code>. When the <code>touch</code> program runs, it looks for its first argument, then makes a file with that name - in this case <code>instructions.txt</code>. Type <code>ls</code> to see that you’ve successfully made the file.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">wab773@educcomp04:~$</span> touch instructions.txt</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">wab773@educcomp04:~$</span> ls</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">instructions.txt</span>  R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note that just when we ran the <code>touch</code> command, the computer didn’t say anything - it just did its task and asked us for the next command. Many commands are like this - if they don’t encounter any problems running, they won’t display any output.</p>
+<p>At times you’ll want to remove files you’ve created. In this case, we actually want to make instructions.txt somewhere else and so we need to remove the file. You can remove files with the <code>rm</code> command. It works much like <code>touch</code> - the argument you pass to it is the file that <code>rm</code> will try to delete. Type <code>ls</code> to verify the file has been deleted.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">wab773@educcomp04:~$</span> rm instructions.txt</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">wab773@educcomp04:~$</span> ls</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">R</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Right now we’re in a special directory called the “home” directory which is unique to every user. This is similar to your desktop on your computer, or “My Documents” on Windows: someone else logged into your computer on a different account will see different things on their desktop and in their “My Documents” folder.</p>
+<p>We want to be a bit more organized rather than just putting files everywhere (think of a desktop cluttered with dozens of files), so we’ll make a new directory for this exercise. We can make directories with the command <code>mkdir</code>. Using the <code>mkdir</code> command is just like <code>touch</code> and <code>rm</code> - what you put after the command is the name of the directory you want to make.</p>
+<p>Type <code>mkdir air_plane_exercise</code> in the terminal. It will create a new directory with a specified name in the file system. Verify that you’ve successfully made the new directory with <code>ls</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">wab773@educcomp04:~$</span> mkdir air_plane_exercise</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">wab773@educcomp04:~$</span> ls</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">air_plane_exercise</span>  R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You may notice that <code>ls</code> makes the “air_plane_exercise” directory appear a little different than the file “instructions.txt” above. This can be a handy way of telling directories and files apart.</p>
+<p><img src="git_basic_workflow_files/directory_vs_file.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Removing directories
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You can remove directories with <code>rm</code>, but you need to type <code>rm -r [DIRECTORY]</code> to do so.</p>
+</div>
+</div>
+</div>
+<p>Now we want to tell the computer that we want future commands to take place inside the directory we’ve just made - we don’t automatically enter a directory just because we made it! To move into a directory, use the <code>cd</code> command. Type <code>cd air_plane_exercise</code> in the terminal to change the current working directory to <code>air_plane_exercise</code>, and use <code>pwd</code> to verify you’ve entered the directory.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">wab773@educcomp04:~$</span> cd air_plane_exercise/</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">wab773@educcomp04:~/air_plane_exercise$</span> pwd</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">/stor/home/wab773/air_plane_exercise</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note that the text before the <code>$</code> changed to show our new location. This is a useful way to check that the computer thinks we’re in the right spot - doing something in the wrong directory is a common enough mistake that by default most terminal applications show this.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Getting back home
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The <code>~</code> indicates the home directory. You can almost always use <code>~</code> in commands to refer to the home directory, so <code>cd ~</code> will take you to your home directory if you get lost.</p>
+</div>
+</div>
+</div>
 </section>
-<section id="creating-a-git-repo" class="level2" data-number="13.3">
-<h2 data-number="13.3" class="anchored" data-anchor-id="creating-a-git-repo"><span class="header-section-number">13.3</span> Creating a git repo,</h2>
+<section id="creating-a-git-repository-repo" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="creating-a-git-repository-repo"><span class="header-section-number">13.3</span> Creating a git repository (“repo”)</h2>
 <p>Goal of this step: learn git init.</p>
-<p>Type <code>git init</code> in the terminal. The <code>git init</code> command is typically used to start a new repository or to convert an existing project into a Git repository.</p>
-<p><img src="images/s2_1.png" class="img-fluid"></p>
+<p>Type <code>git init</code> in the terminal. The <code>git init</code> command is typically used to start a new repository or to convert an existing project into a Git repository. On success, you should see something like the below:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">wab773@educcomp04:~/air_plane_exercise$</span> git init</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Initialized</span> empty Git repository in /stor/home/wab773/air_plane_exercise/.git/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Removing git from a directory
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>If you make the wrong directory into a repository by mistake, you can undo that by going to the directory with <code>cd</code> and then removing the hidden <code>.git</code> directory there with <code>rm -r .git</code>.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="git-status-add-commit" class="level2" data-number="13.4">
 <h2 data-number="13.4" class="anchored" data-anchor-id="git-status-add-commit"><span class="header-section-number">13.4</span> Git status, add, commit</h2>
 <p>Goal of this step: learn git status, git add, and git commit</p>
-<p>Make some changes in the “instructions.txt” and save it.</p>
-<p>Type <code>git status</code> in the terminal to show the state of the working directory and the staged changes. You will see <code>untracked files</code>.</p>
-<p><img src="images/s2_2.png" class="img-fluid"></p>
-<p>Type <code>git add</code> in the terminal to stage changes for a commit. It allows you to select which changes in the working directory will be included in the next commit.</p>
-<p>Type <code>git status</code> in the terminal, you will see “changes to be committed”<img src="images/s2_3.png" class="img-fluid"></p>
-<p>Type <code>git commit -m "paper plane2"</code>to save changes to the local repository. It takes all of the changes staged with <code>git add</code> and stores them as a new commit with a message describing the changes.</p>
-<p><img src="images/s2_4.png" class="img-fluid"></p>
-<p>Type <code>git status</code> to check status again. It should show “nothing to commit, working tree clean”.</p>
-<p><img src="images/s2_5.png" class="img-fluid"></p>
-<p>Make some changes:</p>
-<ul>
-<li>edit the “instructions” text file, save it, git add it, git commit it</li>
-<li>create another text file named “license”, save it, git add it, git commit it</li>
-</ul>
+<p>We’ve got a Git repository now, but there’s nothing in it. Let’s re-make our <code>instructions.txt</code> file with <code>touch instructions.txt</code>.</p>
+<p>Now we’ve got a file in the repository - but what does this mean? Helpfully, <code>git</code> has another subcommand, <code>git status</code>, which shows the current state <code>git</code> thinks our repository is in.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">wab773@educcomp04:~/air_plane_exercise$</span> touch instructions.txt</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">wab773@educcomp04:~/air_plane_exercise$</span> git status</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">On</span> branch master</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="ex">No</span> commits yet</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Untracked</span> files:</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">(</span><span class="ex">use</span> <span class="st">"git add &lt;file&gt;..."</span> to include in what will be committed<span class="kw">)</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>        <span class="ex">instructions.txt</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="ex">nothing</span> added to commit but untracked files present <span class="er">(</span><span class="ex">use</span> <span class="st">"git add"</span> to track<span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The main takeaways from the response from <code>git status</code> are:</p>
+<ol type="1">
+<li>Git says we haven’t committed anything into the repository yet.</li>
+<li>Git sees that we have a file instructions.txt.</li>
+<li>Git says it hasn’t been told to “track” that file.</li>
+</ol>
+<p>We do want that file to be tracked, so we can <code>git add</code> the file per the command’s suggestion. The <code>git add</code> command works like most of the others we’ve dealt with - we just tell it the name of the file to add, and it will do so. Using <code>git status</code>, we can now see the file is now being tracked.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">wab773@educcomp04:~/air_plane_exercise$</span> git add instructions.txt</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">wab773@educcomp04:~/air_plane_exercise$</span> git status</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="ex">On</span> branch master</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="ex">No</span> commits yet</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Changes</span> to be committed:</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">(</span><span class="ex">use</span> <span class="st">"git rm --cached &lt;file&gt;..."</span> to unstage<span class="kw">)</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>        <span class="ex">new</span> file:   instructions.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We want “instructions.txt” to actually say something, so let’s make some changes to the file save it. Open a file in Rstudio with File → Open File:</p>
+<p><img src="git_basic_workflow_files/open_file.png" class="img-fluid"></p>
+<p><img src="git_basic_workflow_files/open_file_dialog.png" class="img-fluid"></p>
+<p>Just make some changes to the file and save it (you can use <code>CTRL+S</code> or File →). Rstudio indicates when files have unsaved changes by making the filename red and adding an asterisk to it, like so:</p>
+<p><img src="git_basic_workflow_files/file_changes.png" class="img-fluid"></p>
+<p>So we’ve got a tracked file and some changes. Are we ready to commit? Let’s see what <code>git status</code> has to say.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">wab773@educcomp04:~/air_plane_exercise$</span> git status</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">On</span> branch master</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="ex">No</span> commits yet</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Changes</span> to be committed:</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">(</span><span class="ex">use</span> <span class="st">"git rm --cached &lt;file&gt;..."</span> to unstage<span class="kw">)</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>        <span class="ex">new</span> file:   instructions.txt</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="ex">Changes</span> not staged for commit:</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">(</span><span class="ex">use</span> <span class="st">"git add &lt;file&gt;..."</span> to update what will be committed<span class="kw">)</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">(</span><span class="ex">use</span> <span class="st">"git restore &lt;file&gt;..."</span> to discard changes in working directory<span class="kw">)</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>        <span class="ex">modified:</span>   instructions.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>So Git sees our <code>instructions.txt</code> file and is tracking it, but it says there are “Changes not staged for commit”. This means that while it knows we are interested in tracking the file, we haven’t told it we want the changes we just made to be commited to the repository.</p>
+<p>Type <code>git add instructions.txt</code> in the terminal to stage changes for a commit. Type <code>git status</code> to verify that Git now sees we want to commit the instructions we typed.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">wab773@educcomp04:~/air_plane_exercise$</span> git status</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">On</span> branch master</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="ex">No</span> commits yet</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Changes</span> to be committed:</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">(</span><span class="ex">use</span> <span class="st">"git rm --cached &lt;file&gt;..."</span> to unstage<span class="kw">)</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>        <span class="ex">new</span> file:   instructions.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Adding all files
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>It can become tedious to type in all of the files you want added to your repository. As a shortcut, you can type <code>git add .</code> to track all files and changes to Git.</p>
+</div>
+</div>
+</div>
+<p>Since Git isn’t complaining about anything, if we commit then the current state of the directory will be committed.</p>
+<p>Type <code>git commit -m "paper plane1"</code>to save changes to the local repository. It takes all of the changes staged with <code>git add</code> and stores them as a new commit with a message describing the changes.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">wab773@educcomp04:~/air_plane_exercise$</span> git commit <span class="at">-m</span> <span class="st">"paper plane1"</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[master</span> <span class="er">(</span><span class="ex">root-commit</span><span class="kw">)</span> <span class="ex">ddca4f4]</span> paper plane1</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>long <span class="ex">output</span> excluded<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Forgetting <code>-m message</code>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>It’s very easy to just type <code>git commit</code> and forget to type a message. In most cases, this will put you in an obtuse text editor called “vim”. While powerful, that editor is both very difficult to use and not part of our class. You can safely exit that editor by typing <code>:cq</code> (these should appear in the bottom left of your screen) and hitting <code>ENTER</code>. If that doesn’t work, try hitting <code>ESC</code> and trying again. If that doesn’t work, you can exit the terminal by clicking the “X” by the “Terminal” tab and launching a new terminal. See “Getting your terminal back” above.</p>
+</div>
+</div>
+</div>
+<p>Type <code>git status</code> to check status again.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">wab773@educcomp04:~/air_plane_exercise$</span> git status</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">On</span> branch master</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="ex">nothing</span> to commit, working tree clean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This message means that Git doesn’t see any changes between our directory and the most recent commit.</p>
+<p>Let’s make some more changes:</p>
+<ol type="1">
+<li>edit “instructions.txt”, save it, git add it, git commit it</li>
+<li>create another text file named “license.txt”, edit/save it, git add it, git commit it</li>
+</ol>
 </section>
 <section id="using-git-log-to-understand-what-is-in-the-repo" class="level2" data-number="13.5">
 <h2 data-number="13.5" class="anchored" data-anchor-id="using-git-log-to-understand-what-is-in-the-repo"><span class="header-section-number">13.5</span> Using git log to understand what is in the repo</h2>
@@ -421,31 +629,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="images/s3_1.png" class="img-fluid"></p>
 <p>You can also use <code>git log --oneline --abbrev-commit --all --graph</code> to show git log in short. <img src="images/s3_2.png" class="img-fluid"></p>
 <p>In class we will mostly add <code>--color</code> to this as well:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span> <span class="at">--abbrev-commit</span> <span class="at">--all</span> <span class="at">--graph</span> <span class="at">--decorate</span> <span class="at">--color</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>You can learn more about reading the output of that command here: https://stackoverflow.com/questions/22313343/git-graph-what-do-the-lines-and-asteriks-denote</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span> <span class="at">--abbrev-commit</span> <span class="at">--all</span> <span class="at">--graph</span> <span class="at">--decorate</span> <span class="at">--color</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can learn more about reading the output of that command here: <a href="https://stackoverflow.com/questions/22313343/git-graph-what-do-the-lines-and-asteriks-denote">https://stackoverflow.com/questions/22313343/git-graph-what-do-the-lines-and-asteriks-denote</a></p>
 <p>The * characters show a single commit, the lines help us understand the branches.</p>
-<p>Here are the review of Linux command lines and Git command lines</p>
+<p>That command is long and quite hard to remember. Fortunately, Git allows us to specify an “alias”, effectively letting us define a new subcommand that does all of that:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> alias.viz <span class="st">'log --oneline --abbrev-commit --all --graph --decorate --color'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now, if you type <code>git viz</code> in the future, it will act as if you’d typed that entire command!</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Forgetting –global
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The <code>--global</code> flag tells Git that you want to have the <code>git viz</code> subcommand available in all repositories on your computer. If you forget that flag, you’ll have that subcommand in your current repository, but no others!</p>
+</div>
+</div>
+</div>
 </section>
-<section id="linux-command-lines" class="level2" data-number="13.6">
-<h2 data-number="13.6" class="anchored" data-anchor-id="linux-command-lines"><span class="header-section-number">13.6</span> Linux Command Lines</h2>
+<section id="git-commands" class="level2" data-number="13.6">
+<h2 data-number="13.6" class="anchored" data-anchor-id="git-commands"><span class="header-section-number">13.6</span> Git Commands</h2>
 <ol type="1">
-<li><p>cd → change directory</p>
-<p><code>cd</code> () is to change the current working directory to a specified directory.</p></li>
-<li><p>ls → list files</p>
-<p><code>ls</code> (list directory contents) is to list the files and directories in a specified directory or the current working directory if no directory is specified.</p></li>
-<li><p>pwd → present working directory</p>
-<p><code>pwd</code> shows the full path to the current directory. It can help understand how the files look. <code>tree ..</code> is another useful option (this goes up a directory using the two dots: <code>..</code> and <code>tree</code> shows the files in a hierarchical diagram.)</p></li>
-<li><p>mkdir → make new directory</p>
-<p><code>mkdir</code> (make directory) is to create a new directory with a specified name in the file system.</p></li>
-</ol>
-</section>
-<section id="git" class="level2" data-number="13.7">
-<h2 data-number="13.7" class="anchored" data-anchor-id="git"><span class="header-section-number">13.7</span> Git</h2>
-<ol type="1">
+<li><p>Git init</p>
+<p><code>git init</code> creates a new repository.</p></li>
 <li><p>Git add</p>
-<p><code>git add</code> is a command used in Git to stage changes for a commit. It allows you to select which changes in the working directory will be included in the next commit.</p></li>
+<p><code>git add [file]</code> is a command used in Git to stage changes for a commit. It allows you to select which changes in the working directory will be included in the next commit.</p></li>
 <li><p>Git commit -m “message”</p>
-<p><code>git commit</code> saves changes to the local repository. It takes all of the changes staged with <code>git add</code> and stores them as a new commit with a message describing the changes.</p></li>
+<p><code>git commit</code> saves changes to the local repository. It takes all of the changes staged with <code>git add</code> and stores them as a new commit with a message describing the changes. It is important to remember the quotes around your message so Git knows you want the entire message as the commit message.</p></li>
 <li><p>Git status</p>
 <p><code>git status</code> shows the state of the working directory and the staged changes, and it indicates which branch you are currently on.</p></li>
 <li><p>Git log</p>
@@ -491,18 +706,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -534,7 +738,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -542,7 +766,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -639,7 +863,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

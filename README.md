@@ -20,3 +20,18 @@ And differ in a few ways:
 So as the course is being developed, reference the peer production syllabus and repository, but keep the points above in mind.
 
 The course will be useful for those that want to work in data science roles, but also help understand how open source software works and how it has changed the world of software and beyond. 
+
+# Creating the site using quarto
+
+The `quarto` executable is installed via `brew` (so I'm not using the Rstudio bundled version). https://formulae.brew.sh/cask/quarto
+
+Source for the site is in `~/quarto_course` and HTML output goes into `~/docs/current`.  Github pages just sees the compiled html in `docs`.
+
+Currently the workflow for creating the site is this:
+
+1. In Rstudio Termina run `quarto preview quarto_course/` This watches the files and recomplies as needed, showing a live preview in a local browser window.
+1. Edit qmd files in Rstudio (including adding any new chapters to `~/quarto_course/_quarto.yml`)
+2. Once ready to release, compile the site using Rstudio Terminal commandline `quarto render quarto_course/` (and the _quarto.yml file defines the output directory).
+3. Use `git add quarto_course/ docs/` to pickup changes, then commit and push.
+
+It would be possible to use a GitHub action to generate the site, thus only needing to push up the qmd and image files. But since I have to generate locally to preview anyway, that doesn't seem necessary.

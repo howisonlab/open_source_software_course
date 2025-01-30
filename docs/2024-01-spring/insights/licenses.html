@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.552">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Open Source Software Development: A socio-technical course - 6&nbsp; Licenses</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../insights/coordination.html" rel="next">
+<link href="../insights/motivations.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../insights/paper_plane_innovation.html">Insights</a></li><li class="breadcrumb-item"><a href="../insights/licenses.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Licenses</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Open Source Software Development: A socio-technical course</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/howisonlab/open_source_software_course/tree/master/quarto_course/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Open Source Software Development: A socio-technical course</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../oss_syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Syllabus for Open Source Software Development</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Insights</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/paper_plane_innovation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Paper planes as an analogy for peer production</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/what_is_open_source.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction: What is open source?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/motivations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Motivations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/licenses.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Licenses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/coordination.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Coordination</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/governance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Governance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/bias_lack_of_diversity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Bias and Lack of Diversity</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/stack_and_stream.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">From Stack, to stream, to ecosystem.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../insights/agile.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Iterative Development, Regression Tests, and Continuous Integration</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Skills</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/paper_planes_git.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Paper Planes Exercise 2: Version control and collaboration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/git_basic_workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Git basic workflow</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/git_rewinding_work.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Rewinding work</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/branching.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Local branching with Git.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/github_solo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">GitHub solo</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/github_collaboration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Github collaboration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/git_cherrypick_split_pr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Split a Pull Request</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/git_rebase.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Rebase for synchronizing work</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/git_delete_history.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Removing something from history entirely</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Testing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/continuous_integration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Continuous Integration (aka CI/CD)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/packaging.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Packages to distibute code</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skills/skills_faq.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Skills faq</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-license-readings" id="toc-sec-license-readings" class="nav-link active" data-scroll-target="#sec-license-readings"><span class="header-section-number">6.1</span> Readings prior to class</a></li>
+  <li><a href="#lecture-notes" id="toc-lecture-notes" class="nav-link" data-scroll-target="#lecture-notes"><span class="header-section-number">6.2</span> Lecture notes</a>
+  <ul class="collapse">
+  <li><a href="#copyright" id="toc-copyright" class="nav-link" data-scroll-target="#copyright"><span class="header-section-number">6.2.1</span> Copyright</a></li>
+  <li><a href="#revocation-time-limitation-and-exclusivity" id="toc-revocation-time-limitation-and-exclusivity" class="nav-link" data-scroll-target="#revocation-time-limitation-and-exclusivity"><span class="header-section-number">6.2.2</span> Revocation, time-limitation, and exclusivity</a></li>
+  <li><a href="#open-source-definition" id="toc-open-source-definition" class="nav-link" data-scroll-target="#open-source-definition"><span class="header-section-number">6.2.3</span> Open Source Definition</a></li>
+  <li><a href="#copyleft" id="toc-copyleft" class="nav-link" data-scroll-target="#copyleft"><span class="header-section-number">6.2.4</span> Copyleft</a></li>
+  <li><a href="#recent-controversies-discussion" id="toc-recent-controversies-discussion" class="nav-link" data-scroll-target="#recent-controversies-discussion"><span class="header-section-number">6.2.5</span> Recent controversies discussion</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/insights/licenses.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../insights/paper_plane_innovation.html">Insights</a></li><li class="breadcrumb-item"><a href="../insights/licenses.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Licenses</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-licenses" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Licenses</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="sec-license-readings" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="sec-license-readings"><span class="header-section-number">6.1</span> Readings prior to class</h2>
+<p>A chapter from a book, and four blog style articles. The book chapter should take between 1-2 hours to read, the blogs should take about another 20-40 minutes.</p>
+<ol type="1">
+<li><p>Chapter “Writing Copyright Licenses” of Kelty, C. M. (2008). Two Bits: The Cultural Significance of Free Software. Durham: Duke University Press Books. <a href="https://twobits.net/pub/Kelty-TwoBits.pdf#page=195" class="uri">https://twobits.net/pub/Kelty-TwoBits.pdf#page=195</a><br>
+<em>A medium length chapter describing how open source licenses came to be. Should take between 1 and 2 hours to read.</em></p></li>
+<li><p>The Open Source Definition. <a href="https://opensource.org/osd" class="uri">https://opensource.org/osd</a><br>
+<br>
+<em>Quick list of elements to be found in open source licenses</em></p></li>
+<li><p>FSF Settles Suit Against Cisco. <a href="https://www.fsf.org/news/2009-05-cisco-settlement.html" class="uri">https://www.fsf.org/news/2009-05-cisco-settlement.html</a></p>
+<p><em>A summary of the Free Software Foundation enforcing the GPL license</em></p></li>
+<li><p>Amazon: NOT OK - why we had to change Elastic licensing. (2021, January 19). Elastic Blog. <a href="https://www.elastic.co/blog/why-license-change-AWS" class="uri">https://www.elastic.co/blog/why-license-change-AWS</a><br>
+<br>
+<em>A summary of a recent trend in open source breaks with the “no field of use” restrictions, trying to sustain an open source business model funded by cloud service delivery.</em></p></li>
+<li><p>Carlos Munoz Ferrandis. (2022, August 31). OpenRAIL: Towards open and responsible AI licensing frameworks. Hugging Face Blog. <a href="https://huggingface.co/blog/open_rail" class="uri">https://huggingface.co/blog/open_rail</a><br>
+<br>
+<em>Machine learning leaders, huggingface (yes, that’s their real company name), explaining why sharing trained AI/neutral network models/weights is both similar to sharing code and different, proposing a new license focused on ethical reuse of shared trained models.</em></p></li>
+</ol>
+<!--# Funny video showing effects of "do no evil" in license. https://youtu.be/-hCimLnIsDA -->
+</section>
+<section id="lecture-notes" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="lecture-notes"><span class="header-section-number">6.2</span> Lecture notes</h2>
+<section id="copyright" class="level3" data-number="6.2.1">
+<h3 data-number="6.2.1" class="anchored" data-anchor-id="copyright"><span class="header-section-number">6.2.1</span> Copyright</h3>
+<ul>
+<li><p>Source code is writing, just like a book or a poem.</p></li>
+<li><p>Edits are modifications, improvements create derived works, distribution makes copies</p></li>
+<li><p>Writing is copyrighted.</p>
+<ul>
+<li>Owner has the right to decide who can copy or modify</li>
+</ul></li>
+<li><p>Violations of a license triggered by distribution</p>
+<ul>
+<li>giving to others, esp.&nbsp;selling</li>
+</ul></li>
+<li><p>Penalty for violation are:</p>
+<ul>
+<li>Court order to stop distributing</li>
+<li>Economic damages</li>
+</ul></li>
+</ul>
+</section>
+<section id="revocation-time-limitation-and-exclusivity" class="level3" data-number="6.2.2">
+<h3 data-number="6.2.2" class="anchored" data-anchor-id="revocation-time-limitation-and-exclusivity"><span class="header-section-number">6.2.2</span> Revocation, time-limitation, and exclusivity</h3>
+<ul>
+<li><p>The text of specific copyright licenses can specify time-limits (after which they expire or change)</p></li>
+<li><p>Owner can release same work under many different licenses at once (as long as they are compatible).</p>
+<ul>
+<li>Called <em>dual-licensing</em></li>
+</ul></li>
+<li><p>Owner can re-license their own derivative works (but the license on the original is unchanged by that)</p></li>
+</ul>
+</section>
+<section id="open-source-definition" class="level3" data-number="6.2.3">
+<h3 data-number="6.2.3" class="anchored" data-anchor-id="open-source-definition"><span class="header-section-number">6.2.3</span> Open Source Definition</h3>
+<p>The Open Source Initiative holds a trade mark so they can determine which licenses can be called open source. They have established the <a href="https://opensource.org/osd">“Open Source Definition”</a> with 10 elements (slightly abridged below):</p>
+<blockquote class="blockquote">
+<p>** Introduction **</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Open source doesn’t just mean access to the source code. The distribution terms of open-source software must comply with the following criteria:</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol type="1">
+<li><strong>Free Redistribution</strong></li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<p>The license shall not restrict any party from selling or giving away the software … The license shall not require a royalty or other fee for such sale.</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="2" type="1">
+<li><strong>Source Code</strong></li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<blockquote class="blockquote">
+<p>The program must include source code, and must allow distribution in source code as well as compiled form … Deliberately obfuscated source code is not allowed. Intermediate forms such as the output of a preprocessor or translator are not allowed.</p>
+</blockquote>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="3" type="1">
+<li><strong>Derived Works</strong></li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<p>The license must allow modifications and derived works, and must allow them to be distributed under the same terms as the license of the original software.</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="4" type="1">
+<li><strong>Integrity of The Author’s Source Code</strong></li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<p>The license may restrict source-code from being distributed in modified form only if the license allows the distribution of “patch files” with the source code for the purpose of modifying the program at build time. The license must explicitly permit distribution of software built from modified source code. The license may require derived works to carry a different name or version number from the original software.</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="5" type="1">
+<li><strong>No Discrimination Against Persons or Groups</strong></li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<p>The license must not discriminate against any person or group of persons.</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="6" type="1">
+<li><strong>No Discrimination Against Fields of Endeavor</strong></li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<p>The license must not restrict anyone from making use of the program in a specific field of endeavor. For example, it may not restrict the program from being used in a business, or from being used for genetic research.</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="7" type="1">
+<li><strong>Distribution of License</strong></li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<p>The rights attached to the program must apply to all to whom the program is redistributed without the need for execution of an additional license by those parties.</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="8" type="1">
+<li><strong>License Must Not Be Specific to a Product</strong></li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<p>The rights attached to the program must not depend on the program’s being part of a particular software distribution…</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="9" type="1">
+<li><strong>License Must Not Restrict Other Software</strong></li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<p>The license must not place restrictions on other software that is distributed along with the licensed software. For example, the license must not insist that all other programs distributed on the same medium must be open-source software.</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="10" type="1">
+<li><strong>License Must Be Technology-Neutral</strong></li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<p>No provision of the license may be predicated on any individual technology or style of interface.</p>
+</blockquote>
+</section>
+<section id="copyleft" class="level3" data-number="6.2.4">
+<h3 data-number="6.2.4" class="anchored" data-anchor-id="copyleft"><span class="header-section-number">6.2.4</span> Copyleft</h3>
+<ul>
+<li><p>Some licenses add an additional restriction; They are called <em>copyleft</em> licenses (a play on the word copy<em>right</em>).</p></li>
+<li><p>Item number 3, Derived Works, says:</p></li>
+</ul>
+<blockquote class="blockquote">
+<p>The license must allow modifications and derived works, and must allow them to be distributed under the same terms as the license of the original software.</p>
+</blockquote>
+<p>Copyleft licenses alter this by changing “must allow” to “if distributed, must require”</p>
+<blockquote class="blockquote">
+<p>The license must allow modifications and derived works, and <strong>if distributed must require</strong> them to be distributed under the same terms as the license of the original software.</p>
+</blockquote>
+<ul>
+<li><p>Copyleft means derived works, that are distributed, cannot be licensed under a different license but must be licensed under the same license. See <a href="https://copyleft.org/guide/comprehensive-gpl-guidech6.html#x9-420005.1">detailed discussion at copyleft.org</a></p></li>
+<li><p>This is informally referred to as <strong>viral</strong>: derived works are “infected” and must all be copyleft.</p></li>
+<li><p>This only applies if the changes are distributed. Usually this means distributed beyond the individual or company that owns the copyright. This means that companies can alter copyleft software, as long as they don’t let that code outside their own organization.</p></li>
+</ul>
+</section>
+<section id="recent-controversies-discussion" class="level3" data-number="6.2.5">
+<h3 data-number="6.2.5" class="anchored" data-anchor-id="recent-controversies-discussion"><span class="header-section-number">6.2.5</span> Recent controversies discussion</h3>
+<section id="cloud-software" class="level4" data-number="6.2.5.1">
+<h4 data-number="6.2.5.1" class="anchored" data-anchor-id="cloud-software"><span class="header-section-number">6.2.5.1</span> Cloud software</h4>
+<p>The original open source licenses were written before cloud, and the idea of Software As A Service (SAAS). Why does cloud and SAAS change a key circumstance?</p>
+<ol type="1">
+<li><p>Cloud delivery of software<br>
+</p>
+<p>Why was the Affero GPL created?</p></li>
+<li><p>Amazon Web Services and open source.<br>
+</p>
+<p>Elastic Search has created their own license. What does it do differently? Is it an open source license? Would OSI consider it to be an open source license?</p></li>
+</ol>
+</section>
+<section id="artificial-intellegence-software" class="level4" data-number="6.2.5.2">
+<h4 data-number="6.2.5.2" class="anchored" data-anchor-id="artificial-intellegence-software"><span class="header-section-number">6.2.5.2</span> Artificial Intellegence software</h4>
+<p>Neural Networks express much of their logic not in code, but in the weights of a trained neutral network.</p>
+<ul>
+<li>Why does this change impact open source?</li>
+<li>Can trained neutral networks be modified or improved? What would be needed?</li>
+<li>What does the OpenRAILs license try to do? See Hugging Face reading above (<a href="#sec-license-readings" class="quarto-xref"><span>Section 6.1</span></a>).</li>
+<li>Would OSI judge that license to be “open source”? Which provisions, if any, might it violate?</li>
+</ul>
+</section>
+<section id="recent-license-violation-articles." class="level4" data-number="6.2.5.3">
+<h4 data-number="6.2.5.3" class="anchored" data-anchor-id="recent-license-violation-articles."><span class="header-section-number">6.2.5.3</span> Recent license violation articles.</h4>
+<p>https://undeleted.ronsor.com/voice.ai-gpl-violations-with-a-side-of-drm/</p>
+<p>Discussed on Hacker News here: https://news.ycombinator.com/item?id=34681636</p>
+<p>Not just violating GPL, but likely other licenses too (not including license in distributed non-copyleft open source).</p>
+<p>Lots of these out there, found this as searching:</p>
+<p>https://hackaday.com/2022/07/15/watch-out-for-lasercutter-manufacturers-violating-gpl/</p>
+<p>Including stories about startups whose cash out was sunk by OSS license violations:</p>
+<p>https://abovethelaw.com/2022/01/how-to-ensure-open-source-risks-wont-scuttle-your-deal/</p>
+<p>Point is not to scare people from using open source, but to understand the very real meaning of the licenses. The more sophisticated understanding of open source you are gaining from this course will be an advantage in the job market.</p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../insights/motivations.html" class="pagination-link" aria-label="Motivations">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Motivations</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../insights/coordination.html" class="pagination-link" aria-label="Coordination">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Coordination</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/insights/licenses.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>
