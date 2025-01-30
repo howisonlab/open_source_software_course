@@ -568,11 +568,11 @@
     ]
   },
   {
-    "objectID": "skills/git_basic_workflow.html#creating-a-git-repo",
-    "href": "skills/git_basic_workflow.html#creating-a-git-repo",
+    "objectID": "skills/git_basic_workflow.html#creating-a-git-repository-repo",
+    "href": "skills/git_basic_workflow.html#creating-a-git-repository-repo",
     "title": "13  Git basic workflow",
-    "section": "13.3 Creating a git repo,",
-    "text": "13.3 Creating a git repo,\nGoal of this step: learn git init.\nType git init in the terminal. The git init command is typically used to start a new repository or to convert an existing project into a Git repository.\n\n\n\n\n\n\n\nRemoving git from a directory\n\n\n\n\n\nIf you make the wrong directory into a repository by mistake, you can undo that by removing the hidden .git directory with rm -r .git",
+    "section": "13.3 Creating a git repository (“repo”)",
+    "text": "13.3 Creating a git repository (“repo”)\nGoal of this step: learn git init.\nType git init in the terminal. The git init command is typically used to start a new repository or to convert an existing project into a Git repository. On success, you should see something like the below:\nwab773@educcomp04:~/air_plane_exercise$ git init\nInitialized empty Git repository in /stor/home/wab773/air_plane_exercise/.git/\n\n\n\n\n\n\nRemoving git from a directory\n\n\n\n\n\nIf you make the wrong directory into a repository by mistake, you can undo that by going to the directory with cd and then removing the hidden .git directory there with rm -r .git.",
     "crumbs": [
       "Skills",
       "<span class='chapter-number'>13</span>  <span class='chapter-title'>Git basic workflow</span>"
@@ -601,22 +601,11 @@
     ]
   },
   {
-    "objectID": "skills/git_basic_workflow.html#linux-command-lines",
-    "href": "skills/git_basic_workflow.html#linux-command-lines",
+    "objectID": "skills/git_basic_workflow.html#git-commands",
+    "href": "skills/git_basic_workflow.html#git-commands",
     "title": "13  Git basic workflow",
-    "section": "13.6 Linux Command Lines",
-    "text": "13.6 Linux Command Lines\n\ncd → change directory\ncd () is to change the current working directory to a specified directory.\nls → list files\nls (list directory contents) is to list the files and directories in a specified directory or the current working directory if no directory is specified.\npwd → present working directory\npwd shows the full path to the current directory. It can help understand how the files look. tree .. is another useful option (this goes up a directory using the two dots: .. and tree shows the files in a hierarchical diagram.)\nmkdir → make new directory\nmkdir (make directory) is to create a new directory with a specified name in the file system.",
-    "crumbs": [
-      "Skills",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Git basic workflow</span>"
-    ]
-  },
-  {
-    "objectID": "skills/git_basic_workflow.html#git",
-    "href": "skills/git_basic_workflow.html#git",
-    "title": "13  Git basic workflow",
-    "section": "13.7 Git",
-    "text": "13.7 Git\n\nGit add\ngit add is a command used in Git to stage changes for a commit. It allows you to select which changes in the working directory will be included in the next commit.\nGit commit -m “message”\ngit commit saves changes to the local repository. It takes all of the changes staged with git add and stores them as a new commit with a message describing the changes.\nGit status\ngit status shows the state of the working directory and the staged changes, and it indicates which branch you are currently on.\nGit log\ngit log is to display the commit history of a repository. It shows a list of all commits in the current branch, along with information about the author, date, and commit message for each one.",
+    "section": "13.6 Git Commands",
+    "text": "13.6 Git Commands\n\nGit init\ngit init creates a new repository.\nGit add\ngit add [file] is a command used in Git to stage changes for a commit. It allows you to select which changes in the working directory will be included in the next commit.\nGit commit -m “message”\ngit commit saves changes to the local repository. It takes all of the changes staged with git add and stores them as a new commit with a message describing the changes. It is important to remember the quotes around your message so Git knows you want the entire message as the commit message.\nGit status\ngit status shows the state of the working directory and the staged changes, and it indicates which branch you are currently on.\nGit log\ngit log is to display the commit history of a repository. It shows a list of all commits in the current branch, along with information about the author, date, and commit message for each one.",
     "crumbs": [
       "Skills",
       "<span class='chapter-number'>13</span>  <span class='chapter-title'>Git basic workflow</span>"
@@ -1181,28 +1170,6 @@
     "crumbs": [
       "Appendices",
       "<span class='chapter-number'>A</span>  <span class='chapter-title'>Skills faq</span>"
-    ]
-  },
-  {
-    "objectID": "skills/git_basic_workflow.html#creating-a-git-repository-repo",
-    "href": "skills/git_basic_workflow.html#creating-a-git-repository-repo",
-    "title": "13  Git basic workflow",
-    "section": "13.3 Creating a git repository (“repo”)",
-    "text": "13.3 Creating a git repository (“repo”)\nGoal of this step: learn git init.\nType git init in the terminal. The git init command is typically used to start a new repository or to convert an existing project into a Git repository. On success, you should see something like the below:\nwab773@educcomp04:~/air_plane_exercise$ git init\nInitialized empty Git repository in /stor/home/wab773/air_plane_exercise/.git/\n\n\n\n\n\n\nRemoving git from a directory\n\n\n\n\n\nIf you make the wrong directory into a repository by mistake, you can undo that by going to the directory with cd and then removing the hidden .git directory there with rm -r .git.",
-    "crumbs": [
-      "Skills",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Git basic workflow</span>"
-    ]
-  },
-  {
-    "objectID": "skills/git_basic_workflow.html#git-commands",
-    "href": "skills/git_basic_workflow.html#git-commands",
-    "title": "13  Git basic workflow",
-    "section": "13.6 Git Commands",
-    "text": "13.6 Git Commands\n\nGit init\ngit init creates a new repository.\nGit add\ngit add [file] is a command used in Git to stage changes for a commit. It allows you to select which changes in the working directory will be included in the next commit.\nGit commit -m “message”\ngit commit saves changes to the local repository. It takes all of the changes staged with git add and stores them as a new commit with a message describing the changes. It is important to remember the quotes around your message so Git knows you want the entire message as the commit message.\nGit status\ngit status shows the state of the working directory and the staged changes, and it indicates which branch you are currently on.\nGit log\ngit log is to display the commit history of a repository. It shows a list of all commits in the current branch, along with information about the author, date, and commit message for each one.",
-    "crumbs": [
-      "Skills",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Git basic workflow</span>"
     ]
   }
 ]
