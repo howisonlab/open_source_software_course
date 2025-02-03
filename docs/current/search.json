@@ -1171,5 +1171,38 @@
       "Appendices",
       "<span class='chapter-number'>A</span>  <span class='chapter-title'>Skills faq</span>"
     ]
+  },
+  {
+    "objectID": "skills/glossary.html",
+    "href": "skills/glossary.html",
+    "title": "Appendix B — Glossary of Commands",
+    "section": "",
+    "text": "B.1 Git",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Glossary of Commands</span>"
+    ]
+  },
+  {
+    "objectID": "skills/glossary.html#git",
+    "href": "skills/glossary.html#git",
+    "title": "Appendix B — Glossary of Commands",
+    "section": "",
+    "text": "git init initializes a new Git repository in the current working directory.\n\ngit init [DIRECTORY] like above, but in the specified directory.\n\ngit add [FILE] tracks changes in the specified file, but does not commit those changes.\n\ngit add . tracks changes in all files in the current directory and all subdirectories. Be careful not to track changes you didn’t intend!\n\ngit commit -m \"[MESSAGE]\" commits all tracked changes to the repository with a specified message. Remember the quotes around the message!\n\ngit commit is like the above, but uses the default text editor (probably vim). You can exit that editor by typing :cq and hitting enter. If that fails, you may want to kill your terminal and restart.\n\ngit status shows the state Git thinks the repository is currently in. By default it shows what branch you’re on, staged and unstaged changes, and untracked files.\ngit log shows the history of the git repository. If the history is longer than your current terminal screen, you can navigate history with the arrow keys. Hit q to quit.\n\ngit viz is an alias we made for this class that shows the commit history in an easier-to-read format.\n\ngit config manages local (for one repository) and global (for all repositories on your computer) configuration. These can change many aspects of how Git functions. Most functionality offered by this command is not part of this class.\n\ngit config --global alias.[NAME] \"[COMMAND]\" creates a new global subcommand for git that executes the passed command named NAME. This is how we made git viz.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Glossary of Commands</span>"
+    ]
+  },
+  {
+    "objectID": "skills/glossary.html#command-line-tools",
+    "href": "skills/glossary.html#command-line-tools",
+    "title": "Appendix B — Glossary of Commands",
+    "section": "B.2 Command Line Tools",
+    "text": "B.2 Command Line Tools\nFor many of these commands, if you type --help after the command, it will print out detailed documentation.\n\npwd, shows the path to your current working directory.\nls, lists the contents of your current directory.\ncd [DIRECTORY], changes the directory you’re in.\n\ncd .., moves to the parent directory of the current working directory.\nPaths starting with / indicate absolute paths rather than ones relative to your working directory.\n\nmkdir, makes a new directory.\ntouch, creates a new (empty) file.\n\nThe command has other uses, but those aren’t part of this class.\n\nrm, removes files and directories.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Glossary of Commands</span>"
+    ]
   }
 ]
