@@ -1,0 +1,37 @@
+# Glossary of Commands
+
+## Git
+
+- `git init` initializes a new Git repository in the current working directory.
+  - `git init [DIRECTORY]` like above, but in the specified directory.
+
+- `git add [FILE]` tracks changes in the specified file, but does not commit those changes.
+  - `git add .` tracks changes in all files in the current directory and all subdirectories. Be careful not to track changes you didn't intend!
+
+- `git commit -m "[MESSAGE]"` commits all tracked changes to the repository with a specified message. Remember the quotes around the message!
+  - `git commit` is like the above, but uses the default text editor (probably vim). You can exit that editor by typing `:cq` and hitting enter. If that fails, you may
+ want to kill your terminal and restart.
+
+- `git status` shows the state Git thinks the repository is currently in. By default it shows what branch you're on, staged and unstaged changes, and untracked files.
+
+- `git log` shows the history of the git repository. If the history is longer than your current terminal screen, you can navigate history with the arrow keys. Hit `q` to quit.
+  - `git viz` is an [alias we made](git_basic_workflow.qmd#using-git-log-to-understand-what-is-in-the-repo) for this class that shows the commit history in an easier-to-read format.
+
+- `git config` manages local (for one repository) and global (for all repositories on your computer) configuration. These can change many aspects of how Git functions. Most functionality offered by this command is not part of this class.
+  - `git config --global alias.[NAME] "[COMMAND]"` creates a new global subcommand for `git` that executes the passed command named `NAME`. This is how we made `git viz`.
+
+
+
+## Command Line Tools
+
+For many of these commands, if you type `--help` after the command, it will print out detailed documentation.
+
+- `pwd`, shows the <u>**p**</u>ath to your current <u>**w**</u>orking <u>**d**</u>irectory.
+- `ls`, <u>**l**</u>i<u>**s**</u>ts the contents of your current directory.
+- `cd [DIRECTORY]`, <u>**c**</u>hanges the <u>**d**</u>irectory you're in.
+  - `cd ..`, moves to the parent directory of the current working directory.
+  - Paths starting with `/` indicate absolute paths rather than ones relative to your working directory.
+- `mkdir`, <u>**m**</u>a<u>**k**</u>es a new <u>**dir**</u>ectory.
+- `touch`, creates a new (empty) file.
+  - The command has other uses, but those aren't part of this class.
+- `rm`, <u>**r**</u>e<u>**m**</u>oves files and directories.

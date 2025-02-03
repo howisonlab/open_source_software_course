@@ -62,7 +62,7 @@ book:
     
   appendices:
     - skills/skills_faq.qmd
-      
+    - skills/glossary.qmd
 
 format:
   html:
