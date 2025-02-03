@@ -325,7 +325,7 @@ Let's make some more changes:
 1.   edit "instructions.txt", save it, git add it, git commit it
 2.   create another text file named "license.txt", edit/save it, git add it, git commit it
 
-## Using git log to understand what is in the repo {#sec-git-viz}
+## Using git log to understand what is in the repo
 
 Goal of this step: learn git log
 
