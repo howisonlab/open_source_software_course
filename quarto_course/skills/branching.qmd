@@ -1,5 +1,5 @@
 
-# Local branching with Git. {#sec-branching}
+# Local branching with Git {#sec-branching}
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)

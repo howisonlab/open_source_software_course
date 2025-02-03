@@ -134,6 +134,18 @@ Talking with your partner, can you identify:
 
 One core idea in self-determination theory is that human development and life satisfaction comes from undertaking activities that move to the right in the diagram: from externally caused through introjection, identification, and integration.
 
+## How are participants motivated?
+
+In 2021 research, [Gerosa et al](https://doi.org/10.1109/ICSE43902.2021.00098), conducted a survey of OSS participant motivations, contacting around 250 respondents and including open response questions which they then categorized ("coded") into different motivations.  Here are examples from their data (GSoC means "Google Summer of Code" which pays people, mostly students, to participate in open source projects).  
+
+![](motivations_files/Gerosa-Table1-open-responses.png)
+
+They asked participants about the motivations which they recall driving their decision to start contributing, and separately their decision to continue participating, allowing a comparison of motivations over time.
+
+For both starting and continuing, they found these different motivations to be mentioned different amounts, and this table shows the number of respondents and the percentage of respondents that mentioned each one.
+
+![](motivations_files/Gerosa-Table4-start-continue.png)
+
 ## Resources
 
 An article detailing how one open source participant is able to fund their work as a maintainer <https://words.filippo.io/full-time-maintainer/>
@@ -147,3 +159,6 @@ Bacon, J. (2009). The Art of Community: Building the New Age of Participation. O
 Raymond, E. S. and Moen, R. (2001). How to ask questions the smart way. Webpage. <http://www.catb.org/esr/faqs/smart-questions.html>
 
 Ryan, R. M., & Deci, E. L. (2000). Intrinsic and Extrinsic Motivations: Classic Definitions and New Directions. Contemporary Educational Psychology, 25(1), 54–67. https://doi.org/10.1006/ceps.1999.1020
+
+Gerosa, M., Wiese, I., Trinkenreich, B., Link, G., Robles, G., Treude, C., Steinmacher, I., & Sarma, A. (2021). The Shifting Sands of Motivation: Revisiting What Drives Contributors in Open Source. 2021 IEEE/ACM 43rd International Conference on Software Engineering (ICSE), 1046–1058. https://doi.org/10.1109/ICSE43902.2021.00098
+

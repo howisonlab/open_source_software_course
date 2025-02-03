@@ -2,18 +2,16 @@
 
 ## Prep exercise.
 
-Your task is to create a git repository that when you run our long viz command
-
-    git log --oneline --abbrev-commit --all --graph --decorate --color
-
-Your screen shows this result (the commit hash abbreviations, like `1b2162e` will vary on your repo)
+Your task is to create a git repository that when you run our `git viz` command, your screen shows this result (the commit hash abbreviations, like `1b2162e` will vary on your repo)
 
 ``` bash
-test-rewind % git log --oneline --abbrev-commit --all --graph --decorate --color                         
+test-rewind % git viz                         
 * 50590c5 (HEAD -> main) made third edit
 * 39f89db made second edit
 * 1b2162e made first edit
 ```
+
+If `git viz` is not working on your EduPod account, revisit @sec-gitlog 
 
 Hint: You will need to start by making a directory called `test-rewind` then using `cd test-rewind` to change into it, and using `git init` to establish a git repo.
 
@@ -48,7 +46,7 @@ To move backwards in time we use the `git checkout` command. We have to let git 
 Starting with our 3 commit test-rewind repo:
 
 ``` bash
-jlh5498@INFO-A64206 test-rewind % git log --oneline --abbrev-commit --all --graph --decorate --color
+jlh5498@INFO-A64206 test-rewind % git viz
 * 50590c5 (HEAD -> main) made third edit
 * 39f89db made second edit
 * 1b2162e made first edit
@@ -86,7 +84,7 @@ HEAD is now at 1b2162e made first edit
 If we run our viz command we can see a little more:
 
 ``` bash
-jlh5498@INFO-A64206 test-rewind % git log --oneline --abbrev-commit --all --graph --decorate --color
+jlh5498@INFO-A64206 test-rewind % git viz
 * 50590c5 (main) made third edit
 * 39f89db made second edit
 * 1b2162e (HEAD) made first edit
@@ -102,7 +100,7 @@ If you see a `error: pathspec 'main' did not match any file(s) known to git` use
 
 ``` bash
 jlh5498@INFO-A64206 test-rewind % git checkout main
-jlh5498@INFO-A64206 test-rewind % git log --oneline --abbrev-commit --all --graph --decorate --color
+jlh5498@INFO-A64206 test-rewind % git viz
 * 50590c5 (HEAD -> main) made third edit
 * 39f89db made second edit
 * 1b2162e made first edit
@@ -115,7 +113,7 @@ jlh5498@INFO-A64206 test-rewind % git add README
 jlh5498@INFO-A64206 test-rewind % git commit -m "Made fourth edit"
 [main ff7997b] Made fourth edit
  1 file changed, 1 insertion(+)
-jlh5498@INFO-A64206 test-rewind % git log --oneline --abbrev-commit --all --graph --decorate --color
+jlh5498@INFO-A64206 test-rewind % git viz
 * ff7997b (HEAD -> main) Made fourth edit
 * 50590c5 made third edit
 * 39f89db made second edit
@@ -147,30 +145,3 @@ Helpful, the output of `git status` helps coach us how to fix this.  We can use 
 Once we have made a commit we face a different problem.  Git is like a "ledger" in accounting that provides an "audit trail": we can't just easily delete something from history.  Instead we can make a commit that reverses the mistake.  One analogy that I like is that if the mistaken commit is "matter" then the revert commit is "anti-matter", it exactly reverses all the changes of the mistaken commit. See <https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/>
 
 This does leave the history looking a bit messy. We will explore other opportunities to tidy things up later in the course.  One note at this point: if things like passwords get into the git history, it can be very difficult to entirely eliminate them from the history (and one never knows if others have unchanged copies) so generally if passwords or other secrets (like API keys) get into a git repository then it's time to change the password or secret!
-
-<!-- # Tags -->
-
-<!-- Tags help identify important points in the version history. They are also used for releases on github. They point to a specific commit, but are human readable, rather than the hash. So they are like a bookmark which brings you directly to a specific point in the repo history. -->
-
-<!-- Your task is to create three tags, `tag-animals`, `tag-colors`, `tag-noises` which reflect the merge points of different branches. -->
-
-<!-- 1.  Have *Maintainer* create a repository, and start with the file having only animals. -->
-<!-- 2.  *Maintainer* tag repo with `tag-animals` -->
-<!-- 3.  *Contributor A* create a branch `colors-for-tag`. *Contributor B* and *Maintainer* contribute to that branch (`lion yellow`) via pull requests. -->
-<!-- 4.  *Contributor A* merge `colors-for-tag` branch to master, than tag master as `tag-colors`. -->
-<!-- 5.  *Contributor B* create branch `noises-for-tag`. *Contributor A* and *Maintainer* contribute to that branch as well. (`lion yellow roar`) -->
-<!-- 6.  *Contributor B* merges that branch to master, then tag master as `tag-noises`. Others update. -->
-
-<!-- Look at the history via `git log`: -->
-
-<!-- ``` sh -->
-<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
-<!-- ``` -->
-
-<!-- To see the status of the repo at a tag, you can use -->
-
-<!-- ``` sh -->
-<!-- git checkout <tag_name> -->
-<!-- ``` -->
-
-<!-- You'll see a message about a "Detached HEAD" which sounds awful but actually means that Git wouldn't know where to put any new commits you make (since new commits are given HEAD as the parent). So tags are mostly used for read-only inspection of code at a particular point in history. -->
