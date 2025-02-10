@@ -24,7 +24,13 @@ knitr::opts_chunk$set(echo = TRUE)
 }
 ```
 
-# Warmup exercise
+## Warmup exercise
+
+::: {.callout-notice}
+
+Some weird git errors can come when we accidentally have git repos inside other git repos. In particular this can happen if we accidentally make our home folder into a git repo.  See discussion and fixes in @sec-faq-home-git-folder You can find additional help in the FAQ section: @sec-skills-faq
+
+:::
 
 Use the terminal to create a new git repo so that when you run our git viz command you see this output:
 
@@ -35,7 +41,7 @@ branching_warmup % git log --oneline --abbrev-commit --all --graph --decorate --
 * 1b2162e Monday
 ```
 
-Remember that for a new git repo you may have to provide a username and email address.  These commands will help (you don't need to change the names)
+Remember that for a new git repo you may have to provide a username and email address.  These commands will help (you don't need to change the names but can if you want)
 
 ```bash
 git config --global user.email "you@example.com"
@@ -54,11 +60,11 @@ Then you will only need to type:
 git viz
 ```
 
-# Branching with local git
+## Branching with local git
 
 Branching (and merging) is a useful way to keep different tasks organized and synchronized, even when working locally with git.  Below we will work through a scenario for git branching, showing the commands and two different vizualizations.  Eventually branching becomes a key part of working with github and shared repositories, but it is useful to approach it separately first.
 
-## A scenario
+### A scenario
 
 Imagine you are running a coffee roaster. You have code that produces a daily report that is emailed to your team.  Each day the point of sale system makes new data available. Each night your computer executes a script (`report_script.Rmd`) to access the data, create, and email the report. 
 
@@ -73,7 +79,7 @@ One option might be to maintain different versions of files using different file
 
 Recall, though, that git enables us to "swap out" our working directory.  Until now we've kept this linear, each new version added after the last.  But branching enables us to keep parallel lines of commits (as though we had two lines of trays with on our paper plane repository table).
 
-## Coordinating new work while keeping old work running
+### Coordinating new work while keeping old work running
 
 Currently the report is pretty simple, it's just a table of sales divided up between in-store and online. Each day's sales are added as a new row in the table.
 
@@ -330,7 +336,7 @@ We can also see this visually using learngitbranching, see the short video below
 <!--   <source src=""> -->
 <!-- </video> -->
 
-### Exercises (in-class):
+## Exercises (in-class):
 
 1. Go to "Learn Git Branching" site: <https://learngitbranching.js.org/>. (Note that this site is multi-locale, see the small planet icon in the bottom right?)
 2. Do exercises 2 and 3 ("Branching in Git" and "Merging in Git")

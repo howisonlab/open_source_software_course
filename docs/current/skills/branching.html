@@ -73,7 +73,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-f2151062440e71a1d76e61548d0dfb49.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-854d42f42d0f6b455b86ad16a464e311.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/videojs/video.min.js"></script>
 <link href="../site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -338,15 +338,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#warmup-exercise" id="toc-warmup-exercise" class="nav-link active" data-scroll-target="#warmup-exercise"><span class="header-section-number">16</span> Warmup exercise</a></li>
-  <li><a href="#branching-with-local-git" id="toc-branching-with-local-git" class="nav-link" data-scroll-target="#branching-with-local-git"><span class="header-section-number">17</span> Branching with local git</a>
+  <li><a href="#warmup-exercise" id="toc-warmup-exercise" class="nav-link active" data-scroll-target="#warmup-exercise"><span class="header-section-number">15.1</span> Warmup exercise</a></li>
+  <li><a href="#branching-with-local-git" id="toc-branching-with-local-git" class="nav-link" data-scroll-target="#branching-with-local-git"><span class="header-section-number">15.2</span> Branching with local git</a>
   <ul class="collapse">
-  <li><a href="#a-scenario" id="toc-a-scenario" class="nav-link" data-scroll-target="#a-scenario"><span class="header-section-number">17.1</span> A scenario</a></li>
-  <li><a href="#coordinating-new-work-while-keeping-old-work-running" id="toc-coordinating-new-work-while-keeping-old-work-running" class="nav-link" data-scroll-target="#coordinating-new-work-while-keeping-old-work-running"><span class="header-section-number">17.2</span> Coordinating new work while keeping old work running</a>
-  <ul class="collapse">
-  <li><a href="#exercises-in-class" id="toc-exercises-in-class" class="nav-link" data-scroll-target="#exercises-in-class"><span class="header-section-number">17.2.1</span> Exercises (in-class):</a></li>
+  <li><a href="#a-scenario" id="toc-a-scenario" class="nav-link" data-scroll-target="#a-scenario"><span class="header-section-number">15.2.1</span> A scenario</a></li>
+  <li><a href="#coordinating-new-work-while-keeping-old-work-running" id="toc-coordinating-new-work-while-keeping-old-work-running" class="nav-link" data-scroll-target="#coordinating-new-work-while-keeping-old-work-running"><span class="header-section-number">15.2.2</span> Coordinating new work while keeping old work running</a></li>
   </ul></li>
-  </ul></li>
+  <li><a href="#exercises-in-class" id="toc-exercises-in-class" class="nav-link" data-scroll-target="#exercises-in-class"><span class="header-section-number">15.3</span> Exercises (in-class):</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/skills/branching.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
@@ -392,14 +390,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 </div>
-<section id="warmup-exercise" class="level1" data-number="16">
-<h1 data-number="16"><span class="header-section-number">16</span> Warmup exercise</h1>
+<section id="warmup-exercise" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="warmup-exercise"><span class="header-section-number">15.1</span> Warmup exercise</h2>
+<div class="callout-notice">
+<p>Some weird git errors can come when we accidentally have git repos inside other git repos. In particular this can happen if we accidentally make our home folder into a git repo. See discussion and fixes in <a href="skills_faq.html#sec-faq-home-git-folder" class="quarto-xref"><span>Section A.2</span></a> You can find additional help in the FAQ section: <a href="skills_faq.html" class="quarto-xref"><span>Appendix A</span></a></p>
+</div>
 <p>Use the terminal to create a new git repo so that when you run our git viz command you see this output:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">branching_warmup</span> % git log <span class="at">--oneline</span> <span class="at">--abbrev-commit</span> <span class="at">--all</span> <span class="at">--graph</span> <span class="at">--decorate</span> <span class="at">--color</span>                         </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 50590c5 <span class="er">(</span><span class="ex">HEAD</span> <span class="at">-</span><span class="op">&gt;</span> main<span class="kw">)</span> <span class="ex">Wednesday</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 39f89db Tuesday</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 1b2162e Monday</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Remember that for a new git repo you may have to provide a username and email address. These commands will help (you don’t need to change the names)</p>
+<p>Remember that for a new git repo you may have to provide a username and email address. These commands will help (you don’t need to change the names but can if you want)</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"you@example.com"</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Your Name"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The git viz command is long, so you can create a short cut for it on the commandline:</p>
@@ -407,11 +408,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Then you will only need to type:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> viz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="branching-with-local-git" class="level1" data-number="17">
-<h1 data-number="17"><span class="header-section-number">17</span> Branching with local git</h1>
+<section id="branching-with-local-git" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="branching-with-local-git"><span class="header-section-number">15.2</span> Branching with local git</h2>
 <p>Branching (and merging) is a useful way to keep different tasks organized and synchronized, even when working locally with git. Below we will work through a scenario for git branching, showing the commands and two different vizualizations. Eventually branching becomes a key part of working with github and shared repositories, but it is useful to approach it separately first.</p>
-<section id="a-scenario" class="level2" data-number="17.1">
-<h2 data-number="17.1" class="anchored" data-anchor-id="a-scenario"><span class="header-section-number">17.1</span> A scenario</h2>
+<section id="a-scenario" class="level3" data-number="15.2.1">
+<h3 data-number="15.2.1" class="anchored" data-anchor-id="a-scenario"><span class="header-section-number">15.2.1</span> A scenario</h3>
 <p>Imagine you are running a coffee roaster. You have code that produces a daily report that is emailed to your team. Each day the point of sale system makes new data available. Each night your computer executes a script (<code>report_script.Rmd</code>) to access the data, create, and email the report.</p>
 <p>We are going to manage a situation where we want to:</p>
 <ol type="1">
@@ -422,8 +423,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>One option might be to maintain different versions of files using different file names (<code>report_script.Rmd</code> and <code>new_report_script.Rmd</code>. This becomes very messy when we have many files and folders involved (<code>/images</code> and <code>/new_images</code>???). This is even worse when we have multiple experiments and attempts going on in parallel and entirely hopeless when we move online and are working with groups of people.</p>
 <p>Recall, though, that git enables us to “swap out” our working directory. Until now we’ve kept this linear, each new version added after the last. But branching enables us to keep parallel lines of commits (as though we had two lines of trays with on our paper plane repository table).</p>
 </section>
-<section id="coordinating-new-work-while-keeping-old-work-running" class="level2" data-number="17.2">
-<h2 data-number="17.2" class="anchored" data-anchor-id="coordinating-new-work-while-keeping-old-work-running"><span class="header-section-number">17.2</span> Coordinating new work while keeping old work running</h2>
+<section id="coordinating-new-work-while-keeping-old-work-running" class="level3" data-number="15.2.2">
+<h3 data-number="15.2.2" class="anchored" data-anchor-id="coordinating-new-work-while-keeping-old-work-running"><span class="header-section-number">15.2.2</span> Coordinating new work while keeping old work running</h3>
 <p>Currently the report is pretty simple, it’s just a table of sales divided up between in-store and online. Each day’s sales are added as a new row in the table.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> scratch_branching</span>
@@ -555,8 +556,10 @@ Fast-forward
 <!-- <video height="480" controls> -->
 <!--   <source src=""> -->
 <!-- </video> -->
-<section id="exercises-in-class" class="level3" data-number="17.2.1">
-<h3 data-number="17.2.1" class="anchored" data-anchor-id="exercises-in-class"><span class="header-section-number">17.2.1</span> Exercises (in-class):</h3>
+</section>
+</section>
+<section id="exercises-in-class" class="level2" data-number="15.3">
+<h2 data-number="15.3" class="anchored" data-anchor-id="exercises-in-class"><span class="header-section-number">15.3</span> Exercises (in-class):</h2>
 <ol type="1">
 <li>Go to “Learn Git Branching” site: <a href="https://learngitbranching.js.org/" class="uri">https://learngitbranching.js.org/</a>. (Note that this site is multi-locale, see the small planet icon in the bottom right?)</li>
 <li>Do exercises 2 and 3 (“Branching in Git” and “Merging in Git”)</li>
@@ -569,8 +572,6 @@ Fast-forward
 <p>Remember that when we are working in the terminal it is different from learngitbranching because we have to actually create, edit, and save files before we can commit. We also have to use <code>git commit -m 'some message'</code> rather than just <code>git commit</code>.</p>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->
