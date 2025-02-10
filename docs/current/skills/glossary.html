@@ -301,8 +301,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#git" id="toc-git" class="nav-link active" data-scroll-target="#git"><span class="header-section-number">B.1</span> Git</a></li>
-  <li><a href="#command-line-tools" id="toc-command-line-tools" class="nav-link" data-scroll-target="#command-line-tools"><span class="header-section-number">B.2</span> Command Line Tools</a></li>
+  <li><a href="#git" id="toc-git" class="nav-link active" data-scroll-target="#git"><span class="header-section-number">B.1</span> Git</a>
+  <ul class="collapse">
+  <li><a href="#referencing-commits" id="toc-referencing-commits" class="nav-link" data-scroll-target="#referencing-commits"><span class="header-section-number">B.1.1</span> Referencing commits</a></li>
+  <li><a href="#git-config" id="toc-git-config" class="nav-link" data-scroll-target="#git-config"><span class="header-section-number">B.1.2</span> Git Config</a></li>
+  </ul></li>
+  <li><a href="#command-line-tools" id="toc-command-line-tools" class="nav-link" data-scroll-target="#command-line-tools"><span class="header-section-number">B.2</span> Command Line Tools</a>
+  <ul class="collapse">
+  <li><a href="#terminal-advice" id="toc-terminal-advice" class="nav-link" data-scroll-target="#terminal-advice"><span class="header-section-number">B.2.1</span> Terminal Advice</a></li>
+  <li><a href="#optional-commands" id="toc-optional-commands" class="nav-link" data-scroll-target="#optional-commands"><span class="header-section-number">B.2.2</span> Optional Commands</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/skills/glossary.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
@@ -352,7 +360,51 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><code>git config --global alias.[NAME] "[COMMAND]"</code> creates a new global subcommand for <code>git</code> that executes the passed command named <code>NAME</code>. This is how we made <code>git viz</code>.</li>
 </ul></li>
+<li><p><code>git diff [COMMIT_1] [COMMIT_2]</code> shows the changes from COMMIT_1 to COMMIT_2.</p>
+<ul>
+<li><code>git diff HEAD~1 HEAD</code> shows the differences from <code>HEAD~1</code> to <code>HEAD</code></li>
+<li><code>git diff HEAD HEAD~1</code> shows the inverse from the above, so all changes are shown as negated (adds become removes and vice versa).</li>
+</ul></li>
+<li><p><code>git checkout [COMMIT]</code> unloads the currently-loaded commit and loads the specified one. <code>COMMIT</code> can may be a tag, like the name of a branch (<code>main</code>) or a commit hash.</p>
+<ul>
+<li><code>git checkout -</code> checks out the previously-checked out commit/branch.</li>
+<li><code>git checkout -b [BRANCH]</code> checks out BRANCH, or creates one if it did not already exist.</li>
+</ul></li>
+<li><p><code>git branch [BRANCH]</code> creates a new branch called BRANCH.</p>
+<ul>
+<li><code>git branch</code> lists all branches in the repository.</li>
+<li><code>git branch -d [BRANCH]</code> deletes the branch BRANCH, if it has already fully merged.
+<ul>
+<li><code>git branch -D [BRANCH]</code> forces BRANCH to be deleted, regardless of if it has been merged.</li>
+</ul></li>
+</ul></li>
+<li><p><code>git restore --staged [FILE]</code> unstages all changes for FILE, meaning <code>git commit</code> won’t commit changes to that file.</p>
+<ul>
+<li><code>git restore [FILE]</code></li>
+</ul></li>
+<li><p><code>git revert [COMMIT] --no-edit</code> tries to revert any changes COMMIT made to the repository and automatically creates a new commit. The command will let you know if it was unable to automatically revert the commit. The <code>--no-edit</code> indicates you don’t want to write a custom commit message for the revert commit.</p></li>
+<li><p><code>git merge [BRANCH]</code> tries to apply all commits from when [BRANCH] diverged from the current branch until the most recent commit on that branch. If there are merge conflicts, you need to resolve those commit-by-commit and enter <code>git merge --continue</code> until it completes. Does not edit the target branch (the one you specify). So if you are on a branch named <code>main</code> and run <code>git merge docs</code>, Git will try to add all of the missing commits from <code>docs</code> to <code>main</code>, but leave <code>docs</code> untouched.</p>
+<ul>
+<li><code>git merge --abort</code> aborts the current merge process. This is useful if you’ve accidentally started a merge, or otherwise need to exit unexpectedly.</li>
+</ul></li>
 </ul>
+<section id="referencing-commits" class="level3" data-number="B.1.1">
+<h3 data-number="B.1.1" class="anchored" data-anchor-id="referencing-commits"><span class="header-section-number">B.1.1</span> Referencing commits</h3>
+<ul>
+<li><code>HEAD</code> is a special reference that indicates the current commit you are at in the repository. This changes when you <code>git checkout</code>, <code>git commit</code>, or do anything that changes</li>
+<li><code>HEAD~[N]</code> references N commits before <code>HEAD</code>. So <code>HEAD~0</code> is equivalent to <code>HEAD</code>, <code>HEAD~1</code> is the commit before HEAD, <code>HEAD~2</code> is two commits before <code>HEAD</code>, and so on.</li>
+<li>The <code>~N</code> format also works for branches, so <code>main~3</code> references three commits before the most recent commit to the <code>main</code> branch.</li>
+<li>You can always reference a commit by its hash, the letters and numbers to the right of commit messages in <code>git viz</code> and <code>git log</code>. If manually typing, you just need the first four characters, so if <code>git log</code> shows <code>879798e</code> you can just type <code>8797</code>, but copying is usually easier.</li>
+</ul>
+</section>
+<section id="git-config" class="level3" data-number="B.1.2">
+<h3 data-number="B.1.2" class="anchored" data-anchor-id="git-config"><span class="header-section-number">B.1.2</span> Git Config</h3>
+<p>You’ll want to use these so <code>git commit</code> doesn’t complain about you not having set these up. If you intend to use different names/emails in Git repositories on the same computer, omit <code>--global</code> and make sure to run these from the repository you want to use these in. When choosing which email to use, think of it as “If someone had a question about this change, how would I want them to contact me?”</p>
+<ul>
+<li><code>git config --global user.name "Your Name"</code> sets the human-readable name in your git commits in all repositories on your computer to that name.</li>
+<li><code>git config --global user.email "you@example.com"</code> does the same, but for your email.</li>
+</ul>
+</section>
 </section>
 <section id="command-line-tools" class="level2" data-number="B.2">
 <h2 data-number="B.2" class="anchored" data-anchor-id="command-line-tools"><span class="header-section-number">B.2</span> Command Line Tools</h2>
@@ -364,6 +416,7 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><code>cd ..</code>, moves to the parent directory of the current working directory.</li>
 <li>Paths starting with <code>/</code> indicate absolute paths rather than ones relative to your working directory.</li>
+<li><code>cd -</code> moves to the directory you were previously in.</li>
 </ul></li>
 <li><code>mkdir</code>, <u><strong>m</strong></u>a<u><strong>k</strong></u>es a new <u><strong>dir</strong></u>ectory.</li>
 <li><code>touch</code>, creates a new (empty) file.
@@ -372,8 +425,23 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 <li><code>rm</code>, <u><strong>r</strong></u>e<u><strong>m</strong></u>oves files and directories.</li>
 </ul>
+<section id="terminal-advice" class="level3" data-number="B.2.1">
+<h3 data-number="B.2.1" class="anchored" data-anchor-id="terminal-advice"><span class="header-section-number">B.2.1</span> Terminal Advice</h3>
+<ul>
+<li><strong>Accessing previous commands</strong> - You can navigate through your previous commands by hitting the up and down arrow keys.</li>
+<li><strong>Clearing your terminal</strong> - You can clear your terminal with <code>CTRL+L</code> or by entering the command <code>clear</code>.</li>
+</ul>
+</section>
+<section id="optional-commands" class="level3" data-number="B.2.2">
+<h3 data-number="B.2.2" class="anchored" data-anchor-id="optional-commands"><span class="header-section-number">B.2.2</span> Optional Commands</h3>
+<p>These are not required for this course, but you might find them useful.</p>
+<ul>
+<li><code>printf "1. This is the first line\n2. This is the second line." &gt;&gt; file.txt</code> appends text to a file, creating the file if it does not already exist. If you search online you may also see <code>echo</code> instead of <code>printf</code>, but <code>echo</code> can’t easily write multiple lines at once.</li>
+<li><code>clear</code> clears your terminal of all input.</li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
