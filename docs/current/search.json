@@ -363,7 +363,7 @@
     "href": "insights/coordination.html#pre-readings-for-class",
     "title": "7  Coordination",
     "section": "",
-    "text": "Expectancy Theory (Wikipedia) https://en.wikipedia.org/wiki/Expectancy_theory\nExpectancy Theory (useful figure): https://iedunote.com/expentancey-theory\nHowison, J., & Crowston, K. (2014). Collaboration through open superposition: A theory of the open source way. MIS Quarterly, 38(1), 29–50. http://james.howison.name/pubs/howison-2014-superposition.pdf\n“My favorite commit”: https://dhwthompson.com/2019/my-favourite-git-commit",
+    "text": "Expectancy Theory (Wikipedia) https://en.wikipedia.org/wiki/Expectancy_theory\nExpectancy Theory (useful figure): https://web.archive.org/web/20250000000000*/https://www.iedunote.com/expentancey-theory\nHowison, J., & Crowston, K. (2014). Collaboration through open superposition: A theory of the open source way. MIS Quarterly, 38(1), 29–50. http://james.howison.name/pubs/howison-2014-superposition.pdf\n“My favorite commit”: https://dhwthompson.com/2019/my-favourite-git-commit",
     "crumbs": [
       "Insights",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Coordination</span>"
@@ -725,8 +725,8 @@
     "objectID": "skills/branching.html#exercises-in-class",
     "href": "skills/branching.html#exercises-in-class",
     "title": "15  Local branching with Git",
-    "section": "15.3 Exercises (in-class):",
-    "text": "15.3 Exercises (in-class):\n\nGo to “Learn Git Branching” site: https://learngitbranching.js.org/. (Note that this site is multi-locale, see the small planet icon in the bottom right?)\nDo exercises 2 and 3 (“Branching in Git” and “Merging in Git”)\nShift back to the terminal and replicate the “Merging in Git” lesson. You will need to start with these commands (to create a new, empty, repo):\n\ncd ~\nmkdir replicate_learngitbranching\ncd replicate_learngitbranching\ngit init\nRemember that when we are working in the terminal it is different from learngitbranching because we have to actually create, edit, and save files before we can commit. We also have to use git commit -m 'some message' rather than just git commit.",
+    "section": "15.3 Exercises (in-class)",
+    "text": "15.3 Exercises (in-class)\n\nGo to “Learn Git Branching” site: https://learngitbranching.js.org/. (Note that this site is multi-locale, see the small planet icon in the bottom right?)\nDo exercises 2 and 3 (“Branching in Git” and “Merging in Git”)\nShift back to the terminal and replicate the “Merging in Git” lesson. You will need to start with these commands (to create a new, empty, repo):\n\ncd ~\nmkdir replicate_learngitbranching\ncd replicate_learngitbranching\ngit init\nRemember that when we are working in the terminal it is different from learngitbranching because we have to actually create, edit, and save files before we can commit. We also have to use git commit -m 'some message' rather than just git commit.",
     "crumbs": [
       "Skills",
       "<span class='chapter-number'>15</span>  <span class='chapter-title'>Local branching with Git</span>"
