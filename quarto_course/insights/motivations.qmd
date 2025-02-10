@@ -2,7 +2,13 @@
 
 ## Readings
 
-5m youtube video. [Linus Torvalds talking about finding Kernel maintainers](https://www.youtube.com/watch?v=eWfUaFNSPhM)
+- Raymond, E. S. and Moen, R. (2001). [How to ask questions the smart way](http://www.catb.org/esr/faqs/smart-questions.html).
+
+- Two articles on how people became maintainers of ggplot2/tidyverse data science tools.  
+  - [Joining ggplot2](https://web.archive.org/save/https://www.tidyverse.org/blog/2025/01/joining-ggplot2/)
+  - [Becoming The Intern; now project lead](https://web.archive.org/web/https://www.data-imaginist.com/posts/2016-10-31-becoming-the-intern/)
+
+- 5m youtube video. [Linus Torvalds talking about finding Kernel maintainers](https://www.youtube.com/watch?v=eWfUaFNSPhM)
 
 ## How to ask questions people want to answer
 

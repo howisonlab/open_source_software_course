@@ -8,6 +8,8 @@
 
 -   VICE (Director). (2020, March 3). Farmers Are Hacking Their Tractors Because of a Repair Ban. https://www.youtube.com/watch?v=EPYy_g8NzmI
 
+- iFixit (2022) [What Right to Repair Looks like for Manufacturers](https://web.archive.org/web/20250123235053/https://www.ifixit.com/News/61178/what-right-to-repair-compliance-looks-like-for-manufacturers). 
+
 ## Where is open source?
 
 Open source is everywhere.

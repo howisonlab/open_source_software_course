@@ -22,6 +22,8 @@ A chapter from a book, and four blog style articles. The book chapter should tak
 5.  Carlos Munoz Ferrandis. (2022, August 31). OpenRAIL: Towards open and responsible AI licensing frameworks. Hugging Face Blog. <https://huggingface.co/blog/open_rail>\
     \
     *Machine learning leaders, huggingface (yes, that's their real company name), explaining why sharing trained AI/neutral network models/weights is both similar to sharing code and different, proposing a new license focused on ethical reuse of shared trained models.*
+    
+6. (added for 2026) [Khan Academy explantion of Creative Commons and Open Source licenses](https://www.khanacademy.org/computing/computers-and-internet/xcae6f4a7ff015e7d:digital-information/xcae6f4a7ff015e7d:digital-copyright-and-licenses/a/creative-commons-and-open-source)
 
 <!--# Funny video showing effects of "do no evil" in license. https://youtu.be/-hCimLnIsDA -->
 
@@ -136,6 +138,10 @@ The original open source licenses were written before cloud, and the idea of Sof
 
     Elastic Search has created their own license. What does it do differently? Is it an open source license? Would OSI consider it to be an open source license?
 
+#### Source-available vs open source
+
+What is meant by "source-available" licenses?  Find some examples of licenses that are "source available" but don't meet the OSI Open Source Definition.  What clauses do they violate?
+
 #### Artificial Intellegence software
 
 Neural Networks express much of their logic not in code, but in the weights of a trained neutral network.
@@ -147,18 +153,18 @@ Neural Networks express much of their logic not in code, but in the weights of a
 
 #### Recent license violation articles.
 
-https://undeleted.ronsor.com/voice.ai-gpl-violations-with-a-side-of-drm/
+<https://undeleted.ronsor.com/voice.ai-gpl-violations-with-a-side-of-drm/>
 
-Discussed on Hacker News here: https://news.ycombinator.com/item?id=34681636
+Discussed on Hacker News here: <https://news.ycombinator.com/item?id=34681636>
 
 Not just violating GPL, but likely other licenses too (not including license in distributed non-copyleft open source).
 
 Lots of these out there, found this as searching:
 
-https://hackaday.com/2022/07/15/watch-out-for-lasercutter-manufacturers-violating-gpl/
+<https://hackaday.com/2022/07/15/watch-out-for-lasercutter-manufacturers-violating-gpl/>
 
 Including stories about startups whose cash out was sunk by OSS license violations:
 
-https://abovethelaw.com/2022/01/how-to-ensure-open-source-risks-wont-scuttle-your-deal/
+<https://abovethelaw.com/2022/01/how-to-ensure-open-source-risks-wont-scuttle-your-deal/>
 
 Point is not to scare people from using open source, but to understand the very real meaning of the licenses. The more sophisticated understanding of open source you are gaining from this course will be an advantage in the job market.
