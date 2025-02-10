@@ -20,7 +20,54 @@
 - `git config` manages local (for one repository) and global (for all repositories on your computer) configuration. These can change many aspects of how Git functions. Most functionality offered by this command is not part of this class.
   - `git config --global alias.[NAME] "[COMMAND]"` creates a new global subcommand for `git` that executes the passed command named `NAME`. This is how we made `git viz`.
 
+- `git diff [COMMIT_1] [COMMIT_2]` shows the changes from COMMIT_1 to COMMIT_2.
+  - `git diff HEAD~1 HEAD` shows the differences from `HEAD~1` to `HEAD`
+  - `git diff HEAD HEAD~1` shows the inverse from the above, so all changes are shown as negated (adds become removes and vice versa).
 
+- `git checkout [COMMIT]` unloads the currently-loaded commit and loads the specified one.
+  `COMMIT` can may be a tag, like the name of a branch (`main`) or a commit hash.
+  - `git checkout -` checks out the previously-checked out commit/branch.
+  - `git checkout -b [BRANCH]` checks out BRANCH, or creates one if it did not already exist.
+
+- `git branch [BRANCH]` creates a new branch called BRANCH.
+  - `git branch` lists all branches in the repository.
+  - `git branch -d [BRANCH]` deletes the branch BRANCH, if it has already fully merged.
+    - `git branch -D [BRANCH]` forces BRANCH to be deleted, regardless of if it has been merged.
+
+- `git restore --staged [FILE]` unstages all changes for FILE, meaning `git commit` won't commit changes to that file.
+  - `git restore [FILE]`
+
+- `git revert [COMMIT] --no-edit` tries to revert any changes COMMIT made to the repository and automatically creates a new commit.
+  The command will let you know if it was unable to automatically revert the commit.
+  The `--no-edit` indicates you don't want to write a custom commit message for the revert commit.
+
+- `git merge [BRANCH]` tries to apply all commits from when [BRANCH] diverged from the current branch until the most recent commit on that branch.
+  If there are merge conflicts, you need to resolve those commit-by-commit and enter `git merge --continue` until it completes.
+  Does not edit the target branch (the one you specify). So if you are on a branch named `main` and run `git merge docs`, Git will try to add
+  all of the missing commits from `docs` to `main`, but leave `docs` untouched.
+  - `git merge --abort` aborts the current merge process.
+    This is useful if you've accidentally started a merge, or otherwise need to exit unexpectedly.
+
+### Referencing commits
+
+- `HEAD` is a special reference that indicates the current commit you are at in the repository.
+  This changes when you `git checkout`, `git commit`, or do anything that changes
+- `HEAD~[N]` references N commits before `HEAD`. So `HEAD~0` is equivalent to `HEAD`,
+  `HEAD~1` is the commit before HEAD, `HEAD~2` is two commits before `HEAD`, and so on.
+- The `~N` format also works for branches, so `main~3` references three commits before the most recent commit to the `main` branch.
+- You can always reference a commit by its hash, the letters and numbers to the right of commit messages in `git viz` and `git log`.
+  If manually typing, you just need the first four characters, so if `git log` shows `879798e` you can just type `8797`, but
+  copying is usually easier.
+
+### Git Config
+
+You'll want to use these so `git commit` doesn't complain about you not having set these up.
+If you intend to use different names/emails in Git repositories on the same computer, omit `--global` and make sure
+to run these from the repository you want to use these in.
+When choosing which email to use, think of it as "If someone had a question about this change, how would I want them to contact me?"
+
+- `git config --global user.name "Your Name"` sets the human-readable name in your git commits in all repositories on your computer to that name.
+- `git config --global user.email "you@example.com"` does the same, but for your email.
 
 ## Command Line Tools
 
@@ -31,7 +78,22 @@ For many of these commands, if you type `--help` after the command, it will prin
 - `cd [DIRECTORY]`, <u>**c**</u>hanges the <u>**d**</u>irectory you're in.
   - `cd ..`, moves to the parent directory of the current working directory.
   - Paths starting with `/` indicate absolute paths rather than ones relative to your working directory.
+  - `cd -` moves to the directory you were previously in.
 - `mkdir`, <u>**m**</u>a<u>**k**</u>es a new <u>**dir**</u>ectory.
 - `touch`, creates a new (empty) file.
   - The command has other uses, but those aren't part of this class.
 - `rm`, <u>**r**</u>e<u>**m**</u>oves files and directories.
+
+### Terminal Advice
+
+- **Accessing previous commands** - You can navigate through your previous commands by hitting the up and down arrow keys.
+- **Clearing your terminal** - You can clear your terminal with `CTRL+L` or by entering the command `clear`.
+
+### Optional Commands
+
+These are not required for this course, but you might find them useful.
+
+- `printf "1. This is the first line\n2. This is the second line." >> file.txt`
+  appends text to a file, creating the file if it does not already exist.
+  If you search online you may also see `echo` instead of `printf`, but `echo` can't easily write multiple lines at once.
+- `clear` clears your terminal of all input.
