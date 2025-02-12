@@ -77,12 +77,12 @@ git clone https://github.com/jameshowison/i320d-needs-split.git
 cd i320d-needs-split
 ```
 
-If you then run our gitviz command (see @sec-gitviz for how to set up a short cut for that)
+If you then run our git viz command (see @sec-gitviz for how to set up a short cut for that)
 
 You will see both our apple and orange edits all together on the `main` branch.
 
 ``` sh
-jlh5498@educcomp04:~/github_repos/i320d-needs-split$ git log --oneline --abbrev-commit --all --graph --decorate --color
+jlh5498@educcomp04:~/github_repos/i320d-needs-split$ git viz
 * c70df5a (HEAD -> main) orange2
 * 423ad05 apple2
 * 4f1fe99 orange1
@@ -95,7 +95,7 @@ jlh5498@educcomp04:~/github_repos/i320d-needs-split$ git log --oneline --abbrev-
 We eventually want this to look like our first graph above, with two new branches (apple_branch and orange_branch):
 
 ``` sh
-jlh5498@educcomp04:~/github_repos/i320d-needs-split$ git log --oneline --abbrev-commit --all --graph --decorate --color
+jlh5498@educcomp04:~/github_repos/i320d-needs-split$ git viz
 * 09d5482 (HEAD -> orange_branch) orange2
 * 2137500 orange1
 | * c8fd64d (apple_branch) apple2
@@ -137,7 +137,7 @@ jlh5498@educcomp04:~/github_repos/i320d-needs-split$ git cherry-pick 91abdfb 423
 [apple_branch 2b82f41] apple2
  Date: Wed Mar 1 15:31:38 2023 -0600
  1 file changed, 1 insertion(+)
-jlh5498@educcomp04:~/github_repos/i320d-needs-split$ git log --oneline --abbrev-commit --all --graph --decorate --color
+jlh5498@educcomp04:~/github_repos/i320d-needs-split$ git viz
 * 2b82f41 (HEAD -> apple_branch) apple2
 * 9ca623a apple1
 | * c70df5a (origin/main, origin/HEAD, main) orange2
@@ -249,7 +249,7 @@ Groups of 3. Nominate *Maintainer*, *Contributor A*, and *Contributor B*.
 <!-- ::: -->
 
 <!-- ``` sh -->
-<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
+<!-- git viz -->
 <!-- ``` -->
 
 <!-- ``` sh -->
@@ -285,7 +285,7 @@ Groups of 3. Nominate *Maintainer*, *Contributor A*, and *Contributor B*.
 <!-- cp -r i320d-needs-split i320d-needs-split-reset -->
 <!-- cd i320d-needs-split-reset/ -->
 <!-- git checkout main -->
-<!-- git log --oneline --abbrev-commit --all --graph --decorate --color -->
+<!-- git viz -->
 <!-- ``` -->
 
 <!--     * 170afe6 (HEAD -> orange_branch) orange2 -->

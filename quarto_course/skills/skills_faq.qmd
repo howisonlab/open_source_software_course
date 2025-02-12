@@ -156,20 +156,22 @@ mv ./.git ./backup_home_git
 
 Now you could `cd backup_home_git` and use that folder as a git repo. But probably you are about to clone from github (in which case a new folder will be created) or you are about to use `git init` to create a new local repo (in which case you should create a folder first, `cd` into it, then run `git init`.
 
-## Vizualizing git trees (aka gitviz) {#sec-gitviz}
+## Vizualizing git trees (aka git viz) {#sec-gitviz}
 
-In this course we are using a command that I usually call "gitviz" for short:
+In this course we are using a command that I usually call "git viz" for short:
 
 ``` sh
 git log --oneline --abbrev-commit --all --graph --decorate --color
 ```
+
+Instructions for creating the convenient alias `git viz` are in [Git basic workflow](git_basic_workflow.qmd).
 
 This produces reasonably readable graphs (especially for the teaching repos used in this course).
 
 They look like this:
 
 ``` bash
-jlh5498@educcomp04:~/github_repos/i320_test3,,\n git log --oneline --abbrev-commit --all --graph --decorate --color
+jlh5498@educcomp04:~/github_repos/i320_test3,,\n git viz
 *   d8ab2c1 (HEAD -> main, origin/main, origin/HEAD) Merge pull request #1 from jameshowison/new-feature
 |\  
 | * ffb601d (origin/new-feature, new-feature) added extra
@@ -180,7 +182,7 @@ jlh5498@educcomp04:~/github_repos/i320_test3,,\n git log --oneline --abbrev-comm
 
 Or as an image (with coloring as on Edupod Rstudio):
 
-![Image showing output of gitviz command shown as text above](images/gitviz_example.png)
+![Image showing output of git viz command shown as text above](images/gitviz_example.png)
 
 You can read a little more about how to read these graphs here <https://stackoverflow.com/questions/22313343/git-graph-what-do-the-lines-and-asteriks-denote>
 
