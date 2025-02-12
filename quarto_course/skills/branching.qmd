@@ -186,7 +186,7 @@ git commit -m "A fix to match new data format"
 Now if we run our git viz command:
 
 ```sh
-git log --oneline --abbrev-commit --all --graph --decorate --color
+git viz
 ```
 
 we will see our branching starting to show up:
