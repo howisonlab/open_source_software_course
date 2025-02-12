@@ -39,7 +39,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-854d42f42d0f6b455b86ad16a464e311.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f2151062440e71a1d76e61548d0dfb49.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -350,14 +350,15 @@ git commit -m "whoops added secret"
 [main 018f6b5] whoops added secret
  1 file changed, 1 insertion(+)
  create mode 100644 SPECIAL_SECRET
-git log --oneline --abbrev-commit --all --graph --decorate --color
+git viz
 * 018f6b5 (HEAD -&gt; main) whoops added secret
 * f4878b0 now we have a README</code></pre>
 <p>Now I’ll go ahead and make one more edit to README</p>
 <pre><code>vi README
 git add READMEgit commit -m "README edit 2"[main 4d51f91] README edit 2
  1 file changed, 1 insertion(+)
-git log --oneline --abbrev-commit --all --graph --decorate --color* 4d51f91 (HEAD -&gt; main) README edit 2
+git viz
+* 4d51f91 (HEAD -&gt; main) README edit 2
 * 018f6b5 whoops added secret
 * f4878b0 now we have a README
 ls
