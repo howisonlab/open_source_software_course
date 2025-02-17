@@ -406,8 +406,8 @@
     "objectID": "insights/governance.html#recent-innovations-in-decision-making",
     "href": "insights/governance.html#recent-innovations-in-decision-making",
     "title": "8  Governance",
-    "section": "9.1 Recent innovations in decision making",
-    "text": "9.1 Recent innovations in decision making\nWhile we may think the process of creating new models of decision making in groups has stopped or slowed, recent innovations abound:\n\nOccupy Wall Street Hand signals used during discussion at https://en.wikipedia.org/wiki/General_assembly_(Occupy_movement)\n\n\n\nNew constitutions written by countries. e.g., Chile’s new constitution process 2022\n\nStudents and faculty at the University of Texas are involved with a project (and software) to compare the texts of Constitutions around the world.. Including using diffs (just like git does) to understand changes. e.g., changes in Algeria’s constitution (diff 1989 2020). “Constitute was developed by the Comparative Constitutions Project at the University of Texas at Austin and the University of Chicago, directed by Zachary Elkins and Tom Ginsburg.”",
+    "section": "8.3 Recent innovations in decision making",
+    "text": "8.3 Recent innovations in decision making\nWhile we may think the process of creating new models of decision making in groups has stopped or slowed, recent innovations abound:\n\nOccupy Wall Street Hand signals used during discussion at https://en.wikipedia.org/wiki/General_assembly_(Occupy_movement)\n\n\n\nNew constitutions written by countries. e.g., Chile’s new constitution process 2022\n\nStudents and faculty at the University of Texas are involved with a project (and software) to compare the texts of Constitutions around the world.. Including using diffs (just like git does) to understand changes. e.g., changes in Algeria’s constitution (diff 1989 2020). “Constitute was developed by the Comparative Constitutions Project at the University of Texas at Austin and the University of Chicago, directed by Zachary Elkins and Tom Ginsburg.”",
     "crumbs": [
       "Insights",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Governance</span>"
@@ -417,8 +417,8 @@
     "objectID": "insights/governance.html#exercise-note-taking-via-google-docs",
     "href": "insights/governance.html#exercise-note-taking-via-google-docs",
     "title": "8  Governance",
-    "section": "9.2 Exercise: Note-taking via google docs",
-    "text": "9.2 Exercise: Note-taking via google docs\nYou will be placed into groups of 3 (not sitting near each other):\n\nCreate a google doc and share it\n\nFor next 2 steps follow two rules:\n\nYou may not talk to each other\nYou may not write instructions to each other in the Google doc (or elsewhere, e.g., chat)\n\n\nWorking in this mode: produce a 2 page summary of:\n\nRoss Gardler & Gabriel Hanganu. (2013). Governance models. OSS-Watch.ac.uk. http://oss-watch.ac.uk/resources/governancemodels\n\nContinuing to work in this mode: include within your text three comparisons with the work linked below (comparisons could include that the work agrees, disagrees, extends, adds example, etc.):\n\nKarl Fogel. (2020). Chapter 8: Managing Participants. In “Producing OSS” Book. https://producingoss.com/en/managing-participants.html\n\nCreate a final heading, “Reflections on working without talking”. Move to sit next to each other. Ironically, you can talk to each other as you write down at least 3 bullet points about your experience doing this note-taking.",
+    "section": "8.4 Exercise: Note-taking via google docs",
+    "text": "8.4 Exercise: Note-taking via google docs\nYou will be placed into groups of 3 (not sitting near each other):\n\nCreate a google doc and share it\n\nFor next 2 steps follow two rules:\n\nYou may not talk to each other\nYou may not write instructions to each other in the Google doc (or elsewhere, e.g., chat)\n\n\nWorking in this mode: produce a 2 page summary of:\n\nRoss Gardler & Gabriel Hanganu. (2013). Governance models. OSS-Watch.ac.uk. http://oss-watch.ac.uk/resources/governancemodels\n\nContinuing to work in this mode: include within your text three comparisons with the work linked below (comparisons could include that the work agrees, disagrees, extends, adds example, etc.):\n\nKarl Fogel. (2020). Chapter 8: Managing Participants. In “Producing OSS” Book. https://producingoss.com/en/managing-participants.html\n\nCreate a final heading, “Reflections on working without talking”. Move to sit next to each other. Ironically, you can talk to each other as you write down at least 3 bullet points about your experience doing this note-taking.",
     "crumbs": [
       "Insights",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Governance</span>"
@@ -1122,7 +1122,7 @@
     "href": "skills/packaging.html",
     "title": "23  Packages to distibute code",
     "section": "",
-    "text": "24 What is needed for package management?\nPackages are ways of distributing software. We discussed packages in the material on Stack, Streak and Ecosystem: Chapter 10\nPackages enable us to build on the work of others, when we install packages and import them into our code.\nBut eventually we will have code that we want to distribute to others, whether that be classmates or others within our organization, or perhaps the world at large.\nThere are a few ways that we can distribute code, all with pros and cons.\nCopy and paste. We can send code to others by simply copying and pasting, then sending perhaps by Slack or even through email. A slightly more advanced approach is to use a gist or pastebin such as https://gist.github.com/ or http://pastebin.com. Copy and pasting is quick but it is limited. We then have no way of updating the code, or of knowing where it is used.\nWe can, of course, share code via GitHub or GitLab. Here we can publish a repository, either publicly or within our Organization, and give people the URL. Then people can clone the code into their individual workspaces. At least then the potential user can re-visit for updates and our user would know where they could contact people for issues or even to share improvements.\nBut GitHub on its own does not offer much to manage the complexities of developing software and keeping things up to date over time. For that we must turn to packaging and to package distribution systems which provides the python packages that can be installed by pip. These offer much greater effectiveness: the package publisher can provide updates, bugfixes or improvements, and the user can get informed about when updates are available and have them automatically downloaded.\nPackages and package management offer a few other important advantages:\nPackaging can be thought about in four steps:\nDifferent languages and software ecosystems implement these steps themselves.\nIn Python, for examples, Encapsulation is done with directories, which have files inside with the code (“regular” some_code_name.py files. Metadata is done with additional files inside the directories. The tool pip handles both installation and dependency resolution. For the server that hosts the packages there is one broad public server called PyPI (which stands for the PYthon Package Index), but it is also possible for individual organizations to run a version “behind the firewall” to manage packages within their organization.\nIn R, encapsulation is also done thorugh directories, metadata through files. Package installation is done within the R base software. In R there are a few important central repositories, including CRAN (Comprehensive R Archive Network) and Bioconductor (a separate package manager focused on biology packages, an example of convergent evolution). There are lots of different mirrors for CRAN.\nPackage management “behind the firewall” is so important to firms, that the company that builds Rstudio now offers package management for both R and Python https://packagemanager.posit.co/client/#/ both publically and within companies. Similarly Anaconda a company based in Austin offers package management across an eve wider set of languages.",
+    "text": "23.1 What is needed for package management?\nPackages are ways of distributing software. We discussed packages in the material on Stack, Streak and Ecosystem: Chapter 10\nPackages enable us to build on the work of others, when we install packages and import them into our code.\nBut eventually we will have code that we want to distribute to others, whether that be classmates or others within our organization, or perhaps the world at large.\nThere are a few ways that we can distribute code, all with pros and cons.\nCopy and paste. We can send code to others by simply copying and pasting, then sending perhaps by Slack or even through email. A slightly more advanced approach is to use a gist or pastebin such as https://gist.github.com/ or http://pastebin.com. Copy and pasting is quick but it is limited. We then have no way of updating the code, or of knowing where it is used.\nWe can, of course, share code via GitHub or GitLab. Here we can publish a repository, either publicly or within our Organization, and give people the URL. Then people can clone the code into their individual workspaces. At least then the potential user can re-visit for updates and our user would know where they could contact people for issues or even to share improvements.\nBut GitHub on its own does not offer much to manage the complexities of developing software and keeping things up to date over time. For that we must turn to packaging and to package distribution systems which provides the python packages that can be installed by pip. These offer much greater effectiveness: the package publisher can provide updates, bugfixes or improvements, and the user can get informed about when updates are available and have them automatically downloaded.\nPackages and package management offer a few other important advantages:\nPackaging can be thought about in four steps:\nDifferent languages and software ecosystems implement these steps themselves.\nIn Python, for examples, Encapsulation is done with directories, which have files inside with the code (“regular” some_code_name.py files. Metadata is done with additional files inside the directories. The tool pip handles both installation and dependency resolution. For the server that hosts the packages there is one broad public server called PyPI (which stands for the PYthon Package Index), but it is also possible for individual organizations to run a version “behind the firewall” to manage packages within their organization.\nIn R, encapsulation is also done thorugh directories, metadata through files. Package installation is done within the R base software. In R there are a few important central repositories, including CRAN (Comprehensive R Archive Network) and Bioconductor (a separate package manager focused on biology packages, an example of convergent evolution). There are lots of different mirrors for CRAN.\nPackage management “behind the firewall” is so important to firms, that the company that builds Rstudio now offers package management for both R and Python https://packagemanager.posit.co/client/#/ both publically and within companies. Similarly Anaconda a company based in Austin offers package management across an eve wider set of languages.",
     "crumbs": [
       "Skills",
       "<span class='chapter-number'>23</span>  <span class='chapter-title'>Packages to distibute code</span>"
@@ -1132,8 +1132,8 @@
     "objectID": "skills/packaging.html#from-code-to-published-package-in-python",
     "href": "skills/packaging.html#from-code-to-published-package-in-python",
     "title": "23  Packages to distibute code",
-    "section": "24.1 From code to published package in Python",
-    "text": "24.1 From code to published package in Python\nFor these materials we will work through a Data Camp course (which you are welcome to finish), called Developing Python Packages.\nThe course shows how to take code and wrap it in a directory with special files, then how to publish it to PyPI (using a special repository just for testing).",
+    "section": "23.2 From code to published package in Python",
+    "text": "23.2 From code to published package in Python\nFor these materials we will work through a Data Camp course (which you are welcome to finish), called Developing Python Packages.\nThe course shows how to take code and wrap it in a directory with special files, then how to publish it to PyPI (using a special repository just for testing).",
     "crumbs": [
       "Skills",
       "<span class='chapter-number'>23</span>  <span class='chapter-title'>Packages to distibute code</span>"
@@ -1236,6 +1236,72 @@
     "crumbs": [
       "Appendices",
       "<span class='chapter-number'>B</span>  <span class='chapter-title'>Glossary of Commands</span>"
+    ]
+  },
+  {
+    "objectID": "skills/git_rebase.html#rebase-exercise",
+    "href": "skills/git_rebase.html#rebase-exercise",
+    "title": "19  Rebase for synchronizing work",
+    "section": "19.2 Rebase Exercise",
+    "text": "19.2 Rebase Exercise\nIn groups of three, a Maintainer and two contributors, begin by setting up the collaboration network (a new repo, forks, clones and setting upstream). Then work together to implement these steps:\n\nMaintainer makes two commits to the main branch, contributors use git pull upstream main to synchronize.\nEach contributor creates a feature branch, and adds two commits to a file with their name.\nContributors create PRs that the Maintainer sees on the upstream/sahred repository.\nMaintainer can accept one, merging to main.\nMaintainer then asks the other contributor to rebase their contribution.\nThe contributor doing the rebase first does a git pull upstream main to get the new work onto the main branch in their local git.\nThen the contributor uses rebase and squash (as above) and uses git push -f to get their fork syncrhonized with their rebase.\nMaintainer should then check the PR and they will find only a single commit (the two previous ones squashed together), now looking as though it branched off main after the first contributor’s work. Maintainer can then accept the rebased PR.\nBoth contributors should sychronize (git pull upstream main and then git push to sync their forks.)",
+    "crumbs": [
+      "Skills",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Rebase for synchronizing work</span>"
+    ]
+  },
+  {
+    "objectID": "skills/packaging.html#what-is-needed-for-package-management",
+    "href": "skills/packaging.html#what-is-needed-for-package-management",
+    "title": "23  Packages to distibute code",
+    "section": "",
+    "text": "Encapsulating code in a chunk that can be moved around\nMetadata that describes the package, including authorship, licensing and, crucially, dependencies.\nAn installation tool that can bring packages from the server into local environments, and check and manage dependencies.\nA server location to which packages can be published",
+    "crumbs": [
+      "Skills",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Packages to distibute code</span>"
+    ]
+  },
+  {
+    "objectID": "insights/governance.html#how-do-open-source-projects-make-decisions",
+    "href": "insights/governance.html#how-do-open-source-projects-make-decisions",
+    "title": "8  Governance",
+    "section": "8.2 How do open source projects make decisions?",
+    "text": "8.2 How do open source projects make decisions?\nWorking in a project requires many decisions, e.g.,:\n\nChoosing a project name\nDeciding whether to add a color scheme\nChoosing whether to use UK or US spelling rules\nDeciding when to release a new version\n\nProjects have a wide range of ways that they make these decisions (including avoiding having to make decisions!). We call these “governance models”.\nOutside open source there are also many governance models, including very well known ones:\n\nDemocracy (direct and representative)\nDictatorship\nCorporate hierarchy\nConsensus",
+    "crumbs": [
+      "Insights",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Governance</span>"
+    ]
+  },
+  {
+    "objectID": "skills/git_cherrypick_split_pr.html#learngitbranching-exercise",
+    "href": "skills/git_cherrypick_split_pr.html#learngitbranching-exercise",
+    "title": "18  Split a Pull Request",
+    "section": "18.2 LearnGitBranching exercise",
+    "text": "18.2 LearnGitBranching exercise\nWe can see an example of the overall workflow for splitting a PR using the LearnGitBranching Visualizer, I have created a level called Split Pull Request.",
+    "crumbs": [
+      "Skills",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Split a Pull Request</span>"
+    ]
+  },
+  {
+    "objectID": "skills/git_cherrypick_split_pr.html#cherry-pick-via-commandline-git",
+    "href": "skills/git_cherrypick_split_pr.html#cherry-pick-via-commandline-git",
+    "title": "18  Split a Pull Request",
+    "section": "18.3 Cherry-pick via commandline git",
+    "text": "18.3 Cherry-pick via commandline git\nYou can see a situation like this in this repo on GitHub. Bring that to your working space with:\ncd ~\ngit clone https://github.com/jameshowison/i320d-needs-split.git\ncd i320d-needs-split\nIf you then run our git viz command (see Section A.3 for how to set up a short cut for that)\nYou will see both our apple and orange edits all together on the main branch.\njlh5498@educcomp04:~/github_repos/i320d-needs-split$ git viz\n* c70df5a (HEAD -&gt; main) orange2\n* 423ad05 apple2\n* 4f1fe99 orange1\n* 91abdfb apple1\n* 8e35b12 branch here\n* ea4d580 main1\n* 252ff3f Initial commit\nWe eventually want this to look like our first graph above, with two new branches (apple_branch and orange_branch):\njlh5498@educcomp04:~/github_repos/i320d-needs-split$ git viz\n* 09d5482 (HEAD -&gt; orange_branch) orange2\n* 2137500 orange1\n| * c8fd64d (apple_branch) apple2\n| * 1a5ac49 apple1\n|/  \n* 158f2c4 (main) branch here\n* 96d65c3 main2\n* 7036c11 main 1\n* 252ff3f Initial commit\nTo get there we will take three steps:\n\nCreate a new branch, specifying the starting point\nMove the relevant commits to the new branch\nPush to the fork, create a new pull request\n\ngit checkout -b apple_branch 8e35b12\nThe 8e35b12 here is the commit id of the point at which we want the branch to start. Until now when we’ve created a branch we have done so while sitting at HEAD but git allows us to create a branch back in time. Git does this by adding metadata to the earlier commit (labeling it with a branch label).\nThen we can move the commits using git cherry-pick. Note that this doesn’t move them from the main branch, but creates new commits with the same content. This is very much like copying files from one directory into another directory (except we are moving commits from a branch to another branch).\ngit cherry-pick 91abdfb 423ad05\nAgain the strings 91abdfb and 423ad05 identify specific commits. We can provide a list (like above), just one, and it is also possible to provide a range if you want a full sequence of commits.\nAfter the cherry-pick we see:\njlh5498@educcomp04:~/github_repos/i320d-needs-split$ git cherry-pick 91abdfb 423ad05\n[apple_branch 9ca623a] apple1\n Date: Wed Mar 1 15:31:38 2023 -0600\n 1 file changed, 1 insertion(+)\n[apple_branch 2b82f41] apple2\n Date: Wed Mar 1 15:31:38 2023 -0600\n 1 file changed, 1 insertion(+)\njlh5498@educcomp04:~/github_repos/i320d-needs-split$ git viz\n* 2b82f41 (HEAD -&gt; apple_branch) apple2\n* 9ca623a apple1\n| * c70df5a (origin/main, origin/HEAD, main) orange2\n| * 423ad05 apple2\n| * 4f1fe99 orange1\n| * 91abdfb apple1\n|/  \n* 8e35b12 branch here\n* ea4d580 main1\n* 252ff3f Initial commit\nWe can then use git push as normal to push the apple_branch up to the fork and make a pull request.\n\n\n\n\n\n\nNote\n\n\n\nMoving around commits using cherry-pick shows us why it is so important to understand commits as full copies of the state of the working directory, as full snapshots of our files. If commits were just the changes (just a bunch of diffs) then we would have to apply them in the order they were created, otherwise we’d get nonsense results.\nBut because commits are full copies of everything, we can move them around without any logical problems. Think of reordering the trays with the paper planes we used in the first class.\nIn fact, all that git is doing is re-writing the parent for each commit.\nAnd branches are just like little post-its added to some commits, they are just metadata pointers. Neat, isn’t it?\nSee more about this on the GitHub blog https://github.blog/2020-12-17-commits-are-snapshots-not-diffs/",
+    "crumbs": [
+      "Skills",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Split a Pull Request</span>"
+    ]
+  },
+  {
+    "objectID": "skills/git_cherrypick_split_pr.html#exercises",
+    "href": "skills/git_cherrypick_split_pr.html#exercises",
+    "title": "18  Split a Pull Request",
+    "section": "18.4 Exercises",
+    "text": "18.4 Exercises\n\n18.4.1 Individual Exercises\n\nNow you work to get the orange_branch organized.\n\n\n\n18.4.2 Group Exercise\nGroups of 3. Nominate Maintainer, Contributor A, and Contributor B.\n\nMaintainer creates a repo on Github.\nMaintainer adds 2 commits and pushes.\nContributor A and Contributor B fork and clone (and add upstream).\nContributor A and Contributor B create a feature branch called will_need_split.\nContributor A and Contributor B add four commits of four files on will_need_split\nContributor A and Contributor B create a pull request to upstream from their will_need_split branch (including all four commits).\nMaintainer rejects the pull request, closing it and commenting “please split this up” (and direct which files go together, probably 2 in each.)\nContributor A and Contributor B follow procedure above to end up with two new branches split_branch_1 and split_branch_2 send through separate pull requests with only the right commits/files in them.\nMaintainer eventually accepts each of the four split up pull requests.",
+    "crumbs": [
+      "Skills",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Split a Pull Request</span>"
     ]
   }
 ]

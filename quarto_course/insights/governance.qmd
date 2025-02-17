@@ -15,7 +15,7 @@
 
 Extra optional reading: Podcast on "Learning from Open Source": <https://a16z.com/podcast/learning-from-open-source-communities/>.  We will have readings from this later in the course, so useful to do now.
 
-# How do open source projects make decisions? 
+## How do open source projects make decisions?
 
 Working in a project requires many decisions, e.g.,:
 

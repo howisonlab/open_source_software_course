@@ -63,11 +63,11 @@ gitGraph
   commit id: "orange2"
 ```
 
-### LearnGitBranching exercise
+## LearnGitBranching exercise
 
 We can see an example of the overall workflow for splitting a PR using the LearnGitBranching Visualizer, I have created a level called [Split Pull Request](https://learngitbranching.js.org/?gist_level_id=f7b4b63960ed80fa9a76728d853f2546).
 
-### Cherry-pick via commandline git
+## Cherry-pick via commandline git
 
 You can see a situation like this in this repo on GitHub. Bring that to your working space with:
 
@@ -164,13 +164,13 @@ And branches are just like little post-its added to some commits, they are just 
 See more about this on the GitHub blog <https://github.blog/2020-12-17-commits-are-snapshots-not-diffs/>
 :::
 
-### Exercises
+## Exercises
 
-#### Individual Exercises
+### Individual Exercises
 
 1.  Now you work to get the `orange_branch` organized.
 
-#### Group Exercise
+### Group Exercise
 
 Groups of 3. Nominate *Maintainer*, *Contributor A*, and *Contributor B*.
 

@@ -39,7 +39,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-854d42f42d0f6b455b86ad16a464e311.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f2151062440e71a1d76e61548d0dfb49.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -302,10 +302,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#what-is-needed-for-package-management" id="toc-what-is-needed-for-package-management" class="nav-link active" data-scroll-target="#what-is-needed-for-package-management"><span class="header-section-number">24</span> What is needed for package management?</a>
-  <ul class="collapse">
-  <li><a href="#from-code-to-published-package-in-python" id="toc-from-code-to-published-package-in-python" class="nav-link" data-scroll-target="#from-code-to-published-package-in-python"><span class="header-section-number">24.1</span> From code to published package in Python</a></li>
-  </ul></li>
+  <li><a href="#what-is-needed-for-package-management" id="toc-what-is-needed-for-package-management" class="nav-link active" data-scroll-target="#what-is-needed-for-package-management"><span class="header-section-number">23.1</span> What is needed for package management?</a></li>
+  <li><a href="#from-code-to-published-package-in-python" id="toc-from-code-to-published-package-in-python" class="nav-link" data-scroll-target="#from-code-to-published-package-in-python"><span class="header-section-number">23.2</span> From code to published package in Python</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/skills/packaging.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
@@ -351,8 +349,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Packages can provide an appropriate location for running tests</li>
 <li>Packages provide a way to scale up software. Data Scientists often develop code in a Notebook … which is very convenient for the analyst but not something that can be made into a web API which thousands of developers or products can use in real time. When we build packages they can be deployed in the cloud, and turned into <a href="https://en.wikipedia.org/wiki/Microservices">microservices</a> using services like Kubernetes.</li>
 </ul>
-<section id="what-is-needed-for-package-management" class="level1" data-number="24">
-<h1 data-number="24"><span class="header-section-number">24</span> What is needed for package management?</h1>
+<section id="what-is-needed-for-package-management" class="level2" data-number="23.1">
+<h2 data-number="23.1" class="anchored" data-anchor-id="what-is-needed-for-package-management"><span class="header-section-number">23.1</span> What is needed for package management?</h2>
 <p>Packaging can be thought about in four steps:</p>
 <ol type="1">
 <li>Encapsulating code in a chunk that can be moved around</li>
@@ -364,13 +362,13 @@ ul.task-list li input[type="checkbox"] {
 <p>In Python, for examples, Encapsulation is done with directories, which have files inside with the code (“regular” some_code_name.py files. Metadata is done with additional files inside the directories. The tool <code>pip</code> handles both installation and dependency resolution. For the server that hosts the packages there is one broad public server called <code>PyPI</code> (which stands for the <em>PY</em>thon <em>P</em>ackage <em>I</em>ndex), but it is also possible for individual organizations to run a version “behind the firewall” to manage packages within their organization.</p>
 <p>In R, encapsulation is also done thorugh directories, metadata through files. Package installation is done within the R base software. In R there are a few important central repositories, including CRAN (<em>C</em>omprehensive <em>R</em> <em>A</em>rchive <em>N</em>etwork) and Bioconductor (a separate package manager focused on biology packages, an example of convergent evolution). There are lots of different mirrors for CRAN.</p>
 <p>Package management “behind the firewall” is so important to firms, that the company that builds <code>Rstudio</code> now offers package management for both R and Python <a href="https://packagemanager.posit.co/client/#/" class="uri">https://packagemanager.posit.co/client/#/</a> both publically and within companies. Similarly <a href="https://www.anaconda.com/">Anaconda</a> a company based in Austin offers package management across an eve wider set of languages.</p>
-<section id="from-code-to-published-package-in-python" class="level2" data-number="24.1">
-<h2 data-number="24.1" class="anchored" data-anchor-id="from-code-to-published-package-in-python"><span class="header-section-number">24.1</span> From code to published package in Python</h2>
+</section>
+<section id="from-code-to-published-package-in-python" class="level2" data-number="23.2">
+<h2 data-number="23.2" class="anchored" data-anchor-id="from-code-to-published-package-in-python"><span class="header-section-number">23.2</span> From code to published package in Python</h2>
 <p>For these materials we will work through a Data Camp course (which you are welcome to finish), called <a href="https://campus.datacamp.com/courses/developing-python-packages">Developing Python Packages</a>.</p>
 <p>The course shows how to take code and wrap it in a directory with special files, then how to publish it to PyPI (using a special repository just for testing).</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
