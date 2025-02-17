@@ -341,7 +341,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#adding-squash" id="toc-adding-squash" class="nav-link active" data-scroll-target="#adding-squash"><span class="header-section-number">19.1</span> Adding squash</a></li>
-  <li><a href="#rebase-exercise" id="toc-rebase-exercise" class="nav-link" data-scroll-target="#rebase-exercise"><span class="header-section-number">20</span> Rebase Exercise</a></li>
+  <li><a href="#rebase-exercise" id="toc-rebase-exercise" class="nav-link" data-scroll-target="#rebase-exercise"><span class="header-section-number">19.2</span> Rebase Exercise</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/skills/git_rebase.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
@@ -599,8 +599,8 @@ gitGraph
 <p>Ignore the remote branch (origin/pie_chart_branch), and focus only on the local branch (HEAD -&gt; pie_chart_branch). Instead of all three commits, we now only see a single commit (c367b8a).</p>
 <p>Note that in these examples we did not encounter any conflicts (because edits were all on different files). In reality, though, when commits are moved around, rebased, and squashed, sometimes those operations result in conflicts (just as happens with merge). In that case git add the conflict symbols (<code>&lt;&lt;&lt;&lt;&lt;&lt;</code> and <code>==========</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>) which all need to be removed, then the files added and finally we run <code>git rebase --continue</code>. Git does provide useful messages through that process with guidance on the likely next steps.</p>
 </section>
-<section id="rebase-exercise" class="level1" data-number="20">
-<h1 data-number="20"><span class="header-section-number">20</span> Rebase Exercise</h1>
+<section id="rebase-exercise" class="level2" data-number="19.2">
+<h2 data-number="19.2" class="anchored" data-anchor-id="rebase-exercise"><span class="header-section-number">19.2</span> Rebase Exercise</h2>
 <p>In groups of three, a Maintainer and two contributors, begin by setting up the collaboration network (a new repo, forks, clones and setting upstream). Then work together to implement these steps:</p>
 <ol type="1">
 <li>Maintainer makes two commits to the main branch, contributors use <code>git pull upstream main</code> to synchronize.</li>

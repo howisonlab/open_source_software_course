@@ -345,7 +345,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#sec-vim" id="toc-sec-vim" class="nav-link" data-scroll-target="#sec-vim"><span class="header-section-number">A.1.5</span> git commit throws me into a weird mode</a></li>
   </ul></li>
   <li><a href="#sec-faq-home-git-folder" id="toc-sec-faq-home-git-folder" class="nav-link" data-scroll-target="#sec-faq-home-git-folder"><span class="header-section-number">A.2</span> I accidentally made my home folder a git repo</a></li>
-  <li><a href="#sec-gitviz" id="toc-sec-gitviz" class="nav-link" data-scroll-target="#sec-gitviz"><span class="header-section-number">A.3</span> Vizualizing git trees (aka gitviz)</a></li>
+  <li><a href="#sec-gitviz" id="toc-sec-gitviz" class="nav-link" data-scroll-target="#sec-gitviz"><span class="header-section-number">A.3</span> Vizualizing git trees (aka git viz)</a></li>
   <li><a href="#seeing-a-merge-conflict-using-git-log" id="toc-seeing-a-merge-conflict-using-git-log" class="nav-link" data-scroll-target="#seeing-a-merge-conflict-using-git-log"><span class="header-section-number">A.4</span> Seeing a merge conflict using git log</a></li>
   <li><a href="#sec-fetch-pr" id="toc-sec-fetch-pr" class="nav-link" data-scroll-target="#sec-fetch-pr"><span class="header-section-number">A.5</span> Gathering the code as though the PR had been accepted</a></li>
   <li><a href="#how-to-add-an-image-using-quarto-on-edupod" id="toc-how-to-add-an-image-using-quarto-on-edupod" class="nav-link" data-scroll-target="#how-to-add-an-image-using-quarto-on-edupod"><span class="header-section-number">B</span> How to add an image using quarto on edupod</a></li>
@@ -465,12 +465,13 @@ fatal: Authentication failed for &lt;repo_url&gt;</code></pre>
 <p>Now you could <code>cd backup_home_git</code> and use that folder as a git repo. But probably you are about to clone from github (in which case a new folder will be created) or you are about to use <code>git init</code> to create a new local repo (in which case you should create a folder first, <code>cd</code> into it, then run <code>git init</code>.</p>
 </section>
 <section id="sec-gitviz" class="level2" data-number="A.3">
-<h2 data-number="A.3" class="anchored" data-anchor-id="sec-gitviz"><span class="header-section-number">A.3</span> Vizualizing git trees (aka gitviz)</h2>
-<p>In this course we are using a command that I usually call “gitviz” for short:</p>
+<h2 data-number="A.3" class="anchored" data-anchor-id="sec-gitviz"><span class="header-section-number">A.3</span> Vizualizing git trees (aka git viz)</h2>
+<p>In this course we are using a command that I usually call “git viz” for short:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span> <span class="at">--abbrev-commit</span> <span class="at">--all</span> <span class="at">--graph</span> <span class="at">--decorate</span> <span class="at">--color</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Instructions for creating the convenient alias <code>git viz</code> are in <a href="../skills/git_basic_workflow.html">Git basic workflow</a>.</p>
 <p>This produces reasonably readable graphs (especially for the teaching repos used in this course).</p>
 <p>They look like this:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jlh5498@educcomp04:~/github_repos/i320_test3,,\n</span> git log <span class="at">--oneline</span> <span class="at">--abbrev-commit</span> <span class="at">--all</span> <span class="at">--graph</span> <span class="at">--decorate</span> <span class="at">--color</span></span>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jlh5498@educcomp04:~/github_repos/i320_test3,,\n</span> git viz</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span>   d8ab2c1 <span class="er">(</span><span class="ex">HEAD</span> <span class="at">-</span><span class="op">&gt;</span> main, origin/main, origin/HEAD<span class="kw">)</span> <span class="ex">Merge</span> pull request <span class="co">#1 from jameshowison/new-feature</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span><span class="ex">\ </span> </span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> ffb601d <span class="er">(</span><span class="ex">origin/new-feature,</span> new-feature<span class="kw">)</span> <span class="ex">added</span> extra</span>
@@ -481,7 +482,7 @@ fatal: Authentication failed for &lt;repo_url&gt;</code></pre>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/gitviz_example.png" class="img-fluid figure-img"></p>
-<figcaption>Image showing output of gitviz command shown as text above</figcaption>
+<figcaption>Image showing output of git viz command shown as text above</figcaption>
 </figure>
 </div>
 <p>You can read a little more about how to read these graphs here <a href="https://stackoverflow.com/questions/22313343/git-graph-what-do-the-lines-and-asteriks-denote" class="uri">https://stackoverflow.com/questions/22313343/git-graph-what-do-the-lines-and-asteriks-denote</a></p>

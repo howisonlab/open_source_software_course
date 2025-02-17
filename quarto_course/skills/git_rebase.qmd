@@ -274,7 +274,7 @@ Ignore the remote branch (origin/pie_chart_branch), and focus only on the local 
 
 Note that in these examples we did not encounter any conflicts (because edits were all on different files).  In reality, though, when commits are moved around, rebased, and squashed, sometimes those operations result in conflicts (just as happens with merge).  In that case git add the conflict symbols (`<<<<<<` and `==========` and `>>>>>>>>>`) which all need to be removed, then the files added and finally we run `git rebase --continue`.  Git does provide useful messages through that process with guidance on the likely next steps.
 
-# Rebase Exercise
+## Rebase Exercise
 
 In groups of three, a Maintainer and two contributors, begin by setting up the collaboration network (a new repo, forks, clones and setting upstream).  Then work together to implement these steps:
 

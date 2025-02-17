@@ -30,7 +30,7 @@ Let's say that we create a repo and add a README, then add a SPECIAL_SECRET file
     [main 018f6b5] whoops added secret
      1 file changed, 1 insertion(+)
      create mode 100644 SPECIAL_SECRET
-    git log --oneline --abbrev-commit --all --graph --decorate --color
+    git viz
     * 018f6b5 (HEAD -> main) whoops added secret
     * f4878b0 now we have a README
 
@@ -39,7 +39,8 @@ Now I'll go ahead and make one more edit to README
     vi README
     git add READMEgit commit -m "README edit 2"[main 4d51f91] README edit 2
      1 file changed, 1 insertion(+)
-    git log --oneline --abbrev-commit --all --graph --decorate --color* 4d51f91 (HEAD -> main) README edit 2
+    git viz
+    * 4d51f91 (HEAD -> main) README edit 2
     * 018f6b5 whoops added secret
     * f4878b0 now we have a README
     ls

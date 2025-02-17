@@ -35,7 +35,7 @@ Some weird git errors can come when we accidentally have git repos inside other 
 Use the terminal to create a new git repo so that when you run our git viz command you see this output:
 
 ``` bash
-branching_warmup % git log --oneline --abbrev-commit --all --graph --decorate --color                         
+branching_warmup % git viz
 * 50590c5 (HEAD -> main) Wednesday
 * 39f89db Tuesday
 * 1b2162e Monday
@@ -46,18 +46,6 @@ Remember that for a new git repo you may have to provide a username and email ad
 ```bash
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
-```
-
-The git viz command is long, so you can create a short cut for it on the commandline:
-
-```bash
-git config alias.viz 'log --oneline --abbrev-commit --all --graph --decorate --color'
-```
-
-Then you will only need to type:
-
-```bash
-git viz
 ```
 
 ## Branching with local git
@@ -198,13 +186,13 @@ git commit -m "A fix to match new data format"
 Now if we run our git viz command:
 
 ```sh
-git log --oneline --abbrev-commit --all --graph --decorate --color
+git viz
 ```
 
 we will see our branching starting to show up:
 
 ```sh
-jlh5498@educcomp04:~/scratch_branching$ git log --oneline --abbrev-commit --all --graph --decorate --color
+jlh5498@educcomp04:~/scratch_branching$ git viz
 * 48afd7c (HEAD -> master) A fix to match new data format
 | * 5c7fc76 (towards_chart) More work towards charts
 | * c72d745 Worked towards charts
@@ -321,7 +309,7 @@ Fast-forward
 Finally we can visualize this branching, editing, and merging in two ways.  First we can use this handy command to see a visualization in the command line.
 
 ```sh
-git log --oneline --abbrev-commit --all --graph --decorate --color               
+git viz
 ```
 
 Which will show us this (using an image here because the color doesn't copy):

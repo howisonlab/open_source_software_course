@@ -25,7 +25,7 @@ Packages and package management offer a few other important advantages:
 - Packages can provide an appropriate location for running tests
 - Packages provide a way to scale up software. Data Scientists often develop code in a Notebook ... which is very convenient for the analyst but not something that can be made into a web API which thousands of developers or products can use in real time.  When we build packages they can be deployed in the cloud, and turned into [microservices](https://en.wikipedia.org/wiki/Microservices) using services like Kubernetes.
     
-# What is needed for package management?
+## What is needed for package management?
 
 Packaging can be thought about in four steps:
 
