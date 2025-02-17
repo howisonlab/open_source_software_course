@@ -50,7 +50,7 @@ git config --global user.name "Your Name"
 
 ## Branching with local git
 
-Branching (and merging) is a useful way to keep different tasks organized and synchronized, even when working locally with git.  Below we will work through a scenario for git branching, showing the commands and two different vizualizations.  Eventually branching becomes a key part of working with github and shared repositories, but it is useful to approach it separately first.
+Branching (and merging) is a useful way to keep different tasks organized and synchronized, even when working locally with git.  Below we will work through a scenario for git branching, showing the commands and two different visualizations.  Eventually branching becomes a key part of working with github and shared repositories, but it is useful to approach it separately first.
 
 ### A scenario
 
