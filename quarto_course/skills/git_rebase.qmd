@@ -280,10 +280,10 @@ In groups of three, a Maintainer and two contributors, begin by setting up the c
 
 1. Maintainer makes two commits to the main branch, contributors use `git pull upstream main` to synchronize.
 2. Each contributor creates a feature branch, and adds two commits to a file with their name.
-3. Contributors create PRs that the Maintainer sees on the upstream/sahred repository.
+3. Contributors create PRs that the Maintainer sees on the upstream/shared repository.
 4. Maintainer can accept one, merging to main.
 5. Maintainer then asks the other contributor to rebase their contribution.
 6. The contributor doing the rebase first does a `git pull upstream main` to get the new work onto the main branch in their local git.
-7. Then the contributor uses rebase and squash (as above) and uses `git push -f` to get their fork syncrhonized with their rebase.
+7. Then the contributor uses rebase and squash (as above) and uses `git push -f` to get their fork synchronized with their rebase.
 8. Maintainer should then check the PR and they will find only a single commit (the two previous ones squashed together), now looking as though it branched off main after the first contributor's work.  Maintainer can then accept the rebased PR.
-9. Both contributors should sychronize (`git pull upstream main` and then git push to sync their forks.)
+9. Both contributors should synchronize (`git pull upstream main` and then git push to sync their forks.)

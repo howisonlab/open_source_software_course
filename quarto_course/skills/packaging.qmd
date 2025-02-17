@@ -1,4 +1,4 @@
-# Packages to distibute code {#sec-packaging}
+# Packages to distribute code {#sec-packaging}
 
 Packages are ways of distributing software. We discussed packages in the material on Stack, Streak and Ecosystem: @sec-stack-and-stream
 
@@ -38,7 +38,7 @@ Different languages and software ecosystems implement these steps themselves.
 
 In Python, for examples, Encapsulation is done with directories, which have files inside with the code ("regular" some_code_name.py files. Metadata is done with additional files inside the directories. The tool `pip` handles both installation and dependency resolution.  For the server that hosts the packages there is one broad public server called `PyPI` (which stands for the *PY*thon *P*ackage *I*ndex), but it is also possible for individual organizations to run a version "behind the firewall" to manage packages within their organization.
 
-In R, encapsulation is also done thorugh directories, metadata through files.  Package installation is done within the R base software. In R there are a few important central repositories, including CRAN (*C*omprehensive *R* *A*rchive *N*etwork) and Bioconductor (a separate package manager focused on biology packages, an example of convergent evolution).  There are lots of different mirrors for CRAN.  
+In R, encapsulation is also done through directories, metadata through files.  Package installation is done within the R base software. In R there are a few important central repositories, including CRAN (*C*omprehensive *R* *A*rchive *N*etwork) and Bioconductor (a separate package manager focused on biology packages, an example of convergent evolution).  There are lots of different mirrors for CRAN.
 
 Package management "behind the firewall" is so important to firms, that the company that builds `Rstudio` now offers package management for both R and Python <https://packagemanager.posit.co/client/#/> both publically and within companies.  Similarly [Anaconda](https://www.anaconda.com/) a company based in Austin offers package management across an eve wider set of languages.
 

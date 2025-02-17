@@ -115,7 +115,7 @@ You will then be able to copy the PAT. You need to keep this somewhere you can c
 ::: {.callout-note}
 Windows users may have trouble pasting the PAT into the terminal. You may have to use the right-click menu and then choose paste.
 
-Similarly, right-click can also work for copy in the termainl windows.
+Similarly, right-click can also work for copy in the terminal windows.
 :::
 
 ## Send your changes up to GitHub 
