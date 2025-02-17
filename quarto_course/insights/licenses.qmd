@@ -23,7 +23,7 @@ A chapter from a book, and four blog style articles. The book chapter should tak
     \
     *Machine learning leaders, huggingface (yes, that's their real company name), explaining why sharing trained AI/neutral network models/weights is both similar to sharing code and different, proposing a new license focused on ethical reuse of shared trained models.*
     
-6. (added for 2026) [Khan Academy explantion of Creative Commons and Open Source licenses](https://www.khanacademy.org/computing/computers-and-internet/xcae6f4a7ff015e7d:digital-information/xcae6f4a7ff015e7d:digital-copyright-and-licenses/a/creative-commons-and-open-source)
+6. (added for 2026) [Khan Academy explanation of Creative Commons and Open Source licenses](https://www.khanacademy.org/computing/computers-and-internet/xcae6f4a7ff015e7d:digital-information/xcae6f4a7ff015e7d:digital-copyright-and-licenses/a/creative-commons-and-open-source)
 
 <!--# Funny video showing effects of "do no evil" in license. https://youtu.be/-hCimLnIsDA -->
 
@@ -142,7 +142,7 @@ The original open source licenses were written before cloud, and the idea of Sof
 
 What is meant by "source-available" licenses?  Find some examples of licenses that are "source available" but don't meet the OSI Open Source Definition.  What clauses do they violate?
 
-#### Artificial Intellegence software
+#### Artificial Intelligence software
 
 Neural Networks express much of their logic not in code, but in the weights of a trained neutral network.
 

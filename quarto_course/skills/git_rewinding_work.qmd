@@ -134,7 +134,7 @@ Sometimes (well often, really) we need to undo things we've done in git. Unfortu
 
 ### git restore --staged Undo adding files (before commit)
 
-When we add a file, we are placing the file onto the tray, ready to copy into the repository. In git language we use `git add` we are "staging" a set of changes ready to commit. If we run `git status` we will see the files added under `Changes to be committeed` (usually shown in green).
+When we add a file, we are placing the file onto the tray, ready to copy into the repository. In git language we use `git add` we are "staging" a set of changes ready to commit. If we run `git status` we will see the files added under `Changes to be committed` (usually shown in green).
 
 Sometimes we accidentally add files with changes that we don't want to include in the commit (e.g., because they are unrelated to the current set of changes and would just clutter the commit up for people trying to understand it)
 
