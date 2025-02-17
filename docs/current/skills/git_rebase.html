@@ -302,7 +302,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../skills/packaging.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Packages to distibute code</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Packages to distribute code</span></span></a>
   </div>
 </li>
       </ul>
@@ -605,13 +605,13 @@ gitGraph
 <ol type="1">
 <li>Maintainer makes two commits to the main branch, contributors use <code>git pull upstream main</code> to synchronize.</li>
 <li>Each contributor creates a feature branch, and adds two commits to a file with their name.</li>
-<li>Contributors create PRs that the Maintainer sees on the upstream/sahred repository.</li>
+<li>Contributors create PRs that the Maintainer sees on the upstream/shared repository.</li>
 <li>Maintainer can accept one, merging to main.</li>
 <li>Maintainer then asks the other contributor to rebase their contribution.</li>
 <li>The contributor doing the rebase first does a <code>git pull upstream main</code> to get the new work onto the main branch in their local git.</li>
-<li>Then the contributor uses rebase and squash (as above) and uses <code>git push -f</code> to get their fork syncrhonized with their rebase.</li>
+<li>Then the contributor uses rebase and squash (as above) and uses <code>git push -f</code> to get their fork synchronized with their rebase.</li>
 <li>Maintainer should then check the PR and they will find only a single commit (the two previous ones squashed together), now looking as though it branched off main after the first contributor’s work. Maintainer can then accept the rebased PR.</li>
-<li>Both contributors should sychronize (<code>git pull upstream main</code> and then git push to sync their forks.)</li>
+<li>Both contributors should synchronize (<code>git pull upstream main</code> and then git push to sync their forks.)</li>
 </ol>
 
 
