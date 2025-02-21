@@ -20,6 +20,27 @@ We will learn what this means, and how it relates to motivation for participatio
 
 -   "My favorite commit": <https://dhwthompson.com/2019/my-favourite-git-commit>
 
+## Expectancy Valance Model of Motivation
+
+```{mermaid}
+flowchart LR
+    idExp[Expectancy] -->|x| idInst[Instrumentality] -->|x| idVal[Valence]
+    idA[Effort] -->|x| idB[Performance] -->|x| idC[Reward]
+    idQ1["Will my effort lead to high performance? Probability"] --> idQ2["Will Performance lead to outcomes?"] --> idQ3["Do I find the outcomes desirable?"]
+
+    style idExp fill:#FFA500
+    style idA fill:#FFA500
+    style idQ1 fill:#FFA500
+
+    style idInst fill:#C8A2C8
+    style idB fill:#C8A2C8
+    style idQ2 fill:#C8A2C8
+    
+    style idVal fill:#6495ED
+    style idC fill:#6495ED
+    style idQ3 fill:#6495ED
+```
+
 ## Presentation
 
-<iframe width="100%" height="800" src="images/Howison-PP-OpenSuperposition.pdf">
+<iframe width="100%" height="800" src="images/Howison-PP-OpenSuperposition.pdf"></iframe>

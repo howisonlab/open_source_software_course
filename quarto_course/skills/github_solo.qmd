@@ -5,7 +5,13 @@ resources:
 
 # GitHub solo {#sec-github-solo}
 
-Thus far your repositories have all been in your local filespace. This is often on a laptop, although for consistency this semester as we learn, we have been creating and using repos on DataCamp.
+## Warmup exercise
+
+merge conflicts
+
+
+
+Thus far your repositories have all been in your local filespace. This is often on a laptop, although for consistency this semester as we learn, we have been creating and using repos on edupod.
 
 Even when working on one's own (solo), it can be convenient to have a backup in the cloud. Git hosting services provide this. Examples include Github, GitLab, and BitBucket. As we will see later, these services also provide a platform for collaborating with others, but they work just as well as a backup for solo work.
 
@@ -33,7 +39,7 @@ You should copy the URL using the little grey box-on-box on the right.
 
 Now that we have an empty repo on Github, we can bring it down to our local space.  This uses a git command called `git clone`. 
 
-Go to the Terminal on DataCamp.
+Go to the Terminal on edupod.
 
 Before running git clone, everyone needs to ensure they are in a folder that is not inside another repo. You can place repos anywhere you want. I suggest placing them all into your home folder on edupod. You can be sure you are there by running this command (read as "cd tilde" because tilde is a shortcut for your home directory).
 
@@ -115,8 +121,17 @@ You will then be able to copy the PAT. You need to keep this somewhere you can c
 ::: {.callout-note}
 Windows users may have trouble pasting the PAT into the terminal. You may have to use the right-click menu and then choose paste.
 
-Similarly, right-click can also work for copy in the termainl windows.
+Similarly, right-click can also work for copy in the terminal windows.
 :::
+
+::: {.callout-caution}
+GitHub will only show a PAT a single time.  So you must store this somewhere you can copy it from when needed.  It is a password, so store it with your other passwords.
+
+You should be using a password manager. Examples include 1password, LastPass, Dashlane, or perhaps a password manager associated with your browser. So store it there.
+
+If you lose the PAT, you can log into GitHub and generate another (but remember to copy and save it this time).
+:::
+
 
 ## Send your changes up to GitHub 
 
@@ -128,7 +143,11 @@ git push
 
 git will ask for your username/password.  You should use your GitHub username, but the PAT when asked for the password. **Your regular GitHub password will not work**. You have to use the PAT you created in the previous step.  If you didn't copy it down, you can create a new one, don't forget to store it somewhere so that you can copy it for use in class.
 
-By default you will have to re-enter this username/PAT any time you haven't run a `git push` command for 15 minutes.  More details in the FAQ on this in @sec-pass-popup but you can reduce pops by running:
+By default you will have to re-enter this username/PAT any time you haven't run a `git push` command for 15 minutes.  More details in the FAQ on this in @sec-pass-popup which gets you to run:
+
+```sh
+git config --global credential.helper 'cache --timeout=10000000'
+```
 
 ## Go to GitHub to confirm
 
@@ -149,7 +168,7 @@ git commit -m "change on locally created branch"
 Now we have a branch locally, but that branch is not in the repo on GitHub. This means we may see a message about needing to set an *upstream branch*. Something like this:
 
 ```bash
-$ git push
+$ git push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
 fatal: The current branch test-branch has no upstream branch.
 To push the current branch and set the remote as upstream, use
 
@@ -207,7 +226,7 @@ This will lead to a PR page, where you could chat about the suggested changes.
 
 Notice the sentence in the purple circle: `jameshowison wants to merge 1 commit into main from new-feature` that is a useful succinct summary of what a PR is: it is a request to merge a set of commits from one branch into another.
 
-If you hit the "Merge Pull Request" button GitHub will merge the branch to main, close the PR, and suggest that you delete the branch.
+If you hit the "Merge Pull Request" button GitHub will merge the branch to main, close the PR, and suggest that you delete the branch (which you can do; all the commits from that branch are now on main/master).
 
 ## Synchronize your local repo
 
@@ -277,3 +296,5 @@ sequenceDiagram
     
 ```
 :::
+
+
