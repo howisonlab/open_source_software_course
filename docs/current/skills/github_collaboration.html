@@ -302,7 +302,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../skills/packaging.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Packages to distibute code</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Packages to distribute code</span></span></a>
   </div>
 </li>
       </ul>
@@ -462,8 +462,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol start="4" type="1">
 <li><em>Contributor A</em> and <em>Contributor B</em> should clone their fork repo to their working space.</li>
 </ol>
-<p>Usually this is a laptop, but this semester we are using DataCamp, which you can access as usual via that link.</p>
-<p>Log into DataCamp, and work in the Terminal tab. Before running git clone, everyone needs to ensure they are in a folder that is not inside another repo. You can place repos anywhere you want. I suggest placing them all into the <code>workspace</code> folder on DataCamp. You can be sure you are there by running this command (read as “cd tilde” because tilde is a shortcut for your home directory).</p>
+<p>Usually this is a laptop, but this semester we are using EduPod, which you can access as usual via that link.</p>
+<p>Log into EduPod, and work in the Terminal tab. Before running git clone, everyone needs to ensure they are in a folder that is not inside another repo. You can place repos anywhere you want. I suggest placing them all into the <code>workspace</code> folder on EduPod. You can be sure you are there by running this command (read as “cd tilde” because tilde is a shortcut for your home directory).</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/workspace</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>To be sure that you aren’t inside another repo you can run <code>git status</code> and you <em>want</em> to see a fatal error.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
@@ -517,7 +517,8 @@ Note
 <li><em>Contributor A</em>, <em>Contributor B</em> should create a new branch and switch to it (replace YOUR_ROLE_NAME with either contributorA or contributorB):</li>
 </ol>
 <div class="spoiler">
-<div class="sourceCode" id="cb6"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> YOUR_ROLE_NAME-new-branch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch YOUR_ROLE_NAME-new-branch</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout YOUR_ROLE_NAME-new-branch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol type="1">
 <li><em>Contributor A</em>, <em>Contributor B</em> each create a file named after their role (ie contributorA.txt, contributorB.txt). You can use the Rstudio editor on edupod to create and save the file, or you can create a file with some simple content using:</li>
@@ -640,7 +641,8 @@ origin  MAINTAINER_URL (push)</code></pre>
 <ol start="2" type="1">
 <li><em>Maintainer</em> creates a branch and changes to it:</li>
 </ol>
-<div class="sourceCode" id="cb16"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> new-maintainer-branch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch new-maintainer-branch</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout new-maintainer-branch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="3" type="1">
 <li><em>Maintainer</em> creates and saves a file called ‘maintainer.txt’</li>
 </ol>
@@ -696,7 +698,8 @@ turtle</code></pre>
 <ol start="4" type="1">
 <li><em>Contributor A</em> and <em>Contributor B</em> should both create and switch to a branch.</li>
 </ol>
-<div class="sourceCode" id="cb25"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> animal-branch-CONTRIBUTOR_NAME</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch animal-branch-CONTRIBUTOR_NAME</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout animal-branch-CONTRIBUTOR_NAME</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>5, <em>Contributor A</em> and <em>Contributor B</em> should each edit the animals.txt file by adding their name to the first line in the <code>animals.txt</code> (so it reads <code>lion contributorA</code> or <code>lion contributorB</code>). They add, commit, push to their forks.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">

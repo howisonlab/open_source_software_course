@@ -7,10 +7,6 @@ resources:
 
 ## Warmup exercise
 
-merge conflicts
-
-
-
 Thus far your repositories have all been in your local filespace. This is often on a laptop, although for consistency this semester as we learn, we have been creating and using repos on edupod.
 
 Even when working on one's own (solo), it can be convenient to have a backup in the cloud. Git hosting services provide this. Examples include Github, GitLab, and BitBucket. As we will see later, these services also provide a platform for collaborating with others, but they work just as well as a backup for solo work.

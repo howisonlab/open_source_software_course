@@ -41,6 +41,10 @@ While we may think the process of creating new models of decision making in grou
 
 <a title="Ruben de Haas email, CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Hands_signals-Occupy-A4.svg"><img width="512" alt="Hands signals-Occupy-A4" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Hands_signals-Occupy-A4.svg/512px-Hands_signals-Occupy-A4.svg.png"></a>
 
+[Video of hand signal explanation](https://www.youtube.com/watch?v=R2yYiULZ0hA)
+
+* More traditional meetings organized using [Robert's Rules of Order](https://www.youtube.com/watch?v=aSAN-_OKKNk)
+
 * New constitutions written by countries. e.g., [Chile's new constitution process 2022](https://en.wikipedia.org/wiki/2022_proposed_Political_Constitution_of_the_Republic_of_Chile)
 
 Students and faculty at the University of Texas are involved with a project (and software) to [compare the texts of Constitutions around the world.](https://constituteproject.org/topics?lang=en). Including using `diffs` (just like git does) to understand changes. e.g., [changes in Algeria's constitution (diff 1989 2020)](https://constituteproject.org/constitutions?lang=en&status=in_force&status=is_historic&status=is_draft&compare=Algeria_2016&compare=Algeria_2020). "Constitute was developed by the Comparative Constitutions Project at the University of Texas at Austin and the University of Chicago, directed by [Zachary Elkins](https://liberalarts.utexas.edu/government/faculty/elkinszs) and Tom Ginsburg."
@@ -83,9 +87,3 @@ Ross Gardler & Gabriel Hanganu. (2013). Governance models. OSS-Watch.ac.uk. <htt
 Karl Fogel. (2020). Chapter 8: Managing Participants. In "Producing OSS" Book. <https://producingoss.com/en/managing-participants.html>
 
 4. Create a final heading, "Reflections on working without talking".  Move to sit next to each other. Ironically, you can talk to each other as you write down at least 3 bullet points about your experience doing this note-taking. 
-
-
-<!-- ## Voting -->
-
-<!-- https://www.apache.org/foundation/voting.html -->
-

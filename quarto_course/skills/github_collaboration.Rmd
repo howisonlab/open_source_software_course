@@ -106,9 +106,9 @@ flowchart LR
 
 4. *Contributor A* and *Contributor B* should clone their fork repo to their working space. 
 
-Usually this is a laptop, but this semester we are using DataCamp, which you can access as usual via that link.  
+Usually this is a laptop, but this semester we are using EduPod, which you can access as usual via that link.  
 
-Log into DataCamp, and work in the Terminal tab. Before running git clone, everyone needs to ensure they are in a folder that is not inside another repo. You can place repos anywhere you want. I suggest placing them all into the `workspace` folder on DataCamp. You can be sure you are there by running this command (read as "cd tilde" because tilde is a shortcut for your home directory).
+Log into EduPod, and work in the Terminal tab. Before running git clone, everyone needs to ensure they are in a folder that is not inside another repo. You can place repos anywhere you want. I suggest placing them all into the `workspace` folder on EduPod. You can be sure you are there by running this command (read as "cd tilde" because tilde is a shortcut for your home directory).
 
 ```sh
 cd ~/workspace
@@ -171,7 +171,8 @@ The contributors are each going to do some work, then pass it up through their f
 
 ::: spoiler
 ```sh
-git checkout -b YOUR_ROLE_NAME-new-branch
+git branch YOUR_ROLE_NAME-new-branch
+git checkout YOUR_ROLE_NAME-new-branch
 ```
 :::
 
@@ -296,7 +297,8 @@ So ... for the maintainer (the owner of the shared repo) the shared repo on thei
 2. *Maintainer* creates a branch and changes to it:
 
 ```sh
-git checkout -b new-maintainer-branch
+git branch new-maintainer-branch
+git checkout new-maintainer-branch
 ```
 
 3. *Maintainer* creates and saves a file called 'maintainer.txt'
@@ -375,7 +377,8 @@ git pull upstream main
 4.  *Contributor A* and *Contributor B* should both create and switch to a branch.
 
 ```sh
-git checkout -b animal-branch-CONTRIBUTOR_NAME
+git branch animal-branch-CONTRIBUTOR_NAME
+git checkout animal-branch-CONTRIBUTOR_NAME
 ```
 
 5, *Contributor A* and *Contributor B* should each edit the animals.txt file by adding their name to the first line in the `animals.txt` (so it reads `lion contributorA` or `lion contributorB`). They add, commit, push to their forks. 

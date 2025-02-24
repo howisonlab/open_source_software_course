@@ -135,7 +135,7 @@ Bill Joy (from Sun Microsystems)is credited with the saying,
 
 > "no matter who you are, most of the smartest people work for someone else,
 
-Firms therefore wna to access those smart people. Various approachs help, including "Crowdsourcing," "innovation contests," and "thought leadership" (publishing white papers and blogs that are discussed in public and then watching the discussion).
+Firms therefore wna to access those smart people. Various approaches help, including "Crowdsourcing," "innovation contests," and "thought leadership" (publishing white papers and blogs that are discussed in public and then watching the discussion).
 
 Open source projects are another place where expert outsiders can be found and engaged on topics of importance to firms.
 

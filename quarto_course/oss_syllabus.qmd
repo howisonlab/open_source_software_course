@@ -556,7 +556,7 @@ insight_topics <- tribble(
   "Licenses @sec-licenses",
   "Coordination @sec-coordination ",
   "Governance and decision making @sec-gov ",
-  "Knowledge sharing",
+  "Different kinds of open source projects",
   "Bias and lack of diversity @sec-diversity ",
   "Iterative Development, Tests, and Continuous Integration @sec-agile ",
   "The stack and the stream @sec-stack-and-stream ",

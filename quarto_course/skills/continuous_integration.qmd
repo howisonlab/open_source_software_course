@@ -2,7 +2,7 @@
 
 **Continuous Integration** encourages frequent merging of developing code, running the test suite to ensure that nothing is merged to main unless all the tests pass. 
 
-Continuous integration helps a project to stay synchronized, acheiving coordination by managing dependencies between activities.  Some of the sources of change that can cause issues for projects are:
+Continuous integration helps a project to stay synchronized, achieving coordination by managing dependencies between activities.  Some of the sources of change that can cause issues for projects are:
 
 1. **Parallel development**:  When developers are working in parallel, their work can become de-synchronized.  We discussed merges and rebase as approaches to re-synchronizing, but even with those sources of help when work is separate for longer periods of time misunderstandings can result.  Small changes, frequently merged, are also easier for other developers to understand.
 2. **Changes in the package ecosystem**: Packages that the project is built on top of changing over time, new versions or security updates.
@@ -147,7 +147,7 @@ The PR page itself will now show that a check has failed (or it might still show
 
 ![Screenshot of checks section showing tests failed](continuous_integration_files/test_failed.png)
 
-To fix the failing test, you need to edit the files to either remove the new test or make it poass, add, commit, and push that new commit into the branch for the PR.  This will cause the tests to run again, and (if all tests now pass) you will see:
+To fix the failing test, you need to edit the files to either remove the new test or make it pass, add, commit, and push that new commit into the branch for the PR.  This will cause the tests to run again, and (if all tests now pass) you will see:
 
 ![Screenshot showing that all checks have passed, reflecting situation after the failing test is fixed](continuous_integration_files/all_tests_pass.png)
 
