@@ -106,12 +106,10 @@ flowchart LR
 
 4. *Contributor A* and *Contributor B* should clone their fork repo to their working space. 
 
-Usually this is a laptop, but this semester we are using EduPod, which you can access as usual via that link.  
-
-Log into EduPod, and work in the Terminal tab. Before running git clone, everyone needs to ensure they are in a folder that is not inside another repo. You can place repos anywhere you want. I suggest placing them all into the `workspace` folder on EduPod. You can be sure you are there by running this command (read as "cd tilde" because tilde is a shortcut for your home directory).
+Before running git clone, everyone needs to ensure they are in a folder that is not inside another repo. You can place repos anywhere you want. I suggest placing them in your home folder. You can be sure you are there by running this command (read as "cd tilde" because tilde is a shortcut for your home directory).
 
 ```sh
-cd ~/workspace
+cd ~
 ```
 
 To be sure that you aren't inside another repo you can run `git status` and you *want* to see a fatal error.
@@ -176,7 +174,7 @@ git checkout YOUR_ROLE_NAME-new-branch
 ```
 :::
 
-1.  *Contributor A*, *Contributor B* each create a file named after their role (ie contributorA.txt, contributorB.txt). You can use the Rstudio editor on edupod to create and save the file, or you can create a file with some simple content using:
+1.  *Contributor A*, *Contributor B* each create a file named after their role (ie contributorA.txt, contributorB.txt). You can use an editor to create and save the file, or you can create a file with some simple content using:
 
 ```sh
 echo "A line of content" >> YOUR_ROLE_NAME.txt
@@ -351,7 +349,7 @@ git pull
 
 The point of this exercise is to intentionally create conflicts in editing, to demonstrate how they show up in Pull Requests.
 
-1. *Maintainer* should change to the main branch on their local repo (on EduPod Rstudio)
+1. *Maintainer* should change to the main branch on their local repo.
 
 ```sh
 git checkout main

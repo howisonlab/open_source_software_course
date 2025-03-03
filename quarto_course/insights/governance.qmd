@@ -15,6 +15,28 @@
 
 Extra optional reading: Podcast on "Learning from Open Source": <https://a16z.com/podcast/learning-from-open-source-communities/>.  We will have readings from this later in the course, so useful to do now.
 
+## Exercise: Note-taking via google docs
+
+You will be placed into groups of 3 (not sitting near each other):
+
+1. Create a google doc and share it
+
+**For next 2 steps follow two rules:**
+
+* You may not talk to each other
+* You may not write instructions to each other in the Google doc (or elsewhere, e.g., chat)
+
+2. Working in this mode: produce a 2 page summary of:
+
+Ross Gardler & Gabriel Hanganu. (2013). Governance models. OSS-Watch.ac.uk. <http://oss-watch.ac.uk/resources/governancemodels>
+
+3. Continuing to work in this mode: include within your text three comparisons with the work linked below (comparisons could include that the work agrees, disagrees, extends, adds example, etc.):
+
+Karl Fogel. (2020). Chapter 8: Managing Participants. In "Producing OSS" Book. <https://producingoss.com/en/managing-participants.html>
+
+4. Create a final heading, "Reflections on working without talking".  Move to sit next to each other. Ironically, you can talk to each other as you write down at least 3 bullet points about your experience doing this note-taking. 
+
+
 ## How do open source projects make decisions?
 
 Working in a project requires many decisions, e.g.,:
@@ -67,23 +89,3 @@ Students and faculty at the University of Texas are involved with a project (and
   <!--   "https://doi.org/10.1016/j.infoandorg.2017.04.001", -->
   <!--   "Governance", -->
 
-## Exercise: Note-taking via google docs
-
-You will be placed into groups of 3 (not sitting near each other):
-
-1. Create a google doc and share it
-
-**For next 2 steps follow two rules:**
-
-* You may not talk to each other
-* You may not write instructions to each other in the Google doc (or elsewhere, e.g., chat)
-
-2. Working in this mode: produce a 2 page summary of:
-
-Ross Gardler & Gabriel Hanganu. (2013). Governance models. OSS-Watch.ac.uk. <http://oss-watch.ac.uk/resources/governancemodels>
-
-3. Continuing to work in this mode: include within your text three comparisons with the work linked below (comparisons could include that the work agrees, disagrees, extends, adds example, etc.):
-
-Karl Fogel. (2020). Chapter 8: Managing Participants. In "Producing OSS" Book. <https://producingoss.com/en/managing-participants.html>
-
-4. Create a final heading, "Reflections on working without talking".  Move to sit next to each other. Ironically, you can talk to each other as you write down at least 3 bullet points about your experience doing this note-taking. 

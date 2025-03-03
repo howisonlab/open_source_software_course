@@ -26,6 +26,7 @@ book:
       - insights/licenses.qmd
       - insights/coordination.qmd
       - insights/governance.qmd
+      - insights/examining_real_projects.qmd
       - insights/bias_lack_of_diversity.qmd
       - insights/stack_and_stream.qmd
       - insights/agile.qmd
