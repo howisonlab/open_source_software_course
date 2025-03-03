@@ -1,7 +1,4 @@
----
-title: "Examining Real Projects"
-format: html
----
+# Examining Real Projects {#sec-real-projects}
 
 For today's class we will put the concepts we have been learning into action by examining real world open source software projects.
 
@@ -18,7 +15,7 @@ It may help to have in mind these scenarios:
 4. Contribution process (how do people contribute?)
 5. Release process (On what schedule? How do they decide?)
 5. Coordination evidence (e.g., work breakdowns, planning documents)
-6. Work episodes: identify one closed PR and one open PR that give insight/show examples of processes discussed in the course  
+6. Work episodes: identify one closed PR and one open PR that give insight/show examples of processes discussed in the course.  Note that you can sort the Issues by "Total Comments" which might help surface interesting Issues.
 7. Curiosities: what aspects of the GitHub site, project, or community are you curious about?
 
 ## Projects to examine
@@ -28,8 +25,19 @@ Each of us will examine three projects.  We will all examine the YT project <htt
 Then you can pick one from this list:
 
 1. <https://github.com/kubernetes/kubernetes>
+2. <https://github.com/sindresorhus/awesome>
 3. <https://github.com/tidyverse/ggplot2>
 4. <https://github.com/nocodb/nocodb>
 5. <https://github.com/mastodon/mastodon>
 
 Finally, you should identify and examine a third project of your own interest. Pick something that you might use, perhaps something from your data science work, or search for a tool in your area of interest.
+
+## Group notes on examination
+
+Form a group of 2 or 3.  You will be editing a shared Google Doc.  Add your name at the top of the doc. Copy the items to examine from above into the doc (you will have to copy this for each of the three projects that you examine).
+
+You should write a paragraph or two on each bullet point, for each project.
+
+Manage your time effectively to finish this in-class.
+
+
