@@ -184,7 +184,7 @@ gitGraph
 To accomplish this we can use a git command called `rebase`.  We say that we will "rebase" the pie_chart_branch against `main`.
 
 ```sh
-git switch pie_chart_branch
+git checkout pie_chart_branch
 git rebase -i main
 ```
 
@@ -238,7 +238,7 @@ cd ..
 rm -rf 320d_rebase_example
 git clone https://github.com/jameshowison/320d_rebase_example.git
 cd 320d_rebase_example
-git switch pie_chart_branch
+git checkout pie_chart_branch
 ```
 
 Just as before we use:
