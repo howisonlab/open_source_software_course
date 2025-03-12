@@ -173,7 +173,34 @@ gitGraph
   
 ```
 
-But we want it to look as though pie_chart_branch came off the tip of main, like this:
+We don't want to just merge main into our branch, and then merge the result back into main.
+This would produce a relatively complex history that can be confusing to interpret:
+
+```{mermaid}
+---
+config:
+  gitGraph:
+    parallelCommits: true
+---
+gitGraph
+  commit
+  commit
+  commit type: HIGHLIGHT
+  branch pie_chart_branch
+  commit
+  commit
+  checkout main
+  commit
+  commit
+  checkout pie_chart_branch
+  commit
+  merge main
+  checkout main
+  merge pie_chart_branch
+
+```
+
+Instead, we want it to look as though pie_chart_branch came off the tip of main, like this:
 
 ```{mermaid}
 ---
@@ -204,7 +231,12 @@ git rebase -i main
 
 This puts us into a textual UI, with guidance at the bottom. We can use the arrow keys to move around.
 In this UI we are editing a text file (so we are using the Nano editor).
-Each line is a commit, the lines are instructions and are executed in order.
+To begin, understand that `git rebase` first changes the pointer to `pie_chart_branch`
+to point at the commit we specified.
+It then finds the point at which `pie_chart_branch` diverged from the specified commit's history.
+Each line is a command, the lines are instructions and are executed in order.
+In the following case, this is as if we checked out `main`,
+and then sequentially called `git cherry-pick` on the commits in `pie_chart_branch`.
 
 ![](git_rebase_files/rebase_no_squash.png)
 
@@ -228,7 +260,7 @@ Using `git viz` will then show us:
 ```
 
 This is a little hard to read.
-This is because the `origin/` branches are shwoing (and those are up on the GitHub server and not yet changed).
+This is because the `origin/` branches are showing (and those are up on the GitHub server and not yet changed).
 Look closely at the `pie_chart_branch` and down the left column.
 We now see that `pie chart 1` commit comes directly after the two commits on main,
 just as though the work started there.
@@ -259,6 +291,48 @@ Rebase does offer some additional opportunities though.
 Notice that the textual UI shows more options than just 'pick'.
 One option is 'squash' which takes changes from multiple commits and presents them in a single commit.
 This can make a git history easier for teammates to understand.
+
+## Commits vs. Patches
+
+If you think about it, what we've just done is magic from our current understanding of how Git works.
+If commits are whole-filesystem snapshots (which they are!), then why would rebasing our commits change their contents?
+There's a new concept lurking here that also explains the behavior of `git cherry-pick`: "patches".
+
+In Git, a patch represents the difference between two commits.
+Patches consist of three sets of instructions:
+
+1. Files to be added.
+2. Files to be modified.
+3. Files to be removed.
+
+::: {.callout-note title="Patching changes to files"}
+Modifying files is an interesting case: Git considers the state of the file both before and after the patch.
+It's complicated, but generally a patch can only automatically be applied to a file
+if the file looks "enough" like the file the patch was made for.
+For instance, if a patch is told to a remove a particular line and the line no longer exists,
+this may result in a merge conflict.
+:::
+
+When we modify history, what Git does is calculate "patches" between commits,
+and then tries to calculate the state of the repository as if
+that sequence of patches had been applied in order to generate the new commits.
+When we `git rebase`, we're telling Git that we want it to calculate what the state of commits on our current branch
+would be _if we had applied the patches we're rebasing on first_.
+This is essentially the inverse of `git merge`, which tries to calculate what happens if we apply the changes from
+the target branch after the changes we've already made.
+
+You can think of `git diff` as calculating the "patch" between two commits.
+
+::: {.callout-note title="Patch files" collapse="true"}
+If you write the output of `git diff` to a file, e.g. `git diff main my-branch > my-branch.patch`, you get a
+valid "patch file" that you can `git apply`.
+Fortunately, we don't need these since we've long passed the days of needing to literally email changes.
+:::
+
+When we get "merge conflicts" - be they via `git merge`, `git cherrypick`, or `git rebase`,
+it means that for some reason Git wasn't able to apply the patch representing the difference between two commits.
+For instance, if you added a file to `main`, and separately also added that file to `pie_chart_branch`,
+then all of these commands will flag the file as a potential merge conflict.
 
 ## Adding squash
 
@@ -316,6 +390,13 @@ sometimes those operations result in conflicts (just as happens with merge).
 In that case git add the conflict symbols (`<<<<<<` and `==========` and `>>>>>>>>>`) which all need to be removed,
 then the files added and finally we run `git rebase --continue`.
 Git does provide useful messages through that process with guidance on the likely next steps.
+
+::: {.callout-warning title="Commits are preserved"}
+None of the actions we've discussed today actually delete any commits from the repository.
+You can still `git checkout` the commit IDs from before rebasing and/or squashing,
+and even see their relationships to the work tree with `git viz --reflog`.
+This is both a good thing (you can easily undo these actions) and a bad thing (removing problematic commits is hard).
+:::
 
 ## Rebase Exercise
 
