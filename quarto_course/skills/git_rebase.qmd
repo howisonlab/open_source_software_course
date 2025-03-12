@@ -405,7 +405,8 @@ begin by setting up the collaboration network (a new repo on GitHub, forks, clon
 Then work together to implement these steps:
 
 1. Maintainer makes two commits to the main branch. Contributors use `git pull upstream main` to synchronize.
-1. Each contributor creates a feature branch, and adds two commits to a file with their name.
+1. Each contributor creates a feature branch, and adds two commits to a file named "[yourname].txt" where
+"yourname" is replaced with your name.
 1. Contributors create PRs that Maintainer sees on the upstream/shared repository.
 **Do not continue until both contributors have created their PRs.**
 1. Maintainer asks Contributor A to squash their contribution.
