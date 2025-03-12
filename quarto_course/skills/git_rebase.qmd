@@ -253,7 +253,7 @@ Using `git viz` will then show us:
 | * 83f6236 (origin/pie_chart_branch) pie chart 3
 | * 6780d4e pie chart 2
 | * 54b2ecb pie chart 1
-|/  
+|/
 * 52bd3fd second commit
 * 0aefb6a first commit
 * 9ad07d3 Initial commit
@@ -375,7 +375,7 @@ Finally, we can use git viz to see the new situation.
 | * 246e49e (origin/pie_chart_branch) pie chart 3
 | * 4c12962 pie chart 2
 | * 123593a pie chart 1
-|/  
+|/
 * ccd6067 second commit
 * 512525e first commit
 * 20b7fb5 Initial commit
@@ -401,18 +401,21 @@ This is both a good thing (you can easily undo these actions) and a bad thing (r
 ## Rebase Exercise
 
 In groups of three, a Maintainer and two contributors (Contributor A and Contributor B),
-begin by setting up the collaboration network (a new repo, forks, clones and setting upstream).
+begin by setting up the collaboration network (a new repo on GitHub, forks, clones and setting upstream).
 Then work together to implement these steps:
 
-1. Maintainer makes two commits to the main branch, contributors use `git pull upstream main` to synchronize.
-2. Each contributor creates a feature branch, and adds two commits to a file with their name.
-3. Contributors create PRs that the Maintainer sees on the upstream/shared repository.
-4. Maintainer can accepts Contributor A's, merging to main.
-5. Maintainer then asks Contributor B to rebase their contribution.
-6. Contributor B does a `git pull upstream main` to get the new work onto the main branch in their local git.
-7. Contributor B uses rebase and squash (as above), then `git push -f` to get their fork synchronized with their rebase.
-8. Maintainer should then check the PR.
+1. Maintainer makes two commits to the main branch. Contributors use `git pull upstream main` to synchronize.
+1. Each contributor creates a feature branch, and adds two commits to a file with their name.
+1. Contributors create PRs that Maintainer sees on the upstream/shared repository.
+**Do not continue until both contributors have created their PRs.**
+1. Maintainer asks Contributor A to squash their contribution.
+1. Contributor A uses rebase and squash, then `git push -f` to get their PR synchronized with their rebase.
+1. Maintainer accepts Contributor A's PR, merging to main.
+1. Maintainer asks Contributor B to rebase and squash their contribution.
+1. Contributor B does a `git pull upstream main` to get the new work onto the main branch in their local git.
+1. Contributor B uses rebase and squash (as above), then `git push -f` to get their PR synchronized with their rebase.
+1. Maintainer should then check the PR.
 They will find only a single commit (the two previous ones squashed together),
 now looking as though it branched off main after the first contributor's work.
 Maintainer can then accept the rebased PR.
-9. Both contributors should synchronize (`git pull upstream main` and then git push to sync their forks.)
+1. Both contributors should synchronize (`git pull upstream main` and then git push to sync their forks.)
