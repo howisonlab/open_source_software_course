@@ -342,17 +342,19 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="agile_files/agile_waterfall.png" class="img-fluid"></p>
 <p>Iterative development plays a key role in open source. Open source projects typically do not undertake user research, but instead build things that work for the core developers. Those products then find their way into users hands. Users working directly with existing software then conceptualize improvements or identify flaws, some users then take the time to give feedback through Issues or bug reports, creating new ideas for developers to potentially implement.</p>
 <p><img src="agile_files/superposition.png" class="img-fluid"></p>
-<p>Iterative development is part of what has become known as “Agile methods” and “Scrum” but those are more elaborate approaches to managing software development which are appropriate for companies and teams with employees.</p>
-<p>https://en.wikipedia.org/wiki/Iterative_and_incremental_development</p>
-<p>“Giddings, R. V. (1984). Accommodating Uncertainty in Software Design. Commun. ACM, 27(5), 428–434.”, “https://doi.org/10.1145/358189.358066”</p>
-<p>https://campus.datacamp.com/pdf/web/viewer.html?file=https://projector-video-pdf-converter.datacamp.com/29774/chapter1.pdf#page=28</p>
+<p>Iterative development is part of what has become known as “Agile methods” and “Scrum” but those are more elaborate approaches to managing software development which are appropriate for companies and teams with employees. Further insights on this can be found in training materials about “Scrum” and “Kanban”. For example Atlassian (a software process and tooling company) provides materials here: <a href="https://www.atlassian.com/agile/kanban" class="uri">https://www.atlassian.com/agile/kanban</a></p>
+<p>Other useful readings include:</p>
+<p><a href="https://en.wikipedia.org/wiki/Iterative_and_incremental_development" class="uri">https://en.wikipedia.org/wiki/Iterative_and_incremental_development</a></p>
+<p>Lest you think these are only fairly recent concepts, the idea of iteration as a way to manage uncertainty stems back at least to the early 1980s. See</p>
+<blockquote class="blockquote">
+<p>Giddings, R. V. (1984). Accommodating Uncertainty in Software Design. Commun. ACM, 27(5), 428–434.”, <a href="https://doi.org/10.1145/358189.358066" class="uri">https://doi.org/10.1145/358189.358066</a></p>
+</blockquote>
 </section>
 <section id="test-suites" class="level2" data-number="12.2">
 <h2 data-number="12.2" class="anchored" data-anchor-id="test-suites"><span class="header-section-number">12.2</span> Test Suites</h2>
 <p>Yet iterative development means lots of change. Changes come from within the project (new contributions, bug fixes) but also from outside the project, including changes in dependencies. Dependency changes come not only from bug-fixes, but also from new features in dependencies which offer new opportunities but also require changes in the codebase. Change can also come from periodic “clean ups” or “refactoring” efforts to reduce duplication and make a codebase easier to work with.</p>
 <p>As code builds up over time the original intentions of developers can become less clear. While documentation (separate written guides to the code) can help, there is little motivation to write documentation and keep it up to date.</p>
 <p>Test suites offer the opportunity to record the expected behavior of software. A software test provides an expected output (or behavior), identifies the code which should provide that output, and provides a way to run the code (often together with known input), and to compare expected vs actual output.</p>
-<p>https://campus.datacamp.com/courses/introduction-to-testing-in-python/creating-tests-with-pytest?ex=2</p>
 <p>Test suites can also include a sort of meta-test that examines which lines of code are run when all the tests are run, then reports “coverage” to show what proportion of code has actually been tests.</p>
 </section>
 <section id="continuous-integration" class="level2" data-number="12.3">
@@ -360,8 +362,11 @@ ul.task-list li input[type="checkbox"] {
 <p>Our third concept is continuous integration. CI encourages frequent merging of developing code, running the test suite to ensure that nothing is merged to main unless all the tests pass.</p>
 <p>In projects that use CI, when a developer is creating a PR, the system will, in the background, run the test suite and see if all tests pass. Depending on the project policies, the developer may be able to continue to create the PR if the tests are failing, or the project may require that all tests pass even before a PR is created.</p>
 <p>In GitHub, CI is enabled by by Github Actions. You can think of these as scripts that are executed on GitHub servers, kicked off by events within the GitHub system. They are able to spin up virtual machines, install the code, dependencies, and run test suites.</p>
-<p>https://docs.github.com/en/actions/automating-builds-and-tests/about-continuous-integration</p>
-<p>Vasilescu, B., Yu, Y., Wang, H., Devanbu, P., &amp; Filkov, V. (2015). Quality and Productivity Outcomes Relating to Continuous Integration in GitHub. In Proceedings of the 2015 10th Joint Meeting on Foundations of Software Engineering (pp.&nbsp;805–816). New York, NY, USA: ACM. https://doi.org/10.1145/2786805.2786850</p>
+<p><a href="https://docs.github.com/en/actions/automating-builds-and-tests/about-continuous-integration" class="uri">https://docs.github.com/en/actions/automating-builds-and-tests/about-continuous-integration</a></p>
+<p>Research has examined how effectively open projects are able to implement these ideas to drive improvements:</p>
+<blockquote class="blockquote">
+<p>Vasilescu, B., Yu, Y., Wang, H., Devanbu, P., &amp; Filkov, V. (2015). Quality and Productivity Outcomes Relating to Continuous Integration in GitHub. In Proceedings of the 2015 10th Joint Meeting on Foundations of Software Engineering (pp.&nbsp;805–816). New York, NY, USA: ACM. <a href="https://doi.org/10.1145/2786805.2786850" class="uri">https://doi.org/10.1145/2786805.2786850</a></p>
+</blockquote>
 
 
 </section>

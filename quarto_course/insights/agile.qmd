@@ -22,14 +22,16 @@ Iterative development plays a key role in open source.  Open source projects typ
 
 ![](agile_files/superposition.png)
 
-Iterative development is part of what has become known as "Agile methods" and "Scrum" but those are more elaborate approaches to managing software development which are appropriate for companies and teams with employees.
+Iterative development is part of what has become known as "Agile methods" and "Scrum" but those are more elaborate approaches to managing software development which are appropriate for companies and teams with employees.  Further insights on this can be found in training materials about "Scrum" and "Kanban".  For example Atlassian (a software process and tooling company) provides materials here: <https://www.atlassian.com/agile/kanban>
 
-https://en.wikipedia.org/wiki/Iterative_and_incremental_development
+Other useful readings include:
 
-"Giddings, R. V. (1984). Accommodating Uncertainty in Software Design. Commun. ACM, 27(5), 428–434.",
-    "https://doi.org/10.1145/358189.358066"
-    
-https://campus.datacamp.com/pdf/web/viewer.html?file=https://projector-video-pdf-converter.datacamp.com/29774/chapter1.pdf#page=28
+<https://en.wikipedia.org/wiki/Iterative_and_incremental_development>
+
+Lest you think these are only fairly recent concepts, the idea of iteration as a way to manage uncertainty stems back at least to the early 1980s.  See 
+
+> Giddings, R. V. (1984). Accommodating Uncertainty in Software Design. Commun. ACM, 27(5), 428–434.",
+    <https://doi.org/10.1145/358189.358066>
 
 ## Test Suites
 
@@ -38,8 +40,6 @@ Yet iterative development means lots of change.  Changes come from within the pr
 As code builds up over time the original intentions of developers can become less clear. While documentation (separate written guides to the code) can help, there is little motivation to write documentation and keep it up to date.
 
 Test suites offer the opportunity to record the expected behavior of software. A software test provides an expected output (or behavior), identifies the code which should provide that output, and provides a way to run the code (often together with known input), and to compare expected vs actual output.
-
-https://campus.datacamp.com/courses/introduction-to-testing-in-python/creating-tests-with-pytest?ex=2
 
 Test suites can also include a sort of meta-test that examines which lines of code are run when all the tests are run, then reports "coverage" to show what proportion of code has actually been tests.
 
@@ -51,6 +51,8 @@ In projects that use CI, when a developer is creating a PR, the system will, in 
 
 In GitHub, CI is enabled by by Github Actions.  You can think of these as scripts that are executed on GitHub servers, kicked off by events within the GitHub system.  They are able to spin up virtual machines, install the code, dependencies, and run test suites.
 
-https://docs.github.com/en/actions/automating-builds-and-tests/about-continuous-integration
+<https://docs.github.com/en/actions/automating-builds-and-tests/about-continuous-integration>
 
-Vasilescu, B., Yu, Y., Wang, H., Devanbu, P., & Filkov, V. (2015). Quality and Productivity Outcomes Relating to Continuous Integration in GitHub. In Proceedings of the 2015 10th Joint Meeting on Foundations of Software Engineering (pp. 805–816). New York, NY, USA: ACM. https://doi.org/10.1145/2786805.2786850
+Research has examined how effectively open projects are able to implement these ideas to drive improvements:
+
+> Vasilescu, B., Yu, Y., Wang, H., Devanbu, P., & Filkov, V. (2015). Quality and Productivity Outcomes Relating to Continuous Integration in GitHub. In Proceedings of the 2015 10th Joint Meeting on Foundations of Software Engineering (pp. 805–816). New York, NY, USA: ACM. <https://doi.org/10.1145/2786805.2786850>
