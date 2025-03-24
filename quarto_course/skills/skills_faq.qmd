@@ -243,6 +243,96 @@ git checkout pr-123
 
 This obtains the code **as though the PR had been accepted** and then makes a new _local branch_ that we can work with. Notice, though, that thje new local branch is not the same branch that the PR is for ... it is a local copy. Therefore we would not push that new local branch back up to GitHub, preferring to work with the PR itself (and [here is documentation about how to allow others to edit your PRs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork)). 
 
+## Removing something from history entirely {#sec-history}
+
+The purpose of `git` is to retain all of your history, so that you can go back to any point in development and recover (as well as experiment while not breaking the mainline of development). Simultaneously when we are working in the open that means that anyone can view any file that was ever in a repository. With that in mind it is not too surprising that if you accidentally add something to git and then push it to github you can have trouble putting "the genie back in the bottle."
+
+Let's say that we create a repo and add a README, then add a SPECIAL_SECRET file with the password "swordfish" in it. Note that I use `git add *` below which is a very common way to accidentally add a problematic file, try to get into the habit of adding files one by one.
+
+    $ cd practice_history_edit/
+    git init
+    Initialized empty Git repository in /Users/howison/Documents/UTexas/Courses/PeerProduction/practice_history_edit/.git/
+    vi README
+    git status
+    On branch main
+
+    No commits yet
+
+    Untracked files:
+      (use "git add <file>..." to include in what will be committed)
+
+            README
+
+    nothing added to commit but untracked files present (use "git add" to track)
+    git add README
+    git commit -m "now we have a README"
+    [main (root-commit) f4878b0] now we have a README
+     1 file changed, 1 insertion(+)
+     create mode 100644 README
+    vi SPECIAL_SECRET
+    git add *
+    git commit -m "whoops added secret"
+    [main 018f6b5] whoops added secret
+     1 file changed, 1 insertion(+)
+     create mode 100644 SPECIAL_SECRET
+    git viz
+    * 018f6b5 (HEAD -> main) whoops added secret
+    * f4878b0 now we have a README
+
+Now I'll go ahead and make one more edit to README
+
+    vi README
+    git add READMEgit commit -m "README edit 2"[main 4d51f91] README edit 2
+     1 file changed, 1 insertion(+)
+    git viz
+    * 4d51f91 (HEAD -> main) README edit 2
+    * 018f6b5 whoops added secret
+    * f4878b0 now we have a README
+    ls
+    README         SPECIAL_SECRET
+    cat SPECIAL_SECRET
+    swordfish
+
+Ok, so we realize that the password file got into git and we swing into action and delete it from git.
+
+    git rm SPECIAL_SECRET
+    rm 'SPECIAL_SECRET'
+    git commit -m "phew removed it, or did we"
+    [main ff229ba] phew removed it, or did we
+     1 file changed, 1 deletion(-)
+     delete mode 100644 SPECIAL_SECRET
+    ls
+    README
+
+So now the file is not there. Or rather it is not in our working directory. The problem is that it is still inside out `.git` folder and we can get it out easily.
+
+    git checkout HEAD~1
+    Note: checking out 'HEAD~1'.
+
+    You are in 'detached HEAD' state. You can look around, make experimental
+    changes and commit them, and you can discard any commits you make in this
+    state without impacting any branches by performing another checkout.
+
+    If you want to create a new branch to retain commits you create, you may
+    do so (now or later) by using -b with the checkout command again. Example:
+
+      git checkout -b <new-branch-name>
+
+    HEAD is now at 4d51f91... README edit 2
+    lsREADME         SPECIAL_SECRET
+    cat SPECIAL_SECRET
+    swordfish
+
+Here I just used `git checkout HEAD~1` which goes one commit back in time, to before we deleted the SPECIAL_SECRET file. Even if we were far ahead, or over on other branches etc, I could always get back by asking to see the code just after the commit that added the file `git checkout 018f6b5` (btw, to get out of `DETACHED HEAD` state just checkout the branch again, we're working on main so it would be `git checkout main`).
+
+So using `git rm` removes a file from the working directories but it doesn't remove it from the git history. And that's a sensible thing, usually you want to be able to go back in time. But sometimes you want to remove something from the history entirely. You can do that using the approaches outlined by Github here: [Removing sensitive data from a repository](https://help.github.com/articles/removing-sensitive-data-from-a-repository/)
+
+The process is a bit complex (as it should be) but simplified with the `bfg` tool, as described at the link above. First you have to download the tool (which requires Java to run) then follow the instructions step by step.
+
+Keep in mind that if you had pushed this sensitive info to a repo on github and others had then forked or cloned it then that info is not going to be deleted from the clones, so passwords should definitely be changed and you should ask everyone to delete forks/clones and start again.
+
+There are a set of approaches to avoid uploading sensitive data. A good starting point is discipline around using `.gitignore` which will prevent adding files that should not be added. Another approach is to become familiar with using environment variables to hold secrets. This is an evolving area, so ask others in your organization how they handle secrets (usually access credentials) when using git.  One recent approach (specific to GitHub is <https://docs.github.com/en/actions/security-guides/encrypted-secrets>)
+
 
 # How to add an image using quarto on edupod
 

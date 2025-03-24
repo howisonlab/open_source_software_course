@@ -285,26 +285,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../skills/git_delete_history.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Removing something from history entirely</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../skills/tests.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Testing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Testing</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../skills/continuous_integration.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Continuous Integration (aka CI/CD)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Continuous Integration (aka CI/CD)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../skills/packaging.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Packages to distribute code</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Packages to distribute code</span></span></a>
   </div>
 </li>
       </ul>
@@ -354,6 +348,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#sec-gitviz" id="toc-sec-gitviz" class="nav-link" data-scroll-target="#sec-gitviz"><span class="header-section-number">A.3</span> Vizualizing git trees (aka git viz)</a></li>
   <li><a href="#seeing-a-merge-conflict-using-git-log" id="toc-seeing-a-merge-conflict-using-git-log" class="nav-link" data-scroll-target="#seeing-a-merge-conflict-using-git-log"><span class="header-section-number">A.4</span> Seeing a merge conflict using git log</a></li>
   <li><a href="#sec-fetch-pr" id="toc-sec-fetch-pr" class="nav-link" data-scroll-target="#sec-fetch-pr"><span class="header-section-number">A.5</span> Gathering the code as though the PR had been accepted</a></li>
+  <li><a href="#sec-history" id="toc-sec-history" class="nav-link" data-scroll-target="#sec-history"><span class="header-section-number">A.6</span> Removing something from history entirely</a></li>
   <li><a href="#how-to-add-an-image-using-quarto-on-edupod" id="toc-how-to-add-an-image-using-quarto-on-edupod" class="nav-link" data-scroll-target="#how-to-add-an-image-using-quarto-on-edupod"><span class="header-section-number">B</span> How to add an image using quarto on edupod</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/skills/skills_faq.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
@@ -544,6 +539,83 @@ fatal: Authentication failed for &lt;repo_url&gt;</code></pre>
 <div class="sourceCode" id="cb19"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch origin pull/123/head:pr-123</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout pr-123</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This obtains the code <strong>as though the PR had been accepted</strong> and then makes a new <em>local branch</em> that we can work with. Notice, though, that thje new local branch is not the same branch that the PR is for … it is a local copy. Therefore we would not push that new local branch back up to GitHub, preferring to work with the PR itself (and <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork">here is documentation about how to allow others to edit your PRs</a>).</p>
+</section>
+<section id="sec-history" class="level2" data-number="A.6">
+<h2 data-number="A.6" class="anchored" data-anchor-id="sec-history"><span class="header-section-number">A.6</span> Removing something from history entirely</h2>
+<p>The purpose of <code>git</code> is to retain all of your history, so that you can go back to any point in development and recover (as well as experiment while not breaking the mainline of development). Simultaneously when we are working in the open that means that anyone can view any file that was ever in a repository. With that in mind it is not too surprising that if you accidentally add something to git and then push it to github you can have trouble putting “the genie back in the bottle.”</p>
+<p>Let’s say that we create a repo and add a README, then add a SPECIAL_SECRET file with the password “swordfish” in it. Note that I use <code>git add *</code> below which is a very common way to accidentally add a problematic file, try to get into the habit of adding files one by one.</p>
+<pre><code>$ cd practice_history_edit/
+git init
+Initialized empty Git repository in /Users/howison/Documents/UTexas/Courses/PeerProduction/practice_history_edit/.git/
+vi README
+git status
+On branch main
+
+No commits yet
+
+Untracked files:
+  (use "git add &lt;file&gt;..." to include in what will be committed)
+
+        README
+
+nothing added to commit but untracked files present (use "git add" to track)
+git add README
+git commit -m "now we have a README"
+[main (root-commit) f4878b0] now we have a README
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README
+vi SPECIAL_SECRET
+git add *
+git commit -m "whoops added secret"
+[main 018f6b5] whoops added secret
+ 1 file changed, 1 insertion(+)
+ create mode 100644 SPECIAL_SECRET
+git viz
+* 018f6b5 (HEAD -&gt; main) whoops added secret
+* f4878b0 now we have a README</code></pre>
+<p>Now I’ll go ahead and make one more edit to README</p>
+<pre><code>vi README
+git add READMEgit commit -m "README edit 2"[main 4d51f91] README edit 2
+ 1 file changed, 1 insertion(+)
+git viz
+* 4d51f91 (HEAD -&gt; main) README edit 2
+* 018f6b5 whoops added secret
+* f4878b0 now we have a README
+ls
+README         SPECIAL_SECRET
+cat SPECIAL_SECRET
+swordfish</code></pre>
+<p>Ok, so we realize that the password file got into git and we swing into action and delete it from git.</p>
+<pre><code>git rm SPECIAL_SECRET
+rm 'SPECIAL_SECRET'
+git commit -m "phew removed it, or did we"
+[main ff229ba] phew removed it, or did we
+ 1 file changed, 1 deletion(-)
+ delete mode 100644 SPECIAL_SECRET
+ls
+README</code></pre>
+<p>So now the file is not there. Or rather it is not in our working directory. The problem is that it is still inside out <code>.git</code> folder and we can get it out easily.</p>
+<pre><code>git checkout HEAD~1
+Note: checking out 'HEAD~1'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b &lt;new-branch-name&gt;
+
+HEAD is now at 4d51f91... README edit 2
+lsREADME         SPECIAL_SECRET
+cat SPECIAL_SECRET
+swordfish</code></pre>
+<p>Here I just used <code>git checkout HEAD~1</code> which goes one commit back in time, to before we deleted the SPECIAL_SECRET file. Even if we were far ahead, or over on other branches etc, I could always get back by asking to see the code just after the commit that added the file <code>git checkout 018f6b5</code> (btw, to get out of <code>DETACHED HEAD</code> state just checkout the branch again, we’re working on main so it would be <code>git checkout main</code>).</p>
+<p>So using <code>git rm</code> removes a file from the working directories but it doesn’t remove it from the git history. And that’s a sensible thing, usually you want to be able to go back in time. But sometimes you want to remove something from the history entirely. You can do that using the approaches outlined by Github here: <a href="https://help.github.com/articles/removing-sensitive-data-from-a-repository/">Removing sensitive data from a repository</a></p>
+<p>The process is a bit complex (as it should be) but simplified with the <code>bfg</code> tool, as described at the link above. First you have to download the tool (which requires Java to run) then follow the instructions step by step.</p>
+<p>Keep in mind that if you had pushed this sensitive info to a repo on github and others had then forked or cloned it then that info is not going to be deleted from the clones, so passwords should definitely be changed and you should ask everyone to delete forks/clones and start again.</p>
+<p>There are a set of approaches to avoid uploading sensitive data. A good starting point is discipline around using <code>.gitignore</code> which will prevent adding files that should not be added. Another approach is to become familiar with using environment variables to hold secrets. This is an evolving area, so ask others in your organization how they handle secrets (usually access credentials) when using git. One recent approach (specific to GitHub is <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets" class="uri">https://docs.github.com/en/actions/security-guides/encrypted-secrets</a>)</p>
 </section>
 <section id="how-to-add-an-image-using-quarto-on-edupod" class="level1" data-number="B">
 <h1 data-number="B"><span class="header-section-number">B</span> How to add an image using quarto on edupod</h1>
@@ -1026,7 +1098,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../skills/packaging.html" class="pagination-link" aria-label="Packages to distribute code">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Packages to distribute code</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Packages to distribute code</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

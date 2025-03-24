@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>23&nbsp; Continuous Integration (aka CI/CD) – Open Source Software Development: A socio-technical course</title>
+<title>22&nbsp; Continuous Integration (aka CI/CD) – Open Source Software Development: A socio-technical course</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -115,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../skills/paper_planes_git.html">Skills</a></li><li class="breadcrumb-item"><a href="../skills/continuous_integration.html"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Continuous Integration (aka CI/CD)</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../skills/paper_planes_git.html">Skills</a></li><li class="breadcrumb-item"><a href="../skills/continuous_integration.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Continuous Integration (aka CI/CD)</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -285,26 +285,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../skills/git_delete_history.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Removing something from history entirely</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../skills/tests.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Testing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Testing</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../skills/continuous_integration.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Continuous Integration (aka CI/CD)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Continuous Integration (aka CI/CD)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../skills/packaging.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Packages to distribute code</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Packages to distribute code</span></span></a>
   </div>
 </li>
       </ul>
@@ -342,21 +336,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#automating-tests" id="toc-automating-tests" class="nav-link active" data-scroll-target="#automating-tests"><span class="header-section-number">23.1</span> Automating tests</a>
+  <li><a href="#automating-tests" id="toc-automating-tests" class="nav-link active" data-scroll-target="#automating-tests"><span class="header-section-number">22.1</span> Automating tests</a>
   <ul class="collapse">
-  <li><a href="#github-actions" id="toc-github-actions" class="nav-link" data-scroll-target="#github-actions"><span class="header-section-number">23.1.1</span> Github Actions</a></li>
+  <li><a href="#github-actions" id="toc-github-actions" class="nav-link" data-scroll-target="#github-actions"><span class="header-section-number">22.1.1</span> Github Actions</a></li>
   </ul></li>
-  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">23.2</span> Exercise:</a></li>
-  <li><a href="#sec-alt-ci" id="toc-sec-alt-ci" class="nav-link" data-scroll-target="#sec-alt-ci"><span class="header-section-number">23.3</span> Alternatives to GitHub actions</a></li>
+  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">22.2</span> Exercise:</a></li>
+  <li><a href="#sec-alt-ci" id="toc-sec-alt-ci" class="nav-link" data-scroll-target="#sec-alt-ci"><span class="header-section-number">22.3</span> Alternatives to GitHub actions</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/skills/continuous_integration.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../skills/paper_planes_git.html">Skills</a></li><li class="breadcrumb-item"><a href="../skills/continuous_integration.html"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Continuous Integration (aka CI/CD)</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../skills/paper_planes_git.html">Skills</a></li><li class="breadcrumb-item"><a href="../skills/continuous_integration.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Continuous Integration (aka CI/CD)</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-ci" class="quarto-section-identifier"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Continuous Integration (aka CI/CD)</span></span></h1>
+<h1 class="title"><span id="sec-ci" class="quarto-section-identifier"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Continuous Integration (aka CI/CD)</span></span></h1>
 </div>
 
 
@@ -385,12 +379,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Having policies that encourage small units of work (sometimes known as “atomic commits” using the idea of an atom as a particularly small building block.). An example of a policy would be requiring formal code review as part of a PR, where one criteria being examined is whether the PR could be split into smaller units of work.</li>
 <li>Automatically running test suites.</li>
 </ol>
-<p>In this class we will focus on automatically running test suites. In <a href="tests.html" class="quarto-xref"><span>Chapter 22</span></a> we introduced a test framework called <code>pytest</code>. Recall that we created new functions whose name begins with <code>test_</code> and includes <code>assert</code> statements that run code and compare actual output with expected output. When they don’t match, the test fails. Here is our example of a test:</p>
+<p>In this class we will focus on automatically running test suites. In <a href="tests.html" class="quarto-xref"><span>Chapter 21</span></a> we introduced a test framework called <code>pytest</code>. Recall that we created new functions whose name begins with <code>test_</code> and includes <code>assert</code> statements that run code and compare actual output with expected output. When they don’t match, the test fails. Here is our example of a test:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_fix_phone_num():</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">assert</span> fix_phone_num(<span class="st">"5125558823"</span>) <span class="op">==</span> <span class="st">'(512) 555 8823'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>To achieve continuous integration, we want to be sure that all of these tests are run automatically before any code is merged. When we merge, git and GitHub can tell us if the merge would case any syntax issues (whether the code merges cleanly at a typing level), but only a test suite can tell us if code will merge cleanly at a semantic level (if the resulting code will perform as we expect).</p>
-<section id="automating-tests" class="level2" data-number="23.1">
-<h2 data-number="23.1" class="anchored" data-anchor-id="automating-tests"><span class="header-section-number">23.1</span> Automating tests</h2>
+<section id="automating-tests" class="level2" data-number="22.1">
+<h2 data-number="22.1" class="anchored" data-anchor-id="automating-tests"><span class="header-section-number">22.1</span> Automating tests</h2>
 <p>To run these tests we need to undertake these steps:</p>
 <ol type="1">
 <li>Establish a computing environment in which the code can run.</li>
@@ -399,9 +393,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Run the needed test command (here that will be <code>pytest my_code.py</code>)</li>
 <li>Gather the results, and display them alongside the PR.</li>
 </ol>
-<p>These steps can be undertaken by quite a few different systems. We will learn using GitHub Actions, but see <a href="#sec-alt-ci" class="quarto-xref"><span>Section 23.3</span></a> for alternatives.</p>
-<section id="github-actions" class="level3" data-number="23.1.1">
-<h3 data-number="23.1.1" class="anchored" data-anchor-id="github-actions"><span class="header-section-number">23.1.1</span> Github Actions</h3>
+<p>These steps can be undertaken by quite a few different systems. We will learn using GitHub Actions, but see <a href="#sec-alt-ci" class="quarto-xref"><span>Section 22.3</span></a> for alternatives.</p>
+<section id="github-actions" class="level3" data-number="22.1.1">
+<h3 data-number="22.1.1" class="anchored" data-anchor-id="github-actions"><span class="header-section-number">22.1.1</span> Github Actions</h3>
 <p>Github Actions is a GitHub feature that enables automation in repositories, including continuous integration.</p>
 <p>To establish an automation we have to add a file to the repository, in the <code>.GitHub/workflows</code> directory. This file tells GitHub Actions what to do when particular events occur.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Run pytest tests</span></span>
@@ -515,8 +509,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="exercise" class="level2" data-number="23.2">
-<h2 data-number="23.2" class="anchored" data-anchor-id="exercise"><span class="header-section-number">23.2</span> Exercise:</h2>
+<section id="exercise" class="level2" data-number="22.2">
+<h2 data-number="22.2" class="anchored" data-anchor-id="exercise"><span class="header-section-number">22.2</span> Exercise:</h2>
 <ol type="1">
 <li>Add an action to your repo, using the code in this file.</li>
 <li>Create a PR for an edit to my_code.py that creates a failing test. Remember to use a new branch.</li>
@@ -525,8 +519,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Observe the test running again, and your PR should now show “all Checks Passed”</li>
 </ol>
 </section>
-<section id="sec-alt-ci" class="level2" data-number="23.3">
-<h2 data-number="23.3" class="anchored" data-anchor-id="sec-alt-ci"><span class="header-section-number">23.3</span> Alternatives to GitHub actions</h2>
+<section id="sec-alt-ci" class="level2" data-number="22.3">
+<h2 data-number="22.3" class="anchored" data-anchor-id="sec-alt-ci"><span class="header-section-number">22.3</span> Alternatives to GitHub actions</h2>
 <p>It is possible to “roll your own” using a cloud provider like Google Cloud or AWS, but there are service providers ready to help. For example, TravisCI or CircleCI are well known continuous integration providers. Each provides cloud computing environments which can startup, install software, run tests, and provide reports. Since running any computation (including just installing things) costs real money, these services typically charge money, but often will provide a free account with reasonable usage limits for open source projects <a href="https://circleci.com/open-source/">https://circleci.com/open-source/</a>. Yet as with anything that is provided for free (including Github Actions) <a href="https://earthly.dev/blog/migrating-from-travis/">changes in corporate ownership can upend things</a></p>
 
 
@@ -953,12 +947,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../skills/tests.html" class="pagination-link" aria-label="Testing">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Testing</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Testing</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../skills/packaging.html" class="pagination-link" aria-label="Packages to distribute code">
-        <span class="nav-page-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Packages to distribute code</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Packages to distribute code</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

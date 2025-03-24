@@ -49,7 +49,7 @@ book:
       - skills/github_collaboration.Rmd
       - skills/git_cherrypick_split_pr.qmd
       - skills/git_rebase.qmd
-      - skills/git_delete_history.qmd
+    #   - skills/git_delete_history.qmd
       - skills/tests.qmd
       - skills/continuous_integration.qmd
       - skills/packaging.qmd
