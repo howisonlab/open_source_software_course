@@ -268,9 +268,12 @@ Use your fork of the `i320d-pytest-example` repo and clone it to your workspace.
 
 1. Add an additional assertion to the `test_fix_phone_num` function that tests these inputs: `5554429876` and `3216543333`.
 2. Add a test (meaning a whole separate function starting with `test_`, not just additional asserts) that specifies that the function should be able to handle these inputs: `555-442-98761` and `(321) 654 3333`. Give your test a communicative name.  These tests will fail at the moment.
-3. Shift the ValueError assertion into its own test
-4. Implement a test that checks that a ValueError is raised if the input is not all digits. (Hint: you can use the `.isdigit()` method on a string)
+3. Add and commit, with a message indicating that tests should fail.
+4. Shift the ValueError assertion into its own test
+5. Implement a test that checks that a ValueError is raised if the input is not all digits. (Hint: you can use the `.isdigit()` method on a string)
+6. Add and commit, with a message indicating that the test now documents why the tests are failing.
+7. Revise the `fix_phone_num` function so that the tests now pass.  You can use the `replace` method to remove nondigit characters (or other techniques).
 
 ## Additional resources
 
-[Pytest Awesome Project}(https://github.com/augustogoulart/awesome-pytest): a curated list of pytest resources (including training courses).
+[Pytest Awesome Project](https://github.com/augustogoulart/awesome-pytest): a curated list of pytest resources (including training courses).

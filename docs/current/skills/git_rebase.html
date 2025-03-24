@@ -340,8 +340,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#adding-squash" id="toc-adding-squash" class="nav-link active" data-scroll-target="#adding-squash"><span class="header-section-number">20.1</span> Adding squash</a></li>
-  <li><a href="#rebase-exercise" id="toc-rebase-exercise" class="nav-link" data-scroll-target="#rebase-exercise"><span class="header-section-number">20.2</span> Rebase Exercise</a></li>
+  <li><a href="#commits-vs.-patches" id="toc-commits-vs.-patches" class="nav-link active" data-scroll-target="#commits-vs.-patches"><span class="header-section-number">20.1</span> Commits vs.&nbsp;Patches</a></li>
+  <li><a href="#adding-squash" id="toc-adding-squash" class="nav-link" data-scroll-target="#adding-squash"><span class="header-section-number">20.2</span> Adding squash</a></li>
+  <li><a href="#rebase-exercise" id="toc-rebase-exercise" class="nav-link" data-scroll-target="#rebase-exercise"><span class="header-section-number">20.3</span> Rebase Exercise</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/skills/git_rebase.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
@@ -431,7 +432,7 @@ gitGraph
 <li>Either merge <code>main</code> into <code>pie_chart_branch</code> yourself (this is what we did in earlier exercises)</li>
 <li>Rebase <code>pie_chart_branch</code> on main</li>
 </ol>
-<p>Option 1 is possible, but often merging your work involves touching parts of the system you don’t know what much about and is better left to the core developers. In addition, merging in this way leaves merge commit messages and some projects really don’t like those because they make the history harder to read. It also leaves all of your “intermediate” commits in the history (things like “fix typo” and “forgot comma”). Some find that too much information.</p>
+<p>Option 1 is possible, but often merging your work involves touching parts of the system you don’t know much about, and it is better left to the core developers. In addition, merging in this way leaves merge commit messages and some projects really don’t like those because they make the history harder to read. It also leaves all of your “intermediate” commits in the history (things like “fix typo” and “forgot comma”). Some find that too much information.</p>
 <p>Option 2 is generally preferred, since it focuses on clear communication via PRs that are easier to read and review. Often this just means a single commit showing the differences between the most updated work and the work that you want to contribute. For those viewing the history, it will be just the same as if <code>pie_chart_branch</code> was created in late February and you did all the work very quickly!</p>
 <p>Option 2 is called <code>rebase</code>. We specify a new starting point, and git gives us a little UI in which we can choose which commits to include, which to “squash”, and we can even reorder commits.</p>
 <!-- git clone https://github.com/jameshowison/320d_rebase_example.git -->
@@ -468,21 +469,18 @@ gitGraph
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/jameshowison/320d_rebase_example.git</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> 320d_rebase_example</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout pie_chart_branch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Then, to make git happy, be sure to set your user and email (this happens because DataCamp resets these variables from session to session):</p>
-<pre><code>git config --global user.name "John Doe"
-git config --global user.email johndoe@example.com</code></pre>
 <p>Our git viz command (See <a href="skills_faq.html#sec-gitviz" class="quarto-xref"><span>Section A.3</span></a> to set up) shows us the situation:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git viz</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 2b6a2cf <span class="er">(</span><span class="ex">origin/main,</span> origin/HEAD, main<span class="kw">)</span> <span class="ex">database</span> 2</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 70c14e7 database 1</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 246e49e <span class="er">(</span><span class="ex">HEAD</span> <span class="at">-</span><span class="op">&gt;</span> pie_chart_branch, origin/pie_chart_branch<span class="kw">)</span> <span class="ex">pie</span> chart 3</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 4c12962 pie chart 2</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 123593a pie chart 1</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span><span class="ex">/</span>  </span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> ccd6067 second commit</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 512525e first commit</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 20b7fb5 Initial commit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>We have two branches (main and pie_chart_branch). pie_chart_branch branched off from main at “second commit”, and since then more work has been added to main (the database related commits). We also have three separate commits for <code>pie_chart_branch</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git viz</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 2b6a2cf <span class="er">(</span><span class="ex">origin/main,</span> origin/HEAD, main<span class="kw">)</span> <span class="ex">database</span> 2</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 70c14e7 database 1</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 246e49e <span class="er">(</span><span class="ex">HEAD</span> <span class="at">-</span><span class="op">&gt;</span> pie_chart_branch, origin/pie_chart_branch<span class="kw">)</span> <span class="ex">pie</span> chart 3</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 4c12962 pie chart 2</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 123593a pie chart 1</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span><span class="ex">/</span>  </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> ccd6067 second commit</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 512525e first commit</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 20b7fb5 Initial commit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We have two branches (main and pie_chart_branch). <code>pie_chart_branch</code> branched off from main at “second commit”, and since then more work has been added to <code>main</code> (the database related commits). We also have three separate commits for <code>pie_chart_branch</code>.</p>
 <p>So, in a prettier diagram, the situation looks like this:</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -513,7 +511,40 @@ gitGraph
 </div>
 </div>
 </div>
-<p>But we want it to look as though pie_chart_branch came off the tip of main, like this:</p>
+<p>We don’t want to just merge main into our branch, and then merge the result back into main. This would produce a relatively complex history that can be confusing to interpret:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">---
+config:
+  gitGraph:
+    parallelCommits: true
+---
+gitGraph
+  commit
+  commit
+  commit type: HIGHLIGHT
+  branch pie_chart_branch
+  commit
+  commit
+  checkout main
+  commit
+  commit
+  checkout pie_chart_branch
+  commit
+  merge main
+  checkout main
+  merge pie_chart_branch
+
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>Instead, we want it to look as though pie_chart_branch came off the tip of main, like this:</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -542,9 +573,9 @@ gitGraph
 </div>
 </div>
 <p>To accomplish this we can use a git command called <code>rebase</code>. We say that we will “rebase” the pie_chart_branch against <code>main</code>.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch pie_chart_branch</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> rebase <span class="at">-i</span> main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This puts us into a textual UI, with guidance at the bottom. We can use the arrow keys to move around. In this UI we are editing a text file (so we are using the Nano editor). Each line is a commit, the lines are instructions and are executed in order.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout pie_chart_branch</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> rebase <span class="at">-i</span> main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This puts us into a textual UI, with guidance at the bottom. We can use the arrow keys to move around. In this UI we are editing a text file (so we are using the Nano editor). To begin, understand that <code>git rebase</code> first changes the pointer to <code>pie_chart_branch</code> to point at the commit we specified. It then finds the point at which <code>pie_chart_branch</code> diverged from the specified commit’s history. Each line is a command, the lines are instructions and are executed in order. In the following case, this is as if we checked out <code>main</code>, and then sequentially called <code>git cherry-pick</code> on the commits in <code>pie_chart_branch</code>.</p>
 <p><img src="git_rebase_files/rebase_no_squash.png" class="img-fluid"></p>
 <p>We use <kbd>Ctrl</kbd> + <kbd>O</kbd> to save (aka “write-Out”) and <kbd>Ctrl</kbd>+<kbd>X</kbd> to exit the editor. We should see a count of commits being rebased and then a message about a successful rebase. Using <code>git viz</code> will then show us:</p>
 <pre><code>* 16fa532 (HEAD -&gt; pie_chart_branch) pie chart 3
@@ -555,11 +586,11 @@ gitGraph
 | * 83f6236 (origin/pie_chart_branch) pie chart 3
 | * 6780d4e pie chart 2
 | * 54b2ecb pie chart 1
-|/  
+|/
 * 52bd3fd second commit
 * 0aefb6a first commit
 * 9ad07d3 Initial commit</code></pre>
-<p>This is a little hard to read. This is because the <code>origin/</code> branches are shwoing (and those are up on the GitHub server and not yet changed). Look closely at the <code>pie_chart_branch</code> and down the left column. We now see that <code>pie chart 1</code> commit comes directly after the two commits on main, just as though the work started there.</p>
+<p>This is a little hard to read. This is because the <code>origin/</code> branches are showing (and those are up on the GitHub server and not yet changed). Look closely at the <code>pie_chart_branch</code> and down the left column. We now see that <code>pie chart 1</code> commit comes directly after the two commits on main, just as though the work started there.</p>
 <p>To get this to also be reflected on the server we would have to do a “force push” <code>git push -f</code> which makes the server reflect the local repo. Note that this is usual for rebase on branches, but one should be very hesitant with any force operations on main or a branch shared with others. (Since you are not the owners of the repo, you won’t be able to do a force push here). After the force push, things are neater:</p>
 <pre><code>* 16fa532 (HEAD -&gt; pie_chart_branch, origin/pie_chart_branch) pie chart 3
 * bf585ba pie chart 2
@@ -570,15 +601,57 @@ gitGraph
 * 0aefb6a first commit
 * 9ad07d3 Initial commit</code></pre>
 <p>You might be thinking, didn’t we do pretty much the same thing with <code>cherrypick</code>? And yes, in this situation <code>rebase</code> <a href="https://stackoverflow.com/questions/11835948/git-cherry-pick-vs-rebase">is very similar to cherrypick</a>.</p>
-<p>Rebase does offer some additional opportunities though. Notice that the textual UI shows more options than just ‘pick’. One otion is ‘squash’ which takes changes from multiple commits and presents them in a single commit. This can make a git history easier for teammates to understand.</p>
-<section id="adding-squash" class="level2" data-number="20.1">
-<h2 data-number="20.1" class="anchored" data-anchor-id="adding-squash"><span class="header-section-number">20.1</span> Adding squash</h2>
+<p>Rebase does offer some additional opportunities though. Notice that the textual UI shows more options than just ‘pick’. One option is ‘squash’ which takes changes from multiple commits and presents them in a single commit. This can make a git history easier for teammates to understand.</p>
+<section id="commits-vs.-patches" class="level2" data-number="20.1">
+<h2 data-number="20.1" class="anchored" data-anchor-id="commits-vs.-patches"><span class="header-section-number">20.1</span> Commits vs.&nbsp;Patches</h2>
+<p>If you think about it, what we’ve just done is magic from our current understanding of how Git works. If commits are whole-filesystem snapshots (which they are!), then why would rebasing our commits change their contents? There’s a new concept lurking here that also explains the behavior of <code>git cherry-pick</code>: “patches”.</p>
+<p>In Git, a patch represents the difference between two commits. Patches consist of three sets of instructions:</p>
+<ol type="1">
+<li>Files to be added.</li>
+<li>Files to be modified.</li>
+<li>Files to be removed.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled" title="Patching changes to files">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Patching changes to files
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Modifying files is an interesting case: Git considers the state of the file both before and after the patch. It’s complicated, but generally a patch can only automatically be applied to a file if the file looks “enough” like the file the patch was made for. For instance, if a patch is told to a remove a particular line and the line no longer exists, this may result in a merge conflict.</p>
+</div>
+</div>
+<p>When we modify history, what Git does is calculate “patches” between commits, and then tries to calculate the state of the repository as if that sequence of patches had been applied in order to generate the new commits. When we <code>git rebase</code>, we’re telling Git that we want it to calculate what the state of commits on our current branch would be <em>if we had applied the patches we’re rebasing on first</em>. This is essentially the inverse of <code>git merge</code>, which tries to calculate what happens if we apply the changes from the target branch after the changes we’ve already made.</p>
+<p>You can think of <code>git diff</code> as calculating the “patch” between two commits.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Patch files">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Patch files
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>If you write the output of <code>git diff</code> to a file, e.g.&nbsp;<code>git diff main my-branch &gt; my-branch.patch</code>, you get a valid “patch file” that you can <code>git apply</code>. Fortunately, we don’t need these since we’ve long passed the days of needing to literally email changes.</p>
+</div>
+</div>
+</div>
+<p>When we get “merge conflicts” - be they via <code>git merge</code>, <code>git cherrypick</code>, or <code>git rebase</code>, it means that for some reason Git wasn’t able to apply the patch representing the difference between two commits. For instance, if you added a file to <code>main</code>, and separately also added that file to <code>pie_chart_branch</code>, then all of these commands will flag the file as a potential merge conflict.</p>
+</section>
+<section id="adding-squash" class="level2" data-number="20.2">
+<h2 data-number="20.2" class="anchored" data-anchor-id="adding-squash"><span class="header-section-number">20.2</span> Adding squash</h2>
 <p>We want to <em>squash</em> those three commits down to one commit, and (like before) we want that commit to represent changes <em>as though</em> we had branched off main after the <code>database 2</code> commit. First, remove the directory we have been working in and reset things with a new clone.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-rf</span> 320d_rebase_example</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/jameshowison/320d_rebase_example.git</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> 320d_rebase_example</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch pie_chart_branch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-rf</span> 320d_rebase_example</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/jameshowison/320d_rebase_example.git</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> 320d_rebase_example</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout pie_chart_branch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Just as before we use:</p>
 <pre><code>git rebase -i main</code></pre>
 <p>This puts us back into a textual UI, with guidance at the bottom. This time instead of leaving all three as ‘pick’ we change two of them to squash. We do this by editing the file so that two of the lines show <code>s</code> instead of <code>pick</code>.</p>
@@ -586,31 +659,46 @@ gitGraph
 <p>After we use <kbd>Ctrl</kbd> + O to save (aka “write-Out”) and <kbd>Ctrl</kbd>+X to exit the editor, git completes the squash by including all the changes in a single commit. We are then returned to the editor to create a new commit message.</p>
 <p><img src="git_rebase_files/squash_commit_message.png" class="img-fluid"></p>
 <p>Finally, we can use git viz to see the new situation.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 32f895e <span class="er">(</span><span class="ex">HEAD</span> <span class="at">-</span><span class="op">&gt;</span> pie_chart_branch<span class="kw">)</span> <span class="ex">Here</span> I have tidied up the history to make it easier to read. Pie chart draws pies.</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 2b6a2cf <span class="er">(</span><span class="ex">origin/main,</span> origin/HEAD, main<span class="kw">)</span> <span class="ex">database</span> 2</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 70c14e7 database 1</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 246e49e <span class="er">(</span><span class="ex">origin/pie_chart_branch</span><span class="kw">)</span> <span class="ex">pie</span> chart 3</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 4c12962 pie chart 2</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 123593a pie chart 1</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span><span class="ex">/</span>  </span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> ccd6067 second commit</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 512525e first commit</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 20b7fb5 Initial commit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 32f895e <span class="er">(</span><span class="ex">HEAD</span> <span class="at">-</span><span class="op">&gt;</span> pie_chart_branch<span class="kw">)</span> <span class="ex">Here</span> I have tidied up the history to make it easier to read. Pie chart draws pies.</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 2b6a2cf <span class="er">(</span><span class="ex">origin/main,</span> origin/HEAD, main<span class="kw">)</span> <span class="ex">database</span> 2</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 70c14e7 database 1</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 246e49e <span class="er">(</span><span class="ex">origin/pie_chart_branch</span><span class="kw">)</span> <span class="ex">pie</span> chart 3</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 4c12962 pie chart 2</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">*</span> 123593a pie chart 1</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span><span class="ex">/</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> ccd6067 second commit</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 512525e first commit</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 20b7fb5 Initial commit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Ignore the remote branch (origin/pie_chart_branch), and focus only on the local branch (HEAD -&gt; pie_chart_branch). Instead of all three commits, we now only see a single commit (c367b8a).</p>
 <p>Note that in these examples we did not encounter any conflicts (because edits were all on different files). In reality, though, when commits are moved around, rebased, and squashed, sometimes those operations result in conflicts (just as happens with merge). In that case git add the conflict symbols (<code>&lt;&lt;&lt;&lt;&lt;&lt;</code> and <code>==========</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>) which all need to be removed, then the files added and finally we run <code>git rebase --continue</code>. Git does provide useful messages through that process with guidance on the likely next steps.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="Commits are preserved">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Commits are preserved
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>None of the actions we’ve discussed today actually delete any commits from the repository. You can still <code>git checkout</code> the commit IDs from before rebasing and/or squashing, and even see their relationships to the work tree with <code>git viz --reflog</code>. This is both a good thing (you can easily undo these actions) and a bad thing (removing problematic commits is hard).</p>
+</div>
+</div>
 </section>
-<section id="rebase-exercise" class="level2" data-number="20.2">
-<h2 data-number="20.2" class="anchored" data-anchor-id="rebase-exercise"><span class="header-section-number">20.2</span> Rebase Exercise</h2>
-<p>In groups of three, a Maintainer and two contributors, begin by setting up the collaboration network (a new repo, forks, clones and setting upstream). Then work together to implement these steps:</p>
+<section id="rebase-exercise" class="level2" data-number="20.3">
+<h2 data-number="20.3" class="anchored" data-anchor-id="rebase-exercise"><span class="header-section-number">20.3</span> Rebase Exercise</h2>
+<p>In groups of three, a Maintainer and two contributors (Contributor A and Contributor B), begin by setting up the collaboration network (a new repo on GitHub, forks, clones and setting upstream). Then work together to implement these steps:</p>
 <ol type="1">
-<li>Maintainer makes two commits to the main branch, contributors use <code>git pull upstream main</code> to synchronize.</li>
-<li>Each contributor creates a feature branch, and adds two commits to a file with their name.</li>
-<li>Contributors create PRs that the Maintainer sees on the upstream/shared repository.</li>
-<li>Maintainer can accept one, merging to main.</li>
-<li>Maintainer then asks the other contributor to rebase their contribution.</li>
-<li>The contributor doing the rebase first does a <code>git pull upstream main</code> to get the new work onto the main branch in their local git.</li>
-<li>Then the contributor uses rebase and squash (as above) and uses <code>git push -f</code> to get their fork synchronized with their rebase.</li>
-<li>Maintainer should then check the PR and they will find only a single commit (the two previous ones squashed together), now looking as though it branched off main after the first contributor’s work. Maintainer can then accept the rebased PR.</li>
+<li>Maintainer makes two commits to the main branch. Contributors use <code>git pull upstream main</code> to synchronize.</li>
+<li>Each contributor creates a feature branch, and adds two commits to a file named “[yourname].txt” where “yourname” is replaced with your name.</li>
+<li>Contributors create PRs that Maintainer sees on the upstream/shared repository. <strong>Do not continue until both contributors have created their PRs.</strong></li>
+<li>Maintainer asks Contributor A to squash their contribution.</li>
+<li>Contributor A uses rebase and squash, then <code>git push -f</code> to get their PR synchronized with their rebase.</li>
+<li>Maintainer accepts Contributor A’s PR, merging to main.</li>
+<li>Maintainer asks Contributor B to rebase and squash their contribution.</li>
+<li>Contributor B does a <code>git pull upstream main</code> to get the new work onto the main branch in their local git.</li>
+<li>Contributor B uses rebase and squash (as above), then <code>git push -f</code> to get their PR synchronized with their rebase.</li>
+<li>Maintainer should then check the PR. They will find only a single commit (the two previous ones squashed together), now looking as though it branched off main after the first contributor’s work. Maintainer can then accept the rebased PR.</li>
 <li>Both contributors should synchronize (<code>git pull upstream main</code> and then git push to sync their forks.)</li>
 </ol>
 
