@@ -511,7 +511,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="exercise" class="level2" data-number="22.2">
 <h2 data-number="22.2" class="anchored" data-anchor-id="exercise"><span class="header-section-number">22.2</span> Exercise:</h2>
-<p>In this exercise we will go through the process of adding a pytest GitHub action to validate that accepted PRs do not cause tests to fail. We will make a change to the <code>fix_phone_num</code> which will introduce a bug and cause the GitHub UI to show us that the test is failing, and then fix the bug.</p>
+<p>In this exercise we will go through the process of adding a pytest GitHub action to validate that accepted PRs do not cause tests to fail. We will make a change to the <code>fix_phone_num</code> which will introduce a bug and cause the GitHub UI to show us that the test is failing, and then fix the bug. The intent of the change is to allow <code>fix_phone_num</code> to support cases where users have entered the country code at the start of their phone number (e.g.&nbsp;“15551239876” instead of “5551239876”), and still format the number properly (as <code>(555) 123 9876</code> in both cases).</p>
 <ol type="1">
 <li>Fork the <a href="https://github.com/howisonlab/i320d-cicd-exercise">howisonlab/i320d-cicd-exercise</a> repository.</li>
 <li>Add the pytest GitHub action to your repo by adding a file at <code>.github/workflows/pytest.yaml</code> with <a href="https://gist.github.com/willbeason/ce06d6736de2a70ead878c9f71308cd4">these contents</a>.</li>

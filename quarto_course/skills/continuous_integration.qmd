@@ -161,6 +161,7 @@ One further step would be to add a code coverage test. These are a "test that th
 In this exercise we will go through the process of adding a pytest GitHub action to validate that accepted PRs do not cause tests to fail.
 We will make a change to the `fix_phone_num` which will introduce a bug and cause the GitHub UI to show us that the test is failing,
 and then fix the bug.
+The intent of the change is to allow `fix_phone_num` to support cases where users have entered the country code at the start of their phone number (e.g. "15551239876" instead of "5551239876"), and still format the number properly (as `(555) 123 9876` in both cases).
 
 1. Fork the [howisonlab/i320d-cicd-exercise](https://github.com/howisonlab/i320d-cicd-exercise) repository.
 1. Add the pytest GitHub action to your repo by adding a file at `.github/workflows/pytest.yaml` with [these contents](https://gist.github.com/willbeason/ce06d6736de2a70ead878c9f71308cd4).
