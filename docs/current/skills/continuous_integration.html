@@ -73,7 +73,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-854d42f42d0f6b455b86ad16a464e311.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f2151062440e71a1d76e61548d0dfb49.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -397,7 +397,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="github-actions" class="level3" data-number="22.1.1">
 <h3 data-number="22.1.1" class="anchored" data-anchor-id="github-actions"><span class="header-section-number">22.1.1</span> Github Actions</h3>
 <p>Github Actions is a GitHub feature that enables automation in repositories, including continuous integration.</p>
-<p>To establish an automation we have to add a file to the repository, in the <code>.GitHub/workflows</code> directory. This file tells GitHub Actions what to do when particular events occur.</p>
+<p>To establish an automation we have to add a file to the repository, in the <code>.github/workflows</code> directory. This file tells GitHub Actions what to do when particular events occur. In this case we’ll call it <code>pytest.yml</code> since we want to run pytest to test code changes.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Run pytest tests</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span><span class="at"> </span></span>
@@ -425,7 +425,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb7"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Pytest summary</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> dariocurr/pytest-summary@v2</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">paths</span><span class="kw">:</span><span class="at"> my_code.py</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">paths</span><span class="kw">:</span><span class="at"> fix-phone-num.py</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Together, then the file looks like:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Run pytest tests</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -449,7 +449,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Pytest summary</span></span>
 <span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> dariocurr/pytest-summary@v2</span></span>
 <span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">paths</span><span class="kw">:</span><span class="at"> my_code.py</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">paths</span><span class="kw">:</span><span class="at"> fix-phone-num.py</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The easiest way to create GitHub Actions files is using the “Actions” tab and then the “New Action”. Github shows a “marketplace” of community (and commercially) contributed workflows, but you can provide your own file by hitting the “set up a workflow yourself” button.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -511,13 +511,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="exercise" class="level2" data-number="22.2">
 <h2 data-number="22.2" class="anchored" data-anchor-id="exercise"><span class="header-section-number">22.2</span> Exercise:</h2>
+<p>In this exercise we will go through the process of adding a pytest GitHub action to validate that accepted PRs do not cause tests to fail. We will make a change to the <code>fix_phone_num</code> which will introduce a bug and cause the GitHub UI to show us that the test is failing, and then fix the bug. The intent of the change is to allow <code>fix_phone_num</code> to support cases where users have entered the country code at the start of their phone number (e.g.&nbsp;“15551239876” instead of “5551239876”), and still format the number properly (as <code>(555) 123 9876</code> in both cases).</p>
 <ol type="1">
-<li>Add an action to your repo, using the code in this file.</li>
-<li>Create a PR for an edit to my_code.py that creates a failing test. Remember to use a new branch.</li>
-<li>Observe the test running, and locate the test failure report.</li>
-<li>Push a fix that makes your new test pass.</li>
-<li>Observe the test running again, and your PR should now show “all Checks Passed”</li>
+<li>Fork the <a href="https://github.com/howisonlab/i320d-cicd-exercise">howisonlab/i320d-cicd-exercise</a> repository.</li>
+<li>Add the pytest GitHub action to your repo by adding a file at <code>.github/workflows/pytest.yaml</code> with <a href="https://gist.github.com/willbeason/ce06d6736de2a70ead878c9f71308cd4">these contents</a>.</li>
+<li>Commit this to your <code>main</code> branch and push to your repository.</li>
+<li>Switch to a new branch.</li>
+<li>Copy and paste the contents of <a href="https://gist.github.com/willbeason/7feea70c9b39d0cbfdf0a46d83e76cab">this file</a> into <code>fix-phone-num.py</code>. This code has a bug which will cause tests to fail.</li>
+<li>Commit and push those changes to GitHub.</li>
+<li>Open a pull request to merge those changes into your <code>main</code> branch. Do not merge it yet.</li>
+<li>Observe the test running from within the PR screen, and locate the test failure report.</li>
+<li>Push a fix that makes the new tests pass.</li>
+<li>Observe the test running again, and your PR should now show “All checks have passed”</li>
 </ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If at any point you make a mistake and need to retrigger the checks on GitHub but don’t need to make any changes to your file, you can retrigger those checks with:</p>
+<pre><code>git commit -m "retrigger checks" --allow-empty</code></pre>
+<p>This creates an empty commit (normally Git refuses to create commits without any changes), which will re-prompt GitHub to run the pytest action.</p>
+</div>
+</div>
 </section>
 <section id="sec-alt-ci" class="level2" data-number="22.3">
 <h2 data-number="22.3" class="anchored" data-anchor-id="sec-alt-ci"><span class="header-section-number">22.3</span> Alternatives to GitHub actions</h2>
