@@ -167,10 +167,11 @@ and then fix the bug.
 1. Commit this to your `main` branch and push to your repository.
 1. Switch to a new branch.
 1. Copy and paste the contents of [this file](https://gist.github.com/willbeason/7feea70c9b39d0cbfdf0a46d83e76cab) into `fix-phone-num.py`.
+This code has a bug which will cause tests to fail.
 1. Commit and push those changes to GitHub.
-1. Create a pull request to merge those changes into your `main` branch.
+1. Open a pull request to merge those changes into your `main` branch. Do not merge it yet.
 1. Observe the test running from within the PR screen, and locate the test failure report.
-1. Push a fix that makes your new test pass.
+1. Push a fix that makes the new tests pass.
 1. Observe the test running again, and your PR should now show "All checks have passed"
 
 ::: {.callout-tip}
