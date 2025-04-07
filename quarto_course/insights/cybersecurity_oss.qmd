@@ -1,0 +1,23 @@
+# Cybersecurity and Open Source Software {#sec-cybersecurity}
+
+Open source software, and the particular way it is produced, connect with the security of computer systems (usually called cybersecurity) in a few specific ways.
+
+In this class we will watch a presentation and read two articles together.  We will build collaborative notes in the Google Notes file posted through a Canvas annoucement, seeking to answer these three questions.
+
+1. "Many eyes make all bugs shallow". In what ways, does inspection and shared bug-fixing outweigh the advantages that an attacker gets by looking directly at the source code?
+
+2. Package systems build on existing libraries/components, so any security flaws can be multiplied. Moreover, open contributions could enable malicious actors to insert security flaws. In what ways is open source software resiliant to these issues? When might these resiliances fail? What practices help to bolster resilience?
+
+3. Software licences, including open source licenses, exclude product liability. How does this interact with open source? What might be the trade offs in applying product liability law to software and to open source software in particular?
+
+## Readings
+
+- Video Presentation: "Is Open Source More Secure?" IBM Technology <https://www.youtube.com/watch?v=HcV4u-nemNk>
+
+- Hacked: The overlooked and under-supported open source projects holding the Internet together (March 2025) <https://illumin.usc.edu/hacked-open-source-projects/>
+  - see also <https://research.swtch.com/xz-timeline>
+
+- Sharma, Speed, and Howison (2022) The Securing Open Source Software Act Is Good, but Whatever Happened to Legal Liability? Lawfare Blog
+<https://www.lawfaremedia.org/article/securing-open-source-software-act-good-whatever-happened-legal-liability>
+  - see also EU product liability law changes <https://www.taylorwessing.com/en/insights-and-events/insights/2024/03/software-als-produkt>
+

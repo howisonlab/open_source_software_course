@@ -1,6 +1,6 @@
 # From Stack, to stream, to ecosystem. {#sec-stack-and-stream}
 
-Metaphors help us build an image of the organization of complicated sociotechnical systems. In this class I discuss three key metaphors employed in the discourse around software and the organization of its production and distribution: a "stack", a "stream" (esp. "upstream"/"downstream"), a "supply chain", and an "ecosystem".
+Metaphors help us build an image of the organization of complicated sociotechnical systems. In this class I discuss four key metaphors employed in the discourse around software and the organization of its production and distribution: a "stack", a "stream" (esp. "upstream"/"downstream"), a "supply chain", and an "ecosystem".
 
 ## Stack
 
