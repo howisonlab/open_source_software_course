@@ -561,7 +561,7 @@ insight_topics <- tribble(
   "Bias and lack of diversity @sec-diversity ",
   "Iterative Development, Tests, and Continuous Integration @sec-agile ",
   "The stack and the stream @sec-stack-and-stream ",
-  "Cybersecurity and open source",
+  "Cybersecurity and open source @sec-cybersecurity ",
   "Open software work in science and research",
   "Peer production in Art and Culture",
   "What's Next? (likely industry speaker)"
