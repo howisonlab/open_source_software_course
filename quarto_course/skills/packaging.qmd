@@ -48,3 +48,11 @@ For these materials we will work through a Data Camp course (which you are welco
 
 The course shows how to take code and wrap it in a directory with special files, then how to publish it to PyPI (using a special repository just for testing).
 
+GitHub Actions are recommended to move code from Github, through Releases, to PyPI. <https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/>
+
+## Questions to be able to answer/discuss
+
+1. What can we say about filenames that look like `__init__.py`?
+2. How does code usually get from GitHub to PyPI?
+3. How is package management done internally at large companies? Can you find case studies of that? (This could be a good question to ask companies about their programming practices)
+

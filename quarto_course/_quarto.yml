@@ -31,13 +31,8 @@ book:
       - insights/stack_and_stream.qmd
       - insights/agile.qmd
       - insights/cybersecurity_oss.qmd
-    
-      # - insights/agile_development.qmd
-    #     - knowledge_sharing.qmd
-    #     - documentation.qmd
-    #     - bias_and_lack_of_diversity.qmd
-    #     - agile_development.qmd
-    
+      - insights/scisoft.qmd
+      
     
     - part: "Skills"
       chapters:

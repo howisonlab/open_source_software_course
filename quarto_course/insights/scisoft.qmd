@@ -1,0 +1,10 @@
+# Open Software Production in Science {#sec-scisoft}
+
+
+Scientific research increasing involves great amounts of software.  Open source plays an important role here, but we know thorugh this course that simply because software itself is open source, it does not mean that the software is produced in the same manner.
+
+In my research I have studied how scientists, especially those funded through research grants, produce the software used in their research.  In this presentation we will examine how the different incentives in science help us understand the different way in which software is produced. The presentation comes from mulitple studies over the last decade plus, and ultimately seeks to make recommendations on improved ways to fund scientifc software development and unlock the hoped-for benefits of open source collaboration for science.
+
+## Presentation
+
+<iframe width="100%" height="800" src="images/Howison_SciSoft_OSSD_Class.pdf"></iframe>

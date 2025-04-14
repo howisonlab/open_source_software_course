@@ -562,7 +562,7 @@ insight_topics <- tribble(
   "Iterative Development, Tests, and Continuous Integration @sec-agile ",
   "The stack and the stream @sec-stack-and-stream ",
   "Cybersecurity and open source @sec-cybersecurity ",
-  "Open software work in science and research",
+  "Open software work in science and research @sec-scisoft ",
   "Peer production in Art and Culture",
   "What's Next? (likely industry speaker)"
 ) %>% mutate(topic = "Insights") %>%  rownames_to_column()
