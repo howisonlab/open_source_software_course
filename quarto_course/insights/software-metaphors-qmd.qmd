@@ -1,0 +1,131 @@
+---
+title: "Software Stack Metaphors: Supply Chains, Streams, and Deltas"
+author: "Conversation with Claude"
+date: "2025-10-17"
+format: html
+---
+
+From <https://claude.ai/chat/1c496ca6-cce6-47b5-9ae1-7f4957eb6b40>
+
+## The Problem: Naming Terminal Software
+
+> In supply chain discourse, what do they call the end of the chains?
+
+The end of supply chains is called the **"last mile"** or **"final mile"** - the final leg of delivery to the end customer. More broadly: **"downstream"**, **"end consumer"**, **"point of consumption"**.
+
+> Can one say "last mile" software to refer to top of stack software?
+
+This would be unconventional. In software, "last mile" typically means the final step in delivering functionality to end users - integration and deployment work.
+
+**Better terms for top-of-stack software:**
+- Application layer
+- Front-end (if user-facing)
+- User-facing layer
+- Presentation layer
+
+> I think there ought to be a different word for software that is the top layer in the stack; it uses dependencies and is not reused by any other software. Ideas include "last mile" "stack top" or "end user" software.
+
+**The concept:** Software that is a *terminal consumer* in the dependency graph - it uses other software but isn't reused by anything else. This includes both traditional applications AND one-off scripts, notebooks, analyses, etc.
+
+**Proposed terms:**
+- **"Terminal software"** or **"terminal code"** - directly captures the graph endpoint nature
+- **"Leaf software"** or **"leaf code"** - the dependency graph metaphor
+- **"Consumer software"** - emphasizes that it only consumes dependencies
+- **"End-point software"** or **"endpoint code"**
+- **"Final-use code"** - parallel to "final-use goods" in economics
+
+## Final Goods in Economics
+
+**Final goods** (or **final-use goods**) in economics refers to products purchased by end users for consumption, rather than for further production or resale.
+
+**The key distinction:**
+
+- **Intermediate goods** - used as inputs to produce other goods (steel for cars, flour for bread, chips for computers)
+- **Final goods** - consumed by end users and don't go into further production (the car you drive, the bread you eat, the laptop you use)
+
+This is crucial for GDP calculations - you only count final goods to avoid **double-counting**.
+
+**The parallel to software:**
+- Library → intermediate (input to other software)
+- Application/script → final (used by end user, not other software)
+
+## Three Analogies: Foundations to Endpoints
+
+### Supply Chain
+Raw materials → intermediate goods → manufacturers → retailers → **final goods** delivered to **end consumers** via the **last mile**.
+
+### Software Stack
+System libraries → frameworks/middleware → **applications and scripts** as **leaf nodes** in the dependency graph, used by end users.
+
+### Stream
+Tributaries → rivers → **delta/mouth** where all upstream flow reaches its **terminus**.
+
+**Core pattern:** Foundational elements flow through intermediate stages to a final endpoint that depends on everything upstream.
+
+## Two Different Graphs in Software
+
+> With software, each particular instantiation of the software stack is not the same as the way changes flow through the dependency system.
+
+There are actually **two different graphs** at play:
+
+### Call Graph (Runtime Dependencies)
+**Direction:** Apps → Frameworks → Libraries → System
+
+- Applications *call* frameworks
+- Frameworks *call* libraries
+- **Metaphor:** Supply chain (final goods consume intermediate goods)
+- **Leaf nodes:** Applications/scripts at the *top*
+
+### Change Graph (Impact Propagation)
+**Direction:** System → Libraries → Frameworks → Apps
+
+- A library change *affects* frameworks that depend on it
+- A framework change *affects* applications that depend on it
+- **Metaphor:** Stream (changes flow downstream from source)
+- **Endpoints:** Applications/scripts at the *bottom* (receiving changes)
+
+## The Delta Metaphor
+
+> I really like the Delta edition. Because the river terminus implies that everything goes into one spot. But actually, it spreads out into rivulets in the delta.
+
+The **delta** is perfect because it captures that *branching* at the end:
+
+- One change in a foundational library (the source)
+- Flows downstream through the river system
+- **Spreads out into countless rivulets** at the delta - each one a different application, script, or deployment
+- All receiving the same upstream flow, but as separate, independent endpoints
+
+**The delta metaphor captures:**
+- The *proliferation* at the end (many apps using the same foundation)
+- The *independence* of each rivulet (apps don't affect each other)
+- The *dispersal* of impact across a broad area
+
+Applications are simultaneously:
+- **Dependency sinks** (top of call graph)
+- **Change endpoints** (bottom of change graph, receiving all upstream impacts)
+
+## Final Framework: Three Distinct Concepts
+
+### 1. Call Graph / Runtime Dependencies → **Supply Chain**
+- How code *uses* other code at runtime
+- Apps depend on frameworks depend on libraries
+- **Final goods** = applications that embody all their dependencies
+- Direction: Top uses bottom
+
+### 2. Change Propagation → **Stream/Delta**
+- How changes flow from foundational code
+- **Upstream** = source (low-level libraries)
+- **Downstream** = toward the delta (many leaf applications)
+- Changes flow downstream and spread into rivulets
+
+### 3. Composition / Build Time → **Final Goods Assembly/Warehousing**
+- How dependencies are gathered and integrated
+- Just before deployment/runtime
+- Dependencies are collected, versioned, linked
+- The moment when "final goods" are assembled from "intermediate goods"
+
+**The insight:** That assembly/warehousing phase is its own distinct thing - it's when the supply chain actually *converges* to create each specific application bundle, before runtime disperses them into the delta of deployments.
+
+---
+
+*Each metaphor does real work for its phase.*

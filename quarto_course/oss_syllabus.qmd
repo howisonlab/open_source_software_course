@@ -45,16 +45,16 @@ library(lubridate)
 header <- tribble(
   ~`Course`, ~`I 320D and 320S: Open Source Software Development`,
   "Professor", "James Howison",
-  "Meeting Time", "Mondays and Wednesdays 3:30 PM - 04:45 PM",
-  "Location", "SZB 3.508",
-  "Semester", "Spring 2025",
-  "Unique No.", "28190",
+  "Meeting Time", "Mondays and Wednesdays 9:30 AM - 10:45 AM",
+  "Location", "GDC 4.304",
+  "Semester", "Spring 2026",
+  "Unique No.", "28630",
   "Office Hours", "By appointment booked at http://james.howison.name/calendar/",
   "Contact Email", "jhowison@ischool.utexas.edu",
-  "Teaching Assistant", "Will Beason",
+  "Teaching Assistant", "Ansh Disawal",
   "TA Office Hours Availability", "Thursdays and Fridays 9am-3pm by appointment",
-  "TA Office Hours Link", "https://calendly.com/beason-utexas/30min",
-  "TA Contact Email", "wab773@eid.utexas.edu"
+  "TA Office Hours Link", "",
+  "TA Contact Email", ""
 )
 library(knitr)
 ```
@@ -121,7 +121,7 @@ assessments <- tribble(
   "Weekly Homework challenges", "40%", "Weekly homework challenges throughout the semester",
   "Git Analogies Paper", "20%", "Week after Spring Break",
  # " UT Austin open source projects", "5%", "Two weeks after Spring Break",
-  "Open Source Trace Data analysis Project report", "25%", "Start of last class week.",
+  "Final Project and Interview", "25%", "Start of last class week.",
 )
 ```
 
@@ -145,7 +145,7 @@ Hints on participation:
 
 ### Weekly Homework Challenges
 
-The course will have assignments based on bth insight and skills topics we are learning (with some leaning towards skills), including use of the DataCamp course (see below).
+The course will have assignments based on both insight and skills topics we are learning (with some leaning towards skills), including use of the DataCamp course (see below).
 
 ### Papers and Projects
 
@@ -155,9 +155,9 @@ How would you explain what we have been learning about git to your future work t
 
 In this assignment you will describe three different analogies for git-based collaboration (including branching, GitHub, and PRs). No more than two analogies can be found online (use references!), at least one you must create yourself. Each analogy should cover as much of git and GitHub collaboration as possible.
 
-For each, include both text and pictures. You should have approximately 2 pages per analogy (~500-750 words). Pictures can be photos you find online, or diagrams you create yourself (digital collage can be useful).  You should include connections between your analogy and the specific git and GitHub commands we have learned (e.g., init, add, commit, push, pull, create PR, merge, etc.). In particular, you must include a discussion of "splitting a pull request" including git cherry-pick.  Your analogies should cover multiple commands (not a one analogy for one command); each should cover as much of git and GitHub collaboration as possible.
+For each, include both text and pictures. You should have approximately 2 pages per analogy (\~500-750 words). Pictures can be photos you find online, or diagrams you create yourself (digital collage can be useful). You should include connections between your analogy and the specific git and GitHub commands we have learned (e.g., init, add, commit, push, pull, create PR, merge, etc.). In particular, you must include a discussion of "splitting a pull request" including git cherry-pick. Your analogies should cover multiple commands (not a one analogy for one command); each should cover as much of git and GitHub collaboration as possible.
 
-In a final 1-2 pages of writing (~350-750 words), Compare and contrast your three analogies in reference to this question: How would each analogy help your teammates? What might it make clear, what might it hide or obfuscate?  How might using a combination of your analogies help? Could that combination make things more difficult?
+In a final 1-2 pages of writing (\~350-750 words), Compare and contrast your three analogies in reference to this question: How would each analogy help your teammates? What might it make clear, what might it hide or obfuscate? How might using a combination of your analogies help? Could that combination make things more difficult?
 
 Your paper must be submitted as a PR (will be taught in the course).
 
@@ -165,9 +165,9 @@ Include a note at the top of the file telling me which formal citation approach 
 
 GenAI: For this assignment, I give you specific permission to use GenAI systems like ChatGPT. The requirement, however, is that you must include the sequence of prompts you used, your analysis of the analogy provided by the system, discuss how you adapted the analogy for presentation in the paper, and how you added images/diagrams (as well as including this analogy in your compare and contrast).
 
-The structure of the paper should be as follows (a page is ~300-500 words):
+The structure of the paper should be as follows (a page is \~300-500 words):
 
-```
+```         
 # Introduction (~ 1-2 paragraphs/100-200 words)
 
 # Analogy 1 (~1 page including images/~500 words)
@@ -185,7 +185,7 @@ The structure of the paper should be as follows (a page is ~300-500 words):
 
 Pick one of the following two options:
 
-1. Conduct a trace data analysis that compares at least 3 projects contained in this provided dataset: 
+1.  Conduct a trace data analysis that compares at least 3 projects contained in this provided dataset:
 
 https://github.com/howisonlab/transition_augur/raw/main/oss_data.zip
 
@@ -193,24 +193,25 @@ The code used to pull these data is here: https://github.com/howisonlab/transiti
 
 The ER diagram for the underlying data is linked in the notebook in that repo.
 
-These are open source projects funded by the US National Science Foundation during the last decade in a program called SI2. The data is collected from GitHub using the augur project from Linux Foundation. The files when unzipped are quite large, commits.csv has over 4.5million rows.  You will not be able to work with these files in Excel (for example) but they should work ok with tools like Tableau or Pandas/Matplotlib.
+These are open source projects funded by the US National Science Foundation during the last decade in a program called SI2. The data is collected from GitHub using the augur project from Linux Foundation. The files when unzipped are quite large, commits.csv has over 4.5 million rows. You may not be able to work with these files in Excel (for example) but they should work ok with tools like Tableau or Pandas/Matplotlib.
 
-Your analysis should use the trace data collected to address insight concepts that we have discussed during the course, for example: Leadership, Coordination, Motivation, Dependency (including interdependency), Governance, Bias and lack of diversity.  You should provide figures (most likely multiple time-series analyses) and you must relate your work to either a discussion in the book http://producingoss.com/ or a trace data analysis of open source data you find in the peer reviewed literature. One suggested source is the the Mining Software Repositories conference: http://www.msrconf.org/  Your project document should include multiple figures and ~300-500 words of writing.  Think the equivalent of about 3 pages.
+Your analysis should use the trace data collected to address insight concepts that we have discussed during the course, for example: Leadership, Coordination, Motivation, Dependency (including interdependency), Governance, Bias and lack of diversity. You should provide figures (most likely multiple time-series analyses) and you must relate your work to either a discussion in the book http://producingoss.com/ or a trace data analysis of open source data you find in the peer reviewed literature. One suggested source is the the Mining Software Repositories conference: http://www.msrconf.org/ Your project document should include multiple figures and \~300-500 words of writing. Think the equivalent of about 3 pages.
 
-2. Write a 1,000-1,500 word scholarly comparative analysis of 3 open source projects that connect with your interests. Explain why you chose these three projects to compare. You should include in your discussion topics such as: leadership, collaboration, license choice, ownership, contribution process, how the project seeks to attract contributions, how the project uses collaboration infrastructure. You must include screenshots and you must discuss at least one PR for each project (of course you can discuss more). You should reference literature from the course and connect with the discussion in at least two additional peer reviewed articles. You may find these two review articles a useful place to identify relevant literature: https://doi.org/10.1145/2089125.2089127 or https://www.misqresearchcurations.org/blog/2021/12/7/information-systems-development
+2.  Write a 1,000-1,500 word scholarly comparative analysis of 3 open source projects that connect with your interests. Explain why you chose these three projects to compare. You should include in your discussion topics such as: leadership, collaboration, license choice, ownership, contribution process, how the project seeks to attract contributions, how the project uses collaboration infrastructure. You must include screenshots and you must discuss at least one PR for each project (of course you can discuss more). You should reference literature from the course and connect with the discussion in at least two additional peer reviewed articles. You may find these two review articles a useful place to identify relevant literature: https://doi.org/10.1145/2089125.2089127 or https://www.misqresearchcurations.org/blog/2021/12/7/information-systems-development
 
-
-Submission: 
+Submission:
 
 Submit by making a PR. Note that it should be a separate PR from other assignment submissions; this means you must use a different branch name for this work.
 
 Include a note at the top of the file telling me which formal citation approach you are using (e.g., APA, MLA, etc). Students are cautioned that as a scholarly paper proper citation and use of sources is required otherwise students will face academic misconduct proceedings. See ["Academic Integrity" presentation](https://utexas.zoom.us/rec/share/AjF6eoJH2heRWqQkTAHAQTfpp05UbE7WRhT-vQFw9wYevV8YBjpE2AJ_2PD07Mca.2v_7lGqZ0OoKbJzG) if at all unsure.
 
+##### Final Project Interview
+
+A 10 minute interview to discuss the final project, worth 40% of the Final Project grade.  In this interview I will ask you to explain any part of your project or paper. For example I may ask how you came up with ideas, what particular lines of code do, or challenge parts of your argument. Just as it would be in a job interview, it will be unacceptable to say, "I don't know, GenAI did it" or "I don't know, I haven't thought about that".
+
 ### Late submission policy
 
-The late policy for papers/projects/presentation is a 10% reduction (minimum one point) for submissions up to 24 hours after the due time, but zero points after that.
-If assignment answers are discussed in class, submissions will not be accepted after.
-You can, of course, contact me if you have an emergency.
+The late policy for papers/projects/presentation is a 10% reduction (minimum one point) for submissions up to 24 hours after the due time, but zero points after that. That said, submissions will not be accepted after assignment answers have already been discussed in class. You can, of course, contact me if you have an emergency.
 
 ## Materials
 
@@ -218,11 +219,13 @@ There are no required texts for this course and no materials to purchase.
 
 Readings, tutorials, and will be provided via pages linked from the class calendar below.
 
+Often I can link directly to websites or PDFs, but sometimes I will provide links to articles in journals etc. You must be able to get the article through the library, generally speaking using the [web VPN](http://vpn.utexas.edu) is the most convenient approach. Another option that can sometimes work is [UnPaywall](http://unpaywall.org/) which works to find an open access article version when looking at a publisher's page for the article.
+
 I will enroll the class in [DataCamp](https://www.datacamp.com/), giving students free access to the DataCamp courses (including their premium courses). In particular we will be using their interactive course on `git` during classes in the first half of the course. I encourage students to explore their other course options during the semester.
 
 # Course Outline {#outline}
 
-## Draft Course Schedule
+## Course Schedule
 
 Table below shows classes and topics planned. Each class has both an insight (aka theory, conceptual) and a skills (aka tech, practical) component. These will become links to materials for the class.
 
@@ -563,8 +566,9 @@ insight_topics <- tribble(
   "The stack and the stream @sec-stack-and-stream ",
   "Cybersecurity and open source @sec-cybersecurity ",
   "Open software work in science and research @sec-scisoft ",
-  "Peer production in Art and Culture",
-  "What's Next? (likely industry speaker)"
+  # "Peer production in Art and Culture",
+  # "What's Next? (likely industry speaker)",
+  "Project Interviews"
 ) %>% mutate(topic = "Insights") %>%  rownames_to_column()
 
 introduction_topics <- tibble(introduction_topic = c("Syllabus Review", "Paper Planes: Innovation and collaboration"), topic = "Introduction") %>%  rownames_to_column()
@@ -594,25 +598,22 @@ expand_days <- function(start, end) {
 no_meetings <- tribble(
   ~period_start, ~period_end, ~class_name,
   #--------------------
-   "2025-01-15", "2025-01-15", "No meeting: Instructor travel",
-   "2025-01-20", "2025-01-20", "No meeting: MLK day",
- #  "2025-01-28", "2025-02-02", "No meeting: Instructor travel",
-  
-   # "2025-03-12", "2025-03-12", "", 
-     "2025-03-17", "2025-03-22", "No meeting: Spring Break",
- #  "2024-04-08", "2024-04-08", "No meeting: Eclipse Day"
+  "2026-01-19", "2026-01-19", "No meeting: MLK day",
+  "2026-02-16", "2026-02-16", "No meeting: Instructor travel",
+  "2026-03-16", "2026-03-21", "No meeting: Spring Break",
+  "2026-03-25", "2026-03-25", "No meeting: Instructor travel"
 ) %>%
   mutate(days_list = map2(period_start, period_end, expand_days)) %>%
   select(class_name, days_list) %>%
   unnest()
 
-first_class_day = parse_datetime("2025-01-13")
+first_class_day = parse_datetime("2026-01-12")
 
-last_class_day = parse_datetime("2025-04-28")
+last_class_day = parse_datetime("2026-04-27")
 
-first_mon = parse_datetime("2025-01-13")
+first_mon = parse_datetime("2026-01-12")
 
-first_wed = parse_datetime("2025-01-15")
+first_wed = parse_datetime("2026-01-14")
 
 all_mon <- seq(first_mon, to = last_class_day, by = "week")
 all_wed <- seq(first_wed, to = last_class_day, by = "week")
@@ -668,64 +669,6 @@ meets_schedule %>%
    unclass() |> cat() # to make quarto references work https://github.com/quarto-dev/quarto-cli/issues/3340
 ```
 
-## Skills Readings
-
-```{r, eval=F}
-
-# get dates for readings.
-dated_readings <- readings %>% left_join(meets_schedule, by = c("class_name" = "skill_topic"))
-
-dated_readings <- readings
-
-group_counts <- dated_readings %>%
-  arrange(class_day) %>%
-  group_by(topic_assigned, class_day) %>%
-  summarize(group_size = n(), .groups = 'drop') %>%
-  arrange(class_day) %>%
-  select(-class_day) %>%
-  deframe()
-
-# group_indexes <- setNames(group_counts$group_size, group_counts$topic_assigned)
-
-dated_readings %>%
-  mutate(reading_link = glue("[link]({reading_link})")) %>%
-  arrange(class_day) %>%
-  select(reading_text, reading_link) %>%
-  kable("html", escape = FALSE, col.names = NULL) %>%
-  kable_styling(bootstrap_options = c("responsive", "striped")) %>%
-  kableExtra::group_rows(index = group_counts) %>%
-  {.}
-```
-
-## Insight Readings
-
-Often I can link directly to websites or PDFs, but sometimes I will provide links to articles in journals etc. You must be able to get the article through the library, generally speaking using the [web VPN](http://vpn.utexas.edu) is the most convenient approach. Another option that can sometimes work is [UnPaywall](http://unpaywall.org/) which works to find an open access article version when looking at a publisher's page for the article.
-
-```{r, eval=F}
-insight_dated <- insight_readings %>% left_join(meetings, by = c("topic_assigned" = "insight_topic"))
-
-group_counts <- insight_dated %>%
-  arrange(class_day) %>%
-  group_by(topic_assigned, class_day) %>%
-  # group_by(topic_assigned, class_day) %>%
-  summarize(group_size = n(), .groups = 'drop') %>%
-  arrange(class_day) %>%
-  select(-class_day) %>%
-  deframe
-
-# group_indexes <- setNames(group_counts$group_size, group_counts$topic_assigned)
-
-insight_dated %>%
-  mutate(reading_link = glue("[link]({reading_link})")) %>%
-  arrange(class_day) %>%
-  select(reading_text, reading_link) %>%
-  kable("html", escape = FALSE, col.names = NULL) %>%
-  kable_styling(bootstrap_options = c("responsive", "striped")) %>%
-  kableExtra::group_rows(index = group_counts) %>%
-  {.}
-
-```
-
 # Policies
 
 ## Class Recordings
@@ -757,11 +700,6 @@ With these rights come responsibilities:
 ## Personal Pronoun Preference
 
 Professional courtesy and sensitivity are especially important with respect to individuals and topics dealing with differences of race, culture, religion, politics, sexual orientation, gender, gender variance, and nationalities. Class rosters are provided to the instructor with the student's legal name. I will gladly honor your request to address you by an alternate name or gender pronoun. Please advise me of this preference early in the semester so that I may make appropriate changes to my records.
-
-
-## DEI in classroom discussions
-
-[Texas Senate Bill 17](https://capitol.texas.gov/tlodocs/88R/billtext/pdf/SB00017F.pdf), the recent law that outlaws diversity, equity, and inclusion programs at public colleges and universities in Texas, does not in any way affect content, instruction or discussion in a course at public colleges and universities in Texas. Expectations and academic freedom for teaching and class discussion have not been altered post-SB 17, and students should not feel the need to censor their speech pertaining to topics including race and racism, structural inequality, LGBTQ+ issues, or diversity, equity, and inclusion.
 
 ## Drop Policy
 

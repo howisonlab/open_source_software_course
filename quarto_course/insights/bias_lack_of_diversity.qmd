@@ -1,7 +1,7 @@
 # Bias and Lack of Diversity {#sec-diversity}
 
 Open source software production lacks diversity.
-In fact, open source is even less diverse than the software industry in general.
+In fact, open source is less diverse than the software industry in general.
 Open source shares this perhaps surprising characteristic with other open collaborative projects, including Wikipedia.
 
 In class today we will undertake shared note-taking in groups on this topic, preparing for a discussion.
@@ -12,19 +12,15 @@ Examine these "developer surveys" to add data (agreeing or disagreeing) with the
 
 <https://octoverse.github.com/>
 
-[Lecture slides](https://docs.google.com/presentation/d/1diz3lQe82Ao4ZTE-Lvj3EnUHmD7rDGv1WH25fsw2sqs/edit?usp=sharing)
-
 Readings:
 
 - [Coraline Ada Ehmke’s Contributor’s Covenant](https://www.contributor-covenant.org/version/1/0/0/code-of-conduct/)
-- [Linus Torvalds’ Code of Conflict](https://www.kernel.org/doc/html/v4.10/process/code-of-conflict.html)
+- [Linus Torvalds’ Code of Conflict](https://www.kernel.org/doc/html/v4.10/process/code-of-conflict.html) and [commentary](https://lwn.net/Articles/765108/).
 - Frluckaj, H., Dabbish, L., Widder, D. G., Qiu, H. S., & Herbsleb, J. D. (2022). Gender and Participation in Open Source Software Development. Proceedings of the ACM on Human-Computer Interaction, 6(CSCW2), 299:1-299:31. <https://doi.org/10.1145/3555190>
-- Frluckaj, H., Stevens, N., Howison, J., & Dabbish, L. (2024). Paradoxes of Openness: Trans Experiences in Open Source Software. Proceedings of the ACM on Human-Computer Interaction, 8(CSCW2), 1-24. <https://doi.org/10.1145/368704>
 
 Additional readings:
 
 Albusays, K., Bjorn, P., Dabbish, L., Ford, D., Murphy-Hill, E., Serebrenik, A., & Storey, M.-A. (2021). The Diversity Crisis in Software Development. IEEE Software, 38(2), 19–25. <https://doi.org/10.1109/MS.2020.3045817>
-
 
 Qiu, H. S., Zhao, Z. H., Yu, T. K., Wang, J., Ma, A., Fang, H., Dabbish, L., & Vasilescu, B. (2023). Gender Representation Among Contributors to Open-Source Infrastructure: An Analysis of 20 Package Manager Ecosystems. 2023 IEEE/ACM 45th International Conference on Software Engineering: Software Engineering in Society (ICSE-SEIS), 180–187. https://doi.org/10.1109/ICSE-SEIS58686.2023.00025
 
@@ -39,9 +35,6 @@ Wikipedia page on gender bias in Wikipedia (so meta) <https://en.wikipedia.org/w
 Inside Wikipedia’s Attempt to Use Artificial Intelligence to Combat Harassment <https://motherboard.vice.com/en_us/article/aeyvxz/wikipedia-jigsaw-google-artificial-intelligence>
 
 
-
-
-
 Questions for discussion:
 
 1. What types of diversity does the literature discuss?
@@ -51,6 +44,8 @@ How does open source compare to: a) the world, b) software industry as a whole.
 
 3. What possible approaches to improving the situation are discussed?  How might approaches used in Wikipedia help?
 
-4. What authority of legitimacy does work to improve diversity draw on?
+4. What authority or legitimacy does work to improve diversity draw on?
 
-5. In what ways does a lack of diversity mean that open source is failing to live up to its own ideals?
+5. What arguments support the idea that a lack of diversity means that open source is failing to live up to its own ideals?
+
+6. What arguments are presented by those unconcerned about lack of diversity in open source? What values do they discuss?
