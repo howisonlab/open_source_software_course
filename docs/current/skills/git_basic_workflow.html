@@ -331,14 +331,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../skills/install_rstudio_and_git.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Install Rstudio and git</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../skills/skills_faq.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Skills faq</span></span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Skills faq</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../skills/glossary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Glossary of Commands</span></span></a>
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Glossary of Commands</span></span></a>
   </div>
 </li>
       </ul>
@@ -354,7 +360,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">16.1</span> Overview</a></li>
-  <li><a href="#working-with-files-and-the-commandline-in-rstudio" id="toc-working-with-files-and-the-commandline-in-rstudio" class="nav-link" data-scroll-target="#working-with-files-and-the-commandline-in-rstudio"><span class="header-section-number">16.2</span> Working with files and the commandline in Rstudio</a></li>
+  <li><a href="#working-with-files-and-the-commandline-in-rstudio" id="toc-working-with-files-and-the-commandline-in-rstudio" class="nav-link" data-scroll-target="#working-with-files-and-the-commandline-in-rstudio"><span class="header-section-number">16.2</span> Working with files and the commandline in Rstudio</a>
+  <ul class="collapse">
+  <li><a href="#installing-rstudio-and-git" id="toc-installing-rstudio-and-git" class="nav-link" data-scroll-target="#installing-rstudio-and-git"><span class="header-section-number">16.2.1</span> Installing Rstudio and git</a></li>
+  </ul></li>
   <li><a href="#creating-a-git-repository-repo" id="toc-creating-a-git-repository-repo" class="nav-link" data-scroll-target="#creating-a-git-repository-repo"><span class="header-section-number">16.3</span> Creating a git repository (“repo”)</a></li>
   <li><a href="#git-status-add-commit" id="toc-git-status-add-commit" class="nav-link" data-scroll-target="#git-status-add-commit"><span class="header-section-number">16.4</span> Git status, add, commit</a></li>
   <li><a href="#sec-gitlog" id="toc-sec-gitlog" class="nav-link" data-scroll-target="#sec-gitlog"><span class="header-section-number">16.5</span> Using git log to understand what is in the repo</a></li>
@@ -409,29 +418,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>touch</code>, which creates a new (empty) file</li>
 <li><code>rm</code>, which <u><strong>r</strong></u>e<u><strong>m</strong></u>oves files and directories</li>
 </ul>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Cleaning your terminal
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>If your screen is full of unwanted text, hit <code>CTRL+L</code> to clear it.</p>
-</div>
-</div>
-</div>
-<p>Log in to the EDU Pod Rstudio interface: <a href="https://edupod.cns.utexas.edu/rstudio/">https://edupod.cns.utexas.edu/rstudio/</a></p>
-<p><img src="git_basic_workflow_files/edupod_rstudio_login.png" class="img-fluid"></p>
-<p>Use the same username and password you use to log into UTDirect and Canvas. You should see a screen that looks like the below. This is the interface for working with R, which we’ll come back to later in the course.</p>
+<section id="installing-rstudio-and-git" class="level3" data-number="16.2.1">
+<h3 data-number="16.2.1" class="anchored" data-anchor-id="installing-rstudio-and-git"><span class="header-section-number">16.2.1</span> Installing Rstudio and git</h3>
+<p>For this course we need to be editing files and working in a terminal. For cross-platform consistency we will be working in Rstudio, although there are many other ways to edit files and work with git.</p>
+<p>Follow these instructions to install Rstudio and git: <a href="install_rstudio_and_git.html" class="quarto-xref"><span>Appendix A</span></a>.</p>
+<p>Note that references to EduPod are out of date; that was a cloud service that we are not using this semester.</p>
+<p>Once you You should see a screen that looks like the below. This is the interface for working with R, which we’ll come back to later in the course.</p>
 <p><img src="git_basic_workflow_files/edupod_rstudio_terminal_tab.png" class="img-fluid"></p>
 <p>For now we’re interested in getting to the terminal. You should see a tab labeled Terminal, marked in red above.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -440,9 +436,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>You may not see a terminal tab, or in the future might accidentally exit out of it. To get the terminal back, you can either use the toolbar at the top of the screen with Tools → Terminal → New Terminal, or use the keyboard shortcut <code>ALT+SHIFT+R</code>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Cleaning your terminal
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>If your screen is full of unwanted text, hit <code>CTRL+L</code> to clear it.</p>
 </div>
 </div>
 </div>
@@ -511,6 +523,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+</section>
 </section>
 <section id="creating-a-git-repository-repo" class="level2" data-number="16.3">
 <h2 data-number="16.3" class="anchored" data-anchor-id="creating-a-git-repository-repo"><span class="header-section-number">16.3</span> Creating a git repository (“repo”)</h2>
@@ -653,7 +666,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>You can also use <code>git log --oneline --abbrev-commit --all --graph</code> to show git log in short. <img src="images/s3_2.png" class="img-fluid"></p>
 <p>In class we will mostly add <code>--color</code> to this as well:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span> <span class="at">--abbrev-commit</span> <span class="at">--all</span> <span class="at">--graph</span> <span class="at">--decorate</span> <span class="at">--color</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>You can learn more about reading the output of that command here: <a href="https://stackoverflow.com/questions/22313343/git-graph-what-do-the-lines-and-asteriks-denote">https://stackoverflow.com/questions/22313343/git-graph-what-do-the-lines-and-asteriks-denote</a></p>
+<p>You can learn more about reading the output of that command here: <a href="https://stackoverflow.com/questions/22313343/git-graph-what-do-the-lines-and-asteriks-denote" class="uri">https://stackoverflow.com/questions/22313343/git-graph-what-do-the-lines-and-asteriks-denote</a></p>
 <p>The * characters show a single commit, the lines help us understand the branches.</p>
 <p>That command is long and quite hard to remember. Fortunately, Git allows us to specify an “alias”, effectively letting us define a new subcommand that does all of that:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> alias.viz <span class="st">'log --oneline --abbrev-commit --all --graph --decorate --color'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>

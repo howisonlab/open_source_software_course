@@ -685,7 +685,7 @@
     "href": "skills/git_basic_workflow.html#working-with-files-and-the-commandline-in-rstudio",
     "title": "16  Git basic workflow",
     "section": "16.2 Working with files and the commandline in Rstudio",
-    "text": "16.2 Working with files and the commandline in Rstudio\nGoal of this step: get familiar with basic Linux command line instructions:\n\npwd, which shows the path to your current working directory\nls, which lists the contents of your current directory\ncd, which lets you change the directory you’re in\nmkdir, which makes a new directory\ntouch, which creates a new (empty) file\nrm, which removes files and directories\n\n\n\n\n\n\n\nTipCleaning your terminal\n\n\n\n\n\nIf your screen is full of unwanted text, hit CTRL+L to clear it.\n\n\n\nLog in to the EDU Pod Rstudio interface: https://edupod.cns.utexas.edu/rstudio/\n\nUse the same username and password you use to log into UTDirect and Canvas. You should see a screen that looks like the below. This is the interface for working with R, which we’ll come back to later in the course.\n\nFor now we’re interested in getting to the terminal. You should see a tab labeled Terminal, marked in red above.\n\n\n\n\n\n\nTipGetting your terminal back\n\n\n\n\n\nYou may not see a terminal tab, or in the future might accidentally exit out of it. To get the terminal back, you can either use the toolbar at the top of the screen with Tools → Terminal → New Terminal, or use the keyboard shortcut ALT+SHIFT+R.\n\n\n\nYou should be greeted by a mostly blank screen, with a line that looks like this near the top:\nwab773@educcomp04:~$\nThis basically just says who I am, wab773, that I am signed in to a computer called educcomp04, and that I am in a directory called ~. The dollar sign indicates that I can type a command after it.\nWhen you perform actions in a terminal, they are performed in what is called your “working directory”. This just means that if you tell your computer to say, make a file, it will default to making it right where it thinks you are at that moment. So first, we want to know how to make sure we know where the computer thinks we are.\nType pwd in the terminal and hit the ENTER key. (You always have to hit ENTER to tell the computer to execute the command.) You should see something like this:\nwab773@educcomp04:~$ pwd\n/stor/home/wab773\nThis is where the computer thinks we are, and where it will assume we want it to do things we tell it to do (unless we tell it otherwise).\nFeel free to copy and paste commands from here to the terminal - you need to hit CTRL+SHIFT+V to paste instead of just `CTRL+V``.\nType ls in the terminal. It will list the files and directories in the current working directory.\n\nType touch instructions.txt in the terminal to create a new text file named “instructions”. We’re actually running a program called touch with the argument instructions.txt. When the touch program runs, it looks for its first argument, then makes a file with that name - in this case instructions.txt. Type ls to see that you’ve successfully made the file.\nwab773@educcomp04:~$ touch instructions.txt\nwab773@educcomp04:~$ ls\ninstructions.txt  R\nNote that just when we ran the touch command, the computer didn’t say anything - it just did its task and asked us for the next command. Many commands are like this - if they don’t encounter any problems running, they won’t display any output.\nAt times you’ll want to remove files you’ve created. In this case, we actually want to make instructions.txt somewhere else and so we need to remove the file. You can remove files with the rm command. It works much like touch - the argument you pass to it is the file that rm will try to delete. Type ls to verify the file has been deleted.\nwab773@educcomp04:~$ rm instructions.txt\nwab773@educcomp04:~$ ls\nR\nRight now we’re in a special directory called the “home” directory which is unique to every user. This is similar to your desktop on your computer, or “My Documents” on Windows: someone else logged into your computer on a different account will see different things on their desktop and in their “My Documents” folder.\nWe want to be a bit more organized rather than just putting files everywhere (think of a desktop cluttered with dozens of files), so we’ll make a new directory for this exercise. We can make directories with the command mkdir. Using the mkdir command is just like touch and rm - what you put after the command is the name of the directory you want to make.\nType mkdir air_plane_exercise in the terminal. It will create a new directory with a specified name in the file system. Verify that you’ve successfully made the new directory with ls.\nwab773@educcomp04:~$ mkdir air_plane_exercise\nwab773@educcomp04:~$ ls\nair_plane_exercise  R\nYou may notice that ls makes the “air_plane_exercise” directory appear a little different than the file “instructions.txt” above. This can be a handy way of telling directories and files apart.\n\n\n\n\n\n\n\nTipRemoving directories\n\n\n\n\n\nYou can remove directories with rm, but you need to type rm -r [DIRECTORY] to do so.\n\n\n\nNow we want to tell the computer that we want future commands to take place inside the directory we’ve just made - we don’t automatically enter a directory just because we made it! To move into a directory, use the cd command. Type cd air_plane_exercise in the terminal to change the current working directory to air_plane_exercise, and use pwd to verify you’ve entered the directory.\nwab773@educcomp04:~$ cd air_plane_exercise/\nwab773@educcomp04:~/air_plane_exercise$ pwd\n/stor/home/wab773/air_plane_exercise\nNote that the text before the $ changed to show our new location. This is a useful way to check that the computer thinks we’re in the right spot - doing something in the wrong directory is a common enough mistake that by default most terminal applications show this.\n\n\n\n\n\n\nTipGetting back home\n\n\n\n\n\nThe ~ indicates the home directory. You can almost always use ~ in commands to refer to the home directory, so cd ~ will take you to your home directory if you get lost.",
+    "text": "16.2 Working with files and the commandline in Rstudio\nGoal of this step: get familiar with basic Linux command line instructions:\n\npwd, which shows the path to your current working directory\nls, which lists the contents of your current directory\ncd, which lets you change the directory you’re in\nmkdir, which makes a new directory\ntouch, which creates a new (empty) file\nrm, which removes files and directories\n\n\n16.2.1 Installing Rstudio and git\nFor this course we need to be editing files and working in a terminal. For cross-platform consistency we will be working in Rstudio, although there are many other ways to edit files and work with git.\nFollow these instructions to install Rstudio and git: Appendix A.\nNote that references to EduPod are out of date; that was a cloud service that we are not using this semester.\nOnce you You should see a screen that looks like the below. This is the interface for working with R, which we’ll come back to later in the course.\n\nFor now we’re interested in getting to the terminal. You should see a tab labeled Terminal, marked in red above.\n\n\n\n\n\n\nTipGetting your terminal back\n\n\n\n\n\nYou may not see a terminal tab, or in the future might accidentally exit out of it. To get the terminal back, you can either use the toolbar at the top of the screen with Tools → Terminal → New Terminal, or use the keyboard shortcut ALT+SHIFT+R.\n\n\n\n\n\n\n\n\n\nTipCleaning your terminal\n\n\n\n\n\nIf your screen is full of unwanted text, hit CTRL+L to clear it.\n\n\n\nYou should be greeted by a mostly blank screen, with a line that looks like this near the top:\nwab773@educcomp04:~$\nThis basically just says who I am, wab773, that I am signed in to a computer called educcomp04, and that I am in a directory called ~. The dollar sign indicates that I can type a command after it.\nWhen you perform actions in a terminal, they are performed in what is called your “working directory”. This just means that if you tell your computer to say, make a file, it will default to making it right where it thinks you are at that moment. So first, we want to know how to make sure we know where the computer thinks we are.\nType pwd in the terminal and hit the ENTER key. (You always have to hit ENTER to tell the computer to execute the command.) You should see something like this:\nwab773@educcomp04:~$ pwd\n/stor/home/wab773\nThis is where the computer thinks we are, and where it will assume we want it to do things we tell it to do (unless we tell it otherwise).\nFeel free to copy and paste commands from here to the terminal - you need to hit CTRL+SHIFT+V to paste instead of just `CTRL+V``.\nType ls in the terminal. It will list the files and directories in the current working directory.\n\nType touch instructions.txt in the terminal to create a new text file named “instructions”. We’re actually running a program called touch with the argument instructions.txt. When the touch program runs, it looks for its first argument, then makes a file with that name - in this case instructions.txt. Type ls to see that you’ve successfully made the file.\nwab773@educcomp04:~$ touch instructions.txt\nwab773@educcomp04:~$ ls\ninstructions.txt  R\nNote that just when we ran the touch command, the computer didn’t say anything - it just did its task and asked us for the next command. Many commands are like this - if they don’t encounter any problems running, they won’t display any output.\nAt times you’ll want to remove files you’ve created. In this case, we actually want to make instructions.txt somewhere else and so we need to remove the file. You can remove files with the rm command. It works much like touch - the argument you pass to it is the file that rm will try to delete. Type ls to verify the file has been deleted.\nwab773@educcomp04:~$ rm instructions.txt\nwab773@educcomp04:~$ ls\nR\nRight now we’re in a special directory called the “home” directory which is unique to every user. This is similar to your desktop on your computer, or “My Documents” on Windows: someone else logged into your computer on a different account will see different things on their desktop and in their “My Documents” folder.\nWe want to be a bit more organized rather than just putting files everywhere (think of a desktop cluttered with dozens of files), so we’ll make a new directory for this exercise. We can make directories with the command mkdir. Using the mkdir command is just like touch and rm - what you put after the command is the name of the directory you want to make.\nType mkdir air_plane_exercise in the terminal. It will create a new directory with a specified name in the file system. Verify that you’ve successfully made the new directory with ls.\nwab773@educcomp04:~$ mkdir air_plane_exercise\nwab773@educcomp04:~$ ls\nair_plane_exercise  R\nYou may notice that ls makes the “air_plane_exercise” directory appear a little different than the file “instructions.txt” above. This can be a handy way of telling directories and files apart.\n\n\n\n\n\n\n\nTipRemoving directories\n\n\n\n\n\nYou can remove directories with rm, but you need to type rm -r [DIRECTORY] to do so.\n\n\n\nNow we want to tell the computer that we want future commands to take place inside the directory we’ve just made - we don’t automatically enter a directory just because we made it! To move into a directory, use the cd command. Type cd air_plane_exercise in the terminal to change the current working directory to air_plane_exercise, and use pwd to verify you’ve entered the directory.\nwab773@educcomp04:~$ cd air_plane_exercise/\nwab773@educcomp04:~/air_plane_exercise$ pwd\n/stor/home/wab773/air_plane_exercise\nNote that the text before the $ changed to show our new location. This is a useful way to check that the computer thinks we’re in the right spot - doing something in the wrong directory is a common enough mistake that by default most terminal applications show this.\n\n\n\n\n\n\nTipGetting back home\n\n\n\n\n\nThe ~ indicates the home directory. You can almost always use ~ in commands to refer to the home directory, so cd ~ will take you to your home directory if you get lost.",
     "crumbs": [
       "Skills",
       "<span class='chapter-number'>16</span>  <span class='chapter-title'>Git basic workflow</span>"
@@ -1426,6 +1426,105 @@
     "crumbs": [
       "Appendices",
       "<span class='chapter-number'>B</span>  <span class='chapter-title'>Glossary of Commands</span>"
+    ]
+  },
+  {
+    "objectID": "skills/install_rstudio_and_git.html",
+    "href": "skills/install_rstudio_and_git.html",
+    "title": "Appendix A — Install Rstudio and git",
+    "section": "",
+    "text": "A.1 Part 1: Install Git",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Install Rstudio and git</span>"
+    ]
+  },
+  {
+    "objectID": "skills/install_rstudio_and_git.html#part-1-install-git",
+    "href": "skills/install_rstudio_and_git.html#part-1-install-git",
+    "title": "Appendix A — Install Rstudio and git",
+    "section": "",
+    "text": "A.1.1 Windows Users\n\nDownload Git:\n\nGo to https://git-scm.com/download/win\nThe download should start automatically\nIf not, click “Click here to download manually”\n\nRun the Installer:\n\nDouble-click the downloaded .exe file\nRecommended settings during installation:\n\nUse the default installation directory\nSelect “Git from the command line and also from 3rd-party software”\nUse the bundled OpenSSH\nUse the OpenSSL library\nCheckout Windows-style, commit Unix-style line endings\nUse MinTTY (default terminal)\nDefault pull behavior: “Default (fast-forward or merge)”\nAccept all other defaults\n\n\nVerify Installation:\n\nOpen Command Prompt (search for “cmd” in Start menu)\nType: git --version\nYou should see something like git version 2.x.x\n\n\n\n\nA.1.2 Mac Users\n\nCheck if Git is Already Installed:\n\nOpen Terminal (Applications → Utilities → Terminal, or search for “Terminal”)\nType: git --version\nIf you see a version number (e.g., git version 2.x.x), git is already installed - skip to Part 2!\n\nIf Git is Not Installed:\nOption A: Command Line Tools (Recommended - faster and smaller)\n\nIn Terminal, type: xcode-select --install\nClick “Install” when prompted\nAgree to the license terms\nWait for installation to complete (5-10 minutes)\n\nOption B: Download from Git Website\n\nGo to https://git-scm.com/download/mac\nDownload the installer for your macOS version\nOpen the downloaded .dmg file and follow instructions\n\nVerify Installation:\n\nIn Terminal, type: git --version\nYou should see something like git version 2.x.x",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Install Rstudio and git</span>"
+    ]
+  },
+  {
+    "objectID": "skills/install_rstudio_and_git.html#part-2-install-rstudio",
+    "href": "skills/install_rstudio_and_git.html#part-2-install-rstudio",
+    "title": "Appendix A — Install Rstudio and git",
+    "section": "A.2 Part 2: Install RStudio",
+    "text": "A.2 Part 2: Install RStudio\n\nA.2.1 All Users (Windows and Mac)\n\nDownload RStudio Desktop:\n\nGo to https://posit.co/download/rstudio-desktop/\nScroll down to “2: Install RStudio”\nClick the download button for your operating system (Windows or macOS)\n\nInstall RStudio:\n\nWindows: Double-click the .exe file and follow the installation wizard\nMac: Open the .dmg file and drag RStudio to your Applications folder\n\nLaunch RStudio:\n\nOpen RStudio from your Applications folder (Mac) or Start menu (Windows)\nWait for it to fully load",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Install Rstudio and git</span>"
+    ]
+  },
+  {
+    "objectID": "skills/install_rstudio_and_git.html#part-3-configure-git-in-rstudio",
+    "href": "skills/install_rstudio_and_git.html#part-3-configure-git-in-rstudio",
+    "title": "Appendix A — Install Rstudio and git",
+    "section": "A.3 Part 3: Configure Git in RStudio",
+    "text": "A.3 Part 3: Configure Git in RStudio\n\nOpen RStudio\nConfigure Git Settings:\n\nGo to Tools → Global Options\nClick on Git/SVN in the left sidebar\nCheck that the “Git executable” field shows a path\n\nWindows example: C:/Program Files/Git/bin/git.exe\nMac example: /usr/bin/git or /usr/local/bin/git\n\nIf the field is empty, click “Browse” and locate git manually\n\nSet Your Git Identity:\n\nIn RStudio, go to Tools → Terminal → New Terminal\nType the following commands (replace with YOUR information):\n\ngit config --global user.name \"Your Full Name\"\ngit config --global user.email \"your.email@example.com\"\n\nUse the @my.UTexas.edu email address (this does not have to be the same as your GitHub email)\n\nRestart RStudio to ensure all settings take effect",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Install Rstudio and git</span>"
+    ]
+  },
+  {
+    "objectID": "skills/install_rstudio_and_git.html#installation-complete",
+    "href": "skills/install_rstudio_and_git.html#installation-complete",
+    "title": "Appendix A — Install Rstudio and git",
+    "section": "A.4 Installation Complete!",
+    "text": "A.4 Installation Complete!\nYou’re now ready for the course. Please complete the verification checklist below to confirm everything is working properly.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Install Rstudio and git</span>"
+    ]
+  },
+  {
+    "objectID": "skills/install_rstudio_and_git.html#verification-checklist",
+    "href": "skills/install_rstudio_and_git.html#verification-checklist",
+    "title": "Appendix A — Install Rstudio and git",
+    "section": "A.5 Verification Checklist",
+    "text": "A.5 Verification Checklist\n\nA.5.1 Step 1: Check Git Version\n\nWindows: Opened Command Prompt\nMac: Opened Terminal\nTyped git --version and pressed Enter\nGit version displayed: _________________ (write the version number)\n\n\n\nA.5.2 Step 2: Verify Git Configuration\nIn the same command line/terminal window, type each command and verify output:\n\nTyped git config --global user.name\nMy name is displayed: ___________________________\nTyped git config --global user.email\nMy email is displayed: ___________________________\n\n\n\nA.5.3 Step 3: Launch RStudio\n\nSuccessfully opened RStudio application\nRStudio fully loaded without errors\n\n\n\nA.5.4 Step 4: Check RStudio Version\n\nClicked Help → About RStudio\nRStudio version: _________________ (e.g., 2023.12.1)\nClosed the About dialog\n\n\n\nA.5.5 Step 5: Verify Git Integration in RStudio\n\nClicked Tools → Global Options\nClicked Git/SVN in the left sidebar\n“Git executable” field shows a path:\n\nYes - Path shown: _________________________________\nNo - STOP: See troubleshooting below\n\nChecked “Enable version control interface for RStudio projects” (should be checked)\nClicked OK to close Options\n\n\n\nA.5.6 Step 6: Test Terminal in RStudio\n\nClicked Tools → Terminal → New Terminal\nA terminal pane opened at the bottom of RStudio\nTyped git --version in the RStudio terminal\nGit version displayed successfully: Yes / No",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Install Rstudio and git</span>"
+    ]
+  },
+  {
+    "objectID": "skills/install_rstudio_and_git.html#text-editing-verification",
+    "href": "skills/install_rstudio_and_git.html#text-editing-verification",
+    "title": "Appendix A — Install Rstudio and git",
+    "section": "A.6 ✓ Text Editing Verification",
+    "text": "A.6 ✓ Text Editing Verification\n\nA.6.1 Step 7: Create a Test Script\n\nClicked File → New File → R Script (or Text File)\nTyped a few test lines (e.g., # This is a test)\nClicked File → Save\nChose a location and filename\nFile saved successfully",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Install Rstudio and git</span>"
+    ]
+  },
+  {
+    "objectID": "skills/install_rstudio_and_git.html#all-checks-complete",
+    "href": "skills/install_rstudio_and_git.html#all-checks-complete",
+    "title": "Appendix A — Install Rstudio and git",
+    "section": "A.7 🎉 All Checks Complete!",
+    "text": "A.7 🎉 All Checks Complete!\nIf you checked all boxes above, you’re ready for class!",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Install Rstudio and git</span>"
+    ]
+  },
+  {
+    "objectID": "skills/install_rstudio_and_git.html#troubleshooting",
+    "href": "skills/install_rstudio_and_git.html#troubleshooting",
+    "title": "Appendix A — Install Rstudio and git",
+    "section": "A.8 ⚠️ Troubleshooting",
+    "text": "A.8 ⚠️ Troubleshooting\nIf Git is not found in RStudio (Step 5):\n\nRestart RStudio completely (quit and reopen)\nRe-check Tools → Global Options → Git/SVN\nIf still empty, click Browse next to “Git executable” and navigate to:\n\nWindows: C:\\Program Files\\Git\\bin\\git.exe\nMac: /usr/bin/git or type which git in Terminal to find the path\n\nClick Browse and select the git executable file\nClick OK and restart RStudio\n\nIf Git version command doesn’t work (Step 1): - Windows: Git may not be in your system PATH. Try reinstalling Git with default settings. - Mac: You may need to install Command Line Tools. Open Terminal and type xcode-select --install\nIf system is still having issues: - Note the specific error message or problem - Take a screenshot if possible - Flag down instructor or TA in class. - Contact instructor or TA via Canvas.\nIf you run into unfixable problems with your install you can use a free account on http://rstudio.cloud.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Install Rstudio and git</span>"
     ]
   }
 ]

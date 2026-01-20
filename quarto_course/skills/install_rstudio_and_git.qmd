@@ -1,0 +1,185 @@
+# Install Rstudio and git {#sec-install}
+
+## Part 1: Install Git
+
+### Windows Users
+
+1. **Download Git:**
+   - Go to https://git-scm.com/download/win
+   - The download should start automatically
+   - If not, click "Click here to download manually"
+
+2. **Run the Installer:**
+   - Double-click the downloaded `.exe` file
+   - **Recommended settings during installation:**
+     - Use the default installation directory
+     - Select "Git from the command line and also from 3rd-party software"
+     - Use the bundled OpenSSH
+     - Use the OpenSSL library
+     - Checkout Windows-style, commit Unix-style line endings
+     - Use MinTTY (default terminal)
+     - Default pull behavior: "Default (fast-forward or merge)"
+     - Accept all other defaults
+
+3. **Verify Installation:**
+   - Open Command Prompt (search for "cmd" in Start menu)
+   - Type: `git --version`
+   - You should see something like `git version 2.x.x`
+
+### Mac Users
+
+1. **Check if Git is Already Installed:**
+   - Open Terminal (Applications → Utilities → Terminal, or search for "Terminal")
+   - Type: `git --version`
+   - If you see a version number (e.g., `git version 2.x.x`), **git is already installed** - skip to Part 2!
+
+2. **If Git is Not Installed:**
+   
+   **Option A: Command Line Tools (Recommended - faster and smaller)**
+   - In Terminal, type: `xcode-select --install`
+   - Click "Install" when prompted
+   - Agree to the license terms
+   - Wait for installation to complete (5-10 minutes)
+   
+   **Option B: Download from Git Website**
+   - Go to https://git-scm.com/download/mac
+   - Download the installer for your macOS version
+   - Open the downloaded `.dmg` file and follow instructions
+
+3. **Verify Installation:**
+   - In Terminal, type: `git --version`
+   - You should see something like `git version 2.x.x`
+
+---
+
+## Part 2: Install RStudio
+
+### All Users (Windows and Mac)
+
+1. **Download RStudio Desktop:**
+   - Go to https://posit.co/download/rstudio-desktop/
+   - Scroll down to "2: Install RStudio"
+   - Click the download button for your operating system (Windows or macOS)
+
+2. **Install RStudio:**
+   - **Windows:** Double-click the `.exe` file and follow the installation wizard
+   - **Mac:** Open the `.dmg` file and drag RStudio to your Applications folder
+
+3. **Launch RStudio:**
+   - Open RStudio from your Applications folder (Mac) or Start menu (Windows)
+   - Wait for it to fully load
+
+---
+
+## Part 3: Configure Git in RStudio
+
+1. **Open RStudio**
+
+2. **Configure Git Settings:**
+   - Go to **Tools → Global Options**
+   - Click on **Git/SVN** in the left sidebar
+   - Check that the "Git executable" field shows a path
+     - **Windows example:** `C:/Program Files/Git/bin/git.exe`
+     - **Mac example:** `/usr/bin/git` or `/usr/local/bin/git`
+   - If the field is empty, click "Browse" and locate git manually
+
+3. **Set Your Git Identity:**
+   - In RStudio, go to **Tools → Terminal → New Terminal**
+   - Type the following commands (replace with YOUR information):
+   ```
+   git config --global user.name "Your Full Name"
+   git config --global user.email "your.email@example.com"
+   ```
+   - Use the <eid>@my.UTexas.edu email address (this does not have to be the same as your GitHub email)
+
+4. **Restart RStudio** to ensure all settings take effect
+
+---
+
+## Installation Complete!
+
+You're now ready for the course. Please complete the verification checklist below to confirm everything is working properly.
+
+## Verification Checklist
+
+### Step 1: Check Git Version
+- [ ] **Windows:** Opened Command Prompt
+- [ ] **Mac:** Opened Terminal
+- [ ] Typed `git --version` and pressed Enter
+- [ ] **Git version displayed:** _________________ (write the version number)
+
+### Step 2: Verify Git Configuration
+In the same command line/terminal window, type each command and verify output:
+
+- [ ] Typed `git config --global user.name`
+- [ ] **My name is displayed:** ___________________________
+
+- [ ] Typed `git config --global user.email`
+- [ ] **My email is displayed:** ___________________________
+
+### Step 3: Launch RStudio
+- [ ] Successfully opened RStudio application
+- [ ] RStudio fully loaded without errors
+
+### Step 4: Check RStudio Version
+- [ ] Clicked **Help → About RStudio**
+- [ ] **RStudio version:** _________________ (e.g., 2023.12.1)
+- [ ] Closed the About dialog
+
+### Step 5: Verify Git Integration in RStudio
+- [ ] Clicked **Tools → Global Options**
+- [ ] Clicked **Git/SVN** in the left sidebar
+- [ ] **"Git executable" field shows a path:** 
+  - [ ] Yes - Path shown: _________________________________
+  - [ ] No - **STOP: See troubleshooting below**
+- [ ] Checked **"Enable version control interface for RStudio projects"** (should be checked)
+- [ ] Clicked OK to close Options
+
+### Step 6: Test Terminal in RStudio
+- [ ] Clicked **Tools → Terminal → New Terminal**
+- [ ] A terminal pane opened at the bottom of RStudio
+- [ ] Typed `git --version` in the RStudio terminal
+- [ ] Git version displayed successfully: **Yes / No**
+
+---
+
+## ✓ Text Editing Verification
+
+### Step 7: Create a Test Script
+- [ ] Clicked **File → New File → R Script** (or Text File)
+- [ ] Typed a few test lines (e.g., `# This is a test`)
+- [ ] Clicked **File → Save**
+- [ ] Chose a location and filename
+- [ ] File saved successfully
+
+---
+
+## 🎉 All Checks Complete!
+
+If you checked all boxes above, you're ready for class!
+
+---
+
+## ⚠️ Troubleshooting
+
+**If Git is not found in RStudio (Step 5):**
+
+1. **Restart RStudio** completely (quit and reopen)
+2. Re-check Tools → Global Options → Git/SVN
+3. If still empty, click **Browse** next to "Git executable" and navigate to:
+   - **Windows:** `C:\Program Files\Git\bin\git.exe`
+   - **Mac:** `/usr/bin/git` or type `which git` in Terminal to find the path
+4. Click **Browse** and select the git executable file
+5. Click OK and restart RStudio
+
+**If Git version command doesn't work (Step 1):**
+- **Windows:** Git may not be in your system PATH. Try reinstalling Git with default settings.
+- **Mac:** You may need to install Command Line Tools. Open Terminal and type `xcode-select --install`
+
+**If system is still having issues:**
+- Note the specific error message or problem
+- Take a screenshot if possible
+- Flag down instructor or TA in class.
+- Contact instructor or TA via Canvas.
+
+If you run into unfixable problems with your install you can use a free account on <http://rstudio.cloud>.

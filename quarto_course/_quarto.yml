@@ -57,8 +57,10 @@ book:
     #     - python_packaging.qmd
     
   appendices:
+    - skills/install_rstudio_and_git.qmd
     - skills/skills_faq.qmd
     - skills/glossary.qmd
+    - skills
 
 format:
   html:
