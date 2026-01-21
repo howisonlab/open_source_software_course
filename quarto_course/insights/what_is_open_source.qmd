@@ -2,13 +2,15 @@
 
 ## Readings prior to class:
 
--   Nadia Eghbal. (2020, December 3). The Making and Maintenance of our Open Source Infrastructure \| Nadia Eghbal. https://www.youtube.com/watch?v=5wLKnN3To-k?start=2:00. Watch through \~8:00m.
+-   Nadia Eghbal. (2020, December 3). The Making and Maintenance of our Open Source Infrastructure \| Nadia Eghbal. https://www.youtube.com/watch?v=5wLKnN3To-k?start=2:00. Watch minute 8.
 
 -   Richard Stallman. (2001, May 29). Richard M. Stallman's speech: "Free Software: Freedom and Cooperation" \[Speech Transcript\]. https://www.gnu.org/philosophy/rms-nyu-2001-transcript.txt
 
+-   "How I got a Rust job through open source" <https://www.reddit.com/r/rust/comments/1k0mxd9/how_i_got_a_rust_job_through_open_source/>
+
 -   VICE (Director). (2020, March 3). Farmers Are Hacking Their Tractors Because of a Repair Ban. https://www.youtube.com/watch?v=EPYy_g8NzmI
 
-- iFixit (2022) [What Right to Repair Looks like for Manufacturers](https://web.archive.org/web/20250123235053/https://www.ifixit.com/News/61178/what-right-to-repair-compliance-looks-like-for-manufacturers). 
+-   iFixit (2022) [What Right to Repair Looks like for Manufacturers](https://web.archive.org/web/20250123235053/https://www.ifixit.com/News/61178/what-right-to-repair-compliance-looks-like-for-manufacturers).
 
 ## Where is open source?
 
@@ -40,18 +42,24 @@ Often it is well 'below the surface' deeper in the dependencies.
 Open source is everywhere:
 
 -   Laptops
+
 -   Phones
+
 -   Servers
+
 -   Internet routers (email, BGP)
+
 -   Wifi routers
+
 -   Cars, Radios, Watches, Batteries
 
 -   https://thenewstack.io/the-open-source-lesson-of-the-linksys-wrt54g-router/
 
 -   Datascience software.
-  -   https://posit.co/products/open-source/rstudio/ 
-  -   https://jupyter.org/governance/projectlicense.html
 
+-   https://posit.co/products/open-source/rstudio/
+
+-   https://jupyter.org/governance/projectlicense.html
 
 ## What is "source"?
 
@@ -81,13 +89,13 @@ Colfer and Baldwin talk about open source as having "actionable transparency"; w
 
 Activity/Discussion:
 
-1. Work with the table above:
+1.  Work with the table above:
 
-  - Fill out the missing cells in the table above.
-  - Add a line for the thing assigned to your group.
-  - Add two further lines you as a group make up.
+-   Fill out the missing cells in the table above.
+-   Add a line for the thing assigned to your group.
+-   Add two further lines you as a group make up.
 
-2. Discuss: Beyond the stuff of source, what else is needed for open collaboration?
+2.  Discuss: Beyond the stuff of source, what else is needed for open collaboration?
 
 ## Why open source?
 

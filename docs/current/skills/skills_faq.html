@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Appendix A — Skills faq – Open Source Software Development: A socio-technical course</title>
+<title>Appendix B — Skills faq – Open Source Software Development: A socio-technical course</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../skills/glossary.html" rel="next">
-<link href="../skills/packaging.html" rel="prev">
+<link href="../skills/install_rstudio_and_git.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -118,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../skills/skills_faq.html">Appendices</a></li><li class="breadcrumb-item"><a href="../skills/skills_faq.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Skills faq</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../skills/install_rstudio_and_git.html">Appendices</a></li><li class="breadcrumb-item"><a href="../skills/skills_faq.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Skills faq</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -331,14 +331,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../skills/install_rstudio_and_git.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Install Rstudio and git</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../skills/skills_faq.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Skills faq</span></span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Skills faq</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../skills/glossary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Glossary of Commands</span></span></a>
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Glossary of Commands</span></span></a>
   </div>
 </li>
       </ul>
@@ -353,22 +359,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#git-issues" id="toc-git-issues" class="nav-link active" data-scroll-target="#git-issues"><span class="header-section-number">A.1</span> git issues</a>
+  <li><a href="#git-issues" id="toc-git-issues" class="nav-link active" data-scroll-target="#git-issues"><span class="header-section-number">B.1</span> git issues</a>
   <ul class="collapse">
-  <li><a href="#set-my-name-and-email" id="toc-set-my-name-and-email" class="nav-link" data-scroll-target="#set-my-name-and-email"><span class="header-section-number">A.1.1</span> Set my name and email</a></li>
-  <li><a href="#sec-github-login" id="toc-sec-github-login" class="nav-link" data-scroll-target="#sec-github-login"><span class="header-section-number">A.1.2</span> Login to GitHub</a></li>
-  <li><a href="#sec-pass-popup" id="toc-sec-pass-popup" class="nav-link" data-scroll-target="#sec-pass-popup"><span class="header-section-number">A.1.3</span> Password pop-up repeats too often</a></li>
-  <li><a href="#sec-find-github-url" id="toc-sec-find-github-url" class="nav-link" data-scroll-target="#sec-find-github-url"><span class="header-section-number">A.1.4</span> Shortcut to find GitHub URL</a></li>
-  <li><a href="#sec-vim" id="toc-sec-vim" class="nav-link" data-scroll-target="#sec-vim"><span class="header-section-number">A.1.5</span> git commit throws me into a weird mode</a></li>
+  <li><a href="#set-my-name-and-email" id="toc-set-my-name-and-email" class="nav-link" data-scroll-target="#set-my-name-and-email"><span class="header-section-number">B.1.1</span> Set my name and email</a></li>
+  <li><a href="#sec-github-login" id="toc-sec-github-login" class="nav-link" data-scroll-target="#sec-github-login"><span class="header-section-number">B.1.2</span> Login to GitHub</a></li>
+  <li><a href="#sec-pass-popup" id="toc-sec-pass-popup" class="nav-link" data-scroll-target="#sec-pass-popup"><span class="header-section-number">B.1.3</span> Password pop-up repeats too often</a></li>
+  <li><a href="#sec-find-github-url" id="toc-sec-find-github-url" class="nav-link" data-scroll-target="#sec-find-github-url"><span class="header-section-number">B.1.4</span> Shortcut to find GitHub URL</a></li>
+  <li><a href="#sec-vim" id="toc-sec-vim" class="nav-link" data-scroll-target="#sec-vim"><span class="header-section-number">B.1.5</span> git commit throws me into a weird mode</a></li>
   </ul></li>
-  <li><a href="#sec-faq-home-git-folder" id="toc-sec-faq-home-git-folder" class="nav-link" data-scroll-target="#sec-faq-home-git-folder"><span class="header-section-number">A.2</span> I accidentally made my home folder a git repo</a></li>
-  <li><a href="#sec-gitviz" id="toc-sec-gitviz" class="nav-link" data-scroll-target="#sec-gitviz"><span class="header-section-number">A.3</span> Vizualizing git trees (aka git viz)</a></li>
-  <li><a href="#seeing-a-merge-conflict-using-git-log" id="toc-seeing-a-merge-conflict-using-git-log" class="nav-link" data-scroll-target="#seeing-a-merge-conflict-using-git-log"><span class="header-section-number">A.4</span> Seeing a merge conflict using git log</a></li>
-  <li><a href="#sec-fetch-pr" id="toc-sec-fetch-pr" class="nav-link" data-scroll-target="#sec-fetch-pr"><span class="header-section-number">A.5</span> Gathering the code as though the PR had been accepted</a></li>
-  <li><a href="#sec-history" id="toc-sec-history" class="nav-link" data-scroll-target="#sec-history"><span class="header-section-number">A.6</span> Removing something from history entirely</a></li>
-  <li><a href="#how-to-add-an-image-using-quarto-on-edupod" id="toc-how-to-add-an-image-using-quarto-on-edupod" class="nav-link" data-scroll-target="#how-to-add-an-image-using-quarto-on-edupod"><span class="header-section-number">B</span> How to add an image using quarto on edupod</a>
+  <li><a href="#sec-faq-home-git-folder" id="toc-sec-faq-home-git-folder" class="nav-link" data-scroll-target="#sec-faq-home-git-folder"><span class="header-section-number">B.2</span> I accidentally made my home folder a git repo</a></li>
+  <li><a href="#sec-gitviz" id="toc-sec-gitviz" class="nav-link" data-scroll-target="#sec-gitviz"><span class="header-section-number">B.3</span> Vizualizing git trees (aka git viz)</a></li>
+  <li><a href="#seeing-a-merge-conflict-using-git-log" id="toc-seeing-a-merge-conflict-using-git-log" class="nav-link" data-scroll-target="#seeing-a-merge-conflict-using-git-log"><span class="header-section-number">B.4</span> Seeing a merge conflict using git log</a></li>
+  <li><a href="#sec-fetch-pr" id="toc-sec-fetch-pr" class="nav-link" data-scroll-target="#sec-fetch-pr"><span class="header-section-number">B.5</span> Gathering the code as though the PR had been accepted</a></li>
+  <li><a href="#sec-history" id="toc-sec-history" class="nav-link" data-scroll-target="#sec-history"><span class="header-section-number">B.6</span> Removing something from history entirely</a></li>
+  <li><a href="#how-to-add-an-image-using-quarto-on-edupod" id="toc-how-to-add-an-image-using-quarto-on-edupod" class="nav-link" data-scroll-target="#how-to-add-an-image-using-quarto-on-edupod"><span class="header-section-number">C</span> How to add an image using quarto on edupod</a>
   <ul class="collapse">
-  <li><a href="#good-git-messages" id="toc-good-git-messages" class="nav-link" data-scroll-target="#good-git-messages"><span class="header-section-number">B.1</span> Good git messages</a></li>
+  <li><a href="#good-git-messages" id="toc-good-git-messages" class="nav-link" data-scroll-target="#good-git-messages"><span class="header-section-number">C.1</span> Good git messages</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/skills/skills_faq.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
@@ -376,9 +382,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../skills/skills_faq.html">Appendices</a></li><li class="breadcrumb-item"><a href="../skills/skills_faq.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Skills faq</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../skills/install_rstudio_and_git.html">Appendices</a></li><li class="breadcrumb-item"><a href="../skills/skills_faq.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Skills faq</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-skills-faq" class="quarto-section-identifier">Appendix A — Skills faq</span></h1>
+<h1 class="title"><span id="sec-skills-faq" class="quarto-section-identifier">Appendix B — Skills faq</span></h1>
 </div>
 
 
@@ -395,10 +401,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="git-issues" class="level2" data-number="A.1">
-<h2 data-number="A.1" class="anchored" data-anchor-id="git-issues"><span class="header-section-number">A.1</span> git issues</h2>
-<section id="set-my-name-and-email" class="level3" data-number="A.1.1">
-<h3 data-number="A.1.1" class="anchored" data-anchor-id="set-my-name-and-email"><span class="header-section-number">A.1.1</span> Set my name and email</h3>
+<section id="git-issues" class="level2" data-number="B.1">
+<h2 data-number="B.1" class="anchored" data-anchor-id="git-issues"><span class="header-section-number">B.1</span> git issues</h2>
+<section id="set-my-name-and-email" class="level3" data-number="B.1.1">
+<h3 data-number="B.1.1" class="anchored" data-anchor-id="set-my-name-and-email"><span class="header-section-number">B.1.1</span> Set my name and email</h3>
 <p>git wants to add your name and email to commits. These are distinct from your <code>github</code> account (remember <code>git</code> can be used independently of an online service or with online services other than github).</p>
 <p>If you are seeing messages that end like this:</p>
 <pre><code>You can suppress this message by setting them explicitly. Run the
@@ -414,8 +420,8 @@ After doing this, you may fix the identity used for this commit with:
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"John Doe"</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email johndoe@example.com</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="sec-github-login" class="level3" data-number="A.1.2">
-<h3 data-number="A.1.2" class="anchored" data-anchor-id="sec-github-login"><span class="header-section-number">A.1.2</span> Login to GitHub</h3>
+<section id="sec-github-login" class="level3" data-number="B.1.2">
+<h3 data-number="B.1.2" class="anchored" data-anchor-id="sec-github-login"><span class="header-section-number">B.1.2</span> Login to GitHub</h3>
 <p>On the commandline we have to use the username/PAT combination. The password that works to log into GitHub on the web will not work.</p>
 <p>If you see this message:</p>
 <pre><code>remote: No anonymous write access.
@@ -429,24 +435,24 @@ fatal: Authentication failed for &lt;repo_url&gt;</code></pre>
 <pre><code>Password for 'https://&lt;your_github_username&gt;@github.com': </code></pre>
 <p>On windows you may have to use the right-click context menu to paste into the terminal.</p>
 </section>
-<section id="sec-pass-popup" class="level3" data-number="A.1.3">
-<h3 data-number="A.1.3" class="anchored" data-anchor-id="sec-pass-popup"><span class="header-section-number">A.1.3</span> Password pop-up repeats too often</h3>
+<section id="sec-pass-popup" class="level3" data-number="B.1.3">
+<h3 data-number="B.1.3" class="anchored" data-anchor-id="sec-pass-popup"><span class="header-section-number">B.1.3</span> Password pop-up repeats too often</h3>
 <p>The username/password pop-up can come up too often. Especially with GitHub requiring a PAT (and not the same password used on the website) this can be a hassle, since the PAT is not configurable and has to be copy/pasted.</p>
 <p>Rstudio is generating that pop-up, but the frequency is controlled by a gitconfig variable. The default without configuration is 15m so if we don’t run a git command for 15m it expires the cache and pops up again. We can make it show up less with:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> credential.helper <span class="st">'cache --timeout=10000000'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>That means that the cache won’t expire for 10,000,000 seconds (which is 16 weeks).</p>
 <p>Thanks to <a href="https://happygitwithr.com/https-pat.html#store-credentials-through-organic-git-use" class="uri">https://happygitwithr.com/https-pat.html#store-credentials-through-organic-git-use</a> and the Rstudio community forums for helping me with that <a href="https://community.rstudio.com/t/git-user-pass-pop-ups-when-using-git-in-terminal-window/161213" class="uri">https://community.rstudio.com/t/git-user-pass-pop-ups-when-using-git-in-terminal-window/161213</a></p>
 </section>
-<section id="sec-find-github-url" class="level3" data-number="A.1.4">
-<h3 data-number="A.1.4" class="anchored" data-anchor-id="sec-find-github-url"><span class="header-section-number">A.1.4</span> Shortcut to find GitHub URL</h3>
+<section id="sec-find-github-url" class="level3" data-number="B.1.4">
+<h3 data-number="B.1.4" class="anchored" data-anchor-id="sec-find-github-url"><span class="header-section-number">B.1.4</span> Shortcut to find GitHub URL</h3>
 <p>A short cut to find the URL is <code>git remote -v</code></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">~/workspace/i320d-testing2024$</span> git remote <span class="at">-v</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">origin</span>  https://github.com/jameshowison/i320d-testing2024.git <span class="er">(</span><span class="ex">fetch</span><span class="kw">)</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">origin</span>  https://github.com/jameshowison/i320d-testing2024.git <span class="er">(</span><span class="ex">push</span><span class="kw">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>And then copy the URL (with or without the .git at the end). On windows you may need to use the right-click context menu for copy and paste in a terminal.</p>
 </section>
-<section id="sec-vim" class="level3" data-number="A.1.5">
-<h3 data-number="A.1.5" class="anchored" data-anchor-id="sec-vim"><span class="header-section-number">A.1.5</span> git commit throws me into a weird mode</h3>
+<section id="sec-vim" class="level3" data-number="B.1.5">
+<h3 data-number="B.1.5" class="anchored" data-anchor-id="sec-vim"><span class="header-section-number">B.1.5</span> git commit throws me into a weird mode</h3>
 <p>If you type <code>git commit</code> just on its own rather than <code>git commit -m "Some message"</code> you will see something like this:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Please enter the commit message for your changes. Lines starting</span></span>
@@ -474,8 +480,8 @@ fatal: Authentication failed for &lt;repo_url&gt;</code></pre>
 <p><kbd>Ctrl</kbd> + <kbd>X</kbd></p>
 </section>
 </section>
-<section id="sec-faq-home-git-folder" class="level2" data-number="A.2">
-<h2 data-number="A.2" class="anchored" data-anchor-id="sec-faq-home-git-folder"><span class="header-section-number">A.2</span> I accidentally made my home folder a git repo</h2>
+<section id="sec-faq-home-git-folder" class="level2" data-number="B.2">
+<h2 data-number="B.2" class="anchored" data-anchor-id="sec-faq-home-git-folder"><span class="header-section-number">B.2</span> I accidentally made my home folder a git repo</h2>
 <p>If you are in your home folder but <code>git status</code> doesn’t give a “fatal error” then you’ve accidentially made your home folder into a git repository (probably by running <code>git init</code> in that folder).</p>
 <p>In this case we need to undo this. We can’t delete our home folder, because it has everything else inside it. We have to somehow tell the computer that the home folder should not be a git repo. Happily, then only thing that makes it a git repo is that it has a <code>.git</code> folder inside it. You can confirm by running:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lah</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -485,8 +491,8 @@ fatal: Authentication failed for &lt;repo_url&gt;</code></pre>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> ./.git ./backup_home_git</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Now you could <code>cd backup_home_git</code> and use that folder as a git repo. But probably you are about to clone from github (in which case a new folder will be created) or you are about to use <code>git init</code> to create a new local repo (in which case you should create a folder first, <code>cd</code> into it, then run <code>git init</code>.</p>
 </section>
-<section id="sec-gitviz" class="level2" data-number="A.3">
-<h2 data-number="A.3" class="anchored" data-anchor-id="sec-gitviz"><span class="header-section-number">A.3</span> Vizualizing git trees (aka git viz)</h2>
+<section id="sec-gitviz" class="level2" data-number="B.3">
+<h2 data-number="B.3" class="anchored" data-anchor-id="sec-gitviz"><span class="header-section-number">B.3</span> Vizualizing git trees (aka git viz)</h2>
 <p>In this course we are using a command that I usually call “git viz” for short:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span> <span class="at">--abbrev-commit</span> <span class="at">--all</span> <span class="at">--graph</span> <span class="at">--decorate</span> <span class="at">--color</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Instructions for creating the convenient alias <code>git viz</code> are in <a href="../skills/git_basic_workflow.html">Git basic workflow</a>.</p>
@@ -518,8 +524,8 @@ fatal: Authentication failed for &lt;repo_url&gt;</code></pre>
 <p>So then you can just type:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> viz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="seeing-a-merge-conflict-using-git-log" class="level2" data-number="A.4">
-<h2 data-number="A.4" class="anchored" data-anchor-id="seeing-a-merge-conflict-using-git-log"><span class="header-section-number">A.4</span> Seeing a merge conflict using git log</h2>
+<section id="seeing-a-merge-conflict-using-git-log" class="level2" data-number="B.4">
+<h2 data-number="B.4" class="anchored" data-anchor-id="seeing-a-merge-conflict-using-git-log"><span class="header-section-number">B.4</span> Seeing a merge conflict using git log</h2>
 <p>In one assignment students have to submit a repo showing a resolved merge conflict when accepting a PR. This raised the question of whether I could see this looking at the repo. Student questions helped me figure that our, leading me to <a href="https://stackoverflow.com/questions/15277708/how-do-you-see-show-a-git-merge-conflict-resolution-that-was-done-given-a-mer" class="uri">https://stackoverflow.com/questions/15277708/how-do-you-see-show-a-git-merge-conflict-resolution-that-was-done-given-a-mer</a> which highlighted this as an issue in presenting merge conflicts for review. The most recent answer, led me to discover a new feature in <code>git</code></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--remerge-diff</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This enables one to see the files with the <code>&lt;&lt;&lt;&lt;&lt;&lt;</code> type conflict markers shown.</p>
@@ -552,16 +558,16 @@ fatal: Authentication failed for &lt;repo_url&gt;</code></pre>
 <span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a><span class="co">##  turtle</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="sec-fetch-pr" class="level2" data-number="A.5">
-<h2 data-number="A.5" class="anchored" data-anchor-id="sec-fetch-pr"><span class="header-section-number">A.5</span> Gathering the code as though the PR had been accepted</h2>
+<section id="sec-fetch-pr" class="level2" data-number="B.5">
+<h2 data-number="B.5" class="anchored" data-anchor-id="sec-fetch-pr"><span class="header-section-number">B.5</span> Gathering the code as though the PR had been accepted</h2>
 <p>Sometimes it is useful to be able to work with the code that would result if the PR was accepted, but without actually accepting the PR. Sometimes this is called “previewing the PR”. It is useful when working with PRs from others, and can also be useful when working on our own branches, but where we don’t want to merge that branch to main (which is a difficult operation to undo).</p>
 <p>On GitHub (and other online repositories like Gitlab or BitBucket) we can do this because the pull requests are added to the online repository, somewhat like branches. <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally">We can access these</a> using the git <code>fetch</code> command pointing to the <code>pull</code> part of the repository.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch origin pull/123/head:pr-123</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout pr-123</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This obtains the code <strong>as though the PR had been accepted</strong> and then makes a new <em>local branch</em> that we can work with. Notice, though, that thje new local branch is not the same branch that the PR is for … it is a local copy. Therefore we would not push that new local branch back up to GitHub, preferring to work with the PR itself (and <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork">here is documentation about how to allow others to edit your PRs</a>).</p>
 </section>
-<section id="sec-history" class="level2" data-number="A.6">
-<h2 data-number="A.6" class="anchored" data-anchor-id="sec-history"><span class="header-section-number">A.6</span> Removing something from history entirely</h2>
+<section id="sec-history" class="level2" data-number="B.6">
+<h2 data-number="B.6" class="anchored" data-anchor-id="sec-history"><span class="header-section-number">B.6</span> Removing something from history entirely</h2>
 <p>The purpose of <code>git</code> is to retain all of your history, so that you can go back to any point in development and recover (as well as experiment while not breaking the mainline of development). Simultaneously when we are working in the open that means that anyone can view any file that was ever in a repository. With that in mind it is not too surprising that if you accidentally add something to git and then push it to github you can have trouble putting “the genie back in the bottle.”</p>
 <p>Let’s say that we create a repo and add a README, then add a SPECIAL_SECRET file with the password “swordfish” in it. Note that I use <code>git add *</code> below which is a very common way to accidentally add a problematic file, try to get into the habit of adding files one by one.</p>
 <pre><code>$ cd practice_history_edit/
@@ -637,8 +643,8 @@ swordfish</code></pre>
 <p>Keep in mind that if you had pushed this sensitive info to a repo on github and others had then forked or cloned it then that info is not going to be deleted from the clones, so passwords should definitely be changed and you should ask everyone to delete forks/clones and start again.</p>
 <p>There are a set of approaches to avoid uploading sensitive data. A good starting point is discipline around using <code>.gitignore</code> which will prevent adding files that should not be added. Another approach is to become familiar with using environment variables to hold secrets. This is an evolving area, so ask others in your organization how they handle secrets (usually access credentials) when using git. One recent approach (specific to GitHub is <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets" class="uri">https://docs.github.com/en/actions/security-guides/encrypted-secrets</a>)</p>
 </section>
-<section id="how-to-add-an-image-using-quarto-on-edupod" class="level1" data-number="B">
-<h1 data-number="B"><span class="header-section-number">B</span> How to add an image using quarto on edupod</h1>
+<section id="how-to-add-an-image-using-quarto-on-edupod" class="level1" data-number="C">
+<h1 data-number="C"><span class="header-section-number">C</span> How to add an image using quarto on edupod</h1>
 <p>Quarto is like html in that the main <code>.qmd</code> document references separate image files, rather than incorporates them inside the main file itself. You have to place the images separetely (and also <code>git add</code> the image files separately).</p>
 <p>On Edupod getting figures into your quarto document takes two steps:</p>
 <ol type="1">
@@ -651,8 +657,8 @@ swordfish</code></pre>
 <p><img src="images/insert_image_to_qmd.png" class="img-fluid"></p>
 <p>Using the Render button will confirm that your images are found.</p>
 <p>Then don’t forget to <code>git add</code> the image files as well. Run a <code>git status</code> to check which files are included.</p>
-<section id="good-git-messages" class="level2" data-number="B.1">
-<h2 data-number="B.1" class="anchored" data-anchor-id="good-git-messages"><span class="header-section-number">B.1</span> Good git messages</h2>
+<section id="good-git-messages" class="level2" data-number="C.1">
+<h2 data-number="C.1" class="anchored" data-anchor-id="good-git-messages"><span class="header-section-number">C.1</span> Good git messages</h2>
 <p>Whenever you “git commit” (or using the GitHub UI), it can be tempting to quickly write an uninformative message like “Update numbers.py” or “fix test”. This is bad because</p>
 <ul>
 <li><p>It makes things harder for your co-contributors as they can’t easily tell what your commits are doing in a PR.</p></li>
@@ -1072,13 +1078,13 @@ swordfish</code></pre>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../skills/packaging.html" class="pagination-link" aria-label="Packages to distribute code">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Packages to distribute code</span></span>
+      <a href="../skills/install_rstudio_and_git.html" class="pagination-link" aria-label="Install Rstudio and git">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Install Rstudio and git</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../skills/glossary.html" class="pagination-link" aria-label="Glossary of Commands">
-        <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Glossary of Commands</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Glossary of Commands</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
