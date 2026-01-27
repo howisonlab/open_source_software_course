@@ -30,7 +30,7 @@ For this course we need to be editing files and working in a terminal. For cross
 
 Follow these instructions to install Rstudio and git: @sec-install.
 
-Note that references to EduPod are out of date; that was a cloud service that we are not using this semester.  
+Note that references to EduPod are out of date; that was a cloud service that we are not using this semester.
 
 Once you You should see a screen that looks like the below. This is the interface for working with R, which we'll come back to later in the course.
 
@@ -49,7 +49,6 @@ You may not see a terminal tab, or in the future might accidentally exit out of 
 
 If your screen is full of unwanted text, hit `CTRL+L` to clear it.
 :::
-
 
 You should be greeted by a mostly blank screen, with a line that looks like this near the top:
 

@@ -363,7 +363,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#why-rewind" id="toc-why-rewind" class="nav-link" data-scroll-target="#why-rewind"><span class="header-section-number">17.2</span> Why rewind?</a></li>
   <li><a href="#undo" id="toc-undo" class="nav-link" data-scroll-target="#undo"><span class="header-section-number">17.3</span> Undo</a>
   <ul class="collapse">
-  <li><a href="#git-restore-staged-undo-adding-files-before-commit" id="toc-git-restore-staged-undo-adding-files-before-commit" class="nav-link" data-scroll-target="#git-restore-staged-undo-adding-files-before-commit"><span class="header-section-number">17.3.1</span> git restore –staged Undo adding files (before commit)</a></li>
+  <li><a href="#undo-edits-to-a-file-before-add-or-commit" id="toc-undo-edits-to-a-file-before-add-or-commit" class="nav-link" data-scroll-target="#undo-edits-to-a-file-before-add-or-commit"><span class="header-section-number">17.3.1</span> Undo edits to a file (before add or commit)</a></li>
+  <li><a href="#undo-adding-files-before-commit" id="toc-undo-adding-files-before-commit" class="nav-link" data-scroll-target="#undo-adding-files-before-commit"><span class="header-section-number">17.3.2</span> Undo adding files (before commit)</a></li>
   </ul></li>
   <li><a href="#revert---commits-to-undo-commits" id="toc-revert---commits-to-undo-commits" class="nav-link" data-scroll-target="#revert---commits-to-undo-commits"><span class="header-section-number">17.4</span> Revert - commits to undo commits</a></li>
   </ul>
@@ -393,16 +394,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="prep-exercise." class="level2" data-number="17.1">
 <h2 data-number="17.1" class="anchored" data-anchor-id="prep-exercise."><span class="header-section-number">17.1</span> Prep exercise.</h2>
+<p>Revisit the material from last week at <a href="git_basic_workflow.html" class="quarto-xref"><span>Chapter 16</span></a>.</p>
 <p>Your task is to create a git repository that when you run our <code>git viz</code> command, your screen shows this result (the commit hash abbreviations, like <code>1b2162e</code> will vary on your repo)</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">test-rewind</span> % git viz                         </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 50590c5 <span class="er">(</span><span class="ex">HEAD</span> <span class="at">-</span><span class="op">&gt;</span> main<span class="kw">)</span> <span class="ex">made</span> third edit</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 39f89db made second edit</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 1b2162e made first edit</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>If <code>git viz</code> is not working on your EduPod account, revisit <a href="git_basic_workflow.html#sec-gitlog" class="quarto-xref"><span>Section 16.5</span></a></p>
-<p>Hint: You will need to start by making a directory called <code>test-rewind</code> then using <code>cd test-rewind</code> to change into it, and using <code>git init</code> to establish a git repo.</p>
+<p>If <code>git viz</code> is not working yet in your git install, revisit <a href="git_basic_workflow.html#sec-gitlog" class="quarto-xref"><span>Section 16.5</span></a></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint 1: Getting started
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You will need to start by making a directory called <code>test-rewind</code> then using <code>cd test-rewind</code> to change into it, and using <code>git init</code> to establish a git repo.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint 2: Files and commit messages
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Then create a file (like <code>README</code>), make edits, and use <code>git add</code> and <code>git commit -m "made first edit"</code> to create your first commit. Repeat this process for the second and third commits.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="why-rewind" class="level2" data-number="17.2">
 <h2 data-number="17.2" class="anchored" data-anchor-id="why-rewind"><span class="header-section-number">17.2</span> Why rewind?</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgflip.com/aij747.jpg" class="img-fluid figure-img" alt="Skyrim meme showing player character saving the game with text 'Me making a git commit' above and 'before trying something that will probably break everything' below"></p>
+<figcaption>Committing before experimenting</figcaption>
+</figure>
+</div>
 <p>When we are working we often want to try things out before we are 100% sure that they will work. We want to be able to experiment and find our way through a problem. If our experiment doesn’t work, we want to be able to step backwards in time, to find an earlier version that is a good new starting point.</p>
 <p>In many ways this is identical to the idea of a “save point” in a game. We can step backwards in time and try again. We can reload that point at any time in the future. In our paper plane analogy, we can reach out and grab any tray in our repository.</p>
 <p>Git enables us to save full copies of our working directory. We can then get back to the state of our work at any time we made a commit. When we check out a historical state, we get the files and the folders as as they were. So git actually swaps out the directory.</p>
@@ -413,6 +452,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>what to do if there is a file that would be over-written.</li>
 </ul>
 <p>What git does, though, is it swaps out all the files and folders with the previous version.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgflip.com/aij69z.jpg" class="img-fluid figure-img" alt="Astronaut meme showing two astronauts in space. First astronaut looking at Earth says 'Wait, it's all just snapshots?' Second astronaut pointing gun says 'Always has been.'"></p>
+<figcaption>Git commits are just snapshots</figcaption>
+</figure>
+</div>
 <p>As we’ve seen, though, git is more fine-grained than a video game save-point. We often have files that have changed that we don’t want included in our save-point, this is why we have the <code>git add</code> stage before <code>git commit</code>.</p>
 <p>Thus we can have <code>untracked</code> files or folders hanging around in our working folder. Git won’t change these when we do a checkout. So what happens is:</p>
 <ol type="1">
@@ -420,7 +465,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>git goes to its repository, locates the commit you ask for, and swaps all the tracked files and folders in the working directory.</li>
 <li>git remembers what commit you’ve moved to, so that if you make edits you can decide how they should be applied into the stream of commits in your repository.</li>
 </ol>
-<p>Question for you to answer: What happens to <em>untracked</em> files when you run a <code>git checkout</code></p>
 <p>To move backwards in time we use the <code>git checkout</code> command. We have to let git know which commit we want to go back to. We can specify that using the name that git uses, which is the hash (e.g., <code>1b2162e</code>) shown by git log.</p>
 <p>Starting with our 3 commit test-rewind repo:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jlh5498@INFO-A64206</span> test-rewind % git viz</span>
@@ -475,21 +519,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>While we can always use the hash abbreviations like <code>50590c5</code> as names for commits, there is also a relative syntax.</p>
 <p><code>git checkout HEAD~1</code></p>
 <p>will get the commit one back from where <code>HEAD</code> is currently pointing. <code>HEAD~2</code> will be 2 back, and so on. <code>HEAD~</code> (without any number after the tilde) is a shortcut for <code>HEAD~1</code></p>
-<p>Remember, git swaps out all the <strong>tracked</strong> files when you do a <code>checkout</code>. If you have untracked files you will find they are unaffected by a <code>git checkout</code>. Create a file called <code>my-untracked-file</code> run <code>git status</code> then run <code>git checkout &lt;earlier-commit&gt;</code> (where <code>&lt;earlier-commit&gt;</code> is a hash for your first commit), then run <code>git status</code> again.</p>
+<p>Remember, git swaps out all the <strong>tracked</strong> files when you do a <code>checkout</code>. Experiment to find out what happens to <strong>untracked</strong> files: - Create a file called <code>my-untracked-file</code> run <code>git status</code> - Run <code>git checkout &lt;earlier-commit&gt;</code> (where <code>&lt;earlier-commit&gt;</code> is a hash for your first commit) - Run <code>git status</code> again.</p>
 </section>
 <section id="undo" class="level2" data-number="17.3">
 <h2 data-number="17.3" class="anchored" data-anchor-id="undo"><span class="header-section-number">17.3</span> Undo</h2>
 <p>Sometimes (well often, really) we need to undo things we’ve done in git. Unfortunately there isn’t one <code>Ctrl-Z</code> type undo process in git. Here are three common scenarios with our <code>edit, save, add, commit</code> cycle.</p>
-<section id="git-restore-staged-undo-adding-files-before-commit" class="level3" data-number="17.3.1">
-<h3 data-number="17.3.1" class="anchored" data-anchor-id="git-restore-staged-undo-adding-files-before-commit"><span class="header-section-number">17.3.1</span> git restore –staged Undo adding files (before commit)</h3>
+<section id="undo-edits-to-a-file-before-add-or-commit" class="level3" data-number="17.3.1">
+<h3 data-number="17.3.1" class="anchored" data-anchor-id="undo-edits-to-a-file-before-add-or-commit"><span class="header-section-number">17.3.1</span> Undo edits to a file (before add or commit)</h3>
+<p>Before we use <code>git add</code> we are in a familiar world of files. When you save changes to disk you are over-writing what is there before. Just being inside a git repo doesn’t change that.</p>
+<p>Git can help us get back to how files were at our last commit, though, using</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">--</span> <span class="op">&lt;</span>file<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Note the slightly weird <code>--</code> in the middle of this command, this is needed when addressing a specific file (without it git thinks we are referring to other things, usually the name of a commit).</p>
+<p>Careful, though, this will over-write whatever changes you have made manually to that file. If we haven’t done <code>git add</code> and <code>git commit</code> then that work would be lost.</p>
+<p>Think of this as throwing everything out to get back to a known starting point.</p>
+</section>
+<section id="undo-adding-files-before-commit" class="level3" data-number="17.3.2">
+<h3 data-number="17.3.2" class="anchored" data-anchor-id="undo-adding-files-before-commit"><span class="header-section-number">17.3.2</span> Undo adding files (before commit)</h3>
 <p>When we add a file, we are placing the file onto the tray, ready to copy into the repository. In git language we use <code>git add</code> we are “staging” a set of changes ready to commit. If we run <code>git status</code> we will see the files added under <code>Changes to be committed</code> (usually shown in green).</p>
 <p>Sometimes we accidentally add files with changes that we don’t want to include in the commit (e.g., because they are unrelated to the current set of changes and would just clutter the commit up for people trying to understand it)</p>
-<p>Helpful, the output of <code>git status</code> helps coach us how to fix this. We can use <code>git restore --staged &lt;file&gt;</code> This works with individual files, but <code>&lt;file&gt;</code> can also refer to a folder, in which case all the files inside that folder will be unstaged.</p>
+<p>Helpfully, the output of <code>git status</code> helps coach us how to fix this. We can use <code>git restore --staged &lt;file&gt;</code> This works with individual files, but <code>&lt;file&gt;</code> can also refer to a folder, in which case all the files inside that folder will be unstaged.</p>
 </section>
 </section>
 <section id="revert---commits-to-undo-commits" class="level2" data-number="17.4">
 <h2 data-number="17.4" class="anchored" data-anchor-id="revert---commits-to-undo-commits"><span class="header-section-number">17.4</span> Revert - commits to undo commits</h2>
 <p>Once we have made a commit we face a different problem. Git is like a “ledger” in accounting that provides an “audit trail”: we can’t just easily delete something from history. Instead we can make a commit that reverses the mistake. One analogy that I like is that if the mistaken commit is “matter” then the revert commit is “anti-matter”, it exactly reverses all the changes of the mistaken commit. See <a href="https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/" class="uri">https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/</a></p>
+<p>To revert a commit, use:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> revert <span class="op">&lt;</span>commit-hash<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Git will create a new commit that undoes all changes from the specified commit.</p>
 <p>This does leave the history looking a bit messy. We will explore other opportunities to tidy things up later in the course. One note at this point: if things like passwords get into the git history, it can be very difficult to entirely eliminate them from the history (and one never knows if others have unchanged copies) so generally if passwords or other secrets (like API keys) get into a git repository then it’s time to change the password or secret!</p>
 
 
