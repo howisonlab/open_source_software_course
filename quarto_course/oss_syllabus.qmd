@@ -207,7 +207,7 @@ Include a note at the top of the file telling me which formal citation approach 
 
 ##### Final Project Interview
 
-A 10 minute interview to discuss the final project, worth 40% of the Final Project grade.  In this interview I will ask you to explain any part of your project or paper. For example I may ask how you came up with ideas, what particular lines of code do, or challenge parts of your argument. Just as it would be in a job interview, it will be unacceptable to say, "I don't know, GenAI did it" or "I don't know, I haven't thought about that".
+A 10 minute interview to discuss the final project, worth 40% of the Final Project grade. In this interview I will ask you to explain any part of your project or paper. For example I may ask how you came up with ideas, what particular lines of code do, or challenge parts of your argument. Just as it would be in a job interview, it will be unacceptable to say, "I don't know, GenAI did it" or "I don't know, I haven't thought about that".
 
 ### Late submission policy
 
@@ -599,6 +599,7 @@ no_meetings <- tribble(
   ~period_start, ~period_end, ~class_name,
   #--------------------
   "2026-01-19", "2026-01-19", "No meeting: MLK day",
+  "2026-01-26", "2026-01-27", "No meeting: Ice storm",
   "2026-02-16", "2026-02-16", "No meeting: Instructor travel",
   "2026-03-16", "2026-03-21", "No meeting: Spring Break",
   "2026-03-25", "2026-03-25", "No meeting: Instructor travel"
