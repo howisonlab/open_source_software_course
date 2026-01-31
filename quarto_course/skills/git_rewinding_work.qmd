@@ -18,11 +18,12 @@ If `git viz` is not working yet in your git install, revisit @sec-gitlog
 ::: {.callout-tip collapse="true"}
 ## Hint 1: Getting started
 
-You will need to start by making a directory called `test-rewind` then using `cd test-rewind` to change into it, and using `git init` to establish a git repo. 
+You will need to start by making a directory called `test-rewind` then using `cd test-rewind` to change into it, and using `git init` to establish a git repo.
 :::
 
 ::: {.callout-tip collapse="true"}
 ## Hint 2: Files and commit messages
+
 Then create a file (like `README`), make edits, and use `git add` and `git commit -m "made first edit"` to create your first commit. Repeat this process for the second and third commits.
 :::
 
@@ -139,10 +140,7 @@ While we can always use the hash abbreviations like `50590c5` as names for commi
 
 will get the commit one back from where `HEAD` is currently pointing. `HEAD~2` will be 2 back, and so on. `HEAD~` (without any number after the tilde) is a shortcut for `HEAD~1`
 
-Remember, git swaps out all the **tracked** files when you do a `checkout`.  Experiment to find out what happens to **untracked** files:
-  - Create a file called `my-untracked-file` run `git status` 
-  - Run `git checkout <earlier-commit>` (where `<earlier-commit>` is a hash for your first commit)
-  - Run `git status` again.
+Remember, git swaps out all the **tracked** files when you do a `checkout`. Experiment to find out what happens to **untracked** files: - Create a file called `my-untracked-file` run `git status` - Run `git checkout <earlier-commit>` (where `<earlier-commit>` is a hash for your first commit) - Run `git status` again.
 
 ## Undo
 
@@ -150,11 +148,11 @@ Sometimes (well often, really) we need to undo things we've done in git. Unfortu
 
 ### Undo edits to a file (before add or commit)
 
-Before we use `git add` we are in a familiar world of files.  When you save changes to disk you are over-writing what is there before. Just being inside a git repo doesn't change that.
+Before we use `git add` we are in a familiar world of files. When you save changes to disk you are over-writing what is there before. Just being inside a git repo doesn't change that.
 
 Git can help us get back to how files were at our last commit, though, using
 
-```sh
+``` sh
 git checkout -- <file>
 ```
 
@@ -178,10 +176,52 @@ Once we have made a commit we face a different problem. Git is like a "ledger" i
 
 To revert a commit, use:
 
-```sh
+``` sh
 git revert <commit-hash>
 ```
 
 Git will create a new commit that undoes all changes from the specified commit.
 
 This does leave the history looking a bit messy. We will explore other opportunities to tidy things up later in the course. One note at this point: if things like passwords get into the git history, it can be very difficult to entirely eliminate them from the history (and one never knows if others have unchanged copies) so generally if passwords or other secrets (like API keys) get into a git repository then it's time to change the password or secret!
+
+## Dealing with Git's default editor (vi/vim)
+
+When you run `git commit` without the `-m` flag, Git opens a text editor for you to write your commit message. By default, this is often **vi** (or vim), which can be very confusing.
+
+![](images/vi%20editor.png)
+
+If you find yourself in vi, you might notice:\
+- A screen with `~` symbols on the left\
+- Typing doesn't work as expected\
+- No obvious way to exit or save
+
+**To escape from vi without saving:**\
+1. Press `Esc` twice (to enter command mode)\
+2. Type `:q!`\
+3. Press `Enter`
+
+This exits without making a commit.
+
+### Switching to nano
+
+Instead of struggling with vi, we recommend configuring **nano** as your default editor. Nano is much more user-friendly and works like most text editors you're familiar with.
+
+**To configure nano as your default Git editor, run this command once:**
+
+``` bash
+git config --global core.editor nano
+```
+
+**Using nano:**
+
+When Git opens nano for a commit message, you'll see:
+
+![](images/nano%20editor.png)
+
+\- Simply type your commit message at the top \
+- The bottom shows available commands where \`\^\` means the \`Ctrl\` key
+
+**\*\*To save and exit nano:\*\*** \
+1. Press \`Ctrl + X\` (shown as \`\^X Exit\` at the bottom) \
+2. Press \`Y\` when asked "Save modified buffer?" \
+3. Press \`Enter\` to confirm

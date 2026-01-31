@@ -740,7 +740,7 @@
     "href": "skills/git_rewinding_work.html",
     "title": "17  Rewinding work",
     "section": "",
-    "text": "17.1 Prep exercise.\nRevisit the material from last week at Chapter 16.\nYour task is to create a git repository that when you run our git viz command, your screen shows this result (the commit hash abbreviations, like 1b2162e will vary on your repo)\nIf git viz is not working yet in your git install, revisit Section 16.5",
+    "text": "17.1 Prep exercise.\nRevisit the material from last week at ?sec-git_basic_workflow.\nYour task is to create a git repository that when you run our git viz command, your screen shows this result (the commit hash abbreviations, like 1b2162e will vary on your repo)\nIf git viz is not working yet in your git install, revisit ?sec-gitlog",
     "crumbs": [
       "Skills",
       "<span class='chapter-number'>17</span>  <span class='chapter-title'>Rewinding work</span>"
@@ -751,7 +751,7 @@
     "href": "skills/git_rewinding_work.html#prep-exercise.",
     "title": "17  Rewinding work",
     "section": "",
-    "text": "test-rewind % git viz                         \n* 50590c5 (HEAD -&gt; main) made third edit\n* 39f89db made second edit\n* 1b2162e made first edit\n\n\n\n\n\n\n\nTipHint 1: Getting started\n\n\n\n\n\nYou will need to start by making a directory called test-rewind then using cd test-rewind to change into it, and using git init to establish a git repo.\n\n\n\n\n\n\n\n\n\nTipHint 2: Files and commit messages\n\n\n\n\n\nThen create a file (like README), make edits, and use git add and git commit -m \"made first edit\" to create your first commit. Repeat this process for the second and third commits.",
+    "text": "test-rewind % git viz                         \n* 50590c5 (HEAD -&gt; main) made third edit\n* 39f89db made second edit\n* 1b2162e made first edit\n\n\n\n\n\n\n\nHint 1: Getting started\n\n\n\n\n\nYou will need to start by making a directory called test-rewind then using cd test-rewind to change into it, and using git init to establish a git repo.\n\n\n\n\n\n\n\n\n\nHint 2: Files and commit messages\n\n\n\n\n\nThen create a file (like README), make edits, and use git add and git commit -m \"made first edit\" to create your first commit. Repeat this process for the second and third commits.",
     "crumbs": [
       "Skills",
       "<span class='chapter-number'>17</span>  <span class='chapter-title'>Rewinding work</span>"
@@ -1525,6 +1525,28 @@
     "crumbs": [
       "Appendices",
       "<span class='chapter-number'>C</span>  <span class='chapter-title'>Glossary of Commands</span>"
+    ]
+  },
+  {
+    "objectID": "skills/git_rewinding_work.html#dealing-with-gits-default-editor-vivim",
+    "href": "skills/git_rewinding_work.html#dealing-with-gits-default-editor-vivim",
+    "title": "17  Rewinding work",
+    "section": "17.5 Dealing with Git’s default editor (vi/vim)",
+    "text": "17.5 Dealing with Git’s default editor (vi/vim)\nWhen you run git commit without the -m flag, Git opens a text editor for you to write your commit message. By default, this is often vi (or vim), which can be very confusing.\n\nIf you find yourself in vi, you might notice:\n- A screen with ~ symbols on the left\n- Typing doesn’t work as expected\n- No obvious way to exit or save\nTo escape from vi without saving:\n1. Press Esc twice (to enter command mode)\n2. Type :q!\n3. Press Enter\nThis exits without making a commit.\n\n17.5.1 Switching to nano\nInstead of struggling with vi, we recommend configuring nano as your default editor. Nano is much more user-friendly and works like most text editors you’re familiar with.\nTo configure nano as your default Git editor, run this command once:\ngit config --global core.editor nano\nUsing nano:\nWhen Git opens nano for a commit message, you’ll see:\n\n- Simply type your commit message at the top\n- The bottom shows available commands where `^` means the `Ctrl` key\n**To save and exit nano:**\n1. Press `Ctrl + X` (shown as `^X Exit` at the bottom)\n2. Press `Y` when asked “Save modified buffer?”\n3. Press `Enter` to confirm",
+    "crumbs": [
+      "Skills",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Rewinding work</span>"
+    ]
+  },
+  {
+    "objectID": "skills/git_rewinding_work.html#switching-to-nano",
+    "href": "skills/git_rewinding_work.html#switching-to-nano",
+    "title": "17  Rewinding work",
+    "section": "17.6 Switching to nano",
+    "text": "17.6 Switching to nano\nInstead of struggling with vi, we recommend configuring nano as your default editor. Nano is much more user-friendly and works like most text editors you’re familiar with.\nTo configure nano as your default Git editor, run this command once:\ngit config --global core.editor nano\nUsing nano:\nWhen Git opens nano for a commit message, you’ll see:\n\n- Simply type your commit message at the top\n- The bottom shows available commands where `^` means the `Ctrl` key\n**To save and exit nano:**\n1. Press `Ctrl + X` (shown as `^X Exit` at the bottom)\n2. Press `Y` when asked “Save modified buffer?”\n3. Press `Enter` to confirm",
+    "crumbs": [
+      "Skills",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Rewinding work</span>"
     ]
   }
 ]
