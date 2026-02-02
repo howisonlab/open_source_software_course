@@ -19,8 +19,7 @@ Open source is everywhere.
 Famous pieces of open source software:
 
 -   Firefox browser
--   Zotero reference manager
--   The `pandas` data manipulation framework
+-   The `pandas` data framework
 
 Often it is fairly hidden from end users. This can be because it is running on servers (and not installed by end-users), such as
 
@@ -42,26 +41,35 @@ Often it is well 'below the surface' deeper in the dependencies.
 Open source is everywhere:
 
 -   Laptops
-
 -   Phones
-
 -   Servers
-
 -   Internet routers (email, BGP)
-
 -   Wifi routers
-
 -   Cars, Radios, Watches, Batteries
-
--   https://thenewstack.io/the-open-source-lesson-of-the-linksys-wrt54g-router/
-
--   Datascience software.
-
--   https://posit.co/products/open-source/rstudio/
-
--   https://jupyter.org/governance/projectlicense.html
+-     https://thenewstack.io/the-open-source-lesson-of-the-linksys-wrt54g-router/
+-   Data science software.
+-     https://posit.co/products/open-source/rstudio/
+-     https://jupyter.org/governance/projectlicense.html
 
 ## What is "source"?
+
+The source is what is needed to build or make changes to an artifact.
+
+For software the source is code, but computers don't run code directly. Computers run what we call "applications" or sometimes called "binaries".
+
+We don't think about this much, but the application isn't the same as code. The application is code converted into a "binary" which we can think of as a long string of 1s and 0s that actually run on the computer.  We can get from code to a binary, but the reverse direction is extremely difficult, even impossible.
+
+So the code is what we need if we want to make changes and improvements.
+
+Think of a banana/strawberry smoothie. Once we blend up the ingredients we can't get back.  If we want others to be able to make our smoothie, we don't hand them a smoothie, we hand them instructions and ingredients.
+
+So "source" is whatever we need to make improvements and changes.
+
+Activity/Discussion. Work with the table below (and fill out the "..."):
+
+1. Fill out the missing cells.
+2. Add two further lines you as a group make up.
+3. Any examples where it is hard to distinguish between the source the same as the artifact?  
 
 ```{r}
 #| echo: false
@@ -72,30 +80,34 @@ library(gt)
 library(gtExtras)
 tribble(
   ~thing, ~example, ~artifact, ~source,
-  "Software", "Mini Motorways",        "Downloadable App",  "Code (e.g., C, Java, Python)", 
+  "Smoothie", "<one I had yesterday>", "the drink", "the recipe and ingredients",
+  "A building", "Austin City Hall", "The finished structure", "blueprints, CAD files",
+  "COVID case chart", "New York Times", "An image", "Raw data and plotting code",
+  "Knitting", "Grandma's gift", "Finished Sweater", "pattern + yarn specification",
+  "Software", "Mini Motorways", "Downloadable App",  "Code (e.g., C, Java, Python)", 
   "Web Page", "http://james.howison.name/index.html", "Rendered page on screen", "HTML (plus CSS, plus JavaScript)",
-  "Graphics card", "AMD GTX1080ti",  "the physical card", "Gerber file", 
+  # "Graphics card", "AMD GTX1080ti",  "the physical card", "Gerber file", 
   "Movie", "Captain America", ".mov file", "...",
-  "Scientific Paper", "...", "A pdf", "...",
-  "A building", " ... ", "...", "..."
-) |> gt() |> gt_theme_guardian()
+  "3D print", "Custom phone case", "[On thingiverse](https://www.thingiverse.com/thing:3381491)", "...",
+  "Scientific Paper", "...", " ... ", "text, data, analysis code",
+  "<product/service/media>", "...", "...", "...",
+  "<product/service/media>", "...", "...", "..."
+) |> gt() |> fmt_markdown(columns = c(example, artifact, source)) |> gt_theme_guardian()
 
+
+# Movie Posters
+# A sheep
 
 ```
 
-The source is what is needed to build the artifact, what is created in the process of creation, and what is needed to make changes in an artifact.
+## What does the "open" bit mean?
 
-Colfer and Baldwin talk about open source as having "actionable transparency"; we can see the source ... but we can also take action with the source.
+The "open" part of "open source" means:
 
-Activity/Discussion:
+- Permission to work with the source
+- Transparency of how the source is produced (Who? Where? How?)
 
-1.  Work with the table above:
-
--   Fill out the missing cells in the table above.
--   Add a line for the thing assigned to your group.
--   Add two further lines you as a group make up.
-
-2.  Discuss: Beyond the stuff of source, what else is needed for open collaboration?
+Those two things together mean that open source is *sociotechnical*. Both the "stuff" (the technical) and the organization (the social and legal) are open. Their openness is interdependent and inter-woven (the openness of the code both depends on and causes the openness of the organization).
 
 ## Why open source?
 
@@ -104,6 +116,8 @@ Activity/Discussion:
 The readings focused on this, highlighting current challenges in repair. You read about farmers who purchase John Deere farm equipment. Many want to be able to work on their equipment on their own, right on the farm. This is both because they are at a great distance from dealers, the equipment is expensive to transport, and they have paid a lot for the equipment and object to paying more to keep it working.
 
 In many ways this is the same situation that Richard Stallman (founder of the Free Software Foundation) faced when dealing with the printer in his office. This is one of the foundational stories of the free software movement.
+
+Repair requires source. Farmers need tractor software source code the same way Stallman needed printer source code—both want to fix what they own.
 
 Have you faced issues in trying to repair something? What prevented you?
 
@@ -131,6 +145,8 @@ In many cases infrastructure is purchased from other companies, known as "contra
 
 Many users of open source are using open source software in the same way. For example IBM had a product called "WebSphere" which they sold to firms to run their "intranet" (internal corporate network publishing information or managing business processes). IBM originally wrote and maintained their own web server (as well as the application software that ran on top of it). Eventually, though, they changed to using the open source web server called `Apache httpd`. They argued that this saved them a lot of time maintaining their own infrastructure internally.
 
+This is why people (especially Nadia Egbhal from the readings) think of open source as "infrastructure". Both Pepsi and Coke use highways, they don't build their own roads, just like every software building organization uses open source with their software stacks.
+
 IBM even started contributing changes that it needed or were helpful to their product back to httpd. They could have kept those changes secret, but then they would just have more infrastructure to maintain. Instead, they reasoned, they would contribute those changes back to httpd, effectively giving that work to their competitors (and everyone), but in return they received a lot more eyeballs on that code, ensuring that it was better tested and kept in sync.
 
 They shared the cost of maintenance on the infrastructure to concentrate effort on their "secret sauce" of the WebSphere application layer, which was the thing that customers were really buying from them.
@@ -139,11 +155,11 @@ They shared the cost of maintenance on the infrastructure to concentrate effort 
 
 Each firm competes to hire great people. Yet it is unreasonable to think that you will have all the best people in the world working at your organization. For this reason firms seek to access outside intelligence. Sometimes this is possible through outsourcing, but other times problems are quite specific and require engagement with information or requirements that are quite specific to the business.
 
-Bill Joy (from Sun Microsystems)is credited with the saying,
+Bill Joy (from Sun Microsystems) is credited with the saying,
 
-> "no matter who you are, most of the smartest people work for someone else,
+> "no matter who you are, most of the smartest people work for someone else
 
-Firms therefore wna to access those smart people. Various approaches help, including "Crowdsourcing," "innovation contests," and "thought leadership" (publishing white papers and blogs that are discussed in public and then watching the discussion).
+Firms therefore want to access those smart people. Various approaches help, including "Crowdsourcing," "innovation contests," and "thought leadership" (publishing white papers and blogs that are discussed in public and then watching the discussion).
 
 Open source projects are another place where expert outsiders can be found and engaged on topics of importance to firms.
 
@@ -160,6 +176,8 @@ Open source is interesting to a wide group of thinkers, both academics and think
 4.  Open source is the leading edge of distributed work. Open source is done online, with participants that often don't know each other and are all around the world. All the issues of remote work were encountered first in open source, which has developed interesting approaches to these problems.
 
 ## Topics to be covered
+
+In this course we will get deeply into both the technical and the social.  We will see that the "Stuff" of open source and the "how" of open source communities are both important and we will know more about how they are inter-twined.
 
 1.  Motivations for participation
 2.  Licences
