@@ -18,11 +18,12 @@ If `git viz` is not working yet in your git install, revisit @sec-gitlog
 ::: {.callout-tip collapse="true"}
 ## Hint 1: Getting started
 
-You will need to start by making a directory called `test-rewind` then using `cd test-rewind` to change into it, and using `git init` to establish a git repo. 
+You will need to start by making a directory called `test-rewind` then using `cd test-rewind` to change into it, and using `git init` to establish a git repo.
 :::
 
 ::: {.callout-tip collapse="true"}
 ## Hint 2: Files and commit messages
+
 Then create a file (like `README`), make edits, and use `git add` and `git commit -m "made first edit"` to create your first commit. Repeat this process for the second and third commits.
 :::
 
@@ -139,10 +140,7 @@ While we can always use the hash abbreviations like `50590c5` as names for commi
 
 will get the commit one back from where `HEAD` is currently pointing. `HEAD~2` will be 2 back, and so on. `HEAD~` (without any number after the tilde) is a shortcut for `HEAD~1`
 
-Remember, git swaps out all the **tracked** files when you do a `checkout`.  Experiment to find out what happens to **untracked** files:
-  - Create a file called `my-untracked-file` run `git status` 
-  - Run `git checkout <earlier-commit>` (where `<earlier-commit>` is a hash for your first commit)
-  - Run `git status` again.
+Remember, git swaps out all the **tracked** files when you do a `checkout`. Experiment to find out what happens to **untracked** files: - Create a file called `my-untracked-file` run `git status` - Run `git checkout <earlier-commit>` (where `<earlier-commit>` is a hash for your first commit) - Run `git status` again.
 
 ## Undo
 
@@ -150,11 +148,11 @@ Sometimes (well often, really) we need to undo things we've done in git. Unfortu
 
 ### Undo edits to a file (before add or commit)
 
-Before we use `git add` we are in a familiar world of files.  When you save changes to disk you are over-writing what is there before. Just being inside a git repo doesn't change that.
+Before we use `git add` we are in a familiar world of files. When you save changes to disk you are over-writing what is there before. Just being inside a git repo doesn't change that.
 
 Git can help us get back to how files were at our last commit, though, using
 
-```sh
+``` sh
 git checkout -- <file>
 ```
 
@@ -178,7 +176,7 @@ Once we have made a commit we face a different problem. Git is like a "ledger" i
 
 To revert a commit, use:
 
-```sh
+``` sh
 git revert <commit-hash>
 ```
 
