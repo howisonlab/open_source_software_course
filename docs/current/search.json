@@ -1559,5 +1559,16 @@
       "Skills",
       "<span class='chapter-number'>16</span>  <span class='chapter-title'>Git basic workflow</span>"
     ]
+  },
+  {
+    "objectID": "skills/install_rstudio_and_git.html#configure-nano-as-default-git-editor",
+    "href": "skills/install_rstudio_and_git.html#configure-nano-as-default-git-editor",
+    "title": "Appendix A — Install Rstudio and git",
+    "section": "A.9 Configure Nano as Default Git Editor",
+    "text": "A.9 Configure Nano as Default Git Editor\nWhen you run git commit without the -m flag, Git opens a text editor for you to write your commit message. By default, this is often vi (or vim), which can be very confusing.\n\nIf you find yourself in vi, you might notice:\n- A screen with ~ symbols on the left\n- Typing doesn’t work as expected\n- No obvious way to exit or save\nTo escape from vi without saving:\n1. Press Esc twice (to enter command mode)\n2. Type :q!\n3. Press Enter\nThis exits without making a commit.\nSwitching to nano\nInstead of struggling with vi, we recommend configuring nano as your default editor. Nano is much more user-friendly and works like most text editors you’re familiar with.\nTo configure nano as your default Git editor, run this command once:\ngit config --global core.editor nano\nUsing nano:\nWhen Git opens nano for a commit message, you’ll see:\n\n\nSimply type your commit message at the top\nThe bottom shows available commands where ^ means the Ctrl key\n\nTo save and exit nano:\n1. Press Ctrl + X (shown as ^X Exit at the bottom)\n2. Press Y when asked “Save modified buffer?”\n3. Press Enter to confirm",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Install Rstudio and git</span>"
+    ]
   }
 ]
