@@ -362,10 +362,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#undo-adding-files-before-commit" id="toc-undo-adding-files-before-commit" class="nav-link" data-scroll-target="#undo-adding-files-before-commit"><span class="header-section-number">17.3.2</span> Undo adding files (before commit)</a></li>
   </ul></li>
   <li><a href="#revert---commits-to-undo-commits" id="toc-revert---commits-to-undo-commits" class="nav-link" data-scroll-target="#revert---commits-to-undo-commits"><span class="header-section-number">17.4</span> Revert - commits to undo commits</a></li>
-  <li><a href="#dealing-with-gits-default-editor-vivim" id="toc-dealing-with-gits-default-editor-vivim" class="nav-link" data-scroll-target="#dealing-with-gits-default-editor-vivim"><span class="header-section-number">17.5</span> Dealing with Git’s default editor (vi/vim)</a>
-  <ul class="collapse">
-  <li><a href="#switching-to-nano" id="toc-switching-to-nano" class="nav-link" data-scroll-target="#switching-to-nano"><span class="header-section-number">17.5.1</span> Switching to nano</a></li>
-  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/skills/git_rewinding_work.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
@@ -393,13 +389,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="prep-exercise." class="level2" data-number="17.1">
 <h2 data-number="17.1" class="anchored" data-anchor-id="prep-exercise."><span class="header-section-number">17.1</span> Prep exercise.</h2>
-<p>Revisit the material from last week at <span class="quarto-unresolved-ref">?sec-git_basic_workflow</span>.</p>
+<p>Revisit the material from last week at <a href="git_basic_workflow.html" class="quarto-xref"><span>Chapter 16</span></a>.</p>
 <p>Your task is to create a git repository that when you run our <code>git viz</code> command, your screen shows this result (the commit hash abbreviations, like <code>1b2162e</code> will vary on your repo)</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">test-rewind</span> % git viz                         </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 50590c5 <span class="er">(</span><span class="ex">HEAD</span> <span class="at">-</span><span class="op">&gt;</span> main<span class="kw">)</span> <span class="ex">made</span> third edit</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 39f89db made second edit</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> 1b2162e made first edit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>If <code>git viz</code> is not working yet in your git install, revisit <span class="quarto-unresolved-ref">?sec-gitlog</span></p>
+<p>If <code>git viz</code> is not working yet in your git install, revisit <a href="git_basic_workflow.html#sec-gitlog" class="quarto-xref"><span>Section 16.5</span></a></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -546,37 +542,8 @@ Hint 2: Files and commit messages
 <div class="sourceCode" id="cb9"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> revert <span class="op">&lt;</span>commit-hash<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Git will create a new commit that undoes all changes from the specified commit.</p>
 <p>This does leave the history looking a bit messy. We will explore other opportunities to tidy things up later in the course. One note at this point: if things like passwords get into the git history, it can be very difficult to entirely eliminate them from the history (and one never knows if others have unchanged copies) so generally if passwords or other secrets (like API keys) get into a git repository then it’s time to change the password or secret!</p>
-</section>
-<section id="dealing-with-gits-default-editor-vivim" class="level2" data-number="17.5">
-<h2 data-number="17.5" class="anchored" data-anchor-id="dealing-with-gits-default-editor-vivim"><span class="header-section-number">17.5</span> Dealing with Git’s default editor (vi/vim)</h2>
-<p>When you run <code>git commit</code> without the <code>-m</code> flag, Git opens a text editor for you to write your commit message. By default, this is often <strong>vi</strong> (or vim), which can be very confusing.</p>
-<p><img src="images/vi editor.png" class="img-fluid"></p>
-<p>If you find yourself in vi, you might notice:<br>
-- A screen with <code>~</code> symbols on the left<br>
-- Typing doesn’t work as expected<br>
-- No obvious way to exit or save</p>
-<p><strong>To escape from vi without saving:</strong><br>
-1. Press <code>Esc</code> twice (to enter command mode)<br>
-2. Type <code>:q!</code><br>
-3. Press <code>Enter</code></p>
-<p>This exits without making a commit.</p>
-<section id="switching-to-nano" class="level3" data-number="17.5.1">
-<h3 data-number="17.5.1" class="anchored" data-anchor-id="switching-to-nano"><span class="header-section-number">17.5.1</span> Switching to nano</h3>
-<p>Instead of struggling with vi, we recommend configuring <strong>nano</strong> as your default editor. Nano is much more user-friendly and works like most text editors you’re familiar with.</p>
-<p><strong>To configure nano as your default Git editor, run this command once:</strong></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> core.editor nano</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Using nano:</strong></p>
-<p>When Git opens nano for a commit message, you’ll see:</p>
-<p><img src="images/nano editor.png" class="img-fluid"></p>
-<p>- Simply type your commit message at the top<br>
-- The bottom shows available commands where `^` means the `Ctrl` key</p>
-<p><strong>**To save and exit nano:**</strong><br>
-1. Press `Ctrl + X` (shown as `^X Exit` at the bottom)<br>
-2. Press `Y` when asked “Save modified buffer?”<br>
-3. Press `Enter` to confirm</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

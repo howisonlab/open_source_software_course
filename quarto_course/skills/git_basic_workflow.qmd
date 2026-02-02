@@ -1,10 +1,19 @@
+---
+editor: 
+  markdown: 
+    wrap: 72
+---
+
 # Git basic workflow {#sec-git_basic_workflow}
 
 ## Overview
 
-In this exercise, we will practice basic Linux command lines, including `ls`, `cd`, `mkdir`, `touch`and basic git commands including `git status`, `git add`, `git commit`, and `git log`.
+In this exercise, we will practice basic Linux command lines, including
+`ls`, `cd`, `mkdir`, `touch`and basic git commands including
+`git status`, `git add`, `git commit`, and `git log`.
 
-Once we are able to move around in the shell, create files and directories, then we are ready for the basic git workflow, which is:
+Once we are able to move around in the shell, create files and
+directories, then we are ready for the basic git workflow, which is:
 
 1.  edit a file
 2.  save those edits
@@ -15,33 +24,47 @@ Once we are able to move around in the shell, create files and directories, then
 
 ## Working with files and the commandline in Rstudio
 
-Goal of this step: get familiar with basic Linux command line instructions:
+Goal of this step: get familiar with basic Linux command line
+instructions:
 
--   `pwd`, which shows the <u>**p**</u>ath to your current <u>**w**</u>orking <u>**d**</u>irectory
--   `ls`, which <u>**l**</u>i<u>**s**</u>ts the contents of your current directory
--   `cd`, which lets you <u>**c**</u>hange the <u>**d**</u>irectory you're in
--   `mkdir`, which <u>**m**</u>a<u>**k**</u>es a new <u>**dir**</u>ectory
+-   `pwd`, which shows the <u>**p**</u>ath to your current
+    <u>**w**</u>orking <u>**d**</u>irectory
+-   `ls`, which <u>**l**</u>i<u>**s**</u>ts the contents of your current
+    directory
+-   `cd`, which lets you <u>**c**</u>hange the <u>**d**</u>irectory
+    you're in
+-   `mkdir`, which <u>**m**</u>a<u>**k**</u>es a new
+    <u>**dir**</u>ectory
 -   `touch`, which creates a new (empty) file
 -   `rm`, which <u>**r**</u>e<u>**m**</u>oves files and directories
 
 ### Installing Rstudio and git
 
-For this course we need to be editing files and working in a terminal. For cross-platform consistency we will be working in Rstudio, although there are many other ways to edit files and work with git.
+For this course we need to be editing files and working in a terminal.
+For cross-platform consistency we will be working in Rstudio, although
+there are many other ways to edit files and work with git.
 
 Follow these instructions to install Rstudio and git: @sec-install.
 
-Note that references to EduPod are out of date; that was a cloud service that we are not using this semester.
+Note that references to EduPod are out of date; that was a cloud service
+that we are not using this semester.
 
-Once you You should see a screen that looks like the below. This is the interface for working with R, which we'll come back to later in the course.
+Once you You should see a screen that looks like the below. This is the
+interface for working with R, which we'll come back to later in the
+course.
 
 ![](git_basic_workflow_files/edupod_rstudio_terminal_tab.png)
 
-For now we're interested in getting to the terminal. You should see a tab labeled Terminal, marked in red above.
+For now we're interested in getting to the terminal. You should see a
+tab labeled Terminal, marked in red above.
 
 ::: {.callout-tip collapse="true"}
 ## Getting your terminal back
 
-You may not see a terminal tab, or in the future might accidentally exit out of it. To get the terminal back, you can either use the toolbar at the top of the screen with Tools → Terminal → New Terminal, or use the keyboard shortcut `ALT+SHIFT+R`.
+You may not see a terminal tab, or in the future might accidentally exit
+out of it. To get the terminal back, you can either use the toolbar at
+the top of the screen with Tools → Terminal → New Terminal, or use the
+keyboard shortcut `ALT+SHIFT+R`.
 :::
 
 ::: {.callout-tip collapse="true"}
@@ -50,32 +73,49 @@ You may not see a terminal tab, or in the future might accidentally exit out of 
 If your screen is full of unwanted text, hit `CTRL+L` to clear it.
 :::
 
-You should be greeted by a mostly blank screen, with a line that looks like this near the top:
+You should be greeted by a mostly blank screen, with a line that looks
+like this near the top:
 
 ``` sh
 wab773@educcomp04:~$
 ```
 
-This basically just says who I am, `wab773`, that I am signed in to a computer called `educcomp04`, and that I am in a directory called `~`. The dollar sign indicates that I can type a command after it.
+This basically just says who I am, `wab773`, that I am signed in to a
+computer called `educcomp04`, and that I am in a directory called `~`.
+The dollar sign indicates that I can type a command after it.
 
-When you perform actions in a terminal, they are performed in what is called your "working directory". This just means that if you tell your computer to say, make a file, it will default to making it right where it thinks you are at that moment. So first, we want to know how to make sure we know where the computer thinks we are.
+When you perform actions in a terminal, they are performed in what is
+called your "working directory". This just means that if you tell your
+computer to say, make a file, it will default to making it right where
+it thinks you are at that moment. So first, we want to know how to make
+sure we know where the computer thinks we are.
 
-Type `pwd` in the terminal and hit the `ENTER` key. (You always have to hit `ENTER` to tell the computer to execute the command.) You should see something like this:
+Type `pwd` in the terminal and hit the `ENTER` key. (You always have to
+hit `ENTER` to tell the computer to execute the command.) You should see
+something like this:
 
 ``` sh
 wab773@educcomp04:~$ pwd
 /stor/home/wab773
 ```
 
-This is where the computer thinks we are, and where it will assume we want it to do things we tell it to do (unless we tell it otherwise).
+This is where the computer thinks we are, and where it will assume we
+want it to do things we tell it to do (unless we tell it otherwise).
 
-Feel free to copy and paste commands from here to the terminal - you need to hit `CTRL+SHIFT+V` to paste instead of just \`CTRL+V\`\`.
+Feel free to copy and paste commands from here to the terminal - you
+need to hit `CTRL+SHIFT+V` to paste instead of just \`CTRL+V\`\`.
 
-Type `ls` in the terminal. It will list the files and directories in the current working directory.
+Type `ls` in the terminal. It will list the files and directories in the
+current working directory.
 
 ![](images/s1_0.png)
 
-Type `touch instructions.txt` in the terminal to create a new text file named "instructions". We're actually running a program called `touch` with the argument `instructions.txt`. When the `touch` program runs, it looks for its first argument, then makes a file with that name - in this case `instructions.txt`. Type `ls` to see that you've successfully made the file.
+Type `touch instructions.txt` in the terminal to create a new text file
+named "instructions". We're actually running a program called `touch`
+with the argument `instructions.txt`. When the `touch` program runs, it
+looks for its first argument, then makes a file with that name - in this
+case `instructions.txt`. Type `ls` to see that you've successfully made
+the file.
 
 ``` sh
 wab773@educcomp04:~$ touch instructions.txt
@@ -83,9 +123,16 @@ wab773@educcomp04:~$ ls
 instructions.txt  R
 ```
 
-Note that just when we ran the `touch` command, the computer didn't say anything - it just did its task and asked us for the next command. Many commands are like this - if they don't encounter any problems running, they won't display any output.
+Note that just when we ran the `touch` command, the computer didn't say
+anything - it just did its task and asked us for the next command. Many
+commands are like this - if they don't encounter any problems running,
+they won't display any output.
 
-At times you'll want to remove files you've created. In this case, we actually want to make instructions.txt somewhere else and so we need to remove the file. You can remove files with the `rm` command. It works much like `touch` - the argument you pass to it is the file that `rm` will try to delete. Type `ls` to verify the file has been deleted.
+At times you'll want to remove files you've created. In this case, we
+actually want to make instructions.txt somewhere else and so we need to
+remove the file. You can remove files with the `rm` command. It works
+much like `touch` - the argument you pass to it is the file that `rm`
+will try to delete. Type `ls` to verify the file has been deleted.
 
 ``` sh
 wab773@educcomp04:~$ rm instructions.txt
@@ -93,11 +140,22 @@ wab773@educcomp04:~$ ls
 R
 ```
 
-Right now we're in a special directory called the "home" directory which is unique to every user. This is similar to your desktop on your computer, or "My Documents" on Windows: someone else logged into your computer on a different account will see different things on their desktop and in their "My Documents" folder.
+Right now we're in a special directory called the "home" directory which
+is unique to every user. This is similar to your desktop on your
+computer, or "My Documents" on Windows: someone else logged into your
+computer on a different account will see different things on their
+desktop and in their "My Documents" folder.
 
-We want to be a bit more organized rather than just putting files everywhere (think of a desktop cluttered with dozens of files), so we'll make a new directory for this exercise. We can make directories with the command `mkdir`. Using the `mkdir` command is just like `touch` and `rm` - what you put after the command is the name of the directory you want to make.
+We want to be a bit more organized rather than just putting files
+everywhere (think of a desktop cluttered with dozens of files), so we'll
+make a new directory for this exercise. We can make directories with the
+command `mkdir`. Using the `mkdir` command is just like `touch` and
+`rm` - what you put after the command is the name of the directory you
+want to make.
 
-Type `mkdir air_plane_exercise` in the terminal. It will create a new directory with a specified name in the file system. Verify that you've successfully made the new directory with `ls`.
+Type `mkdir air_plane_exercise` in the terminal. It will create a new
+directory with a specified name in the file system. Verify that you've
+successfully made the new directory with `ls`.
 
 ``` sh
 wab773@educcomp04:~$ mkdir air_plane_exercise
@@ -105,17 +163,25 @@ wab773@educcomp04:~$ ls
 air_plane_exercise  R
 ```
 
-You may notice that `ls` makes the "air_plane_exercise" directory appear a little different than the file "instructions.txt" above. This can be a handy way of telling directories and files apart.
+You may notice that `ls` makes the "air_plane_exercise" directory appear
+a little different than the file "instructions.txt" above. This can be a
+handy way of telling directories and files apart.
 
 ![](git_basic_workflow_files/directory_vs_file.png)
 
 ::: {.callout-tip collapse="true"}
 ## Removing directories
 
-You can remove directories with `rm`, but you need to type `rm -r [DIRECTORY]` to do so.
+You can remove directories with `rm`, but you need to type
+`rm -r [DIRECTORY]` to do so.
 :::
 
-Now we want to tell the computer that we want future commands to take place inside the directory we've just made - we don't automatically enter a directory just because we made it! To move into a directory, use the `cd` command. Type `cd air_plane_exercise` in the terminal to change the current working directory to `air_plane_exercise`, and use `pwd` to verify you've entered the directory.
+Now we want to tell the computer that we want future commands to take
+place inside the directory we've just made - we don't automatically
+enter a directory just because we made it! To move into a directory, use
+the `cd` command. Type `cd air_plane_exercise` in the terminal to change
+the current working directory to `air_plane_exercise`, and use `pwd` to
+verify you've entered the directory.
 
 ``` sh
 wab773@educcomp04:~$ cd air_plane_exercise/
@@ -123,19 +189,26 @@ wab773@educcomp04:~/air_plane_exercise$ pwd
 /stor/home/wab773/air_plane_exercise
 ```
 
-Note that the text before the `$` changed to show our new location. This is a useful way to check that the computer thinks we're in the right spot - doing something in the wrong directory is a common enough mistake that by default most terminal applications show this.
+Note that the text before the `$` changed to show our new location. This
+is a useful way to check that the computer thinks we're in the right
+spot - doing something in the wrong directory is a common enough mistake
+that by default most terminal applications show this.
 
 ::: {.callout-tip collapse="true"}
 ## Getting back home
 
-The `~` indicates the home directory. You can almost always use `~` in commands to refer to the home directory, so `cd ~` will take you to your home directory if you get lost.
+The `~` indicates the home directory. You can almost always use `~` in
+commands to refer to the home directory, so `cd ~` will take you to your
+home directory if you get lost.
 :::
 
 ## Creating a git repository ("repo")
 
 Goal of this step: learn git init.
 
-Type `git init` in the terminal. The `git init` command is typically used to start a new repository or to convert an existing project into a Git repository. On success, you should see something like the below:
+Type `git init` in the terminal. The `git init` command is typically
+used to start a new repository or to convert an existing project into a
+Git repository. On success, you should see something like the below:
 
 ``` sh
 wab773@educcomp04:~/air_plane_exercise$ git init
@@ -145,16 +218,21 @@ Initialized empty Git repository in /stor/home/wab773/air_plane_exercise/.git/
 ::: {.callout-tip collapse="true"}
 ## Removing git from a directory
 
-If you make the wrong directory into a repository by mistake, you can undo that by going to the directory with `cd` and then removing the hidden `.git` directory there with `rm -r .git`.
+If you make the wrong directory into a repository by mistake, you can
+undo that by going to the directory with `cd` and then removing the
+hidden `.git` directory there with `rm -r .git`.
 :::
 
 ## Git status, add, commit
 
 Goal of this step: learn git status, git add, and git commit
 
-We've got a Git repository now, but there's nothing in it. Let's re-make our `instructions.txt` file with `touch instructions.txt`.
+We've got a Git repository now, but there's nothing in it. Let's re-make
+our `instructions.txt` file with `touch instructions.txt`.
 
-Now we've got a file in the repository - but what does this mean? Helpfully, `git` has another subcommand, `git status`, which shows the current state `git` thinks our repository is in.
+Now we've got a file in the repository - but what does this mean?
+Helpfully, `git` has another subcommand, `git status`, which shows the
+current state `git` thinks our repository is in.
 
 ``` sh
 wab773@educcomp04:~/air_plane_exercise$ touch instructions.txt
@@ -176,7 +254,11 @@ The main takeaways from the response from `git status` are:
 2.  Git sees that we have a file instructions.txt.
 3.  Git says it hasn't been told to "track" that file.
 
-We do want that file to be tracked, so we can `git add` the file per the command's suggestion. The `git add` command works like most of the others we've dealt with - we just tell it the name of the file to add, and it will do so. Using `git status`, we can now see the file is now being tracked.
+We do want that file to be tracked, so we can `git add` the file per the
+command's suggestion. The `git add` command works like most of the
+others we've dealt with - we just tell it the name of the file to add,
+and it will do so. Using `git status`, we can now see the file is now
+being tracked.
 
 ``` sh
 wab773@educcomp04:~/air_plane_exercise$ git add instructions.txt
@@ -190,17 +272,22 @@ Changes to be committed:
         new file:   instructions.txt
 ```
 
-We want "instructions.txt" to actually say something, so let's make some changes to the file save it. Open a file in Rstudio with File → Open File:
+We want "instructions.txt" to actually say something, so let's make some
+changes to the file save it. Open a file in Rstudio with File → Open
+File:
 
 ![](git_basic_workflow_files/open_file.png)
 
 ![](git_basic_workflow_files/open_file_dialog.png)
 
-Just make some changes to the file and save it (you can use `CTRL+S` or File →). Rstudio indicates when files have unsaved changes by making the filename red and adding an asterisk to it, like so:
+Just make some changes to the file and save it (you can use `CTRL+S` or
+File →). Rstudio indicates when files have unsaved changes by making the
+filename red and adding an asterisk to it, like so:
 
 ![](git_basic_workflow_files/file_changes.png)
 
-So we've got a tracked file and some changes. Are we ready to commit? Let's see what `git status` has to say.
+So we've got a tracked file and some changes. Are we ready to commit?
+Let's see what `git status` has to say.
 
 ``` sh
 wab773@educcomp04:~/air_plane_exercise$ git status
@@ -218,9 +305,14 @@ Changes not staged for commit:
         modified:   instructions.txt
 ```
 
-So Git sees our `instructions.txt` file and is tracking it, but it says there are "Changes not staged for commit". This means that while it knows we are interested in tracking the file, we haven't told it we want the changes we just made to be commited to the repository.
+So Git sees our `instructions.txt` file and is tracking it, but it says
+there are "Changes not staged for commit". This means that while it
+knows we are interested in tracking the file, we haven't told it we want
+the changes we just made to be commited to the repository.
 
-Type `git add instructions.txt` in the terminal to stage changes for a commit. Type `git status` to verify that Git now sees we want to commit the instructions we typed.
+Type `git add instructions.txt` in the terminal to stage changes for a
+commit. Type `git status` to verify that Git now sees we want to commit
+the instructions we typed.
 
 ``` sh
 wab773@educcomp04:~/air_plane_exercise$ git status
@@ -236,12 +328,17 @@ Changes to be committed:
 ::: {.callout-tip collapse="true"}
 ## Adding all files
 
-It can become tedious to type in all of the files you want added to your repository. As a shortcut, you can type `git add .` to track all files and changes to Git.
+It can become tedious to type in all of the files you want added to your
+repository. As a shortcut, you can type `git add .` to track all files
+and changes to Git.
 :::
 
-Since Git isn't complaining about anything, if we commit then the current state of the directory will be committed.
+Since Git isn't complaining about anything, if we commit then the
+current state of the directory will be committed.
 
-Type `git commit -m "paper plane1"`to save changes to the local repository. It takes all of the changes staged with `git add` and stores them as a new commit with a message describing the changes.
+Type `git commit -m "paper plane1"`to save changes to the local
+repository. It takes all of the changes staged with `git add` and stores
+them as a new commit with a message describing the changes.
 
 ``` sh
 wab773@educcomp04:~/air_plane_exercise$ git commit -m "paper plane1"
@@ -252,7 +349,15 @@ wab773@educcomp04:~/air_plane_exercise$ git commit -m "paper plane1"
 ::: {.callout-warning collapse="true"}
 ## Forgetting `-m message`
 
-It's very easy to just type `git commit` and forget to type a message. In most cases, this will put you in an obtuse text editor called "vim". While powerful, that editor is both very difficult to use and not part of our class. You can safely exit that editor by typing `:cq` (these should appear in the bottom left of your screen) and hitting `ENTER`. If that doesn't work, try hitting `ESC` and trying again. If that doesn't work, you can exit the terminal by clicking the "X" by the "Terminal" tab and launching a new terminal. See "Getting your terminal back" above.
+It's very easy to just type `git commit` and forget to type a message.
+In most cases, this will put you in an obtuse text editor called "vim".
+While powerful, that editor is both very difficult to use and not part
+of our class. You can safely exit that editor by typing `:cq` (these
+should appear in the bottom left of your screen) and hitting `ENTER`. If
+that doesn't work, try hitting `ESC` and trying again. If that doesn't
+work, you can exit the terminal by clicking the "X" by the "Terminal"
+tab and launching a new terminal. See "Getting your terminal back"
+above.
 :::
 
 Type `git status` to check status again.
@@ -263,24 +368,78 @@ On branch master
 nothing to commit, working tree clean
 ```
 
-This message means that Git doesn't see any changes between our directory and the most recent commit.
+This message means that Git doesn't see any changes between our
+directory and the most recent commit.
 
 Let's make some more changes:
 
 1.  edit "instructions.txt", save it, git add it, git commit it
-2.  create another text file named "license.txt", edit/save it, git add it, git commit it
+2.  create another text file named "license.txt", edit/save it, git add
+    it, git commit it
+
+::: {.callout-note collapse="true"}
+## Dealing with Git's default editor (vi/vim)
+
+When you run `git commit` without the `-m` flag, Git opens a text editor
+for you to write your commit message. By default, this is often **vi**
+(or vim), which can be very confusing.
+
+![](images/vi%20editor.png)
+
+If you find yourself in vi, you might notice: \
+- A screen with `~` symbols on the left \
+- Typing doesn't work as expected \
+- No obvious way to exit or save
+
+**To escape from vi without saving:** \
+1. Press `Esc` twice (to enter command mode) \
+2. Type `:q!` \
+3. Press `Enter`
+
+This exits without making a commit.
+
+**Switching to nano**
+
+Instead of struggling with vi, we recommend configuring **nano** as your
+default editor. Nano is much more user-friendly and works like most text
+editors you're familiar with.
+
+**To configure nano as your default Git editor, run this command once:**
+
+``` bash
+git config --global core.editor nano
+```
+
+**Using nano:**
+
+When Git opens nano for a commit message, you'll see:
+
+![](images/nano%20editor.png)
+
+-   Simply type your commit message at the top
+-   The bottom shows available commands where `^` means the `Ctrl` key
+
+**To save and exit nano:** \
+1. Press `Ctrl + X` (shown as `^X Exit` at the bottom) \
+2. Press `Y` when asked "Save modified buffer?" \
+3. Press `Enter` to confirm
+:::
 
 ## Using git log to understand what is in the repo {#sec-gitlog}
 
 Goal of this step: learn git log
 
-Type git log in the terminal to display the commit history. It will show a list of all commits in the current branch, along with information about the author, date, and commit message for each one.
+Type git log in the terminal to display the commit history. It will show
+a list of all commits in the current branch, along with information
+about the author, date, and commit message for each one.
 
-The latest message will show at the top and the oldest will show at the bottom.
+The latest message will show at the top and the oldest will show at the
+bottom.
 
 ![](images/s3_1.png)
 
-You can also use `git log --oneline --abbrev-commit --all --graph` to show git log in short. ![](images/s3_2.png)
+You can also use `git log --oneline --abbrev-commit --all --graph` to
+show git log in short. ![](images/s3_2.png)
 
 In class we will mostly add `--color` to this as well:
 
@@ -288,22 +447,30 @@ In class we will mostly add `--color` to this as well:
 git log --oneline --abbrev-commit --all --graph --decorate --color
 ```
 
-You can learn more about reading the output of that command here: <https://stackoverflow.com/questions/22313343/git-graph-what-do-the-lines-and-asteriks-denote>
+You can learn more about reading the output of that command here:
+<https://stackoverflow.com/questions/22313343/git-graph-what-do-the-lines-and-asteriks-denote>
 
-The \* characters show a single commit, the lines help us understand the branches.
+The \* characters show a single commit, the lines help us understand the
+branches.
 
-That command is long and quite hard to remember. Fortunately, Git allows us to specify an "alias", effectively letting us define a new subcommand that does all of that:
+That command is long and quite hard to remember. Fortunately, Git allows
+us to specify an "alias", effectively letting us define a new subcommand
+that does all of that:
 
 ``` sh
 git config --global alias.viz 'log --oneline --abbrev-commit --all --graph --decorate --color'
 ```
 
-Now, if you type `git viz` in the future, it will act as if you'd typed that entire command!
+Now, if you type `git viz` in the future, it will act as if you'd typed
+that entire command!
 
 ::: {.callout-warning collapse="true"}
 ## Forgetting --global
 
-The `--global` flag tells Git that you want to have the `git viz` subcommand available in all repositories on your computer. If you forget that flag, you'll have that subcommand in your current repository, but no others!
+The `--global` flag tells Git that you want to have the `git viz`
+subcommand available in all repositories on your computer. If you forget
+that flag, you'll have that subcommand in your current repository, but
+no others!
 :::
 
 ## Git Commands
@@ -314,16 +481,25 @@ The `--global` flag tells Git that you want to have the `git viz` subcommand ava
 
 2.  Git add
 
-    `git add [file]` is a command used in Git to stage changes for a commit. It allows you to select which changes in the working directory will be included in the next commit.
+    `git add [file]` is a command used in Git to stage changes for a
+    commit. It allows you to select which changes in the working
+    directory will be included in the next commit.
 
 3.  Git commit -m "message"
 
-    `git commit` saves changes to the local repository. It takes all of the changes staged with `git add` and stores them as a new commit with a message describing the changes. It is important to remember the quotes around your message so Git knows you want the entire message as the commit message.
+    `git commit` saves changes to the local repository. It takes all of
+    the changes staged with `git add` and stores them as a new commit
+    with a message describing the changes. It is important to remember
+    the quotes around your message so Git knows you want the entire
+    message as the commit message.
 
 4.  Git status
 
-    `git status` shows the state of the working directory and the staged changes, and it indicates which branch you are currently on.
+    `git status` shows the state of the working directory and the staged
+    changes, and it indicates which branch you are currently on.
 
 5.  Git log
 
-    `git log` is to display the commit history of a repository. It shows a list of all commits in the current branch, along with information about the author, date, and commit message for each one.
+    `git log` is to display the commit history of a repository. It shows
+    a list of all commits in the current branch, along with information
+    about the author, date, and commit message for each one.
