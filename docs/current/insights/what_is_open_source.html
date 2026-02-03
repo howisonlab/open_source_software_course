@@ -327,15 +327,16 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#readings-prior-to-class" id="toc-readings-prior-to-class" class="nav-link active" data-scroll-target="#readings-prior-to-class"><span class="header-section-number">4.1</span> Readings prior to class:</a></li>
   <li><a href="#where-is-open-source" id="toc-where-is-open-source" class="nav-link" data-scroll-target="#where-is-open-source"><span class="header-section-number">4.2</span> Where is open source?</a></li>
   <li><a href="#what-is-source" id="toc-what-is-source" class="nav-link" data-scroll-target="#what-is-source"><span class="header-section-number">4.3</span> What is “source”?</a></li>
-  <li><a href="#why-open-source" id="toc-why-open-source" class="nav-link" data-scroll-target="#why-open-source"><span class="header-section-number">4.4</span> Why open source?</a>
+  <li><a href="#what-does-the-open-bit-mean" id="toc-what-does-the-open-bit-mean" class="nav-link" data-scroll-target="#what-does-the-open-bit-mean"><span class="header-section-number">4.4</span> What does the “open” bit mean?</a></li>
+  <li><a href="#why-open-source" id="toc-why-open-source" class="nav-link" data-scroll-target="#why-open-source"><span class="header-section-number">4.5</span> Why open source?</a>
   <ul class="collapse">
-  <li><a href="#for-the-right-to-repair" id="toc-for-the-right-to-repair" class="nav-link" data-scroll-target="#for-the-right-to-repair"><span class="header-section-number">4.4.1</span> For the right to repair</a></li>
-  <li><a href="#to-avoid-proprietary-lock-in" id="toc-to-avoid-proprietary-lock-in" class="nav-link" data-scroll-target="#to-avoid-proprietary-lock-in"><span class="header-section-number">4.4.2</span> To avoid “proprietary lock in”</a></li>
-  <li><a href="#shared-maintenance-of-infrastructure" id="toc-shared-maintenance-of-infrastructure" class="nav-link" data-scroll-target="#shared-maintenance-of-infrastructure"><span class="header-section-number">4.4.3</span> Shared maintenance of infrastructure</a></li>
-  <li><a href="#the-smartest-people-dont-work-for-you" id="toc-the-smartest-people-dont-work-for-you" class="nav-link" data-scroll-target="#the-smartest-people-dont-work-for-you"><span class="header-section-number">4.4.4</span> The smartest people don’t work for you</a></li>
+  <li><a href="#for-the-right-to-repair" id="toc-for-the-right-to-repair" class="nav-link" data-scroll-target="#for-the-right-to-repair"><span class="header-section-number">4.5.1</span> For the right to repair</a></li>
+  <li><a href="#to-avoid-proprietary-lock-in" id="toc-to-avoid-proprietary-lock-in" class="nav-link" data-scroll-target="#to-avoid-proprietary-lock-in"><span class="header-section-number">4.5.2</span> To avoid “proprietary lock in”</a></li>
+  <li><a href="#shared-maintenance-of-infrastructure" id="toc-shared-maintenance-of-infrastructure" class="nav-link" data-scroll-target="#shared-maintenance-of-infrastructure"><span class="header-section-number">4.5.3</span> Shared maintenance of infrastructure</a></li>
+  <li><a href="#the-smartest-people-dont-work-for-you" id="toc-the-smartest-people-dont-work-for-you" class="nav-link" data-scroll-target="#the-smartest-people-dont-work-for-you"><span class="header-section-number">4.5.4</span> The smartest people don’t work for you</a></li>
   </ul></li>
-  <li><a href="#why-is-open-source-interesting" id="toc-why-is-open-source-interesting" class="nav-link" data-scroll-target="#why-is-open-source-interesting"><span class="header-section-number">4.5</span> Why is open source interesting?</a></li>
-  <li><a href="#topics-to-be-covered" id="toc-topics-to-be-covered" class="nav-link" data-scroll-target="#topics-to-be-covered"><span class="header-section-number">4.6</span> Topics to be covered</a></li>
+  <li><a href="#why-is-open-source-interesting" id="toc-why-is-open-source-interesting" class="nav-link" data-scroll-target="#why-is-open-source-interesting"><span class="header-section-number">4.6</span> Why is open source interesting?</a></li>
+  <li><a href="#topics-to-be-covered" id="toc-topics-to-be-covered" class="nav-link" data-scroll-target="#topics-to-be-covered"><span class="header-section-number">4.7</span> Topics to be covered</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/insights/what_is_open_source.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
@@ -377,8 +378,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Famous pieces of open source software:</p>
 <ul>
 <li>Firefox browser</li>
-<li>Zotero reference manager</li>
-<li>The <code>pandas</code> data manipulation framework</li>
+<li>The <code>pandas</code> data framework</li>
 </ul>
 <p>Often it is fairly hidden from end users. This can be because it is running on servers (and not installed by end-users), such as</p>
 <ul>
@@ -399,40 +399,52 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>Open source is everywhere:</p>
 <ul>
-<li><p>Laptops</p></li>
-<li><p>Phones</p></li>
-<li><p>Servers</p></li>
-<li><p>Internet routers (email, BGP)</p></li>
-<li><p>Wifi routers</p></li>
-<li><p>Cars, Radios, Watches, Batteries</p></li>
-<li><p>https://thenewstack.io/the-open-source-lesson-of-the-linksys-wrt54g-router/</p></li>
-<li><p>Datascience software.</p></li>
-<li><p>https://posit.co/products/open-source/rstudio/</p></li>
-<li><p>https://jupyter.org/governance/projectlicense.html</p></li>
+<li>Laptops</li>
+<li>Phones</li>
+<li>Servers</li>
+<li>Internet routers (email, BGP)</li>
+<li>Wifi routers</li>
+<li>Cars, Radios, Watches, Batteries</li>
+<li><pre><code>https://thenewstack.io/the-open-source-lesson-of-the-linksys-wrt54g-router/</code></pre></li>
+<li>Data science software.</li>
+<li><pre><code>https://posit.co/products/open-source/rstudio/</code></pre></li>
+<li><pre><code>https://jupyter.org/governance/projectlicense.html</code></pre></li>
 </ul>
 </section>
 <section id="what-is-source" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="what-is-source"><span class="header-section-number">4.3</span> What is “source”?</h2>
+<p>The source is what is needed to build or make changes to an artifact.</p>
+<p>For software the source is code, but computers don’t run code directly. Computers run what we call “applications” or sometimes called “binaries”.</p>
+<p>We don’t think about this much, but the application isn’t the same as code. The application is code converted into a “binary” which we can think of as a long string of 1s and 0s that actually run on the computer. We can get from code to a binary, but the reverse direction is extremely difficult, even impossible.</p>
+<p>So the code is what we need if we want to make changes and improvements.</p>
+<p>Think of a banana/strawberry smoothie. Once we blend up the ingredients we can’t get back. If we want others to be able to make our smoothie, we don’t hand them a smoothie, we hand them instructions and ingredients.</p>
+<p>So “source” is whatever we need to make improvements and changes.</p>
+<p>Activity/Discussion. Work with the table below (and fill out the “…”):</p>
+<ol type="1">
+<li>Fill out the missing cells.</li>
+<li>Add two further lines you as a group make up.</li>
+<li>Any examples where it is hard to distinguish between the source the same as the artifact?</li>
+</ol>
 <div class="cell">
 <div class="cell-output-display">
-<div id="tunhpgspqa" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="xbogskcoct" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#tunhpgspqa table {
+#xbogskcoct table {
   font-family: 'Noto Sans', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#tunhpgspqa thead, #tunhpgspqa tbody, #tunhpgspqa tfoot, #tunhpgspqa tr, #tunhpgspqa td, #tunhpgspqa th {
+#xbogskcoct thead, #xbogskcoct tbody, #xbogskcoct tfoot, #xbogskcoct tr, #xbogskcoct td, #xbogskcoct th {
   border-style: none;
 }
 
-#tunhpgspqa p {
+#xbogskcoct p {
   margin: 0;
   padding: 0;
 }
 
-#tunhpgspqa .gt_table {
+#xbogskcoct .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -458,12 +470,12 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D3D3D3;
 }
 
-#tunhpgspqa .gt_caption {
+#xbogskcoct .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#tunhpgspqa .gt_title {
+#xbogskcoct .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -475,7 +487,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-width: 0;
 }
 
-#tunhpgspqa .gt_subtitle {
+#xbogskcoct .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -487,7 +499,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-width: 0;
 }
 
-#tunhpgspqa .gt_heading {
+#xbogskcoct .gt_heading {
   background-color: #F6F6F6;
   text-align: left;
   border-bottom-color: #F6F6F6;
@@ -499,13 +511,13 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#tunhpgspqa .gt_bottom_border {
+#xbogskcoct .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 0px;
   border-bottom-color: #D3D3D3;
 }
 
-#tunhpgspqa .gt_col_headings {
+#xbogskcoct .gt_col_headings {
   border-top-style: solid;
   border-top-width: 1px;
   border-top-color: #40C5FF;
@@ -520,7 +532,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#tunhpgspqa .gt_col_heading {
+#xbogskcoct .gt_col_heading {
   color: #333333;
   background-color: #F6F6F6;
   font-size: 100%;
@@ -540,7 +552,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#tunhpgspqa .gt_column_spanner_outer {
+#xbogskcoct .gt_column_spanner_outer {
   color: #333333;
   background-color: #F6F6F6;
   font-size: 100%;
@@ -552,15 +564,15 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 4px;
 }
 
-#tunhpgspqa .gt_column_spanner_outer:first-child {
+#xbogskcoct .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#tunhpgspqa .gt_column_spanner_outer:last-child {
+#xbogskcoct .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#tunhpgspqa .gt_column_spanner {
+#xbogskcoct .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #ECECEC;
@@ -572,11 +584,11 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
-#tunhpgspqa .gt_spanner_row {
+#xbogskcoct .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#tunhpgspqa .gt_group_heading {
+#xbogskcoct .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -602,7 +614,7 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
-#tunhpgspqa .gt_empty_group_heading {
+#xbogskcoct .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #F6F6F6;
@@ -617,15 +629,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
-#tunhpgspqa .gt_from_md > :first-child {
+#xbogskcoct .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#tunhpgspqa .gt_from_md > :last-child {
+#xbogskcoct .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#tunhpgspqa .gt_row {
+#xbogskcoct .gt_row {
   padding-top: 4px;
   padding-bottom: 4px;
   padding-left: 5px;
@@ -644,7 +656,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#tunhpgspqa .gt_stub {
+#xbogskcoct .gt_stub {
   color: #333333;
   background-color: #F6F6F6;
   font-size: 100%;
@@ -657,7 +669,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#tunhpgspqa .gt_stub_row_group {
+#xbogskcoct .gt_stub_row_group {
   color: #333333;
   background-color: #F6F6F6;
   font-size: 100%;
@@ -671,15 +683,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
-#tunhpgspqa .gt_row_group_first td {
+#xbogskcoct .gt_row_group_first td {
   border-top-width: 1px;
 }
 
-#tunhpgspqa .gt_row_group_first th {
+#xbogskcoct .gt_row_group_first th {
   border-top-width: 1px;
 }
 
-#tunhpgspqa .gt_summary_row {
+#xbogskcoct .gt_summary_row {
   color: #333333;
   background-color: #F6F6F6;
   text-transform: inherit;
@@ -689,16 +701,16 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#tunhpgspqa .gt_first_summary_row {
+#xbogskcoct .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#tunhpgspqa .gt_first_summary_row.thick {
+#xbogskcoct .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#tunhpgspqa .gt_last_summary_row {
+#xbogskcoct .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -708,7 +720,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#tunhpgspqa .gt_grand_summary_row {
+#xbogskcoct .gt_grand_summary_row {
   color: #333333;
   background-color: #F6F6F6;
   text-transform: inherit;
@@ -718,7 +730,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#tunhpgspqa .gt_first_grand_summary_row {
+#xbogskcoct .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -728,7 +740,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D3D3D3;
 }
 
-#tunhpgspqa .gt_last_grand_summary_row_top {
+#xbogskcoct .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -738,11 +750,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#tunhpgspqa .gt_striped {
+#xbogskcoct .gt_striped {
   background-color: #ECECEC;
 }
 
-#tunhpgspqa .gt_table_body {
+#xbogskcoct .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -751,7 +763,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #FFFFFF;
 }
 
-#tunhpgspqa .gt_footnotes {
+#xbogskcoct .gt_footnotes {
   color: #333333;
   background-color: #F6F6F6;
   border-bottom-style: none;
@@ -765,7 +777,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#tunhpgspqa .gt_footnote {
+#xbogskcoct .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -774,7 +786,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#tunhpgspqa .gt_sourcenotes {
+#xbogskcoct .gt_sourcenotes {
   color: #333333;
   background-color: #F6F6F6;
   border-bottom-style: none;
@@ -788,7 +800,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#tunhpgspqa .gt_sourcenote {
+#xbogskcoct .gt_sourcenote {
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -796,72 +808,72 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#tunhpgspqa .gt_left {
+#xbogskcoct .gt_left {
   text-align: left;
 }
 
-#tunhpgspqa .gt_center {
+#xbogskcoct .gt_center {
   text-align: center;
 }
 
-#tunhpgspqa .gt_right {
+#xbogskcoct .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#tunhpgspqa .gt_font_normal {
+#xbogskcoct .gt_font_normal {
   font-weight: normal;
 }
 
-#tunhpgspqa .gt_font_bold {
+#xbogskcoct .gt_font_bold {
   font-weight: bold;
 }
 
-#tunhpgspqa .gt_font_italic {
+#xbogskcoct .gt_font_italic {
   font-style: italic;
 }
 
-#tunhpgspqa .gt_super {
+#xbogskcoct .gt_super {
   font-size: 65%;
 }
 
-#tunhpgspqa .gt_footnote_marks {
+#xbogskcoct .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#tunhpgspqa .gt_asterisk {
+#xbogskcoct .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#tunhpgspqa .gt_indent_1 {
+#xbogskcoct .gt_indent_1 {
   text-indent: 5px;
 }
 
-#tunhpgspqa .gt_indent_2 {
+#xbogskcoct .gt_indent_2 {
   text-indent: 10px;
 }
 
-#tunhpgspqa .gt_indent_3 {
+#xbogskcoct .gt_indent_3 {
   text-indent: 15px;
 }
 
-#tunhpgspqa .gt_indent_4 {
+#xbogskcoct .gt_indent_4 {
   text-indent: 20px;
 }
 
-#tunhpgspqa .gt_indent_5 {
+#xbogskcoct .gt_indent_5 {
   text-indent: 25px;
 }
 
-#tunhpgspqa .katex-display {
+#xbogskcoct .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#tunhpgspqa div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#xbogskcoct div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -877,10 +889,34 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_left" headers="thing" style="border-top-width: 0px; border-top-style: solid; border-top-color: white">Software</td>
-<td class="gt_row gt_left" headers="example" style="border-top-width: 0px; border-top-style: solid; border-top-color: white">Mini Motorways</td>
-<td class="gt_row gt_left" headers="artifact" style="border-top-width: 0px; border-top-style: solid; border-top-color: white">Downloadable App</td>
-<td class="gt_row gt_left" headers="source" style="border-top-width: 0px; border-top-style: solid; border-top-color: white">Code (e.g., C, Java, Python)</td>
+<td class="gt_row gt_left" headers="thing" style="border-top-width: 0px; border-top-style: solid; border-top-color: white">Smoothie</td>
+<td class="gt_row gt_left" headers="example" style="border-top-width: 0px; border-top-style: solid; border-top-color: white"><one i="" had="" yesterday=""></one></td>
+<td class="gt_row gt_left" headers="artifact" style="border-top-width: 0px; border-top-style: solid; border-top-color: white">the drink</td>
+<td class="gt_row gt_left" headers="source" style="border-top-width: 0px; border-top-style: solid; border-top-color: white">the recipe and ingredients</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="thing">A building</td>
+<td class="gt_row gt_left gt_striped" headers="example">Austin City Hall</td>
+<td class="gt_row gt_left gt_striped" headers="artifact">The finished structure</td>
+<td class="gt_row gt_left gt_striped" headers="source">blueprints, CAD files</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="thing">COVID case chart</td>
+<td class="gt_row gt_left" headers="example">New York Times</td>
+<td class="gt_row gt_left" headers="artifact">An image</td>
+<td class="gt_row gt_left" headers="source">Raw data and plotting code</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="thing">Knitting</td>
+<td class="gt_row gt_left gt_striped" headers="example">Grandma’s gift</td>
+<td class="gt_row gt_left gt_striped" headers="artifact">Finished Sweater</td>
+<td class="gt_row gt_left gt_striped" headers="source">pattern + yarn specification</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="thing">Software</td>
+<td class="gt_row gt_left" headers="example">Mini Motorways</td>
+<td class="gt_row gt_left" headers="artifact">Downloadable App</td>
+<td class="gt_row gt_left" headers="source">Code (e.g., C, Java, Python)</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left gt_striped" headers="thing">Web Page</td>
@@ -889,28 +925,34 @@ ul.task-list li input[type="checkbox"] {
 <td class="gt_row gt_left gt_striped" headers="source">HTML (plus CSS, plus JavaScript)</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="thing">Graphics card</td>
-<td class="gt_row gt_left" headers="example">AMD GTX1080ti</td>
-<td class="gt_row gt_left" headers="artifact">the physical card</td>
-<td class="gt_row gt_left" headers="source">Gerber file</td>
+<td class="gt_row gt_left" headers="thing">Movie</td>
+<td class="gt_row gt_left" headers="example">Captain America</td>
+<td class="gt_row gt_left" headers="artifact">.mov file</td>
+<td class="gt_row gt_left" headers="source">…</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left gt_striped" headers="thing">Movie</td>
-<td class="gt_row gt_left gt_striped" headers="example">Captain America</td>
-<td class="gt_row gt_left gt_striped" headers="artifact">.mov file</td>
-<td class="gt_row gt_left gt_striped" headers="source">...</td>
+<td class="gt_row gt_left gt_striped" headers="thing">3D print</td>
+<td class="gt_row gt_left gt_striped" headers="example">Custom phone case</td>
+<td class="gt_row gt_left gt_striped" headers="artifact"><a href="https://www.thingiverse.com/thing:3381491">On thingiverse</a></td>
+<td class="gt_row gt_left gt_striped" headers="source">…</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="thing">Scientific Paper</td>
-<td class="gt_row gt_left" headers="example">...</td>
-<td class="gt_row gt_left" headers="artifact">A pdf</td>
-<td class="gt_row gt_left" headers="source">...</td>
+<td class="gt_row gt_left" headers="example">…</td>
+<td class="gt_row gt_left" headers="artifact">…</td>
+<td class="gt_row gt_left" headers="source">text, data, analysis code</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left gt_striped" headers="thing">A building</td>
-<td class="gt_row gt_left gt_striped" headers="example">...</td>
-<td class="gt_row gt_left gt_striped" headers="artifact">...</td>
-<td class="gt_row gt_left gt_striped" headers="source">...</td>
+<td class="gt_row gt_left gt_striped" headers="thing">&lt;product/service/media&gt;</td>
+<td class="gt_row gt_left gt_striped" headers="example">…</td>
+<td class="gt_row gt_left gt_striped" headers="artifact">…</td>
+<td class="gt_row gt_left gt_striped" headers="source">…</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="thing">&lt;product/service/media&gt;</td>
+<td class="gt_row gt_left" headers="example">…</td>
+<td class="gt_row gt_left" headers="artifact">…</td>
+<td class="gt_row gt_left" headers="source">…</td>
 </tr>
 </tbody>
 </table>
@@ -918,60 +960,57 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<p>The source is what is needed to build the artifact, what is created in the process of creation, and what is needed to make changes in an artifact.</p>
-<p>Colfer and Baldwin talk about open source as having “actionable transparency”; we can see the source … but we can also take action with the source.</p>
-<p>Activity/Discussion:</p>
-<ol type="1">
-<li>Work with the table above:</li>
-</ol>
-<ul>
-<li>Fill out the missing cells in the table above.</li>
-<li>Add a line for the thing assigned to your group.</li>
-<li>Add two further lines you as a group make up.</li>
-</ul>
-<ol start="2" type="1">
-<li>Discuss: Beyond the stuff of source, what else is needed for open collaboration?</li>
-</ol>
 </section>
-<section id="why-open-source" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="why-open-source"><span class="header-section-number">4.4</span> Why open source?</h2>
-<section id="for-the-right-to-repair" class="level3" data-number="4.4.1">
-<h3 data-number="4.4.1" class="anchored" data-anchor-id="for-the-right-to-repair"><span class="header-section-number">4.4.1</span> For the right to repair</h3>
+<section id="what-does-the-open-bit-mean" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="what-does-the-open-bit-mean"><span class="header-section-number">4.4</span> What does the “open” bit mean?</h2>
+<p>The “open” part of “open source” means:</p>
+<ul>
+<li>Permission to work with the source</li>
+<li>Transparency of how the source is produced (Who? Where? How?)</li>
+</ul>
+<p>Those two things together mean that open source is <em>sociotechnical</em>. Both the “stuff” (the technical) and the organization (the social and legal) are open. Their openness is interdependent and inter-woven (the openness of the code both depends on and causes the openness of the organization).</p>
+</section>
+<section id="why-open-source" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="why-open-source"><span class="header-section-number">4.5</span> Why open source?</h2>
+<section id="for-the-right-to-repair" class="level3" data-number="4.5.1">
+<h3 data-number="4.5.1" class="anchored" data-anchor-id="for-the-right-to-repair"><span class="header-section-number">4.5.1</span> For the right to repair</h3>
 <p>The readings focused on this, highlighting current challenges in repair. You read about farmers who purchase John Deere farm equipment. Many want to be able to work on their equipment on their own, right on the farm. This is both because they are at a great distance from dealers, the equipment is expensive to transport, and they have paid a lot for the equipment and object to paying more to keep it working.</p>
 <p>In many ways this is the same situation that Richard Stallman (founder of the Free Software Foundation) faced when dealing with the printer in his office. This is one of the foundational stories of the free software movement.</p>
+<p>Repair requires source. Farmers need tractor software source code the same way Stallman needed printer source code—both want to fix what they own.</p>
 <p>Have you faced issues in trying to repair something? What prevented you?</p>
 <p>Discussion: what is needed to repair a blender? A car? A list sorting algorithm? A web-page?</p>
 <p>What role does source code play? What else is needed?</p>
 </section>
-<section id="to-avoid-proprietary-lock-in" class="level3" data-number="4.4.2">
-<h3 data-number="4.4.2" class="anchored" data-anchor-id="to-avoid-proprietary-lock-in"><span class="header-section-number">4.4.2</span> To avoid “proprietary lock in”</h3>
+<section id="to-avoid-proprietary-lock-in" class="level3" data-number="4.5.2">
+<h3 data-number="4.5.2" class="anchored" data-anchor-id="to-avoid-proprietary-lock-in"><span class="header-section-number">4.5.2</span> To avoid “proprietary lock in”</h3>
 <p>The popularity of open source can be understand as a kind of software escrow. Producers of tools want their users to rely on the tool, but if the code is hidden then a user is taking on a significant risk. That is is that the software stops getting updated because the company disappears. This means that maintenance stops, which means that the code suffers “bit rot” or “code collapse”.</p>
 <p>“Code collapse” occurs when software is not maintained. Not only do new features not appear, but security holes can be discovered which cannot be fixed. More subtly the code gets out of sync with its ecosystem, so that the way it talks to other software might stop working as other software is updated. If something changes in the software requirements (e.g., a change in the tax code) then the software cannot be updated.</p>
 <p>So the buyer of proprietary software want an assurance that the software will continue to be updated, but no firm can assure its customers that it will be around for ever. To solve this purchasers used an approach called “Software Escrow”. Escrow means using a 3rd party (not the firm buying the software and not the firm building the software) to keep a copy of the software delivered. That escrow agent keeps that code secret unless specific events occurs, such as the software producer going out of business or discontinuing the product. In those cases the firm buying the code gets the source (and a license to use it). Escrow is a sort of insurance policy to help make relying on other people less risky.</p>
 <p>Open source shares some of these characteristics. When building on someone else’s code, knowing it is open source means that the user can be sure they can taken over maintenance, even if the original developers stop working on the project.</p>
 </section>
-<section id="shared-maintenance-of-infrastructure" class="level3" data-number="4.4.3">
-<h3 data-number="4.4.3" class="anchored" data-anchor-id="shared-maintenance-of-infrastructure"><span class="header-section-number">4.4.3</span> Shared maintenance of infrastructure</h3>
+<section id="shared-maintenance-of-infrastructure" class="level3" data-number="4.5.3">
+<h3 data-number="4.5.3" class="anchored" data-anchor-id="shared-maintenance-of-infrastructure"><span class="header-section-number">4.5.3</span> Shared maintenance of infrastructure</h3>
 <p>When organizations compete with each other they want you to purchase their product, and not the product of their competitor. To purchase “Extra” brand chewing gum, and not “Trident” brand.</p>
 <p>Yet much of the effort that goes into producing a product is spent on things that are not directly related to the product they are selling. Think of things like the supply of office furniture, the repainting of lines in the parking lot. These sort of efforts are known as “infrastructure”.</p>
 <p>In many cases infrastructure is purchased from other companies, known as “contracting” or “out-sourcing”. The general logic is that companies that specialize in office furniture will do a better and cheaper job than if the chewing gum company was to make (or even buy) its own furniture. For example, Economics of scale mean that the outsourced furniture company can get bulk purchase discounts and pass them on to customers. They can also have full time people focused on monitoring safety issues with furniture and be responsible for fixing or replacing chairs that might injure people, saving the chewing gum company from lawsuits for dangerous chairs.</p>
 <p>Many users of open source are using open source software in the same way. For example IBM had a product called “WebSphere” which they sold to firms to run their “intranet” (internal corporate network publishing information or managing business processes). IBM originally wrote and maintained their own web server (as well as the application software that ran on top of it). Eventually, though, they changed to using the open source web server called <code>Apache httpd</code>. They argued that this saved them a lot of time maintaining their own infrastructure internally.</p>
+<p>This is why people (especially Nadia Egbhal from the readings) think of open source as “infrastructure”. Both Pepsi and Coke use highways, they don’t build their own roads, just like every software building organization uses open source with their software stacks.</p>
 <p>IBM even started contributing changes that it needed or were helpful to their product back to httpd. They could have kept those changes secret, but then they would just have more infrastructure to maintain. Instead, they reasoned, they would contribute those changes back to httpd, effectively giving that work to their competitors (and everyone), but in return they received a lot more eyeballs on that code, ensuring that it was better tested and kept in sync.</p>
 <p>They shared the cost of maintenance on the infrastructure to concentrate effort on their “secret sauce” of the WebSphere application layer, which was the thing that customers were really buying from them.</p>
 </section>
-<section id="the-smartest-people-dont-work-for-you" class="level3" data-number="4.4.4">
-<h3 data-number="4.4.4" class="anchored" data-anchor-id="the-smartest-people-dont-work-for-you"><span class="header-section-number">4.4.4</span> The smartest people don’t work for you</h3>
+<section id="the-smartest-people-dont-work-for-you" class="level3" data-number="4.5.4">
+<h3 data-number="4.5.4" class="anchored" data-anchor-id="the-smartest-people-dont-work-for-you"><span class="header-section-number">4.5.4</span> The smartest people don’t work for you</h3>
 <p>Each firm competes to hire great people. Yet it is unreasonable to think that you will have all the best people in the world working at your organization. For this reason firms seek to access outside intelligence. Sometimes this is possible through outsourcing, but other times problems are quite specific and require engagement with information or requirements that are quite specific to the business.</p>
-<p>Bill Joy (from Sun Microsystems)is credited with the saying,</p>
+<p>Bill Joy (from Sun Microsystems) is credited with the saying,</p>
 <blockquote class="blockquote">
-<p>“no matter who you are, most of the smartest people work for someone else,</p>
+<p>“no matter who you are, most of the smartest people work for someone else</p>
 </blockquote>
-<p>Firms therefore wna to access those smart people. Various approaches help, including “Crowdsourcing,” “innovation contests,” and “thought leadership” (publishing white papers and blogs that are discussed in public and then watching the discussion).</p>
+<p>Firms therefore want to access those smart people. Various approaches help, including “Crowdsourcing,” “innovation contests,” and “thought leadership” (publishing white papers and blogs that are discussed in public and then watching the discussion).</p>
 <p>Open source projects are another place where expert outsiders can be found and engaged on topics of importance to firms.</p>
 </section>
 </section>
-<section id="why-is-open-source-interesting" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="why-is-open-source-interesting"><span class="header-section-number">4.5</span> Why is open source interesting?</h2>
+<section id="why-is-open-source-interesting" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="why-is-open-source-interesting"><span class="header-section-number">4.6</span> Why is open source interesting?</h2>
 <p>Open source is interesting to a wide group of thinkers, both academics and thinkers in business and software.</p>
 <ol type="1">
 <li><p>Open source is successful. Almost all software has a foundation of open source, and open source tools successfully compete with proprietary software.</p></li>
@@ -980,8 +1019,9 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Open source is the leading edge of distributed work. Open source is done online, with participants that often don’t know each other and are all around the world. All the issues of remote work were encountered first in open source, which has developed interesting approaches to these problems.</p></li>
 </ol>
 </section>
-<section id="topics-to-be-covered" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="topics-to-be-covered"><span class="header-section-number">4.6</span> Topics to be covered</h2>
+<section id="topics-to-be-covered" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="topics-to-be-covered"><span class="header-section-number">4.7</span> Topics to be covered</h2>
+<p>In this course we will get deeply into both the technical and the social. We will see that the “Stuff” of open source and the “how” of open source communities are both important and we will know more about how they are inter-twined.</p>
 <ol type="1">
 <li>Motivations for participation</li>
 <li>Licences</li>
