@@ -229,3 +229,38 @@ When Git opens nano for a commit message, you'll see:
 1. Press `Ctrl + X` (shown as `^X Exit` at the bottom) \
 2. Press `Y` when asked "Save modified buffer?" \
 3. Press `Enter` to confirm
+
+## Git Default Branch: Main vs Master
+
+Git's default branch name has changed over time. Depending on your Git version and when you set up your repository, you may see either main or master as your default branch name. These are functionally identical, just different names for the same thing.
+
+### Check Your Default Branch
+
+Check Your Git's Default Branch Setting
+```bash
+git config --global init.defaultBranch
+```
+
+### Standardizing to `main` (Recommended)
+
+**Step 1: Configure Git for future repositories**
+```bash
+git config --global init.defaultBranch main
+```
+
+This ensures all new repositories you create will use `main` by default.
+
+**Step 2: Rename existing `master` branch to `main`**
+
+If you have an existing repository with a `master` branch:
+```bash
+# 1. Rename the local branch
+git branch -m master main
+
+# 2. Push the new branch and set it as upstream
+git push -u origin main
+
+# 3. Delete the old master branch from remote
+git push origin --delete master
+```
+

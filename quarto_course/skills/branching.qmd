@@ -86,6 +86,7 @@ We can now add the reporting script and the data for monday. To simulate editing
 ```sh
 echo "# Initial code for table report" >> reporting_script.Rmd
 git add reporting_script.Rmd
+git add data_monday.csv
 git commit -m "starting setup"
 ```
 
