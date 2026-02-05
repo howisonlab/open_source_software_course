@@ -243,24 +243,9 @@ git config --global init.defaultBranch
 
 ### Standardizing to `main` (Recommended)
 
-**Step 1: Configure Git for future repositories**
+**Configure Git for future repositories**
 ```bash
 git config --global init.defaultBranch main
 ```
 
 This ensures all new repositories you create will use `main` by default.
-
-**Step 2: Rename existing `master` branch to `main`**
-
-If you have an existing repository with a `master` branch:
-```bash
-# 1. Rename the local branch
-git branch -m master main
-
-# 2. Push the new branch and set it as upstream
-git push -u origin main
-
-# 3. Delete the old master branch from remote
-git push origin --delete master
-```
-
