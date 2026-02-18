@@ -167,31 +167,31 @@ The contributors are each going to do some work, then pass it up through their f
 
 1. *Contributor A*, *Contributor B* should create a new branch and switch to it (replace YOUR_ROLE_NAME with either contributorA or contributorB):
 
-::: spoiler
-```sh
-git branch YOUR_ROLE_NAME-new-branch
-git checkout YOUR_ROLE_NAME-new-branch
-```
-:::
+   ::: spoiler
+   ```sh
+   git branch YOUR_ROLE_NAME-new-branch
+   git checkout YOUR_ROLE_NAME-new-branch
+   ```
+   :::
 
-1.  *Contributor A*, *Contributor B* each create a file named after their role (ie contributorA.txt, contributorB.txt). You can use an editor to create and save the file, or you can create a file with some simple content using:
+2.  *Contributor A*, *Contributor B* each create a file named after their role (ie contributorA.txt, contributorB.txt). You can use an editor to create and save the file, or you can create a file with some simple content using:
 
-```sh
-echo "A line of content" >> YOUR_ROLE_NAME.txt
-```
+  ```sh
+  echo "A line of content" >> YOUR_ROLE_NAME.txt
+  ```
 
 (replace YOUR_ROLE_NAME with contributorA or contributorB)
 
-2.  Add and commit your new file.
+3.  Add and commit your new file.
 
 ::: spoiler
 ``` sh
-git add YOUR_ROLE_NAME
+git add YOUR_ROLE_NAME.txt
 git commit -m "Contributing a file"
 ```
 :::
 
-3.  Push your new file. By default git push uses `origin` as the destination (so this new branch and file will go to your fork)
+4.  Push your new file. By default git push uses `origin` as the destination (so this new branch and file will go to your fork)
 
 ::: spoiler
 ``` sh
@@ -218,7 +218,7 @@ You can re-run the command as given (copy from in Terminal).
 
 The incoming contributions from *Contributor A* and *Contributor B* these files are now at their fork, and will need a Pull Request to move to the shared repo.
 
-4.  *Contributor A* and *Contributor B* go to github and look at their own fork (if you've forgotten the URL you can use `git remote -v` and look next to `origin`. Github knows that the fork now has material that the shared repo doesn't, and will make a New Pull Request button available.
+5.  *Contributor A* and *Contributor B* go to github and look at their own fork (if you've forgotten the URL you can use `git remote -v` and look next to `origin`. Github knows that the fork now has material that the shared repo doesn't, and will make a New Pull Request button available.
 
 ![Image of drop down menu for branches, shows for-pull-request and main](images/selecting_branch_on_github.png)
 
@@ -226,7 +226,7 @@ The incoming contributions from *Contributor A* and *Contributor B* these files 
 
 Since we created files with unique file names, these PRs will show up as "Able to be automatically merged".
 
-5.  The *Maintainer* should now refresh their page (so they are looking at upstream) and they will see a number next to the Pull Request tab:
+6.  The *Maintainer* should now refresh their page (so they are looking at upstream) and they will see a number next to the Pull Request tab:
 
 ![Image showing new Pull Requests available](images/new_pr_available.png)
 
@@ -238,7 +238,7 @@ The *Maintainer* can accept both pull requests, which will merge files into the 
 
 Now the contributors need to synchronize with the shared repo. They first have to switch to the main branch, then they can use `git pull` to bring the new files from the other contributor into their local repo. 
 
-6.  *Contributor A* and *Contributor B* should switch to main, then pull upstream.
+7.  *Contributor A* and *Contributor B* should switch to main, then pull upstream.
 
 ::: spoiler
 ``` sh
@@ -247,7 +247,7 @@ git pull upstream main
 ```
 :::
 
-7.  Finally, *Contributor A* and *Contributor B* will push these new changes from the shared repo up to their forks.
+8.  Finally, *Contributor A* and *Contributor B* will push these new changes from the shared repo up to their forks.
 
 ::: spoiler
 ``` sh
