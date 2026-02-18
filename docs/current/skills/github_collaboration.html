@@ -531,7 +531,7 @@ Note
 </section>
 <section id="sharing-work-and-synchronizing" class="level2" data-number="20.3">
 <h2 data-number="20.3" class="anchored" data-anchor-id="sharing-work-and-synchronizing"><span class="header-section-number">20.3</span> Sharing work and synchronizing</h2>
-<p><em>Requires three part repository setup as shown above in <a href="#basic_forking_workflow_setup">Basic forking workflow setup</a></em></p>
+<p><em>Requires three part repository setup as shown above in <a href="#basic-forking-workflow-setup">Basic forking workflow setup</a></em></p>
 <p>The contributors are each going to do some work, then pass it up through their forks to the upstream shared repository. This will use <code>git push</code> and Github pull requests (which the <em>Maintainer</em> will see and approve). We will then use <code>git pull upstream</code> so that each contributor gets the work that the other has done.</p>
 <ol type="1">
 <li><p><em>Contributor A</em>, <em>Contributor B</em> should create a new branch and switch to it (replace YOUR_ROLE_NAME with either contributorA or contributorB):</p>
@@ -556,6 +556,13 @@ Note
 <div class="spoiler">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p>You may also see a message about having an upstream branch. Something like this:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">fatal:</span> The current branch test-branch has no upstream branch.</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="ex">To</span> push the current branch and set the remote as upstream, use</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">git</span> push <span class="at">--set-upstream</span> origin test-branch</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>You can re-run the command as given (copy from in Terminal).</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -569,13 +576,6 @@ Note
 <p>If you have trouble with GitHub authentication, remember that it is the email address associated with the GitHub account and the password has to be a PAT. That is the special password you copied from the GitHub site. See <a href="github_solo.html" class="quarto-xref"><span>Chapter 19</span></a> for details.</p>
 </div>
 </div>
-<p>You may also see a message about having an upstream branch. Something like this:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">fatal:</span> The current branch test-branch has no upstream branch.</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="ex">To</span> push the current branch and set the remote as upstream, use</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">git</span> push <span class="at">--set-upstream</span> origin test-branch</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>You can re-run the command as given (copy from in Terminal).</p>
 <p>The incoming contributions from <em>Contributor A</em> and <em>Contributor B</em> these files are now at their fork, and will need a Pull Request to move to the shared repo.</p>
 <ol start="5" type="1">
 <li><em>Contributor A</em> and <em>Contributor B</em> go to github and look at their own fork (if you’ve forgotten the URL you can use <code>git remote -v</code> and look next to <code>origin</code>. Github knows that the fork now has material that the shared repo doesn’t, and will make a New Pull Request button available.</li>
@@ -694,7 +694,7 @@ origin  MAINTAINER_URL (push)</code></pre>
 </section>
 <section id="generate-merge-conflict" class="level2" data-number="20.5">
 <h2 data-number="20.5" class="anchored" data-anchor-id="generate-merge-conflict"><span class="header-section-number">20.5</span> Generate merge conflict</h2>
-<p>(If starting here, confirm that your Group of three has the setup in <a href="#basic_forking_workflow_setup">Basic forking workflow setup</a> as the starting point.)</p>
+<p>(If starting here, confirm that your Group of three has the setup in <a href="#basic-forking-workflow-setup">Basic forking workflow setup</a> as the starting point.)</p>
 <p>The point of this exercise is to intentionally create conflicts in editing, to demonstrate how they show up in Pull Requests.</p>
 <ol type="1">
 <li><em>Maintainer</em> should change to the main branch on their local repo.</li>
@@ -806,7 +806,7 @@ turtle</code></pre>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Or we can do this with a single command:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin <span class="at">--delete</span> remoteBranchName</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The maintainers should go ahead and delete their branches, push to GitHub and make sure that they are gone from the fork. Note that we don’t need to delete the contributor’s branches from <code>upstream</code> because they never went there (the PR asked to bring the changes on the branches directly into the <code>main</code> branch on the shared repo).</p>
+<p>The maintainers should go ahead and delete their branches and push to GitHub. Note that we don’t need to delete the contributor’s branches from <code>upstream</code> because they never went there (the PR asked to bring the changes on the branches directly into the <code>main</code> branch on the shared repo).</p>
 </section>
 <section id="exercises" class="level2" data-number="20.7">
 <h2 data-number="20.7" class="anchored" data-anchor-id="exercises"><span class="header-section-number">20.7</span> Exercises</h2>

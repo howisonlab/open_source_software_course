@@ -161,7 +161,7 @@ Each exercise below assumes this setup as the starting point.
 
 ## Sharing work and synchronizing
 
-*Requires three part repository setup as shown above in [Basic forking workflow setup](#basic_forking_workflow_setup)*
+*Requires three part repository setup as shown above in [Basic forking workflow setup](#basic-forking-workflow-setup)*
 
 The contributors are each going to do some work, then pass it up through their forks to the upstream shared repository. This will use `git push` and Github pull requests (which the *Maintainer* will see and approve). We will then use `git pull upstream` so that each contributor gets the work that the other has done.
 
@@ -199,11 +199,6 @@ git push
 ```
 :::
 
-::: {.callout-note}
-If you have trouble with GitHub authentication, remember that it is the email address associated with the GitHub account and the password has to be a PAT. That is the special password you copied from the GitHub site.  See @sec-github-solo for details.
-:::
-
-
 You may also see a message about having an upstream branch. Something like this:
 
 ```bash
@@ -215,6 +210,11 @@ To push the current branch and set the remote as upstream, use
 ```
 
 You can re-run the command as given (copy from in Terminal).
+
+
+::: {.callout-note}
+If you have trouble with GitHub authentication, remember that it is the email address associated with the GitHub account and the password has to be a PAT. That is the special password you copied from the GitHub site.  See @sec-github-solo for details.
+:::
 
 The incoming contributions from *Contributor A* and *Contributor B* these files are now at their fork, and will need a Pull Request to move to the shared repo.
 
@@ -345,7 +345,7 @@ git pull
 
 ## Generate merge conflict
 
-(If starting here, confirm that your Group of three has the setup in [Basic forking workflow setup](#basic_forking_workflow_setup) as the starting point.)
+(If starting here, confirm that your Group of three has the setup in [Basic forking workflow setup](#basic-forking-workflow-setup) as the starting point.)
 
 The point of this exercise is to intentionally create conflicts in editing, to demonstrate how they show up in Pull Requests.
 
@@ -470,7 +470,7 @@ Or we can do this with a single command:
 git push origin --delete remoteBranchName
 ```
 
-The maintainers should go ahead and delete their branches, push to GitHub and make sure that they are gone from the fork.  Note that we don't need to delete the contributor's branches from `upstream` because they never went there (the PR asked to bring the changes on the branches directly into the `main` branch on the shared repo).
+The maintainers should go ahead and delete their branches and push to GitHub.  Note that we don't need to delete the contributor's branches from `upstream` because they never went there (the PR asked to bring the changes on the branches directly into the `main` branch on the shared repo).
 
 ## Exercises
 
