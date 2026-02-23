@@ -52,9 +52,9 @@ header <- tribble(
   "Office Hours", "By appointment booked at http://james.howison.name/calendar/",
   "Contact Email", "jhowison@ischool.utexas.edu",
   "Teaching Assistant", "Ansh Disawal",
-  "TA Office Hours Availability", "Thursdays and Fridays 9am-3pm by appointment",
-  "TA Office Hours Link", "",
-  "TA Contact Email", ""
+  "TA Office Hours Availability", "Wednesday and Fridays 9am-3pm by appointment",
+  "TA Office Hours Link", "Book at: https://outlook.office.com/bookwithme/user/3b745980aaf140258b05fad914aa7e92@eid.utexas.edu/meetingtype/s-T9dOdAwEScIRKU_L9gEA2?anonymous&ismsaljsauthenabled&ep=mlink",
+  "TA Contact Email", "ansh.disawal@utexas.edu"
 )
 library(knitr)
 ```
