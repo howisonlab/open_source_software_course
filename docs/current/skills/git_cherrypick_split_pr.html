@@ -361,13 +361,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#split-before-submit" id="toc-split-before-submit" class="nav-link active" data-scroll-target="#split-before-submit"><span class="header-section-number">21.1</span> Split before submit</a></li>
-  <li><a href="#learngitbranching-exercise" id="toc-learngitbranching-exercise" class="nav-link" data-scroll-target="#learngitbranching-exercise"><span class="header-section-number">21.2</span> LearnGitBranching exercise</a></li>
-  <li><a href="#cherry-pick-via-commandline-git" id="toc-cherry-pick-via-commandline-git" class="nav-link" data-scroll-target="#cherry-pick-via-commandline-git"><span class="header-section-number">21.3</span> Cherry-pick via commandline git</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">21.4</span> Exercises</a>
+  <li><a href="#setup-exercise-pushing-more-commits-to-a-pr" id="toc-setup-exercise-pushing-more-commits-to-a-pr" class="nav-link active" data-scroll-target="#setup-exercise-pushing-more-commits-to-a-pr"><span class="header-section-number">21.1</span> Setup exercise: pushing more commits to a PR</a></li>
+  <li><a href="#split-before-submit" id="toc-split-before-submit" class="nav-link" data-scroll-target="#split-before-submit"><span class="header-section-number">21.2</span> Split before submit</a></li>
+  <li><a href="#learngitbranching-exercise" id="toc-learngitbranching-exercise" class="nav-link" data-scroll-target="#learngitbranching-exercise"><span class="header-section-number">21.3</span> LearnGitBranching exercise</a></li>
+  <li><a href="#cherry-pick-via-commandline-git" id="toc-cherry-pick-via-commandline-git" class="nav-link" data-scroll-target="#cherry-pick-via-commandline-git"><span class="header-section-number">21.4</span> Cherry-pick via commandline git</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">21.5</span> Exercises</a>
   <ul class="collapse">
-  <li><a href="#individual-exercises" id="toc-individual-exercises" class="nav-link" data-scroll-target="#individual-exercises"><span class="header-section-number">21.4.1</span> Individual Exercises</a></li>
-  <li><a href="#group-exercises-and-homework" id="toc-group-exercises-and-homework" class="nav-link" data-scroll-target="#group-exercises-and-homework"><span class="header-section-number">21.4.2</span> Group Exercises (and homework)</a></li>
+  <li><a href="#individual-exercises" id="toc-individual-exercises" class="nav-link" data-scroll-target="#individual-exercises"><span class="header-section-number">21.5.1</span> Individual Exercises</a></li>
+  <li><a href="#group-exercises-and-homework" id="toc-group-exercises-and-homework" class="nav-link" data-scroll-target="#group-exercises-and-homework"><span class="header-section-number">21.5.2</span> Group Exercises (and homework)</a></li>
   </ul></li>
   <li><a href="#to-discuss-in-group" id="toc-to-discuss-in-group" class="nav-link" data-scroll-target="#to-discuss-in-group"><span class="header-section-number">22</span> To discuss in group</a></li>
   </ul>
@@ -408,10 +409,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>One common cause of mixing up different pieces of work in one pull request is forgetting to change branches in your repo. If you add additional commits to that branch then they will get added to the pull request. Remember, a pull request says, “Please come to this repo and get everything on this branch.” So it’s not the same as including some commits in a zip file and mailing them, it’s more like placing things into a particular spot (like a mailbox or dead-drop in a spy movie), and telling people to pick them up from there.</p>
 <p>So you can always add additional things before the person comes to pick them up. This flexibility is powerful, but it also means contributors must manage what’s visible to maintainers via PRs (and thus branches) carefully — an example of social accountability embedded in technical practice.</p>
 <p>This is useful because if there is a conversation around the pull request then you can easily update things. For example, if someone said “Please fix a typo or pull from upstream before we consider your pull request,” you’d be able to do so without opening another PR (just add, commit, push to your branch on your fork and the PR is updated).</p>
+<section id="setup-exercise-pushing-more-commits-to-a-pr" class="level2" data-number="21.1">
+<h2 data-number="21.1" class="anchored" data-anchor-id="setup-exercise-pushing-more-commits-to-a-pr"><span class="header-section-number">21.1</span> Setup exercise: pushing more commits to a PR</h2>
+<ol type="1">
+<li>Establish a forking network with at least a Maintainer and ContributorA.</li>
+<li>ContributorA makes a contribution on a branch</li>
+<li>ContributorA makes a PR from that</li>
+<li>Maintainer comments and asks for additional work</li>
+<li>ContributorA adds that work (new commit on the branch, push to fork)</li>
+<li>Maintainer sees new work show up in the PR.</li>
+</ol>
 <p>However, it is an issue if you <em>accidentally</em> add new commits to a branch before a pull request is accepted. Now your pull request has two sets of commits: the first set you meant to include and the second set you didn’t. This mistake is particularly easy to make if you are developing on the <code>main</code> branch in your fork (which you shouldn’t do), but also happens if you are have more than one contribution that you are working on, as when you are doing something else while waiting for a PR to be accepted. If you’ve accidentally added too many files to your pull request—something that is easy to do if you use <code>git add *</code> or some variant—you’ll also find yourself needing to remove content from your PR.</p>
 <p>This is where the delightfully named <code>git cherry-pick</code> can help us.</p>
-<section id="split-before-submit" class="level2" data-number="21.1">
-<h2 data-number="21.1" class="anchored" data-anchor-id="split-before-submit"><span class="header-section-number">21.1</span> Split before submit</h2>
+</section>
+<section id="split-before-submit" class="level2" data-number="21.2">
+<h2 data-number="21.2" class="anchored" data-anchor-id="split-before-submit"><span class="header-section-number">21.2</span> Split before submit</h2>
 <p>Things would be better if we had created a new branch for the first set of commits, then a second branch for our second set of commits, never adding either set to your main branch and following the “always work on a (short-lived) feature branch” rule. Then each set of commits would be “sent” through a different pull request — one from <code>apple_branch</code> and a separate one from <code>orange_branch</code>.</p>
 <div class="callout-notice">
 <p>Naming note: In these examples, we’ll refer to the two sets of work as apple_branch and orange_branch. Each represents a small, focused set of commits — the kind of modular contributions that make code review and coordination easier.</p>
@@ -481,14 +493,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="learngitbranching-exercise" class="level2" data-number="21.2">
-<h2 data-number="21.2" class="anchored" data-anchor-id="learngitbranching-exercise"><span class="header-section-number">21.2</span> LearnGitBranching exercise</h2>
+<section id="learngitbranching-exercise" class="level2" data-number="21.3">
+<h2 data-number="21.3" class="anchored" data-anchor-id="learngitbranching-exercise"><span class="header-section-number">21.3</span> LearnGitBranching exercise</h2>
 <p>Now let’s practice seeing this visually before we try it in Git.</p>
 <p>We can see an example of the overall workflow for splitting a PR using the LearnGitBranching Visualizer, I have created a level called <a href="https://learngitbranching.js.org/?gist_level_id=974eb9a1453306760c2902bfdeab6520">Split Pull Request</a></p>
 <!-- https://learngitbranching.js.org/?gist_level_id=f7b4b63960ed80fa9a76728d853f2546). -->
 </section>
-<section id="cherry-pick-via-commandline-git" class="level2" data-number="21.3">
-<h2 data-number="21.3" class="anchored" data-anchor-id="cherry-pick-via-commandline-git"><span class="header-section-number">21.3</span> Cherry-pick via commandline git</h2>
+<section id="cherry-pick-via-commandline-git" class="level2" data-number="21.4">
+<h2 data-number="21.4" class="anchored" data-anchor-id="cherry-pick-via-commandline-git"><span class="header-section-number">21.4</span> Cherry-pick via commandline git</h2>
 <p>We can see a situation like this in this repo on GitHub. Bring that to your working space with:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/jameshowison/i320d-needs-split.git</span>
@@ -563,27 +575,27 @@ Note
 </div>
 </div>
 </section>
-<section id="exercises" class="level2" data-number="21.4">
-<h2 data-number="21.4" class="anchored" data-anchor-id="exercises"><span class="header-section-number">21.4</span> Exercises</h2>
-<section id="individual-exercises" class="level3" data-number="21.4.1">
-<h3 data-number="21.4.1" class="anchored" data-anchor-id="individual-exercises"><span class="header-section-number">21.4.1</span> Individual Exercises</h3>
+<section id="exercises" class="level2" data-number="21.5">
+<h2 data-number="21.5" class="anchored" data-anchor-id="exercises"><span class="header-section-number">21.5</span> Exercises</h2>
+<section id="individual-exercises" class="level3" data-number="21.5.1">
+<h3 data-number="21.5.1" class="anchored" data-anchor-id="individual-exercises"><span class="header-section-number">21.5.1</span> Individual Exercises</h3>
 <ol type="1">
 <li>Now you work to get the <code>orange_branch</code> organized.</li>
 </ol>
 </section>
-<section id="group-exercises-and-homework" class="level3" data-number="21.4.2">
-<h3 data-number="21.4.2" class="anchored" data-anchor-id="group-exercises-and-homework"><span class="header-section-number">21.4.2</span> Group Exercises (and homework)</h3>
+<section id="group-exercises-and-homework" class="level3" data-number="21.5.2">
+<h3 data-number="21.5.2" class="anchored" data-anchor-id="group-exercises-and-homework"><span class="header-section-number">21.5.2</span> Group Exercises (and homework)</h3>
 <p>Groups of 3. Nominate <em>Maintainer</em>, <em>Contributor A</em>, and <em>Contributor B</em>.</p>
-<section id="first-round-exercise" class="level4" data-number="21.4.2.1">
-<h4 data-number="21.4.2.1" class="anchored" data-anchor-id="first-round-exercise"><span class="header-section-number">21.4.2.1</span> First round exercise</h4>
+<section id="first-round-exercise" class="level4" data-number="21.5.2.1">
+<h4 data-number="21.5.2.1" class="anchored" data-anchor-id="first-round-exercise"><span class="header-section-number">21.5.2.1</span> First round exercise</h4>
 <ol type="1">
 <li><em>Maintainer</em> creates a repo on Github.</li>
 <li><em>Maintainer</em> adds 2 commits and pushes.</li>
 <li><em>Contributor A</em> and <em>Contributor B</em> fork and clone (and add upstream).</li>
 <li><em>Contributor A</em> and <em>Contributor B</em> create a feature branch called <code>will_need_split</code>.</li>
-<li><em>Contributor A</em> and <em>Contributor B</em> add four commits of four files on <code>will_need_split</code></li>
+<li><em>Contributor A</em> and <em>Contributor B</em> add four separate commits, each editing a separate new file, on <code>will_need_split</code></li>
 <li><em>Contributor A</em> and <em>Contributor B</em> create a pull request to <code>upstream</code> from their <code>will_need_split</code> branch (including all four commits).</li>
-<li><em>Maintainer</em> rejects the pull request, closing it and commenting “please split this up” and direct which files go together, probably 2 in each PR. That direction creates the instructions for the contributors next step.</li>
+<li><em>Maintainer</em> rejects the pull request, closing it and commenting “please split this up” and direct which commits/files go together, probably 2 commits in each PR. That direction creates the instructions for the contributors next step.</li>
 <li><em>Contributor A</em> and <em>Contributor B</em> follow procedure above to end up with two new branches <code>split_branch_1</code> and <code>split_branch_2</code> send through separate pull requests with only the right commits/files in them.</li>
 <li><em>Maintainer</em> eventually accepts/merges each of the four split up pull requests.</li>
 </ol>

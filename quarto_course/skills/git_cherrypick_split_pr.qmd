@@ -16,6 +16,16 @@ So you can always add additional things before the person comes to pick them up.
 
 This is useful because if there is a conversation around the pull request then you can easily update things. For example, if someone said "Please fix a typo or pull from upstream before we consider your pull request," you'd be able to do so without opening another PR (just add, commit, push to your branch on your fork and the PR is updated).
 
+## Setup exercise: pushing more commits to a PR
+
+1. Establish a forking network with at least a Maintainer and ContributorA.
+2. ContributorA makes a contribution on a branch
+3. ContributorA makes a PR from that
+4. Maintainer comments and asks for additional work
+5. ContributorA adds that work (new commit on the branch, push to fork)
+6. Maintainer sees new work show up in the PR.
+
+
 However, it is an issue if you *accidentally* add new commits to a branch before a pull request is accepted. Now your pull request has two sets of commits: the first set you meant to include and the second set you didn't. This mistake is particularly easy to make if you are developing on the `main` branch in your fork (which you shouldn't do), but also happens if you are have more than one contribution that you are working on, as when you are doing something else while waiting for a PR to be accepted. If you've accidentally added too many files to your pull request---something that is easy to do if you use `git add *` or some variant---you'll also find yourself needing to remove content from your PR.
 
 This is where the delightfully named `git cherry-pick` can help us.
@@ -192,9 +202,9 @@ Groups of 3. Nominate *Maintainer*, *Contributor A*, and *Contributor B*.
 2.  *Maintainer* adds 2 commits and pushes.
 3.  *Contributor A* and *Contributor B* fork and clone (and add upstream).
 4.  *Contributor A* and *Contributor B* create a feature branch called `will_need_split`.
-5.  *Contributor A* and *Contributor B* add four commits of four files on `will_need_split`
+5.  *Contributor A* and *Contributor B* add four separate commits, each editing a separate new file, on `will_need_split`
 6.  *Contributor A* and *Contributor B* create a pull request to `upstream` from their `will_need_split` branch (including all four commits).
-7.  *Maintainer* rejects the pull request, closing it and commenting "please split this up" and direct which files go together, probably 2 in each PR. That direction creates the instructions for the contributors next step.
+7.  *Maintainer* rejects the pull request, closing it and commenting "please split this up" and direct which commits/files go together, probably 2 commits in each PR. That direction creates the instructions for the contributors next step.
 8.  *Contributor A* and *Contributor B* follow procedure above to end up with two new branches `split_branch_1` and `split_branch_2` send through separate pull requests with only the right commits/files in them.
 9.  *Maintainer* eventually accepts/merges each of the four split up pull requests.
 
