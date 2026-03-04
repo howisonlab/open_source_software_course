@@ -11,6 +11,14 @@ Thus the starting point for one person's work (branching point) can "go stale" m
 While `git merge` and resolving syntax level conflicts can resolve some of this,
 it is often easier to understand and review work if it is presented as changes against an updated starting point.
 
+::: {.callout-notice}
+It's worth thinking about the power dynamics here.  
+
+- How would this sort of request potentially affect new contributors?
+- Who should pay the costs of integrating new contributions?
+- What coordination impacts might de-synchronized branches have?
+:::
+
 As a concrete example imagine a project to build a dashboard. 
 
 Imagine that you fork the repo in January to implement a new type of visualization (let's say a pie chart).
@@ -231,6 +239,11 @@ git rebase -i main
 
 This puts us into a textual UI, with guidance at the bottom. We can use the arrow keys to move around.
 In this UI we are editing a text file (so we are using the Nano editor).
+
+::: {.callout-caution}
+If you see a different UI than in the screenshot you might be using `vi` as the editor.  Quit using {{< kbd esc >}}-{{< kbd esc >}}`::q!` and then run `git config --global core.editor "nano"`
+:::
+
 To begin, understand that `git rebase` first changes the pointer to `pie_chart_branch`
 to point at the commit we specified.
 It then finds the point at which `pie_chart_branch` diverged from the specified commit's history.
@@ -269,7 +282,7 @@ To get this to also be reflected on the server we would have to do a "force push
 which makes the server reflect the local repo.
 Note that this is usual for rebase on branches,
 but one should be very hesitant with any force operations on main or a branch shared with others.
-(Since you are not the owners of the repo, you won't be able to do a force push here).
+(Since you are not the owners of the repo, you won't be able to do a force push here, but you could on your own fork).
 After the force push, things are neater:
 
 ```
@@ -397,6 +410,30 @@ You can still `git checkout` the commit IDs from before rebasing and/or squashin
 and even see their relationships to the work tree with `git viz --reflog`.
 This is both a good thing (you can easily undo these actions) and a bad thing (removing problematic commits is hard).
 :::
+
+## Contributing.md
+
+Requiring contributors to use squash with their contributions is an example of a contribution policy. Many projects document these in a `CONTRIBUTING.md` file at the top level of their repo.  You can see examples:
+
+- <https://github.com/sigstore/.github/blob/main/CONTRIBUTING.md>
+- <https://github.com/squashimodo/react-table/blob/master/CONTRIBUTING.md>
+- <https://contributing.md/example/>
+
+Rebase and Merge workflows are both useful, but what trade offs are there?
+
+Up to now, we’ve mostly talked about $$\text{git merge}$$ vs $$\text{git rebase}$$ in technical terms (shape of history, avoiding conflicts, etc.). For a socio‑technical view, it helps to compare them explicitly on *social* dimensions like cognitive load, power, and newcomer experience.
+
+### **Technical + Social Comparison**
+
+| Aspect | $$\text{Merge}$$ | $$\text{Rebase}$$ |
+|-------|------------------|-------------------|
+| History shape | Keeps explicit branching and merge commits; the timeline shows “what actually happened.” | Rewrites the branch so it looks like it was built directly on top of the current main branch; history appears linear. |
+| Cognitive load for reviewers | Can be higher when there are many branches and merge commits; reviewers must mentally reconstruct the sequence. | Often lower when the contributor squashes and reorders commits; reviewers see a clean, linear story of the change. |
+| Attribution & learning | Preserves granular steps (including “mistakes” and “fix typo” commits); useful for understanding how people actually worked and learned. | Squashing and rewriting can hide the intermediate problem‑solving path; easier to read but less revealing of the learning process. |
+| Newcomer experience | History feels “honest” and less scary (no rewriting); tools like $$\text{git log}$$ show all the messy reality. | History rewriting can feel risky and intimidating; mistakes during rebase (especially with $$\text{git push --force}$$) can lead to anxiety and lost work. |
+| Governance norms | Some projects allow merge commits freely, especially when they want to preserve a full record of integration events. | Many projects adopt a “no merge commits” or “please rebase before merge” norm to keep history linear and “professional‑looking.” |
+| Who bears coordination cost | More of the coordination work is left to maintainers and reviewers, who must interpret a complex history. | More of the coordination work is pushed onto contributors, who must manage rebases and keep branches up‑to‑date. |
+
 
 ## Rebase Exercise
 

@@ -77,6 +77,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-5ea8f22911a6df30576a2a25a24cdd7a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/kbd/kbd.js"></script>
+<link href="../site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -109,6 +111,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
 <link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -363,7 +394,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#commits-vs.-patches" id="toc-commits-vs.-patches" class="nav-link active" data-scroll-target="#commits-vs.-patches"><span class="header-section-number">22.1</span> Commits vs.&nbsp;Patches</a></li>
   <li><a href="#adding-squash" id="toc-adding-squash" class="nav-link" data-scroll-target="#adding-squash"><span class="header-section-number">22.2</span> Adding squash</a></li>
-  <li><a href="#rebase-exercise" id="toc-rebase-exercise" class="nav-link" data-scroll-target="#rebase-exercise"><span class="header-section-number">22.3</span> Rebase Exercise</a></li>
+  <li><a href="#contributing.md" id="toc-contributing.md" class="nav-link" data-scroll-target="#contributing.md"><span class="header-section-number">22.3</span> Contributing.md</a>
+  <ul class="collapse">
+  <li><a href="#technical-social-comparison" id="toc-technical-social-comparison" class="nav-link" data-scroll-target="#technical-social-comparison"><span class="header-section-number">22.3.1</span> <strong>Technical + Social Comparison</strong></a></li>
+  </ul></li>
+  <li><a href="#rebase-exercise" id="toc-rebase-exercise" class="nav-link" data-scroll-target="#rebase-exercise"><span class="header-section-number">22.4</span> Rebase Exercise</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/skills/git_rebase.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
@@ -395,6 +430,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>That is also a common request from maintainers, and one that can cause confusion for new contributors.</p>
 <p>When one is working on a problem, others may be working in parallel. And their parallel work may be finished before one’s own work is. Thus the starting point for one person’s work (branching point) can “go stale” making it harder to integrate.</p>
 <p>While <code>git merge</code> and resolving syntax level conflicts can resolve some of this, it is often easier to understand and review work if it is presented as changes against an updated starting point.</p>
+<div class="callout-notice">
+<p>It’s worth thinking about the power dynamics here.</p>
+<ul>
+<li>How would this sort of request potentially affect new contributors?</li>
+<li>Who should pay the costs of integrating new contributions?</li>
+<li>What coordination impacts might de-synchronized branches have?</li>
+</ul>
+</div>
 <p>As a concrete example imagine a project to build a dashboard.</p>
 <p>Imagine that you fork the repo in January to implement a new type of visualization (let’s say a pie chart). You work on this during January and February, finally nailing it down at the start of March. Meanwhile, though, others in the project have spent February introducing a whole new way of accessing databases.</p>
 <p>By the time you make a pull request at the start of March things have changed a lot since you branched in January.</p>
@@ -596,7 +639,21 @@ gitGraph
 <p>To accomplish this we can use a git command called <code>rebase</code>. We say that we will “rebase” the pie_chart_branch against <code>main</code>.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout pie_chart_branch</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> rebase <span class="at">-i</span> main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This puts us into a textual UI, with guidance at the bottom. We can use the arrow keys to move around. In this UI we are editing a text file (so we are using the Nano editor). To begin, understand that <code>git rebase</code> first changes the pointer to <code>pie_chart_branch</code> to point at the commit we specified. It then finds the point at which <code>pie_chart_branch</code> diverged from the specified commit’s history. Each line is a command, the lines are instructions and are executed in order. In the following case, this is as if we checked out <code>main</code>, and then sequentially called <code>git cherry-pick</code> on the commits in <code>pie_chart_branch</code>.</p>
+<p>This puts us into a textual UI, with guidance at the bottom. We can use the arrow keys to move around. In this UI we are editing a text file (so we are using the Nano editor).</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you see a different UI than in the screenshot you might be using <code>vi</code> as the editor. Quit using <kbd title="esc" aria-hidden="true">esc</kbd><span class="visually-hidden">esc</span>-<kbd title="esc" aria-hidden="true">esc</kbd><span class="visually-hidden">esc</span><code>::q!</code> and then run <code>git config --global core.editor "nano"</code></p>
+</div>
+</div>
+<p>To begin, understand that <code>git rebase</code> first changes the pointer to <code>pie_chart_branch</code> to point at the commit we specified. It then finds the point at which <code>pie_chart_branch</code> diverged from the specified commit’s history. Each line is a command, the lines are instructions and are executed in order. In the following case, this is as if we checked out <code>main</code>, and then sequentially called <code>git cherry-pick</code> on the commits in <code>pie_chart_branch</code>.</p>
 <p><img src="git_rebase_files/rebase_no_squash.png" class="img-fluid"></p>
 <p>We use <kbd>Ctrl</kbd> + <kbd>O</kbd> to save (aka “write-Out”) and <kbd>Ctrl</kbd>+<kbd>X</kbd> to exit the editor. We should see a count of commits being rebased and then a message about a successful rebase. Using <code>git viz</code> will then show us:</p>
 <pre><code>* 16fa532 (HEAD -&gt; pie_chart_branch) pie chart 3
@@ -612,7 +669,7 @@ gitGraph
 * 0aefb6a first commit
 * 9ad07d3 Initial commit</code></pre>
 <p>This is a little hard to read. This is because the <code>origin/</code> branches are showing (and those are up on the GitHub server and not yet changed). Look closely at the <code>pie_chart_branch</code> and down the left column. We now see that <code>pie chart 1</code> commit comes directly after the two commits on main, just as though the work started there.</p>
-<p>To get this to also be reflected on the server we would have to do a “force push” <code>git push -f</code> which makes the server reflect the local repo. Note that this is usual for rebase on branches, but one should be very hesitant with any force operations on main or a branch shared with others. (Since you are not the owners of the repo, you won’t be able to do a force push here). After the force push, things are neater:</p>
+<p>To get this to also be reflected on the server we would have to do a “force push” <code>git push -f</code> which makes the server reflect the local repo. Note that this is usual for rebase on branches, but one should be very hesitant with any force operations on main or a branch shared with others. (Since you are not the owners of the repo, you won’t be able to do a force push here, but you could on your own fork). After the force push, things are neater:</p>
 <pre><code>* 16fa532 (HEAD -&gt; pie_chart_branch, origin/pie_chart_branch) pie chart 3
 * bf585ba pie chart 2
 * a2591db pie chart 1
@@ -648,7 +705,7 @@ gitGraph
 <p>When we modify history, what Git does is calculate “patches” between commits, and then tries to calculate the state of the repository as if that sequence of patches had been applied in order to generate the new commits. When we <code>git rebase</code>, we’re telling Git that we want it to calculate what the state of commits on our current branch would be <em>if we had applied the patches we’re rebasing on first</em>. This is essentially the inverse of <code>git merge</code>, which tries to calculate what happens if we apply the changes from the target branch after the changes we’ve already made.</p>
 <p>You can think of <code>git diff</code> as calculating the “patch” between two commits.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Patch files">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -657,7 +714,7 @@ gitGraph
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>If you write the output of <code>git diff</code> to a file, e.g.&nbsp;<code>git diff main my-branch &gt; my-branch.patch</code>, you get a valid “patch file” that you can <code>git apply</code>. Fortunately, we don’t need these since we’ve long passed the days of needing to literally email changes.</p>
 </div>
@@ -706,8 +763,68 @@ gitGraph
 </div>
 </div>
 </section>
-<section id="rebase-exercise" class="level2" data-number="22.3">
-<h2 data-number="22.3" class="anchored" data-anchor-id="rebase-exercise"><span class="header-section-number">22.3</span> Rebase Exercise</h2>
+<section id="contributing.md" class="level2" data-number="22.3">
+<h2 data-number="22.3" class="anchored" data-anchor-id="contributing.md"><span class="header-section-number">22.3</span> Contributing.md</h2>
+<p>Requiring contributors to use squash with their contributions is an example of a contribution policy. Many projects document these in a <code>CONTRIBUTING.md</code> file at the top level of their repo. You can see examples:</p>
+<ul>
+<li><a href="https://github.com/sigstore/.github/blob/main/CONTRIBUTING.md" class="uri">https://github.com/sigstore/.github/blob/main/CONTRIBUTING.md</a></li>
+<li><a href="https://github.com/squashimodo/react-table/blob/master/CONTRIBUTING.md" class="uri">https://github.com/squashimodo/react-table/blob/master/CONTRIBUTING.md</a></li>
+<li><a href="https://contributing.md/example/" class="uri">https://contributing.md/example/</a></li>
+</ul>
+<p>Rebase and Merge workflows are both useful, but what trade offs are there?</p>
+<p>Up to now, we’ve mostly talked about <span class="math display">\[\text{git merge}\]</span> vs <span class="math display">\[\text{git rebase}\]</span> in technical terms (shape of history, avoiding conflicts, etc.). For a socio‑technical view, it helps to compare them explicitly on <em>social</em> dimensions like cognitive load, power, and newcomer experience.</p>
+<section id="technical-social-comparison" class="level3" data-number="22.3.1">
+<h3 data-number="22.3.1" class="anchored" data-anchor-id="technical-social-comparison"><span class="header-section-number">22.3.1</span> <strong>Technical + Social Comparison</strong></h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 40%">
+<col style="width: 43%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Aspect</th>
+<th><span class="math display">\[\text{Merge}\]</span></th>
+<th><span class="math display">\[\text{Rebase}\]</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>History shape</td>
+<td>Keeps explicit branching and merge commits; the timeline shows “what actually happened.”</td>
+<td>Rewrites the branch so it looks like it was built directly on top of the current main branch; history appears linear.</td>
+</tr>
+<tr class="even">
+<td>Cognitive load for reviewers</td>
+<td>Can be higher when there are many branches and merge commits; reviewers must mentally reconstruct the sequence.</td>
+<td>Often lower when the contributor squashes and reorders commits; reviewers see a clean, linear story of the change.</td>
+</tr>
+<tr class="odd">
+<td>Attribution &amp; learning</td>
+<td>Preserves granular steps (including “mistakes” and “fix typo” commits); useful for understanding how people actually worked and learned.</td>
+<td>Squashing and rewriting can hide the intermediate problem‑solving path; easier to read but less revealing of the learning process.</td>
+</tr>
+<tr class="even">
+<td>Newcomer experience</td>
+<td>History feels “honest” and less scary (no rewriting); tools like <span class="math display">\[\text{git log}\]</span> show all the messy reality.</td>
+<td>History rewriting can feel risky and intimidating; mistakes during rebase (especially with <span class="math display">\[\text{git push --force}\]</span>) can lead to anxiety and lost work.</td>
+</tr>
+<tr class="odd">
+<td>Governance norms</td>
+<td>Some projects allow merge commits freely, especially when they want to preserve a full record of integration events.</td>
+<td>Many projects adopt a “no merge commits” or “please rebase before merge” norm to keep history linear and “professional‑looking.”</td>
+</tr>
+<tr class="even">
+<td>Who bears coordination cost</td>
+<td>More of the coordination work is left to maintainers and reviewers, who must interpret a complex history.</td>
+<td>More of the coordination work is pushed onto contributors, who must manage rebases and keep branches up‑to‑date.</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="rebase-exercise" class="level2" data-number="22.4">
+<h2 data-number="22.4" class="anchored" data-anchor-id="rebase-exercise"><span class="header-section-number">22.4</span> Rebase Exercise</h2>
 <p>In groups of three, a Maintainer and two contributors (Contributor A and Contributor B), begin by setting up the collaboration network (a new repo on GitHub, forks, clones and setting upstream). Then work together to implement these steps:</p>
 <ol type="1">
 <li>Maintainer makes two commits to the main branch. Contributors use <code>git pull upstream main</code> to synchronize.</li>
