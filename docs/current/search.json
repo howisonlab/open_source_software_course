@@ -399,7 +399,7 @@
     "href": "insights/governance.html#pre-readings",
     "title": "8  Governance",
     "section": "",
-    "text": "Ross Gardler & Gabriel Hanganu. (2013). Governance models. OSS-Watch.ac.uk. http://oss-watch.ac.uk/resources/governancemodels\nKarl Fogel. (2020). Chapter 8: Managing Participants. In “Producing OSS” Book. https://producingoss.com/en/managing-participants.html\n“How Open Source communities are evolving” https://blog.weareopen.coop/how-open-source-communities-are-evolving-9cc768249777. Presents a useful typology from Nadia Eghbhal’s work\nApache Foundation guide to voting in projects. https://www.apache.org/foundation/voting.html",
+    "text": "Ross Gardler & Gabriel Hanganu. (2013). Governance models. OSS-Watch.ac.uk. http://oss-watch.ac.uk/resources/governancemodels\nKarl Fogel. (2020). Chapter 8: Managing Participants. In “Producing OSS” Book. https://producingoss.com/en/managing-participants.html\n“How Open Source communities are evolving” https://blog.weareopen.coop/how-open-source-communities-are-evolving-9cc768249777. Presents a useful typology from Nadia Eghbhal’s work\nApache Foundation guide to voting in projects. https://www.apache.org/foundation/voting.html\n\n\n\n\n\n\n\n\nNoteInstructor setup for exercise\n\n\n\nAn expanded version of this exercise is in oss_governance_exercise.docx (created 2026-03-09).\nBefore class:\n\nUpload oss_governance_exercise.docx to UT Mail Google Drive (drive.utmail.utexas.edu) — choose “Convert to Google Docs” on upload\nMake one copy per group (e.g., 3 copies for 3 groups): File &gt; Make a copy\nOn each copy, set sharing to “Anyone with the link can edit” (Share &gt; Change &gt; Anyone with the link &gt; Editor)\n\nNote: copies do NOT inherit sharing permissions from the original, so this must be done per copy\n\nDistribute links to groups at the start of class",
     "crumbs": [
       "Insights",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Governance</span>"
@@ -1165,6 +1165,17 @@
     ]
   },
   {
+    "objectID": "skills/git_rebase.html#contributing.md",
+    "href": "skills/git_rebase.html#contributing.md",
+    "title": "22  Rebase for synchronizing work",
+    "section": "22.3 Contributing.md",
+    "text": "22.3 Contributing.md\nRequiring contributors to use squash with their contributions is an example of a contribution policy. Many projects document these in a CONTRIBUTING.md file at the top level of their repo. You can see examples:\n\nhttps://github.com/sigstore/.github/blob/main/CONTRIBUTING.md\nhttps://github.com/squashimodo/react-table/blob/master/CONTRIBUTING.md\nhttps://contributing.md/example/\n\nRebase and Merge workflows are both useful, but what trade offs are there?\nUp to now, we’ve mostly talked about \\[\\text{git merge}\\] vs \\[\\text{git rebase}\\] in technical terms (shape of history, avoiding conflicts, etc.). For a socio‑technical view, it helps to compare them explicitly on social dimensions like cognitive load, power, and newcomer experience.\n\n22.3.1 Technical + Social Comparison\n\n\n\n\n\n\n\n\nAspect\n\\[\\text{Merge}\\]\n\\[\\text{Rebase}\\]\n\n\n\n\nHistory shape\nKeeps explicit branching and merge commits; the timeline shows “what actually happened.”\nRewrites the branch so it looks like it was built directly on top of the current main branch; history appears linear.\n\n\nCognitive load for reviewers\nCan be higher when there are many branches and merge commits; reviewers must mentally reconstruct the sequence.\nOften lower when the contributor squashes and reorders commits; reviewers see a clean, linear story of the change.\n\n\nAttribution & learning\nPreserves granular steps (including “mistakes” and “fix typo” commits); useful for understanding how people actually worked and learned.\nSquashing and rewriting can hide the intermediate problem‑solving path; easier to read but less revealing of the learning process.\n\n\nNewcomer experience\nHistory feels “honest” and less scary (no rewriting); tools like \\[\\text{git log}\\] show all the messy reality.\nHistory rewriting can feel risky and intimidating; mistakes during rebase (especially with \\[\\text{git push --force}\\]) can lead to anxiety and lost work.\n\n\nGovernance norms\nSome projects allow merge commits freely, especially when they want to preserve a full record of integration events.\nMany projects adopt a “no merge commits” or “please rebase before merge” norm to keep history linear and “professional‑looking.”\n\n\nWho bears coordination cost\nMore of the coordination work is left to maintainers and reviewers, who must interpret a complex history.\nMore of the coordination work is pushed onto contributors, who must manage rebases and keep branches up‑to‑date.",
+    "crumbs": [
+      "Skills",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Rebase for synchronizing work</span>"
+    ]
+  },
+  {
     "objectID": "skills/git_rebase.html#rebase-exercise",
     "href": "skills/git_rebase.html#rebase-exercise",
     "title": "22  Rebase for synchronizing work",
@@ -1580,28 +1591,6 @@
     "crumbs": [
       "Appendices",
       "<span class='chapter-number'>C</span>  <span class='chapter-title'>Glossary of Commands</span>"
-    ]
-  },
-  {
-    "objectID": "skills/git_rebase.html#contributing.md",
-    "href": "skills/git_rebase.html#contributing.md",
-    "title": "22  Rebase for synchronizing work",
-    "section": "22.3 Contributing.md",
-    "text": "22.3 Contributing.md\nRequiring contributors to use squash with their contributions is an example of a contribution policy. Many projects document these in a CONTRIBUTING.md file at the top level of their repo. You can see examples:\n\nhttps://github.com/sigstore/.github/blob/main/CONTRIBUTING.md\nhttps://github.com/squashimodo/react-table/blob/master/CONTRIBUTING.md\nhttps://contributing.md/example/\n\nRebase and Merge workflows are both useful, but what trade offs are there?\nUp to now, we’ve mostly talked about \\[\\text{git merge}\\] vs \\[\\text{git rebase}\\] in technical terms (shape of history, avoiding conflicts, etc.). For a socio‑technical view, it helps to compare them explicitly on social dimensions like cognitive load, power, and newcomer experience.\n\n22.3.1 Technical + Social Comparison\n\n\n\n\n\n\n\n\nAspect\n\\[\\text{Merge}\\]\n\\[\\text{Rebase}\\]\n\n\n\n\nHistory shape\nKeeps explicit branching and merge commits; the timeline shows “what actually happened.”\nRewrites the branch so it looks like it was built directly on top of the current main branch; history appears linear.\n\n\nCognitive load for reviewers\nCan be higher when there are many branches and merge commits; reviewers must mentally reconstruct the sequence.\nOften lower when the contributor squashes and reorders commits; reviewers see a clean, linear story of the change.\n\n\nAttribution & learning\nPreserves granular steps (including “mistakes” and “fix typo” commits); useful for understanding how people actually worked and learned.\nSquashing and rewriting can hide the intermediate problem‑solving path; easier to read but less revealing of the learning process.\n\n\nNewcomer experience\nHistory feels “honest” and less scary (no rewriting); tools like \\[\\text{git log}\\] show all the messy reality.\nHistory rewriting can feel risky and intimidating; mistakes during rebase (especially with \\[\\text{git push --force}\\]) can lead to anxiety and lost work.\n\n\nGovernance norms\nSome projects allow merge commits freely, especially when they want to preserve a full record of integration events.\nMany projects adopt a “no merge commits” or “please rebase before merge” norm to keep history linear and “professional‑looking.”\n\n\nWho bears coordination cost\nMore of the coordination work is left to maintainers and reviewers, who must interpret a complex history.\nMore of the coordination work is pushed onto contributors, who must manage rebases and keep branches up‑to‑date.",
-    "crumbs": [
-      "Skills",
-      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Rebase for synchronizing work</span>"
-    ]
-  },
-  {
-    "objectID": "skills/git_rebase.html#compare-textmerge-vs-textrebase-in-social-terms-not-just-technical",
-    "href": "skills/git_rebase.html#compare-textmerge-vs-textrebase-in-social-terms-not-just-technical",
-    "title": "22  Rebase for synchronizing work",
-    "section": "22.4 **6. Compare \\[\\text{merge}\\] vs \\[\\text{rebase}\\] in Social Terms, Not Just Technical",
-    "text": "22.4 **6. Compare \\[\\text{merge}\\] vs \\[\\text{rebase}\\] in Social Terms, Not Just Technical\nUp to now, we’ve mostly talked about \\[\\text{git merge}\\] vs \\[\\text{git rebase}\\] in technical terms (shape of history, avoiding conflicts, etc.). For a socio‑technical view, it helps to compare them explicitly on social dimensions like cognitive load, power, and newcomer experience.\n\n22.4.1 Technical + Social Comparison\n\n\n\n\n\n\n\n\nAspect\n\\[\\text{Merge}\\]\n\\[\\text{Rebase}\\]\n\n\n\n\nHistory shape\nKeeps explicit branching and merge commits; the timeline shows “what actually happened.”\nRewrites the branch so it looks like it was built directly on top of the current main branch; history appears linear.\n\n\nCognitive load for reviewers\nCan be higher when there are many branches and merge commits; reviewers must mentally reconstruct the sequence.\nOften lower when the contributor squashes and reorders commits; reviewers see a clean, linear story of the change.\n\n\nAttribution & learning\nPreserves granular steps (including “mistakes” and “fix typo” commits); useful for understanding how people actually worked and learned.\nSquashing and rewriting can hide the intermediate problem‑solving path; easier to read but less revealing of the learning process.\n\n\nNewcomer experience\nHistory feels “honest” and less scary (no rewriting); tools like \\[\\text{git log}\\] show all the messy reality.\nHistory rewriting can feel risky and intimidating; mistakes during rebase (especially with \\[\\text{git push --force}\\]) can lead to anxiety and lost work.\n\n\nGovernance norms\nSome projects allow merge commits freely, especially when they want to preserve a full record of integration events.\nMany projects adopt a “no merge commits” or “please rebase before merge” norm to keep history linear and “professional‑looking.”\n\n\nWho bears coordination cost\nMore of the coordination work is left to maintainers and reviewers, who must interpret a complex history.\nMore of the coordination work is pushed onto contributors, who must manage rebases and keep branches up‑to‑date.",
-    "crumbs": [
-      "Skills",
-      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Rebase for synchronizing work</span>"
     ]
   }
 ]

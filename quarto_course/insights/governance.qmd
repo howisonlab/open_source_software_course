@@ -15,6 +15,20 @@
 
 Extra optional reading: Podcast on "Learning from Open Source": <https://a16z.com/podcast/learning-from-open-source-communities/>.  We will have readings from this later in the course, so useful to do now.
 
+::: {.callout-note}
+## Instructor setup for exercise
+An expanded version of this exercise is in [oss_governance_exercise.docx](governance_files/oss_governance_exercise.docx) (created 2026-03-09).
+
+Before class:
+
+1. Upload `oss_governance_exercise.docx` to UT Mail Google Drive (drive.utmail.utexas.edu) — choose "Convert to Google Docs" on upload
+2. Make one copy per group (e.g., 3 copies for 3 groups): File > Make a copy
+3. On **each copy**, set sharing to "Anyone with the link can edit" (Share > Change > Anyone with the link > Editor)
+   - Note: copies do NOT inherit sharing permissions from the original, so this must be done per copy
+4. Distribute links to groups at the start of class
+:::
+
+
 ## Exercise: Note-taking via google docs
 
 You will be placed into groups of 3 (not sitting near each other):
