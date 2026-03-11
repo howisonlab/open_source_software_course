@@ -346,9 +346,9 @@ works, reinstall and make sure to check "Add Python to PATH."
     -   Also type: `pip --version` to confirm pip is installed
 
 
-## Python Verification Checklist
+### Python Verification Checklist
 
-### Windows
+#### Windows
 
 -   [ ] Opened Command Prompt
 -   [ ] Typed `python --version` — version number displayed:
@@ -356,7 +356,7 @@ works, reinstall and make sure to check "Add Python to PATH."
 -   [ ] Typed `pip --version` — pip version displayed:
     \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
-### Mac
+#### Mac
 
 -   [ ] Opened Terminal
 -   [ ] Typed `python --version` — version number displayed:
@@ -397,7 +397,7 @@ computer and try again.
 
 ------------------------------------------------------------------------
 
-## Mac Users
+### Mac Users
 
 1.  **Download Quarto:**
     -   Go to https://quarto.org/docs/get-started/
