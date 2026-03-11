@@ -330,6 +330,7 @@ works, reinstall and make sure to check "Add Python to PATH."
     -   Type: `python --version`
     -   If you see a version number like `Python 3.x.x`, **Python is
         already installed** - skip to the verification step below!
+    - Try: `python3 --version` (if that works you'll have to type `python3` each time the materials say `python`)
 2.  **If Python is Not Installed - Download from the Official Website:**
     -   Go to https://www.python.org/downloads/
     -   Click the **"Download Python 3.x.x"** button
