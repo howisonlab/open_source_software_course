@@ -389,6 +389,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#check-your-default-branch" id="toc-check-your-default-branch" class="nav-link" data-scroll-target="#check-your-default-branch"><span class="header-section-number">A.10.1</span> Check Your Default Branch</a></li>
   <li><a href="#standardizing-to-main-recommended" id="toc-standardizing-to-main-recommended" class="nav-link" data-scroll-target="#standardizing-to-main-recommended"><span class="header-section-number">A.10.2</span> Standardizing to <code>main</code> (Recommended)</a></li>
   </ul></li>
+  <li><a href="#python-installation" id="toc-python-installation" class="nav-link" data-scroll-target="#python-installation"><span class="header-section-number">A.11</span> Python installation</a>
+  <ul class="collapse">
+  <li><a href="#windows-users-1" id="toc-windows-users-1" class="nav-link" data-scroll-target="#windows-users-1"><span class="header-section-number">A.11.1</span> Windows Users</a></li>
+  <li><a href="#mac-users-1" id="toc-mac-users-1" class="nav-link" data-scroll-target="#mac-users-1"><span class="header-section-number">A.11.2</span> Mac Users</a></li>
+  <li><a href="#python-verification-checklist" id="toc-python-verification-checklist" class="nav-link" data-scroll-target="#python-verification-checklist"><span class="header-section-number">A.11.3</span> Python Verification Checklist</a></li>
+  </ul></li>
+  <li><a href="#install-pytest" id="toc-install-pytest" class="nav-link" data-scroll-target="#install-pytest"><span class="header-section-number">A.12</span> Install PyTest</a>
+  <ul class="collapse">
+  <li><a href="#windows-users-2" id="toc-windows-users-2" class="nav-link" data-scroll-target="#windows-users-2"><span class="header-section-number">A.12.1</span> Windows Users</a></li>
+  <li><a href="#mac-users-2" id="toc-mac-users-2" class="nav-link" data-scroll-target="#mac-users-2"><span class="header-section-number">A.12.2</span> Mac Users</a></li>
+  </ul></li>
+  <li><a href="#install-quarto" id="toc-install-quarto" class="nav-link" data-scroll-target="#install-quarto"><span class="header-section-number">A.13</span> Install Quarto</a>
+  <ul class="collapse">
+  <li><a href="#windows-users-3" id="toc-windows-users-3" class="nav-link" data-scroll-target="#windows-users-3"><span class="header-section-number">A.13.1</span> Windows Users</a></li>
+  <li><a href="#mac-users-3" id="toc-mac-users-3" class="nav-link" data-scroll-target="#mac-users-3"><span class="header-section-number">A.13.2</span> Mac Users</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/skills/install_rstudio_and_git.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
@@ -678,6 +694,195 @@ git config --global user.email "your.email@example.com"</code></pre>
 <p><strong>Configure Git for future repositories</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> init.defaultBranch main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This ensures all new repositories you create will use <code>main</code> by default.</p>
+</section>
+</section>
+<section id="python-installation" class="level2" data-number="A.11">
+<h2 data-number="A.11" class="anchored" data-anchor-id="python-installation"><span class="header-section-number">A.11</span> Python installation</h2>
+<section id="windows-users-1" class="level3" data-number="A.11.1">
+<h3 data-number="A.11.1" class="anchored" data-anchor-id="windows-users-1"><span class="header-section-number">A.11.1</span> Windows Users</h3>
+<ol type="1">
+<li><strong>Download Python:</strong>
+<ul>
+<li>Go to https://www.python.org/downloads/</li>
+<li>Click the yellow <strong>Download Python 3.x.x</strong> button</li>
+<li>This will download a <code>.exe</code> installer file</li>
+</ul></li>
+<li><strong>Run the Installer:</strong>
+<ul>
+<li>Double-click the downloaded <code>.exe</code> file<br>
+</li>
+<li><strong>IMPORTANT:</strong> On the first screen, check the box that says <strong>“Add Python to PATH”</strong> before clicking anything else
+<ul>
+<li>This box is near the bottom of the installer window</li>
+<li>If you miss this step, Python commands won’t work in your terminal</li>
+</ul></li>
+<li>Click <strong>Install Now</strong></li>
+<li>Click <strong>Close</strong> when finished</li>
+</ul></li>
+<li><strong>Verify Installation:</strong>
+<ul>
+<li>Open Command Prompt</li>
+<li>Type: <code>python --version</code></li>
+<li>You should see something like <code>Python 3.x.x</code></li>
+<li>Also type: <code>pip --version</code> to confirm pip (Python’s package manager) is installed</li>
+</ul></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <code>python --version</code> doesn’t work, try <code>python3 --version</code>. If neither works, reinstall and make sure to check “Add Python to PATH.”</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="mac-users-1" class="level3" data-number="A.11.2">
+<h3 data-number="A.11.2" class="anchored" data-anchor-id="mac-users-1"><span class="header-section-number">A.11.2</span> Mac Users</h3>
+<ol type="1">
+<li><strong>Check if Python is Already Installed:</strong>
+<ul>
+<li>Open Terminal</li>
+<li>Type: <code>python --version</code></li>
+<li>If you see a version number like <code>Python 3.x.x</code>, <strong>Python is already installed</strong> - skip to the verification step below!</li>
+</ul></li>
+<li><strong>If Python is Not Installed - Download from the Official Website:</strong>
+<ul>
+<li>Go to https://www.python.org/downloads/</li>
+<li>Click the <strong>“Download Python 3.x.x”</strong> button</li>
+<li>This will download a <code>.pkg</code> installer file</li>
+</ul></li>
+<li><strong>Run the Installer:</strong>
+<ul>
+<li>Open the downloaded <code>.pkg</code> file</li>
+<li>Follow the installation wizard</li>
+<li>Enter your Mac password if prompted</li>
+<li>Click <strong>Close</strong> when finished</li>
+</ul></li>
+<li><strong>Verify Installation:</strong>
+<ul>
+<li>Open Terminal</li>
+<li>Type: <code>python --version</code></li>
+<li>You should see something like <code>Python 3.x.x</code></li>
+<li>Also type: <code>pip --version</code> to confirm pip is installed</li>
+</ul></li>
+</ol>
+</section>
+<section id="python-verification-checklist" class="level3" data-number="A.11.3">
+<h3 data-number="A.11.3" class="anchored" data-anchor-id="python-verification-checklist"><span class="header-section-number">A.11.3</span> Python Verification Checklist</h3>
+<section id="windows" class="level4" data-number="A.11.3.1">
+<h4 data-number="A.11.3.1" class="anchored" data-anchor-id="windows"><span class="header-section-number">A.11.3.1</span> Windows</h4>
+<ul class="task-list">
+<li><label><input type="checkbox">Opened Command Prompt</label></li>
+<li><label><input type="checkbox">Typed <code>python --version</code> — version number displayed: _________________(e.g.,3.12.4)</label></li>
+<li><label><input type="checkbox">Typed <code>pip --version</code> — pip version displayed: _________________</label></li>
+</ul>
+</section>
+<section id="mac" class="level4" data-number="A.11.3.2">
+<h4 data-number="A.11.3.2" class="anchored" data-anchor-id="mac"><span class="header-section-number">A.11.3.2</span> Mac</h4>
+<ul class="task-list">
+<li><label><input type="checkbox">Opened Terminal</label></li>
+<li><label><input type="checkbox">Typed <code>python --version</code> — version number displayed: _________________(e.g.,3.12.4)</label></li>
+<li><label><input type="checkbox">Typed <code>pip --version</code> — pip version displayed: _________________</label></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="install-pytest" class="level2" data-number="A.12">
+<h2 data-number="A.12" class="anchored" data-anchor-id="install-pytest"><span class="header-section-number">A.12</span> Install PyTest</h2>
+<section id="windows-users-2" class="level3" data-number="A.12.1">
+<h3 data-number="A.12.1" class="anchored" data-anchor-id="windows-users-2"><span class="header-section-number">A.12.1</span> Windows Users</h3>
+<ul>
+<li>Open Command Prompt and type: <code>pip install pytest</code></li>
+</ul>
+</section>
+<section id="mac-users-2" class="level3" data-number="A.12.2">
+<h3 data-number="A.12.2" class="anchored" data-anchor-id="mac-users-2"><span class="header-section-number">A.12.2</span> Mac Users</h3>
+<ul>
+<li>Open Terminal and type: <code>pip3 install pytest</code></li>
+</ul>
+</section>
+</section>
+<section id="install-quarto" class="level2" data-number="A.13">
+<h2 data-number="A.13" class="anchored" data-anchor-id="install-quarto"><span class="header-section-number">A.13</span> Install Quarto</h2>
+<section id="windows-users-3" class="level3" data-number="A.13.1">
+<h3 data-number="A.13.1" class="anchored" data-anchor-id="windows-users-3"><span class="header-section-number">A.13.1</span> Windows Users</h3>
+<ol type="1">
+<li><strong>Download Quarto:</strong>
+<ul>
+<li>Go to https://quarto.org/docs/get-started/</li>
+<li>Click the <strong>Download Quarto CLI</strong> button</li>
+<li>Select the <strong>Windows</strong> installer (<code>.exe</code> file)</li>
+</ul></li>
+<li><strong>Run the Installer:</strong>
+<ul>
+<li>Double-click the downloaded <code>.exe</code> file</li>
+<li>Follow the installation wizard</li>
+<li>Click <strong>Finish</strong> when done</li>
+</ul></li>
+<li><strong>Verify Installation:</strong>
+<ul>
+<li>Open Command Prompt (search for “cmd” in the Start menu)</li>
+<li>Type: <code>quarto --version</code></li>
+<li>You should see a version number like <code>1.x.x</code></li>
+</ul></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <code>quarto --version</code> doesn’t work after installation, try closing and reopening Command Prompt. If it still doesn’t work, restart your computer and try again.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="mac-users-3" class="level3" data-number="A.13.2">
+<h3 data-number="A.13.2" class="anchored" data-anchor-id="mac-users-3"><span class="header-section-number">A.13.2</span> Mac Users</h3>
+<ol type="1">
+<li><strong>Download Quarto:</strong>
+<ul>
+<li>Go to https://quarto.org/docs/get-started/</li>
+<li>Click the <strong>Download Quarto CLI</strong> button</li>
+<li>Select the <strong>Mac OS</strong> installer (<code>.pkg</code> file)</li>
+</ul></li>
+<li><strong>Run the Installer:</strong>
+<ul>
+<li>Open the downloaded <code>.pkg</code> file</li>
+<li>Follow the installation wizard</li>
+<li>Enter your Mac password if prompted</li>
+<li>Click <strong>Close</strong> when finished</li>
+</ul></li>
+<li><strong>Verify Installation:</strong>
+<ul>
+<li>Open Terminal</li>
+<li>Type: <code>quarto --version</code></li>
+<li>You should see a version number like <code>1.x.x</code></li>
+</ul></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If Terminal says <code>quarto: command not found</code>, close Terminal completely and reopen it - the installer needs a fresh session to be recognized.</p>
+</div>
+</div>
 
 
 </section>

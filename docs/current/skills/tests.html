@@ -357,12 +357,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#needed-programming-concepts" id="toc-needed-programming-concepts" class="nav-link active" data-scroll-target="#needed-programming-concepts"><span class="header-section-number">23.1</span> Needed programming concepts</a></li>
-  <li><a href="#automating" id="toc-automating" class="nav-link" data-scroll-target="#automating"><span class="header-section-number">23.2</span> Automating</a></li>
-  <li><a href="#running-pytest" id="toc-running-pytest" class="nav-link" data-scroll-target="#running-pytest"><span class="header-section-number">23.3</span> Running pytest</a></li>
-  <li><a href="#dealing-with-bad-input" id="toc-dealing-with-bad-input" class="nav-link" data-scroll-target="#dealing-with-bad-input"><span class="header-section-number">23.4</span> Dealing with bad input</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">23.5</span> Exercises</a></li>
-  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources"><span class="header-section-number">23.6</span> Additional resources</a></li>
+  <li><a href="#ensure-python-pytest-and-quarto-installed" id="toc-ensure-python-pytest-and-quarto-installed" class="nav-link active" data-scroll-target="#ensure-python-pytest-and-quarto-installed"><span class="header-section-number">23.1</span> Ensure Python, pytest, and quarto installed</a></li>
+  <li><a href="#needed-programming-concepts" id="toc-needed-programming-concepts" class="nav-link" data-scroll-target="#needed-programming-concepts"><span class="header-section-number">23.2</span> Needed programming concepts</a></li>
+  <li><a href="#automating" id="toc-automating" class="nav-link" data-scroll-target="#automating"><span class="header-section-number">23.3</span> Automating</a></li>
+  <li><a href="#running-pytest" id="toc-running-pytest" class="nav-link" data-scroll-target="#running-pytest"><span class="header-section-number">23.4</span> Running pytest</a></li>
+  <li><a href="#dealing-with-bad-input" id="toc-dealing-with-bad-input" class="nav-link" data-scroll-target="#dealing-with-bad-input"><span class="header-section-number">23.5</span> Dealing with bad input</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">23.6</span> Exercises</a></li>
+  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources"><span class="header-section-number">23.7</span> Additional resources</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/skills/tests.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
@@ -393,6 +394,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </blockquote>
 <p><strong>Test suites</strong> allow a programming group to define expected behaviors and verify them using software tests. Then, when changes are introduced to the codebase, the test suite can show that the changes have not accidentally altered the expected behaviors.</p>
 <p>They help with the challenge of coordination among developers as codebases change, serving as an executable reminder of developers intentions.</p>
+<p>They help avoid the pain of your changes breaking other people’s code; they are a clear marker of being a competant professional.</p>
 <p>In this class we will get some experience with writing and executing multiple tests (making a “test suite”). We will get to the point where individual contributors can run the tests prior to making a PR, serving as an individual level check. In the class on Continuous Integration we will learn how to use Github Actions so that these tests are automatically run when a PR is created, and have GitHub report the results.</p>
 <p>A software test consists of:</p>
 <ol type="1">
@@ -403,18 +405,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>a way to compare expected vs actual output</li>
 </ol>
 <p>We will be using the python pytest library.</p>
-<section id="needed-programming-concepts" class="level2" data-number="23.1">
-<h2 data-number="23.1" class="anchored" data-anchor-id="needed-programming-concepts"><span class="header-section-number">23.1</span> Needed programming concepts</h2>
+<section id="ensure-python-pytest-and-quarto-installed" class="level2" data-number="23.1">
+<h2 data-number="23.1" class="anchored" data-anchor-id="ensure-python-pytest-and-quarto-installed"><span class="header-section-number">23.1</span> Ensure Python, pytest, and quarto installed</h2>
+<p>We will be using Python, pytest and quarto today. We added sections to the tech setup page at <a href="install_rstudio_and_git.html" class="quarto-xref"><span>Appendix A</span></a>, please visit and ensure these are installed.</p>
+</section>
+<section id="needed-programming-concepts" class="level2" data-number="23.2">
+<h2 data-number="23.2" class="anchored" data-anchor-id="needed-programming-concepts"><span class="header-section-number">23.2</span> Needed programming concepts</h2>
 <p>In order to understand how tests work in pytest we need to know a few programming concepts: functions, parameters, and exceptions.</p>
 <p>A <strong>function</strong> is a reuseable chunk of code. A function is defined by providing a name and then providing the chunk of code. We can then use the chunk of code by calling the name from other code.</p>
 <p>A <strong>parameter</strong> is an object that the function receives, it is usually a piece of data like a piece of text or a number.</p>
 <p>The <strong>return value</strong> of a function is the output that is returned. When a function is called from other code, we can replace the function with its return value to help understand what will happen in the code.</p>
 <p>For example, imagine we are working with phone numbers. We want to re-format phone numbers to make them readable. For example, if we were given <code>5125555678</code> we would want to reformat that to show <code>(512) 555 5678</code></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fix_phone_num(phone_num_to_fix):</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># given "5125558823". Split the parts, then recombine and return</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># given "5125555678". Split the parts, then recombine and return</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  area_code <span class="op">=</span> phone_num_to_fix[<span class="dv">0</span>:<span class="dv">3</span>] <span class="co"># 512 (first three digits)</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  three_part <span class="op">=</span> phone_num_to_fix[<span class="dv">3</span>:<span class="dv">6</span>] <span class="co"># 555 (next three digits)</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  four_part <span class="op">=</span> phone_num_to_fix[<span class="dv">6</span>:] <span class="co"># # 8823 (last four digits)</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  four_part <span class="op">=</span> phone_num_to_fix[<span class="dv">6</span>:] <span class="co"># # 5678 (last four digits)</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  fixed_num <span class="op">=</span> <span class="st">"("</span> <span class="op">+</span> area_code <span class="op">+</span> <span class="st">")"</span> <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> three_part <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> four_part </span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  </span>
@@ -429,47 +435,51 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The starting/ending single quote marks (<code>'   '</code>) are python’s way of telling us that this is a string. Manually we look inside that and see that yes, our code is properly formatted.</p>
 <p>pytest allows us to automate this process.</p>
 </section>
-<section id="automating" class="level2" data-number="23.2">
-<h2 data-number="23.2" class="anchored" data-anchor-id="automating"><span class="header-section-number">23.2</span> Automating</h2>
+<section id="automating" class="level2" data-number="23.3">
+<h2 data-number="23.3" class="anchored" data-anchor-id="automating"><span class="header-section-number">23.3</span> Automating</h2>
 <p>To automate this idea we will use pytest. pytest looks through a python file and runs all functions that start with <code>test_</code>.</p>
 <p>To define a test for <code>pytest</code> we need one additional concept: <code>assert</code>. An assertion is a statement that checks if a piece of code returns <code>True</code> or <code>False</code>. If <code>assert</code> sees <code>True</code> then the test has passed. If it sees <code>False</code> then the test has failed. We can use it to check whether our function (given a particular input) gives us our expected output.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="dv">1</span><span class="op">==</span><span class="dv">1</span> <span class="co"># True, assertion passes</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="dv">1</span><span class="op">==</span><span class="dv">2</span> <span class="co"># False, assertion fails</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="va">True</span> <span class="co"># always passes!</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="va">False</span> <span class="co"># always fails!</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>So now we have our function above and one additional function (the test) which has an <code>assert</code> within it.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_fix_phone_num():</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">assert</span> fix_phone_num(<span class="st">"5125558823"</span>) <span class="op">==</span> <span class="st">'(512) 555 8823'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_fix_phone_num():</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">assert</span> fix_phone_num(<span class="st">"5125558823"</span>) <span class="op">==</span> <span class="st">'(512) 555 8823'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The <code>assert</code> line here receives an equality test <code>==</code>. If the two sides are the same, then it returns <code>True</code>. So to work this through python will execute:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> fix_phone_num(<span class="st">"5125558823"</span>) <span class="op">==</span> <span class="st">'(512) 555 8823'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> fix_phone_num(<span class="st">"5125558823"</span>) <span class="op">==</span> <span class="st">'(512) 555 8823'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>then the call to fix_phone_num(““5125558823”) will make python move into the function. The string parts will be split up, then recombined, and finally the call to <code>return</code> will bring us back to the <code>assert</code> line, the call to the function will be replaced by the return value and so python will see:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="st">'(512) 555 8823'</span> <span class="op">==</span> <span class="st">'(512) 555 8823'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="st">'(512) 555 8823'</span> <span class="op">==</span> <span class="st">'(512) 555 8823'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Python will compare the left and right sides, which are the same. That comparison will return <code>True</code>, so python will see:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="va">True</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="va">True</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>When pytest runs this code sees <code>assert True</code> it understands that that part of the test has passed.</p>
 </section>
-<section id="running-pytest" class="level2" data-number="23.3">
-<h2 data-number="23.3" class="anchored" data-anchor-id="running-pytest"><span class="header-section-number">23.3</span> Running pytest</h2>
+<section id="running-pytest" class="level2" data-number="23.4">
+<h2 data-number="23.4" class="anchored" data-anchor-id="running-pytest"><span class="header-section-number">23.4</span> Running pytest</h2>
 <p>pytest is run from the commandline. We pass it the name of a source file (my_code.py), it finds all the functions that start with <code>test_</code> and runs them. In our example if the <code>assert</code> line sees <code>True</code> then the test passes.</p>
 <p>We can have more than one <code>assert</code> within a test, but only if all of them pass does the whole test pass.</p>
-<p>To run from the command line we need to move to Terminal (“Run” → “Terminal” on DataCamp).</p>
+<p>To run from the command line we need to move to Terminal.</p>
 <p>First go to this <a href="https://github.com/howisonlab/i320d-pytest-example.git">example repo on GitHub</a>, and make your own fork. Then clone that fork down and change into that directory.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="op">&lt;</span>your_fork_url<span class="op">&gt;</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> i320d-pytest-example/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="op">&lt;</span>your_fork_url<span class="op">&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> i320d-pytest-example/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Now we have our function and our test. You can quickly glance at a file on the commandline using</p>
 <pre><code>cat my_code.py</code></pre>
 <p>Then we can run tests using</p>
 <pre><code>$ pytest -v my_code.py</code></pre>
 <p>The <code>-v</code> makes the output <code>verbose</code> which I think is helpful because it shows all the tests that ran by name.</p>
 <p>The output looks like</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">===========================</span> test session starts ============================</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">platform</span> linux <span class="at">--</span> Python 3.8.10, pytest-7.1.2, pluggy-1.0.0 <span class="at">--</span> /usr/bin/python3</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="ex">cachedir:</span> .pytest_cache</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="ex">rootdir:</span> /work/files/workspace/i320d-pytest-example</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="ex">plugins:</span> dash-2.13.0, web3-5.31.0, anyio-3.6.1</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="ex">collected</span> 1 item                                                           </span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="ex">my_code.py::test_fix_phone_num</span> PASSED                                <span class="pp">[</span><span class="ss">100%</span><span class="pp">]</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="ex">============================</span> 1 passed in 0.03s =============================</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">===========================</span> test session starts ============================</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">platform</span> linux <span class="at">--</span> Python 3.8.10, pytest-7.1.2, pluggy-1.0.0 <span class="at">--</span> /usr/bin/python3</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="ex">cachedir:</span> .pytest_cache</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="ex">rootdir:</span> /work/files/workspace/i320d-pytest-example</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="ex">plugins:</span> dash-2.13.0, web3-5.31.0, anyio-3.6.1</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="ex">collected</span> 1 item                                                           </span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="ex">my_code.py::test_fix_phone_num</span> PASSED                                <span class="pp">[</span><span class="ss">100%</span><span class="pp">]</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="ex">============================</span> 1 passed in 0.03s =============================</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-note callout-titled" title="Prelude to Continuous Integration">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -494,72 +504,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="dealing-with-bad-input" class="level2" data-number="23.4">
-<h2 data-number="23.4" class="anchored" data-anchor-id="dealing-with-bad-input"><span class="header-section-number">23.4</span> Dealing with bad input</h2>
+<section id="dealing-with-bad-input" class="level2" data-number="23.5">
+<h2 data-number="23.5" class="anchored" data-anchor-id="dealing-with-bad-input"><span class="header-section-number">23.5</span> Dealing with bad input</h2>
 <p>One very common kind of bug is when the code can’t handle unexpected input. For example, what happens if our function hits input like <code>'mobile'</code> (which is not a phone). This is very useful for coordination since future developers might not understand what we assumed would be passed to a function. So we can use tests to see if our function will behave in the appropriate way.</p>
 <p>In programming we can indicate that we’ve received something we weren’t expecting and can’t handle is to <strong>raise an Error</strong>. This will enable us to communicate effectively with future programmers. When we define our own error we can better describe the issue, avoiding just letting code fail. If we don’t throw a specific error, Python will end up throwing an obscure exception somewhere deep down the stack, or returning invalid output (but blithely keep going).</p>
 <p>For example, if we pass our function a phone number that is too short, what will currently happen? Run this in a cell in a notebook.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>short_num <span class="op">=</span> <span class="st">"51"</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>fix_phone_num(<span class="st">"51"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Python will return `‘(51)’. That is not a valid phone number. (If you are wondering why it doesn’t throw an error, I was too, apparently string slicing doesn’t throw errors, even when the index passed is too high).</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>short_num <span class="op">=</span> <span class="st">"51"</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>fix_phone_num(<span class="st">"51"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Python will return <code>'(51) '</code>. That is not a valid phone number. (If you are wondering why it doesn’t throw an error, I was too, apparently string slicing doesn’t throw errors, even when the index passed is too high).</p>
 <p>What should our function do if it encounters something that it can’t turn into a valid phone number? The answer is that it should raise an Error. And we should throw the most specific kind of Error. Here that is going to be a <code>ValueError</code></p>
-<p>This brings us to another idea in testing: we should write the test first, see that it fails, then write the code. This feels a little backwards, but the idea is that helps quality. The idea is called <a href="https://en.wikipedia.org/wiki/Test-driven_development">Test Driven Development</a></p>
+<p>This brings us to another idea in testing: we should write the test first, see that it fails, then write the code. This feels a little backwards, but the idea is that helps quality.</p>
 <p>Here we can test whether code raises an Error using the <code>pytest.raises</code> function which we can use to check that, given a known bad input, our function will give us a helpful error.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_fix_phone_num():</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">assert</span> fix_phone_num(<span class="st">"5125558823"</span>) <span class="op">==</span> <span class="st">'(512) 555 8823'</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Now check that a too short string gives a ValueError</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">with</span> pytest.raises(<span class="pp">ValueError</span>):</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    fix_phone_num(<span class="st">"51"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_fix_phone_num():</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">assert</span> fix_phone_num(<span class="st">"5125558823"</span>) <span class="op">==</span> <span class="st">'(512) 555 8823'</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Now check that a too short string gives a ValueError</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">with</span> pytest.raises(<span class="pp">ValueError</span>):</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    fix_phone_num(<span class="st">"51"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Now if we run our test, we will see it fail:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">=========================</span> test session starts =========================</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="ex">platform</span> linux <span class="at">--</span> Python 3.8.10, pytest-7.1.2, pluggy-1.0.0 <span class="at">--</span> /usr/bin/python3</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="ex">cachedir:</span> .pytest_cache</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="ex">rootdir:</span> /work/files/workspace/i320d-pytest-example</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="ex">plugins:</span> dash-2.13.0, web3-5.31.0, anyio-3.6.1</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="ex">collected</span> 1 item                                                      </span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="ex">my_code.py::test_fix_phone_num</span> FAILED                           <span class="pp">[</span><span class="ss">100%</span><span class="pp">]</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="ex">==============================</span> FAILURES ===============================</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="ex">_________________________</span> test_fix_phone_num __________________________</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    <span class="ex">def</span> test_fix_phone_num<span class="er">(</span><span class="kw">)</span><span class="bu">:</span></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>      <span class="ex">assert</span> fix_phone_num<span class="er">(</span><span class="st">"5125558823"</span><span class="kw">)</span> <span class="ex">==</span> <span class="st">'(512) 555 8823'</span></span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Now check that a too short string gives a ValueError</span></span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>      <span class="ex">with</span> pytest.raises<span class="er">(</span><span class="ex">ValueError</span><span class="kw">)</span><span class="bu">:</span></span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span>       fix_phone_num<span class="kw">(</span><span class="st">"51"</span><span class="kw">)</span></span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="ex">E</span>       Failed: DID NOT RAISE <span class="op">&lt;</span>class <span class="st">'ValueError'</span><span class="op">&gt;</span></span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a><span class="ex">my_code.py:18:</span> Failed</span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="ex">=======================</span> short test summary info =======================</span>
-<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a><span class="ex">FAILED</span> my_code.py::test_fix_phone_num <span class="at">-</span> Failed: DID NOT RAISE <span class="op">&lt;</span>class...</span>
-<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a><span class="ex">==========================</span> 1 failed in 0.17s ==========================</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">=========================</span> test session starts =========================</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ex">platform</span> linux <span class="at">--</span> Python 3.8.10, pytest-7.1.2, pluggy-1.0.0 <span class="at">--</span> /usr/bin/python3</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="ex">cachedir:</span> .pytest_cache</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="ex">rootdir:</span> /work/files/workspace/i320d-pytest-example</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="ex">plugins:</span> dash-2.13.0, web3-5.31.0, anyio-3.6.1</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="ex">collected</span> 1 item                                                      </span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="ex">my_code.py::test_fix_phone_num</span> FAILED                           <span class="pp">[</span><span class="ss">100%</span><span class="pp">]</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="ex">==============================</span> FAILURES ===============================</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="ex">_________________________</span> test_fix_phone_num __________________________</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    <span class="ex">def</span> test_fix_phone_num<span class="er">(</span><span class="kw">)</span><span class="bu">:</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>      <span class="ex">assert</span> fix_phone_num<span class="er">(</span><span class="st">"5125558823"</span><span class="kw">)</span> <span class="ex">==</span> <span class="st">'(512) 555 8823'</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Now check that a too short string gives a ValueError</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>      <span class="ex">with</span> pytest.raises<span class="er">(</span><span class="ex">ValueError</span><span class="kw">)</span><span class="bu">:</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span>       fix_phone_num<span class="kw">(</span><span class="st">"51"</span><span class="kw">)</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="ex">E</span>       Failed: DID NOT RAISE <span class="op">&lt;</span>class <span class="st">'ValueError'</span><span class="op">&gt;</span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a><span class="ex">my_code.py:18:</span> Failed</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a><span class="ex">=======================</span> short test summary info =======================</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a><span class="ex">FAILED</span> my_code.py::test_fix_phone_num <span class="at">-</span> Failed: DID NOT RAISE <span class="op">&lt;</span>class...</span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a><span class="ex">==========================</span> 1 failed in 0.17s ==========================</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>So now we know what we need to do. This is called “sanity checking” inputs. We can add an <code>if</code> statement to know whether to raise an error.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fix_phone_num(phone_num_to_fix):</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># can only handle numbers that are exactly 10 digits long</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="bu">len</span>(phone_num_to_fix) <span class="op">!=</span> <span class="dv">10</span>):</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"Can only format numbers that are exactly 10 digits long"</span>)</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  ...</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fix_phone_num(phone_num_to_fix):</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># can only handle numbers that are exactly 10 digits long</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="bu">len</span>(phone_num_to_fix) <span class="op">!=</span> <span class="dv">10</span>):</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"Can only format numbers that are exactly 10 digits long"</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  ...</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Now instead of invalid output, we get an Error with a specific message and we get guidance of where the problem is. If we run that code manually in a notebook we see:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">---------------------------------------------------------------------------</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ValueError</span>                                Traceback <span class="er">(</span><span class="ex">most</span> recent call last<span class="kw">)</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Cell</span> In<span class="pp">[</span><span class="ss">30</span><span class="pp">]</span>, line 3</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>      <span class="ex">1</span> short_num = <span class="st">"51"</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="ex">----</span><span class="op">&gt;</span> 3 fix_phone_num<span class="er">(</span><span class="st">"51"</span><span class="kw">)</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Cell</span> In<span class="pp">[</span><span class="ss">29</span><span class="pp">]</span>, line 4, in fix_phone_num<span class="er">(</span><span class="ex">phone_num_to_fix</span><span class="kw">)</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>      <span class="ex">1</span> def fix_phone_num<span class="er">(</span><span class="ex">phone_num_to_fix</span><span class="kw">)</span><span class="bu">:</span></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>      <span class="ex">2</span>   <span class="co"># can only handle numbers that are exactly 10 digits long</span></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>      <span class="ex">3</span>   if <span class="er">(</span><span class="ex">len</span><span class="er">(</span><span class="ex">phone_num_to_fix</span><span class="kw">)</span> <span class="ex">!=</span> 10<span class="kw">)</span><span class="bu">:</span></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="ex">----</span><span class="op">&gt;</span> 4     raise ValueError<span class="er">(</span><span class="st">"Can only format numbers that are exactly 10 digits long"</span><span class="kw">)</span></span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>      <span class="ex">6</span>   <span class="co"># given "5125558823". Split the parts, then recombine and return</span></span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>      <span class="ex">7</span>   area_code = phone_num_to_fix<span class="pp">[</span><span class="ss">0:2</span><span class="pp">]</span> <span class="co"># 512 (first three digits)</span></span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="ex">ValueError:</span> Can only format numbers that are exactly 10 digits long</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">---------------------------------------------------------------------------</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ValueError</span>                                Traceback <span class="er">(</span><span class="ex">most</span> recent call last<span class="kw">)</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Cell</span> In<span class="pp">[</span><span class="ss">30</span><span class="pp">]</span>, line 3</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>      <span class="ex">1</span> short_num = <span class="st">"51"</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="ex">----</span><span class="op">&gt;</span> 3 fix_phone_num<span class="er">(</span><span class="st">"51"</span><span class="kw">)</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Cell</span> In<span class="pp">[</span><span class="ss">29</span><span class="pp">]</span>, line 4, in fix_phone_num<span class="er">(</span><span class="ex">phone_num_to_fix</span><span class="kw">)</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>      <span class="ex">1</span> def fix_phone_num<span class="er">(</span><span class="ex">phone_num_to_fix</span><span class="kw">)</span><span class="bu">:</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>      <span class="ex">2</span>   <span class="co"># can only handle numbers that are exactly 10 digits long</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>      <span class="ex">3</span>   if <span class="er">(</span><span class="ex">len</span><span class="er">(</span><span class="ex">phone_num_to_fix</span><span class="kw">)</span> <span class="ex">!=</span> 10<span class="kw">)</span><span class="bu">:</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="ex">----</span><span class="op">&gt;</span> 4     raise ValueError<span class="er">(</span><span class="st">"Can only format numbers that are exactly 10 digits long"</span><span class="kw">)</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>      <span class="ex">6</span>   <span class="co"># given "5125558823". Split the parts, then recombine and return</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>      <span class="ex">7</span>   area_code = phone_num_to_fix<span class="pp">[</span><span class="ss">0:3</span><span class="pp">]</span> <span class="co"># 512 (first three digits)</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="ex">ValueError:</span> Can only format numbers that are exactly 10 digits long</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>And if we run pytest on the commandline, we will see that the test passes (because calling with “51” does indeed throw the expected ValueError).</p>
 <pre><code>$ pytest -v my_code_error.py 
 ============================ test session starts ============================
@@ -574,23 +584,24 @@ my_code_error.py::test_fix_phone_num PASSED                           [100%]
 ============================= 1 passed in 0.05s =============================</code></pre>
 <p>If you are wondering why it only says “1 passed” that is because pytest only counts the number of functions (beginning with <code>test_</code>). It doesn’t count the number of assertions. If you’d prefer to see these two checks as different tests, then you have to create a new <code>test_</code> method (e.g., <code>test_value_error_on_wrong_length</code>).</p>
 </section>
-<section id="exercises" class="level2" data-number="23.5">
-<h2 data-number="23.5" class="anchored" data-anchor-id="exercises"><span class="header-section-number">23.5</span> Exercises</h2>
-<p>In this exercise you will practice Test Driven Development by creating and commit failing tests for particular types of inputs and eventually you will alter the code so that those tests pass. You will also practice communicating your status through commit messages so your teammates can understand your work.</p>
+<section id="exercises" class="level2" data-number="23.6">
+<h2 data-number="23.6" class="anchored" data-anchor-id="exercises"><span class="header-section-number">23.6</span> Exercises</h2>
+<p>In this exercise you will practice creating and commit failing tests for particular types of inputs and eventually you will alter the code so that those tests pass. You will also practice communicating your status through commit messages so your teammates can understand your work.</p>
 <p>Start with a fork of the <a href="https://github.com/howisonlab/i320-pytest-exercise">i320d-pytest-exercise</a> repo and clone it to your workspace.</p>
+<p>You can open and edit the my_code.py file in Rstudio or VSCode; you will run the tests at the command line using <code>pytest</code>.</p>
 <ol type="1">
-<li>Add an additional assertion to the <code>test_fix_phone_num</code> function that tests these inputs: <code>5554429876</code> and <code>3216543333</code>.</li>
-<li>Add a test (meaning a whole separate function starting with <code>test_</code>, not just additional asserts) that specifies that the function should return an error, given these problematic inputs: <code>555-442-98761</code> and <code>(3213) 654 3333</code>. Give your test a communicative name. Since we are doing TDD, these tests will fail at the moment.</li>
-<li>Add and commit, with a message indicating that you know that these tests fail currently and explaining your work plans.</li>
-<li>Now implement a new test that checks that a ValueError is raised if these inputs are provided <code>334dfdee45</code> or <code>abcdefghij</code>). These are still 10 long, but they include non-digit characters.</li>
-<li>Add and commit, with a message that communicates the status of your work.</li>
-<li>Revise the <code>fix_phone_num</code> function so that the tests now all pass.</li>
-<li>Add and commit, with a message that communicates the status of your work.</li>
+<li><p>Add an additional assertion to the <code>test_fix_phone_num</code> function that tests these inputs: <code>5554429876</code> and <code>3216543333</code>.</p></li>
+<li><p>Add a test (meaning a whole separate function starting with <code>test_</code>, not just additional asserts) that specifies that the function should return an error, given these problematic inputs: <code>555-442-98761</code> and <code>(3213) 654 3333</code>. Give your test a communicative name. These tests will fail at the momen; this is normal.</p></li>
+<li><p>Add and commit, with a message indicating that you know that these tests fail currently and explaining your work plans.</p></li>
+<li><p>Now implement a new test that checks that a ValueError is raised if these inputs are provided <code>334dfdee45</code> or <code>abcdefghij</code>). These are still 10 long, but they include non-digit characters. <strong>Hint</strong>: Python strings have a built-in method .isdigit() that returns True if all characters in the string are numeric digits — try it with <code>"abc123".isdigit()</code> vs <code>"5125558823".isdigit()</code></p></li>
+<li><p>Add and commit, with a message that communicates the status of your work.</p></li>
+<li><p>Revise the <code>fix_phone_num</code> function so that the tests now all pass.</p></li>
+<li><p>Add and commit, with a message that communicates the status of your work.</p></li>
 </ol>
 </section>
-<section id="additional-resources" class="level2" data-number="23.6">
-<h2 data-number="23.6" class="anchored" data-anchor-id="additional-resources"><span class="header-section-number">23.6</span> Additional resources</h2>
-<p><a href="https://github.com/augustogoulart/awesome-pytest">Pytest Awesome Project</a>: a curated list of pytest resources (including training courses).</p>
+<section id="additional-resources" class="level2" data-number="23.7">
+<h2 data-number="23.7" class="anchored" data-anchor-id="additional-resources"><span class="header-section-number">23.7</span> Additional resources</h2>
+<p><a href="https://github.com/augustogoulart/awesome-pytest">Pytest Awesome Project</a>: a curated list of pytest resources (including training courses). The idea of writing tests first even thought they fail is called <a href="https://en.wikipedia.org/wiki/Test-driven_development">Test Driven Development</a></p>
 
 
 </section>
