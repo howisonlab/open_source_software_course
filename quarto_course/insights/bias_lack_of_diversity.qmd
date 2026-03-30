@@ -13,7 +13,7 @@ In class today we will undertake shared note-taking in groups on this topic, pre
 - [Coraline Ada Ehmke’s Contributor’s Covenant](https://www.contributor-covenant.org/version/1/0/0/code-of-conduct/)
 - [Linus Torvalds’ Code of Conflict](https://www.kernel.org/doc/html/v4.10/process/code-of-conflict.html) and [commentary](https://lwn.net/Articles/765108/).
 - Frluckaj, H., Dabbish, L., Widder, D. G., Qiu, H. S., & Herbsleb, J. D. (2022). Gender and Participation in Open Source Software Development. Proceedings of the ACM on Human-Computer Interaction, 6(CSCW2), 299:1-299:31. <https://doi.org/10.1145/3555190>
-- ["Nearly All of Wikipedia Is Written By Just 1 Percent of Its Editors"](https://motherboard.vice.com/en_us/article/7x47bb/wikipedia-editors-elite-diversity-foundation)
+- ["Nearly All of Wikipedia Is Written By Just 1 Percent of Its Editors"](https://web.archive.org/web/20180322105812/https://motherboard.vice.com/en_us/article/7x47bb/wikipedia-editors-elite-diversity-foundation)
 
 - Examine these "developer surveys" to add data (agreeing or disagreeing) with the opening statement of this page:
   - <https://survey.stackoverflow.co/2022/>
