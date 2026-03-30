@@ -279,7 +279,7 @@ If you are wondering why it only says "1 passed" that is because pytest only cou
 
 In this exercise you will practice creating and commit failing tests for particular types of inputs and eventually you will alter the code so that those tests pass.  You will also practice communicating your status through commit messages so your teammates can understand your work.
 
-Start with a fork of the [i320d-pytest-exercise](https://github.com/howisonlab/i320-pytest-exercise) repo and clone it to your workspace.
+Start with a fork of the [i320d-pytest-exercise](https://github.com/howisonlab/i320-pytest-exercise) repo and clone it to your workspace. If you edited the files you can remove the edits with `git checkout --`.
 
 You can open and edit the my_code.py file in Rstudio or VSCode; you will run the tests at the command line using `pytest`.
 
