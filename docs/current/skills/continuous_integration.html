@@ -357,12 +357,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#automating-tests" id="toc-automating-tests" class="nav-link active" data-scroll-target="#automating-tests"><span class="header-section-number">24.1</span> Automating tests</a>
-  <ul class="collapse">
-  <li><a href="#github-actions" id="toc-github-actions" class="nav-link" data-scroll-target="#github-actions"><span class="header-section-number">24.1.1</span> Github Actions</a></li>
-  </ul></li>
-  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">24.2</span> Exercise:</a></li>
-  <li><a href="#sec-alt-ci" id="toc-sec-alt-ci" class="nav-link" data-scroll-target="#sec-alt-ci"><span class="header-section-number">24.3</span> Alternatives to GitHub actions</a></li>
+  <li><a href="#automating-tests" id="toc-automating-tests" class="nav-link active" data-scroll-target="#automating-tests"><span class="header-section-number">24.1</span> Automating tests</a></li>
+  <li><a href="#github-actions" id="toc-github-actions" class="nav-link" data-scroll-target="#github-actions"><span class="header-section-number">24.2</span> Github Actions</a></li>
+  <li><a href="#full-yaml-file" id="toc-full-yaml-file" class="nav-link" data-scroll-target="#full-yaml-file"><span class="header-section-number">24.3</span> Full yaml file</a></li>
+  <li><a href="#implementing-with-github-actions" id="toc-implementing-with-github-actions" class="nav-link" data-scroll-target="#implementing-with-github-actions"><span class="header-section-number">24.4</span> Implementing with GitHub Actions</a></li>
+  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">24.5</span> Exercise:</a></li>
+  <li><a href="#sec-alt-ci" id="toc-sec-alt-ci" class="nav-link" data-scroll-target="#sec-alt-ci"><span class="header-section-number">24.6</span> Alternatives to GitHub actions</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/skills/continuous_integration.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
@@ -414,11 +414,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Run the needed test command (here that will be <code>pytest my_code.py</code>)</li>
 <li>Gather the results, and display them alongside the PR.</li>
 </ol>
-<p>These steps can be undertaken by quite a few different systems. We will learn using GitHub Actions, but see <a href="#sec-alt-ci" class="quarto-xref"><span>Section 24.3</span></a> for alternatives.</p>
-<section id="github-actions" class="level3" data-number="24.1.1">
-<h3 data-number="24.1.1" class="anchored" data-anchor-id="github-actions"><span class="header-section-number">24.1.1</span> Github Actions</h3>
+<p>These steps can be undertaken by quite a few different systems. We will learn using GitHub Actions, but see <a href="#sec-alt-ci" class="quarto-xref"><span>Section 24.6</span></a> for alternatives.</p>
+</section>
+<section id="github-actions" class="level2" data-number="24.2">
+<h2 data-number="24.2" class="anchored" data-anchor-id="github-actions"><span class="header-section-number">24.2</span> Github Actions</h2>
 <p>Github Actions is a GitHub feature that enables automation in repositories, including continuous integration.</p>
-<p>To establish an automation we have to add a file to the repository, in the <code>.github/workflows</code> directory. This file tells GitHub Actions what to do when particular events occur. In this case we’ll call it <code>pytest.yml</code> since we want to run pytest to test code changes.</p>
+<p>To establish an automation we have to add a file to the repository, in the <code>.github/workflows</code> directory on the main branch. This file is automatically discovered by GitHub Actions and tells it what to do when particular events occur.</p>
+<p>In this case we’ll call it <code>pytest.yml</code> since we want to run pytest to test code changes. The format here is yaml, which is a configuration format where indentation matters like Python, but uses colons and dashes for configuration variables.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Run pytest tests</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span><span class="at"> </span></span>
@@ -432,21 +434,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Then we specify that we want to checkout the code for the PR. Github Actions allows us to refer to chunks of code defined by GitHub. This is just like using a function from a library (where the <code>uses</code> command gives the name of the function and the <code>with</code> block provides parameters)</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v6</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Then we actually install the needed version of python.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/setup-python@v4</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/setup-python@v6</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">python-version</span><span class="kw">:</span><span class="at"> </span><span class="st">'3.10'</span><span class="at"> </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">python-version</span><span class="kw">:</span><span class="at"> </span><span class="st">'3.12'</span><span class="at"> </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Then we install any needed dependencies (here we just check that pytest is installed)</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Install dependencies</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">      run</span><span class="kw">: </span><span class="ch">|</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        python -m pip install --upgrade pip</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        pip install pytest</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Finally we reuse a community contributed piece of code called <code>pytest-summary</code> and give it the parameter <code>my_code.py</code> so that we know which file pytest will run against (<a href="https://dariocurr.medium.com/show-a-helpful-pytest-summary-on-github-actions-2351faa92fe">see documentation of pytest-summary here</a>). <code>pytest-summary</code> both runs the tests and provides a template so that GitHub can pretty print the test results.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Pytest summary</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> dariocurr/pytest-summary@v2</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">paths</span><span class="kw">:</span><span class="at"> fix-phone-num.py</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        pip install pytest pytest-md pytest-emoji</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Finally we run pytest in verbose mode against our test file.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Run tests</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">run</span><span class="kw">:</span><span class="at"> pytest fix-phone-num.py -v</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The <code>-v</code> flag gives verbose output so we can see each individual test’s pass or fail status, just as we would when running pytest locally. If any test fails, pytest exits with a non-zero status code, which GitHub Actions interprets as a failure — that’s what produces the red X on the PR.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>On larger projects you may see nicely formatted test summaries with emoji and tables on the Actions summary page. These are produced by third-party actions (such as <code>pavelzw/pytest-action</code> or <code>pmeier/pytest-results-action</code>) that write markdown to a special file called <code>$GITHUB_STEP_SUMMARY</code>. For our purposes the pytest log output and the pass/fail status on the PR are all we need.</p>
+</div>
+</div>
+</section>
+<section id="full-yaml-file" class="level2" data-number="24.3">
+<h2 data-number="24.3" class="anchored" data-anchor-id="full-yaml-file"><span class="header-section-number">24.3</span> Full yaml file</h2>
 <p>Together, then the file looks like:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Run pytest tests</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -459,54 +476,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">build</span><span class="kw">:</span></span>
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
 <span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/setup-python@v5</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v6</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/setup-python@v6</span></span>
 <span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">python-version</span><span class="kw">:</span><span class="at"> </span><span class="st">'3.10'</span><span class="at"> </span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">python-version</span><span class="kw">:</span><span class="at"> </span><span class="st">'3.12'</span><span class="at"> </span></span>
 <span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Install dependencies</span></span>
 <span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="fu">      run</span><span class="kw">: </span><span class="ch">|</span></span>
 <span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>        python -m pip install --upgrade pip</span>
 <span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>        pip install pytest</span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Pytest summary</span></span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> dariocurr/pytest-summary@v2</span></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">paths</span><span class="kw">:</span><span class="at"> fix-phone-num.py</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The easiest way to create GitHub Actions files is using the “Actions” tab and then the “New Action”. Github shows a “marketplace” of community (and commercially) contributed workflows, but you can provide your own file by hitting the “set up a workflow yourself” button.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="continuous_integration_files/new_github_action.png" class="img-fluid figure-img"></p>
-<figcaption>screenshot showing selection “Actions” tab and New Action button</figcaption>
-</figure>
-</div>
-<p>Once that full file into our repo in the special <code>.github/workflows/pytest.yml</code> location, then GitHub will see the file and add this new check to a new PR when it is opened.</p>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Run tests</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">run</span><span class="kw">:</span><span class="at"> pytest fix-phone-num.py -v</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="implementing-with-github-actions" class="level2" data-number="24.4">
+<h2 data-number="24.4" class="anchored" data-anchor-id="implementing-with-github-actions"><span class="header-section-number">24.4</span> Implementing with GitHub Actions</h2>
+<p>Once we place the full file into our repo in the special <code>.github/workflows/pytest.yml</code> location, then GitHub will see the file and add this new check to a new PR when it is opened.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="continuous_integration_files/queued_pytest_check.png" class="img-fluid figure-img"></p>
 <figcaption>screenshot showing merge checks including new job for pytest action</figcaption>
 </figure>
 </div>
-<p>If you click on the “Details” link you move over to the Actions tab and, once the test run is complete (time seems to vary, usually it is very fast), you will see the Summary details (generated by the <code>pytest-summary</code> package).</p>
+<p>If you click on the “Details” link you move over to the Actions tab and, once the test run is complete (time seems to vary, usually it is very fast), you will see the Summary details.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="continuous_integration_files/pytest_summary_output.png" class="img-fluid figure-img"></p>
+<p><img src="continuous_integration_files/new-error-screenshot.png" class="img-fluid figure-img"></p>
 <figcaption>Summary details showing a failing test</figcaption>
 </figure>
 </div>
-<p>If you delve deeper into the “build” section you can see the full logfile of the action run. At the top we can see that the virtual machine is set up with the operating system we specified.</p>
+<p>If you look deeper into the “Run tests” section you can see the output of <code>pytest my_code.py</code> just as we would have seen it run on the commandline.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="continuous_integration_files/action_log_top.png" class="img-fluid figure-img"></p>
-<figcaption>Screenshot of the action log showing that ubuntu was used to set up the virtual machine</figcaption>
-</figure>
-</div>
-<p>And further down we can see the output of <code>pytest my_code.py</code> just as we would have seen it run on the commandline.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="continuous_integration_files/action_log_pytest.png" class="img-fluid figure-img"></p>
+<p><img src="continuous_integration_files/new-pytest-output.png" class="img-fluid figure-img"></p>
 <figcaption>Screenshot of the output of <code>pytest my_code.py</code> just as we would have seen it run on the commandline.</figcaption>
 </figure>
 </div>
-<p>That output is gathered by the pytest-summary package and used to create the visual summary displayed above.</p>
 <p>The PR page itself will now show that a check has failed (or it might still show the check in progress).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -529,20 +532,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </section>
-</section>
-<section id="exercise" class="level2" data-number="24.2">
-<h2 data-number="24.2" class="anchored" data-anchor-id="exercise"><span class="header-section-number">24.2</span> Exercise:</h2>
-<p>In this exercise we will go through the process of adding a pytest GitHub action to validate that accepted PRs do not cause tests to fail. We will make a change to the <code>fix_phone_num</code> which will introduce a bug and cause the GitHub UI to show us that the test is failing, and then fix the bug. The intent of the change is to allow <code>fix_phone_num</code> to support cases where users have entered the country code at the start of their phone number (e.g.&nbsp;“15551239876” instead of “5551239876”), and still format the number properly (as <code>(555) 123 9876</code> in both cases).</p>
+<section id="exercise" class="level2" data-number="24.5">
+<h2 data-number="24.5" class="anchored" data-anchor-id="exercise"><span class="header-section-number">24.5</span> Exercise:</h2>
+<p>In this exercise we will go through the process of adding a pytest GitHub action to validate that accepted PRs do not cause tests to fail. We will make a change to the <code>fix_phone_num</code> which will introduce a bug and cause the GitHub UI to show us that the test is failing, and then fix the bug.</p>
+<p>The intent of the change is to allow <code>fix_phone_num</code> to support cases where users have entered the country code at the start of their phone number (e.g.&nbsp;“15551239876” instead of “5551239876”), and still format the number properly (as <code>(555) 123 9876</code> in both cases).</p>
 <ol type="1">
-<li>Fork the <a href="https://github.com/howisonlab/i320d-cicd-exercise">howisonlab/i320d-cicd-exercise</a> repository.</li>
-<li>Add the pytest GitHub action to your repo by adding a file at <code>.github/workflows/pytest.yaml</code> with <a href="https://gist.github.com/willbeason/ce06d6736de2a70ead878c9f71308cd4">these contents</a>.</li>
+<li>Fork the <a href="https://github.com/howisonlab/i320d-cicd-exercise">howisonlab/i320d-cicd-exercise</a> repository and clone it to your laptop.</li>
+<li>Add the pytest GitHub action to your repo by adding a file at <code>.github/workflows/pytest.yaml</code> with the full workflow contents from above.</li>
 <li>Commit this to your <code>main</code> branch and push to your repository.</li>
 <li>Switch to a new branch.</li>
-<li>Copy and paste the contents of <a href="https://gist.github.com/willbeason/7feea70c9b39d0cbfdf0a46d83e76cab">this file</a> into <code>fix-phone-num.py</code>. This code has a bug which will cause tests to fail.</li>
+<li>Rename <code>fix-phone-num-buggy.py</code> to <code>fix-phone-num.py</code> This code has a bug which will cause tests to fail.</li>
 <li>Commit and push those changes to GitHub.</li>
-<li>Open a pull request to merge those changes into your <code>main</code> branch. Do not merge it yet.</li>
+<li>Open a pull request <strong>within your own repo, not upstream</strong> to merge those changes into your <code>main</code> branch. Do not merge it yet.</li>
 <li>Observe the test running from within the PR screen, and locate the test failure report.</li>
-<li>Push a fix that makes the new tests pass.</li>
+<li>Push a fix that makes the new tests pass (you’ll need to create the fix yourself)</li>
 <li>Observe the test running again, and your PR should now show “All checks have passed”</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -561,9 +564,9 @@ Tip
 </div>
 </div>
 </section>
-<section id="sec-alt-ci" class="level2" data-number="24.3">
-<h2 data-number="24.3" class="anchored" data-anchor-id="sec-alt-ci"><span class="header-section-number">24.3</span> Alternatives to GitHub actions</h2>
-<p>It is possible to “roll your own” using a cloud provider like Google Cloud or AWS, but there are service providers ready to help. For example, TravisCI or CircleCI are well known continuous integration providers. Each provides cloud computing environments which can startup, install software, run tests, and provide reports. Since running any computation (including just installing things) costs real money, these services typically charge money, but often will provide a free account with reasonable usage limits for open source projects <a href="https://circleci.com/open-source/">https://circleci.com/open-source/</a>. Yet as with anything that is provided for free (including Github Actions) <a href="https://earthly.dev/blog/migrating-from-travis/">changes in corporate ownership can upend things</a></p>
+<section id="sec-alt-ci" class="level2" data-number="24.6">
+<h2 data-number="24.6" class="anchored" data-anchor-id="sec-alt-ci"><span class="header-section-number">24.6</span> Alternatives to GitHub actions</h2>
+<p>It is possible to “roll your own” using a cloud provider like Google Cloud or AWS, but there are service providers ready to help, including GitHub and GitLab. Since running any computation (including just installing things) costs real money, these services typically charge money, but often will provide a free account with reasonable usage limits for open source projects <a href="https://circleci.com/open-source/">https://circleci.com/open-source/</a>. Yet as with anything that is provided for free (including Github Actions) <a href="https://earthly.dev/blog/migrating-from-travis/">changes in corporate ownership can upend things</a> explaining one previously dominant service called TravisCI that is not anymore.</p>
 
 
 </section>
