@@ -153,7 +153,7 @@ One further step would be to add a code coverage test. These are a "test that th
 
 ![Checks provided by CodeClimate service, showing coverage thresholds](continuous_integration_files/code_climate_coverage.png)
 
-## Exercise:
+## Exercise
 
 In this exercise we will go through the process of adding a pytest GitHub action to validate that accepted PRs do not cause tests to fail.
 We will make a change to the `fix_phone_num` which will introduce a bug and cause the GitHub UI to show us that the test is failing,
@@ -161,16 +161,25 @@ and then fix the bug.
 
 The intent of the change is to allow `fix_phone_num` to support cases where users have entered the country code at the start of their phone number (e.g. "15551239876" instead of "5551239876"), and still format the number properly (as `(555) 123 9876` in both cases).
 
-1. Fork the [howisonlab/i320d-cicd-exercise](https://github.com/howisonlab/i320d-cicd-exercise) repository and clone it to your laptop.
-1. Add the pytest GitHub action to your repo by adding a file at `.github/workflows/pytest.yaml` with the full workflow contents from above.
-1. Commit this to your `main` branch and push to your repository.
-1. Switch to a new branch.
-1. Rename `fix-phone-num-buggy.py` to `fix-phone-num.py` This code has a bug which will cause tests to fail.
-1. Commit and push those changes to GitHub.
-1. Open a pull request **within your own repo, not upstream** to merge those changes into your `main` branch. Do not merge it yet.
-1. Observe the test running from within the PR screen, and locate the test failure report.
-1. Push a fix that makes the new tests pass (you'll need to create the fix yourself)
-1. Observe the test running again, and your PR should now show "All checks have passed"
+1. **Set up CI on your copy of a repo**
+   - Get a copy of this repo [howisonlab/i320d-cicd-exercise](https://github.com/howisonlab/i320d-cicd-exercise) repository 
+   ![Screenshot of Use Repository Option to create copy](continuous_integration_files/new-use-repo.png)
+   - Clone the new copy to your laptop. (Note: this [creates a copy and not a fork](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template))
+   - Working in Rstudio, create a file at `.github/workflows/pytest.yaml` with the full workflow contents from above. You will need to create the folders (first `.github`, then `workflows` inside that, then the `pytest.yaml` file)
+   - Commit this to your `main` branch and push to your repository.
+
+2. **Confirm CI is working**
+   - Create a new branch and switch to it (e.g., `git checkout -b error_branch`)
+   - Make a small edit to `README.md` (e.g., add "Testing CI"), save, add, commit, and push to GitHub.
+   - Open a pull request **within your own copy** to merge your branch into your own `main`. Do not merge it yet.
+   - Observe the tests running from the PR screen. They should pass — confirming that your CI setup is working.
+
+3. **Introduce and fix a bug**
+   - On the same branch, copy the content from `fix-phone-num-buggy.py` into `fix-phone-num.py`. This version has a bug which will cause tests to fail. Commit and push. (Note: you can also rename the files rather than copying).
+   - Observe the tests running again from **the same PR** (because you pushed to the same branch). Locate the test failure in the Details view.
+   - Back on your laptop and still on the same branch, fix the bug so the new tests pass. Save, Add, Commit and push. (You'll need to figure out the fix yourself.)
+   - Observe the tests running once more. Your PR should now show "All checks have passed."
+   - Accept your own PR (moving your bug fix from your `error_branch` to your main)
 
 ::: {.callout-tip}
 If at any point you make a mistake and need to retrigger the checks on GitHub but don't need to make any changes to your file,
