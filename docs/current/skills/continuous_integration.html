@@ -361,7 +361,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#github-actions" id="toc-github-actions" class="nav-link" data-scroll-target="#github-actions"><span class="header-section-number">24.2</span> Github Actions</a></li>
   <li><a href="#full-yaml-file" id="toc-full-yaml-file" class="nav-link" data-scroll-target="#full-yaml-file"><span class="header-section-number">24.3</span> Full yaml file</a></li>
   <li><a href="#implementing-with-github-actions" id="toc-implementing-with-github-actions" class="nav-link" data-scroll-target="#implementing-with-github-actions"><span class="header-section-number">24.4</span> Implementing with GitHub Actions</a></li>
-  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">24.5</span> Exercise:</a></li>
+  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">24.5</span> Exercise</a></li>
   <li><a href="#sec-alt-ci" id="toc-sec-alt-ci" class="nav-link" data-scroll-target="#sec-alt-ci"><span class="header-section-number">24.6</span> Alternatives to GitHub actions</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/skills/continuous_integration.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
@@ -533,20 +533,32 @@ Note
 </div>
 </section>
 <section id="exercise" class="level2" data-number="24.5">
-<h2 data-number="24.5" class="anchored" data-anchor-id="exercise"><span class="header-section-number">24.5</span> Exercise:</h2>
+<h2 data-number="24.5" class="anchored" data-anchor-id="exercise"><span class="header-section-number">24.5</span> Exercise</h2>
 <p>In this exercise we will go through the process of adding a pytest GitHub action to validate that accepted PRs do not cause tests to fail. We will make a change to the <code>fix_phone_num</code> which will introduce a bug and cause the GitHub UI to show us that the test is failing, and then fix the bug.</p>
 <p>The intent of the change is to allow <code>fix_phone_num</code> to support cases where users have entered the country code at the start of their phone number (e.g.&nbsp;“15551239876” instead of “5551239876”), and still format the number properly (as <code>(555) 123 9876</code> in both cases).</p>
 <ol type="1">
-<li>Fork the <a href="https://github.com/howisonlab/i320d-cicd-exercise">howisonlab/i320d-cicd-exercise</a> repository and clone it to your laptop.</li>
-<li>Add the pytest GitHub action to your repo by adding a file at <code>.github/workflows/pytest.yaml</code> with the full workflow contents from above.</li>
+<li><strong>Set up CI on your copy of a repo</strong>
+<ul>
+<li>Get a copy of this repo <a href="https://github.com/howisonlab/i320d-cicd-exercise">howisonlab/i320d-cicd-exercise</a> repository <img src="continuous_integration_files/new-use-repo.png" class="img-fluid" alt="Screenshot of Use Repository Option to create copy"></li>
+<li>Clone the new copy to your laptop. (Note: this <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template">creates a copy and not a fork</a>)</li>
+<li>Working in Rstudio, create a file at <code>.github/workflows/pytest.yaml</code> with the full workflow contents from above. You will need to create the folders (first <code>.github</code>, then <code>workflows</code> inside that, then the <code>pytest.yaml</code> file)</li>
 <li>Commit this to your <code>main</code> branch and push to your repository.</li>
-<li>Switch to a new branch.</li>
-<li>Rename <code>fix-phone-num-buggy.py</code> to <code>fix-phone-num.py</code> This code has a bug which will cause tests to fail.</li>
-<li>Commit and push those changes to GitHub.</li>
-<li>Open a pull request <strong>within your own repo, not upstream</strong> to merge those changes into your <code>main</code> branch. Do not merge it yet.</li>
-<li>Observe the test running from within the PR screen, and locate the test failure report.</li>
-<li>Push a fix that makes the new tests pass (you’ll need to create the fix yourself)</li>
-<li>Observe the test running again, and your PR should now show “All checks have passed”</li>
+</ul></li>
+<li><strong>Confirm CI is working</strong>
+<ul>
+<li>Create a new branch and switch to it (e.g., <code>git checkout -b error_branch</code>)</li>
+<li>Make a small edit to <code>README.md</code> (e.g., add “Testing CI”), save, add, commit, and push to GitHub.</li>
+<li>Open a pull request <strong>within your own copy</strong> to merge your branch into your own <code>main</code>. Do not merge it yet.</li>
+<li>Observe the tests running from the PR screen. They should pass — confirming that your CI setup is working.</li>
+</ul></li>
+<li><strong>Introduce and fix a bug</strong>
+<ul>
+<li>On the same branch, copy the content from <code>fix-phone-num-buggy.py</code> into <code>fix-phone-num.py</code>. This version has a bug which will cause tests to fail. Commit and push. (Note: you can also rename the files rather than copying).</li>
+<li>Observe the tests running again from <strong>the same PR</strong> (because you pushed to the same branch). Locate the test failure in the Details view.</li>
+<li>Back on your laptop and still on the same branch, fix the bug so the new tests pass. Save, Add, Commit and push. (You’ll need to figure out the fix yourself.)</li>
+<li>Observe the tests running once more. Your PR should now show “All checks have passed.”</li>
+<li>Accept your own PR (moving your bug fix from your <code>error_branch</code> to your main)</li>
+</ul></li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
