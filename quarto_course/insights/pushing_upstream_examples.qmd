@@ -1,0 +1,275 @@
+# Teaching Template: When Your Bug Isn't Your Bug
+## Upstream Dependency Issue Propagation — A Sociotechnical Case Study
+
+---
+
+> **How to use this template**
+> Fill in the bracketed sections. Each case study should trace an issue through at least two upstream layers with linked GitHub issues. The "investigation arc" section is the heart of the lesson — it reconstructs the human decision-making, not just the technical facts.
+
+---
+
+## Learning Objectives
+
+By the end of this session, learners should be able to:
+
+1. Read a stack trace and identify which layer of the dependency graph is *likely* the origin
+2. Navigate cross-referenced GitHub issues to reconstruct an investigation
+3. Articulate the **social** constraints that shape how and whether upstream fixes arrive
+4. Make an informed decision between pinning, patching, waiting, and forking
+
+---
+
+## Framing: The Dependency Graph as a Social Contract
+
+Software dependencies are not just technical relationships — they are **trust delegations**. When you add `requests` to your project, you are implicitly trusting the `requests` maintainers, who in turn trust `urllib3`, who trust the Python `ssl` module, who trust OpenSSL. Each link in that chain is a relationship between people and communities, not just between packages.
+
+When something breaks three layers up, the resulting failure has both a technical signature and a social signature:
+
+- **Technical**: which interface broke, which assumption changed
+- **Social**: who noticed first, who reported where, how information flowed, who had standing to fix it, how long coordination took
+
+This distinction matters for teaching because students often treat debugging as purely technical. The goal of these case studies is to show that **the path to a fix is a social path through a technical landscape**.
+
+---
+
+## Case Study Structure
+
+For each case study, fill in the following sections.
+
+---
+
+### Case Study [N]: [Short title]
+
+**Ecosystem:** [Python / npm / Rust / etc.]
+**Failure mode:** [What the user sees — error message, wrong behavior, build failure]
+**Dependency chain involved:** [Package A → Package B → Package C → Root cause in D]
+
+---
+
+#### Layer 0: The User Report
+
+*This is where the story begins. A user — often not a maintainer of any of the packages involved — encounters a failure.*
+
+- **GitHub issue link:** [URL]
+- **What the user observed:** [Describe the symptom]
+- **What they initially blamed:** [Usually the most immediate dependency]
+- **Key quote or diagnostic from the issue thread:** [Paraphrase — don't reproduce verbatim]
+
+**Discussion prompt:** What information does the user have? What are they missing? What would you do first?
+
+---
+
+#### Layer 1: First Upstream
+
+*The issue either gets triaged at the first package or gets redirected upstream.*
+
+- **GitHub issue/comment link:** [URL]
+- **What investigation happened here:** [What did maintainers check? What did they conclude?]
+- **Was this their bug?** [Yes / No / Partial — explain]
+- **How was the next layer implicated?** [Quote a comment, reference a commit, or describe the reasoning]
+
+**Discussion prompt:** Why might a maintainer say "not our bug" even when their users are broken? Is that the right call?
+
+---
+
+#### Layer 2: Second Upstream
+
+*The real origin (or a key intermediary) is identified.*
+
+- **GitHub issue link:** [URL]
+- **What changed in this package that caused the downstream failures?** [Describe the root change]
+- **Was this change intentional?** [Deliberate API change / bug / unintended side effect]
+- **How did the maintainers respond to being implicated?**
+
+**Discussion prompt:** At what point does a "breaking change" become a "bug"? Who decides?
+
+---
+
+#### Layer 3 (if applicable): Third Upstream or Platform Layer
+
+- **GitHub issue link:** [URL]
+- **What role did this layer play?** [Runtime, OS, cloud platform, etc.]
+- **Did this layer get fixed, or was the fix elsewhere?**
+
+---
+
+#### Resolution
+
+- **How was it ultimately resolved?** [Upstream fix / pin workaround / version bump / never fixed]
+- **Timeline:** [How long between first user report and resolution?]
+- **Who did the work?** [Which maintainer(s), in which repo?]
+- **What workarounds existed in the meantime?**
+
+---
+
+#### Sociotechnical Analysis
+
+Answer all of these for the case study:
+
+1. **Labor distribution:** Who bore the investigation cost? (Often: end users and mid-chain maintainers, not the root-cause maintainers)
+2. **Information asymmetry:** Which layer had information others didn't? How did that affect the speed of diagnosis?
+3. **Incentive structure:** Did the root-cause maintainer have strong incentives to fix quickly? Why or why not?
+4. **Coordination cost:** How many cross-repo interactions were needed? What friction existed?
+5. **Visibility:** Would this have been caught by standard CI? By Dependabot? Why or why not?
+
+---
+
+## Worked Examples
+
+The following are real cases with links. Use them as filled-in versions of the template above, or assign them as reading before class.
+
+---
+
+### Python Case 1: `requests` → `urllib3` 2.0 — The `DEFAULT_CIPHERS` removal (May 2023)
+
+**Chain:** User app → `requests` 2.30.0 → `urllib3` 2.0 (which removed `DEFAULT_CIPHERS`)
+
+**Layer 0 (user):** https://github.com/psf/requests/issues/6443
+Users running AWS Lambda saw `cannot import name 'DEFAULT_CIPHERS' from 'urllib3.util.ssl_'` after updating `requests` from 2.29.0 to 2.30.0. Initial blame: requests.
+
+**Layer 1 (requests):** The thread quickly clarified that `requests` 2.30.0 had added support for `urllib3` 2.0, which intentionally removed `DEFAULT_CIPHERS` as part of a cleanup. Requests itself worked — it was downstream code (including `botocore`) that relied on a private API.
+
+**Layer 2 (urllib3):** https://github.com/urllib3/urllib3/issues/3173
+`urllib3` 2.0 deliberately removed `DEFAULT_CIPHERS` as an internal attribute never meant to be public. The migration guide documented this, but many packages depended on it anyway.
+
+**Ripple effect:** https://github.com/thingsboard/thingsboard-gateway/issues/1145 and https://github.com/kiwiz/gkeepapi/issues/142 — two distinct downstream ecosystems hit the same issue independently, referencing back to the `requests` issue.
+
+**Resolution:** `urllib3<2` pin as a workaround. Proper fix required each downstream package to stop using `DEFAULT_CIPHERS` directly. Root cause was a private API that had become a de facto public one through widespread undocumented use.
+
+**Sociotechnical note:** The urllib3 maintainers were technically correct — `DEFAULT_CIPHERS` was never public API. But correctness did not prevent breakage. This is an example of the gap between *documented contract* and *observed behavior* as a social norm.
+
+---
+
+### Python Case 2: `requests` 2.29.0 → `urllib3` version incompatibility (April 2023)
+
+**Chain:** User/tool → `requests` 2.29.0 → pinned `urllib3 <1.27` conflicting with `urllib3==2.0.0` required by another package
+
+**Layer 0:** https://github.com/psf/requests/issues/6432
+Users who had packages requiring `urllib3==2.0.0` could not install them alongside `requests` 2.29.0, which pinned `urllib3 <1.27`.
+
+**Layer 1 (requests):** Requests intentionally had a conservative upper bound while urllib3 2.0 was being stabilized. The issue documents a version-resolution deadlock: two packages in the same environment with incompatible constraints on a shared transitive dependency.
+
+**Resolution:** Resolved in `requests` 2.30.0 which dropped the `<1.27` cap. Timeline: ~1 week. But 2.30.0 then caused the DEFAULT_CIPHERS issue (Case 1 above) — demonstrating how fixes at one layer can create new problems at another.
+
+**Sociotechnical note:** This case illustrates how *conservative* version pinning (meant to protect users) can itself become a compatibility hazard. The maintainer's attempt at safety created a new class of breakage.
+
+---
+
+### Python Case 3: NumPy 2.0 → pandas → Airflow / downstream apps (June 2024)
+
+**Chain:** User app (Airflow CI) → `pandas` 2.1.1 (built against NumPy 1.x) → `numpy` 2.0.0 (ABI break)
+
+**Layer 0 (user/Airflow):** https://github.com/numpy/numpy/issues/26710
+Airflow's CI started failing with `ValueError: numpy.dtype size changed, may indicate binary incompatibility` after pip resolved `numpy==2.0.0` and `pandas==2.1.1` together on Python 3.12.
+
+**Layer 1 (pandas):** https://github.com/pandas-dev/pandas/issues/59052
+pandas 2.0.x had been compiled against NumPy 1.x. When pip installed NumPy 2.0.0, the binary extension modules in pandas could not run — a C ABI incompatibility, not a Python-level API issue. pandas 2.1.4 had already added `numpy<2` as a constraint, but pip could downgrade pandas to 2.1.1 (which lacked that constraint).
+
+**Layer 2 (numpy):** https://github.com/numpy/numpy/issues/26191
+NumPy's ecosystem compatibility tracker (a meta-issue) documented which downstream packages needed rebuilding. NumPy had provided 6+ months of advance notice via deprecation warnings and a migration guide, but the window between ABI freeze and release was tight for rebuilds.
+
+**Ripple:** https://github.com/aws/aws-sdk-pandas/issues/2858 — AWS Glue jobs broke the day NumPy 2.0 released, because pip could now resolve to the new version. Same error, different platform, same root cause.
+
+**Resolution:** Short-term: add `numpy<2` pin in requirements. Medium-term: each package needed to release a wheel compiled against NumPy 2.0.
+
+**Sociotechnical note:** NumPy gave substantial advance notice. The failure came not from lack of communication but from the *combinatorial explosion* of (package × version × platform) that pip's resolver could land on. A package that had been updated was still dangerous when pip downgraded it to an older unpatched version.
+
+---
+
+### npm / JavaScript Case 1: `postcss` CVE → tailwindcss → downstream projects (2021)
+
+**Chain:** End user projects → `tailwindcss` 1.9.6 → `postcss-functions` → `postcss` 6.0.23 (vulnerable to ReDoS, CVE-2021-23382)
+
+**Layer 0:** https://github.com/tailwindlabs/tailwindcss/issues/5075
+A researcher filed a structured issue on tailwindcss documenting the full transitive path from CVE to their package. The issue included the exact dependency chain and linked to the CVE advisory. This is an example of a *well-formed upstream report* — it gives the recipient everything needed to act.
+
+**Layer 1 (tailwindcss):** The fix existed in tailwindcss ≥ 2.2.0, but tailwindcss 1.9.x was still pinned by many unmaintained intermediate packages (e.g., `tailwindcss-dark-mode`, `@bodiless/*` family). Upgrading tailwindcss was a breaking change for users on v1.
+
+**Layer 2 (postcss):** https://github.com/postcss/postcss/issues/1574
+postcss maintainers were asked to backport the fix to the v7 branch. The question of *whether to maintain old major versions* is a community/labor question, not a technical one.
+
+**Ripple:** https://github.com/facebook/create-react-app/issues/10945 and https://github.com/nrwl/nx/issues/5792 — `create-react-app` and Nx both showed the same CVE through different transitive paths, because postcss appeared multiple times in their dependency trees via different routes.
+
+**Resolution:** A mix of: postcss patch in some paths; version-pinned workarounds via `npm overrides`; many projects simply accepted the audit warning because upgrading would require breaking changes.
+
+**Sociotechnical note:** This case exposes the *unmaintained middleware* problem. The vulnerability was fixed upstream and downstream, but packages in the middle were abandoned and could not be updated. The end user's audit report showed a real CVE in a package they had never heard of and could not directly fix.
+
+---
+
+### npm / JavaScript Case 2: `rollup-plugin-postcss` → `cssnano` → `css-what` CVE (2021)
+
+**Chain:** End users → `rollup-plugin-postcss` 4.0.0 → `cssnano` 4.x → `postcss-svgo` → `svgo` → `css-select` → `css-what` < 5.0.1 (CVE-2021-33587)
+
+**Layer 0:** https://github.com/egoist/rollup-plugin-postcss/issues/386
+A downstream-aware reporter mapped the complete vulnerability path — 6 hops — and filed it with specific upgrade instructions. The issue explicitly names affected downstream projects including `microbundle` and `@backstage/cli`.
+
+**Layer 1 (rollup-plugin-postcss):** The fix was straightforward: bump `cssnano` from `^4.x` to `^5.x`. But this was itself a major version bump with potential breaking changes. The maintainer had to weigh: fix security vs. introduce breaking changes for users.
+
+**Layer 2+ (cssnano → postcss-svgo → svgo → css-select → css-what):** Each package in the chain had its own release cadence, maintainer(s), and willingness to respond. The CVE was in `css-what`, but `css-what` had already released a fix (5.0.1). The problem was propagating that fix upward through four packages to reach users.
+
+**Sociotechnical note:** This demonstrates the *propagation lag* problem. The fix existed at the root. The time-to-protection was determined by how quickly each intermediate maintainer responded — a coordination problem across multiple volunteer maintainers with no formal SLA.
+
+---
+
+## Classroom Discussion Questions
+
+These can be used for any of the case studies above, or for student-found examples:
+
+1. **At what layer should the fix live?** Is the "right" fix always at the root cause? What are the tradeoffs of fixing at each layer?
+
+2. **Who bears the invisible labor?** Map out who did investigation work in this case study. Was it the root-cause maintainer? End users? Mid-chain maintainers? What does that distribution tell us?
+
+3. **What would better look like?** If you were redesigning one aspect of this ecosystem's infrastructure (tooling, communication norms, versioning conventions), what would you change?
+
+4. **Version pinning as a response:** When users pin to `urllib3<2` or `numpy<2`, they've solved their immediate problem but deferred a future one. What is the moral hazard of this practice at ecosystem scale?
+
+5. **The "not our bug" defense:** Is it legitimate for a package to say "we didn't break our public API, so this isn't our problem"? How does this interact with the difference between documented API and social contract?
+
+6. **Advance notice and ecosystem readiness:** NumPy gave 6+ months of deprecation warnings before the 2.0 ABI break. Was that enough? What does "enough" mean in a volunteer ecosystem?
+
+---
+
+## Student Exercise: Find Your Own Chain
+
+**Instructions:** Find a real GitHub issue where a bug was ultimately traced to a package 2+ levels upstream from where it was first reported. The issue must:
+
+- Be in a public repository
+- Have at least one cross-reference (a link from one repo's issue to another repo's issue or commit)
+- Involve at least 3 distinct packages or components
+
+**Deliverable:**
+1. Fill in the case study template above for your chosen issue chain
+2. Identify one *technical* decision and one *social/organizational* decision that shaped the outcome
+3. Propose one structural change (tooling, norms, governance) that could have improved the outcome
+
+**Sources to explore:**
+- Search GitHub for `"opened issue" upstream` within a repo's issues
+- Look at package changelogs for entries like "fix downstream breakage caused by..."
+- Use Dependabot alert histories on public repos
+- Search for known major version breaks: `numpy 2.0`, `urllib3 2.0`, `eslint 9`, `django 4.0`, `react 18`
+
+---
+
+## Further Reading
+
+- ["What About Our Bug?" — study on npm maintainer responsiveness to upstream issues](https://arxiv.org/pdf/2511.04986) — empirical research showing that cross-repo issue references and textual similarity increase fix likelihood
+- [NumPy 2.0 migration guide](https://numpy.org/doc/stable/numpy_2_0_migration_guide.html) — example of proactive upstream communication
+- [urllib3 2.0 migration guide](https://urllib3.readthedocs.io/en/stable/v2-migration-guide.html) — how maintainers communicated a breaking change
+- Bogart et al., "How to Break an API" — empirical study of breaking changes across npm, CRAN, and Eclipse ecosystems
+- [Watchman: monitoring dependency conflicts for Python](https://blog.acolyer.org/2020/09/21/watchman/) — academic work on dependency conflict structure
+
+---
+
+## Template Metadata
+
+| Field | Value |
+|---|---|
+| Version | 1.0 |
+| Intended audience | [e.g., junior developers / CS students / DevOps teams] |
+| Prerequisites | Basic familiarity with package managers; ability to read stack traces |
+| Suggested duration | [e.g., 90-min workshop / 2-week module] |
+| Ecosystems covered | Python (pip/PyPI), JavaScript (npm) — extend as needed |
+
+---
+
+*Template designed for sociotechnical education. The goal is not just "how to debug dependencies" but "how software is maintained as a collective social practice."*
