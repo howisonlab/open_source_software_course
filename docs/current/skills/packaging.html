@@ -400,6 +400,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Different languages and software ecosystems implement these steps themselves.</p>
 <p>In Python, for examples, Encapsulation is done with directories, which have files inside with the code (“regular” some_code_name.py files. Metadata is done with additional files inside the directories. The tool <code>pip</code> handles both installation and dependency resolution. For the server that hosts the packages there is one broad public server called <code>PyPI</code> (which stands for the <em>PY</em>thon <em>P</em>ackage <em>I</em>ndex), but it is also possible for individual organizations to run a version “behind the firewall” to manage packages within their organization.</p>
 <p>In R, encapsulation is also done through directories, metadata through files. Package installation is done within the R base software. In R there are a few important central repositories, including CRAN (<em>C</em>omprehensive <em>R</em> <em>A</em>rchive <em>N</em>etwork) and Bioconductor (a separate package manager focused on biology packages. Given that they are into biology and developed a separate package manager that pretty much does the same thing, we might think of that as an example of convergent evolution). There are lots of different mirrors for CRAN.</p>
+<p>One way that code moves from GitHub to servers like PyPI is through GitHub Actions (which we already touched on when learning about CI). See details here: <a href="https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/" class="uri">https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/</a></p>
 </section>
 <section id="internal-package-management-at-companies" class="level2" data-number="25.3">
 <h2 data-number="25.3" class="anchored" data-anchor-id="internal-package-management-at-companies"><span class="header-section-number">25.3</span> Internal Package Management at Companies</h2>
@@ -419,20 +420,22 @@ ul.task-list li input[type="checkbox"] {
 <h3 data-number="25.4.1" class="anchored" data-anchor-id="exercise-1-from-code-to-published-package-in-python"><span class="header-section-number">25.4.1</span> Exercise 1: From code to published package in Python</h3>
 <p>Work through a Data Camp course called <a href="https://campus.datacamp.com/courses/developing-python-packages">Developing Python Packages</a>.</p>
 <p>The course shows how to take code and wrap it in a directory with special files, then how to publish it to PyPI (using a special repository just for testing).</p>
-<p>GitHub Actions are recommended to move code from Github, through Releases, to PyPI. <a href="https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/" class="uri">https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/</a></p>
 </section>
 <section id="exercise-2-trace-a-package-youve-used." class="level3" data-number="25.4.2">
 <h3 data-number="25.4.2" class="anchored" data-anchor-id="exercise-2-trace-a-package-youve-used."><span class="header-section-number">25.4.2</span> Exercise 2: Trace a package you’ve used.</h3>
+<p>Submit a Markdown file with answers to these questions.</p>
 <ol type="1">
-<li>Identify a package that you have used in the past</li>
-<li>Trace its pathway to your computing environment.</li>
-<li>Where is it developed?</li>
-<li>How is it released?</li>
-<li>How did you install it?</li>
-<li>Where did the install get the code from?</li>
-<li>How did the code get from the repo to the distribution system?</li>
-<li>Identify each of the 4 elements discussed above</li>
-<li>Can you find the code on your computer (you may need to search for some python code that helps you, it’s somewhere in the $PATH).</li>
+<li>Identify a package that you have used in the past.</li>
+<li>Where is it developed? Find the repository. How do you know this is the right one?</li>
+<li>Trace its path to your computer by identifying each of the four packaging elements:
+<ol type="1">
+<li><strong>Encapsulation</strong>: What does the package directory structure look like in the repo?</li>
+<li><strong>Metadata</strong>: Find the metadata file. What dependencies does it declare?</li>
+<li><strong>Distribution server</strong>: Where is it published? Find its PyPI page.</li>
+<li><strong>Install tool</strong>: How did you install it, and how did <code>pip</code> know where to get it from?</li>
+</ol></li>
+<li>How did the code get from the repository to PyPI? Can you find evidence of the release process (e.g., GitHub Actions, tagged releases)?</li>
+<li><strong>(bonus)</strong> Can you find the package code on your own computer? Python packages know where they are installed. Can you find, write, or generate code that tells you the location of your package on your disk?</li>
 </ol>
 
 

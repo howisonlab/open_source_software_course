@@ -35,7 +35,7 @@ Packages and package management offer a few other important advantages:
 - Packages can provide an appropriate location for running tests
 - Packages provide a way to scale up software. Data Scientists often develop code in a Notebook ... which is very convenient for the analyst but not something that can be made into a web API which thousands of developers or products can use in real time.  When we build packages they can be deployed in the cloud, and turned into [microservices](https://en.wikipedia.org/wiki/Microservices) using services like Kubernetes.
     
-## What is needed for package management? (four steps)
+## What is needed for package management? (four steps) 
 
 Packaging can be thought about in four steps:
 
@@ -49,6 +49,8 @@ Different languages and software ecosystems implement these steps themselves.
 In Python, for examples, Encapsulation is done with directories, which have files inside with the code ("regular" some_code_name.py files. Metadata is done with additional files inside the directories. The tool `pip` handles both installation and dependency resolution.  For the server that hosts the packages there is one broad public server called `PyPI` (which stands for the *PY*thon *P*ackage *I*ndex), but it is also possible for individual organizations to run a version "behind the firewall" to manage packages within their organization.
 
 In R, encapsulation is also done through directories, metadata through files.  Package installation is done within the R base software. In R there are a few important central repositories, including CRAN (*C*omprehensive *R* *A*rchive *N*etwork) and Bioconductor (a separate package manager focused on biology packages. Given that they are into biology and developed a separate package manager that pretty much does the same thing, we might think of that as an example of convergent evolution).  There are lots of different mirrors for CRAN.
+
+One way that code moves from GitHub to servers like PyPI is through GitHub Actions (which we already touched on when learning about CI). See details here: <https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/>
 
 ## Internal Package Management at Companies
 
@@ -72,17 +74,18 @@ Work through a Data Camp course  called [Developing Python Packages](https://cam
 
 The course shows how to take code and wrap it in a directory with special files, then how to publish it to PyPI (using a special repository just for testing).
 
-GitHub Actions are recommended to move code from Github, through Releases, to PyPI. <https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/>
-
 ### Exercise 2: Trace a package you've used.
 
-1. Identify a package that you have used in the past
-2. Trace its pathway to your computing environment.
-  1. Where is it developed?
-  2. How is it released?
-  3. How did you install it?
-  4. Where did the install get the code from?
-  5. How did the code get from the repo to the distribution system?
-3. Identify each of the 4 elements discussed above
-4. Can you find the code on your computer (you may need to search for some python code that helps you, it's somewhere in the $PATH).
+Submit a Markdown file with answers to these questions.
+
+1. Identify a package that you have used in the past.
+2. Where is it developed? Find the repository. How do you know this is the right one?
+3. Trace its path to your computer by identifying each of the four packaging elements:
+    1. **Encapsulation**: What does the package directory structure look like in the repo?
+    2. **Metadata**: Find the metadata file. What dependencies does it declare?
+    3. **Distribution server**: Where is it published? Find its PyPI page.
+    4. **Install tool**: How did you install it, and how did `pip` know where to get it from?
+4. How did the code get from the repository to PyPI? Can you find evidence of the release process (e.g., GitHub Actions, tagged releases)?
+5. **(bonus)** Can you find the package code on your own computer? Python packages know where they are installed. Can you find, write, or generate code that tells you the location of your package on your disk?
+
 
