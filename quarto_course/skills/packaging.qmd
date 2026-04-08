@@ -1,18 +1,28 @@
 # Packages to distribute code {#sec-packaging}
 
-Packages are ways of distributing software. We discussed packages in the material on Stack, Streak and Ecosystem: @sec-stack-and-stream
+Packages are ways of distributing software. They live at the intermediate level in the stack, above infrastructure like operating systems and languages, and below end-user code (especially scripts and notebooks).  Good examples are `pandas` or `scipy`. The ability for packages to build on each other is much of the power of open source software.That said, packages are also used internally within organizations to share code.
 
-Packages enable us to build on the work of others, when we install packages and import them into our code.
+We discussed packages as one of the elements in the material on Stack, Streak and Ecosystem: @sec-stack-and-stream
 
-But eventually we will have code that we want to distribute to others, whether that be classmates or others within our organization, or perhaps the world at large.
+Packages enable us to build on the work of others, when we install packages and import them into our code.  Mostly they are things that we install and use.
+
+Yet eventually we will have code that we want to distribute to others, whether that be classmates or others within our organization, or perhaps the world at large.
 
 There are a few ways that we can distribute code, all with pros and cons.
 
-Copy and paste. We can send code to others by simply copying and pasting, then sending perhaps by Slack or even through email.  A slightly more advanced approach is to use a `gist` or `pastebin` such as <https://gist.github.com/> or <http://pastebin.com>. Copy and pasting is quick but it is limited.  We then have no way of updating the code, or of knowing where it is used.
+1. **Copy and paste**. 
 
-We can, of course, share code via GitHub or GitLab.  Here we can publish a repository, either publicly or within our Organization, and give people the URL.  Then people can `clone` the code into their individual workspaces.  At least then the potential user can re-visit for updates and our user would know where they could contact people for issues or even to share improvements.
+We can send code to others by simply copying and pasting, then sending perhaps by Slack or even through email.  A slightly more advanced approach is to use a `gist` or `pastebin` such as <https://gist.github.com/> or <http://pastebin.com>. Copy and pasting is quick but it is limited.  We then have no way of updating the code, or of knowing where it is used.
 
-But GitHub on its own does not offer much to manage the complexities of developing software and keeping things up to date over time.  For that we must turn to packaging and to package distribution systems which provides the python packages that can be installed by `pip`.  These offer much greater effectiveness: the package publisher can provide updates, bugfixes or improvements, and the user can get informed about when updates are available and have them automatically downloaded.
+2. **Git and Github**
+
+We can, of course, share code via GitHub or GitLab.  Here we can publish a repository, either publicly or within our Organization, and give people the URL.  Then people can `clone` the code into their individual workspaces.  At least then the potential user can re-visit for updates and our user would know where they could contact people for issues or even to share improvements. But overall, GitHub on its own is good for coordinating development, but not for distribution.
+
+3. **Package Distribution systems**
+
+To respond to the need for updates, dependency management, and distribution, the open source community developed package management systems. IN the python world `pip` is a great example. These offer much greater effectiveness than distribution through Github: the package publisher can provide updates, bugfixes or improvements, and the user can be informed about when updates are available and have them automatically downloaded.
+
+## Advantages of Package Management Systems 
 
 Packages and package management offer a few other important advantages:
 
@@ -25,7 +35,7 @@ Packages and package management offer a few other important advantages:
 - Packages can provide an appropriate location for running tests
 - Packages provide a way to scale up software. Data Scientists often develop code in a Notebook ... which is very convenient for the analyst but not something that can be made into a web API which thousands of developers or products can use in real time.  When we build packages they can be deployed in the cloud, and turned into [microservices](https://en.wikipedia.org/wiki/Microservices) using services like Kubernetes.
     
-## What is needed for package management?
+## What is needed for package management? (four steps)
 
 Packaging can be thought about in four steps:
 
@@ -38,21 +48,41 @@ Different languages and software ecosystems implement these steps themselves.
 
 In Python, for examples, Encapsulation is done with directories, which have files inside with the code ("regular" some_code_name.py files. Metadata is done with additional files inside the directories. The tool `pip` handles both installation and dependency resolution.  For the server that hosts the packages there is one broad public server called `PyPI` (which stands for the *PY*thon *P*ackage *I*ndex), but it is also possible for individual organizations to run a version "behind the firewall" to manage packages within their organization.
 
-In R, encapsulation is also done through directories, metadata through files.  Package installation is done within the R base software. In R there are a few important central repositories, including CRAN (*C*omprehensive *R* *A*rchive *N*etwork) and Bioconductor (a separate package manager focused on biology packages, an example of convergent evolution).  There are lots of different mirrors for CRAN.
+In R, encapsulation is also done through directories, metadata through files.  Package installation is done within the R base software. In R there are a few important central repositories, including CRAN (*C*omprehensive *R* *A*rchive *N*etwork) and Bioconductor (a separate package manager focused on biology packages. Given that they are into biology and developed a separate package manager that pretty much does the same thing, we might think of that as an example of convergent evolution).  There are lots of different mirrors for CRAN.
 
-Package management "behind the firewall" is so important to firms, that the company that builds `Rstudio` now offers package management for both R and Python <https://packagemanager.posit.co/client/#/> both publically and within companies.  Similarly [Anaconda](https://www.anaconda.com/) a company based in Austin offers package management across an eve wider set of languages.
+## Internal Package Management at Companies
 
-## From code to published package in Python
+Large organizations rarely rely only on the public package managers directly. One practice is to run a **private package registry**—essentially their own PyPI server— that sits between developers and the public internet. This serves several purposes: hosting proprietary internal packages that can't be published publicly, caching public PyPI packages for faster installs and protection against outages, and controlling which package versions developers are allowed to use for compliance or security reasons.
 
-For these materials we will work through a Data Camp course (which you are welcome to finish), called [Developing Python Packages](https://campus.datacamp.com/courses/developing-python-packages).  
+The main options for hosting a private registry are:
+
+- **Self-hosted**: tools like [`devpi`](https://devpi.net/) (the standard open-source choice) or [`pypiserver`](https://pypi.org/project/pypiserver/) run on your own infrastructure. `devpi` adds caching of PyPI packages, multiple indexes, replication, and user management; `pypiserver` is simpler — it just serves packages from a directory.
+- **Cloud-managed**: AWS CodeArtifact and [GCP Artifact Registry](https://cloud.google.com/artifact-registry/docs/python) are fully managed services that handle infrastructure, authentication, and PyPI proxying. CodeArtifact uses IAM for access control, which is convenient if a team is already invested in AWS.
+- **Enterprise products**: JFrog Artifactory supports PyPI repositories including local, remote (proxy/cache), and virtual (aggregated) types, and is common at large firms that manage packages across many languages.
+
+From a career standpoint, internal packaging practices are a useful window into how mature a company's engineering culture is. Good questions to ask: *Do you have a private package registry? How do teams publish and version internal libraries? How do you manage dependency conflicts across teams?* Companies with strong practices here tend to have thought carefully about reproducibility and code reuse.
+
+In the R world the company that builds `Rstudio` now offers package management for both R and Python <https://packagemanager.posit.co/client/#/> both publicly and within companies.  Similarly [Anaconda](https://www.anaconda.com/) a company based in Austin offers package management approaches as well (and sometimes hosts meetups).
+
+## Exercises (to be started in class and completed for homework)
+
+### Exercise 1: From code to published package in Python
+
+Work through a Data Camp course  called [Developing Python Packages](https://campus.datacamp.com/courses/developing-python-packages).  
 
 The course shows how to take code and wrap it in a directory with special files, then how to publish it to PyPI (using a special repository just for testing).
 
 GitHub Actions are recommended to move code from Github, through Releases, to PyPI. <https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/>
 
-## Questions to be able to answer/discuss
+### Exercise 2: Trace a package you've used.
 
-1. What can we say about filenames that look like `__init__.py`?
-2. How does code usually get from GitHub to PyPI?
-3. How is package management done internally at large companies? Can you find case studies of that? (This could be a good question to ask companies about their programming practices)
+1. Identify a package that you have used in the past
+2. Trace its pathway to your computing environment.
+  1. Where is it developed?
+  2. How is it released?
+  3. How did you install it?
+  4. Where did the install get the code from?
+  5. How did the code get from the repo to the distribution system?
+3. Identify each of the 4 elements discussed above
+4. Can you find the code on your computer (you may need to search for some python code that helps you, it's somewhere in the $PATH).
 

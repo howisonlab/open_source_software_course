@@ -322,9 +322,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#what-is-needed-for-package-management" id="toc-what-is-needed-for-package-management" class="nav-link active" data-scroll-target="#what-is-needed-for-package-management"><span class="header-section-number">25.1</span> What is needed for package management?</a></li>
-  <li><a href="#from-code-to-published-package-in-python" id="toc-from-code-to-published-package-in-python" class="nav-link" data-scroll-target="#from-code-to-published-package-in-python"><span class="header-section-number">25.2</span> From code to published package in Python</a></li>
-  <li><a href="#questions-to-be-able-to-answerdiscuss" id="toc-questions-to-be-able-to-answerdiscuss" class="nav-link" data-scroll-target="#questions-to-be-able-to-answerdiscuss"><span class="header-section-number">25.3</span> Questions to be able to answer/discuss</a></li>
+  <li><a href="#advantages-of-package-management-systems" id="toc-advantages-of-package-management-systems" class="nav-link active" data-scroll-target="#advantages-of-package-management-systems"><span class="header-section-number">25.1</span> Advantages of Package Management Systems</a></li>
+  <li><a href="#what-is-needed-for-package-management-four-steps" id="toc-what-is-needed-for-package-management-four-steps" class="nav-link" data-scroll-target="#what-is-needed-for-package-management-four-steps"><span class="header-section-number">25.2</span> What is needed for package management? (four steps)</a></li>
+  <li><a href="#internal-package-management-at-companies" id="toc-internal-package-management-at-companies" class="nav-link" data-scroll-target="#internal-package-management-at-companies"><span class="header-section-number">25.3</span> Internal Package Management at Companies</a></li>
+  <li><a href="#exercises-to-be-started-in-class-and-completed-for-homework" id="toc-exercises-to-be-started-in-class-and-completed-for-homework" class="nav-link" data-scroll-target="#exercises-to-be-started-in-class-and-completed-for-homework"><span class="header-section-number">25.4</span> Exercises (to be started in class and completed for homework)</a>
+  <ul class="collapse">
+  <li><a href="#exercise-1-from-code-to-published-package-in-python" id="toc-exercise-1-from-code-to-published-package-in-python" class="nav-link" data-scroll-target="#exercise-1-from-code-to-published-package-in-python"><span class="header-section-number">25.4.1</span> Exercise 1: From code to published package in Python</a></li>
+  <li><a href="#exercise-2-trace-a-package-youve-used." id="toc-exercise-2-trace-a-package-youve-used." class="nav-link" data-scroll-target="#exercise-2-trace-a-package-youve-used."><span class="header-section-number">25.4.2</span> Exercise 2: Trace a package you’ve used.</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/skills/packaging.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
@@ -350,13 +355,25 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Packages are ways of distributing software. We discussed packages in the material on Stack, Streak and Ecosystem: <a href="../insights/stack_and_stream.html" class="quarto-xref"><span>Chapter 11</span></a></p>
-<p>Packages enable us to build on the work of others, when we install packages and import them into our code.</p>
-<p>But eventually we will have code that we want to distribute to others, whether that be classmates or others within our organization, or perhaps the world at large.</p>
+<p>Packages are ways of distributing software. They live at the intermediate level in the stack, above infrastructure like operating systems and languages, and below end-user code (especially scripts and notebooks). Good examples are <code>pandas</code> or <code>scipy</code>. The ability for packages to build on each other is much of the power of open source software.That said, packages are also used internally within organizations to share code.</p>
+<p>We discussed packages as one of the elements in the material on Stack, Streak and Ecosystem: <a href="../insights/stack_and_stream.html" class="quarto-xref"><span>Chapter 11</span></a></p>
+<p>Packages enable us to build on the work of others, when we install packages and import them into our code. Mostly they are things that we install and use.</p>
+<p>Yet eventually we will have code that we want to distribute to others, whether that be classmates or others within our organization, or perhaps the world at large.</p>
 <p>There are a few ways that we can distribute code, all with pros and cons.</p>
-<p>Copy and paste. We can send code to others by simply copying and pasting, then sending perhaps by Slack or even through email. A slightly more advanced approach is to use a <code>gist</code> or <code>pastebin</code> such as <a href="https://gist.github.com/" class="uri">https://gist.github.com/</a> or <a href="http://pastebin.com" class="uri">http://pastebin.com</a>. Copy and pasting is quick but it is limited. We then have no way of updating the code, or of knowing where it is used.</p>
-<p>We can, of course, share code via GitHub or GitLab. Here we can publish a repository, either publicly or within our Organization, and give people the URL. Then people can <code>clone</code> the code into their individual workspaces. At least then the potential user can re-visit for updates and our user would know where they could contact people for issues or even to share improvements.</p>
-<p>But GitHub on its own does not offer much to manage the complexities of developing software and keeping things up to date over time. For that we must turn to packaging and to package distribution systems which provides the python packages that can be installed by <code>pip</code>. These offer much greater effectiveness: the package publisher can provide updates, bugfixes or improvements, and the user can get informed about when updates are available and have them automatically downloaded.</p>
+<ol type="1">
+<li><strong>Copy and paste</strong>.</li>
+</ol>
+<p>We can send code to others by simply copying and pasting, then sending perhaps by Slack or even through email. A slightly more advanced approach is to use a <code>gist</code> or <code>pastebin</code> such as <a href="https://gist.github.com/" class="uri">https://gist.github.com/</a> or <a href="http://pastebin.com" class="uri">http://pastebin.com</a>. Copy and pasting is quick but it is limited. We then have no way of updating the code, or of knowing where it is used.</p>
+<ol start="2" type="1">
+<li><strong>Git and Github</strong></li>
+</ol>
+<p>We can, of course, share code via GitHub or GitLab. Here we can publish a repository, either publicly or within our Organization, and give people the URL. Then people can <code>clone</code> the code into their individual workspaces. At least then the potential user can re-visit for updates and our user would know where they could contact people for issues or even to share improvements. But overall, GitHub on its own is good for coordinating development, but not for distribution.</p>
+<ol start="3" type="1">
+<li><strong>Package Distribution systems</strong></li>
+</ol>
+<p>To respond to the need for updates, dependency management, and distribution, the open source community developed package management systems. IN the python world <code>pip</code> is a great example. These offer much greater effectiveness than distribution through Github: the package publisher can provide updates, bugfixes or improvements, and the user can be informed about when updates are available and have them automatically downloaded.</p>
+<section id="advantages-of-package-management-systems" class="level2" data-number="25.1">
+<h2 data-number="25.1" class="anchored" data-anchor-id="advantages-of-package-management-systems"><span class="header-section-number">25.1</span> Advantages of Package Management Systems</h2>
 <p>Packages and package management offer a few other important advantages:</p>
 <ul>
 <li>Packages keep code cleaner by creating <code>namespaces</code> for functions that tend to go together.</li>
@@ -370,8 +387,9 @@ ul.task-list li input[type="checkbox"] {
 <li>Packages can provide an appropriate location for running tests</li>
 <li>Packages provide a way to scale up software. Data Scientists often develop code in a Notebook … which is very convenient for the analyst but not something that can be made into a web API which thousands of developers or products can use in real time. When we build packages they can be deployed in the cloud, and turned into <a href="https://en.wikipedia.org/wiki/Microservices">microservices</a> using services like Kubernetes.</li>
 </ul>
-<section id="what-is-needed-for-package-management" class="level2" data-number="25.1">
-<h2 data-number="25.1" class="anchored" data-anchor-id="what-is-needed-for-package-management"><span class="header-section-number">25.1</span> What is needed for package management?</h2>
+</section>
+<section id="what-is-needed-for-package-management-four-steps" class="level2" data-number="25.2">
+<h2 data-number="25.2" class="anchored" data-anchor-id="what-is-needed-for-package-management-four-steps"><span class="header-section-number">25.2</span> What is needed for package management? (four steps)</h2>
 <p>Packaging can be thought about in four steps:</p>
 <ol type="1">
 <li>Encapsulating code in a chunk that can be moved around</li>
@@ -381,24 +399,44 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 <p>Different languages and software ecosystems implement these steps themselves.</p>
 <p>In Python, for examples, Encapsulation is done with directories, which have files inside with the code (“regular” some_code_name.py files. Metadata is done with additional files inside the directories. The tool <code>pip</code> handles both installation and dependency resolution. For the server that hosts the packages there is one broad public server called <code>PyPI</code> (which stands for the <em>PY</em>thon <em>P</em>ackage <em>I</em>ndex), but it is also possible for individual organizations to run a version “behind the firewall” to manage packages within their organization.</p>
-<p>In R, encapsulation is also done through directories, metadata through files. Package installation is done within the R base software. In R there are a few important central repositories, including CRAN (<em>C</em>omprehensive <em>R</em> <em>A</em>rchive <em>N</em>etwork) and Bioconductor (a separate package manager focused on biology packages, an example of convergent evolution). There are lots of different mirrors for CRAN.</p>
-<p>Package management “behind the firewall” is so important to firms, that the company that builds <code>Rstudio</code> now offers package management for both R and Python <a href="https://packagemanager.posit.co/client/#/" class="uri">https://packagemanager.posit.co/client/#/</a> both publically and within companies. Similarly <a href="https://www.anaconda.com/">Anaconda</a> a company based in Austin offers package management across an eve wider set of languages.</p>
+<p>In R, encapsulation is also done through directories, metadata through files. Package installation is done within the R base software. In R there are a few important central repositories, including CRAN (<em>C</em>omprehensive <em>R</em> <em>A</em>rchive <em>N</em>etwork) and Bioconductor (a separate package manager focused on biology packages. Given that they are into biology and developed a separate package manager that pretty much does the same thing, we might think of that as an example of convergent evolution). There are lots of different mirrors for CRAN.</p>
 </section>
-<section id="from-code-to-published-package-in-python" class="level2" data-number="25.2">
-<h2 data-number="25.2" class="anchored" data-anchor-id="from-code-to-published-package-in-python"><span class="header-section-number">25.2</span> From code to published package in Python</h2>
-<p>For these materials we will work through a Data Camp course (which you are welcome to finish), called <a href="https://campus.datacamp.com/courses/developing-python-packages">Developing Python Packages</a>.</p>
+<section id="internal-package-management-at-companies" class="level2" data-number="25.3">
+<h2 data-number="25.3" class="anchored" data-anchor-id="internal-package-management-at-companies"><span class="header-section-number">25.3</span> Internal Package Management at Companies</h2>
+<p>Large organizations rarely rely only on the public package managers directly. One practice is to run a <strong>private package registry</strong>—essentially their own PyPI server— that sits between developers and the public internet. This serves several purposes: hosting proprietary internal packages that can’t be published publicly, caching public PyPI packages for faster installs and protection against outages, and controlling which package versions developers are allowed to use for compliance or security reasons.</p>
+<p>The main options for hosting a private registry are:</p>
+<ul>
+<li><strong>Self-hosted</strong>: tools like <a href="https://devpi.net/"><code>devpi</code></a> (the standard open-source choice) or <a href="https://pypi.org/project/pypiserver/"><code>pypiserver</code></a> run on your own infrastructure. <code>devpi</code> adds caching of PyPI packages, multiple indexes, replication, and user management; <code>pypiserver</code> is simpler — it just serves packages from a directory.</li>
+<li><strong>Cloud-managed</strong>: AWS CodeArtifact and <a href="https://cloud.google.com/artifact-registry/docs/python">GCP Artifact Registry</a> are fully managed services that handle infrastructure, authentication, and PyPI proxying. CodeArtifact uses IAM for access control, which is convenient if a team is already invested in AWS.</li>
+<li><strong>Enterprise products</strong>: JFrog Artifactory supports PyPI repositories including local, remote (proxy/cache), and virtual (aggregated) types, and is common at large firms that manage packages across many languages.</li>
+</ul>
+<p>From a career standpoint, internal packaging practices are a useful window into how mature a company’s engineering culture is. Good questions to ask: <em>Do you have a private package registry? How do teams publish and version internal libraries? How do you manage dependency conflicts across teams?</em> Companies with strong practices here tend to have thought carefully about reproducibility and code reuse.</p>
+<p>In the R world the company that builds <code>Rstudio</code> now offers package management for both R and Python <a href="https://packagemanager.posit.co/client/#/" class="uri">https://packagemanager.posit.co/client/#/</a> both publicly and within companies. Similarly <a href="https://www.anaconda.com/">Anaconda</a> a company based in Austin offers package management approaches as well (and sometimes hosts meetups).</p>
+</section>
+<section id="exercises-to-be-started-in-class-and-completed-for-homework" class="level2" data-number="25.4">
+<h2 data-number="25.4" class="anchored" data-anchor-id="exercises-to-be-started-in-class-and-completed-for-homework"><span class="header-section-number">25.4</span> Exercises (to be started in class and completed for homework)</h2>
+<section id="exercise-1-from-code-to-published-package-in-python" class="level3" data-number="25.4.1">
+<h3 data-number="25.4.1" class="anchored" data-anchor-id="exercise-1-from-code-to-published-package-in-python"><span class="header-section-number">25.4.1</span> Exercise 1: From code to published package in Python</h3>
+<p>Work through a Data Camp course called <a href="https://campus.datacamp.com/courses/developing-python-packages">Developing Python Packages</a>.</p>
 <p>The course shows how to take code and wrap it in a directory with special files, then how to publish it to PyPI (using a special repository just for testing).</p>
 <p>GitHub Actions are recommended to move code from Github, through Releases, to PyPI. <a href="https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/" class="uri">https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/</a></p>
 </section>
-<section id="questions-to-be-able-to-answerdiscuss" class="level2" data-number="25.3">
-<h2 data-number="25.3" class="anchored" data-anchor-id="questions-to-be-able-to-answerdiscuss"><span class="header-section-number">25.3</span> Questions to be able to answer/discuss</h2>
+<section id="exercise-2-trace-a-package-youve-used." class="level3" data-number="25.4.2">
+<h3 data-number="25.4.2" class="anchored" data-anchor-id="exercise-2-trace-a-package-youve-used."><span class="header-section-number">25.4.2</span> Exercise 2: Trace a package you’ve used.</h3>
 <ol type="1">
-<li>What can we say about filenames that look like <code>__init__.py</code>?</li>
-<li>How does code usually get from GitHub to PyPI?</li>
-<li>How is package management done internally at large companies? Can you find case studies of that? (This could be a good question to ask companies about their programming practices)</li>
+<li>Identify a package that you have used in the past</li>
+<li>Trace its pathway to your computing environment.</li>
+<li>Where is it developed?</li>
+<li>How is it released?</li>
+<li>How did you install it?</li>
+<li>Where did the install get the code from?</li>
+<li>How did the code get from the repo to the distribution system?</li>
+<li>Identify each of the 4 elements discussed above</li>
+<li>Can you find the code on your computer (you may need to search for some python code that helps you, it’s somewhere in the $PATH).</li>
 </ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
