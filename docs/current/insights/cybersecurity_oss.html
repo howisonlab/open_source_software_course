@@ -323,6 +323,24 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#readings" id="toc-readings" class="nav-link active" data-scroll-target="#readings"><span class="header-section-number">13.1</span> Readings</a></li>
+  <li><a href="#how-software-gets-attacked" id="toc-how-software-gets-attacked" class="nav-link" data-scroll-target="#how-software-gets-attacked"><span class="header-section-number">13.2</span> How software gets attacked</a></li>
+  <li><a href="#many-eyes-make-all-bugs-shallow" id="toc-many-eyes-make-all-bugs-shallow" class="nav-link" data-scroll-target="#many-eyes-make-all-bugs-shallow"><span class="header-section-number">13.3</span> Many eyes make all bugs shallow?</a>
+  <ul class="collapse">
+  <li><a href="#heartbleed-2014" id="toc-heartbleed-2014" class="nav-link" data-scroll-target="#heartbleed-2014"><span class="header-section-number">13.3.1</span> Heartbleed (2014)</a></li>
+  <li><a href="#the-xz-utils-backdoor-2024" id="toc-the-xz-utils-backdoor-2024" class="nav-link" data-scroll-target="#the-xz-utils-backdoor-2024"><span class="header-section-number">13.3.2</span> The XZ Utils backdoor (2024)</a></li>
+  </ul></li>
+  <li><a href="#the-supply-chain-problem" id="toc-the-supply-chain-problem" class="nav-link" data-scroll-target="#the-supply-chain-problem"><span class="header-section-number">13.4</span> The supply chain problem</a>
+  <ul class="collapse">
+  <li><a href="#log4shell-2021" id="toc-log4shell-2021" class="nav-link" data-scroll-target="#log4shell-2021"><span class="header-section-number">13.4.1</span> Log4Shell (2021)</a></li>
+  <li><a href="#sustainability-as-the-root-problem" id="toc-sustainability-as-the-root-problem" class="nav-link" data-scroll-target="#sustainability-as-the-root-problem"><span class="header-section-number">13.4.2</span> Sustainability as the root problem</a></li>
+  </ul></li>
+  <li><a href="#legal-liability-and-open-source-licenses" id="toc-legal-liability-and-open-source-licenses" class="nav-link" data-scroll-target="#legal-liability-and-open-source-licenses"><span class="header-section-number">13.5</span> Legal liability and open source licenses</a>
+  <ul class="collapse">
+  <li><a href="#two-camps" id="toc-two-camps" class="nav-link" data-scroll-target="#two-camps"><span class="header-section-number">13.5.1</span> Two camps</a></li>
+  <li><a href="#the-synthesis" id="toc-the-synthesis" class="nav-link" data-scroll-target="#the-synthesis"><span class="header-section-number">13.5.2</span> The synthesis</a></li>
+  <li><a href="#the-eu-product-liability-directive-2024" id="toc-the-eu-product-liability-directive-2024" class="nav-link" data-scroll-target="#the-eu-product-liability-directive-2024"><span class="header-section-number">13.5.3</span> The EU Product Liability Directive (2024)</a></li>
+  </ul></li>
+  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources"><span class="header-section-number">13.6</span> Resources</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/howisonlab/open_source_software_course/blob/master/quarto_course/insights/cybersecurity_oss.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
@@ -349,25 +367,179 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>Open source software, and the particular way it is produced, connect with the security of computer systems (usually called cybersecurity) in a few specific ways.</p>
-<p>In this class we will watch a presentation and read two articles together. We will build collaborative notes in the Google Notes file posted through a Canvas annoucement, seeking to answer these three questions.</p>
-<ol type="1">
-<li><p>“Many eyes make all bugs shallow”. In what ways, does inspection and shared bug-fixing outweigh the advantages that an attacker gets by looking directly at the source code?</p></li>
-<li><p>Package systems build on existing libraries/components, so any security flaws can be multiplied. Moreover, open contributions could enable malicious actors to insert security flaws. In what ways is open source software resiliant to these issues? When might these resiliances fail? What practices help to bolster resilience?</p></li>
-<li><p>Software licences, including open source licenses, exclude product liability. How does this interact with open source? What might be the trade offs in applying product liability law to software and to open source software in particular?</p></li>
-</ol>
 <section id="readings" class="level2" data-number="13.1">
 <h2 data-number="13.1" class="anchored" data-anchor-id="readings"><span class="header-section-number">13.1</span> Readings</h2>
 <ul>
 <li><p>Video Presentation: “Is Open Source More Secure?” IBM Technology <a href="https://www.youtube.com/watch?v=HcV4u-nemNk" class="uri">https://www.youtube.com/watch?v=HcV4u-nemNk</a></p></li>
 <li><p>Hacked: The overlooked and under-supported open source projects holding the Internet together (March 2025) <a href="https://illumin.usc.edu/hacked-open-source-projects/" class="uri">https://illumin.usc.edu/hacked-open-source-projects/</a></p>
 <ul>
-<li>see also <a href="https://research.swtch.com/xz-timeline" class="uri">https://research.swtch.com/xz-timeline</a></li>
+<li>see also the XZ Utils backdoor timeline: <a href="https://research.swtch.com/xz-timeline" class="uri">https://research.swtch.com/xz-timeline</a></li>
 </ul></li>
 <li><p>Sharma, Speed, and Howison (2022) The Securing Open Source Software Act Is Good, but Whatever Happened to Legal Liability? Lawfare Blog <a href="https://www.lawfaremedia.org/article/securing-open-source-software-act-good-whatever-happened-legal-liability" class="uri">https://www.lawfaremedia.org/article/securing-open-source-software-act-good-whatever-happened-legal-liability</a></p>
 <ul>
 <li>see also EU product liability law changes <a href="https://www.taylorwessing.com/en/insights-and-events/insights/2024/03/software-als-produkt" class="uri">https://www.taylorwessing.com/en/insights-and-events/insights/2024/03/software-als-produkt</a></li>
 </ul></li>
 </ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Instructor setup
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Students work in collaborative Google Docs to answer the three discussion exercises below. Before class:</p>
+<ol type="1">
+<li>Create one Google Doc per group in UT Mail Google Drive (drive.utmail.utexas.edu) — choose “Convert to Google Docs” on upload if starting from a template</li>
+<li>Set sharing on each to “Anyone with the link can edit” (Share &gt; Change &gt; Anyone with the link &gt; Editor). Note: each copy needs this set individually.</li>
+<li>Add the three exercise headings as sections in each doc</li>
+<li>Post links via Canvas announcement before class</li>
+</ol>
+</div>
+</div>
+</section>
+<section id="how-software-gets-attacked" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="how-software-gets-attacked"><span class="header-section-number">13.2</span> How software gets attacked</h2>
+<p>Before examining the relationship between open source and security, it helps to understand the common types of security vulnerabilities and how attackers exploit them.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Common causes of security flaws and how they are exploited
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Memory safety errors</strong> (common in C and C++): Buffer overflows, use-after-free. An attacker sends more data than a program expects, overwriting adjacent memory and potentially gaining control of execution. Many critical infrastructure libraries (OpenSSL, the Linux kernel) are written in C.</p>
+<p><strong>Injection attacks</strong>: SQL injection, command injection, cross-site scripting (XSS). User-supplied input is interpreted as code rather than data. Still one of the most prevalent vulnerability classes year after year.</p>
+<p><strong>Authentication and authorization failures</strong>: Weak passwords, broken session management, missing access controls — the system never checks whether you are who you claim to be, or whether you are allowed to do what you are doing.</p>
+<p><strong>Cryptographic weaknesses</strong>: Using outdated algorithms (MD5, SHA-1), misimplementing correct algorithms, or relying on random number generators that are not truly random.</p>
+<p><strong>Logic errors</strong>: The code does exactly what it was written to do — but the design itself has a flaw. An attacker finds a sequence of valid operations that produces an unintended result.</p>
+<p><strong>Supply chain attacks</strong>: Malicious code is inserted into a dependency, build tool, or development environment rather than into the target software directly. The attacker compromises something the target trusts.</p>
+<p><strong>How vulnerabilities are exploited:</strong> Researchers and attackers discover flaws through code review, fuzzing (automated random-input testing), and reverse engineering. Serious vulnerabilities receive a CVE (Common Vulnerabilities and Exposures) number — a public identifier used to track and communicate about them. A <em>zero-day</em> is a vulnerability known to attackers but not yet disclosed or patched publicly. Once a CVE is published, a race begins: defenders patching their systems vs.&nbsp;attackers exploiting systems that have not yet been patched. This race is why the <em>time to patch</em> matters enormously.</p>
+</div>
+</div>
+</section>
+<section id="many-eyes-make-all-bugs-shallow" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="many-eyes-make-all-bugs-shallow"><span class="header-section-number">13.3</span> Many eyes make all bugs shallow?</h2>
+<p>Eric Raymond coined “Linus’s Law” in <em>The Cathedral and the Bazaar</em> (1999):</p>
+<blockquote class="blockquote">
+<p>“Given enough eyeballs, all bugs are shallow.”</p>
+</blockquote>
+<p>The argument: because open source code is publicly readable, a large community of developers can inspect it, find bugs, and fix them. A vulnerability that might hide for years in proprietary code will quickly be spotted in open source — before attackers can exploit it.</p>
+<p>This is the central security argument <em>for</em> open source. But the evidence is more complicated.</p>
+<section id="heartbleed-2014" class="level3" data-number="13.3.1">
+<h3 data-number="13.3.1" class="anchored" data-anchor-id="heartbleed-2014"><span class="header-section-number">13.3.1</span> Heartbleed (2014)</h3>
+<p>OpenSSL is the library that encrypts a large fraction of internet traffic. It is open source. A buffer over-read vulnerability — allowing an attacker to read up to 64 kilobytes of memory from a server — was present in the code for <strong>two years</strong> before it was discovered. It was found not by the community passively reviewing code, but by a security engineer at Google and a researcher at Codenomicon doing active, funded security auditing.</p>
+<p>The lesson: many eyes don’t look. Most contributors to a project focus on features, not security review. Critical infrastructure code gets audited only when someone specifically funds that work.</p>
+</section>
+<section id="the-xz-utils-backdoor-2024" class="level3" data-number="13.3.2">
+<h3 data-number="13.3.2" class="anchored" data-anchor-id="the-xz-utils-backdoor-2024"><span class="header-section-number">13.3.2</span> The XZ Utils backdoor (2024)</h3>
+<p>The XZ incident reveals a different kind of failure: not a bug, but a deliberate, years-long attack on the community trust process itself.</p>
+<p><strong>xz</strong> is a widely-used compression library present on most Linux systems. In early 2024, versions 5.6.0 and 5.6.1 were found to contain a backdoor that would have allowed remote code execution via SSH — essentially a hidden key to millions of servers running systemd-based Linux distributions.</p>
+<p>The attacker, operating under the name “Jia Tan,” spent approximately <strong>two years</strong> building credibility in the xz-utils project. They made legitimate, high-quality contributions. They built a relationship of trust with the sole maintainer, who was experiencing burnout and was being pressured by other fake accounts to hand over commit access. Eventually “Jia Tan” gained direct commit access and inserted the backdoor in a highly obfuscated way spread across several commits — designed to be invisible to casual review.</p>
+<p>It was caught accidentally by Andres Freund, a Microsoft engineer, who noticed SSH logins on his machine were 500ms slower than expected. He traced the slowdown to liblzma (part of xz) and then found the backdoor. The full timeline is in the pre-reading at <a href="https://research.swtch.com/xz-timeline" class="uri">https://research.swtch.com/xz-timeline</a>.</p>
+<p>What this shows:</p>
+<ul>
+<li>Sophisticated attackers can operate on timescales of years, not hours</li>
+<li>Burnout and understaffing make maintainers vulnerable to social engineering</li>
+<li>“Many eyes” failed: the malicious code was reviewed and merged without detection</li>
+<li>But: the attack <em>was</em> caught before it reached stable major distributions — partly because of the open nature of the process (build logs were public, making the timing anomaly visible to someone who was paying attention)</li>
+</ul>
+<p><strong>Exercise 1:</strong></p>
+<blockquote class="blockquote">
+<p>“Many eyes make all bugs shallow.” In what ways does inspection and shared bug-fixing outweigh the advantages an attacker gets by looking directly at the source code? In what ways does it not?</p>
+</blockquote>
+<p>Working in your group’s Google Doc:</p>
+<ol type="1">
+<li>List two arguments <em>for</em> Linus’s Law — ways that openness genuinely helps security</li>
+<li>List two arguments <em>against</em> — ways it fails, using Heartbleed and/or XZ as evidence</li>
+<li>Find <strong>one recent security incident</strong> (from the last two years, not XZ or Heartbleed) and classify it: Was the vulnerability in open or closed source code? How long had it existed? How was it discovered? Would “more eyes” have helped?</li>
+</ol>
+</section>
+</section>
+<section id="the-supply-chain-problem" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="the-supply-chain-problem"><span class="header-section-number">13.4</span> The supply chain problem</h2>
+<p>Modern software is assembled from components. A typical application uses hundreds of open source libraries, which themselves depend on other libraries. This creates a <em>dependency graph</em> — and a vulnerability anywhere in the graph can affect everything above it.</p>
+<section id="log4shell-2021" class="level3" data-number="13.4.1">
+<h3 data-number="13.4.1" class="anchored" data-anchor-id="log4shell-2021"><span class="header-section-number">13.4.1</span> Log4Shell (2021)</h3>
+<p>Log4j is a Java logging library — software that records what an application is doing. It is used in an enormous fraction of Java-based enterprise software, often as a <em>transitive dependency</em>: applications use it without explicitly listing it as a dependency, because something they depend on depends on it.</p>
+<p>In December 2021, a critical vulnerability (CVE-2021-44228) was disclosed: by sending a specially crafted string to any application that logs it, an attacker could execute arbitrary code on the server. The vulnerability affected major products from Apple, Amazon, Cloudflare, Twitter, and thousands of other organizations. Many organizations didn’t know they had the dependency at all.</p>
+<p><strong>The aftermath was as revealing as the vulnerability itself.</strong> Nine months after Log4Shell became global news, 30% of applications using Log4j still used a vulnerable version. Patching requires knowing you have the dependency — and then getting an update deployed across all your systems.</p>
+</section>
+<section id="sustainability-as-the-root-problem" class="level3" data-number="13.4.2">
+<h3 data-number="13.4.2" class="anchored" data-anchor-id="sustainability-as-the-root-problem"><span class="header-section-number">13.4.2</span> Sustainability as the root problem</h3>
+<p>The Lawfare reading argues: “open source doesn’t have a security problem, it has a <strong>sustainability problem</strong>.”</p>
+<p>Log4j was maintained by a tiny team of volunteers, largely unfunded. OpenSSL — encrypting much of the internet — operated for years on a budget of around $2,000/year. The pattern recurs: critical infrastructure maintained by a handful of people, without resources for systematic security auditing. Attackers know which libraries are critical and understaffed. The XZ attack specifically targeted a one-person project with a burned-out maintainer.</p>
+<p><strong>Resilience mechanisms</strong> the ecosystem has developed in response:</p>
+<ul>
+<li><strong>Software Bill of Materials (SBOM)</strong>: A machine-readable list of all components in a software product, making it possible to quickly identify which systems are affected when a vulnerability is disclosed.</li>
+<li><strong>Reproducible builds</strong>: Ensuring the same source code always produces the same binary, making it harder to insert malicious code in the build process.</li>
+<li><strong>Signed commits and releases</strong>: Cryptographic signatures on code changes create an audit trail and make impersonation harder.</li>
+<li><strong>Dependency auditing tools</strong>: <code>npm audit</code>, <code>pip-audit</code>, GitHub’s Dependabot — automated scanning for known vulnerabilities in declared dependencies.</li>
+<li><strong>Open Source Security Foundations</strong>: The OpenSSF (Open Source Security Foundation), funded by major tech companies, now provides security audits and tooling for critical projects.</li>
+</ul>
+<p><strong>Exercise 2:</strong></p>
+<blockquote class="blockquote">
+<p>Package systems build on existing libraries. Any security flaw can be multiplied. Open contributions could enable malicious actors to insert security flaws. In what ways is open source software resilient to these issues? When might resilience fail? What practices help bolster resilience?</p>
+</blockquote>
+<p>Working in your group’s Google Doc:</p>
+<ol type="1">
+<li><p>Choose two resilience mechanisms from the list above. For each, describe: (a) a scenario where it would help catch a vulnerability, and (b) a scenario where it would fail or be bypassed.</p></li>
+<li><p><strong>AI code generation and security:</strong> Large language models (GitHub Copilot, ChatGPT, Cursor, etc.) are now widely used to write and review code. Discuss:</p>
+<ul>
+<li>LLMs are trained on large corpora of public code — including code with known vulnerabilities. What does this imply for the security of AI-generated code?</li>
+<li>If a developer uses an LLM to generate code that calls a library, how might this affect their awareness of their own dependency graph?</li>
+<li>Could LLMs <em>help</em> with supply chain security? How?</li>
+</ul></li>
+</ol>
+</section>
+</section>
+<section id="legal-liability-and-open-source-licenses" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="legal-liability-and-open-source-licenses"><span class="header-section-number">13.5</span> Legal liability and open source licenses</h2>
+<p>Open source licenses — the MIT license, the GPL, Apache 2.0 — all contain clauses like this (from MIT):</p>
+<blockquote class="blockquote">
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND … IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY…</p>
+</blockquote>
+<p>This is an <strong>AS-IS clause</strong>. It disclaims product liability: if the software is defective and causes harm, the authors are not legally responsible. This makes sense for volunteer contributors giving away code for free. But it applies equally to vendors who <em>sell</em> products built on open source — bundling it into commercial software without auditing or patching it.</p>
+<section id="two-camps" class="level3" data-number="13.5.1">
+<h3 data-number="13.5.1" class="anchored" data-anchor-id="two-camps"><span class="header-section-number">13.5.1</span> Two camps</h3>
+<p>The Lawfare reading (Sharma, Speed, and Howison, 2022 — note: instructor (James) is a co-author) describes the policy debate around the <strong>Securing Open Source Software Act (SOSSA)</strong> through two competing camps:</p>
+<p><strong>Camp 1: Community investment.</strong> The problem is chronic underfunding of open source maintainers. The solution is direct investment — government and industry funding for security audits, better tooling, and paying maintainers. Regulation would burden already-stretched volunteers. SOSSA’s approach (CISA risk frameworks, federal dependency audits) is a reasonable, light-touch start.</p>
+<p><strong>Camp 2: Legal liability.</strong> Voluntary measures fail because vendors have no incentive to invest in security when they can ship vulnerable software with no legal consequence. Evidence: 30% of applications still running vulnerable Log4j nine months after disclosure. If vendors faced product liability, they would have financial incentive to scan their dependencies, patch promptly, and contribute upstream to the projects they depend on.</p>
+</section>
+<section id="the-synthesis" class="level3" data-number="13.5.2">
+<h3 data-number="13.5.2" class="anchored" data-anchor-id="the-synthesis"><span class="header-section-number">13.5.2</span> The synthesis</h3>
+<p>The authors argue these camps are not mutually exclusive. Legal liability, applied to <em>vendors</em> rather than <em>volunteer maintainers</em>, could actually increase investment in open source sustainability. If a company is liable for shipping software with a known vulnerability, the cheapest response may be to contribute to fixing the upstream open source project — cheaper than maintaining a private patch indefinitely.</p>
+<p>The analogy is automotive recalls: when a defective part is discovered, the <em>manufacturer</em> is responsible for recalling and fixing the vehicle, even if the defective component came from a supplier. The “least-cost avoider” — the party best positioned to prevent harm at lowest cost — should bear legal responsibility.</p>
+</section>
+<section id="the-eu-product-liability-directive-2024" class="level3" data-number="13.5.3">
+<h3 data-number="13.5.3" class="anchored" data-anchor-id="the-eu-product-liability-directive-2024"><span class="header-section-number">13.5.3</span> The EU Product Liability Directive (2024)</h3>
+<p>The EU has moved ahead of the US on this. The revised Product Liability Directive explicitly includes software as a “product,” making vendors potentially liable for security defects. The EU Cyber Resilience Act adds mandatory security requirements for products with digital elements sold in the EU. The Taylor Wessing article in the readings covers the details.</p>
+<p><strong>Exercise 3:</strong></p>
+<blockquote class="blockquote">
+<p>Software licenses exclude product liability. How does this interact with open source? What are the trade-offs of applying product liability law to software and open source in particular?</p>
+</blockquote>
+<p>Working in your group’s Google Doc, argue one of the following positions (your group will be assigned one):</p>
+<p><strong>Position A — For liability:</strong> Vendors profiting from software that relies on unaudited open source dependencies should bear product liability, as automotive manufacturers bear liability for defective components. The AS-IS clause is a legal artifact that has failed to create adequate security incentives. The EU is already moving in this direction and the sky has not fallen.</p>
+<p><strong>Position B — Against liability:</strong> Imposing liability on software vendors will be passed downstream to maintainers through contracts and indemnification clauses. It will chill open source contribution, push development to jurisdictions without liability regimes, and ultimately harm the commons that the entire tech industry depends on.</p>
+<p>For your assigned position:</p>
+<ol type="1">
+<li>List three supporting arguments</li>
+<li>Identify the strongest counter-argument and explain how you would respond to it</li>
+<li>Note where the Lawfare reading agrees or disagrees with your position</li>
+</ol>
+</section>
+</section>
+<section id="resources" class="level2" data-number="13.6">
+<h2 data-number="13.6" class="anchored" data-anchor-id="resources"><span class="header-section-number">13.6</span> Resources</h2>
+<p>Sharma, A., Speed, S., and Howison, J. (2022). The Securing Open Source Software Act Is Good, but Whatever Happened to Legal Liability? <em>Lawfare Blog</em>. <a href="https://www.lawfaremedia.org/article/securing-open-source-software-act-good-whatever-happened-legal-liability" class="uri">https://www.lawfaremedia.org/article/securing-open-source-software-act-good-whatever-happened-legal-liability</a></p>
+<p>Raymond, E. S. (1999). The Cathedral and the Bazaar. <a href="http://www.catb.org/~esr/writings/cathedral-bazaar/" class="uri">http://www.catb.org/~esr/writings/cathedral-bazaar/</a></p>
+<p>Freund, A. (2024). backdoor in upstream xz/liblzma leading to ssh server compromise. <em>oss-security mailing list</em>. <a href="https://www.openwall.com/lists/oss-security/2024/03/29/4" class="uri">https://www.openwall.com/lists/oss-security/2024/03/29/4</a></p>
+<p>OpenSSF. (2024). Open Source Security Foundation. <a href="https://openssf.org" class="uri">https://openssf.org</a></p>
 
 
 </section>
