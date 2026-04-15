@@ -201,7 +201,7 @@ Your analysis should use the trace data collected to address insight concepts th
 
 Submission:
 
-Submit by making a PR. Note that it should be a separate PR from other assignment submissions; this means you must use a different branch name for this work.
+Submit by making a PR [Final Project Submissions repository](https://github.com/howisonlab/i320d-2026-02-spring-submission). Ensure you upload your file in your designated folder, which is named after you in the repository. Note that it should be a separate PR from other assignment submissions; this means you must use a different branch name for this work.
 
 Include a note at the top of the file telling me which formal citation approach you are using (e.g., APA, MLA, etc). Students are cautioned that as a scholarly paper proper citation and use of sources is required otherwise students will face academic misconduct proceedings. See ["Academic Integrity" presentation](https://utexas.zoom.us/rec/share/AjF6eoJH2heRWqQkTAHAQTfpp05UbE7WRhT-vQFw9wYevV8YBjpE2AJ_2PD07Mca.2v_7lGqZ0OoKbJzG) if at all unsure.
 
