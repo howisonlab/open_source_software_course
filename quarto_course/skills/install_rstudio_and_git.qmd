@@ -1,188 +1,225 @@
+---
+editor: 
+  markdown: 
+    wrap: 72
+---
+
 # Install Rstudio and git {#sec-install}
 
 ## Part 1: Install Git
 
 ### Windows Users
 
-1. **Download Git:**
-   - Go to https://git-scm.com/download/win
-   - The download should start automatically
-   - If not, click "Click here to download manually"
-
-2. **Run the Installer:**
-   - Double-click the downloaded `.exe` file
-   - **Recommended settings during installation:**
-     - Use the default installation directory
-     - Select "Git from the command line and also from 3rd-party software"
-     - Use the bundled OpenSSH
-     - Use the OpenSSL library
-     - Checkout Windows-style, commit Unix-style line endings
-     - Use MinTTY (default terminal)
-     - Default pull behavior: "Default (fast-forward or merge)"
-     - Accept all other defaults
-
-3. **Verify Installation:**
-   - Open Command Prompt (search for "cmd" in Start menu)
-   - Type: `git --version`
-   - You should see something like `git version 2.x.x`
+1.  **Download Git:**
+    -   Go to https://git-scm.com/download/win
+    -   The download should start automatically
+    -   If not, click "Click here to download manually"
+2.  **Run the Installer:**
+    -   Double-click the downloaded `.exe` file
+    -   **Recommended settings during installation:**
+        -   Use the default installation directory
+        -   Select "Git from the command line and also from 3rd-party
+            software"
+        -   Use the bundled OpenSSH
+        -   Use the OpenSSL library
+        -   Checkout Windows-style, commit Unix-style line endings
+        -   Use MinTTY (default terminal)
+        -   Default pull behavior: "Default (fast-forward or merge)"
+        -   Accept all other defaults
+3.  **Verify Installation:**
+    -   Open Command Prompt (search for "cmd" in Start menu)
+    -   Type: `git --version`
+    -   You should see something like `git version 2.x.x`
 
 ### Mac Users
 
-1. **Check if Git is Already Installed:**
-   - Open Terminal (Applications → Utilities → Terminal, or search for "Terminal")
-   - Type: `git --version`
-   - If you see a version number (e.g., `git version 2.x.x`), **git is already installed** - skip to Part 2!
+1.  **Check if Git is Already Installed:**
 
-2. **If Git is Not Installed:**
-   
-   **Option A: Command Line Tools (Recommended - faster and smaller)**
-   - In Terminal, type: `xcode-select --install`
-   - Click "Install" when prompted
-   - Agree to the license terms
-   - Wait for installation to complete (5-10 minutes)
-   
-   **Option B: Download from Git Website**
-   - Go to https://git-scm.com/download/mac
-   - Download the installer for your macOS version
-   - Open the downloaded `.dmg` file and follow instructions
+    -   Open Terminal (Applications → Utilities → Terminal, or search
+        for "Terminal")
+    -   Type: `git --version`
+    -   If you see a version number (e.g., `git version 2.x.x`), **git
+        is already installed** - skip to Part 2!
 
-3. **Verify Installation:**
-   - In Terminal, type: `git --version`
-   - You should see something like `git version 2.x.x`
+2.  **If Git is Not Installed:**
 
----
+    **Option A: Command Line Tools (Recommended - faster and smaller)**
+
+    -   In Terminal, type: `xcode-select --install`
+    -   Click "Install" when prompted
+    -   Agree to the license terms
+    -   Wait for installation to complete (5-10 minutes)
+
+    **Option B: Download from Git Website**
+
+    -   Go to https://git-scm.com/download/mac
+    -   Download the installer for your macOS version
+    -   Open the downloaded `.dmg` file and follow instructions
+
+3.  **Verify Installation:**
+
+    -   In Terminal, type: `git --version`
+    -   You should see something like `git version 2.x.x`
+
+------------------------------------------------------------------------
 
 ## Part 2: Install RStudio
 
 ### All Users (Windows and Mac)
 
-1. **Download RStudio Desktop:**
-   - Go to https://posit.co/download/rstudio-desktop/
-   - Scroll down to "2: Install RStudio"
-   - Click the download button for your operating system (Windows or macOS)
+1.  **Download RStudio Desktop:**
+    -   Go to https://posit.co/download/rstudio-desktop/
+    -   Scroll down to "2: Install RStudio"
+    -   Click the download button for your operating system (Windows or
+        macOS)
+2.  **Install RStudio:**
+    -   **Windows:** Double-click the `.exe` file and follow the
+        installation wizard
+    -   **Mac:** Open the `.dmg` file and drag RStudio to your
+        Applications folder
+3.  **Launch RStudio:**
+    -   Open RStudio from your Applications folder (Mac) or Start menu
+        (Windows)
+    -   Wait for it to fully load
 
-2. **Install RStudio:**
-   - **Windows:** Double-click the `.exe` file and follow the installation wizard
-   - **Mac:** Open the `.dmg` file and drag RStudio to your Applications folder
-
-3. **Launch RStudio:**
-   - Open RStudio from your Applications folder (Mac) or Start menu (Windows)
-   - Wait for it to fully load
-
----
+------------------------------------------------------------------------
 
 ## Part 3: Configure Git in RStudio
 
-1. **Open RStudio**
+1.  **Open RStudio**
 
-2. **Configure Git Settings:**
-   - Go to **Tools → Global Options**
-   - Click on **Git/SVN** in the left sidebar
-   - Check that the "Git executable" field shows a path
-     - **Windows example:** `C:/Program Files/Git/bin/git.exe`
-     - **Mac example:** `/usr/bin/git` or `/usr/local/bin/git`
-   - If the field is empty, click "Browse" and locate git manually
+2.  **Configure Git Settings:**
 
-3. **Set Your Git Identity:**
-   - In RStudio, go to **Tools → Terminal → New Terminal**
-   - Type the following commands (replace with YOUR information):
-   ```
-   git config --global user.name "Your Full Name"
-   git config --global user.email "your.email@example.com"
-   ```
-   - Use the <eid>@my.UTexas.edu email address (this does not have to be the same as your GitHub email)
+    -   Go to **Tools → Global Options**
+    -   Click on **Git/SVN** in the left sidebar
+    -   Check that the "Git executable" field shows a path
+        -   **Windows example:** `C:/Program Files/Git/bin/git.exe`
+        -   **Mac example:** `/usr/bin/git` or `/usr/local/bin/git`
+    -   If the field is empty, click "Browse" and locate git manually
 
-4. **Restart RStudio** to ensure all settings take effect
+3.  **Set Your Git Identity:**
 
----
+    -   In RStudio, go to **Tools → Terminal → New Terminal**
+    -   Type the following commands (replace with YOUR information):
+
+    ```         
+    git config --global user.name "Your Full Name"
+    git config --global user.email "your.email@example.com"
+    ```
+
+    -   Use the <eid>@my.UTexas.edu email address (this does not have to
+        be the same as your GitHub email)
+
+4.  **Restart RStudio** to ensure all settings take effect
+
+------------------------------------------------------------------------
 
 ## Installation Complete!
 
-You're now ready for the course. Please complete the verification checklist below to confirm everything is working properly.
+You're now ready for the course. Please complete the verification
+checklist below to confirm everything is working properly.
 
 ## Verification Checklist
 
 ### Step 1: Check Git Version
-- [ ] **Windows:** Opened Command Prompt
-- [ ] **Mac:** Opened Terminal
-- [ ] Typed `git --version` and pressed Enter
-- [ ] **Git version displayed:** _________________ (write the version number)
+
+-   [ ] **Windows:** Opened Command Prompt
+-   [ ] **Mac:** Opened Terminal
+-   [ ] Typed `git --version` and pressed Enter
+-   [ ] **Git version displayed:** \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+    (write the version number)
 
 ### Step 2: Verify Git Configuration
-In the same command line/terminal window, type each command and verify output:
 
-- [ ] Typed `git config --global user.name`
-- [ ] **My name is displayed:** ___________________________
+In the same command line/terminal window, type each command and verify
+output:
 
-- [ ] Typed `git config --global user.email`
-- [ ] **My email is displayed:** ___________________________
+-   [ ] Typed `git config --global user.name`
+
+-   [ ] **My name is displayed:**
+    \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+-   [ ] Typed `git config --global user.email`
+
+-   [ ] **My email is displayed:**
+    \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 ### Step 3: Launch RStudio
-- [ ] Successfully opened RStudio application
-- [ ] RStudio fully loaded without errors
+
+-   [ ] Successfully opened RStudio application
+-   [ ] RStudio fully loaded without errors
 
 ### Step 4: Check RStudio Version
-- [ ] Clicked **Help → About RStudio**
-- [ ] **RStudio version:** _________________ (e.g., 2023.12.1)
-- [ ] Closed the About dialog
+
+-   [ ] Clicked **Help → About RStudio**
+-   [ ] **RStudio version:** \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ (e.g.,
+    2023.12.1)
+-   [ ] Closed the About dialog
 
 ### Step 5: Verify Git Integration in RStudio
-- [ ] Clicked **Tools → Global Options**
-- [ ] Clicked **Git/SVN** in the left sidebar
-- [ ] **"Git executable" field shows a path:** 
-  - [ ] Yes - Path shown: _________________________________
-  - [ ] No - **STOP: See troubleshooting below**
-- [ ] Checked **"Enable version control interface for RStudio projects"** (should be checked)
-- [ ] Clicked OK to close Options
+
+-   [ ] Clicked **Tools → Global Options**
+-   [ ] Clicked **Git/SVN** in the left sidebar
+-   [ ] **"Git executable" field shows a path:**
+    -   [ ] Yes - Path shown:
+        \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+    -   [ ] No - **STOP: See troubleshooting below**
+-   [ ] Checked **"Enable version control interface for RStudio
+    projects"** (should be checked)
+-   [ ] Clicked OK to close Options
 
 ### Step 6: Test Terminal in RStudio
-- [ ] Clicked **Tools → Terminal → New Terminal**
-- [ ] A terminal pane opened at the bottom of RStudio
-- [ ] Typed `git --version` in the RStudio terminal
-- [ ] Git version displayed successfully: **Yes / No**
 
----
+-   [ ] Clicked **Tools → Terminal → New Terminal**
+-   [ ] A terminal pane opened at the bottom of RStudio
+-   [ ] Typed `git --version` in the RStudio terminal
+-   [ ] Git version displayed successfully: **Yes / No**
+
+------------------------------------------------------------------------
 
 ## ✓ Text Editing Verification
 
 ### Step 7: Create a Test Script
-- [ ] Clicked **File → New File → R Script** (or Text File)
-- [ ] Typed a few test lines (e.g., `# This is a test`)
-- [ ] Clicked **File → Save**
-- [ ] Chose a location and filename
-- [ ] File saved successfully
 
----
+-   [ ] Clicked **File → New File → R Script** (or Text File)
+-   [ ] Typed a few test lines (e.g., `# This is a test`)
+-   [ ] Clicked **File → Save**
+-   [ ] Chose a location and filename
+-   [ ] File saved successfully
+
+------------------------------------------------------------------------
 
 ## 🎉 All Checks Complete!
 
 If you checked all boxes above, you're ready for class!
 
----
+------------------------------------------------------------------------
 
 ## ⚠️ Troubleshooting
 
 **If Git is not found in RStudio (Step 5):**
 
-1. **Restart RStudio** completely (quit and reopen)
-2. Re-check Tools → Global Options → Git/SVN
-3. If still empty, click **Browse** next to "Git executable" and navigate to:
-   - **Windows:** `C:\Program Files\Git\bin\git.exe`
-   - **Mac:** `/usr/bin/git` or type `which git` in Terminal to find the path
-4. Click **Browse** and select the git executable file
-5. Click OK and restart RStudio
+1.  **Restart RStudio** completely (quit and reopen)
+2.  Re-check Tools → Global Options → Git/SVN
+3.  If still empty, click **Browse** next to "Git executable" and
+    navigate to:
+    -   **Windows:** `C:\Program Files\Git\bin\git.exe`
+    -   **Mac:** `/usr/bin/git` or type `which git` in Terminal to find
+        the path
+4.  Click **Browse** and select the git executable file
+5.  Click OK and restart RStudio
 
-**If Git version command doesn't work (Step 1):**
-- **Windows:** Git may not be in your system PATH. Try reinstalling Git with default settings.
-- **Mac:** You may need to install Command Line Tools. Open Terminal and type `xcode-select --install`
+**If Git version command doesn't work (Step 1):** - **Windows:** Git may
+not be in your system PATH. Try reinstalling Git with default
+settings. - **Mac:** You may need to install Command Line Tools. Open
+Terminal and type `xcode-select --install`
 
-**If system is still having issues:**
-- Note the specific error message or problem
-- Take a screenshot if possible
-- Flag down instructor or TA in class.
-- Contact instructor or TA via Canvas.
+**If system is still having issues:** - Note the specific error message
+or problem - Take a screenshot if possible - Flag down instructor or TA
+in class. - Contact instructor or TA via Canvas.
 
-If you run into unfixable problems with your install you can use a free account on <http://rstudio.cloud>.
+If you run into unfixable problems with your install you can use a free
+account on <http://rstudio.cloud>.
 
 ## Configure Nano as Default Git Editor
 
@@ -192,14 +229,14 @@ for you to write your commit message. By default, this is often **vi**
 
 ![](images/vi%20editor.png)
 
-If you find yourself in vi, you might notice: \
-- A screen with `~` symbols on the left \
-- Typing doesn't work as expected \
+If you find yourself in vi, you might notice:\
+- A screen with `~` symbols on the left\
+- Typing doesn't work as expected\
 - No obvious way to exit or save
 
-**To escape from vi without saving:** \
-1. Press `Esc` twice (to enter command mode) \
-2. Type `:q!` \
+**To escape from vi without saving:**\
+1. Press `Esc` twice (to enter command mode)\
+2. Type `:q!`\
 3. Press `Enter`
 
 This exits without making a commit.
@@ -225,27 +262,162 @@ When Git opens nano for a commit message, you'll see:
 -   Simply type your commit message at the top
 -   The bottom shows available commands where `^` means the `Ctrl` key
 
-**To save and exit nano:** \
-1. Press `Ctrl + X` (shown as `^X Exit` at the bottom) \
-2. Press `Y` when asked "Save modified buffer?" \
+**To save and exit nano:**\
+1. Press `Ctrl + X` (shown as `^X Exit` at the bottom)\
+2. Press `Y` when asked "Save modified buffer?"\
 3. Press `Enter` to confirm
 
 ## Git Default Branch: Main vs Master
 
-Git's default branch name has changed over time. Depending on your Git version and when you set up your repository, you may see either main or master as your default branch name. These are functionally identical, just different names for the same thing.
+Git's default branch name has changed over time. Depending on your Git
+version and when you set up your repository, you may see either main or
+master as your default branch name. These are functionally identical,
+just different names for the same thing.
 
 ### Check Your Default Branch
 
 Check Your Git's Default Branch Setting
-```bash
+
+``` bash
 git config --global init.defaultBranch
 ```
 
 ### Standardizing to `main` (Recommended)
 
 **Configure Git for future repositories**
-```bash
+
+``` bash
 git config --global init.defaultBranch main
 ```
 
 This ensures all new repositories you create will use `main` by default.
+
+## Python installation
+
+### Windows Users
+
+1.  **Download Python:**
+    -   Go to https://www.python.org/downloads/
+    -   Click the yellow **Download Python 3.x.x** button
+    -   This will download a `.exe` installer file
+2.  **Run the Installer:**
+    -   Double-click the downloaded `.exe` file \
+    - **IMPORTANT:** On the first screen, check the box that says
+        **"Add Python to PATH"** before clicking anything else
+        -   This box is near the bottom of the installer window
+        -   If you miss this step, Python commands won't work in your
+            terminal
+    -   Click **Install Now** 
+    -   Click **Close** when finished
+3.  **Verify Installation:**
+    -   Open Command Prompt
+    -   Type: `python --version`
+    -   You should see something like `Python 3.x.x`
+    -   Also type: `pip --version` to confirm pip (Python's package
+        manager) is installed
+
+::: callout-tip
+If `python --version` doesn't work, try `python3 --version`. If neither
+works, reinstall and make sure to check "Add Python to PATH."
+:::
+
+------------------------------------------------------------------------
+
+### Mac Users
+
+1.  **Check if Python is Already Installed:**
+    -   Open Terminal
+    -   Type: `python --version`
+    -   If you see a version number like `Python 3.x.x`, **Python is
+        already installed** - skip to the verification step below!
+    - Try: `python3 --version` (if that works you'll have to type `python3` each time the materials say `python`)
+2.  **If Python is Not Installed - Download from the Official Website:**
+    -   Go to https://www.python.org/downloads/
+    -   Click the **"Download Python 3.x.x"** button
+    -   This will download a `.pkg` installer file
+3.  **Run the Installer:**
+    -   Open the downloaded `.pkg` file
+    -   Follow the installation wizard
+    -   Enter your Mac password if prompted
+    -   Click **Close** when finished
+4.  **Verify Installation:**
+    -   Open Terminal
+    -   Type: `python --version`
+    -   You should see something like `Python 3.x.x`
+    -   Also type: `pip --version` to confirm pip is installed
+
+
+### Python Verification Checklist
+
+#### Windows
+
+-   [ ] Opened Command Prompt
+-   [ ] Typed `python --version` — version number displayed:
+    \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_(e.g.,3.12.4)
+-   [ ] Typed `pip --version` — pip version displayed:
+    \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+#### Mac
+
+-   [ ] Opened Terminal
+-   [ ] Typed `python --version` — version number displayed:
+    \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_(e.g.,3.12.4)
+-   [ ] Typed `pip --version` — pip version displayed:
+    \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+## Install PyTest
+
+### Windows Users
+- Open Command Prompt and type: `pip install pytest`
+
+### Mac Users
+- Open Terminal and type: `pip3 install pytest`
+
+## Install Quarto 
+
+### Windows Users
+
+1.  **Download Quarto:**
+    -   Go to https://quarto.org/docs/get-started/
+    -   Click the **Download Quarto CLI** button
+    -   Select the **Windows** installer (`.exe` file)
+2.  **Run the Installer:**
+    -   Double-click the downloaded `.exe` file
+    -   Follow the installation wizard
+    -   Click **Finish** when done
+3.  **Verify Installation:**
+    -   Open Command Prompt (search for "cmd" in the Start menu)
+    -   Type: `quarto --version`
+    -   You should see a version number like `1.x.x`
+
+::: callout-tip
+If `quarto --version` doesn't work after installation, try closing and
+reopening Command Prompt. If it still doesn't work, restart your
+computer and try again.
+:::
+
+------------------------------------------------------------------------
+
+### Mac Users
+
+1.  **Download Quarto:**
+    -   Go to https://quarto.org/docs/get-started/
+    -   Click the **Download Quarto CLI** button
+    -   Select the **Mac OS** installer (`.pkg` file)
+2.  **Run the Installer:**
+    -   Open the downloaded `.pkg` file
+    -   Follow the installation wizard 
+    -   Enter your Mac password if prompted
+    -   Click **Close** when finished
+3.  **Verify Installation:**
+    -   Open Terminal
+    -   Type: `quarto --version`
+    -   You should see a version number like `1.x.x`
+
+::: callout-note
+If Terminal says `quarto: command not found`, close Terminal completely
+and reopen it - the installer needs a fresh session to be recognized.
+:::
+
+
+

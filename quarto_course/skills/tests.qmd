@@ -6,6 +6,8 @@
 
 They help with the challenge of coordination among developers as codebases change, serving as an executable reminder of developers intentions.
 
+They help avoid the pain of your changes breaking other people's code; they are a clear marker of being a competant professional.
+
 In this class we will get some experience with writing and executing multiple tests (making a "test suite"). We will get to the point where individual contributors can run the tests prior to making a PR, serving as an individual level check. In the class on Continuous Integration we will learn how to use Github Actions so that these tests are automatically run when a PR is created, and have GitHub report the results.
 
 A software test consists of:
@@ -17,6 +19,10 @@ A software test consists of:
 1. a way to compare expected vs actual output
 
 We will be using the python pytest library.
+
+## Ensure Python, pytest, and quarto installed
+
+We will be using Python, pytest and quarto today.  We added sections to the tech setup page at @sec-install, please visit and ensure these are installed.
 
 ## Needed programming concepts
 
@@ -32,10 +38,10 @@ For example, imagine we are working with phone numbers.  We want to re-format ph
 
 ```python
 def fix_phone_num(phone_num_to_fix):
-  # given "5125558823". Split the parts, then recombine and return
+  # given "5125555678". Split the parts, then recombine and return
   area_code = phone_num_to_fix[0:3] # 512 (first three digits)
   three_part = phone_num_to_fix[3:6] # 555 (next three digits)
-  four_part = phone_num_to_fix[6:] # # 8823 (last four digits)
+  four_part = phone_num_to_fix[6:] # # 5678 (last four digits)
   
   fixed_num = "(" + area_code + ")" + " " + three_part + " " + four_part 
   
@@ -67,6 +73,13 @@ pytest allows us to automate this process.
 To automate this idea we will use pytest.  pytest looks through a python file and runs all functions that start with `test_`.
 
 To define a test for `pytest` we need one additional concept: `assert`.  An assertion is a statement that checks if a piece of code returns `True` or `False`. If `assert` sees `True` then the test has passed. If it sees `False` then the test has failed. We can use it to check whether our function (given a particular input) gives us our expected output.
+
+```python
+assert 1==1 # True, assertion passes
+assert 1==2 # False, assertion fails
+assert True # always passes!
+assert False # always fails!
+```
 
 So now we have our function above and one additional function (the test) which has an `assert` within it.
 
@@ -104,7 +117,7 @@ pytest is run from the commandline. We pass it the name of a source file (my_cod
 
 We can have more than one `assert` within a test, but only if all of them pass does the whole test pass.
 
-To run from the command line we need to move to Terminal ("Run" → "Terminal" on DataCamp). 
+To run from the command line we need to move to Terminal. 
 
 First go to this [example repo on GitHub](https://github.com/howisonlab/i320d-pytest-example.git), and make your own fork.  Then clone that fork down and change into that directory.
 
@@ -166,11 +179,11 @@ short_num = "51"
 fix_phone_num("51")
 ```
 
-Python will return `'(51)  '.  That is not a valid phone number. (If you are wondering why it doesn't throw an error, I was too, apparently string slicing doesn't throw errors, even when the index passed is too high).
+Python will return `'(51) '`.  That is not a valid phone number. (If you are wondering why it doesn't throw an error, I was too, apparently string slicing doesn't throw errors, even when the index passed is too high).
 
 What should our function do if it encounters something that it can't turn into a valid phone number?  The answer is that it should raise an Error.  And we should throw the most specific kind of Error.  Here that is going to be a `ValueError`
 
-This brings us to another idea in testing: we should write the test first, see that it fails, then write the code.  This feels a little backwards, but the idea is that helps quality. The idea is called [Test Driven Development](https://en.wikipedia.org/wiki/Test-driven_development)
+This brings us to another idea in testing: we should write the test first, see that it fails, then write the code.  This feels a little backwards, but the idea is that helps quality. 
 
 Here we can test whether code raises an Error using the `pytest.raises` function which we can use to check that, given a known bad input, our function will give us a helpful error.
 
@@ -239,7 +252,7 @@ Cell In[29], line 4, in fix_phone_num(phone_num_to_fix)
       3   if (len(phone_num_to_fix) != 10):
 ----> 4     raise ValueError("Can only format numbers that are exactly 10 digits long")
       6   # given "5125558823". Split the parts, then recombine and return
-      7   area_code = phone_num_to_fix[0:2] # 512 (first three digits)
+      7   area_code = phone_num_to_fix[0:3] # 512 (first three digits)
 
 ValueError: Can only format numbers that are exactly 10 digits long
 ```
@@ -264,14 +277,17 @@ If you are wondering why it only says "1 passed" that is because pytest only cou
 
 ## Exercises
 
-In this exercise you will practice Test Driven Development by creating and commit failing tests for particular types of inputs and eventually you will alter the code so that those tests pass.  You will also practice communicating your status through commit messages so your teammates can understand your work.
+In this exercise you will practice creating and commit failing tests for particular types of inputs and eventually you will alter the code so that those tests pass.  You will also practice communicating your status through commit messages so your teammates can understand your work.
 
-Start with a fork of the [i320d-pytest-exercise](https://github.com/howisonlab/i320-pytest-exercise) repo and clone it to your workspace.
+Start with a fork of the [i320d-pytest-exercise](https://github.com/howisonlab/i320-pytest-exercise) repo and clone it to your workspace. If you edited the files you can remove the edits with `git checkout --`.
+
+You can open and edit the my_code.py file in Rstudio or VSCode; you will run the tests at the command line using `pytest`.
 
 1. Add an additional assertion to the `test_fix_phone_num` function that tests these inputs: `5554429876` and `3216543333`.
-2. Add a test (meaning a whole separate function starting with `test_`, not just additional asserts) that specifies that the function should return an error, given these problematic inputs: `555-442-98761` and `(3213) 654 3333`. Give your test a communicative name.  Since we are doing TDD, these tests will fail at the moment.
+2. Add a test (meaning a whole separate function starting with `test_`, not just additional asserts) that specifies that the function should return an error, given these problematic inputs: `555-442-98761` and `(3213) 654 3333`. Give your test a communicative name.  These tests will fail at the momen; this is normal.
 3. Add and commit, with a message indicating that you know that these tests fail currently and explaining your work plans.
-4. Now implement a new test that checks that a ValueError is raised if these inputs are provided `334dfdee45` or `abcdefghij`). These are still 10 long, but they include non-digit characters. 
+4. Now implement a new test that checks that a ValueError is raised if these inputs are provided `334dfdee45` or `abcdefghij`). These are still 10 long, but they include non-digit characters. **Hint**: Python strings have a built-in method .isdigit() that returns True if all characters in the string are numeric digits — try it with `"abc123".isdigit()` vs `"5125558823".isdigit()`
+
 5. Add and commit, with a message that communicates the status of your work.
 6. Revise the `fix_phone_num` function so that the tests now all pass.
 7. Add and commit, with a message that communicates the status of your work.
@@ -279,3 +295,4 @@ Start with a fork of the [i320d-pytest-exercise](https://github.com/howisonlab/i
 ## Additional resources
 
 [Pytest Awesome Project](https://github.com/augustogoulart/awesome-pytest): a curated list of pytest resources (including training courses).
+The idea of writing tests first even thought they fail is called [Test Driven Development](https://en.wikipedia.org/wiki/Test-driven_development)
